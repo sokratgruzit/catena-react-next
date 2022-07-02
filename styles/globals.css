@@ -1,16 +1,261 @@
-html,
+h1 span {
+  font-size: inherit;
+}
+html {
+  overflow-x: hidden;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
 body {
+  margin: 0;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  /*padding-bottom: 200vh;*/
+  background: #00050f;
+  /*dont use overflow hidden to body*/
+}
+ul,
+li,
+p,
+img,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+input,
+button,
+nav {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  list-style: none;
+  font-weight: normal;
+}
+input,
+textarea {
+  outline: none;
+  box-shadow: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  outline: none;
+}
+.font_10 {
+  font-size: 10px;
+}
+.font_12 {
+  font-size: 12px;
+}
+.font_13 {
+  font-size: 13px;
+  line-height: 18px;
+}
+.font_16 {
+  font-size: 16px;
+}
+.font_20 {
+  font-size: 20px;
+  line-height: 30px;
+}
+.font_30 {
+  font-size: 30px;
+  line-height: 42px;
+}
+.font_51 {
+  font-size: 51px;
+  line-height: 66px;
+}
+.font_100 {
+  font-size: 100px;
+  line-height: 110px;
+}
+.container {
+  width: 100%;
+  max-width: 1920px;
+  padding: 0px 40px;
+  margin: 0 auto;
+  display: flex;
+  position: relative;
+  z-index: 5;
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+/* width */
+*::-webkit-scrollbar {
+  width: 8px;
 }
 
-* {
-  box-sizing: border-box;
+/* Track */
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+*::-webkit-scrollbar-thumb {
+  background: #0500ff;
+}
+.btn {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  border-radius: 4px;
+  padding: 0px 30px;
+  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+  cursor: pointer;
+}
+.btnOrange {
+  background: #ff7152;
+  border: 1px solid #ff7152;
+  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+}
+.btnOrange:hover {
+  background: transparent;
+}
+.btnOrangeBordered {
+  background: transparent;
+  border: 1px solid #ff7152;
+  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+}
+.btnOrangeBordered:hover {
+  background: #ff7152;
+}
+.btnBlue {
+  background: #0500ff;
+  border: 1px solid #0500ff;
+  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+}
+.btnBlue:hover {
+  background: transparent;
+}
+.btnBlueBordered {
+  border: 1px solid #0500ff;
+}
+.btnBlueBordered:hover {
+  background: #0500ff;
+}
+.btnLink {
+  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+  color: #fff;
+  position: relative;
+}
+.btnLink:after {
+  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+  content: "";
+  height: 1px;
+  background: #fff;
+  width: 100%;
+  bottom: 0px;
+  left: 0px;
+  position: absolute;
+}
+.btnLink:hover {
+  color: #ff7152;
+}
+.btnLink:hover:after {
+  transform: scaleX(0);
+}
+.swiper-container {
+  width: calc(100% + 165px) !important;
+}
+.swiper-slide {
+  width: 380px !important;
+}
+.arrow-border {
+  border: 1px solid transparent;
+  background-image: -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(#00050f),
+      to(#00050f)
+    ),
+    -webkit-gradient(linear, left bottom, left top, from(#7464d7), to(rgba(116, 100, 215, 0.6))),
+    -webkit-gradient(linear, left bottom, left top, from(#7464d7), to(rgba(116, 100, 215, 0.6))),
+    -webkit-gradient(linear, left bottom, left top, from(#7464d7), to(rgba(116, 100, 215, 0.6))),
+    -webkit-gradient(linear, left bottom, left top, from(#7464d7), to(rgba(116, 100, 215, 0.6)));
+  background-image: linear-gradient(0deg, #00050f, #00050f),
+    linear-gradient(0deg, #7464d7, rgba(116, 100, 215, 0.6)),
+    linear-gradient(0deg, #7464d7, rgba(116, 100, 215, 0.6)),
+    linear-gradient(0deg, #7464d7, rgba(116, 100, 215, 0.6)),
+    linear-gradient(0deg, #7464d7, rgba(116, 100, 215, 0.6));
+  background-origin: padding-box, border-box, border-box, border-box, border-box;
+  background-repeat: no-repeat;
+  background-size: 100% 100%, 20px 20px, 20px 20px, 20px 20px, 20px 20px;
+  background-position: 0 0, 0 0, 100% 0, 0 100%, 100% 100%;
+}
+.radio-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+}
+.radio-btn input {
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  cursor: pointer;
+}
+.radio-btn__inner {
+  width: 26px;
+  height: 16px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  margin-right: 6px;
+}
+.radio-btn__icon {
+  background: #00050f;
+  position: absolute;
+  left: 2px;
+  top: 6px;
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+}
+.radio-btn input:checked ~ .radio-btn__inner .radio-btn__icon {
+  background: rgba(5, 0, 255, 1);
+  transform: translateX(10px);
+}
+/*Laptop 1440*/
+@media (max-width: 1900px) {
+}
+/*Ipad Pro 1024*/
+@media (max-width: 1300px) {
+  .container {
+    padding: 0px 32px;
+  }
+  .swiper-container {
+    width: 100% !important;
+  }
+}
+/*Ipad 768*/
+@media (max-width: 1023px) {
+}
+/*Mobile 320*/
+@media (max-width: 767px) {
+  .szh-menu-button {
+    display: none;
+  }
+  .container {
+    padding: 0px 16px;
+  }
 }

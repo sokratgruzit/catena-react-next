@@ -1,0 +1,232 @@
+/* Arrivals item */
+.Arrivals__listItemWrap {
+    border: 1px solid #111826;
+    cursor: pointer;
+    margin-bottom: 50px;
+}
+.Arrivals__imgBlock {
+    background-color:#0A0F18;
+    margin-top: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    padding-top: 5px;
+    padding-left: 5px;
+    padding-right: 5px;   
+}
+.Arrivals__imgBlockTitle {
+    color: #FFFFFF;
+    opacity: 0.3;
+    padding-bottom: 7px;
+}
+.Arrivals__imgBlockTeaser {
+    padding-bottom: 16px;
+    color: #FFFFFF;
+}
+.Arrivals__content {
+    display: flex;
+    flex-direction: column;
+}
+.Arrivals__contentTeaserBlock {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-bottom: 16px;
+}
+.Arrivals__contentTitle {
+    padding-top: 16px;
+    color: #0500FF;
+}
+.Arrivals__contentTeaser {
+   margin-left: auto;
+}
+.nftArrivals__content {
+    padding: 5px;
+}
+.colored {
+    color: #FF7152;
+    text-transform: uppercase;
+    padding-right: 5px;
+}
+.colored_grey {
+    color:#53575D;
+}
+/* Collections item */
+.Collections__listItemWrap {
+    padding: 5px;
+    padding-bottom: 16px;
+    border: 1px solid #111826;
+    box-sizing: border-box;
+    background-color: transparent;
+    margin-bottom: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.Product__content__inner {
+    background-color: transparent;
+    padding-top: 16px;
+}
+.Product__content {
+    background-color: #0A0F18;
+    padding: 5px;
+    padding-bottom: 16px;
+}
+.Product__volume p {
+    color: #0500FF;
+}
+.Product__images {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+.Product__price {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;    
+}
+.Product__price span {
+    color: #FF7152;
+    padding-right: 5px;
+}
+.Product__logo {
+    position: relative;
+}
+.Product__logo img {
+    position: absolute;
+    top: -30px;
+    left: calc(100% - 57%);
+
+}
+.Product__titles {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 35px;
+}
+/* old css of collections page */
+.Collections__imgBlock {
+    background-color: #0A0F18;
+    position: relative;
+    height: 242px;
+}
+.Collections_images {
+    display: flex;
+    flex-direction: row;
+}
+.Collections__images img {
+    border-left: 3px solid #0A0F18;
+    border-left: 3px solid #0A0F18;
+}
+.Collections__titles {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    padding-top: 33px;
+}
+.Collections__logo {
+    position: absolute;
+    left: calc(100% - 55%);
+    top: 120px;
+}
+.Collections__content {
+    display: flex;
+    flex-direction: column;
+    padding-top: 15.19px;
+}
+.Collections__contentVol {
+    color: #0500FF;
+}
+.Collections__contentTitles {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 15px;
+}
+.nftArrivals__imgBlockTitle {
+    columns: #FFFFFF;
+    opacity: 0.3;
+}
+.nftArrivals__imgBlockTeaser {
+    padding-bottom: 16px;
+}
+.Activity__mobile__itemWrap {
+    display: flex;
+    flex-direction: column;
+    width: 49%;
+    margin-bottom: 10px!important;
+    justify-content: space-between;
+    border: 1px solid #111826;
+    padding: 30px 20px;
+    overflow: hidden;
+}
+.Activity__mobile__item {
+    display: flex;
+    border-bottom: 1px solid #111826;
+    padding-bottom: 30px;
+}
+.Activity__item__titles {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+.Activity__item__titles p {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 10px;
+}
+.Activity__item__titles p:last-child {
+    opacity: 0.3;
+    padding-top: 5px;
+}
+.Activity__item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    border-bottom: 1px dashed #111826;
+    /* padding: 30px 0px; */
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+.Activity__mob__item__title {
+    color: #0500FF;
+}
+.Activity__item__event {
+    padding-left: 30px;
+} 
+.Activity__item__inner {
+    display: flex;
+    padding-left: 30px;
+}
+.Activity__item__from {
+    display: flex;
+    flex-direction: column;
+    padding-left: 10px;
+}
+.Activity__item__inner img {
+    width: 50px;
+    height: 50px;
+}
+
+@media (max-width: 1900px) {
+}
+/*Ipad Pro 1024*/
+@media (max-width: 1200px) {
+    .Activity__mobile__itemWrap {
+        width: 100%;
+    }
+}
+/*Ipad 768*/
+@media (max-width: 1023px) {
+
+}
+/*Mobile 320*/
+@media (max-width: 767px) {
+  
+}

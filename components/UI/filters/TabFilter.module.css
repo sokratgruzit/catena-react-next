@@ -1,0 +1,53 @@
+.Activity__filter {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+}
+.Activity__filterWrap {
+    width: 100%;
+    display: flex;
+    margin-top: 41.5px;
+    padding: 20px;
+    border: 1px solid #111826;
+    overflow: hidden;
+}
+.Activity__filter__item {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    padding: 4px 12px;
+    cursor: pointer;
+    margin: 0 5px;
+}
+.Activity__filterActive {
+    background-color: #0500FF!important;
+}
+.Collections__filterWrap {
+    display: flex;
+}
+.Collections__filter {
+    display: flex;
+}
+.Collections__filterActive {
+    background-color: #111826;
+}
+.Collections__filter__item {
+    border: 1px solid #111826;
+    border-radius: 4px;
+    padding: 7px;
+    margin-right: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Prediction styles */
+.Prediction__filterWrap {
+    display: flex;
+    gap:50px;
+    margin: 180px auto;
+}
+.Prediction__filterActive{
+    background-color: #ffff;
+}
+/* End Prediction styles */
