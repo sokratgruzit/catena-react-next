@@ -343,12 +343,12 @@ const Header = () => {
                         <Link href={sub.route} key={sub.id}>
                           <a>
                             <div
-                              style={{
-                                transitionDelay:
-                                  activeMenu === item.id
-                                    ? `${(index + navTransaction) / 10}s`
-                                    : '',
-                              }}
+                            // style={{
+                            //   transitionDelay:
+                            //     activeMenu === item.id
+                            //       ? `${(index + navTransaction) / 10}s`
+                            //       : '',
+                            // }}
                             >
                               <span>{sub.title}</span>
                             </div>
@@ -426,9 +426,9 @@ const Header = () => {
                       fill='white'
                     />
                   </svg>
-                  {/* <div className={styles.headerLangNowTtl}>
+                  <div className={styles.headerLangNowTtl}>
                     <span>{t('top_menu.lang.default')}</span>
-                  </div> */}
+                  </div>
                 </div>
               </div>
               <div
@@ -667,9 +667,11 @@ const Header = () => {
                 }}
               >
                 <div
-                  style={{
-                    transitionDelay: activeLangs ? `${(index + 2) / 10}s` : '',
-                  }}
+                  style={
+                    {
+                      // transitionDelay: activeLangs ? `${(index + 2) / 10}s` : '',
+                    }
+                  }
                 >
                   <span>{item.title}</span>
                 </div>
@@ -689,7 +691,7 @@ const Header = () => {
             <div className={styles.settingsModalFloor}>
               <div>Dark Mode</div>
               <div className={styles.settingsCheckboxContainer}>
-                <input type='checkbox' />
+                <input readOnly type='checkbox' />
                 <div className={styles.settingsCheckbox}>
                   <i></i>
                 </div>
@@ -721,6 +723,7 @@ const Header = () => {
                 <div className={styles.settingsModalBtn}>1.0%</div>
                 <div className={styles.settingsModalInputOuter}>
                   <input
+                    readOnly
                     type='number'
                     className={styles.settingsModalInput}
                     placeholder='0.50'
@@ -732,6 +735,7 @@ const Header = () => {
             <div className={styles.settingsModalFloor}>
               <div>Tx deadlines (mins)</div>
               <input
+                readOnly
                 type='number'
                 className={styles.settingsModalLtlInput}
                 value={20}
@@ -740,7 +744,7 @@ const Header = () => {
             <div className={styles.settingsModalFloor}>
               <div>Expert Mode</div>
               <div className={styles.settingsCheckboxContainer}>
-                <input type='checkbox' />
+                <input readOnly type='checkbox' />
                 <div className={styles.settingsCheckbox}>
                   <i></i>
                 </div>
@@ -749,7 +753,7 @@ const Header = () => {
             <div className={styles.settingsModalFloor}>
               <div>Disable Multihops</div>
               <div className={styles.settingsCheckboxContainer}>
-                <input type='checkbox' />
+                <input readOnly type='checkbox' />
                 <div className={styles.settingsCheckbox}>
                   <i></i>
                 </div>
@@ -758,7 +762,7 @@ const Header = () => {
             <div className={styles.settingsModalFloor}>
               <div>Subgraph Health Indicator</div>
               <div className={styles.settingsCheckboxContainer}>
-                <input type='checkbox' />
+                <input readOnly type='checkbox' />
                 <div className={styles.settingsCheckbox}>
                   <i></i>
                 </div>
@@ -767,7 +771,7 @@ const Header = () => {
             <div className={styles.settingsModalFloor}>
               <div>Flippy sounds</div>
               <div className={styles.settingsCheckboxContainer}>
-                <input type='checkbox' />
+                <input readOnly type='checkbox' />
                 <div className={styles.settingsCheckbox}>
                   <i></i>
                 </div>
@@ -791,9 +795,11 @@ const Header = () => {
                 <div
                   className={styles.connectWalletItemOuter}
                   key={item.id}
-                  style={{
-                    transitionDelay: walletModal ? `${(index + 2) / 10}s` : '',
-                  }}
+                  style={
+                    {
+                      // transitionDelay: walletModal ? `${(index + 2) / 10}s` : '',
+                    }
+                  }
                   onClick={() => {
                     connect(item.type);
                   }}

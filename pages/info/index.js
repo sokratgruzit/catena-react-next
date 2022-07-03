@@ -1,7 +1,7 @@
 import React from 'react';
 
-const info = () => {
-  return <div>info</div>;
+const InfoOverview = () => {
+  return <div>InfoOverview</div>;
 };
 
-export default info;
+export default InfoOverview;
