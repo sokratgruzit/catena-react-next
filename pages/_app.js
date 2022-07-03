@@ -6,6 +6,7 @@ import store from '../store/index';
 import Web3 from "web3";
 import { Web3ReactProvider } from "@web3-react/core";
 
+import '../i18nextConf';
 import '../styles/globals.css';
 
 function getLibrary(provider, connector) {
