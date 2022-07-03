@@ -1,8 +1,8 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
+
 import styles from './ListItemCard.module.css';
-import mainStyles from '../../main.module.css';
-import { Link } from 'react-router-dom';
 
 const ListItemCard = props => {
   let data = props.data;
@@ -16,32 +16,34 @@ const ListItemCard = props => {
   ) {
     obj = (
       <div key={data.id} className={styles.Arrivals__listItemWrap}>
-        <Link to={`/nfts/collections/creator`}>
-          <div className={styles.Arrivals__imgBlock}>
-            <Image src={data.imgSrc} layout='fill' alt='nft' />
-            <p
-              className={`${styles.nftArrivals__imgBlockTitle} ${mainStyles.font_13}`}
-            >
-              {data.title}
-            </p>
-            <p
-              className={`${styles.nftArrivals__imgBlockTeaser} ${mainStyles.font_13}`}
-            >
-              {data.subTitle}
-            </p>
-          </div>
-          <div className={styles.nftArrivals__content}>
-            <p className={styles.Arrivals__contentTitle}>Asking Price:</p>
-            <div className={styles.Arrivals__contentTeaserBlock}>
-              <p>
-                <span className={styles.colored}>{data.value}</span>
-                {data.price}
+        <Link href={`/nfts/collections/creator`}>
+          <div>
+            <div className={styles.Arrivals__imgBlock}>
+              <Image src={data.imgSrc} layout='fill' alt='nft' />
+              <p
+                className={`${styles.nftArrivals__imgBlockTitle} font_13`}
+              >
+                {data.title}
               </p>
               <p
-                className={`${styles.Arrivals__contentTeaser} ${mainStyles.font_13}`}
+                className={`${styles.nftArrivals__imgBlockTeaser} font_13`}
               >
-                ({data.priceUSD})
+                {data.subTitle}
               </p>
+            </div>
+            <div className={styles.nftArrivals__content}>
+              <p className={styles.Arrivals__contentTitle}>Asking Price:</p>
+              <div className={styles.Arrivals__contentTeaserBlock}>
+                <p>
+                  <span className={styles.colored}>{data.value}</span>
+                  {data.price}
+                </p>
+                <p
+                  className={`${styles.Arrivals__contentTeaser} font_13`}
+                >
+                  ({data.priceUSD})
+                </p>
+              </div>
             </div>
           </div>
         </Link>
@@ -53,11 +55,11 @@ const ListItemCard = props => {
     obj = (
       <div className={styles.Activity__mobile__itemWrap}>
         <div className={styles.Activity__mobile__item}>
-          <Image src={data.itemImg} layout='fill' alt='nft' />
+          <Image src={data.itemImg} width={30} height={30} alt='nft' />
           <div className={styles.Activity__item__titles}>
             <p>
               {data.itemTitle}
-              <Link to={`/sometransaction`}>
+              <Link href={`/sometransaction`}>
                 <svg
                   width='15'
                   height='15'
@@ -86,7 +88,7 @@ const ListItemCard = props => {
                 </svg>
               </Link>
             </p>
-            <p className={mainStyles.font_13}>{data.itemSubTitle}</p>
+            <p className={`font_13`}>{data.itemSubTitle}</p>
           </div>
         </div>
         <div className={styles.Activity__item}>
@@ -97,13 +99,13 @@ const ListItemCard = props => {
           <p className={styles.Activity__mob__item__title}>Price</p>
           <div className={styles.Activity__item__event}>
             {data.priceInCmcx}
-            <p className={mainStyles.font_13}>{data.priceInDollar}</p>
+            <p className={`font_13`}>{data.priceInDollar}</p>
           </div>
         </div>
         <div className={styles.Activity__item}>
           <p className={styles.Activity__mob__item__title}>From</p>
           <div className={styles.Activity__item__inner}>
-            <Image src={data.fromImg} layout='fill' alt='nft' />
+            <Image src={data.fromImg} width={30} height={30} alt='nft' />
             <div className={styles.Activity__item__from}>
               <p>{data.from}</p>
               <p>{data.fromAddress}</p>
@@ -113,7 +115,7 @@ const ListItemCard = props => {
         <div className={styles.Activity__item}>
           <p className={styles.Activity__mob__item__title}>To</p>
           <div className={styles.Activity__item__inner}>
-            <Image src={data.toReciverImg} layout='fill' alt='nft' />
+            <Image src={data.toReciverImg} width={30} height={30} alt='nft' />
             <div className={styles.Activity__item__from}>
               <p>{data.toReciver}</p>
               <p>{data.toReciverAddress}</p>
@@ -134,7 +136,7 @@ const ListItemCard = props => {
   if (type === 'nft_collections') {
     obj = (
       <div className={styles.Collections__listItemWrap}>
-        <Link to={`/nfts/collections/creator`}>
+        <Link href={`/nfts/collections/creator`}>
           <div className={styles.Product}>
             <div className={styles.Product__content}>
               <div className={styles.Product__images}>
@@ -153,7 +155,7 @@ const ListItemCard = props => {
             </div>
             <div className={styles.Product__content__inner}>
               <div className={styles.Product__volume}>
-                <p className={mainStyles.font_13}>Volume:</p>
+                <p className={`font_13`}>Volume:</p>
               </div>
               <div className={styles.Product__price}>
                 <p>

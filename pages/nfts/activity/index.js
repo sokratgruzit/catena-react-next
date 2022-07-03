@@ -1,7 +1,7 @@
-import React from 'react';
+import Activity from "../../../components/nfts/Activity";
 
-const Activity = () => {
-  return <div>Activity</div>;
-};
+const Page = () => { 
+  return <Activity />; 
+}
 
-export default Activity;
+export default Page;

@@ -56,7 +56,7 @@
 .votingNow__category svg {
   margin: 0px 5px -1px 0;
 }
-votingNow__category {
+.votingNow__category {
   margin-top: 10px;
 }
 .votingNow__category span {
@@ -323,7 +323,7 @@ votingNow__category {
 .Collections__item__titles:nth-child(1) {
   width: 20%!important;
 }
-Collection__subItem {
+.Collection__subItem {
   width: 16%;
 }
 .Collection__subItem:last-child {

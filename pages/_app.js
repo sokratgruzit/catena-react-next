@@ -25,7 +25,7 @@ function MyApp({ Component, pageProps }) {
       </Head>
       <Web3ReactProvider getLibrary={getLibrary}>
         <Provider store={store}>
-          <Header />
+          {/*<Header />*/}
           <Component {...pageProps} />
           <Footer />
         </Provider>
