@@ -177,16 +177,15 @@ const WALLETS_DATA = [
 ];
 
 const Header = () => {
-  const { connect, disconnect, account, isActive, library, handleWalletModal } =
-    useConnect();
-  const [activeMenu, setActiveMenu] = useState(null);
-  const [activeLangs, setActiveLangs] = useState(false);
-  const [activeSettings, setActiveSettings] = useState(false);
-  const [activeBurger, setActiveBurger] = useState(false);
-  const [profileModal, setProfileModal] = useState(false);
-  const { t, i18n } = useTranslation();
-  const walletModal = useSelector(state => state.walletModal);
-  const [balance, setBalance] = useState(0);
+    const { t, i18n } = useTranslation();
+    const { connect, disconnect, account, isActive, library, handleWalletModal } = useConnect();
+    const [ activeMenu, setActiveMenu ] = useState(null);
+    const [ activeLangs, setActiveLangs ] = useState(false);
+    const [ activeSettings, setActiveSettings ] = useState(false);
+    const [ activeBurger, setActiveBurger ] = useState(false);
+    const [ profileModal, setProfileModal ] = useState(false);
+    const walletModal = useSelector((state) => state.walletModal);
+    const [balance, setBalance] = useState(0);
 
   const changeLanguage = locale => {
     i18n.changeLanguage(locale.toLowerCase());
