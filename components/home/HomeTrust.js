@@ -1,14 +1,19 @@
 import Image from 'next/image';
-import styles from "./HomeTrust.module.css";
+import styles from './HomeTrust.module.css';
 
 const HomeTrust = () => {
   return (
     <div className={`container`}>
-      <Image layout='fill' className={styles.homeGlobeBg} src="/images/home/HomeGlobe.png" alt="Globe" />
+      <Image
+        layout='fill'
+        className={styles.homeGlobeBg}
+        src='/public/images/home/HomeGlobe.png'
+        alt='Globe'
+      />
       <div className={styles.HomeTrust__inner}>
         <div className={styles.HomeTrust__wrapper}>
-          <h1 className="font_51">
-            Used by <span className={styles.coreColor}>millions</span>. <br />{" "}
+          <h1 className='font_51'>
+            Used by <span className={styles.coreColor}>millions</span>. <br />{' '}
             Trusted with <span className={styles.coreColor}>billions</span>.
           </h1>
           <p className={styles.textColor}>

@@ -14,6 +14,7 @@
   margin-right: 60px;
   position: relative;
   z-index: 10;
+  cursor: pointer;
 }
 .headerLogo span{
   font-size: 18px;
@@ -385,7 +386,7 @@
 .connectWalletItem:hover .connectWalletItemImg{
   border-color: #ff7152;
 }
-.connectWalletItem img{
+.connectWalletItemimg{
   height: 80%;
   width: 80%;
   object-fit: cover;
