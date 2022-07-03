@@ -1,7 +1,12 @@
 import React from 'react';
+import InfoPools from '../../../components/Info/InfoPools/InfoPools';
 
-const Pools = () => {
-  return <div>Pools</div>;
+const index = () => {
+  return (
+    <div>
+      <InfoPools />
+    </div>
+  );
 };
 
-export default Pools;
+export default index;

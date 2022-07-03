@@ -1,7 +1,20 @@
 import React from 'react';
+import InfoOverview from '../../components/Info/InfoOverview/InfoOverview';
 
-const InfoOverview = () => {
-  return <div>InfoOverview</div>;
+const index = () => {
+  return (
+    <div>
+      <InfoOverview />
+    </div>
+  );
 };
 
-export default InfoOverview;
+export default index;
+
+// index.getLayout = function getLayout(page) {
+//   return (
+//     <Layout>
+//       {page}
+//     </Layout>
+//   )
+// }

@@ -1,0 +1,25 @@
+.background{
+  position: absolute;
+  z-index: -1;
+  top:0%;
+  left: 0%;
+}
+
+.tokensTitle{
+  margin-left: 40px;
+  font-size: 30px;
+  line-height: 13px;
+  margin-top:50px;
+  margin-bottom: 30px;
+}
+
+.section{
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+.title{
+  margin: 50px auto 30px auto;
+  font-size: 30px;
+line-height: 13px;
+}
