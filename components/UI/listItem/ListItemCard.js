@@ -16,10 +16,10 @@ const ListItemCard = props => {
   ) {
     obj = (
       <div key={data.id} className={styles.Arrivals__listItemWrap}>
-        <Link href={`/nfts/collections/creator`}>
+        <Link href={`/nfts/collections/62c48170c86d95e8a1871733`}>
           <div>
             <div className={styles.Arrivals__imgBlock}>
-              <Image src={data.imgSrc} layout='fill' alt='nft' />
+              <Image src={data.imgSrc} width={30} height={30} alt='nft' />
               <p
                 className={`${styles.nftArrivals__imgBlockTitle} font_13`}
               >
@@ -136,7 +136,7 @@ const ListItemCard = props => {
   if (type === 'nft_collections') {
     obj = (
       <div className={styles.Collections__listItemWrap}>
-        <Link href={`/nfts/collections/creator`}>
+        <Link href={`/nfts/collections/${data.id}`}>
           <div className={styles.Product}>
             <div className={styles.Product__content}>
               <div className={styles.Product__images}>

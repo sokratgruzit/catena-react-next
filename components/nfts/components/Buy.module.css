@@ -1,0 +1,356 @@
+.Nftbuy {
+    display: flex;
+    flex-direction: column;
+    padding-top: 120px;
+    width: 100%;
+}
+.NftBuy__backBtn {
+    display: flex;
+    align-items: center;
+}
+.NftBuy__backBtn p {
+    color:#FF7152;
+    padding-left: 7px;
+}
+.NftBuy__itemBuy {
+    display: flex;
+    position: relative;
+}
+.NftBuy__itemImg {
+    padding-top: 10px;
+    position: relative;
+}
+.NftBuy__itemDetails {
+    padding-left: 35px;
+    padding-top: 20px;
+}
+.NftBuy__itemTitle {
+    color:#0500FF;
+    padding-bottom: 16px;
+}
+.NftBuy__itemQuote {
+    opacity: 0.7;
+    color: #FFFFFF;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+.NftBuy__itemPrices {
+    display: flex;
+    align-items: center;
+    padding-top: 10px;
+    justify-content: flex-start;
+}
+.NftBuy__itemPrices span {
+    color: #FF7152;
+}
+.NftBuy__itemPrices p:nth-child(1) {
+    padding-right: 10px;
+}
+.NftBuy__itemBuyBtn {
+    margin-top: 50px;
+    padding: 10px 160px;
+    background-color: #0500FF;
+    text-align: center;
+    border-radius: 4px;
+    transition: 0.5s;
+    border: 1px solid #0500FF;
+    width: 350px;
+}
+.NftBuy__itemBuyBtn:hover {
+    background-color: transparent;
+    border: 1px solid #0500FF;
+    transition: 0.5s;
+    cursor: pointer;
+}
+.NftBuy__tables {
+    padding-top: 30px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    border-bottom: 1px solid #111826;
+    padding-bottom: 70px;
+}
+.NftBuy__manageTable {
+    display: flex;
+    border: 1px solid #111826;
+    width: 19%;
+    padding: 20px;
+    flex-direction: column;
+    height: 800px;
+}
+.NftBuy__walletConnect {
+    border-bottom: 2px solid #111826;
+    width: 100%;
+}
+.NftBuy__itemPrice span {
+    color: #FF7152;
+    padding-right: 5px;
+}
+.NftBuy__walletConnectTitle {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #111826;
+    padding-bottom: 20px;
+}
+.NftBuy__connectBtn {
+    background-color: #0500FF;
+    border: 1px solid #0500FF;
+    padding: 10px 50px;
+    text-align: center;
+    width: 80%;
+    border-radius: 4px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    transition: 0.5s;
+}
+.NftBuy__connectBtn:hover {
+    border: 1px solid #0500FF;
+    background-color: transparent;
+    transition: 0.5s;
+    cursor: pointer;
+}
+.NftBuy__properties {
+    border-bottom: 2px solid #111826;
+    width: 100%;
+}
+.NftBuy__propertiesTitle {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #111826;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+.NftBuy__properties__inner {
+    padding-top: 20px;
+    padding-bottom: 30px;
+}
+.NftBuy__properties__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.NftBuy__properties__item p {
+    color: #4D5057;
+}
+.NftBuy__properties__itemTitle   {
+    color: #FFFFFF!important;
+    padding-right: 5px;
+}
+.NftBuy__details__itemWrap {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 30px;
+    flex-direction: column;
+}
+.NftBuy__details__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.NftBuy__details__item a {
+    color: #0500FF;
+}
+.NftBuy__details__item p {
+    color: #4D5057;
+}
+.NftBuy__details__link {
+    display: flex;
+    align-items: center;
+}
+.NftBuy__details__link svg {
+    padding-left: 5px;
+}
+.NftBuy__details__link p {
+    color: #0500FF;
+    padding-right: 5px;
+}
+.NftBuy__tablesRightPanel {
+    padding-left: 30px;
+    display: flex;
+    flex-direction: column;
+    width: 81%;
+}
+.NftBuy__ownerTable {
+    border: 1px solid #111826;
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.NftBuy__ownerTitle {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    border-bottom: 1px solid #111826 ;
+    padding-bottom: 20px;
+}
+.NftBuy__ownerFiltres  {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    width: 50%;
+}
+.NftBuy__ownerFiltres p {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: #0500FF;
+}
+.NftBuy__ownerItem {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    border-top: 1px solid #111826;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #111826;
+}
+.NftBuy__ownerItemPrices {
+    width: 47%;
+}
+.NftBuy__itemOwner {
+    width: 30%;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.NftBuy__itemOwnerTitles {
+    padding-left: 10px;
+}
+.NftBuy__BtnBuy {
+    width: auto;
+    margin-left: auto;
+    padding: 4px 26px;
+    border: 1px solid #0500FF;
+    border-radius: 4px;
+    transition: 0.5s;
+}
+.NftBuy__BtnBuy:hover {
+    border: 1px solid #FF7152;
+    cursor: pointer;
+    background-color: #FF7152;
+    transition: 0.5s;
+}
+.NftBuy__ownerItemPrices span {
+    color: #FF7152;
+    padding-right: 5px;
+}
+.NftBuy__infoTable {
+    display: flex;
+    border: 1px solid #111826;
+    padding: 20px;
+    margin-top: 30px;
+    flex-direction: column;
+}
+.NftBuy__itemWrap {
+    display: flex;
+    width: 100%;
+}
+.NftBuy__categories {
+    display: flex;
+    width: 100%;
+    border-bottom: 1px solid #111826;
+    align-items: center;
+}
+.NftBuy__categories p {
+    color: #0500FF;
+    padding-bottom: 20px;
+}
+.NftBuy__categoriesItem {
+    width: 20%;
+}
+.NftBuy__categoriesItemL {
+    display: flex;
+    align-items: flex-end;
+    margin-left: auto;
+    padding-right: 60px;
+}
+.NftBuy__item {
+    display: flex;
+    align-items: center;
+    width: 20%;
+    padding-top: 20px;
+    border-bottom: 1px dashed #111826;
+    padding-bottom: 20px;
+    position: relative;
+}
+.NftBuy__itemTitles {
+    padding-left: 10px;
+}
+.NftBuy__itemB {
+    display: flex;
+    margin-left: auto;
+    width: 20%;
+    padding-top: 20px;
+    border-bottom: 1px dashed #111826;
+    padding-bottom: 20px;
+    padding-left: 155px;
+    align-items: center;
+}
+.NftBuy__itemDateWrap {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+.NftBuy__itemDate {
+    padding-right: 20px;
+}
+.Collections__section {
+    display: flex;
+    width: 100%;
+    padding-top: 30px;
+    flex-direction: column;
+}
+.Collections__products {
+    display: flex;
+    width: 100%;
+    padding-top: 50px;
+    align-items: center;
+    justify-content: space-between;
+    overflow-x: scroll;
+}
+.Collection__product {
+    border: 1px solid #111826;
+    padding: 5px;
+    max-width: 320px;
+    cursor: pointer;
+}
+.Collection__product__titles {
+    padding-top: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 7px;
+    background-color: #0A0F18;
+}
+.Collection__product__title {
+    opacity: 0.3;
+    padding-bottom: 7px;
+}
+.Collection__product__img img {
+    max-width: 310px;
+    max-height: 280px;
+}
+.Collection__product__askingPrice {
+    padding-top: 16px;
+    color: #0500FF;
+}
+.Collection__prices {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.Collection__prices span {
+    color: #FF7152;
+    padding-right: 3px;
+}
+.Collection__price {
+    opacity: 0.7;
+}

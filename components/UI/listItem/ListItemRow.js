@@ -159,7 +159,7 @@ const ListItemRow = (props) => {
     obj = (
       <div className={styles.TableRow__items}>
         <div className={styles.TableRow__item}>
-          <Image className={styles.TableRow__img} src={data.itemImg} />
+          <Image width={30} height={30} className={styles.TableRow__img} src={data.itemImg} />
           <div className={styles.TableRow__titles}>
             <p>{data.itemTitle}</p>
             <p>{data.itemSubTitle}</p>
@@ -170,14 +170,14 @@ const ListItemRow = (props) => {
             <p>{data.priceInDollar}</p>
           </div>
           <div className={styles.TableRow__from}>
-            <Image src={data.fromImg} />
+            <Image width={30} height={30} src={data.fromImg} />
             <div className={styles.TableRow__fromInner}>
               <p>{data.from}</p>
               <p>{data.fromAddress}</p>
             </div>
           </div>
           <div className={styles.TableRow__to}>
-            <Image src={data.toReciverImg} />
+            <Image width={30} height={30} src={data.toReciverImg} />
             <div className={styles.TableRow__toInner}>
               <p>{data.toReciver}</p>
               <p>{data.toReciverAddress}</p>
