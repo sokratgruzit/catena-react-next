@@ -210,19 +210,18 @@ export async function getStaticProps(context) {
 
   client.close();
   const buyId = context.params.buyId;
-  console.log(buyInfo);
 
   return {
     props: {
-      buyDetails: buyInfo/*buyInfo.map(info => ({
-        imgSrc: info.imgSrc,
-        title: info.title,
-        value: info.value,
-        blockQuote: info.blockQuote,
-        cmcx: info.cmcx,
-        usd: info.usd,
-        id: info._id.toString()
-      }))*/,
+      buyDetails: {
+        imgSrc: buyInfo[0].imgSrc,
+        title: buyInfo[0].title,
+        value: buyInfo[0].value,
+        blockQuote: buyInfo[0].blockQuote,
+        cmcx: buyInfo[0].cmcx,
+        usd: buyInfo[0].usd,
+        id: buyInfo[0]._id.toString()
+      },
       ownerItems: ownerItemData,
       detailsItems: detailsTableData,
       collectionsItems: collectionItems
