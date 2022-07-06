@@ -1,16 +1,102 @@
-// import CollectionsPromo from './components/CollectionsPromo';
-// import Arrivals from './components/Arrivals';
-// import Market from '../../components/nft/Overview/Market';
+import Overview from "../../components/nfts/Overview";
 
-const Overview = () => {
-  return (
-    <div>
-      Overview
-      {/* <Market /> */}
-      {/* <CollectionsPromo />
-      <Arrivals /> */}
-    </div>
-  );
+let nftArrivalsData = [
+  {
+      id: 0,
+      imgSrc: '/images/nft/arrivals/fig1.png',
+      title: 'Alfa Kongs Club - AKC',
+      subTitle: 'Alpha Kong #8223',
+      value: 'CMCX',
+      price: '10.24',
+      priceUSD: '$10,314',
+  },
+  {
+      id: 1,
+      imgSrc: '/images/nft/arrivals/fig1.png',
+      title: 'Alfa Kongs Club - AKC',
+      subTitle: 'Alpha Kong #8223',
+      value: 'CMCX',
+      price: '10.24',
+      priceUSD: '$10,314',
+  },
+  {
+      id: 2,
+      imgSrc: '/images/nft/arrivals/fig1.png',
+      title: 'Alfa Kongs Club - AKC',
+      subTitle: 'Alpha Kong #8223',
+      value: 'CMCX',
+      price: '10.24',
+      priceUSD: '$10,314',
+  },
+  {
+      id: 3,
+      imgSrc: '/images/nft/arrivals/fig1.png',
+      title: 'Alfa Kongs Club - AKC',
+      subTitle: 'Alpha Kong #8223',
+      value: 'CMCX',
+      price: '10.24',
+      priceUSD: '$10,314',
+  }, {
+      id: 4,
+      imgSrc: '/images/nft/arrivals/fig1.png',
+      title: 'Alfa Kongs Club - AKC',
+      subTitle: 'Alpha Kong #8223',
+      value: 'CMCX',
+      price: '10.24',
+      priceUSD: '$10,314',
+  }, {
+      id: 5,
+      imgSrc: '/images/nft/arrivals/fig1.png',
+      title: 'Alfa Kongs Club - AKC',
+      subTitle: 'Alpha Kong #8223',
+      value: 'CMCX',
+      price: '10.24',
+      priceUSD: '$10,314',
+  }, {
+      id: 6,
+      imgSrc: '/images/nft/arrivals/fig1.png',
+      title: 'Alfa Kongs Club - AKC',
+      subTitle: 'Alpha Kong #8223',
+      value: 'CMCX',
+      price: '10.24',
+      priceUSD: '$10,314',
+  }, {
+      id: 7,
+      imgSrc: '/images/nft/arrivals/fig1.png',
+      title: 'Alfa Kongs Club - AKC',
+      subTitle: 'Alpha Kong #8223',
+      value: 'CMCX',
+      price: '10.24',
+      priceUSD: '$10,314',
+  }, {
+      id: 8,
+      imgSrc: '/images/nft/arrivals/fig1.png',
+      title: 'Alfa Kongs Club - AKC',
+      subTitle: 'Alpha Kong #8223',
+      value: 'CMCX',
+      price: '10.24',
+      priceUSD: '$10,314',
+  }, {
+      id: 9,
+      imgSrc: '/images/nft/arrivals/fig1.png',
+      title: 'Alfa Kongs Club - AKC',
+      subTitle: 'Alpha Kong #8223',
+      value: 'CMCX',
+      price: '10.24',
+      priceUSD: '$10,314',
+  }
+];
+
+const NftsPage = (props) => {
+  return <Overview { ...props } />;
 };
 
-export default Overview;
+export async function getStaticProps() {
+  return {
+    props: {
+      arrivals: nftArrivalsData
+    }
+  }
+}
+
+export default NftsPage;

@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 
 import TabFilter from '../../../UI/filters/TabFilter';
-import { SearchIcon } from '../../svg';
+import { SearchIcon } from '../../../svg/InfoIcons';
 
 import styles from './SearchBar.module.css';
 import tableStyles from '../../components/InfoRoutes/InfoRoutes.module.css';

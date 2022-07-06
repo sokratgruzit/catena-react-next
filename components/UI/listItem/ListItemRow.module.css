@@ -56,8 +56,6 @@
 .votingNow__category svg {
   margin: 0px 5px -1px 0;
 }
-
-/* Changed */
 .votingNow__category {
   margin-top: 10px;
 }
@@ -513,7 +511,40 @@
 }
 /* nft_creator listItemRow end of styles */
 
+.transactionTableTextWrapper{
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
 
+.transactionTableTextWrapper:hover > .transactionTableText{
+  text-decoration: underline;
+}
+
+.transactionTableTextWrapper p:nth-child(1){
+  margin-right:5px;
+}
+
+.blue{
+  color:#0500ff;
+}
+
+.poolsTableTitle{
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.poolsTableTitle:hover > .poolsTableImgText{
+  text-decoration: underline;
+}
+.poolsTableTitle p {
+  padding-left: 10px;
+}
+.poolsTableTitle img {
+  width: 20px;
+  height: 20px;
+}
 
 .PositiveNum{
   color: #29765A;
@@ -618,6 +649,8 @@
 
 
 /*InfoTable-Pools End*/
+
+
 
 /*InfoTable-Transactions Start*/
 

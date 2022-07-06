@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import Table from '../../../UI/table/Table';
 import Button from '../../../UI/button/Button';
 import PageNumber from './PageNumber';
-import { PaginationButtonSVG } from '../../svg';
+import { PaginationButtonSVG } from '../../../svg/InfoIcons';
 
 import styles from './InfoTables.module.css';
 

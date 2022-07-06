@@ -1,6 +1,6 @@
 export const SearchIcon = props => (
   <svg
-    className={props.className}
+    {...props}
     width='13'
     height='13'
     viewBox='0 0 13 13'
@@ -20,7 +20,7 @@ export const SearchIcon = props => (
 
 export const StarSVG = props => (
   <svg
-    className={props.className}
+    {...props}
     viewBox='0 0 32 32'
     fill='none'
     xmlns='http://www.w3.org/2000/svg'
@@ -37,7 +37,7 @@ export const StarSVG = props => (
 
 export const OpenSVG = props => (
   <svg
-    className={props.className}
+    {...props}
     width='12'
     height='12'
     viewBox='0 0 12 12'
@@ -65,8 +65,9 @@ export const OpenSVG = props => (
   </svg>
 );
 
-export const PriceUp = () => (
+export const PriceUp = props => (
   <svg
+    {...props}
     width='10'
     height='7'
     viewBox='0 0 10 7'
@@ -83,8 +84,9 @@ export const PriceUp = () => (
   </svg>
 );
 
-export const PriceDown = () => (
+export const PriceDown = props => (
   <svg
+    {...props}
     width='10'
     height='7'
     viewBox='0 0 10 7'
