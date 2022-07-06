@@ -1,3 +1,15 @@
+.background{
+  width: 100%;
+  min-height:100% ;
+  position:fixed;
+  top:0px;
+  right: 0px;
+  left:0px;
+  bottom:0px;
+  z-index: 100;
+  background: rgba(0, 5, 15, 0.9);
+  pointer-events: none;
+}
 
 
 .SearchBar{
@@ -11,8 +23,10 @@
 }
 
 .SearchBar__inputWrap{
+  position: relative;
   width: fit-content;
   margin: auto;
+  z-index: 101;
 }
 
 .Activity__filterWrap{
@@ -63,8 +77,8 @@
   position: absolute;
   top:100%;
   max-width: 90vw;
-  /* left:-50%; */
-  /* margin: auto; */
+  z-index: 101;
+
   margin-top: 10px;
   background: #0A0F18;
   border: 1px solid #161B24;

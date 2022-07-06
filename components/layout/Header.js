@@ -177,15 +177,16 @@ const WALLETS_DATA = [
 ];
 
 const Header = () => {
-    const { t, i18n } = useTranslation();
-    const { connect, disconnect, account, isActive, library, handleWalletModal } = useConnect();
-    const [ activeMenu, setActiveMenu ] = useState(null);
-    const [ activeLangs, setActiveLangs ] = useState(false);
-    const [ activeSettings, setActiveSettings ] = useState(false);
-    const [ activeBurger, setActiveBurger ] = useState(false);
-    const [ profileModal, setProfileModal ] = useState(false);
-    const walletModal = useSelector((state) => state.walletModal);
-    const [balance, setBalance] = useState(0);
+  const { t, i18n } = useTranslation();
+  const { connect, disconnect, account, isActive, library, handleWalletModal } =
+    useConnect();
+  const [activeMenu, setActiveMenu] = useState(null);
+  const [activeLangs, setActiveLangs] = useState(false);
+  const [activeSettings, setActiveSettings] = useState(false);
+  const [activeBurger, setActiveBurger] = useState(false);
+  const [profileModal, setProfileModal] = useState(false);
+  const walletModal = useSelector(state => state.walletModal);
+  const [balance, setBalance] = useState(0);
 
   const changeLanguage = locale => {
     i18n.changeLanguage(locale.toLowerCase());
@@ -342,12 +343,12 @@ const Header = () => {
                         <Link href={sub.route} key={sub.id}>
                           <a>
                             <div
-                            // style={{
-                            //   transitionDelay:
-                            //     activeMenu === item.id
-                            //       ? `${(index + navTransaction) / 10}s`
-                            //       : '',
-                            // }}
+                              style={{
+                                transitionDelay:
+                                  activeMenu === item.id
+                                    ? `${(index + navTransaction) / 10}s`
+                                    : null,
+                              }}
                             >
                               <span>{sub.title}</span>
                             </div>
@@ -666,11 +667,11 @@ const Header = () => {
                 }}
               >
                 <div
-                  style={
-                    {
-                      // transitionDelay: activeLangs ? `${(index + 2) / 10}s` : '',
-                    }
-                  }
+                  style={{
+                    transitionDelay: activeLangs
+                      ? `${(index + 2) / 10}s`
+                      : null,
+                  }}
                 >
                   <span>{item.title}</span>
                 </div>
@@ -794,11 +795,11 @@ const Header = () => {
                 <div
                   className={styles.connectWalletItemOuter}
                   key={item.id}
-                  style={
-                    {
-                      // transitionDelay: walletModal ? `${(index + 2) / 10}s` : '',
-                    }
-                  }
+                  style={{
+                    transitionDelay: walletModal
+                      ? `${(index + 2) / 10}s`
+                      : null,
+                  }}
                   onClick={() => {
                     connect(item.type);
                   }}

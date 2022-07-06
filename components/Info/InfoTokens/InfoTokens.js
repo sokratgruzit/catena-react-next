@@ -11,8 +11,8 @@ const InfoTokens = () => {
     <div>
       <InfoRoutes />
       <TopMovers />
-      <h2 className={`${styles.tokensTitle} font_30`}>All Tokens</h2>
       <div className={styles.section}>
+        <h2 className={`${styles.tokensTitle} font_30`}>All Tokens</h2>
         <TokensTable />
       </div>
     </div>

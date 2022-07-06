@@ -1,11 +1,8 @@
 import React from 'react';
 
 import InfoRoutes from '../components/InfoRoutes/InfoRoutes';
-import SearchBar from '../components/SearchBar/SearchBar';
 import Watchlist from '../components/Watchlist/Watchlist';
 import PoolsTable from '../components/InfoTables/PoolsTable';
-// import InfoCharts from './components/InfoCharts';
-// import InfoTables from './components/InfoTables';
 
 import styles from '../InfoPages.module.css';
 
@@ -15,10 +12,9 @@ const InfoPools = () => {
       <InfoRoutes />
       <Watchlist />
       <div className={styles.section}>
+        <h2 className={`${styles.tokensTitle} font_30`}>All Pools</h2>
         <PoolsTable />
       </div>
-      {/* <InfoCharts />
-      <InfoTables /> */}
     </div>
   );
 };

@@ -18,6 +18,7 @@ const InfoOverview = () => {
       <SearchBar />
       <InfoCharts />
       <div className={styles.section}>
+        {/* <div className={styles.gradient}></div> */}
         <h2 className={styles.title}>Top Tokens</h2>
         <TokensTable />
         <h2 className={styles.title}>Top Pools</h2>

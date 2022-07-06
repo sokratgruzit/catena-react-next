@@ -1,0 +1,88 @@
+.section{
+  margin-left: 40px;
+  margin-right: 40px;
+  margin-top: 40px;
+}
+.titleRow{
+  display: flex;
+  justify-content: space-between;
+}
+
+.title{
+  display: flex;
+  flex-direction: column;
+}
+
+.starSVG{
+  width: 20px;
+  height: 20px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.name{
+  display: flex;
+  justify-content: flex-end;
+}
+.name p{
+  font-size: 16px;
+  line-height: 13px;
+  color: #0500FF;
+}
+
+.buttons{
+  display: flex;
+  justify-content: space-between;
+}
+
+.view{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 205px;
+}
+
+.name p{
+  margin-bottom: 8px;
+  margin-right: 5px;
+}
+.logo{
+  width: 50px;
+}
+
+.titleTopRow{
+  display: flex;
+  align-items: center;
+
+}
+.titleTopRow p{
+  font-size: 30px;
+line-height: 13px;
+}
+.titleBottomRow{
+  display: flex;
+  flex-direction: row ;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.titleBottomRow p {
+  margin-left: 5px;
+}
+
+.titleBottomRow p:nth-child(2){
+  margin-right: 30px;
+}
+.logoSm{
+  width: 30px;
+  height: 30px;
+  margin-right: 5px;
+}
+
+.displayPoolsSection{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+}
+
+

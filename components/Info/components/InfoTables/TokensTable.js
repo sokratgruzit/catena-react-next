@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
-import styles from './InfoTables.module.css';
+
 import Table from '../../../UI/table/Table';
 import Button from '../../../UI/button/Button';
 import PageNumber from './PageNumber';
+import { PaginationButtonSVG } from '../../svg';
 // import CornerDecor from '../../UI/cornerDecor/CornerDecor';
+
+import styles from './InfoTables.module.css';
 
 const InfoTableTokens_Data = [
   {
@@ -141,23 +144,11 @@ const TokensTable = () => {
         <Button
           customStyles={{ marginRight: '10px' }}
           title={
-            <svg
-              width='8'
-              height='14'
-              viewBox='0 0 8 14'
-              fill='none'
-              xmlns='http://www.w3.org/2000/svg'
-            >
-              <path
-                d='M7 13L1 7L7 1'
-                stroke={
-                  pageCountTokens === 1 ? 'rgba(255,255,255,0.3)' : 'white'
-                }
-                strokeWidth='2'
-                strokeLinecap='round'
-                strokeLinejoin='round'
-              />
-            </svg>
+            <PaginationButtonSVG
+              className={styles.back}
+              pageCountTokens={pageCountTokens}
+              disabled={1}
+            />
           }
           onClick={() => {
             if (pageCountTokens > 1)
@@ -190,23 +181,11 @@ const TokensTable = () => {
             marginLeft: '10px',
           }}
           title={
-            <svg
-              width='8'
-              height='14'
-              viewBox='0 0 8 14'
-              fill='none'
-              xmlns='http://www.w3.org/2000/svg'
-            >
-              <path
-                d='M1 13L7 7L1 1'
-                stroke={
-                  pageCountTokens === 3 ? 'rgba(255,255,255,0.3)' : 'white'
-                }
-                strokeWidth='2'
-                strokeLinecap='round'
-                strokeLinejoin='round'
-              />
-            </svg>
+            <PaginationButtonSVG
+              className={styles.forward}
+              pageCountTokens={pageCountTokens}
+              disabled={3}
+            />
           }
           onClick={() => {
             if (pageCountTokens < 3)

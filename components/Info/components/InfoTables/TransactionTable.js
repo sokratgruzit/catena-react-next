@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
-import styles from './InfoTables.module.css';
+
 import Table from '../../../UI/table/Table';
 import Button from '../../../UI/button/Button';
 import PageNumber from './PageNumber';
+import { PaginationButtonSVG } from '../../svg';
+
+import styles from './InfoTables.module.css';
 
 const TransactionTable_DATA = [
   {
@@ -158,7 +161,7 @@ const TransactionTable_DATA = [
 ];
 
 const TransactionTable = () => {
-  const [pageCountPools, setPageCountPools] = useState(1);
+  const [pageCountTransactions, setPageCountTransactions] = useState(1);
 
   return (
     <div className={styles.Table__wrapper}>
@@ -179,76 +182,52 @@ const TransactionTable = () => {
         <Button
           customStyles={{ marginRight: '10px' }}
           title={
-            <svg
-              width='8'
-              height='14'
-              viewBox='0 0 8 14'
-              fill='none'
-              xmlns='http://www.w3.org/2000/svg'
-            >
-              <path
-                d='M7 13L1 7L7 1'
-                stroke={
-                  pageCountPools === 1 ? 'rgba(255,255,255,0.3)' : 'white'
-                }
-                strokeWidth='2'
-                strokeLinecap='round'
-                strokeLinejoin='round'
-              />
-            </svg>
+            <PaginationButtonSVG
+              className={styles.back}
+              pageCountTokens={pageCountTransactions}
+              disabled={1}
+            />
           }
           onClick={() => {
-            if (pageCountPools > 1)
-              setPageCountPools(prevValue => prevValue - 1);
+            if (pageCountTransactions > 1)
+              setPageCountTransactions(prevValue => prevValue - 1);
           }}
         />
         <PageNumber
           mainStyle={styles.pageCount}
           activeStyle={styles.activePageNum}
           title={1}
-          state={pageCountPools}
-          setState={setPageCountPools}
+          state={pageCountTransactions}
+          setState={setPageCountTransactions}
         />
         <PageNumber
           mainStyle={styles.pageCount}
           activeStyle={styles.activePageNum}
           title={2}
-          state={pageCountPools}
-          setState={setPageCountPools}
+          state={pageCountTransactions}
+          setState={setPageCountTransactions}
         />
         <PageNumber
           mainStyle={styles.pageCount}
           activeStyle={styles.activePageNum}
           title={3}
-          state={pageCountPools}
-          setState={setPageCountPools}
+          state={pageCountTransactions}
+          setState={setPageCountTransactions}
         />
         <Button
           customStyles={{
             marginLeft: '10px',
           }}
           title={
-            <svg
-              width='8'
-              height='14'
-              viewBox='0 0 8 14'
-              fill='none'
-              xmlns='http://www.w3.org/2000/svg'
-            >
-              <path
-                d='M1 13L7 7L1 1'
-                stroke={
-                  pageCountPools === 3 ? 'rgba(255,255,255,0.3)' : 'white'
-                }
-                strokeWidth='2'
-                strokeLinecap='round'
-                strokeLinejoin='round'
-              />
-            </svg>
+            <PaginationButtonSVG
+              className={styles.forward}
+              pageCountTokens={pageCountTransactions}
+              disabled={3}
+            />
           }
           onClick={() => {
-            if (pageCountPools < 3)
-              setPageCountPools(prevValue => prevValue + 1);
+            if (pageCountTransactions < 3)
+              setPageCountTransactions(prevValue => prevValue + 1);
           }}
         />
       </div>
