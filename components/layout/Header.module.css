@@ -14,7 +14,6 @@
   margin-right: 60px;
   position: relative;
   z-index: 10;
-  cursor: pointer;
 }
 .headerLogo span{
   font-size: 18px;
@@ -386,7 +385,7 @@
 .connectWalletItem:hover .connectWalletItemImg{
   border-color: #ff7152;
 }
-.connectWalletItemimg{
+.connectWalletItem img{
   height: 80%;
   width: 80%;
   object-fit: cover;
@@ -629,6 +628,7 @@
   margin-top: 30px;
   align-items: center;
   justify-content: space-between;
+  position: relative;
 }
 .settingsModalBtnslFloor{
   display: flex;
@@ -720,6 +720,9 @@
 .settingsModalBtnslFloorTtl{
   position: relative;
   width: 100%;
+}
+.settingsModalTitle{
+  position: relative;
 }
 /*Laptop 1440*/
 @media (max-width: 1900px) {

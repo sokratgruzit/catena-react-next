@@ -677,10 +677,10 @@ const Header = () => {
           })}
         </div>
         <div
-          className={`${styles.settingsModal}`}
-          // onMouseLeave={() => {
-          //     openSettings(false);
-          // }}
+            className={`${styles.settingsModal}`}
+            // onMouseLeave={() => {
+            //     openSettings(false);
+            // }}
         >
           <i></i>
           <div className={styles.settingsModalInner}>
@@ -688,7 +688,7 @@ const Header = () => {
             <div className={styles.settingsModalFloor}>
               <div>Dark Mode</div>
               <div className={styles.settingsCheckboxContainer}>
-                <input type='checkbox' />
+                <input type="checkbox"/>
                 <div className={styles.settingsCheckbox}>
                   <i></i>
                 </div>
@@ -697,76 +697,114 @@ const Header = () => {
             <div className={styles.settingsModalBtnslFloor}>
               <div className={styles.settingsModalBtnslFloorTtl}>
                 <Tooltip
-                  title={'Default Transaction Speed (GWEI)'}
-                  type={'settings'}
-                  text={
-                    'Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi'
-                  }
+                    title={"Default Transaction Speed (GWEI)"}
+                    type={"settings"}
+                    text={"Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi"}
                 />
               </div>
               <div className={styles.settingsModalBtns}>
-                <div className={styles.settingsModalBtn}>Standard (5)</div>
-                <div className={styles.settingsModalBtn}>Fast (6)</div>
-                <div className={styles.settingsModalBtn}>Instant (7)</div>
+                <div className={styles.settingsModalBtn}>
+                  Standard (5)
+                </div>
+                <div className={styles.settingsModalBtn}>
+                  Fast (6)
+                </div>
+                <div className={styles.settingsModalBtn}>
+                  Instant (7)
+                </div>
               </div>
             </div>
             <div className={styles.settingsModalLine}></div>
             <div className={styles.settingsModalTtl}>Core & Liquidity</div>
             <div className={styles.settingsModalBtnslFloor}>
-              <div>Slippage Tolerance</div>
+              <div className={styles.settingsModalTitle}>
+                <Tooltip
+                    title={"Slippage Tolerance"}
+                    type={"settings"}
+                    text={"Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi"}
+                />
+              </div>
               <div className={styles.settingsModalBtns}>
-                <div className={styles.settingsModalBtn}>0.1%</div>
-                <div className={styles.settingsModalBtn}>0.5%</div>
-                <div className={styles.settingsModalBtn}>1.0%</div>
+                <div className={styles.settingsModalBtn}>
+                  0.1%
+                </div>
+                <div className={styles.settingsModalBtn}>
+                  0.5%
+                </div>
+                <div className={styles.settingsModalBtn}>
+                  1.0%
+                </div>
                 <div className={styles.settingsModalInputOuter}>
-                  <input
-                    type='number'
-                    className={styles.settingsModalInput}
-                    placeholder='0.50'
-                  />
+                  <input type="number" className={styles.settingsModalInput} placeholder="0.50"/>
                   <span>%</span>
                 </div>
               </div>
             </div>
             <div className={styles.settingsModalFloor}>
-              <div>Tx deadlines (mins)</div>
-              <input
-                type='number'
-                className={styles.settingsModalLtlInput}
-                value={20}
-              />
+              <div>
+                <Tooltip
+                    title={"Tx deadlines (mins)"}
+                    type={"settings"}
+                    text={"Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi"}
+                />
+              </div>
+              <input type="number" className={styles.settingsModalLtlInput} value={20}/>
             </div>
             <div className={styles.settingsModalFloor}>
-              <div>Expert Mode</div>
+              <div>
+                <Tooltip
+                    title={"Expert Mode"}
+                    type={"settings"}
+                    text={"Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi"}
+                />
+              </div>
               <div className={styles.settingsCheckboxContainer}>
-                <input type='checkbox' />
+                <input type="checkbox"/>
                 <div className={styles.settingsCheckbox}>
                   <i></i>
                 </div>
               </div>
             </div>
             <div className={styles.settingsModalFloor}>
-              <div>Disable Multihops</div>
+              <div>
+                <Tooltip
+                    title={"Disable Multihops"}
+                    type={"settings"}
+                    text={"Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi"}
+                />
+              </div>
               <div className={styles.settingsCheckboxContainer}>
-                <input type='checkbox' />
+                <input type="checkbox"/>
                 <div className={styles.settingsCheckbox}>
                   <i></i>
                 </div>
               </div>
             </div>
             <div className={styles.settingsModalFloor}>
-              <div>Subgraph Health Indicator</div>
+              <div>
+                <Tooltip
+                    title={"Subgraph Health Indicator"}
+                    type={"settings"}
+                    text={"Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi"}
+                />
+              </div>
               <div className={styles.settingsCheckboxContainer}>
-                <input type='checkbox' />
+                <input type="checkbox"/>
                 <div className={styles.settingsCheckbox}>
                   <i></i>
                 </div>
               </div>
             </div>
             <div className={styles.settingsModalFloor}>
-              <div>Flippy sounds</div>
+              <div>
+                <Tooltip
+                    title={"Flippy sounds"}
+                    type={"settings"}
+                    text={"Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi"}
+                />
+              </div>
               <div className={styles.settingsCheckboxContainer}>
-                <input type='checkbox' />
+                <input type="checkbox"/>
                 <div className={styles.settingsCheckbox}>
                   <i></i>
                 </div>
