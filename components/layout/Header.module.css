@@ -331,7 +331,7 @@
   align-items: center;
   z-index: 2;
 }
-.headerSettingsBtn > i {
+.headerSettingsBtn > i,.headerConnectedBtnArrow i {
   position: relative;
   z-index: 1;
   transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
@@ -340,7 +340,7 @@
   min-width: 0px;
   transition-delay: .4s;
 }
-.headerSettingsBtnActive > i,.headerLangNowActive > i{
+.headerSettingsBtnActive > i,.headerLangNowActive > i,.headerConnectedBtnActive .headerConnectedBtnArrow i{
   min-width: 80px;
   transition-delay: 0s;
 }
@@ -462,6 +462,7 @@
   display: flex;
   position: relative;
   transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+  height: 100%;
 }
 .headerConnectedBtn{
   display: flex;
@@ -515,52 +516,71 @@
 .headerConnectedBtn:hover span,.headerConnectedBtn.headerConnectedBtnActive span{
   opacity: .7;
 }
-.headerConnectedBtn svg{
+.headerConnectedBtnArrow svg{
   transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
 }
-.headerConnectedBtn.headerConnectedBtnActive svg{
+.headerConnectedBtn.headerConnectedBtnArrow svg{
   transform: rotate(180deg);
+}
+.headerConnectedBtnArrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  min-width: 8px;
+  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+  position: relative;
+}
+.headerConnectedBtnActive .headerConnectedBtnArrow{
+  min-width: 80px;
+}
+.headerConnectedBtnArrowSvg{
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
 }
 .headerConnectedModal{
   position: absolute;
-  top: 90px;
+  top: 104px;
   right: 40px;
-  background: rgba(10, 15, 24, 0);
-  border-radius: 4px;
-  border: 1px solid rgba(22, 27, 36, 0);
   width: 260px;
   padding: 20px;
   pointer-events: none;
-  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
   z-index: 10;
 }
 .headerConnectedModal.headerConnectedModalActive{
-  background: rgba(10, 15, 24, 1);
-  border: 1px solid rgba(22, 27, 36, 1);
   pointer-events: all;
 }
 .headerConnectedModalInner{
   display: flex;
   width: 100%;
   flex-direction: column;
-  transform: translateY(10px);
+  transform: translateY(-10px);
   transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+  position: relative;
+  z-index: 3;
   opacity: 0;
 }
 .headerConnectedModalActive .headerConnectedModalInner{
   opacity: 1;
   transform: translateX(0px);
+  transition-delay: .6s;
 }
 .headerConnectedModalAddress{
   width: 100%;
-  border-radius: 4px;
-  background: rgba(5, 8, 13, 1);
   display: flex;
-  padding: 10px 16px;
   position: relative;
   cursor: pointer;
   justify-content: space-between;
-  margin-bottom: 4px;
+  border-bottom: 1px solid rgba(255,255,255,.2);
+  padding-bottom: 30px;
+  margin-bottom: 14px;
 }
 .headerConnectedModalAddress > div{
   display: flex;
@@ -574,7 +594,7 @@
   transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
 }
 .headerConnectedModalAddress:hover > div span:nth-child(1){
-  color: #ff7152;
+  opacity: .5;
 }
 .headerConnectedModalAddress > div span:nth-child(2){
   font-size: 13px;
@@ -586,11 +606,11 @@
 .headerConnectedModalAddress:hover > div span:nth-child(2){
   opacity: .4;
 }
-.headerConnectedModalAddress path{
+.headerConnectedModalAddress svg{
   transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
 }
-.headerConnectedModalAddress:hover path{
-  fill: #ff7152;
+.headerConnectedModalAddress:hover svg{
+  opacity: .5;
 }
 .headerConnectedModalLink{
   display: flex;
@@ -600,7 +620,7 @@
 }
 .headerConnectedModalLink span {
   transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
-  color: rgba(255, 255, 255, .5);
+  color: rgba(255, 255, 255, .7);
 }
 .headerConnectedModalLink svg{
   transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
@@ -609,13 +629,13 @@
   transform: translateX(5px);
 }
 .headerConnectedModalLink:hover span {
-  color: #ff7152;
+  color: rgba(255, 255, 255, 1);
 }
 .headerConnectedModalLink path{
   transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
 }
 .headerConnectedModalLink:hover path {
-  fill: #ff7152;
+  fill: rgba(255, 255, 255, 1);
 }
 .headerConnectedModalInner > i {
   width: 100%;
@@ -631,7 +651,7 @@
   top: 104px;
   pointer-events: none;
 }
-.settingsModal > i,.headerLangsModal > i {
+.settingsModal > i,.headerLangsModal > i,.headerConnectedModal > i {
   position: absolute;
   top: 0px;
   left: 0px;
@@ -643,7 +663,7 @@
   transform-origin: top;
   transform: scaleY(0);
 }
-.headerSettingsBtnActive .settingsModal > i,.headerLangNowActive .headerLangsModal > i{
+.headerSettingsBtnActive .settingsModal > i,.headerLangNowActive .headerLangsModal > i,.headerConnectedModalActive.headerConnectedModal > i{
   transform: scaleY(1);
   transition-delay: .4s;
 }
