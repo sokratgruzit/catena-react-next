@@ -25,6 +25,15 @@ const index = () => {
 
 export default index;
 
+// export async function getStaticProps() {
+
+//   return {
+//     props: {
+//       test: 'nothing much',
+//     },
+//   };
+// }
+
 // index.getLayout = function getLayout(page) {
 //   return (
 //     <Layout>

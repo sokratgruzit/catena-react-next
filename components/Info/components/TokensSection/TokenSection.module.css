@@ -1,6 +1,4 @@
 .section{
-  margin-left: 40px;
-  margin-right: 40px;
   margin-top: 40px;
 }
 .titleRow{
@@ -63,8 +61,14 @@
   cursor: pointer;
 }
 .name{
+  cursor: pointer;
   display: flex;
   justify-content: flex-end;
+}
+
+.name:hover{
+  text-decoration: underline;
+  text-decoration-color: #0500FF;
 }
 .name p{
   font-size: 16px;
@@ -94,6 +98,7 @@
   flex-direction: column;
   width: 202px;
   height: 437px;
+  max-width: 20%;
   left: 40px;
   top: 464px;
   border: 1px solid #111826;
@@ -151,4 +156,68 @@
   font-size: 13px;
   line-height: 18px;
   color: #627EEA;
+}
+
+.dataBlockWrapper{
+  display: flex;
+  justify-content: space-between;
+}
+
+.chartWrapper{
+  width: 1128px;
+  height: 438px;
+  max-width: 78%;
+  height: inherit;
+  border: 1px solid #111826;
+}
+
+@media (max-width: 768px) {
+  .dataBlockWrapper{
+     flex-direction: column;
+     align-items: center;
+  }
+  .displayStats{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 150px;
+    max-width:none;
+    border: 1px solid #111826;
+    padding:20px 0;
+    flex-grow: 1;
+  }
+  .liquidityBlock{
+    height: 100%;
+    border: none;
+    border-right: 1px dashed rgba(255, 255, 255, 0.1);
+    justify-content: flex-start;
+    width: 25%;
+    padding: 10px;
+  }
+  .volumeBlock{
+    height: 100%;
+    border: none;
+    border-right: 1px dashed rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    padding: 10px;
+  }
+  .volumeBlock2{
+    border: none;
+    height: 100%;
+    border-right: 1px dashed rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    padding: 10px;
+
+  }
+  .transactionBlock{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+   width: 25%;
+  }
 }

@@ -8,13 +8,11 @@ import styles from '../InfoPages.module.css';
 
 const InfoPools = () => {
   return (
-    <div>
-      <InfoRoutes />
+    <div className={styles.section}>
+      <InfoRoutes showStar={true} />
       <Watchlist />
-      <div className={styles.section}>
-        <h2 className={`${styles.tokensTitle} font_30`}>All Pools</h2>
-        <PoolsTable />
-      </div>
+      <h2 className={`${styles.tokensTitle} font_30`}>All Pools</h2>
+      <PoolsTable />
     </div>
   );
 };

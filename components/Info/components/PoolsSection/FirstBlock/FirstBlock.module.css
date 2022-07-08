@@ -24,7 +24,8 @@
 
 .poolsTopRow div:nth-child(2){
   margin-right: 50px;
-}.totalTokens{
+}
+.totalTokens{
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -50,4 +51,19 @@
 
 .totalTokensTitle{
   margin-bottom: 18px;
+}
+
+@media (max-width: 1200px) {
+  .firstBlock{
+    max-width: 35vw;
+  }
+  .totalTokens{
+    max-width: 100%;
+  }
+}
+
+@media(max-width:896px){
+  .firstBlock{
+    max-width: none;
+  }
 }

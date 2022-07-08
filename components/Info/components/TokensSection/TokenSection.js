@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Button from '../../../UI/button/Button';
 import PoolsTable from '../InfoTables/PoolsTable';
 import TransactionTable from '../InfoTables/TransactionTable';
+import ChartBlock from './ChartBlock/ChartBlock';
 import { PriceUp, PriceDown, StarSVG, OpenSVG } from '../../../svg/InfoIcons';
 
 import styles from './TokenSection.module.css';
@@ -68,7 +69,7 @@ const TokenSection = ({ data }) => {
               </div>
             </div>
           </div>
-          <div>
+          <div className={styles.dataBlockWrapper}>
             <div className={styles.displayStats}>
               <div className={styles.liquidityBlock}>
                 <h3>Liquidity</h3>
@@ -111,10 +112,12 @@ const TokenSection = ({ data }) => {
                 <p className={styles.blockP}>${data.transactions_24h}K</p>
               </div>
             </div>
+            <ChartBlock />
+            {/* <div className={styles.chartWrapper}></div> */}
           </div>
           <div>
             <h2 className={styles.tableName}>Pools</h2>
-            <PoolsTable />
+            <PoolsTable itemsPerPage={5} />
           </div>
           <div>
             <h2 className={styles.tableName}>Transaction</h2>

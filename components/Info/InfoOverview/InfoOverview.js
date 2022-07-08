@@ -16,8 +16,9 @@ const InfoOverview = () => {
     <div>
       <InfoRoutes />
       <SearchBar />
-      <InfoCharts />
       <div className={styles.section}>
+        <h2 className={styles.title}>CoreMultiChain Info & Analytics</h2>
+        <InfoCharts />
         {/* <div className={styles.gradient}></div> */}
         <h2 className={styles.title}>Top Tokens</h2>
         <TokensTable />

@@ -58,3 +58,18 @@
   line-height: 13px;
   color: #51515E;
 }
+
+@media (max-width: 1200px) {
+  .secondBlock{
+    max-width: 35vw;
+  }
+  .totalTokens{
+    max-width: 100%;
+  }
+}
+
+@media(max-width:896px){
+  .secondBlock{
+    max-width: none;
+  }
+}

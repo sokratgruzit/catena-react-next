@@ -1,6 +1,4 @@
 .section{
-  margin-left: 40px;
-  margin-right: 40px;
   margin-top: 40px;
 }
 .titleRow{
@@ -23,6 +21,12 @@
 .name{
   display: flex;
   justify-content: flex-end;
+  cursor: pointer;
+}
+
+.name:hover {
+  text-decoration: underline;
+  text-decoration-color: #0500FF ;
 }
 .name p{
   font-size: 16px;
@@ -79,10 +83,43 @@ line-height: 13px;
   margin-right: 5px;
 }
 
+
 .displayPoolsSection{
   display: flex;
   justify-content: space-between;
   margin-top: 50px;
 }
 
+.tableName{
+  margin-top:50px;
+  margin-bottom: 30px;
+  font-size: 30px;
+  line-height: 13px;
+}
 
+@media (max-width: 896px) {
+  .displayPoolsSection{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+  }
+  .titleRow{
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .title{
+    align-items: center;
+  }
+  .view{
+    align-items: center;
+    margin-top: 20px;
+  }
+  .buttons div:nth-child(1){
+    margin-right: 10px;
+  }
+
+
+}

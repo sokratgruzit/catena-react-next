@@ -49,9 +49,11 @@ const InfoPoolsInnerPage = props => {
           alt='background'
         />
       </div>
-      <InfoRoutes />
-      <SearchBar />
-      <PoolsSection data={props.infoPoolsDetails} />
+      <div className={styles.section}>
+        <InfoRoutes showStar={true} goBack={'pools'} text='Back To Pools' />
+        <SearchBar />
+        <PoolsSection data={props.infoPoolsDetails} />
+      </div>
     </div>
   );
 };

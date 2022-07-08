@@ -1,8 +1,6 @@
-.wrapper{
-  margin-left: 40px;
-}
 
 .savedPoolsWrapper{
+  max-width: 100%;
   width: 900px;
   height: 60px;
   border-radius: 24px;
@@ -15,3 +13,4 @@
   align-items: center;
   margin-bottom: 20px;
 }
+

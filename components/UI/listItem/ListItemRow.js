@@ -65,7 +65,7 @@ const ListItemRow = props => {
     return item;
   };
 
-  var unitlist = ['', 'K', 'M', 'G'];
+  var unitlist = ['', 'K', 'M', 'B'];
   function formatnumber(number) {
     let sign = Math.sign(number);
     let unit = 0;
@@ -542,22 +542,22 @@ const ListItemRow = props => {
         }}
         className={`${styles.rowItem} ${styles.InfoTokensRowItem}`}
       >
-        {textItem(data.id + 1)}
+        {textItem(data.market_cap_rank)}
         {/* {imgTextItem(data.imgSrc, data.name)} */}
         <div className={styles.td}>
           <div
             onClick={() => router.push(`/info/tokens/${data.id}`)}
             className={styles.poolsTableTitle}
           >
-            <img src={data.imgSrc} alt='pool' />
+            <img src={data.image} alt='pool' />
             <div className={styles.poolsTableImgText}>
               <p className={styles.imgTextTitle}>{data.name}</p>
             </div>
           </div>
         </div>
-        {textItem('$' + data.price)}
+        {textItem('$' + data.current_price)}
         <div className={`${styles.td} ${styles.textItem}`}>
-          {data.price_change > 0 ? (
+          {data.price_change_percentage_24h > 0 ? (
             <svg
               width='10'
               height='7'
@@ -592,14 +592,16 @@ const ListItemRow = props => {
           )}
           <p
             className={`${
-              data.price_change > 0 ? styles.PositiveNum : styles.NegativeNum
+              data.price_change_percentage_24h > 0
+                ? styles.PositiveNum
+                : styles.NegativeNum
             }`}
           >
-            {Math.abs(data.price_change)}%
+            {Math.abs(data.price_change_percentage_24h?.toFixed(3))}%
           </p>
         </div>
-        {textItem('$' + data.volume_24h + 'M')}
-        {textItem('$' + data.liquidity + 'B')}
+        {textItem(formatnumber(data.market_cap_change_24h))}
+        {textItem(formatnumber(data.total_volume))}
         {plusItem(data.hash)}
         {expandItem([
           {

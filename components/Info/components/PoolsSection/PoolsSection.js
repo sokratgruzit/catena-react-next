@@ -6,8 +6,11 @@ import FirstBlock from './FirstBlock/FirstBlock';
 import SecondBlock from './SecondBlock/SecondBlock';
 import ChartBlock from './ChartBlock/ChartBlock';
 import { StarSVG, OpenSVG } from '../../../svg/InfoIcons';
+import TokensTable from '../InfoTables/TokensTable';
+import TransactionTable from '../InfoTables/TransactionTable';
 
 import styles from './PoolsSection.module.css';
+
 const PoolsSection = ({ data }) => {
   return (
     <>
@@ -91,6 +94,14 @@ const PoolsSection = ({ data }) => {
               <SecondBlock data={data} />
             </div>
             <ChartBlock />
+          </div>
+          <div>
+            <h2 className={styles.tableName}>Tokens</h2>
+            <TokensTable itemsPerPage={5} />
+          </div>
+          <div>
+            <h2 className={styles.tableName}>Transaction</h2>
+            <TransactionTable />
           </div>
         </div>
       )}

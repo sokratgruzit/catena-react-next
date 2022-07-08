@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import Table from '../../../UI/table/Table';
 import Button from '../../../UI/button/Button';
@@ -101,22 +101,70 @@ const InfoTableTokens_Data = [
   },
 ];
 
-const TokensTable = () => {
-  const [data, setData] = useState(InfoTableTokens_Data);
+const TokensTable = props => {
+  const itemsPerPage = props.itemsPerPage || 10;
+  const totalPages = 100;
   const [pageCountTokens, setPageCountTokens] = useState(1);
+  const [data, setData] = useState(
+    InfoTableTokens_Data.slice(
+      itemsPerPage * (pageCountTokens - 1),
+      itemsPerPage - 1 + pageCountTokens,
+    ),
+  );
   const [order, setOrder] = useState('ASC');
+  const [filteredColumn, setFilteredColumn] = useState({
+    colName: '',
+    order: '',
+  });
+
+  useEffect(() => {
+    fetch(
+      `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=${itemsPerPage}&page=${pageCountTokens}&sparkline=false`,
+    )
+      .then(response => response.json())
+      .then(data => setData(data));
+  }, [itemsPerPage, pageCountTokens]);
+
   const sorting = col => {
+    let sort;
+    if (col.startsWith('name')) sort = 'name';
+    if (col.startsWith('price')) sort = 'current_price';
+    if (col.startsWith('price_change')) sort = 'price_change_percentage_24h';
+    if (col.startsWith('volume_24h')) sort = 'market_cap_change_24h';
+    if (col.startsWith('liquidity')) sort = 'total_volume';
+
     if (order === 'ASC') {
-      const sorted = [...data].sort((a, b) => (a[col] > b[col] ? 1 : -1));
+      const sorted = [...data].sort((a, b) => (a[sort] > b[sort] ? 1 : -1));
       setData(sorted);
+      setFilteredColumn({ colName: col, order: 'ASC' });
       setOrder('DSC');
     }
     if (order === 'DSC') {
-      const sorted = [...data].sort((a, b) => (a[col] < b[col] ? 1 : -1));
+      const sorted = [...data].sort((a, b) => (a[sort] < b[sort] ? 1 : -1));
       setData(sorted);
+      setFilteredColumn({ colName: col, order: 'DSC' });
       setOrder('ASC');
     }
   };
+  const filterArrows = col => {
+    let title = col;
+    if (
+      filteredColumn.colName.startsWith(col.replaceAll(' ', '_').toLowerCase())
+    ) {
+      // if (col.startsWith('Price')) {
+      //   if (col.startsWith('Price Change')) {
+      //   } else {
+      //     title += filteredColumn.order === 'ASC' ? '↑' : '↓';
+      //   }
+      //   return title;
+      // }
+      title += filteredColumn.order === 'ASC' ? '↑' : '↓';
+    } else {
+    }
+    return title;
+  };
+
+  const tableLabels = ['#'];
 
   return (
     <div className={styles.Table__wrapper}>
@@ -125,11 +173,11 @@ const TokensTable = () => {
           <Table
             tableLabels={[
               '#',
-              'Name',
-              'Price',
-              'Price Change',
-              'Volume 24H',
-              'Liquidity',
+              filterArrows('Name'),
+              filterArrows('Price'),
+              filterArrows(`Price Change`),
+              filterArrows('Volume 24H'),
+              filterArrows('Liquidity'),
               '',
             ]}
             onClick={e =>
@@ -162,20 +210,55 @@ const TokensTable = () => {
           state={pageCountTokens}
           setState={setPageCountTokens}
         />
-        <PageNumber
-          mainStyle={styles.pageCount}
-          activeStyle={styles.activePageNum}
-          title={2}
-          state={pageCountTokens}
-          setState={setPageCountTokens}
-        />
-        <PageNumber
-          mainStyle={styles.pageCount}
-          activeStyle={styles.activePageNum}
-          title={3}
-          state={pageCountTokens}
-          setState={setPageCountTokens}
-        />
+        {pageCountTokens < totalPages ? (
+          <>
+            <PageNumber
+              mainStyle={styles.pageCount}
+              activeStyle={styles.activePageNum}
+              title={pageCountTokens === 1 ? 2 : pageCountTokens}
+              state={pageCountTokens}
+              setState={setPageCountTokens}
+            />
+            <PageNumber
+              mainStyle={styles.pageCount}
+              activeStyle={styles.activePageNum}
+              title={pageCountTokens === 1 ? 3 : pageCountTokens + 1}
+              state={pageCountTokens}
+              setState={setPageCountTokens}
+            />
+          </>
+        ) : (
+          <>
+            <>
+              <PageNumber
+                mainStyle={styles.pageCount}
+                activeStyle={styles.activePageNum}
+                title={99}
+                state={pageCountTokens}
+                setState={setPageCountTokens}
+              />
+              <PageNumber
+                mainStyle={styles.pageCount}
+                activeStyle={styles.activePageNum}
+                title={100}
+                state={pageCountTokens}
+                setState={setPageCountTokens}
+              />
+            </>{' '}
+          </>
+        )}
+        {pageCountTokens < totalPages - 1 && (
+          <>
+            ...
+            <PageNumber
+              mainStyle={styles.pageCount}
+              activeStyle={styles.activePageNum}
+              title={100}
+              state={pageCountTokens}
+              setState={setPageCountTokens}
+            />
+          </>
+        )}
         <Button
           customStyles={{
             marginLeft: '10px',
@@ -184,11 +267,11 @@ const TokensTable = () => {
             <PaginationButtonSVG
               className={styles.forward}
               pageCountTokens={pageCountTokens}
-              disabled={3}
+              disabled={totalPages}
             />
           }
           onClick={() => {
-            if (pageCountTokens < 3)
+            if (pageCountTokens < totalPages)
               setPageCountTokens(prevValue => prevValue + 1);
           }}
         />

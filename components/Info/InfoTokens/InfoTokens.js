@@ -8,13 +8,11 @@ import styles from '../InfoPages.module.css';
 
 const InfoTokens = () => {
   return (
-    <div>
-      <InfoRoutes />
+    <div className={styles.section}>
+      <InfoRoutes showStar={true} />
       <TopMovers />
-      <div className={styles.section}>
-        <h2 className={`${styles.tokensTitle} font_30`}>All Tokens</h2>
-        <TokensTable />
-      </div>
+      <h2 className={`${styles.tokensTitle} font_30`}>All Tokens</h2>
+      <TokensTable />
     </div>
   );
 };

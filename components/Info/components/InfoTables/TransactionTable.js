@@ -160,12 +160,45 @@ const TransactionTable_DATA = [
   },
 ];
 
+const Table__Types = [
+  {
+    type: 'All',
+  },
+  {
+    type: 'Swaps',
+  },
+  {
+    type: 'Adds',
+  },
+  {
+    type: 'Removes',
+  },
+];
+
 const TransactionTable = () => {
   const [pageCountTransactions, setPageCountTransactions] = useState(1);
+  const [dataType, setDataType] = useState('All');
 
   return (
     <div className={styles.Table__wrapper}>
-      <div></div>
+      <div className={styles.radioWrapper}>
+        {Table__Types.map(({ type }, index) => (
+          <label
+            onClick={e => setDataType(type)}
+            className={styles.radioContainer}
+            key={type}
+          >
+            {type}
+            <input
+              type='radio'
+              name={'transaction'}
+              readOnly
+              {...(type === dataType && { checked: true })}
+            />
+            <span className={styles.radioCheckmark}></span>
+          </label>
+        ))}
+      </div>
       <Table
         tableLabels={[
           'Action',

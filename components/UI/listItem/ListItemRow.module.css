@@ -533,6 +533,7 @@
   cursor: pointer;
   display: flex;
   align-items: center;
+  pointer-events: all;
 }
 
 .poolsTableTitle:hover > .poolsTableImgText{
@@ -597,7 +598,6 @@
   display: flex;
   justify-content: flex-end;
   padding-right: 20px;
-
 }
 
 /*InfoTable-Tokens End*/
@@ -742,4 +742,83 @@
     position: absolute;
     top: 70px;
   }
+}
+
+@media (max-width: 1300px) {
+
+  .InfoTokensRowItem .td:nth-child(1), .th_info_tokens:nth-child(1) {
+    width: 5%;
+  }
+  .InfoTokensRowItem .td:nth-child(2), .th_info_tokens:nth-child(2) {
+    width: 55%;
+  }
+  .InfoTokensRowItem .td:nth-child(3), .th_info_tokens:nth-child(3) {
+    width: 35%;
+  }
+  .InfoTokensRowItem .td:nth-child(4), .th_info_tokens:nth-child(4) {
+    display: none;
+  }
+  .InfoTokensRowItem .td:nth-child(5), .th_info_tokens:nth-child(5) {
+    display: none;
+  }
+  .InfoTokensRowItem .td:nth-child(6), .th_info_tokens:nth-child(6) {
+    display: none;
+  }
+
+  .InfoPoolsRowItem .td:nth-child(1), .th_info_pools:nth-child(1) {
+    width: 5%;
+  }
+  .InfoPoolsRowItem .td:nth-child(2), .th_info_pools:nth-child(2) {
+    width: 55%;
+    display: flex;
+    align-items: center;
+  }
+  /* .InfoPoolsRowItem> .td:nth-child(2) > img:nth-child(1){
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+  } */
+  .InfoPoolsRowItem .td:nth-child(3), .th_info_pools:nth-child(3) {
+    width: 35%;
+  }
+  .InfoPoolsRowItem .td:nth-child(4), .th_info_pools:nth-child(4) {
+    display: none;
+  }
+  .InfoPoolsRowItem .td:nth-child(5), .th_info_pools:nth-child(5) {
+    display: none;
+
+  }
+  .InfoPoolsRowItem .td:nth-child(6), .th_info_pools:nth-child(6) {
+    display: none;
+
+  }
+  .InfoPoolsRowItem .td:nth-child(7), .th_info_pools:nth-child(7) {
+    display: none;
+  }  .InfoPoolsRowItem .td:nth-child(8), .th_info_pools:nth-child(8) {
+    display: none;
+  }
+
+
+
+  .InfoTransactionsRowItem .td:nth-child(1), .th_info_transactions:nth-child(1) {
+    width: 60%;
+  }
+  .InfoTransactionsRowItem .td:nth-child(2), .th_info_transactions:nth-child(2) {
+   display: none;
+  }
+  .InfoTransactionsRowItem .td:nth-child(3), .th_info_transactions:nth-child(3) {
+     display: none;
+  }
+  .InfoTransactionsRowItem .td:nth-child(4), .th_info_transactions:nth-child(4) {
+     display: none;
+  }
+  .InfoTransactionsRowItem .td:nth-child(5), .th_info_transactions:nth-child(5) {
+      display: none;
+  }
+  .InfoTransactionsRowItem .td:nth-child(6), .th_info_transactions:nth-child(6) {
+    width: 35%;
+    display: flex;
+    justify-content: flex-start;
+  }
+
 }
