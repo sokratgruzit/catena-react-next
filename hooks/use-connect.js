@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo, useCallback } from "react";
+import { useState, useEffect, useMemo, useCallback } from "react";
 import { useDispatch } from 'react-redux';
 import { injected, walletConnect } from "./connector";
 import { useWeb3React } from "@web3-react/core";

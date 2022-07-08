@@ -1,9 +1,10 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import useConnect from '../../hooks/use-connect';
+import useSessionStorage from '../../hooks/use-storage';
 
 import Button from '../UI/button/Button';
 import Tooltip from '../UI/tooltip/Tooltip';
@@ -180,16 +181,17 @@ const WALLETS_DATA = [
 ];
 
 const Header = () => {
-    const { t, i18n } = useTranslation();
-    const { connect, disconnect, account, isActive, library, handleWalletModal } = useConnect();
-    const [ activeMenu, setActiveMenu ] = useState(null);
-    const [ activeLangs, setActiveLangs ] = useState(false);
-    const [ activeSettings, setActiveSettings ] = useState(false);
-    const [ settingRightOffset, setSettingRightOffset ] = useState(0);
-    const [ activeBurger, setActiveBurger ] = useState(false);
-    const [ profileModal, setProfileModal ] = useState(false);
-    const walletModal = useSelector((state) => state.walletModal);
-    const [balance, setBalance] = useState(0);
+  const { t, i18n } = useTranslation();
+  const { connect, disconnect, account, isActive, library, handleWalletModal } = useConnect();
+  const isConnected = useSessionStorage("isConnected");
+  const [ activeMenu, setActiveMenu ] = useState(null);
+  const [ activeLangs, setActiveLangs ] = useState(false);
+  const [ activeSettings, setActiveSettings ] = useState(false);
+  const [ settingRightOffset, setSettingRightOffset ] = useState(0);
+  const [ activeBurger, setActiveBurger ] = useState(false);
+  const [ profileModal, setProfileModal ] = useState(false);
+  const walletModal = useSelector((state) => state.walletModal);
+  const [balance, setBalance] = useState(0);
 
   const changeLanguage = locale => {
     i18n.changeLanguage(locale.toLowerCase());
@@ -224,7 +226,6 @@ const Header = () => {
     closeAll();
     setActiveSettings(state);
   };
-
 
   const openBurger = () => {
     if (activeBurger) {
@@ -682,7 +683,7 @@ const Header = () => {
                   </div>
                 </div>
               </div>
-              <div className={`${styles.headerConnectBtnContainer} ${activeSettings ? styles.transformRight : ''}`}>
+              <div className={`${isConnected ? styles.headerNotConnected : ''} ${styles.headerConnectBtnContainer} ${activeSettings ? styles.transformRight : ''}`}>
                 <Button
                   title={'Connect Wallet'}
                   type={'red'}
@@ -695,7 +696,7 @@ const Header = () => {
                   }}
                 />
               </div>
-              <div className={`${styles.headerConnected} ${activeSettings ? styles.transformRight : ''}`}>
+              <div className={`${styles.headerConnected} ${isConnected ? '' : styles.headerNotConnected} ${activeSettings ? styles.transformRight : ''}`}>
                 <div
                   className={`${styles.headerConnectedBtn} ${
                     profileModal ? styles.headerConnectedBtnActive : ''
@@ -851,9 +852,11 @@ const Header = () => {
               </svg>
             </a>
             <i></i>
-            <a
-              href='/disconnect-wallet'
+            <div
               className={styles.headerConnectedModalLink}
+              onClick={() => {
+                disconnect();
+              }}
             >
               <span>Disconnect Wallet</span>
               <svg
@@ -878,7 +881,7 @@ const Header = () => {
                   />
                 </g>
               </svg>
-            </a>
+            </div>
           </div>
         </div>
         <div
