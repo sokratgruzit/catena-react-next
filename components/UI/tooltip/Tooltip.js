@@ -52,14 +52,15 @@ const Tooltip = (props) => {
         >
             <div
                 className={styles.tooltipBtn}
-                onMouseEnter={() => {
-                    openTooltip(true);
-                }}
             >
                 <div className={`${styles.tooltipContainerTitle}`}>
                     <span>{props.title}</span>
                 </div>
-                <svg style={{marginLeft: '5px'}} width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg
+                    onMouseEnter={() => {
+                        openTooltip(true);
+                    }}
+                    style={{marginLeft: '5px'}} width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M7.61266 10.29H8.69266V9.5C9.36266 9.14 9.82266 8.44 9.82266 7.64C9.82266 6.47 8.83266 5.51 7.61266 5.51V6.54C8.24266 6.54 8.71266 7.03 8.71266 7.64C8.71266 8.25 8.24266 8.74 7.61266 8.74V10.29ZM8.12266 12.57C8.56266 12.57 8.92266 12.23 8.92266 11.77C8.92266 11.33 8.56266 10.97 8.12266 10.97C7.66266 10.97 7.32266 11.33 7.32266 11.77C7.32266 12.23 7.66266 12.57 8.12266 12.57Z" fill="white"/>
                     <rect x="1" y="1" width="15" height="15" rx="7.5" stroke="white"/>
                 </svg>
@@ -77,9 +78,9 @@ const Tooltip = (props) => {
     }
 
     return (
-       <div>
-           {tooltip}
-       </div>
+        <div>
+            {tooltip}
+        </div>
     );
 };
 
