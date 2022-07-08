@@ -463,6 +463,9 @@
   position: relative;
   transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
 }
+.headerNotConnected {
+  display: none;
+}
 .headerConnectedBtn{
   display: flex;
   align-items: center;
