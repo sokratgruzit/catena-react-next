@@ -4,7 +4,7 @@ import Table from '../../../UI/table/Table';
 import Button from '../../../UI/button/Button';
 import PageNumber from './PageNumber';
 import { PaginationButtonSVG } from '../../../svg/InfoIcons';
-// import CornerDecor from '../../UI/cornerDecor/CornerDecor';
+import CornerDecor from '../../../UI/cornerDecor/CornerDecor';
 
 import styles from './InfoTables.module.css';
 
@@ -105,12 +105,7 @@ const TokensTable = props => {
   const itemsPerPage = props.itemsPerPage || 10;
   const totalPages = 100;
   const [pageCountTokens, setPageCountTokens] = useState(1);
-  const [data, setData] = useState(
-    InfoTableTokens_Data.slice(
-      itemsPerPage * (pageCountTokens - 1),
-      itemsPerPage - 1 + pageCountTokens,
-    ),
-  );
+  const [data, setData] = useState();
   const [order, setOrder] = useState('ASC');
   const [filteredColumn, setFilteredColumn] = useState({
     colName: '',
@@ -148,26 +143,24 @@ const TokensTable = props => {
   };
   const filterArrows = col => {
     let title = col;
+    title.trim();
     if (
       filteredColumn.colName.startsWith(col.replaceAll(' ', '_').toLowerCase())
     ) {
-      // if (col.startsWith('Price')) {
-      //   if (col.startsWith('Price Change')) {
-      //   } else {
-      //     title += filteredColumn.order === 'ASC' ? '↑' : '↓';
-      //   }
-      //   return title;
-      // }
-      title += filteredColumn.order === 'ASC' ? '↑' : '↓';
+      if (col.length >= filteredColumn.colName.length - 5) {
+        title += filteredColumn.order === 'ASC' ? '↑' : '↓';
+      }
     } else {
     }
-    return title;
-  };
 
-  const tableLabels = ['#'];
+    if (title.includes('↑') || title.includes('↓')) return title;
+
+    return `${title}\u00A0\u00A0`;
+  };
 
   return (
     <div className={styles.Table__wrapper}>
+      <CornerDecor />
       {data && (
         <>
           <Table
@@ -175,7 +168,7 @@ const TokensTable = props => {
               '#',
               filterArrows('Name'),
               filterArrows('Price'),
-              filterArrows(`Price Change`),
+              filterArrows('Price Change'),
               filterArrows('Volume 24H'),
               filterArrows('Liquidity'),
               '',

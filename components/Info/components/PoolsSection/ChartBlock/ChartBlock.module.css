@@ -1,8 +1,8 @@
 .wrapper{
   width: 897px;
   max-width: 55vw;
-  border: 1px solid #111826;
   display: flex;
+  position: relative;
 }
 
 .Activity__filterWrap {

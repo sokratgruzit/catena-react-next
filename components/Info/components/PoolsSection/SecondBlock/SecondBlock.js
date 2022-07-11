@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import TabFilter from '../../../../UI/filters/TabFilter';
+import CornerDecor from '../../../../UI/cornerDecor/CornerDecor';
 
 import styles from './SecondBlock.module.css';
 
@@ -24,6 +25,7 @@ const SecondBlock = ({ data }) => {
 
   return (
     <div className={styles.secondBlock}>
+      <CornerDecor />
       <div className={styles.topRow}>
         <TabFilter
           onClick={navigationHandler}

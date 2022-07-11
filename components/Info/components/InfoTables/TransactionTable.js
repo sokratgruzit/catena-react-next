@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import Table from '../../../UI/table/Table';
 import Button from '../../../UI/button/Button';
+import CornerDecor from '../../../UI/cornerDecor/CornerDecor';
 import PageNumber from './PageNumber';
 import { PaginationButtonSVG } from '../../../svg/InfoIcons';
 
@@ -181,6 +182,8 @@ const TransactionTable = () => {
 
   return (
     <div className={styles.Table__wrapper}>
+      <CornerDecor />
+
       <div className={styles.radioWrapper}>
         {Table__Types.map(({ type }, index) => (
           <label

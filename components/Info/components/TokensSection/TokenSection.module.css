@@ -99,10 +99,9 @@
   width: 202px;
   height: 437px;
   max-width: 20%;
-  left: 40px;
-  top: 464px;
-  border: 1px solid #111826;
   padding:20px 25px;
+  position: relative;
+
 }
 
 

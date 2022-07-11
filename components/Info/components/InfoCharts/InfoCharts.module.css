@@ -8,7 +8,7 @@
   width: 665px;
   max-width: 48%;
   height: 511px;
-  border: 1px solid #111826;
+  position: relative;
 }
 
 @media (max-width: 896px) {

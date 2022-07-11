@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import Table from '../../../UI/table/Table';
 import Button from '../../../UI/button/Button';
+import CornerDecor from '../../../UI/cornerDecor/CornerDecor';
 import PageNumber from './PageNumber';
 import { PaginationButtonSVG } from '../../../svg/InfoIcons';
 
@@ -122,6 +123,7 @@ const PoolsTable = props => {
 
   return (
     <div className={styles.Table__wrapper}>
+      <CornerDecor />
       <Table
         tableLabels={[
           '#',

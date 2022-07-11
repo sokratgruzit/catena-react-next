@@ -1,7 +1,7 @@
 .Table__wrapper{
-  border:1px solid #111826;
   box-sizing: border-box;
- 
+  position: relative;
+  padding-bottom: 20px;
 
 /* background: radial-gradient(50% 50% at 50% 50%, #000F2E 0%, rgba(0, 5, 15, 0) 100%); */
 }

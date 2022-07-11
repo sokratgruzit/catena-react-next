@@ -1,12 +1,12 @@
 .firstBlock{
   width: 433px;
   height: 304px;
-  border: 1px solid #111826;
   padding: 20px;
   margin-bottom: 50px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  position: relative;
 }
 
 
@@ -31,7 +31,7 @@
   justify-content: center;
   width: 393px;
   height: 104px;
-  border: 1px solid #111826;
+  position: relative;
 }
 
 .totalTokensRow{
@@ -52,6 +52,8 @@
 .totalTokensTitle{
   margin-bottom: 18px;
 }
+
+
 
 @media (max-width: 1200px) {
   .firstBlock{

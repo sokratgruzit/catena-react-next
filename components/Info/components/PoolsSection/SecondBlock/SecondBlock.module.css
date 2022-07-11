@@ -1,11 +1,11 @@
 .secondBlock{
   width: 433px;
   height: 175px;
-  border: 1px solid #111826;
   padding: 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  position: relative;
 }
 
 .bottomRow{

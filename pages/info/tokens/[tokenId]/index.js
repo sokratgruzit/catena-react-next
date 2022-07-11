@@ -1,6 +1,6 @@
 import React from 'react';
 import { useRouter } from 'next/router';
-import { MongoClient } from 'mongodb';
+// import { MongoClient } from 'mongodb';
 import Image from 'next/image';
 
 import InfoRoutes from '../../../../components/Info/components/InfoRoutes/InfoRoutes';
@@ -25,8 +25,8 @@ const InfoTokensInngerPage_Data = {
 };
 
 const InfoTokensInnerPage = props => {
-  const router = useRouter();
-  const { id } = router.query;
+  // const router = useRouter();
+  // const { id } = router.query;
   // fetch data by ID
 
   return (
@@ -57,12 +57,27 @@ export async function getStaticPaths(context) {
     paths: [
       {
         params: {
-          tokenId: '1',
+          tokenId: 'bitcoin',
         },
       },
       {
         params: {
-          tokenId: '2',
+          tokenId: 'ethereum',
+        },
+      },
+      {
+        params: {
+          tokenId: 'tether',
+        },
+      },
+      {
+        params: {
+          tokenId: 'usd-coin',
+        },
+      },
+      {
+        params: {
+          tokenId: 'binancecoin',
         },
       },
     ],
@@ -70,24 +85,32 @@ export async function getStaticPaths(context) {
 }
 
 export async function getStaticProps(context) {
-  const client = await MongoClient.connect(
-    'mongodb+srv://sokrat:sokrat12345@cluster0.x2cvw.mongodb.net/cmcx?retryWrites=true&w=majority',
+  const { tokenId } = context.params;
+
+  // const client = await MongoClient.connect(
+  //   'mongodb+srv://sokrat:sokrat12345@cluster0.x2cvw.mongodb.net/cmcx?retryWrites=true&w=majority',
+  // );
+  // const db = client.db();
+
+  // const InfoTokensDetails = db.collection('InfoTokensDetails');
+  // const tokensData = await InfoTokensDetails.findOne({ id: 1 });
+
+  // delete tokensData._id;
+
+  // client.close();
+
+  const res = await fetch(
+    `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${tokenId}`,
   );
-  const db = client.db();
 
-  const tokenId = context.params.tokenId;
+  const tokensData = await res.json();
 
-  const InfoTokensDetails = db.collection('InfoTokensDetails');
-  const tokensData = await InfoTokensDetails.findOne({ id: 1 });
-
-  delete tokensData._id;
-
-  client.close();
+  // console.log(tokensData);
 
   return {
     props: {
       infoTokensDetails: {
-        ...tokensData,
+        ...tokensData[0],
       },
     },
   };
