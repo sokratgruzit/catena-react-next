@@ -8,8 +8,10 @@
   bottom:0px;
   z-index: 100;
   background: rgba(0, 5, 15, 0.9);
-  pointer-events: none;
+  pointer-events:none;
 }
+
+
 
 
 .SearchBar{

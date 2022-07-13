@@ -41,7 +41,12 @@ const InfoTokensInnerPage = props => {
         />
       </div>
       <div className={styles.section}>
-        <InfoRoutes showStar={true} goBack={'tokens'} text='Go To Tokens' />
+        <InfoRoutes
+          showStar={true}
+          prevRoute={'tokens'}
+          goBack={true}
+          text='Go To Tokens'
+        />
         <SearchBar />
         <TokenSection data={props.infoTokensDetails} />
       </div>

@@ -45,6 +45,10 @@ const SearchBar = () => {
     setSearchMode(type);
   };
 
+  // useEffect(() => {
+  //   console.log(searchValue);
+  // }, [searchValue]);
+
   return (
     <>
       <div className={styles.section}>

@@ -34,7 +34,18 @@ const TokenSection = ({ data }) => {
               <div className={styles.titleTextRow}>
                 <div className={styles.titleText}>
                   <p>{data?.name}</p>
-                  <StarSVG className={styles.starSVG} />
+                  <StarSVG
+                    className={styles.starSVG}
+                    onClick={() =>
+                      console.log({
+                        name: data.name,
+                        src: data.image,
+                        current_price: data.current_price,
+                        price_change_percentage_24h:
+                          data.price_change_percentage_24h,
+                      })
+                    }
+                  />
                 </div>
                 <div className={styles.prices}>
                   <p className={styles.price}>$ {data?.current_price}</p>
@@ -108,7 +119,7 @@ const TokenSection = ({ data }) => {
                     }`}
                   >
                     {Math.abs(
-                      data?.market_cap_change_percentage_24h.toFixed(3),
+                      data?.market_cap_change_percentage_24h?.toFixed(3),
                     )}
                     %
                   </p>

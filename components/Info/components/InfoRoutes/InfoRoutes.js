@@ -21,7 +21,7 @@ let tabsData = [
   },
 ];
 
-const InfoRoutes = ({ showStar, goBack, text }) => {
+const InfoRoutes = ({ showStar, prevRoute, text, goBack }) => {
   const router = useRouter();
 
   const getCurrentLocation = loc => {
@@ -46,13 +46,14 @@ const InfoRoutes = ({ showStar, goBack, text }) => {
     }
     setActiveMenuItem(route);
   };
+  console.log(router);
 
   return (
     <div className={styles.container}>
       <div className={styles.goBackWrapper}>
         {goBack && (
           <div
-            onClick={() => router.push(`/info/${goBack}`)}
+            onClick={() => router.push(`/info/${prevRoute}`)}
             className={styles.goBackText}
           >
             <GoBackSVG />
@@ -74,7 +75,10 @@ const InfoRoutes = ({ showStar, goBack, text }) => {
       <div className={styles.starWrapper}>
         {showStar && (
           <div className={styles.svgWrapper}>
-            <StarSVG className={styles.starSVG} />
+            <StarSVG
+              className={styles.starSVG}
+              onClick={() => router.push(`/info/${prevRoute}/watchlist`)}
+            />
             <div className={styles.favCount}>3</div>
           </div>
         )}

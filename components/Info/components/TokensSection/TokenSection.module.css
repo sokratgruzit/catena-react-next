@@ -14,12 +14,16 @@
 .logo{
   z-index: -1;
   position: relative;
-  width: 35px;
-  height: 35px;
+  width: 50px;
+  height: 50px;
 }
 .titleText {
   display: flex;
   align-items: center;
+}
+
+.titleText p {
+  font-size: 22px;
 }
 .titleTextRow{
   display: flex;
@@ -55,9 +59,9 @@
 }
 
 .starSVG{
-  width: 15px;
-  height: 15px;
-  margin-left: 5px;
+  width: 20px;
+  height: 20px;
+  margin-left: 7px;
   cursor: pointer;
 }
 .name{

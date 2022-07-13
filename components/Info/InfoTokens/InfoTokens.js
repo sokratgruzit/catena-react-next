@@ -9,7 +9,7 @@ import styles from '../InfoPages.module.css';
 const InfoTokens = () => {
   return (
     <div className={styles.section}>
-      <InfoRoutes showStar={true} />
+      <InfoRoutes showStar={true} prevRoute={'tokens'} />
       <TopMovers />
       <h2 className={`${styles.tokensTitle} font_30`}>All Tokens</h2>
       <TokensTable />

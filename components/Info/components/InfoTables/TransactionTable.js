@@ -195,8 +195,8 @@ const TransactionTable = () => {
             <input
               type='radio'
               name={'transaction'}
-              readOnly
-              {...(type === dataType && { checked: true })}
+              defaultChecked={index === 0}
+              onChange={() => setDataType(type)}
             />
             <span className={styles.radioCheckmark}></span>
           </label>
