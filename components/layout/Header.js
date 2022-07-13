@@ -221,11 +221,25 @@ const Header = () => {
   const openLangs = state => {
     closeAll();
     setActiveLangs(state);
+    if(device === 'mobile') {
+      if(state === true) {
+        setConnectBtnColor('white');
+      }else{
+        setConnectBtnColor('red');
+      }
+    }
   };
 
   const openSettings = state => {
     closeAll();
     setActiveSettings(state);
+    if(device === 'mobile') {
+      if(state === true) {
+        setConnectBtnColor('white');
+      }else{
+        setConnectBtnColor('red');
+      }
+    }
   };
 
   const openBurger = () => {
@@ -254,7 +268,7 @@ const Header = () => {
       setProfileModal(false);
       setActiveLangs(false);
       setActiveBurger(false);
-      setConnectBtnColor('red')
+      setConnectBtnColor('red');
   }
 
   useEffect(() => {
@@ -269,13 +283,16 @@ const Header = () => {
     if (window.innerWidth >= 1024) {
       setDevice('desktop');
     }
-    if (window.innerWidth <= 1023){
+    if (window.innerWidth <= 1023 && window.innerWidth >= 768){
       setDevice('tablet');
     }
+    if (window.innerWidth <= 767){
+      setDevice('mobile');
+    }
   }, []);
-  
+
   return (
-    <div>
+    <div style={{width: '100%'}}>
       <header className={`${styles.header} container`}>
         <div className={styles.headerInner}>
           <Link href='/'>
@@ -413,7 +430,9 @@ const Header = () => {
                     </svg>
                     ${balance}
                   </div>
-                  <div>
+                  <div onClick={() => {
+                    openLangs(true);
+                  }}>
                     <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M10.7871 20C5.27083 20 0.787109 15.5163 0.787109 10C0.787109 4.48372 5.27083 0 10.7871 0C16.3034 0 20.7871 4.48372 20.7871 10C20.7871 15.5163 16.3034 20 10.7871 20ZM10.7871 1.39535C6.04292 1.39535 2.18246 5.25581 2.18246 10C2.18246 14.7442 6.04292 18.6047 10.7871 18.6047C15.5313 18.6047 19.3918 14.7442 19.3918 10C19.3918 5.25581 15.5313 1.39535 10.7871 1.39535Z" fill="white"/>
                       <path d="M7.99731 19.0697H7.06708C6.68568 19.0697 6.36941 18.7534 6.36941 18.372C6.36941 17.9906 6.66708 17.6837 7.04847 17.6744C5.58801 12.6623 5.58801 7.33758 7.04847 2.32552C6.86629 2.32186 6.69289 2.24659 6.56579 2.11602C6.4387 1.98544 6.36815 1.81006 6.36941 1.62785C6.36941 1.24645 6.68568 0.930176 7.06708 0.930176H7.99731C8.22057 0.930176 8.43452 1.0418 8.56475 1.21855C8.69499 1.40459 8.7322 1.63715 8.65778 1.85111C6.90894 7.1461 6.90894 12.8631 8.65778 18.1581C8.7322 18.372 8.69499 18.6046 8.56475 18.7906C8.43452 18.9581 8.22057 19.0697 7.99731 19.0697Z" fill="white"/>
@@ -499,13 +518,15 @@ const Header = () => {
                   className={`${styles.headerLangNow} ${
                     activeLangs ? styles.headerLangNowActive : ''
                   }`}
-                  onClick={() => {
-                    openLangs(true);
-                  }}
                 >
                   <i></i>
                   <div className={styles.headerLangNowSvg}>
-                    <div className={styles.headerLangNowMainTtl}>
+                    <div
+                        className={styles.headerLangNowMainTtl}
+                        onClick={() => {
+                          openLangs(true);
+                        }}
+                    >
                       <svg
                           width='21'
                           height='21'
@@ -542,6 +563,17 @@ const Header = () => {
                   <div className={styles.headerLangsModal}>
                     <i></i>
                     <div className={styles.headerLangsModalTtl}>Change Language</div>
+                    <div className={styles.modalsMobileTitle}>
+                      <svg
+                          onClick={() => {
+                            closeAll();
+                          }}
+                          width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fillRule="evenodd" clipRule="evenodd" d="M-2.18557e-07 5C-2.28619e-07 4.76981 0.0962057 4.54905 0.267454 4.38628L4.61474 0.254214C4.97134 -0.084737 5.54951 -0.0847371 5.90612 0.254214C6.26272 0.593164 6.26272 1.14271 5.90612 1.48166L2.20452 5L5.90612 8.51834C6.26272 8.85729 6.26272 9.40684 5.90612 9.74579C5.54951 10.0847 4.97134 10.0847 4.61474 9.74579L0.267453 5.61372C0.0962058 5.45095 -2.08495e-07 5.23019 -2.18557e-07 5Z" fill="white"/>
+                        <path fillRule="evenodd" clipRule="evenodd" d="M0.121094 5.00023C0.121094 4.52088 0.529922 4.13229 1.03424 4.13229L13.0877 4.13229C13.5921 4.13229 14.0009 4.52088 14.0009 5.00023C14.0009 5.47957 13.5921 5.86816 13.0877 5.86816L1.03424 5.86816C0.529922 5.86816 0.121094 5.47958 0.121094 5.00023Z" fill="white"/>
+                      </svg>
+                      <span>Change Language</span>
+                    </div>
                     <div className={styles.headerLangsModalInner}>
                       {LANG_DATA.map((item, index) => {
                         return (
