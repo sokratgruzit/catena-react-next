@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import useConnect from '../../hooks/use-connect';
-import useSessionStorage from '../../hooks/use-storage';
 
 import Button from '../UI/button/Button';
 import Tooltip from '../UI/tooltip/Tooltip';
@@ -182,18 +181,17 @@ const WALLETS_DATA = [
 
 const Header = () => {
   const { t, i18n } = useTranslation();
-  const { connect, disconnect, account, isActive, library, handleWalletModal } = useConnect();
-  //const isConnected = useSessionStorage("isConnected");
+  const { connect, disconnect, account, isActive, library, handleWalletModal, isConnected } = useConnect();
   const [ activeMenu, setActiveMenu ] = useState(null);
   const [ activeLangs, setActiveLangs ] = useState(false);
   const [ activeSettings, setActiveSettings ] = useState(false);
   const [ settingRightOffset, setSettingRightOffset ] = useState(0);
   const [ activeBurger, setActiveBurger ] = useState(false);
   const [ profileModal, setProfileModal ] = useState(false);
+  const [ connectBtnColor, setConnectBtnColor ] = useState('red');
+  const [ device, setDevice ] = useState(null);
   const walletModal = useSelector((state) => state.walletModal);
-  const isConnected = useSelector((state) => state.isConnected);
-  const [balance, setBalance] = useState(0);
-  const [ navTransition, setNavTransition ] = useState(0);
+  const [ balance, setBalance ] = useState(0);
 
   const changeLanguage = locale => {
     i18n.changeLanguage(locale.toLowerCase());
@@ -210,10 +208,12 @@ const Header = () => {
   };
 
   const openMenu = id => {
-    closeAll();
+    if(window.innerWidth >= 1024) {
+      closeAll();
+    }
     if (activeMenu !== id) {
       setActiveMenu(id);
-    } else {
+    }else{
       setActiveMenu(null);
     }
   };
@@ -229,10 +229,12 @@ const Header = () => {
   };
 
   const openBurger = () => {
+    closeAll();
     if (activeBurger) {
       setActiveBurger(false);
     } else {
       setActiveBurger(true);
+      setConnectBtnColor('white')
     }
   };
 
@@ -246,33 +248,48 @@ const Header = () => {
   };
 
   const closeAll = () => {
-    setActiveLangs(false);
-    setActiveSettings(false);
-    handleWalletModal(false);
-    setProfileModal(false);
-    setActiveLangs(false);
+      setActiveLangs(false);
+      setActiveSettings(false);
+      handleWalletModal(false);
+      setProfileModal(false);
+      setActiveLangs(false);
+      setActiveBurger(false);
+      setConnectBtnColor('red')
   }
 
   useEffect(() => {
-    if (isActive) {
+    if (isActive && isConnected) {
       getBalance();
+    } else {
+      setBalance(0);
     }
-  }, [isActive, account]);
+  }, [isActive, account, isConnected]);
 
   useEffect(() => {
-    if (window.innerWidth > 1023) {
-      setNavTransition(9);
-    } else {
-      setNavTransition(0);
+    if (window.innerWidth >= 1024) {
+      setDevice('desktop');
+    }
+    if (window.innerWidth <= 1023){
+      setDevice('tablet');
     }
   }, []);
-
+  
   return (
     <div>
       <header className={`${styles.header} container`}>
         <div className={styles.headerInner}>
           <Link href='/'>
-            <div className={styles.headerLogo}>
+            <div>
+            <div className={`${styles.headerLogo} ${styles.headerLogoMobile} ${
+                activeBurger !== false || activeLangs || activeSettings || profileModal
+                    ? styles.whiteLogo
+                    : ''
+            }`}>
+              <svg width="33" height="37" viewBox="0 0 33 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fillRule="evenodd" clipRule="evenodd" d="M4.60094 9.48779C6.06095 7.55973 7.97367 6.01943 10.1707 5.00253C12.3677 3.98564 14.7816 3.52334 17.1997 3.65635C19.6179 3.78935 21.9663 4.51359 24.0379 5.76527C26.1096 7.01696 27.8411 8.7577 29.0799 10.8342L30.1498 10.2411L31.9332 9.19716C30.3333 6.51148 28.0611 4.287 25.3395 2.74205C22.618 1.1971 19.5406 0.384766 16.4094 0.384766C13.2783 0.384766 10.2009 1.1971 7.47934 2.74205C4.75779 4.287 2.48558 6.51148 0.885711 9.19716L0 10.5851L1.41476 11.4214L6.88952 14.6658C5.99404 16.913 5.9317 19.4053 6.71373 21.6942C7.49576 23.9832 9.0708 25.9185 11.1555 27.152C13.2401 28.3854 15.6975 28.836 18.0855 28.4227C20.4734 28.0094 22.6352 26.7593 24.1817 24.8974L28.1704 27.2699C26.71 29.1996 24.7961 30.7411 22.5974 31.7582C20.3988 32.7753 17.9831 33.2368 15.5634 33.102C13.1437 32.9672 10.7945 32.2402 8.72302 30.9852C6.65154 29.7301 4.92148 27.9857 3.68551 25.9057L0.861933 27.5724C2.4618 30.2581 4.73401 32.4825 7.45556 34.0275C10.1771 35.5724 13.2545 36.3848 16.3857 36.3848C19.5168 36.3848 22.5942 35.5724 25.3157 34.0275C28.0373 32.4825 30.3095 30.2581 31.9094 27.5724L32.7535 26.1607L31.3387 25.3244L26.8448 22.6612L22.969 20.4311C22.4972 21.9297 21.5257 23.2221 20.2159 24.0935C18.906 24.965 17.3368 25.363 15.7689 25.2214C14.2011 25.0798 12.7289 24.4071 11.5972 23.3151C10.4655 22.2232 9.74233 20.7777 9.54787 19.2189C9.35341 17.6601 9.69937 16.0819 10.5283 14.7464C11.3572 13.4109 12.6191 12.3987 14.1043 11.8779C15.5896 11.3571 17.2087 11.3591 18.6927 11.8835C20.1766 12.4079 21.436 13.4233 22.2617 14.7607L25.109 13.1237C24.2725 11.7394 23.1169 10.5743 21.7383 9.72542C20.3597 8.8765 18.7978 8.36826 17.1827 8.24295C15.5676 8.11765 13.9458 8.37889 12.4522 9.00497C10.9586 9.63105 9.63643 10.6039 8.59556 11.8425L4.60094 9.48779Z" fill="#FF7152"/>
+              </svg>
+            </div>
+            <div className={`${styles.headerLogo} ${styles.headerLogoDesktop}`}>
               <svg
                 width='113'
                 height='46'
@@ -318,12 +335,14 @@ const Header = () => {
                 </span>
               </div>
             </div>
+            </div>
           </Link>
           <nav
             className={`${styles.headerNav} ${
               activeBurger ? styles.activeHeaderNav : ''
             } ${activeMenu !== null ? styles.headerNavOpacity : ''}`}
           >
+            <i></i>
             {NAV_DATA.map(item => {
               return (
                 <div
@@ -335,7 +354,6 @@ const Header = () => {
                     openMenu(null);
                   }}
                 >
-                  <div className={`${styles.rightMenuHover}`}></div>
                   <i></i>
                   <Link href={item.route}>
                     <a
@@ -345,8 +363,14 @@ const Header = () => {
                       onMouseEnter={() => {
                         openMenu(item.id);
                       }}
+                      onClick={() => {
+                        openMenu(item.id);
+                      }}
                     >
                       {item.title}
+                      <svg width="15" height="8" viewBox="0 0 15 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path opacity="0.7" fillRule="evenodd" clipRule="evenodd" d="M1.08 0.604417C1.47053 0.213892 2.10369 0.213892 2.49422 0.604417L7.43361 5.54381C7.62642 5.73662 7.9478 5.73662 8.14061 5.54381L13.08 0.604417C13.4705 0.213892 14.1037 0.213892 14.4942 0.604417C14.8847 0.994941 14.8847 1.62811 14.4942 2.01863L9.55482 6.95802C8.58096 7.93188 6.99325 7.93188 6.0194 6.95802L1.08 2.01863C0.689478 1.62811 0.689478 0.994941 1.08 0.604417Z" fill="white"/>
+                      </svg>
                     </a>
                   </Link>
                   <div
@@ -365,8 +389,8 @@ const Header = () => {
                               style={{
                                 transitionDelay:
                                   activeMenu === item.id
-                                    ? `${(index + navTransition) / 10}s`
-                                    : null,
+                                    ? `${(index + (device === 'desktop' ? 9 : 0)) / 10}s`
+                                    : '',
                               }}
                             >
                               <span>{sub.title}</span>
@@ -383,7 +407,7 @@ const Header = () => {
           <div className={styles.headerRightOuter}>
             <div
               className={`${styles.headerRight} ${
-                activeMenu !== null ? styles.headerRightHideToRight : ''
+                activeMenu !== null && device === 'desktop' ? styles.headerRightHideToRight : ''
               } ${
                 walletModal
                   ? styles.headerRightHideToLeft
@@ -687,13 +711,13 @@ const Header = () => {
               <div className={`${isConnected ? styles.headerNotConnected : ''} ${styles.headerConnectBtnContainer} ${activeSettings ? styles.transformRight : ''}`}>
                 <Button
                   title={'Connect Wallet'}
-                  type={'red'}
+                  type={`${connectBtnColor}`}
                   onClick={() => {
+                    closeAll();
                     handleWalletModal(true);
                   }}
                   customStyles={{
-                    padding: '2% 0',
-                    width: '150px',
+                    padding: '10px 20px'
                   }}
                 />
               </div>
@@ -714,7 +738,7 @@ const Header = () => {
                     />
                     <i></i>
                   </div>
-                  <span>0x7de7de44e2667bdef602fd069bcef02f1c167825</span>
+                  <span>{isConnected ? account : ''}</span>
                   <div className={styles.headerConnectedBtnArrow}>
                     <i></i>
                     <div className={styles.headerConnectedBtnArrowSvg}>
@@ -760,7 +784,7 @@ const Header = () => {
           <div className={styles.headerConnectedModalInner}>
             <div className={styles.headerConnectedModalAddress}>
               <div>
-                <span>0x7de7de44e2667bdef602fd069bcef02f1c167825</span>
+                <span>{isConnected ? account : ''}</span>
                 <span>metamask</span>
               </div>
               <svg
@@ -856,6 +880,7 @@ const Header = () => {
             <div
               className={styles.headerConnectedModalLink}
               onClick={() => {
+                closeAll();
                 disconnect();
               }}
             >
@@ -907,6 +932,7 @@ const Header = () => {
                       : null,
                   }}
                   onClick={() => {
+                    closeAll();
                     connect(item.type);
                   }}
                 >
@@ -928,7 +954,7 @@ const Header = () => {
         </div>
         <div
           className={`${styles.headerLine} ${
-            activeMenu !== null || activeLangs || activeSettings || walletModal || profileModal
+            activeMenu !== null || activeLangs || activeSettings || walletModal || profileModal || activeBurger
               ? styles.headerLineActive
               : ''
           }`}
