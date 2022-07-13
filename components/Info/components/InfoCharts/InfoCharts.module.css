@@ -1,0 +1,12 @@
+.Container{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 50px;
+
+}
+
+.Chart{
+  width: 500px;
+  height: 500px;
+  background-color: rgba(255, 255, 255, );
+}

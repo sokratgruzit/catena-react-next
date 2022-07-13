@@ -16,14 +16,14 @@
     padding: 20px 0;
     border-bottom: 1px solid rgba(255, 255, 255, .1);
 }
-.Table__labels div {
+/* .Table__labels div {
     display: flex;
     align-items: center;
     width: 16.6%;
     height: 100%;
     justify-content: center;
-}
-.Table__labels div:first-child {
+} */
+/* .Table__labels div:first-child {
     justify-content: start;
 }
 .Table__labels div:last-child {
@@ -44,7 +44,7 @@
 .Table__labels div:nth-child(5) {
     justify-content: end;
     padding-right: 16px;
-}
+} */
 .Table_content {
     width: 100%;
     height: 100%;

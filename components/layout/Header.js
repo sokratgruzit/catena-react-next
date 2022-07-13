@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import useConnect from '../../hooks/use-connect';
-import useSessionStorage from '../../hooks/use-storage';
 
 import Button from '../UI/button/Button';
 import Tooltip from '../UI/tooltip/Tooltip';
@@ -182,8 +181,7 @@ const WALLETS_DATA = [
 
 const Header = () => {
   const { t, i18n } = useTranslation();
-  const { connect, disconnect, account, isActive, library, handleWalletModal } = useConnect();
-  const isConnected = useSessionStorage("isConnected");
+  const { connect, disconnect, account, isActive, library, handleWalletModal, isConnected } = useConnect();
   const [ activeMenu, setActiveMenu ] = useState(null);
   const [ activeLangs, setActiveLangs ] = useState(false);
   const [ activeSettings, setActiveSettings ] = useState(false);
@@ -193,7 +191,7 @@ const Header = () => {
   const [ connectBtnColor, setConnectBtnColor ] = useState('red');
   const [ device, setDevice ] = useState(null);
   const walletModal = useSelector((state) => state.walletModal);
-  const [balance, setBalance] = useState(0);
+  const [ balance, setBalance ] = useState(0);
 
   const changeLanguage = locale => {
     i18n.changeLanguage(locale.toLowerCase());
@@ -260,20 +258,22 @@ const Header = () => {
   }
 
   useEffect(() => {
-    if (isActive) {
+    if (isActive && isConnected) {
       getBalance();
+    } else {
+      setBalance(0);
     }
-  }, [isActive, account]);
+  }, [isActive, account, isConnected]);
 
   useEffect(() => {
     if (window.innerWidth >= 1024) {
-      setDevice('desktop')
+      setDevice('desktop');
     }
     if (window.innerWidth <= 1023){
-      setDevice('tablet')
+      setDevice('tablet');
     }
   }, []);
-
+  
   return (
     <div>
       <header className={`${styles.header} container`}>
@@ -810,7 +810,7 @@ const Header = () => {
                     />
                     <i></i>
                   </div>
-                  <span>0x7de7de44e2667bdef602fd069bcef02f1c167825</span>
+                  <span>{isConnected ? account : ''}</span>
                   <div className={styles.headerConnectedBtnArrow}>
                     <i></i>
                     <div className={styles.headerConnectedBtnArrowSvg}>
@@ -856,7 +856,7 @@ const Header = () => {
           <div className={styles.headerConnectedModalInner}>
             <div className={styles.headerConnectedModalAddress}>
               <div>
-                <span>0x7de7de44e2667bdef602fd069bcef02f1c167825</span>
+                <span>{isConnected ? account : ''}</span>
                 <span>metamask</span>
               </div>
               <svg
@@ -952,6 +952,7 @@ const Header = () => {
             <div
               className={styles.headerConnectedModalLink}
               onClick={() => {
+                closeAll();
                 disconnect();
               }}
             >
@@ -998,9 +999,12 @@ const Header = () => {
                   className={styles.connectWalletItemOuter}
                   key={item.id}
                   style={{
-                    transitionDelay: walletModal ? `${(index + 2) / 10}s` : '',
+                    transitionDelay: walletModal
+                      ? `${(index + 2) / 10}s`
+                      : null,
                   }}
                   onClick={() => {
+                    closeAll();
                     connect(item.type);
                   }}
                 >
