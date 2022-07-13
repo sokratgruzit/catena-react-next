@@ -1,0 +1,54 @@
+.Table__wrapper{
+  border:1px solid #111826;
+  box-sizing: border-box;
+ 
+
+/* background: radial-gradient(50% 50% at 50% 50%, #000F2E 0%, rgba(0, 5, 15, 0) 100%); */
+}
+
+.section{
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+.Table__buttons{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  width: fit-content;
+  margin-bottom: 20px;
+}
+
+.activePageNum{
+  background: #0500FF;
+}
+
+.pageCount{
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  margin: auto 5px;
+  cursor: pointer;
+}
+
+.activeSVG{
+  stroke:red;
+}
+
+.title{
+  margin: 50px auto 30px auto;
+  font-size: 30px;
+line-height: 13px;
+}
+
+.forward{
+  transform: rotate(180deg);
+}
+
+
+
+

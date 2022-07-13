@@ -1,0 +1,53 @@
+.firstBlock{
+  width: 433px;
+  height: 304px;
+  border: 1px solid #111826;
+  padding: 20px;
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
+.poolsTopRow{
+  display: flex;
+  justify-content: space-between;
+}
+
+.firstBlock h4 {
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 18px;
+  color: #627EEA;
+}
+
+.poolsTopRow div:nth-child(2){
+  margin-right: 50px;
+}.totalTokens{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 393px;
+  height: 104px;
+  border: 1px solid #111826;
+}
+
+.totalTokensRow{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left:20px;
+  padding-right: 20px;
+}
+.totalTokensRow div:nth-child(1){
+  display: flex;
+  margin: 5px;
+}
+.totalTokensRow div:nth-child(1) p:nth-child(2){
+  margin-left: 10px;
+}
+
+.totalTokensTitle{
+  margin-bottom: 18px;
+}

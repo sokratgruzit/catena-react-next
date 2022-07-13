@@ -511,6 +511,205 @@
 }
 /* nft_creator listItemRow end of styles */
 
+.transactionTableTextWrapper{
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.transactionTableTextWrapper:hover > .transactionTableText{
+  text-decoration: underline;
+}
+
+.transactionTableTextWrapper p:nth-child(1){
+  margin-right:5px;
+}
+
+.blue{
+  color:#0500ff;
+}
+
+.poolsTableTitle{
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.poolsTableTitle:hover > .poolsTableImgText{
+  text-decoration: underline;
+}
+.poolsTableTitle p {
+  padding-left: 10px;
+}
+.poolsTableTitle img {
+  width: 20px;
+  height: 20px;
+}
+
+.PositiveNum{
+  color: #29765A;
+}
+
+.NegativeNum{
+  color: #E94A4A;
+}
+
+.priceChange{
+  display: flex;
+  align-items: center;
+}
+
+.InfoTokensRowItem .td, .th_info_tokens {
+  font-size: 15px;
+  line-height: 24px;
+}
+.InfoTokensRowItem .td:nth-child(1), .th_info_tokens:nth-child(1) {
+  width: 5%;
+}
+.InfoTokensRowItem .td:nth-child(2), .th_info_tokens:nth-child(2) {
+  width: 30%;
+  display: flex;
+  align-items: center;
+}
+.InfoTokensRowItem> .td:nth-child(2) > img:nth-child(1){
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+.InfoTokensRowItem .td:nth-child(3), .th_info_tokens:nth-child(3) {
+  width: 15%;
+}
+
+.InfoTokensRowItem> .td:nth-child(4) > p:nth-child(2){
+  margin-left: 10px;
+}
+.InfoTokensRowItem .td:nth-child(4), .th_info_tokens:nth-child(4) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25%;
+}
+.InfoTokensRowItem .td:nth-child(5), .th_info_tokens:nth-child(5) {
+  width: 15%;
+}
+.InfoTokensRowItem .td:nth-child(6), .th_info_tokens:nth-child(6) {
+  width: 10%;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 20px;
+
+}
+
+/*InfoTable-Tokens End*/
+
+/*InfoTable-Pools Start*/
+
+
+.InfoPoolsRowItem .td {
+  font-size: 15px;
+  line-height: 24px;
+}
+.InfoPoolsRowItem .td:nth-child(1), .th_info_pools:nth-child(1) {
+  width: 5%;
+}
+.InfoPoolsRowItem .td:nth-child(2), .th_info_pools:nth-child(2) {
+  width: 30%;
+  display: flex;
+  align-items: center;
+}
+.InfoPoolsRowItem> .td:nth-child(2) > img:nth-child(1){
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+.InfoPoolsRowItem .td:nth-child(3), .th_info_pools:nth-child(3) {
+  width: 15%;
+}
+.InfoPoolsRowItem .td:nth-child(4), .th_info_pools:nth-child(4) {
+
+  width: 15%;
+}
+.InfoPoolsRowItem .td:nth-child(5), .th_info_pools:nth-child(5) {
+  width: 15%;
+}
+.InfoPoolsRowItem .td:nth-child(6), .th_info_pools:nth-child(6) {
+  width: 10%;
+}
+.InfoPoolsRowItem .td:nth-child(7), .th_info_pools:nth-child(7) {
+  width: 10%;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 20px;
+
+}
+
+.th_info_pools:nth-child(8){
+  align-self: center;
+}
+
+
+/*InfoTable-Pools End*/
+
+
+
+/*InfoTable-Transactions Start*/
+
+
+
+.InfoTransactionsRowItem .td {
+  font-size: 15px;
+  line-height: 24px;
+}
+.InfoTransactionsRowItem .td:nth-child(1), .th_info_transactions:nth-child(1) {
+  width: 35%;
+}
+.InfoTransactionsRowItem .td:nth-child(2), .th_info_transactions:nth-child(2) {
+  width: 15%;
+  padding-left: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.InfoTransactionsRowItem .td:nth-child(3), .th_info_transactions:nth-child(3) {
+  width: 15%;
+}
+.InfoTransactionsRowItem .td:nth-child(4), .th_info_transactions:nth-child(4) {
+  width: 15%;
+}
+.InfoTransactionsRowItem .td:nth-child(5), .th_info_transactions:nth-child(5) {
+  width: 15%;
+  color:#0500ff;
+}
+.InfoTransactionsRowItem .td:nth-child(6), .th_info_transactions:nth-child(6) {
+  width: 10%;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 20px;
+}
+
+.InfoTransactionsRowItem__flex{
+  display: flex ;
+  flex-direction: row;
+}
+.InfoTransactionsRowItem__flex p:nth-child(2){
+  padding-left: 5px;
+}
+
+.InfoTransactionsRowItem__responsive{
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+.InfoTransactionsRowItem__responsive p:nth-child(2){
+  padding-left: 5px;
+}
+
+
+
+/*InfoTable-Transactions End*/
+
 /*Ipad 768*/
 @media (max-width: 1023px) {
 }

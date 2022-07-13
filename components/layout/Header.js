@@ -366,7 +366,7 @@ const Header = () => {
                                 transitionDelay:
                                   activeMenu === item.id
                                     ? `${(index + navTransition) / 10}s`
-                                    : '',
+                                    : null,
                               }}
                             >
                               <span>{sub.title}</span>
@@ -902,7 +902,9 @@ const Header = () => {
                   className={styles.connectWalletItemOuter}
                   key={item.id}
                   style={{
-                    transitionDelay: walletModal ? `${(index + 2) / 10}s` : '',
+                    transitionDelay: walletModal
+                      ? `${(index + 2) / 10}s`
+                      : null,
                   }}
                   onClick={() => {
                     connect(item.type);
