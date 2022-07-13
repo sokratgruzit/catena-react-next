@@ -390,7 +390,7 @@ const Header = () => {
                                 transitionDelay:
                                   activeMenu === item.id
                                     ? `${(index + (device === 'desktop' ? 9 : 0)) / 10}s`
-                                    : '',
+                                    : '0s',
                               }}
                             >
                               <span>{sub.title}</span>
@@ -929,7 +929,7 @@ const Header = () => {
                   style={{
                     transitionDelay: walletModal
                       ? `${(index + 2) / 10}s`
-                      : null,
+                      : '0s',
                   }}
                   onClick={() => {
                     closeAll();
