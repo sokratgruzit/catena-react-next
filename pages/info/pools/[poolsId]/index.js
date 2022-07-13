@@ -94,8 +94,6 @@ export async function getStaticProps(context) {
   const InfoPoolsDetails = db.collection('InfoPoolsDetails');
   const poolsData = await InfoPoolsDetails.findOne({ name: 'USDC/WBNB' });
 
-  console.log(poolsId);
-
   client.close();
   return {
     props: {

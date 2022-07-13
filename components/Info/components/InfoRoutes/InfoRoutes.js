@@ -46,7 +46,6 @@ const InfoRoutes = ({ showStar, prevRoute, text, goBack }) => {
     }
     setActiveMenuItem(route);
   };
-  console.log(router);
 
   return (
     <div className={styles.container}>
@@ -74,11 +73,11 @@ const InfoRoutes = ({ showStar, prevRoute, text, goBack }) => {
       />
       <div className={styles.starWrapper}>
         {showStar && (
-          <div className={styles.svgWrapper}>
-            <StarSVG
-              className={styles.starSVG}
-              onClick={() => router.push(`/info/${prevRoute}/watchlist`)}
-            />
+          <div
+            className={styles.svgWrapper}
+            onClick={() => router.push(`/info/${prevRoute}/watchlist`)}
+          >
+            <StarSVG className={styles.starSVG} />
             <div className={styles.favCount}>3</div>
           </div>
         )}

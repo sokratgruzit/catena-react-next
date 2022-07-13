@@ -8,7 +8,6 @@ import styles from './Watchlist.module.css';
 
 const Watchlist = () => {
   const router = useRouter();
-  console.log(router);
   return (
     <div className={styles.container}>
       <div className={styles.goBackWrapper}>
