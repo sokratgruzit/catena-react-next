@@ -7,7 +7,7 @@ const HomeTrust = () => {
       <Image
         layout='fill'
         className={styles.homeGlobeBg}
-        src='/public/images/home/HomeGlobe.png'
+        src='/images/home/homeGlobe.png'
         alt='Globe'
       />
       <div className={styles.HomeTrust__inner}>

@@ -183,7 +183,7 @@ const WALLETS_DATA = [
 const Header = () => {
   const { t, i18n } = useTranslation();
   const { connect, disconnect, account, isActive, library, handleWalletModal } = useConnect();
-  const isConnected = useSessionStorage("isConnected");
+  //const isConnected = useSessionStorage("isConnected");
   const [ activeMenu, setActiveMenu ] = useState(null);
   const [ activeLangs, setActiveLangs ] = useState(false);
   const [ activeSettings, setActiveSettings ] = useState(false);
@@ -191,14 +191,15 @@ const Header = () => {
   const [ activeBurger, setActiveBurger ] = useState(false);
   const [ profileModal, setProfileModal ] = useState(false);
   const walletModal = useSelector((state) => state.walletModal);
+  const isConnected = useSelector((state) => state.isConnected);
   const [balance, setBalance] = useState(0);
+  const [ navTransition, setNavTransition ] = useState(0);
 
   const changeLanguage = locale => {
     i18n.changeLanguage(locale.toLowerCase());
   };
 
   let web3Obj = library;
-  let navTransaction = 9;
 
   const getBalance = async () => {
     if (web3Obj !== undefined) {
@@ -260,9 +261,9 @@ const Header = () => {
 
   useEffect(() => {
     if (window.innerWidth > 1023) {
-      navTransaction = 9;
+      setNavTransition(9);
     } else {
-      navTransaction = 0;
+      setNavTransition(0);
     }
   }, []);
 
@@ -364,7 +365,7 @@ const Header = () => {
                               style={{
                                 transitionDelay:
                                   activeMenu === item.id
-                                    ? `${(index + navTransaction) / 10}s`
+                                    ? `${(index + navTransition) / 10}s`
                                     : '',
                               }}
                             >
