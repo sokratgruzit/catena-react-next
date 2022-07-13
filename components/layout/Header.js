@@ -432,7 +432,7 @@ const Header = () => {
                                           (device === 'desktop' ? 9 : 0)) /
                                         10
                                       }s`
-                                    : '',
+                                    : '0s',
                               }}
                             >
                               <span>{sub.title}</span>
