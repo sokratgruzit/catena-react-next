@@ -3,15 +3,26 @@ import { useRouter } from 'next/router';
 
 import Buy from '../../../../components/nfts/components/Buy';
 
-const nftItemData = {
-  imgSrc: '/images/nft/nft_owner_page/item1.png',
-  title: 'Mutant Ape Yacht Club',
-  value: '#314',
-  blockQuote:
-    '10,000 unique, randomly-generated PancakeSwap NFTs from the mind of Chef Cecy Meade. Join the squad.',
-  cmcx: '0.0024',
-  usd: '($1,314)',
-};
+const collections = [
+  '0x4bd2a30435e6624CcDee4C60229250A84a2E4cD6',
+  '0xDf7952B35f24aCF7fC0487D01c8d5690a60DBa07',
+  '0x11304895f41C5A9b7fBFb0C4B011A92f1020EF96',
+  '0x3347e7AD69068E5D931B8De98fFc6e536cdf10eA',
+  '0xA46A4920B40f134420b472B16b3328d74D7B6B70',
+  '0xebFBFD7C41B123500fb16B71C43B400c12B08bE0',
+  '0x57A7c5d10c3F87f5617Ac1C60DA60082E44D539e',
+  '0x98F606A4cdDE68b9f68732D21fb9bA8B5510eE48'
+];
+
+const nftOwners = [
+  '0x9d0fbf84f1173f6108170c00a3fead067fcf86d2',
+  '0xfd21125fbd33dffec4a0ac0c87dc4e4316e4a153',
+  '0x26a1dc454cbd9bd138337762e6cb261c3266b6e2',
+];
+
+const creator = [
+  '0x2188c2e746ea138d7d3c7bf6f16a32947363f56e'
+];
 
 const ownerItemData = [
   {
