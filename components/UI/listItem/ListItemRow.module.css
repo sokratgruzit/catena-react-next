@@ -568,6 +568,7 @@
 .InfoTokensRowItem .td, .th_info_tokens {
   font-size: 15px;
   line-height: 24px;
+  text-overflow: ellipsis;
 }
 .th_info_tokens_text{
   width: 70%;
@@ -674,6 +675,11 @@
 .InfoTransactionsRowItem .td {
   font-size: 15px;
   line-height: 24px;
+  text-overflow: ellipsis;
+}
+.transactionTableTextWrapper p {
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 .InfoTransactionsRowItem .td:nth-child(1), .th_info_transactions:nth-child(1) {
   width: 35%;
@@ -836,4 +842,20 @@
     justify-content: flex-start;
   }
 
+}
+
+@media(max-width:600px){
+  .InfoPoolsRowItem .td:nth-child(3), .th_info_pools:nth-child(3) {
+    width: 32%;
+  }
+  .InfoTransactionsRowItem .td:nth-child(1), .th_info_transactions:nth-child(1) {
+    width: 70%;
+  }
+  .InfoTransactionsRowItem .td:nth-child(6), .th_info_transactions:nth-child(6) {
+    width: 25%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    display:inline-block
+  }
 }

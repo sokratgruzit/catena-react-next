@@ -50,13 +50,6 @@ const InfoPoolsInnerPage = props => {
         />
       </div>
       <div className={styles.section}>
-        <InfoRoutes
-          showStar={true}
-          prevRoute={'pools'}
-          goBack={true}
-          text='Back To Pools'
-        />
-        <SearchBar />
         <PoolsSection data={props.infoPoolsDetails} />
       </div>
     </div>

@@ -2,8 +2,6 @@
   box-sizing: border-box;
   position: relative;
   padding-bottom: 20px;
-
-/* background: radial-gradient(50% 50% at 50% 50%, #000F2E 0%, rgba(0, 5, 15, 0) 100%); */
 }
 
 .section{
@@ -42,7 +40,7 @@
 .title{
   margin: 50px auto 30px auto;
   font-size: 30px;
-line-height: 13px;
+  line-height: 13px;
 }
 
 .forward{
@@ -120,6 +118,25 @@ line-height: 13px;
 	border-radius: 50%;
 
   background: #0500FF;
+}
+
+@media (max-width:600px){
+  .radioCheckmark{
+    width: 20px;
+    height: 20px;
+  }
+  .radioContainer .radioCheckmark:after {
+    width: 16px;
+    height: 16px;
+  }
+  .radioContainer {
+    margin-left: 10px;
+    padding-left: 25px;
+    margin-bottom: 0;
+  }
+  .radioWrapper{
+    flex-wrap: wrap;
+  }
 }
 
 

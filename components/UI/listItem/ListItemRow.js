@@ -718,7 +718,7 @@ const ListItemRow = props => {
       >
         {/* {textItem(data.action)} */}
         <div className={`${styles.td} ${styles.transactionTableTextWrapper}`}>
-          <p className={styles.transactionTableText}>{data.action}shit</p>
+          <p className={styles.transactionTableText}>{data.action}</p>
           <OpenSVG />
         </div>
         {textItem('$' + data.total_value + 'M')}
@@ -734,7 +734,7 @@ const ListItemRow = props => {
         )}
         <div className={`${styles.td} ${styles.transactionTableTextWrapper}`}>
           <p className={`${styles.transactionTableText} ${styles.blue}`}>
-            {data.account}shit
+            {data.account}
           </p>
           <OpenSVG />
         </div>

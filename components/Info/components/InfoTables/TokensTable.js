@@ -106,10 +106,9 @@ const TokensTable = props => {
   const totalPages = 100;
   const [pageCountTokens, setPageCountTokens] = useState(1);
   const [data, setData] = useState();
-  const [order, setOrder] = useState('ASC');
   const [filteredColumn, setFilteredColumn] = useState({
     colName: '',
-    order: '',
+    order: 'ASC',
   });
 
   useEffect(() => {
@@ -128,17 +127,15 @@ const TokensTable = props => {
     if (col.startsWith('volume_24h')) sort = 'market_cap_change_24h';
     if (col.startsWith('liquidity')) sort = 'total_volume';
 
-    if (order === 'ASC') {
+    if (filteredColumn.order === 'ASC') {
       const sorted = [...data].sort((a, b) => (a[sort] > b[sort] ? 1 : -1));
       setData(sorted);
-      setFilteredColumn({ colName: col, order: 'ASC' });
-      setOrder('DSC');
+      setFilteredColumn({ colName: col, order: 'DSC' });
     }
-    if (order === 'DSC') {
+    if (filteredColumn.order === 'DSC') {
       const sorted = [...data].sort((a, b) => (a[sort] < b[sort] ? 1 : -1));
       setData(sorted);
-      setFilteredColumn({ colName: col, order: 'DSC' });
-      setOrder('ASC');
+      setFilteredColumn({ colName: col, order: 'ASC' });
     }
   };
   const filterArrows = col => {
@@ -148,7 +145,7 @@ const TokensTable = props => {
       filteredColumn.colName.startsWith(col.replaceAll(' ', '_').toLowerCase())
     ) {
       if (col.length >= filteredColumn.colName.length - 5) {
-        title += filteredColumn.order === 'ASC' ? '↑' : '↓';
+        title += filteredColumn.order === 'ASC' ? '↓' : '↑';
       }
     } else {
     }

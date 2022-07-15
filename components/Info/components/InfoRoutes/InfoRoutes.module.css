@@ -1,16 +1,9 @@
-.container{
-  margin-top: 10rem;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  height: 60px;
-  align-items: center;
-}
-
 .Activity__filterWrap {
   box-sizing: border-box;
   display: flex;
   flex-direction: row;
+  width: 247px;
+  height: 40px;
   padding: 3px 1px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 4px;
@@ -30,57 +23,3 @@
 .Activity__filterActive {
   background-color: rgba(255, 255, 255, 0.1)!important;
 }
-
-.starSVG{
-  width: 30px;
-  height: 30px;
-}
-
-.svgWrapper{
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  justify-content: center;
-}
-
-.favCount{
-  width: 20px;
-  height: 20px;
-  padding: 3px;
-  border-radius: 50%;
-  background-color: #FF7152;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  margin-left: 20px;
-  margin-bottom: 12px;
-}
-
-.goBackWrapper{
-  width: 30%;
-}
-.goBackText:hover{
-  text-decoration: underline;
-  text-decoration-color: #FF7152;
-}
-.goBackText{
-  cursor: pointer;
-  width: fit-content;
-  align-items: center;
-  display: flex;
-}
-
-.goBackText p{
-  font-size: 15px;
-  line-height: 21px;
-  color: #FF7152;
-  margin-left: 5px;
-}
-
-.starWrapper{
-  width: 30%;
-  display: flex;
-  justify-content: flex-end;
-}
-

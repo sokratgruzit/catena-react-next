@@ -41,13 +41,6 @@ const InfoTokensInnerPage = props => {
         />
       </div>
       <div className={styles.section}>
-        <InfoRoutes
-          showStar={true}
-          prevRoute={'tokens'}
-          goBack={true}
-          text='Go To Tokens'
-        />
-        <SearchBar />
         <TokenSection data={props.infoTokensDetails} />
       </div>
     </div>
@@ -104,13 +97,12 @@ export async function getStaticProps(context) {
 
   // client.close();
 
+  // console.log(tokensData);
   const res = await fetch(
     `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${tokenId}`,
   );
 
   const tokensData = await res.json();
-
-  // console.log(tokensData);
 
   return {
     props: {

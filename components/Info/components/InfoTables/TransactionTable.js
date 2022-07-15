@@ -183,7 +183,6 @@ const TransactionTable = () => {
   return (
     <div className={styles.Table__wrapper}>
       <CornerDecor />
-
       <div className={styles.radioWrapper}>
         {Table__Types.map(({ type }, index) => (
           <label

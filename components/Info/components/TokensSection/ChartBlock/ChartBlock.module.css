@@ -42,6 +42,11 @@
     height: 438px;
     margin-top: 50px;
    }
+}
 
+@media (max-width: 460px) {
+  .Activity__filter__item {
+    padding: 6px 10px;
 
+  }
 }

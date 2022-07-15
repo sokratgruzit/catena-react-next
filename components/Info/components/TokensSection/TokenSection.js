@@ -1,31 +1,70 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 
 import Button from '../../../UI/button/Button';
 import CornerDecor from '../../../UI/cornerDecor/CornerDecor';
+import InfoRoutes from '../InfoRoutes/InfoRoutes';
+import SearchBar from '../SearchBar/SearchBar';
 import PoolsTable from '../InfoTables/PoolsTable';
 import TransactionTable from '../InfoTables/TransactionTable';
 import ChartBlock from './ChartBlock/ChartBlock';
-import { PriceUp, PriceDown, StarSVG, OpenSVG } from '../../../svg/InfoIcons';
+import {
+  PriceUp,
+  PriceDown,
+  StarSVG,
+  OpenSVG,
+  GoBackSVG,
+} from '../../../svg/InfoIcons';
+import { formatCurrency } from '../../../utils/formatCurrency';
 
 import styles from './TokenSection.module.css';
 
 const TokenSection = ({ data }) => {
-  var unitlist = ['', 'K', 'M', 'B'];
-  function formatnumber(number) {
-    let sign = Math.sign(number);
-    let unit = 0;
+  const router = useRouter();
+  const [favorites, setFavorites] = useState([]);
 
-    while (Math.abs(number) > 1000) {
-      unit = unit + 1;
-      number = Math.floor(Math.abs(number) / 100) / 10;
+  useEffect(() => {
+    setFavorites(JSON.parse(localStorage.getItem('favorites')));
+  }, []);
+
+  useEffect(() => {
+    if (favorites.length > 0) {
+      localStorage.setItem('favorites', JSON.stringify(favorites));
     }
-    return '$' + sign * Math.abs(number) + unitlist[unit];
-  }
+  }, [favorites]);
+
+  const addFavorite = coin => {
+    if (favorites.includes(coin)) return coin;
+    setFavorites(prevFav => [...prevFav, coin]);
+  };
+  const removeFavorite = coin => {
+    setFavorites(favorites.filter(fav => fav !== coin));
+  };
   return (
     <>
       {data && (
         <div className={styles.section}>
+          <div className={styles.topSectionWrapper}>
+            <div className={styles.goBackWrapper}>
+              <div
+                onClick={() => router.push(`/info/tokens`)}
+                className={styles.goBackText}
+              >
+                <GoBackSVG />
+                <p>Back To Tokens</p>
+              </div>
+            </div>
+            <InfoRoutes />
+            <div className={styles.starWrapper}>
+              <StarSVG
+                className={styles.starSVG}
+                onClick={() => router.push(`/info/tokens/watchlist`)}
+              />
+              <div className={styles.favCount}>3</div>
+            </div>
+          </div>
+          <SearchBar />
           <div className={styles.titleRow}>
             <div className={styles.title}>
               <div className={styles.logo}>
@@ -35,15 +74,15 @@ const TokenSection = ({ data }) => {
                 <div className={styles.titleText}>
                   <p>{data?.name}</p>
                   <StarSVG
-                    className={styles.starSVG}
+                    className={`${styles.starSVG} ${
+                      favorites.includes(data.name)
+                        ? styles.activeSVG
+                        : undefined
+                    }`}
                     onClick={() =>
-                      console.log({
-                        name: data.name,
-                        src: data.image,
-                        current_price: data.current_price,
-                        price_change_percentage_24h:
-                          data.price_change_percentage_24h,
-                      })
+                      favorites.includes(data.name)
+                        ? removeFavorite(data.name)
+                        : addFavorite(data.name)
                     }
                   />
                 </div>
@@ -103,7 +142,7 @@ const TokenSection = ({ data }) => {
               <div className={styles.liquidityBlock}>
                 <h3>Liquidity</h3>
                 <p className={styles.blockP}>
-                  {formatnumber(data?.total_volume / 9)}
+                  {formatCurrency(data?.total_volume / 9)}
                 </p>
                 <div className={`${styles.changePercent} `}>
                   {data?.market_cap_change_percentage_24h > 0 ? (
@@ -128,7 +167,7 @@ const TokenSection = ({ data }) => {
               <div className={styles.volumeBlock}>
                 <h3>VOLUME 24H</h3>
                 <p className={styles.blockP}>
-                  {formatnumber(data?.total_volume)}
+                  {formatCurrency(data?.total_volume)}
                 </p>
                 <div className={`${styles.changePercent} `}>
                   {data?.total_volume > 0 ? <PriceUp /> : <PriceDown />}
@@ -146,13 +185,13 @@ const TokenSection = ({ data }) => {
               <div className={styles.volumeBlock2}>
                 <h3>VOLUME 7D</h3>
                 <p className={styles.blockP}>
-                  {formatnumber(data?.total_volume * 7.2)}
+                  {formatCurrency(data?.total_volume * 7.2)}
                 </p>
               </div>
               <div className={styles.transactionBlock}>
                 <h3>TRANSACTIONS 24h</h3>
                 <p className={styles.blockP}>
-                  {formatnumber(data?.total_volume / 1000)}
+                  {formatCurrency(data?.total_volume / 1000)}
                 </p>
               </div>
             </div>

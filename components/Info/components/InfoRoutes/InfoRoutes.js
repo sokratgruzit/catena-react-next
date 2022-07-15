@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 
 import TabFilter from '../../../UI/filters/TabFilter';
-import { StarSVG, GoBackSVG } from '../../../svg/InfoIcons';
 
 import styles from './InfoRoutes.module.css';
 
@@ -21,7 +20,7 @@ let tabsData = [
   },
 ];
 
-const InfoRoutes = ({ showStar, prevRoute, text, goBack }) => {
+const InfoRoutes = () => {
   const router = useRouter();
 
   const getCurrentLocation = loc => {
@@ -48,18 +47,7 @@ const InfoRoutes = ({ showStar, prevRoute, text, goBack }) => {
   };
 
   return (
-    <div className={styles.container}>
-      <div className={styles.goBackWrapper}>
-        {goBack && (
-          <div
-            onClick={() => router.push(`/info/${prevRoute}`)}
-            className={styles.goBackText}
-          >
-            <GoBackSVG />
-            <p>{text}</p>
-          </div>
-        )}
-      </div>
+    <>
       <TabFilter
         onClick={navigationHandler}
         data={tabsData}
@@ -71,18 +59,7 @@ const InfoRoutes = ({ showStar, prevRoute, text, goBack }) => {
           item: styles.Activity__filter__item,
         }}
       />
-      <div className={styles.starWrapper}>
-        {showStar && (
-          <div
-            className={styles.svgWrapper}
-            onClick={() => router.push(`/info/${prevRoute}/watchlist`)}
-          >
-            <StarSVG className={styles.starSVG} />
-            <div className={styles.favCount}>3</div>
-          </div>
-        )}
-      </div>
-    </div>
+    </>
   );
 };
 
