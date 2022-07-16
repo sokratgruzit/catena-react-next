@@ -1,6 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
 
 const INIT_STATE = {
+  isConnected: false,
+  providerType: "",
   walletModal: false,
   balance: 0,
   nftStatisticsData: {
@@ -435,6 +437,20 @@ const INIT_STATE = {
 };
 
 const connectReducer = (state = INIT_STATE, action) => {
+  if (action.type === "CONNECT") {
+    return {
+      isConnected: action.payload.connected,
+      providerType: action.payload.type,
+    };
+  }
+
+  if (action.type === "DISCONNECT") {
+    return {
+      isConnected: false,
+      providerType: "",
+    };
+  }
+
   if (action.type === "TOGGLE_WALLET_CONNECT_MODAL") {
     return {
       walletModal: action.payload.walletModal,

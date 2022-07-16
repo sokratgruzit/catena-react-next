@@ -181,7 +181,7 @@ const WALLETS_DATA = [
 
 const Header = () => {
   const { t, i18n } = useTranslation();
-  const { connect, disconnect, account, isActive, library, handleWalletModal, isConnected } = useConnect();
+  const { connect, disconnect, account, isActive, library, handleWalletModal } = useConnect();
   const [ activeMenu, setActiveMenu ] = useState(null);
   const [ activeLangs, setActiveLangs ] = useState(false);
   const [ activeSettings, setActiveSettings ] = useState(false);
@@ -191,6 +191,7 @@ const Header = () => {
   const [ connectBtnColor, setConnectBtnColor ] = useState('red');
   const [ device, setDevice ] = useState(null);
   const walletModal = useSelector((state) => state.walletModal);
+  const [ isConnected, setIsConnected ] = useState(false);
   const [ balance, setBalance ] = useState(0);
 
   const changeLanguage = locale => {
@@ -258,7 +259,9 @@ const Header = () => {
   }
 
   useEffect(() => {
-    if (isActive && isConnected) {
+    setIsConnected(localStorage.getItem('isConnected'));
+
+    if (isActive || isConnected) {
       getBalance();
     } else {
       setBalance(0);
@@ -432,7 +435,7 @@ const Header = () => {
                     fill='#FF7152'
                   />
                 </svg>
-                ${balance}
+                ${isConnected && isActive && account !== undefined ? balance : 0}
               </div>
               <div className={`${styles.headerLangs}`}>
                 <div
@@ -708,9 +711,9 @@ const Header = () => {
                   </div>
                 </div>
               </div>
-              <div className={`${isConnected ? styles.headerNotConnected : ''} ${styles.headerConnectBtnContainer} ${activeSettings ? styles.transformRight : ''}`}>
+              <div className={`${isConnected && isActive ? styles.headerNotConnected : ''} ${styles.headerConnectBtnContainer} ${activeSettings ? styles.transformRight : ''}`}>
                 <Button
-                  title={'Connect Wallet'}
+                  title={isActive ? 'Connect Wallet' : 'Unlock Wallet'}
                   type={`${connectBtnColor}`}
                   onClick={() => {
                     closeAll();
@@ -721,7 +724,7 @@ const Header = () => {
                   }}
                 />
               </div>
-              <div className={`${styles.headerConnected} ${isConnected ? '' : styles.headerNotConnected} ${activeSettings ? styles.transformRight : ''}`}>
+              <div className={`${styles.headerConnected} ${isConnected && isActive ? '' : styles.headerNotConnected} ${activeSettings ? styles.transformRight : ''}`}>
                 <div
                   className={`${styles.headerConnectedBtn} ${
                     profileModal ? styles.headerConnectedBtnActive : ''
@@ -738,7 +741,7 @@ const Header = () => {
                     />
                     <i></i>
                   </div>
-                  <span>{isConnected ? account : ''}</span>
+                  <span>{isConnected && isActive && account !== undefined ? account : ''}</span>
                   <div className={styles.headerConnectedBtnArrow}>
                     <i></i>
                     <div className={styles.headerConnectedBtnArrowSvg}>
@@ -784,7 +787,7 @@ const Header = () => {
           <div className={styles.headerConnectedModalInner}>
             <div className={styles.headerConnectedModalAddress}>
               <div>
-                <span>{isConnected ? account : ''}</span>
+                <span>{isConnected && isActive && account !== undefined ? account : ''}</span>
                 <span>metamask</span>
               </div>
               <svg

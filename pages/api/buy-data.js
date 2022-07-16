@@ -8,8 +8,6 @@ async function handler(req, res) {
     const buyInfo = await buyCollection.find().toArray();
 
     client.close();
-
-    console.log('lalala');
 }
 
 export default handler;
