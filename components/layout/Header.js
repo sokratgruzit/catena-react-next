@@ -192,6 +192,7 @@ const Header = () => {
   const [ device, setDevice ] = useState(null);
   const walletModal = useSelector((state) => state.walletModal);
   const [ balance, setBalance ] = useState(0);
+  const [ stickHead, setStickHead ] = useState(false);
 
   const changeLanguage = locale => {
     i18n.changeLanguage(locale.toLowerCase());
@@ -208,7 +209,7 @@ const Header = () => {
   };
 
   const openMenu = id => {
-    if(window.innerWidth >= 1024) {
+    if (window.innerWidth >= 1024) {
       closeAll();
     }
     if (activeMenu !== id) {
@@ -221,10 +222,10 @@ const Header = () => {
   const openLangs = state => {
     closeAll();
     setActiveLangs(state);
-    if(device === 'mobile') {
-      if(state === true) {
+    if (device === 'mobile') {
+      if (state === true) {
         setConnectBtnColor('white');
-      }else{
+      } else {
         setConnectBtnColor('red');
       }
     }
@@ -236,7 +237,7 @@ const Header = () => {
     if(device === 'mobile') {
       if(state === true) {
         setConnectBtnColor('white');
-      }else{
+      } else {
         setConnectBtnColor('red');
       }
     }
@@ -291,10 +292,25 @@ const Header = () => {
     }
   }, []);
 
+  useEffect(() => {
+    window.addEventListener('scroll', isSticky);
+    return () => {
+      window.removeEventListener('scroll', isSticky);
+    };
+  });
+  const isSticky = (e) => {
+    const scrollTop = window.scrollY;
+    if (scrollTop >= 10){
+      setStickHead(true);
+    } else {
+      setStickHead(false);
+    }
+  };
+
   return (
-    <div style={{width: '100%'}}>
-      <header className={`${styles.header} container`}>
-        <div className={styles.headerInner}>
+    <div>
+      <header className={`${styles.header} ${stickHead ? styles.stickHeader : ''}`}>
+        <div className={`${styles.headerInner} container`}>
           <Link href='/'>
             <div>
             <div className={`${styles.headerLogo} ${styles.headerLogoMobile} ${

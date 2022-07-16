@@ -3,10 +3,15 @@
   display: flex;
   height: 105px;
   align-items: center;
-  position: absolute!important;
+  position: fixed!important;
   top: 0px;
   left: 0px;
   z-index: 100!important;
+  transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+}
+.stickHeader {
+  background: rgba(0,5,15,.8);
+  box-shadow: 26px 16px 31px 0px #0000004D;
 }
 .headerLogo{
   display: flex;
