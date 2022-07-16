@@ -275,6 +275,8 @@ const Header = () => {
     if (window.innerWidth <= 1023){
       setDevice('tablet');
     }
+    
+    console.log(i18n)
   }, []);
   
   return (
@@ -486,7 +488,7 @@ const Header = () => {
                     <i></i>
                     <div className={styles.headerLangsModalTtl}>Change Language</div>
                     <div className={styles.headerLangsModalInner}>
-                      {LANG_DATA.map((item, index) => {
+                      {LANG_DATA.map((item) => {
                         return (
                               <div
                                   className={`${styles.headerLangsModalLink} ${t('top_menu.lang.default') === item.title ? styles.headerLangsModalLinkActive : ''}`}

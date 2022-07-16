@@ -18,14 +18,6 @@ const useConnect = () => {
             var providerType = await localStorage.getItem("providerType");
             var isConnected = await localStorage.getItem("isConnected");
 
-            dispatch({
-                type: 'CONNECT',
-                payload: {
-                    type: providerType,
-                    connected: isConnected
-                }
-            });
-
             if (isConnected) {
                 connect(providerType).then((val) => {
                     setIsLoading(false);
@@ -62,26 +54,12 @@ const useConnect = () => {
             if (providerType === "metaMask") {
                 await activate(injected).then(() => {
                     setShouldDisable(false);
-                    dispatch({
-                        type: 'CONNECT',
-                        payload: {
-                            type: 'metaMask',
-                            connected: true
-                        }
-                    });
                     localStorage.setItem("providerType", "metaMask");
                     localStorage.setItem("isConnected", true);
                 });
             } else if (providerType === "walletConnect") {
                 await activate(walletConnect).then(() => {
                     setShouldDisable(false);
-                    dispatch({
-                        type: 'CONNECT',
-                        payload: {
-                            type: 'walletConnect',
-                            connected: true
-                        }
-                    });
                     localStorage.setItem("providerType", "walletConnect");
                     localStorage.setItem("isConnected", true);
                 });
@@ -97,7 +75,6 @@ const useConnect = () => {
     const disconnect = async () => {
         try {
             await deactivate();
-            dispatch({ type: 'DISCONNECT' });
             localStorage.removeItem("isConnected");
             localStorage.removeItem("providerType");
         } catch (error) {
