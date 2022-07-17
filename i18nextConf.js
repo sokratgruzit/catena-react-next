@@ -2,9 +2,9 @@ import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import Backend from 'i18next-http-backend';
 import LanguageDetector from 'i18next-browser-languagedetector';
-import en from './locales/en/en.json';
-import ge from './locales/ge/ge.json';
-import fr from './locales/fr/fr.json';
+import en from '/public/locales/en/en.json';
+import ge from '/public/locales/ge/ge.json';
+import fr from '/public/locales/fr/fr.json';
 
 const fallbackLng = ['en'];
 const availableLanguages = ['en', 'ge', 'fr'];
