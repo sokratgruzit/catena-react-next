@@ -1,127 +1,14 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import useTranslation from 'next-translate/useTranslation';
 import { useSelector } from 'react-redux';
-import { useTranslation } from 'react-i18next';
 import useConnect from '../../hooks/use-connect';
 
 import Button from '../UI/button/Button';
 import Tooltip from '../UI/tooltip/Tooltip';
 
 import styles from './Header.module.css';
-
-const NAV_DATA = [
-  {
-    id: 1,
-    title: 'Trade',
-    route: '/trade/swap',
-    subNav: [
-      {
-        id: 1,
-        title: 'Swap',
-        route: '/trade/swap',
-      },
-      {
-        id: 2,
-        title: 'Bridge',
-        route: '/trade/bridge',
-      },
-      {
-        id: 3,
-        title: 'Staking',
-        route: '/trade/staking',
-      },
-      {
-        id: 4,
-        title: 'Prepetual',
-        route: '/prepetual',
-      },
-    ],
-  },
-  {
-    id: 2,
-    title: 'Earn',
-    route: '/earn/farms',
-    subNav: [
-      {
-        id: 5,
-        title: 'Farms',
-        route: '/earn/farms',
-      },
-      {
-        id: 6,
-        title: 'Pools',
-        route: '/earn/pools',
-      },
-    ],
-  },
-  {
-    id: 3,
-    title: 'Win',
-    route: '/win/competition',
-    subNav: [
-      {
-        id: 7,
-        title: 'Competition',
-        route: '/win/competition',
-      },
-      {
-        id: 8,
-        title: 'Prediction',
-        route: '/win/prediction',
-      },
-      {
-        id: 9,
-        title: 'Lottery',
-        route: '/win/lottery',
-      },
-    ],
-  },
-  {
-    id: 4,
-    title: 'NFT',
-    route: '/nfts',
-    subNav: [
-      {
-        id: 10,
-        title: 'Overview',
-        route: '/nfts',
-      },
-      {
-        id: 11,
-        title: 'Collections',
-        route: '/nfts/collections',
-      },
-      {
-        id: 12,
-        title: 'Activity',
-        route: '/nfts/activity',
-      },
-    ],
-  },
-  {
-    id: 5,
-    title: 'More',
-    route: '/info',
-    subNav: [
-      {
-        id: 13,
-        title: 'Info',
-        route: '/info',
-      },
-      {
-        id: 14,
-        title: 'Voting',
-        route: '/voting',
-      },
-      {
-        id: 15,
-        title: 'Leaderbord',
-        route: '/leaderbord',
-      },
-    ],
-  },
-];
 
 const LANG_DATA = [
   {
@@ -180,7 +67,6 @@ const WALLETS_DATA = [
 ];
 
 const Header = () => {
-  const { t, i18n } = useTranslation();
   const { connect, disconnect, account, isActive, library, handleWalletModal } = useConnect();
   const [ activeMenu, setActiveMenu ] = useState(null);
   const [ activeLangs, setActiveLangs ] = useState(false);
@@ -193,9 +79,122 @@ const Header = () => {
   const walletModal = useSelector((state) => state.walletModal);
   const [ isConnected, setIsConnected ] = useState(false);
   const [ balance, setBalance ] = useState(0);
+  const { t } = useTranslation('header');
 
-  const changeLanguage = locale => {
-    i18n.changeLanguage(locale.toLowerCase());
+  const NAV_DATA = [
+    {
+      id: 1,
+      title: t('top_menu.trade'),
+      route: '/trade/swap',
+      subNav: [
+        {
+          id: 1,
+          title: 'Swap',
+          route: '/trade/swap',
+        },
+        {
+          id: 2,
+          title: 'Bridge',
+          route: '/trade/bridge',
+        },
+        {
+          id: 3,
+          title: 'Staking',
+          route: '/trade/staking',
+        },
+        {
+          id: 4,
+          title: 'Prepetual',
+          route: '/prepetual',
+        },
+      ],
+    },
+    {
+      id: 2,
+      title: 'Earn',
+      route: '/earn/farms',
+      subNav: [
+        {
+          id: 5,
+          title: 'Farms',
+          route: '/earn/farms',
+        },
+        {
+          id: 6,
+          title: 'Pools',
+          route: '/earn/pools',
+        },
+      ],
+    },
+    {
+      id: 3,
+      title: 'Win',
+      route: '/win/competition',
+      subNav: [
+        {
+          id: 7,
+          title: 'Competition',
+          route: '/win/competition',
+        },
+        {
+          id: 8,
+          title: 'Prediction',
+          route: '/win/prediction',
+        },
+        {
+          id: 9,
+          title: 'Lottery',
+          route: '/win/lottery',
+        },
+      ],
+    },
+    {
+      id: 4,
+      title: 'NFT',
+      route: '/nfts',
+      subNav: [
+        {
+          id: 10,
+          title: 'Overview',
+          route: '/nfts',
+        },
+        {
+          id: 11,
+          title: 'Collections',
+          route: '/nfts/collections',
+        },
+        {
+          id: 12,
+          title: 'Activity',
+          route: '/nfts/activity',
+        },
+      ],
+    },
+    {
+      id: 5,
+      title: 'More',
+      route: '/info',
+      subNav: [
+        {
+          id: 13,
+          title: 'Info',
+          route: '/info',
+        },
+        {
+          id: 14,
+          title: 'Voting',
+          route: '/voting',
+        },
+        {
+          id: 15,
+          title: 'Leaderbord',
+          route: '/leaderbord',
+        },
+      ],
+    },
+  ];
+
+  const changeLanguage = () => {
   };
 
   let web3Obj = library;
@@ -275,8 +274,6 @@ const Header = () => {
     if (window.innerWidth <= 1023){
       setDevice('tablet');
     }
-    
-    console.log(i18n)
   }, []);
   
   return (
@@ -480,7 +477,7 @@ const Header = () => {
                         />
                       </svg>
                       <div className={styles.headerLangNowTtl}>
-                        <span>{t('top_menu.lang.default')}</span>
+                        <span>EN</span>
                       </div>
                     </div>
                   </div>
@@ -491,7 +488,7 @@ const Header = () => {
                       {LANG_DATA.map((item) => {
                         return (
                               <div
-                                  className={`${styles.headerLangsModalLink} ${t('top_menu.lang.default') === item.title ? styles.headerLangsModalLinkActive : ''}`}
+                                  className={`${styles.headerLangsModalLink} ${'en' === item.title ? styles.headerLangsModalLinkActive : ''}`}
                                   key={item.id}
                                   onClick={() => {
                                     openLangs(false);
@@ -715,7 +712,7 @@ const Header = () => {
               </div>
               <div className={`${isConnected && isActive ? styles.headerNotConnected : ''} ${styles.headerConnectBtnContainer} ${activeSettings ? styles.transformRight : ''}`}>
                 <Button
-                  title={isActive ? 'Connect Wallet' : 'Unlock Wallet'}
+                  title={'Connect Wallet'}
                   type={`${connectBtnColor}`}
                   onClick={() => {
                     closeAll();
