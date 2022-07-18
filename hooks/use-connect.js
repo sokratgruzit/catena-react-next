@@ -10,14 +10,13 @@ const useConnect = () => {
     const [ walletModal, setWalletModal ] = useState(false);
     const [ shouldDisable, setShouldDisable ] = useState(false); // Should disable connect button while connecting to MetaMask
     const [ isLoading, setIsLoading ] = useState(true);
-    const [ isConnected, setIsConnected ] = useState(false);
     const dispatch = useDispatch();
 
     // Init Loading
     useEffect(() => {
         async function fetchData() {
             var providerType = await localStorage.getItem("providerType");
-            setIsConnected(await localStorage.getItem("isConnected"));
+            var isConnected = await localStorage.getItem("isConnected");
 
             if (isConnected) {
                 connect(providerType).then((val) => {
@@ -51,21 +50,18 @@ const useConnect = () => {
     // Connect to wallet
     const connect = async (providerType) => {
         setShouldDisable(true);
-        
         try {
             if (providerType === "metaMask") {
                 await activate(injected).then(() => {
                     setShouldDisable(false);
                     localStorage.setItem("providerType", "metaMask");
                     localStorage.setItem("isConnected", true);
-                    setIsConnected(true);
                 });
             } else if (providerType === "walletConnect") {
                 await activate(walletConnect).then(() => {
                     setShouldDisable(false);
                     localStorage.setItem("providerType", "walletConnect");
                     localStorage.setItem("isConnected", true);
-                    setIsConnected(true);
                 });
             } 
 
@@ -79,10 +75,8 @@ const useConnect = () => {
     const disconnect = async () => {
         try {
             await deactivate();
-            dispatch({ type: 'DISCONNECT' });
             localStorage.removeItem("isConnected");
             localStorage.removeItem("providerType");
-            setIsConnected(false);
         } catch (error) {
             console.log("Error on disconnnect: ", error);
         }
@@ -98,10 +92,9 @@ const useConnect = () => {
           connect,
           disconnect,
           library,
-          shouldDisable,
-          isConnected
+          shouldDisable
         }),
-        [isActive, isLoading, shouldDisable, account, walletModal, isConnected]
+        [isActive, isLoading, shouldDisable, account, walletModal]
     );
 
     return values;
