@@ -80,6 +80,7 @@ const Header = () => {
   const [ isConnected, setIsConnected ] = useState(false);
   const [ balance, setBalance ] = useState(0);
   const [ stickHead, setStickHead ] = useState(false);
+  const [ routerLocale, setRouterLocale ] = useState(null);
   const { t } = useTranslation('header');
 
   const NAV_DATA = [
@@ -201,6 +202,7 @@ const Header = () => {
   const changeLanguage = loc => {
     // i18n.changeLanguage(locale.toLowerCase());
     router.push("", "", {locale : loc.toLowerCase()});
+    setRouterLocale(loc)
   };
 
   let web3Obj = library;
@@ -297,6 +299,7 @@ const Header = () => {
     if (window.innerWidth <= 767){
       setDevice('mobile');
     }
+    setRouterLocale(router.locale);
   }, []);
 
   useEffect(() => {
@@ -463,7 +466,7 @@ const Header = () => {
                       <path d="M10.7866 14.8372C8.19122 14.8372 5.60517 14.4744 3.11215 13.7395C3.10284 14.1116 2.79587 14.4186 2.41447 14.4186C2.03308 14.4186 1.7168 14.1023 1.7168 13.7209V12.7907C1.7168 12.5674 1.82842 12.3535 2.00517 12.2232C2.19122 12.093 2.42377 12.0558 2.63773 12.1302C7.93272 13.8791 13.6497 13.8791 18.9447 12.1302C19.0499 12.0942 19.1622 12.0838 19.2723 12.1C19.3823 12.1162 19.4869 12.1584 19.5773 12.2232C19.7633 12.3535 19.8656 12.5674 19.8656 12.7907V13.7209C19.8656 14.1023 19.5494 14.4186 19.168 14.4186C18.7866 14.4186 18.4796 14.1209 18.4703 13.7395C15.968 14.4744 13.3819 14.8372 10.7866 14.8372Z" fill="white"/>
                       <path d="M19.1601 7.90713C19.0857 7.90713 19.0113 7.89783 18.9369 7.86992C13.6419 6.12109 7.9249 6.12109 2.6299 7.86992C2.25781 7.99085 1.86711 7.7955 1.74618 7.43271C1.63456 7.06062 1.8299 6.66992 2.19269 6.54899C7.77025 4.69786 13.7965 4.69786 19.3741 6.54899C19.7369 6.66992 19.9415 7.06992 19.8113 7.43271C19.7676 7.57094 19.6808 7.69156 19.5637 7.77692C19.4465 7.86229 19.3051 7.90791 19.1601 7.90713Z" fill="white"/>
                     </svg>
-                    {t('top_menu.lang.default')}
+                    {routerLocale}
                   </div>
                 </div>
                 <div className={styles.headerMobileFooterSecond}>
@@ -579,7 +582,7 @@ const Header = () => {
                         />
                       </svg>
                       <div className={styles.headerLangNowTtl}>
-                        <span>EN</span>
+                        <span> {routerLocale}</span>
                       </div>
                     </div>
                   </div>
