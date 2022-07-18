@@ -1,0 +1,27 @@
+.Activity__filterWrap {
+  width: fit-content;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  padding: 3px 1px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+.Activity__filter {
+  display: flex;
+  flex-direction: row;
+  margin-left: auto;
+  margin-right: auto;
+}
+.Activity__filter__item {
+  border-radius: 4px;
+  padding: 6px 12px;
+  cursor: pointer;
+  margin:0 2px;
+}
+
+.Activity__filterActive {
+  background-color: rgba(255, 255, 255, 0.1)!important;
+}

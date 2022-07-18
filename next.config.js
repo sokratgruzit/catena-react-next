@@ -6,6 +6,6 @@ const nextConfig = nextTranslate({
   images: {
     domains: ['assets.coingecko.com', 'localhost'],
   },
-};
+});
 
 module.exports = nextConfig;
