@@ -845,6 +845,9 @@
 }
 
 @media(max-width:600px){
+  .InfoTokensRowItem .td:nth-child(3), .th_info_tokens:nth-child(3) {
+    width: 30%;
+  }
   .InfoPoolsRowItem .td:nth-child(3), .th_info_pools:nth-child(3) {
     width: 32%;
   }
