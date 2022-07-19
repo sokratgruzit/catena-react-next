@@ -25,21 +25,21 @@ const TokenSection = ({ data }) => {
   const [favorites, setFavorites] = useState([]);
 
   useEffect(() => {
-    setFavorites(JSON.parse(localStorage.getItem('favorites')));
+    setFavorites(JSON.parse(localStorage.getItem('favorites')) || []);
   }, []);
 
   useEffect(() => {
-    if (favorites.length > 0) {
+    if (favorites?.length > 0) {
       localStorage.setItem('favorites', JSON.stringify(favorites));
     }
   }, [favorites]);
 
   const addFavorite = coin => {
-    if (favorites.includes(coin)) return coin;
+    if (favorites?.includes(coin)) return coin;
     setFavorites(prevFav => [...prevFav, coin]);
   };
   const removeFavorite = coin => {
-    setFavorites(favorites.filter(fav => fav !== coin));
+    setFavorites(favorites?.filter(fav => fav !== coin));
   };
   return (
     <>
@@ -75,12 +75,12 @@ const TokenSection = ({ data }) => {
                   <p>{data?.name}</p>
                   <StarSVG
                     className={`${styles.starSVG} ${
-                      favorites.includes(data.name)
+                      favorites?.includes(data.name)
                         ? styles.activeSVG
                         : undefined
                     }`}
                     onClick={() =>
-                      favorites.includes(data.name)
+                      favorites?.includes(data.name)
                         ? removeFavorite(data.name)
                         : addFavorite(data.name)
                     }

@@ -1,9 +1,16 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
 
 import Button from '../../UI/button/Button';
 import CornerDecor from '../../UI/cornerDecor/CornerDecor';
 import FAQ from '../../faq/FAQ';
+import egg from '../../../public/images/earn/egg.png';
+import astro from '../../../public/images/earn/astro.png';
+import orbit from '../../../public/images/earn/orbit.png';
+import yellowStar from '../../../public/images/earn/yellowStar.png';
+import ufo from '../../../public/images/earn/ufo.png';
+import mobileAstro from '../../../public/images/earn/mobileAstro.png';
 
 import styles from './CommunityAuctions.module.css';
 
@@ -720,57 +727,21 @@ const CommunityAuctions = props => {
       </picture>
       <div className={styles.auction__inner}>
         <div className={styles.auction__head}>
-          <img
-            className={styles.astro}
-            src='/images/earn/astro.png'
-            alt='astro'
-          ></img>
-          <img
-            className={styles.orbit}
-            src='/images/earn/orbit.png'
-            alt='orbit'
-          ></img>
-          <img
-            className={styles.yellowStar}
-            src='/images/earn/yellowStar.png'
-            alt='yellowStar'
-          ></img>
-          <img
-            className={styles.ufo}
-            src='/images/earn/ufo.png'
-            alt='ufo'
-          ></img>
-          <img
-            className={styles.egg}
-            src='/images/earn/egg.png'
-            alt='egg'
-          ></img>
-          {/* mobile images */}
-          <img
-            className={styles.mobileAstro}
-            src='/images/earn/mobileAstro.png'
-            alt='astro'
-          ></img>
-          <img
-            className={styles.mobileOrbit}
-            src='/images/earn/mobileOrbit.png'
-            alt='orbit'
-          ></img>
-          <img
-            className={styles.mobileYellowStar}
-            src='/images/earn/mobileYellowStar.png'
-            alt='yellowStar'
-          ></img>
-          <img
-            className={styles.mobileUfo}
-            src='/images/earn/mobileUfo.png'
-            alt='ufo'
-          ></img>
-          <img
-            className={styles.mobileEgg}
-            src='/images/earn/mobileEgg.png'
-            alt='egg'
-          ></img>
+          <div className={styles.astro}>
+            <Image src={astro} alt='astro' />
+          </div>
+          <div className={styles.orbit}>
+            <Image src={orbit} alt='orbit' />
+          </div>
+          <div className={styles.yellowStar}>
+            <Image src={yellowStar} alt='yellowStar' />
+          </div>
+          <div className={styles.ufo}>
+            <Image src={ufo} alt='ufo' />
+          </div>
+          <div className={styles.egg}>
+            <Image src={egg} alt='egg' />
+          </div>
           <div
             onClick={() => router.push('/earn/farms')}
             className={styles.communityAuctions}
@@ -1009,11 +980,13 @@ const CommunityAuctions = props => {
             <p className='font_20'>~$2,227,764</p>
           </div>
           <div>
-            <img
-              className={styles.logo__stars}
-              src='/images/earn/logoStars.png'
-              alt='logoStars'
-            ></img>
+            <picture>
+              <img
+                className={styles.logo__stars}
+                src='/images/earn/logoStars.png'
+                alt='logoStars'
+              ></img>
+            </picture>
           </div>
         </div>
       </div>

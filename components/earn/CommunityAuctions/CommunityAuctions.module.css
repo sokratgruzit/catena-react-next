@@ -474,14 +474,6 @@
 .auction__whitelistTableitem1 svg {
   margin-left: 10px;
 }
-.mobileEgg,
-.mobileUfo,
-.mobileOrbit,
-.mobileYellowStar,
-.mobileAstro,
-.mobileUfo {
-  display: none;
-}
 
 /* Whitelist */
 
@@ -591,40 +583,41 @@
   .auction__title {
     margin-top: 400px;
   }
-  .egg,
-  .yellowStar,
-  .astro,
-  .ufo,
-  .orbit {
-    display: none;
-  }
-  .mobileEgg {
+  .egg {
     left: 0;
     top: 250px;
     display: block;
     position: absolute;
   }
-  .mobileOrbit {
+  .orbit {
+    width: 110px;
     top: 50px;
     left: 0;
     display: block;
     position: absolute;
   }
-  .mobileYellowStar {
+  .yellowStar {
+    width: 50px;
     top: 150px;
     right: 0;
     display: block;
     position: absolute;
   }
-  .mobileUfo {
+  .ufo{
     top: 300px;
     right: 0;
     display: block;
     position: absolute;
+    width: 107px;
+    height: 101px;
   }
-  .mobileAstro {
+  .astro {
+    width: 301px;
+    height: 355px;
+    left: 0;
     position: absolute;
     display: block;
+    justify-self: flex-start;
   }
   .auction__title h1 {
     width: 100%;
