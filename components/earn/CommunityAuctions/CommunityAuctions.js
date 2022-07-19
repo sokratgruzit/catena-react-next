@@ -4,13 +4,13 @@ import Image from 'next/image';
 
 import Button from '../../UI/button/Button';
 import CornerDecor from '../../UI/cornerDecor/CornerDecor';
+import AuctionTable from '../components/AuctionTable/AuctionTable';
 import FAQ from '../../faq/FAQ';
 import egg from '../../../public/images/earn/egg.png';
 import astro from '../../../public/images/earn/astro.png';
 import orbit from '../../../public/images/earn/orbit.png';
 import yellowStar from '../../../public/images/earn/yellowStar.png';
 import ufo from '../../../public/images/earn/ufo.png';
-import mobileAstro from '../../../public/images/earn/mobileAstro.png';
 
 import styles from './CommunityAuctions.module.css';
 
@@ -968,7 +968,8 @@ const CommunityAuctions = props => {
             </svg>
           </div>
         </div>
-        {content}
+        {/* {content} */}
+        {/* <AuctionTable /> */}
       </div>
       <div className={styles.auction__burnedContainer}>
         <div className={styles.auction__burnedInner}>

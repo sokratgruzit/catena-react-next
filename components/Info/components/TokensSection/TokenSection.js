@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
+import { useDispatch, useSelector } from 'react-redux';
 
 import Button from '../../../UI/button/Button';
 import CornerDecor from '../../../UI/cornerDecor/CornerDecor';
@@ -22,6 +23,9 @@ import styles from './TokenSection.module.css';
 
 const TokenSection = ({ data }) => {
   const router = useRouter();
+  const dispatch = useDispatch();
+  const favoritesState = useSelector(state => state.favorites);
+
   const [favorites, setFavorites] = useState([]);
 
   useEffect(() => {
@@ -86,6 +90,19 @@ const TokenSection = ({ data }) => {
                     }
                   />
                 </div>
+                <button
+                  onClick={() =>
+                    dispatch({
+                      type: 'ADD_FAVORITE',
+                      payload: 'shitcoin',
+                    })
+                  }
+                >
+                  The test test
+                </button>
+                <button onClick={() => console.log(favoritesState)}>
+                  the fuck is going on
+                </button>
                 <div className={styles.prices}>
                   <p className={styles.price}>$ {data?.current_price}</p>
                   <div className={`${styles.price_change} `}>

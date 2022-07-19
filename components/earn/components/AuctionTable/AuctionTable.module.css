@@ -1,0 +1,50 @@
+.auction__table {
+  width: calc(100% - 463px);
+  padding: 20px 20px 0 20px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.auction__finished {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.auction__tabInner {
+  background-color: red;
+  display: flex;
+  cursor: pointer;
+  padding: 5px;
+  justify-content: center;
+}
+.Activity__filterWrap {
+  width: fit-content;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  /* padding: 3px 1px; */
+  padding: 5px;
+  border-radius: 4px;
+  /* background-color: #1d2833; */
+
+}
+
+.Activity__filter {
+  display: flex;
+  flex-direction: row;
+  margin-left: auto;
+  margin-right: auto;
+}
+.Activity__filter__item {
+  border-radius: 4px;
+  padding: 6px 12px;
+  cursor: pointer;
+  margin:0 2px;
+}
+
+.Activity__filterActive {
+  background-color: rgba(255, 255, 255, 0.1)!important;
+}
