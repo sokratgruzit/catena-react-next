@@ -3,8 +3,6 @@ import { useRouter } from 'next/router';
 // import { MongoClient } from 'mongodb';
 import Image from 'next/image';
 
-import InfoRoutes from '../../../../components/Info/components/InfoRoutes/InfoRoutes';
-import SearchBar from '../../../../components/Info/components/SearchBar/SearchBar';
 import TokenSection from '../../../../components/Info/components/TokensSection/TokenSection';
 import BackgroundImg from '../../../../public/images/Info/background/background.png';
 

@@ -79,7 +79,6 @@ const Header = () => {
   const [device, setDevice] = useState(null);
   const walletModal = useSelector(state => state.connect.walletModal);
   const isConnected = useSelector(state => state.connect.isConnected);
-  // const [isConnected, setIsConnected] = useState(false);
   const [balance, setBalance] = useState(0);
   const [stickHead, setStickHead] = useState(false);
   const { t } = useTranslation('header');
@@ -285,7 +284,7 @@ const Header = () => {
     } else {
       setBalance(0);
     }
-    console.log(isConnected);
+    // console.log(isConnected);
   }, [account, isConnected]);
 
   useEffect(() => {
@@ -642,7 +641,7 @@ const Header = () => {
                     fill='#FF7152'
                   />
                 </svg>
-                ${isConnected ? balance : 0}
+                ${isConnected && isActive ? balance : 0}
               </div>
               <div className={`${styles.headerLangs}`}>
                 <div
@@ -975,9 +974,11 @@ const Header = () => {
                 </div>
               </div>
               <div
-                className={`${isConnected ? styles.headerNotConnected : ''} ${
-                  styles.headerConnectBtnContainer
-                } ${activeSettings ? styles.transformRight : ''}`}
+                className={`${
+                  isConnected && isActive ? styles.headerNotConnected : ''
+                } ${styles.headerConnectBtnContainer} ${
+                  activeSettings ? styles.transformRight : ''
+                }`}
               >
                 <Button
                   title={'Connect Wallet'}
@@ -993,7 +994,7 @@ const Header = () => {
               </div>
               <div
                 className={`${styles.headerConnected} ${
-                  isConnected ? '' : styles.headerNotConnected
+                  isConnected && isActive ? '' : styles.headerNotConnected
                 } ${activeSettings ? styles.transformRight : ''}`}
               >
                 <div
@@ -1012,7 +1013,7 @@ const Header = () => {
                     />
                     <i></i>
                   </div>
-                  <span>{isConnected ? account : ''}</span>
+                  <span>{isConnected && isActive ? account : ''}</span>
                   <div className={styles.headerConnectedBtnArrow}>
                     <i></i>
                     <div className={styles.headerConnectedBtnArrowSvg}>
@@ -1058,7 +1059,7 @@ const Header = () => {
           <div className={styles.headerConnectedModalInner}>
             <div className={styles.headerConnectedModalAddress}>
               <div>
-                <span>{isConnected ? account : ''}</span>
+                <span>{isConnected && isActive ? account : ''}</span>
                 <span>metamask</span>
               </div>
               <svg

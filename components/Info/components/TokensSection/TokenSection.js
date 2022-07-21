@@ -24,27 +24,8 @@ import styles from './TokenSection.module.css';
 const TokenSection = ({ data }) => {
   const router = useRouter();
   const dispatch = useDispatch();
-  const favoritesState = useSelector(state => state.favorites);
+  const favTokens = useSelector(state => state.favorites.tokens);
 
-  const [favorites, setFavorites] = useState([]);
-
-  useEffect(() => {
-    setFavorites(JSON.parse(localStorage.getItem('favorites')) || []);
-  }, []);
-
-  useEffect(() => {
-    if (favorites?.length > 0) {
-      localStorage.setItem('favorites', JSON.stringify(favorites));
-    }
-  }, [favorites]);
-
-  const addFavorite = coin => {
-    if (favorites?.includes(coin)) return coin;
-    setFavorites(prevFav => [...prevFav, coin]);
-  };
-  const removeFavorite = coin => {
-    setFavorites(favorites?.filter(fav => fav !== coin));
-  };
   return (
     <>
       {data && (
@@ -65,7 +46,9 @@ const TokenSection = ({ data }) => {
                 className={styles.starSVG}
                 onClick={() => router.push(`/info/tokens/watchlist`)}
               />
-              <div className={styles.favCount}>3</div>
+              {favTokens.length > 0 && (
+                <div className={styles.favCount}>{favTokens.length}</div>
+              )}
             </div>
           </div>
           <SearchBar />
@@ -79,30 +62,23 @@ const TokenSection = ({ data }) => {
                   <p>{data?.name}</p>
                   <StarSVG
                     className={`${styles.starSVG} ${
-                      favorites?.includes(data.name)
+                      favTokens?.includes(data.name)
                         ? styles.activeSVG
                         : undefined
                     }`}
                     onClick={() =>
-                      favorites?.includes(data.name)
-                        ? removeFavorite(data.name)
-                        : addFavorite(data.name)
+                      favTokens?.includes(data.name)
+                        ? dispatch({
+                            type: 'REMOVE_FAVORITE_TOKEN',
+                            payload: data.name,
+                          })
+                        : dispatch({
+                            type: 'ADD_FAVORITE_TOKEN',
+                            payload: data.name,
+                          })
                     }
                   />
                 </div>
-                <button
-                  onClick={() =>
-                    dispatch({
-                      type: 'ADD_FAVORITE',
-                      payload: 'shitcoin',
-                    })
-                  }
-                >
-                  The test test
-                </button>
-                <button onClick={() => console.log(favoritesState)}>
-                  the fuck is going on
-                </button>
                 <div className={styles.prices}>
                   <p className={styles.price}>$ {data?.current_price}</p>
                   <div className={`${styles.price_change} `}>

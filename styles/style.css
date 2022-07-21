@@ -545,28 +545,15 @@
   display: flex;
   flex-direction: column;
   border: 1px solid transparent;
-  background-image: -webkit-gradient(
-      linear,
-      left bottom,
-      left top,
-      from(#00050f),
-      to(#00050f)
-    ),
-    -webkit-gradient(linear, left bottom, left top, from(#7464d7), to(rgba(116, 100, 215, 0.6))),
-    -webkit-gradient(linear, left bottom, left top, from(#7464d7), to(rgba(116, 100, 215, 0.6))),
-    -webkit-gradient(linear, left bottom, left top, from(#7464d7), to(rgba(116, 100, 215, 0.6))),
-    -webkit-gradient(linear, left bottom, left top, from(#7464d7), to(rgba(116, 100, 215, 0.6)));
-  background-image: linear-gradient(0deg, #00050f, #00050f),
-    linear-gradient(0deg, #7464d7, rgba(116, 100, 215, 0.6)),
-    linear-gradient(0deg, #7464d7, rgba(116, 100, 215, 0.6)),
-    linear-gradient(0deg, #7464d7, rgba(116, 100, 215, 0.6)),
-    linear-gradient(0deg, #7464d7, rgba(116, 100, 215, 0.6));
   background-origin: padding-box, border-box, border-box, border-box, border-box;
   background-repeat: no-repeat;
   background-size: 100% 100%, 20px 20px, 20px 20px, 20px 20px, 20px 20px;
   background-position: 0 0, 0 0, 100% 0, 0 100%, 100% 100%;
   padding: 0px 30px;
   margin-bottom: 30px;
+}
+.stack-box__double{
+  position: relative;
 }
 .stack-section .stack-box__double {
   display: flex;
@@ -603,6 +590,9 @@
 
 .stack-section .stack-box .stack-header .right-side {
   float: right;
+}
+.stack-box{
+  position: relative;
 }
 .stack-section .stack-box .stack-header .right-side .sr-btn-wrap {
   flex-wrap: wrap;
@@ -831,24 +821,9 @@
   position: relative;
 }
 .table-section .rounded-tbl {
+  position: relative;
   width: 100%;
   border: 1px solid transparent;
-  background-image: -webkit-gradient(
-      linear,
-      left bottom,
-      left top,
-      from(#00050f),
-      to(#00050f)
-    ),
-    -webkit-gradient(linear, left bottom, left top, from(#7464d7), to(rgba(116, 100, 215, 0.6))),
-    -webkit-gradient(linear, left bottom, left top, from(#7464d7), to(rgba(116, 100, 215, 0.6))),
-    -webkit-gradient(linear, left bottom, left top, from(#7464d7), to(rgba(116, 100, 215, 0.6))),
-    -webkit-gradient(linear, left bottom, left top, from(#7464d7), to(rgba(116, 100, 215, 0.6)));
-  background-image: linear-gradient(0deg, #00050f, #00050f),
-    linear-gradient(0deg, #7464d7, rgba(116, 100, 215, 0.6)),
-    linear-gradient(0deg, #7464d7, rgba(116, 100, 215, 0.6)),
-    linear-gradient(0deg, #7464d7, rgba(116, 100, 215, 0.6)),
-    linear-gradient(0deg, #7464d7, rgba(116, 100, 215, 0.6));
   background-origin: padding-box, border-box, border-box, border-box, border-box;
   background-repeat: no-repeat;
   background-size: 100% 100%, 20px 20px, 20px 20px, 20px 20px, 20px 20px;

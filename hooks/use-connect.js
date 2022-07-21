@@ -15,6 +15,7 @@ const useConnect = () => {
 
   const isConnected = useSelector(state => state.connect.isConnected);
   const providerType = useSelector(state => state.connect.providerType);
+
   // Init Loading
   useEffect(() => {
     async function fetchData() {
@@ -47,14 +48,26 @@ const useConnect = () => {
     handleIsActive();
   }, [handleIsActive]);
 
+  //when disconnected from Metamask update state
+  useEffect(() => {
+    if (!isActive) {
+      dispatch({
+        type: 'CONNECT',
+        payload: {
+          isConnected: false,
+          providerType: '',
+        },
+      });
+    }
+  }, [isActive]);
+
   // Connect to wallet
   const connect = async providerType => {
     setShouldDisable(true);
     try {
       if (providerType === 'metaMask') {
-        await activate(injected).then(() => {
+        await activate(injected).then(ts => {
           setShouldDisable(false);
-          console.log('connect');
           dispatch({
             type: 'CONNECT',
             payload: {
