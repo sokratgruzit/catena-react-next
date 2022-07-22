@@ -1,7 +1,9 @@
 import React from 'react';
 
-const Collections = () => {
-  return <div>Collections</div>;
+import Collections from '../../../components/nfts/Collections';
+
+const index = () => {
+  return <Collections />;
 };
 
-export default Collections;
+export default index;

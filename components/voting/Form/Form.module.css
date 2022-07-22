@@ -1,0 +1,221 @@
+.ProposalForm__wrapper {
+  margin-top: 150px !important;
+}
+.ProposalForm__backBtn {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-right: auto;
+}
+.ProposalForm__header {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  width: 600px;
+}
+.ProposalForm__header svg {
+  margin-right: 7px;
+}
+.ProposalForm__inner {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 600px;
+  background-color: rgba(255, 255, 255, 0.04);
+  position: relative;
+  margin-bottom: 150px;
+}
+.ProposalForm {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.ProposalForm h1 {
+  margin: 10px 0 30px 0;
+}
+.ProposalForm__input {
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  width: 540px;
+  color: #ffffff;
+  padding-left: 15px;
+  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+}
+.ProposalForm__input:focus {
+  border-color: rgba(5, 0, 255, 1);
+}
+.ProposalForm__title input {
+  height: 44px;
+}
+.ProposalForm__title p {
+  margin-bottom: 8px;
+}
+.ProposalForm__title {
+  margin-bottom: 28px;
+}
+.ProposalForm__content p:nth-child(2) {
+  margin-bottom: 8px;
+}
+.ProposalForm__backBtn {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.ProposalForm__backBtn p {
+  opacity: 1 !important;
+  color: rgba(255, 113, 82, 1);
+}
+.ProposalForm__content textarea {
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  width: 540px;
+  color: #ffffff;
+  height: 244px;
+  resize: none;
+  padding-left: 15px;
+  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+}
+.ProposalForm__content:focus {
+  border-color: rgba(5, 0, 255, 1);
+}
+.ProposalForm__content textarea:focus {
+  border-color: rgba(5, 0, 255, 1);
+}
+.ProposalForm__bottomBorder {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin: 50px auto 40px auto;
+  display: flex;
+  width: 100%;
+}
+.ProposalForm__choices input {
+  height: 44px;
+  margin: 8px 0;
+  padding: 0 16px;
+}
+.ProposalForm__addBtn__inner {
+  /* border: 1px solid #ffffff; */
+  box-sizing: border-box;
+  border-radius: 4px;
+  padding: 8px 16px;
+}
+.ProposalForm__addBtn svg {
+  margin-right: 5px;
+}
+.ProposalForm p {
+  opacity: 0.5;
+}
+.ProposalForm__addBtn {
+  margin-top: 25px;
+}
+.ProposalForm__actions {
+  display: flex;
+  flex-direction: column;
+}
+.ProposalForm__actionsWrap {
+  display: flex;
+}
+.ProposalForm__actionsWrap input {
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  color: #ffffff;
+  width: 255px;
+  padding: 16px 0 16px 14px;
+  margin-top: 8px;
+}
+.ProposalForm__date {
+  margin-right: 30px;
+}
+.ProposalForm__actions > p {
+  margin: 0 0 40px 0;
+  opacity: 1;
+}
+.marginTop {
+  margin-top: 25px;
+}
+.ProposalForm__snapShot {
+  margin: 26px 0;
+  display: flex;
+  align-items: center;
+}
+.ProposalForm__snapShot p {
+  opacity: 1;
+  margin-right: 15px;
+  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+}
+.ProposalForm__snapShot svg {
+  margin-left: 7px;
+  cursor: pointer;
+}
+.ProposalForm__snapShot a {
+  color: rgba(5, 0, 255, 1);
+  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+}
+.ProposalForm__date input[type="date"]::-webkit-datetime-edit-text,
+.ProposalForm__date input[type="date"]::-webkit-datetime-edit-month-field,
+.ProposalForm__date input[type="date"]::-webkit-datetime-edit-day-field,
+.ProposalForm__date input[type="date"]::-webkit-datetime-edit-year-field {
+  opacity: 0.7;
+}
+.hover {
+  display: flex;
+  align-items: center;
+}
+.hover a:hover {
+  color: #ff7152;
+}
+.hover:hover .svgHoverOrange path {
+  stroke: #ff7152;
+}
+.ProposalForm__backBtn:hover .blueHover {
+  color: #0500ff;
+}
+.ProposalForm__snapShot,
+.ProposalForm__backBtn p,
+.svgHoverBlue path,
+.ProposalForm__snapShot svg,
+.svgHoverBlue,
+.svgHoverOrange path {
+  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+}
+.ProposalForm__backBtn:hover .svgHoverBlue {
+  transform: translateX(-5px);
+}
+.ProposalForm__backBtn:hover .svgHoverBlue path {
+  fill: #0500ff;
+}
+/*Laptop 1440*/
+@media (max-width: 1900px) {
+}
+/*Ipad Pro 1024*/
+@media (max-width: 1300px) {
+}
+/*Ipad 768*/
+@media (max-width: 1023px) {
+}
+/*Mobile 320*/
+@media (max-width: 767px) {
+  .ProposalForm {
+    width: 350px;
+  }
+  .ProposalForm__header {
+    width: 100%;
+  }
+  .ProposalForm__inner {
+    width: 100%;
+  }
+  .ProposalForm__input {
+    width: 100%;
+  }
+  .ProposalForm__content textarea {
+    width: 100%;
+  }
+  .ProposalForm__actionsWrap {
+    flex-direction: column;
+  }
+}

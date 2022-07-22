@@ -338,6 +338,14 @@
   dependencies:
     "tslib" "^2.4.0"
 
+"@szhsin/react-menu@^3.1.1":
+  "integrity" "sha512-IdHLyH61M+KqjTrvqglKo7JnbC0GIkg4OCtlXBxQPEjx/ecR5g0Iycqm+SG3rObEoniLZEz32iJkefve/LAHMA=="
+  "resolved" "https://registry.npmjs.org/@szhsin/react-menu/-/react-menu-3.1.1.tgz"
+  "version" "3.1.1"
+  dependencies:
+    "prop-types" "^15.7.2"
+    "react-transition-state" "^1.1.4"
+
 "@szmarczak/http-timer@^1.1.2":
   "integrity" "sha512-XIB2XbzHTN6ieIjfIMV9hlVcfPU26s2vafYWQcZHWXHOxiaRZYEDKEwdl129Zyg50+foYV2jCgtrqSA6qNuNSA=="
   "resolved" "https://registry.npmjs.org/@szmarczak/http-timer/-/http-timer-1.1.2.tgz"
@@ -3578,7 +3586,7 @@
   "resolved" "https://registry.npmjs.org/process/-/process-0.11.10.tgz"
   "version" "0.11.10"
 
-"prop-types@^15.5.10", "prop-types@^15.8.1":
+"prop-types@^15.5.10", "prop-types@^15.7.2", "prop-types@^15.8.1":
   "integrity" "sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg=="
   "resolved" "https://registry.npmjs.org/prop-types/-/prop-types-15.8.1.tgz"
   "version" "15.8.1"
@@ -3715,7 +3723,7 @@
   dependencies:
     "ua-parser-js" "^1.0.2"
 
-"react-dom@^16.8 || ^17.0 || ^18.0", "react-dom@^17.0.2 || ^18.0.0-0", "react-dom@>= 0.14.0", "react-dom@>=16", "react-dom@18.2.0":
+"react-dom@^16.8 || ^17.0 || ^18.0", "react-dom@^17.0.2 || ^18.0.0-0", "react-dom@>= 0.14.0", "react-dom@>=16", "react-dom@>=16.14.0", "react-dom@>=16.8.0", "react-dom@18.2.0":
   "integrity" "sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g=="
   "resolved" "https://registry.npmjs.org/react-dom/-/react-dom-18.2.0.tgz"
   "version" "18.2.0"
@@ -3769,7 +3777,12 @@
   dependencies:
     "clsx" "^1.1.1"
 
-"react@^16.8 || ^17.0 || ^18.0", "react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^16.9.0 || ^17.0.0 || ^18", "react@^17.0.2 || ^18.0.0-0", "react@^18.2.0", "react@>= 0.14.0", "react@>= 16.8.0", "react@>= 16.8.0 || 17.x.x || ^18.0.0-0", "react@>=15", "react@>=16", "react@>=16.8", "react@18.2.0":
+"react-transition-state@^1.1.4":
+  "integrity" "sha512-6nQLWWx95gYazCm6OdtD1zGbRiirvVXPrDtHAGsYb4xs9spMM7bA8Vx77KCpjL8PJ8qz1lXFGz2PTboCSvt7iw=="
+  "resolved" "https://registry.npmjs.org/react-transition-state/-/react-transition-state-1.1.4.tgz"
+  "version" "1.1.4"
+
+"react@^16.8 || ^17.0 || ^18.0", "react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^16.9.0 || ^17.0.0 || ^18", "react@^17.0.2 || ^18.0.0-0", "react@^18.2.0", "react@>= 0.14.0", "react@>= 16.8.0", "react@>= 16.8.0 || 17.x.x || ^18.0.0-0", "react@>=15", "react@>=16", "react@>=16.14.0", "react@>=16.8", "react@>=16.8.0", "react@18.2.0":
   "integrity" "sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ=="
   "resolved" "https://registry.npmjs.org/react/-/react-18.2.0.tgz"
   "version" "18.2.0"
