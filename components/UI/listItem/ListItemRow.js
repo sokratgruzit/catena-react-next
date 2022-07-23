@@ -769,6 +769,147 @@ const ListItemRow = props => {
       </div>
     );
   }
+  if (type === 'nft_buy') {
+    obj = (
+      <div key={data.id} className={styles.buy__outer}>
+        <div className={styles.buy__item}>{data.event}</div>
+        <div className={styles.buy__item}>
+          <div className={styles.buy__itemPrice}>
+            <p>
+              <span>CMCX</span>
+              {data.cmcx}
+            </p>
+            <p className={'font_13'}>{data.usd}</p>
+          </div>
+        </div>
+        <div className={styles.buy__item}>
+          <img src={data.fromImg} />
+          <div className={styles.buy__itemTitles}>
+            <p>{data.from}</p>
+            <p>{data.fromAddress}</p>
+          </div>
+        </div>
+        <div className={styles.buy__item}>
+          <img src={data.toImg} />
+          <div className={styles.buy__itemTitles}>
+            <p>{data.to}</p>
+            <p>{data.toAddress}</p>
+          </div>
+        </div>
+        <div className={styles.buy__item}>
+          <div className={styles.buy__item__inner}>
+            <div className={styles.buy__item__date}>
+              <p>{data.date},</p>
+              <p>{data.time}</p>
+            </div>
+            <Link className={styles.toTransaction} href={`/sometrasaction`}>
+              <svg
+                width='15'
+                height='15'
+                viewBox='0 0 15 15'
+                fill='none'
+                xmlns='http://www.w3.org/2000/svg'
+              >
+                <path
+                  fillRule='evenodd'
+                  clipRule='evenodd'
+                  d='M13.3952 1.64558C13.6577 1.90306 13.6617 2.32458 13.4043 2.58706L8.30899 7.78113C8.0515 8.04361 7.62999 8.04766 7.36751 7.79017C7.10503 7.53268 7.10098 7.11117 7.35847 6.84869L12.4537 1.65462C12.7112 1.39214 13.1327 1.38809 13.3952 1.64558Z'
+                  fill='#0500FF'
+                />
+                <path
+                  fillRule='evenodd'
+                  clipRule='evenodd'
+                  d='M9.7793 1.61302C9.7793 1.24534 10.0774 0.947266 10.4451 0.947266H13.4276C13.7953 0.947266 14.0934 1.24534 14.0934 1.61302V4.65346C14.0934 5.02115 13.7953 5.31922 13.4276 5.31922C13.06 5.31922 12.7619 5.02115 12.7619 4.65346V2.27878H10.4451C10.0774 2.27878 9.7793 1.98071 9.7793 1.61302Z'
+                  fill='#0500FF'
+                />
+                <path
+                  fillRule='evenodd'
+                  clipRule='evenodd'
+                  d='M1.53422 2.17612C2.41894 1.27423 3.72751 0.947266 5.34937 0.947266H6.59211C6.9598 0.947266 7.25787 1.24534 7.25787 1.61302C7.25787 1.98071 6.9598 2.27878 6.59211 2.27878H5.34937C3.86435 2.27878 2.9981 2.58524 2.48474 3.10856C1.96826 3.63505 1.6655 4.52643 1.6655 6.04699V9.84754C1.6655 11.3681 1.96826 12.2595 2.48474 12.786C2.9981 13.3093 3.86435 13.6157 5.34937 13.6157H9.07761C10.5626 13.6157 11.4289 13.3093 11.9422 12.786C12.4587 12.2595 12.7615 11.3681 12.7615 9.84754V8.58069C12.7615 8.213 13.0595 7.91493 13.4272 7.91493C13.7949 7.91493 14.093 8.213 14.093 8.58069V9.84754C14.093 11.4941 13.7744 12.8197 12.8928 13.7184C12.008 14.6203 10.6995 14.9473 9.07761 14.9473H5.34937C3.72751 14.9473 2.41894 14.6203 1.53422 13.7184C0.652602 12.8197 0.333984 11.4941 0.333984 9.84754V6.04699C0.333984 4.40043 0.652602 3.07483 1.53422 2.17612Z'
+                  fill='#0500FF'
+                />
+              </svg>
+            </Link>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (type === 'nft_buy_mobile') {
+    obj = (
+      <>
+        <div className={styles.mobBuy__item}>
+          <p className={styles.item__label}>Event</p>
+          <p className={styles.item__data}>{data.event}</p>
+        </div>
+        <div className={styles.mobBuy__item}>
+          <p className={styles.item__label}>Price</p>
+          <div className={styles.item__data__inner}>
+            <p>
+              <span>CMCX</span> {data.cmcx}
+            </p>
+            <p className={styles.item__teaser}>{data.usd}</p>
+          </div>
+        </div>
+        <div className={styles.mobBuy__item}>
+          <p className={styles.item__label}>From</p>
+          <div className={styles.item__data}>
+            <img src={data.fromImg} />
+            <div className={styles.item__data__inner}>
+              <p>{data.from}</p>
+              <p>{data.fromAddress}</p>
+            </div>
+          </div>
+        </div>
+        <div className={styles.mobBuy__item}>
+          <p className={styles.item__label}>To</p>
+          <div className={styles.item__data}>
+            <img src={data.toImg} />
+            <div className={styles.item__data__inner}>
+              <p>{data.to}</p>
+              <p>{data.toAddress}</p>
+            </div>
+          </div>
+        </div>
+        <div className={styles.mobBuy__item}>
+          <p className={styles.item__label}>Date</p>
+          <div className={styles.item__data}>
+            <p>{data.date}</p>
+            <p>{data.time}</p>
+            <Link className={styles.TableRow__link} href={`/sometransaction`}>
+              <svg
+                width='14'
+                height='15'
+                viewBox='0 0 14 15'
+                fill='none'
+                xmlns='http://www.w3.org/2000/svg'
+              >
+                <path
+                  fillRule='evenodd'
+                  clipRule='evenodd'
+                  d='M13.281 1.14362C13.5434 1.40111 13.5475 1.82262 13.29 2.0851L8.19473 7.27918C7.93724 7.54166 7.51573 7.5457 7.25325 7.28822C6.99077 7.03073 6.98672 6.60922 7.24421 6.34674L12.3395 1.15266C12.597 0.890184 13.0185 0.886136 13.281 1.14362Z'
+                  fill='#0500FF'
+                />
+                <path
+                  fillRule='evenodd'
+                  clipRule='evenodd'
+                  d='M9.66406 1.11302C9.66406 0.745336 9.96213 0.447266 10.3298 0.447266H13.3124C13.6801 0.447266 13.9782 0.745336 13.9782 1.11302V4.15346C13.9782 4.52115 13.6801 4.81922 13.3124 4.81922C12.9447 4.81922 12.6466 4.52115 12.6466 4.15346V1.77878H10.3298C9.96213 1.77878 9.66406 1.48071 9.66406 1.11302Z'
+                  fill='#0500FF'
+                />
+                <path
+                  fillRule='evenodd'
+                  clipRule='evenodd'
+                  d='M1.41898 1.67612C2.30371 0.774233 3.61227 0.447266 5.23413 0.447266H6.47688C6.84457 0.447266 7.14264 0.745336 7.14264 1.11302C7.14264 1.48071 6.84457 1.77878 6.47688 1.77878H5.23413C3.74911 1.77878 2.88287 2.08524 2.3695 2.60856C1.85302 3.13505 1.55027 4.02643 1.55027 5.54699V9.34754C1.55027 10.8681 1.85302 11.7595 2.3695 12.286C2.88287 12.8093 3.74911 13.1157 5.23413 13.1157H8.96238C10.4474 13.1157 11.3136 12.8093 11.827 12.286C12.3435 11.7595 12.6462 10.8681 12.6462 9.34754V8.08069C12.6462 7.713 12.9443 7.41493 13.312 7.41493C13.6797 7.41493 13.9778 7.713 13.9778 8.08069V9.34754C13.9778 10.9941 13.6591 12.3197 12.7775 13.2184C11.8928 14.1203 10.5842 14.4473 8.96238 14.4473H5.23413C3.61227 14.4473 2.30371 14.1203 1.41898 13.2184C0.537368 12.3197 0.21875 10.9941 0.21875 9.34754V5.54699C0.21875 3.90043 0.537368 2.57483 1.41898 1.67612Z'
+                  fill='#0500FF'
+                />
+              </svg>
+            </Link>
+          </div>
+        </div>
+      </>
+    );
+  }
 
   return obj;
 };

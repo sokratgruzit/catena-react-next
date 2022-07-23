@@ -731,6 +731,62 @@
 
 /*InfoTable-Transactions End*/
 
+.buy__outer {
+  display: flex;
+  width: 100%;
+  border-bottom: 1px dashed #111826;
+  align-items: center;
+  padding: 20px 0px;
+}
+.buy__item {
+  width: 20%;
+}
+.buy__item__inner {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.buy__item__date {
+  flex-direction: column;
+  padding-right: 40px;
+}
+.toTransaction {
+  transition: .5s;
+}
+.toTransaction svg {
+  transition: .5s;
+}
+.toTransaction:hover svg path {
+  fill: #FF7152;
+}
+.mobBuy__item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border-bottom: 1px dashed #111826;
+  padding: 20px 0px;
+}
+.item__label {
+  color: #0500ff;
+}
+.item__data {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.item__data__inner {
+  display: flex;
+  margin-left: auto;
+  flex-direction: column;
+}
+.item__teaser {
+  opacity: 0.7;
+}
+.item__data__inner span {
+  color: #ff7152;
+}
+
 /*Ipad 768*/
 @media (max-width: 1023px) {
 }

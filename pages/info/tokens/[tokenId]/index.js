@@ -48,14 +48,13 @@ const InfoTokensInnerPage = props => {
 export default InfoTokensInnerPage;
 
 export async function getStaticPaths(context) {
+  console.log(context);
   return {
     fallback: true,
     paths: [
-      {
-        params: {
-          tokenId: 'bitcoin',
-        },
-      },
+      { params: { tokenId: 'bitcoin' }, locale: 'ge' },
+      { params: { tokenId: 'bitcoin' }, locale: 'en' },
+      { params: { tokenId: 'bitcoin' }, locale: 'fr' },
       {
         params: {
           tokenId: 'ethereum',

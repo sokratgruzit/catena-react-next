@@ -1,9 +1,16 @@
 import styles from './DashboardAssetsSlider.module.css';
-import { Swiper, SwiperSlide } from 'swiper/react';
-// import 'swiper/swiper.min.css';
+import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
+import { Pagination, Navigation } from 'swiper';
+
+import SlideNextButton from '../SlideIcons/SlideIcons';
+
 import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 
 const DashboardAssetsSlider = () => {
+  const swiper = useSwiper();
+
   return (
     <div className={`container ${styles.marginTop}`}>
       <div className={styles.dashboardMid__wrapper}>
@@ -48,10 +55,18 @@ const DashboardAssetsSlider = () => {
             ></input>
           </div>
           <Swiper
-            spaceBetween={100}
             slidesPerView={'auto'}
+            keyboard={{
+              enabled: true,
+            }}
+            spaceBetween={20}
+            pagination={{
+              type: 'progressbar',
+            }}
+            navigation={true}
+            modules={[Pagination, Navigation]}
+            className='mySwiper'
             freeMode={true}
-            loop={true}
             scrollbar={true}
             mousewheel={true}
           >
@@ -607,6 +622,7 @@ const DashboardAssetsSlider = () => {
                 </div>
               </div>
             </SwiperSlide>
+            <SlideNextButton />
           </Swiper>
         </div>
       </div>

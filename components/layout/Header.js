@@ -198,10 +198,14 @@ const Header = () => {
 
   const router = useRouter();
 
-  const { locale } = router;
+  const { locale, pathname, asPath, query } = useRouter();
   const changeLanguage = loc => {
     // i18n.changeLanguage(locale.toLowerCase());
-    router.push('', '', { locale: loc.toLowerCase() });
+    router.push({ pathname, query }, asPath, { locale: loc.toLowerCase() });
+    // router.push('', '', {
+    //   locale: loc.toLowerCase(),
+    //   buyId: router.query.buyId,
+    // });
   };
 
   let web3Obj = library;

@@ -148,3 +148,18 @@
     margin-top: 10px;
   }
 }
+
+.icon{
+  border:none;
+  background: none;
+  cursor: pointer;
+}
+
+.icons{
+  display: flex;
+  margin-left: 93%;
+  width:7%;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 0.5rem;
+}
