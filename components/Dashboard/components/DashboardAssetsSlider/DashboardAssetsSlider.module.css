@@ -148,13 +148,11 @@
     margin-top: 10px;
   }
 }
-
 .icon{
   border:none;
   background: none;
   cursor: pointer;
 }
-
 .icons{
   display: flex;
   margin-left: 93%;
@@ -163,3 +161,16 @@
   align-items: center;
   margin-top: 0.5rem;
 }
+
+@media (max-width: 547px) {
+  .sliderHeader{
+    flex-wrap: wrap;
+  }
+  .sliderHeader__search{
+    width: 100%;
+    margin-top: 10px;
+  }
+}
+@media (max-width: 547px) {
+}
+

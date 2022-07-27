@@ -8,7 +8,10 @@ const Table = props => {
   let custom_th_text = '';
 
   if (props.type == 'nft_activity') {
-    custom_th = styles.th_activity;
+    custom_th = listStyles.th_activity;
+  }
+  if (props.type == 'nft_collections') {
+    custom_th = listStyles.th_collections;
   }
   if (props.type == 'dashboard') {
     custom_th = listStyles.th_dashboard;

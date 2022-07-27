@@ -11,7 +11,7 @@ import styles from './InfoTables.module.css';
 const InfoTablePool_Data = [
   {
     id: 0,
-    imgSrc: '../../images/Info/TopTokens/1.png',
+    imgSrc: '../../../images/Info/TopTokens/1.png',
     name: 'USDC/WBNB',
     volume_7d: 197.24,
     volume_24h: 327.09,
@@ -21,7 +21,7 @@ const InfoTablePool_Data = [
   },
   {
     id: 1,
-    imgSrc: '../../images/Info/TopTokens/2.png',
+    imgSrc: '../../../images/Info/TopTokens/2.png',
     name: 'WBNB/BUSD',
     volume_24h: 1.0,
     volume_7d: 333.99,
@@ -31,7 +31,7 @@ const InfoTablePool_Data = [
   },
   {
     id: 2,
-    imgSrc: '../../images/Info/TopTokens/3.png',
+    imgSrc: '../../../images/Info/TopTokens/3.png',
     name: 'USDT/WBNB',
     volume_7d: 371.04,
     volume_24h: 0.99,
@@ -41,7 +41,7 @@ const InfoTablePool_Data = [
   },
   {
     id: 3,
-    imgSrc: '../../images/Info/TopTokens/4.png',
+    imgSrc: '../../../images/Info/TopTokens/4.png',
     name: 'GSD/USDC',
     volume_7d: 163.73,
     volume_24h: 1,
@@ -51,7 +51,7 @@ const InfoTablePool_Data = [
   },
   {
     id: 4,
-    imgSrc: '../../images/Info/TopTokens/5.png',
+    imgSrc: '../../../images/Info/TopTokens/5.png',
     name: 'LUNA/BUSD',
     volume_7d: 143.11,
     volume_24h: 19.88,
@@ -61,7 +61,7 @@ const InfoTablePool_Data = [
   },
   {
     id: 5,
-    imgSrc: '../../images/Info/TopTokens/6.png',
+    imgSrc: '../../../images/Info/TopTokens/6.png',
     name: 'Core/WBNB',
     volume_24h: 0.00018,
     volume_7d: 333.99,
@@ -71,7 +71,7 @@ const InfoTablePool_Data = [
   },
   {
     id: 6,
-    imgSrc: '../../images/Info/TopTokens/7.png',
+    imgSrc: '../../../images/Info/TopTokens/7.png',
     name: 'LUNA/USDT',
     volume_7d: 371.04,
     volume_24h: 5.03,
@@ -81,7 +81,7 @@ const InfoTablePool_Data = [
   },
   {
     id: 7,
-    imgSrc: '../../images/Info/TopTokens/8.png',
+    imgSrc: '../../../images/Info/TopTokens/8.png',
     name: 'USDT/BUSD',
     volume_7d: 61.74,
     volume_24h: 1.44,
@@ -91,7 +91,7 @@ const InfoTablePool_Data = [
   },
   {
     id: 8,
-    imgSrc: '../../images/Info/TopTokens/9.png',
+    imgSrc: '../../../images/Info/TopTokens/9.png',
     name: 'GMT/USDC',
     volume_7d: 143.11,
     volume_24h: 30442.32,
@@ -101,7 +101,7 @@ const InfoTablePool_Data = [
   },
   {
     id: 9,
-    imgSrc: '../../images/Info/TopTokens/10.png',
+    imgSrc: '../../../images/Info/TopTokens/10.png',
     name: 'Core/BUSD',
     volume_7d: 333.99,
     volume_24h: 2060.94,

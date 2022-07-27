@@ -53,7 +53,10 @@ const SearchBar = () => {
     <>
       <div className={styles.section}>
         <div ref={wrapperRef} className={styles.SearchBar}>
-          <div className={styles.SearchBar__inputWrap}>
+          <div
+            style={{ zIndex: openSearchResults ? 101 : 10 }}
+            className={styles.SearchBar__inputWrap}
+          >
             <SearchIcon className={styles.SearchBar__icon} />
             <input
               className={styles.SearchBar__input}

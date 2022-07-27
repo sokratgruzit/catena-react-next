@@ -5,6 +5,7 @@ import Image from 'next/image';
 
 import TokenSection from '../../../../components/Info/components/TokensSection/TokenSection';
 import BackgroundImg from '../../../../public/images/Info/background/background.png';
+import DynamicNamespaces from 'next-translate/DynamicNamespaces';
 
 import styles from '../../../../components/Info/InfoPages.module.css';
 
@@ -23,11 +24,12 @@ const InfoTokensInngerPage_Data = {
 };
 
 const InfoTokensInnerPage = props => {
-  // const router = useRouter();
-  // const { id } = router.query;
+  const router = useRouter();
+  const { tokenId } = router.query;
   // fetch data by ID
 
   return (
+    // <DynamicNamespaces namespaces={['dynamic']} fallback='Loading...'>
     <div>
       <div className={styles.backgroundMain}>
         <Image
@@ -42,6 +44,7 @@ const InfoTokensInnerPage = props => {
         <TokenSection data={props.infoTokensDetails} />
       </div>
     </div>
+    // </DynamicNamespaces>
   );
 };
 
@@ -52,9 +55,14 @@ export async function getStaticPaths(context) {
   return {
     fallback: true,
     paths: [
-      { params: { tokenId: 'bitcoin' }, locale: 'ge' },
-      { params: { tokenId: 'bitcoin' }, locale: 'en' },
-      { params: { tokenId: 'bitcoin' }, locale: 'fr' },
+      // { params: { tokenId: 'bitcoin' }, locale: 'ge' },
+      // { params: { tokenId: 'bitcoin' }, locale: 'en' },
+      // { params: { tokenId: 'bitcoin' }, locale: 'fr' },
+      {
+        params: {
+          tokenId: 'bitcoin',
+        },
+      },
       {
         params: {
           tokenId: 'ethereum',
