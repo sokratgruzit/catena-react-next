@@ -12,6 +12,7 @@ import NftActivity from './Rows/nftActivity/NftActivity';
 import NftCollections from './Rows/nftCollections/NftCollections';
 import InfoTableTokens from './Rows/infoTableTokens/InfoTableTokens';
 import InfoTablePools from './Rows/infoTablePools/InfoTablePools';
+import InfoTableTransactions from './Rows/infoTableTransactions/InfoTableTransactions';
 
 import styles from './ListItemRow.module.css';
 
@@ -163,6 +164,14 @@ const ListItemRow = props => {
   if (type === 'info_table_pools')
     obj = (
       <InfoTablePools
+        data={data}
+        activeList={activeList}
+        mobileListOpener={mobileListOpener}
+      />
+    );
+  if (type === 'info_table_transactions')
+    obj = (
+      <InfoTableTransactions
         data={data}
         activeList={activeList}
         mobileListOpener={mobileListOpener}
@@ -334,67 +343,67 @@ const ListItemRow = props => {
     );
   }
 
-  if (type === 'info_table_transactions') {
-    obj = (
-      <div
-        onClick={() => {
-          mobileListOpener(data.hash);
-        }}
-        className={`${styles.rowItem} ${styles.InfoTransactionsRowItem}`}
-      >
-        {/* {textItem(data.action)} */}
-        <div className={`${styles.td} ${styles.transactionTableTextWrapper}`}>
-          <p className={styles.transactionTableText}>{data.action}</p>
-          <OpenSVG />
-        </div>
-        {textItem('$' + data.total_value + 'M')}
-        {multTextItem(
-          formatCurrency(data.token_1.amount),
-          data.token_1.token,
-          styles.InfoTransactionsRowItem__flex,
-        )}
-        {multTextItem(
-          formatCurrency(data.token_2.amount),
-          data.token_2.token,
-          styles.InfoTransactionsRowItem__flex,
-        )}
-        <div className={`${styles.td} ${styles.transactionTableTextWrapper}`}>
-          <p className={`${styles.transactionTableText} ${styles.blue}`}>
-            {data.account}
-          </p>
-          <OpenSVG />
-        </div>
-        {textItem(data.time)}
-        {plusItem(data.hash)}
-        {expandItem([
-          {
-            name: 'Total Value',
-            data: '$' + data.total_value + 'M',
-          },
-          {
-            name: 'Token Amount',
-            data: multTextItem(
-              formatCurrency(data.token_1.amount),
-              data.token_2.token,
-              styles.InfoTransactionsRowItem__responsive,
-            ),
-          },
-          {
-            name: 'Token Amount1',
-            data: multTextItem(
-              formatCurrency(data.token_2.amount),
-              data.token_2.token,
-              styles.InfoTransactionsRowItem__responsive,
-            ),
-          },
-          {
-            name: 'Account',
-            data: data.account,
-          },
-        ])}
-      </div>
-    );
-  }
+  // if (type === 'info_table_transactions') {
+  //   obj = (
+  //     <div
+  //       onClick={() => {
+  //         mobileListOpener(data.hash);
+  //       }}
+  //       className={`${styles.rowItem} ${styles.InfoTransactionsRowItem}`}
+  //     >
+  //       {/* {textItem(data.action)} */}
+  //       <div className={`${styles.td} ${styles.transactionTableTextWrapper}`}>
+  //         <p className={styles.transactionTableText}>{data.action}</p>
+  //         <OpenSVG />
+  //       </div>
+  //       {textItem('$' + data.total_value + 'M')}
+  //       {multTextItem(
+  //         formatCurrency(data.token_1.amount),
+  //         data.token_1.token,
+  //         styles.InfoTransactionsRowItem__flex,
+  //       )}
+  //       {multTextItem(
+  //         formatCurrency(data.token_2.amount),
+  //         data.token_2.token,
+  //         styles.InfoTransactionsRowItem__flex,
+  //       )}
+  //       <div className={`${styles.td} ${styles.transactionTableTextWrapper}`}>
+  //         <p className={`${styles.transactionTableText} ${styles.blue}`}>
+  //           {data.account}
+  //         </p>
+  //         <OpenSVG />
+  //       </div>
+  //       {textItem(data.time)}
+  //       {plusItem(data.hash)}
+  //       {expandItem([
+  //         {
+  //           name: 'Total Value',
+  //           data: '$' + data.total_value + 'M',
+  //         },
+  //         {
+  //           name: 'Token Amount',
+  //           data: multTextItem(
+  //             formatCurrency(data.token_1.amount),
+  //             data.token_2.token,
+  //             styles.InfoTransactionsRowItem__responsive,
+  //           ),
+  //         },
+  //         {
+  //           name: 'Token Amount1',
+  //           data: multTextItem(
+  //             formatCurrency(data.token_2.amount),
+  //             data.token_2.token,
+  //             styles.InfoTransactionsRowItem__responsive,
+  //           ),
+  //         },
+  //         {
+  //           name: 'Account',
+  //           data: data.account,
+  //         },
+  //       ])}
+  //     </div>
+  //   );
+  // }
   if (type === 'nft_buy') {
     obj = (
       <div key={data.id} className={styles.buy__outer}>
