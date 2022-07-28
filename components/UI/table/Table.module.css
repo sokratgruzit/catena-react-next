@@ -65,7 +65,7 @@
 /*    align-items: center;*/
 /*    justify-content: flex-end;*/
 /*}*/
-.th_activity:nth-child(1) {
+/* .th_activity:nth-child(1) {
     width: 16%;
 }
 .th_activity:nth-child(2) {
@@ -85,5 +85,5 @@
 .th_activity:nth-child(6) {
     width: auto;
     margin-left: auto;
-}
+} */
 

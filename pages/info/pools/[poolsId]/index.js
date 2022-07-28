@@ -50,7 +50,9 @@ const InfoPoolsInnerPage = props => {
         />
       </div>
       <div className={styles.section}>
-        <PoolsSection data={props.infoPoolsDetails} />
+        {props.infoPoolsDetails && (
+          <PoolsSection data={props.infoPoolsDetails} />
+        )}
       </div>
     </div>
   );

@@ -25,7 +25,7 @@
   position: relative;
   width: fit-content;
   margin: auto;
-  z-index: 101;
+  /* z-index: 101; */
 }
 
 .Activity__filterWrap{
