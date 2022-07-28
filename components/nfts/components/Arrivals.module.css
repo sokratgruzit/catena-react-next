@@ -1,0 +1,63 @@
+.Arrivals {
+    display: flex;
+    flex-direction: column;
+    padding-top: 60px;
+    width: 100%;
+}
+.Arrivals__item {
+    padding-top: 5px;
+    padding-bottom: 50px;
+}
+.Arrivals__btn {
+    display: flex;
+    align-items: center;
+    width: 78px;
+}
+.Arrivals__btnTxt {
+    padding-right: 5px;
+    color: #FFFFFF;
+    transition: .5s;
+}
+.Arrivals__btn:hover svg path{
+    fill: #0500FF;
+}
+.Arrivals__btn svg {
+    transition: 0.5s;
+}
+.Arrivals__btn:hover svg {
+    transform: translateX(5px);
+}
+.Arrivals__btn:hover .Arrivals__btnTxt {
+    color: #0500FF
+}
+.Arrivals__itemsList {
+    display: flex;
+    align-items: center;
+    width: 80%;
+    flex-wrap: wrap;
+    margin-left: auto;
+    margin-right: auto;
+    gap: 30px;
+}
+.Arrivals__newWindow {
+    display: flex;
+    align-items: center;}
+
+.Arrivals__newWindow:hover svg path {
+    fill: #FF7152;
+    transition: 0.5s;
+}
+.Arrivals__newWindow p {
+    color:#0500FF;
+    padding-right: 5px;
+    cursor: pointer;
+}
+.Arrivals__newWindow:hover p {
+    color: #FF7152;
+    transition: 0.5s;
+}
+.Arrivals__applyTo {
+    margin-left: auto;
+    padding-top: 60px;
+    padding-bottom: 40px;
+}

@@ -1,7 +1,8 @@
 import React from 'react';
+import Stack from '../../../components/Trade/Stack/Stack';
 
-const staking = () => {
-  return <div>staking</div>;
+const index = () => {
+  return <Stack />;
 };
 
-export default staking;
+export default index;

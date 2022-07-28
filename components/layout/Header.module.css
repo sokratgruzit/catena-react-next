@@ -3,10 +3,15 @@
   display: flex;
   height: 105px;
   align-items: center;
-  position: absolute!important;
+  position: fixed!important;
   top: 0px;
   left: 0px;
   z-index: 100!important;
+  transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+}
+.stickHeader {
+  background: rgba(0,5,15,.8);
+  box-shadow: 26px 16px 31px 0px #0000004D;
 }
 .headerLogo{
   display: flex;
@@ -74,13 +79,14 @@
   display: flex;
   align-items: center;
   width: 100%;
+  height: 100%;
   position: relative;
   justify-content: space-between;
 }
 .headerNav{
   display: flex;
   position: absolute;
-  top: 10px;
+  top: 40px;
   left: 0px;
   justify-content: center;
   width: calc(100% - 420px);
@@ -132,7 +138,7 @@
 }
 .headerNavLink > i{
   position: absolute;
-  height: 78px;
+  height: 106px;
   left: 0px;
   top: -40px;
   background: #ff7152;
@@ -150,25 +156,32 @@
   text-align: center;
   transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
   padding-top: 2px;
+  padding-bottom: 40px;
 }
-.activeTtl.headerNavLinkTtl{
-  color: rgba(255, 255, 255, .7);
+.headerNavLinkTtl svg{
+  display: none;
 }
 .activeMenu > i{
   transform: scaleX(1)!important;
   transition-delay: .4s;
+}
+.headerNavOpacity .headerNavLinkTtl:not(.activeTtl) {
+  color: #969BA6;
 }
 .headerNavLinkSubTtl a{
   white-space: nowrap;
   overflow: hidden;
   position: relative;
   z-index: 2;
+  margin-bottom: 10px;
 }
 .headerNavLinkSubTtl a:last-child{
   margin-bottom: auto;
 }
 .headerNavLinkSubTtl span{
   font-size: 14px;
+  transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+  opacity: .5;
 }
 .headerNavLinkSubTtl a > div{
   transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
@@ -177,11 +190,8 @@
 .activeMenuSub.headerNavLinkSubTtl a > div{
   transform: translateY(0%);
 }
-.headerNavLinkSubTtl a > div > span{
-  transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
-}
 .headerNavLinkSubTtl a:hover > div > span{
-  color: #0500ff;
+  opacity: 1;
 }
 .headerRight{
   display: flex;
@@ -200,13 +210,15 @@
   opacity: 0;
 }
 .headerRightOuter{
-  overflow: hidden;
   display: flex;
+  height: 100%;
 }
 .headerBalance{
   display: flex;
   align-items: center;
   margin-right: 15px;
+  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+  margin-left: auto;
 }
 .headerBalance svg{
   margin-right: 5px;
@@ -215,79 +227,136 @@
   display: flex;
   margin: 0px 15px;
   position: relative;
+  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+  height: 100%;
 }
 .headerLangNow{
   display: flex;
   align-items: center;
+  position: relative;
+  min-width: 60px;
+  height: 100%;
+  justify-content: center;
+}
+.headerLangNowMainTtl{
+  display: flex;
+  align-items: center;
   cursor: pointer;
 }
-.headerLangNow svg{
+.headerLangNowActive .headerLangNowMainTtl{
+  pointer-events: none;
+}
+.headerLangNowMainTtl svg{
   margin-right: 5px;
   transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
 }
-.headerLangNow path{
+.headerLangNowMainTtl path{
   transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
 }
-.headerLangNow:hover path{
+.headerLangNowMainTtl:hover path{
   fill: #ff7152;
 }
-.headerLangNow div{
-  overflow: hidden;
-  display: flex;
-}
-.headerLangNow span{
+.headerLangNowMainTtl span{
   transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
 }
-.headerLangNow:hover span{
+.headerLangNowMainTtl:hover span{
   color: #ff7152;
 }
-.headerLangNowActive svg{
-  transform: scale(0.3);
+.headerLangNowSvg {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.headerLangNow > i {
+  position: relative;
+  z-index: 1;
+  transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+  background: #ff7152;
+  height: 100%;
+  min-width: 0px;
+  transition-delay: .4s;
+}
+.headerLangsModalTtl{
+  font-size: 20px;
+  line-height: 22px;
+  margin-bottom: 15px;
+  position: relative;
+  z-index: 2;
+  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+  transform: translateY(-10px);
   opacity: 0;
 }
-.headerLangNowActive span{
-  opacity: 0;
+.headerLangsModalLink {
+  display: flex;
+  align-items: center;
+  padding: 20px 0px;
+  border-bottom: 1px dashed rgba(255,255,255,.2);
+  color: rgba(255,255,255,.7);
+  transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+  cursor: pointer;
+}
+.headerLangsModalLink:hover,.headerLangsModalLinkActive {
+  color: rgba(255,255,255,1);
+}
+.headerLangsModalLinkActive{
+  cursor: default;
+}
+.headerLangsModalLink div{
+  margin: 0px 5px;
+  color: inherit;
+  font-size: inherit;
+}
+.headerLangsModalLink:last-child{
+  border: none;
 }
 .headerSettingsBtn{
   display: flex;
   align-items: center;
   margin-left: 15px;
-  margin-right: 30px;
+  margin-right: 15px;
+  position: relative;
+  min-width: 20px;
+  height: 100%;
+  justify-content: center;
+}
+.headerSettingsBtn svg{
   cursor: pointer;
+}
+.headerSettingsBtnSvg{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+.headerSettingsBtn > i,.headerConnectedBtnArrow i {
+  position: relative;
+  z-index: 1;
+  transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+  background: #ff7152;
+  height: 100%;
+  min-width: 0px;
+  transition-delay: .4s;
+}
+.headerSettingsBtnActive > i,.headerLangNowActive > i,.headerConnectedBtnActive .headerConnectedBtnArrow i{
+  min-width: 80px;
+  transition-delay: 0s;
 }
 .headerSettingsBtn path{
   transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
 }
-.headerSettingsBtn:hover path{
+.headerSettingsBtn:not(.headerSettingsBtnActive) svg:hover path{
   fill: #ff7152;
-}
-.headerLangOptions{
-  display: flex;
-  position: absolute;
-  right: 0px;
-  padding-right: 30px;
-  height: 100%;
-  align-items: center;
-  pointer-events: none;
-}
-.headerLangOptions > i{
-  position: absolute;
-  height: calc(100% + 40px);
-  left: 0px;
-  top: -40px;
-  background: #ff7152;
-  width: 100%;
-  transform: scaleX(0);
-  transform-origin: right;
-  transition-delay: .4s;
-  transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
-}
-.headerLangOptionsActive > i{
-  transform: scaleX(1);
-  transition-delay: 0s;
-}
-.headerLangOptionsActive{
-  pointer-events: all;
 }
 .headerLangOptionParent{
   position: relative;
@@ -297,22 +366,12 @@
   margin-left: 30px;
   cursor: pointer;
 }
-.headerLangOptions div div{
-  transform: translateY(-110%);
-  transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
-}
-.headerLangOptionsActive div div{
-  transform: translateY(0%);
-  transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
-}
-.headerLangOptions span{
-  transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
-}
-.headerLangOptionParent:hover span{
-  color: #0500ff;
-}
+
 .headerConnectBtnContainer{
   position: relative;
+  transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+  margin-left: 15px;
+  z-index: 10;
 }
 .headerCornerModal{
   position: absolute;
@@ -411,6 +470,11 @@
 .headerConnected{
   display: flex;
   position: relative;
+  transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+  height: 100%;
+}
+.headerNotConnected {
+  display: none;
 }
 .headerConnectedBtn{
   display: flex;
@@ -425,7 +489,7 @@
   height: 20px;
   width: 1px;
   background: rgba(255, 255, 255, .2);
-  top: 10px;
+  top: 42px;
 }
 .headerConnectedBtnImg{
   position: relative;
@@ -464,52 +528,68 @@
 .headerConnectedBtn:hover span,.headerConnectedBtn.headerConnectedBtnActive span{
   opacity: .7;
 }
-.headerConnectedBtn svg{
+.headerConnectedBtnArrow svg{
   transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
 }
-.headerConnectedBtn.headerConnectedBtnActive svg{
+.headerConnectedBtnActive .headerConnectedBtnArrow svg{
   transform: rotate(180deg);
+}
+.headerConnectedBtnArrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  min-width: 8px;
+  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+  position: relative;
+}
+.headerConnectedBtnArrowSvg{
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
 }
 .headerConnectedModal{
   position: absolute;
-  top: 90px;
+  top: 104px;
   right: 40px;
-  background: rgba(10, 15, 24, 0);
-  border-radius: 4px;
-  border: 1px solid rgba(22, 27, 36, 0);
   width: 260px;
   padding: 20px;
   pointer-events: none;
-  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
   z-index: 10;
 }
 .headerConnectedModal.headerConnectedModalActive{
-  background: rgba(10, 15, 24, 1);
-  border: 1px solid rgba(22, 27, 36, 1);
   pointer-events: all;
 }
 .headerConnectedModalInner{
   display: flex;
   width: 100%;
   flex-direction: column;
-  transform: translateY(10px);
+  transform: translateY(-10px);
   transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+  position: relative;
+  z-index: 3;
   opacity: 0;
 }
 .headerConnectedModalActive .headerConnectedModalInner{
   opacity: 1;
   transform: translateX(0px);
+  transition-delay: .6s;
 }
 .headerConnectedModalAddress{
   width: 100%;
-  border-radius: 4px;
-  background: rgba(5, 8, 13, 1);
   display: flex;
-  padding: 10px 16px;
   position: relative;
   cursor: pointer;
   justify-content: space-between;
-  margin-bottom: 4px;
+  border-bottom: 1px solid rgba(255,255,255,.2);
+  padding-bottom: 30px;
+  margin-bottom: 14px;
 }
 .headerConnectedModalAddress > div{
   display: flex;
@@ -523,7 +603,7 @@
   transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
 }
 .headerConnectedModalAddress:hover > div span:nth-child(1){
-  color: #ff7152;
+  opacity: .5;
 }
 .headerConnectedModalAddress > div span:nth-child(2){
   font-size: 13px;
@@ -535,21 +615,22 @@
 .headerConnectedModalAddress:hover > div span:nth-child(2){
   opacity: .4;
 }
-.headerConnectedModalAddress path{
+.headerConnectedModalAddress svg{
   transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
 }
-.headerConnectedModalAddress:hover path{
-  fill: #ff7152;
+.headerConnectedModalAddress:hover svg{
+  opacity: .5;
 }
 .headerConnectedModalLink{
   display: flex;
   justify-content: space-between;
   margin-top: 16px;
   align-items: center;
+  cursor: pointer;
 }
 .headerConnectedModalLink span {
   transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
-  color: rgba(255, 255, 255, .5);
+  color: rgba(255, 255, 255, .7);
 }
 .headerConnectedModalLink svg{
   transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
@@ -558,13 +639,13 @@
   transform: translateX(5px);
 }
 .headerConnectedModalLink:hover span {
-  color: #ff7152;
+  color: rgba(255, 255, 255, 1);
 }
 .headerConnectedModalLink path{
   transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
 }
 .headerConnectedModalLink:hover path {
-  fill: #ff7152;
+  fill: rgba(255, 255, 255, 1);
 }
 .headerConnectedModalInner > i {
   width: 100%;
@@ -572,15 +653,15 @@
   background: rgba(255, 255, 255, .1);
   margin-top: 16px;
 }
-.settingsModal {
+.settingsModal,.headerLangsModal {
   position: absolute;
-  right: 400px;
-  top: 100px;
-  padding: 30px;
+  right: 0px;
+  padding: 30px 15px 30px 30px;
   width: 433px;
-  display: none;
+  top: 104px;
+  pointer-events: none;
 }
-.settingsModal > i {
+.settingsModal > i,.headerLangsModal > i,.headerConnectedModal > i {
   position: absolute;
   top: 0px;
   left: 0px;
@@ -588,13 +669,48 @@
   height: 100%;
   z-index: 1;
   background: #ff7152;
+  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+  transform-origin: top;
+  transform: scaleY(0);
 }
-.settingsModalInner {
+.headerSettingsBtnActive .settingsModal > i,.headerLangNowActive .headerLangsModal > i,.headerConnectedModalActive.headerConnectedModal > i{
+  transform: scaleY(1);
+  transition-delay: .4s;
+}
+.headerSettingsBtnActive .settingsModal,.headerLangNowActive .headerLangsModal {
+  pointer-events: all;
+}
+.settingsModalInner,.headerLangsModalInner {
   display: flex;
   flex-direction: column;
   width: 100%;
   position: relative;
   z-index: 3;
+  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+  transform: translateY(-10px);
+  opacity: 0;
+  overflow: auto;
+  max-height: calc(100vh - 150px);
+  padding-right: 15px;
+}
+.settingsModalInner::-webkit-scrollbar,.headerLangsModalInner::-webkit-scrollbar {
+  width: 3px;
+}
+
+/* Track */
+.settingsModalInner::-webkit-scrollbar-track,.headerLangsModalInner::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+.settingsModalInner::-webkit-scrollbar-thumb,.headerLangsModalInner::-webkit-scrollbar-thumb {
+  background: #fff;
+}
+
+.headerSettingsBtnActive .settingsModalInner,.headerLangNowActive .headerLangsModalInner,.headerLangNowActive .headerLangsModalTtl {
+  opacity: 1;
+  transform: translateY(0px);
+  transition-delay: .6s;
 }
 .settingsModalBtns {
   display: flex;
@@ -724,6 +840,12 @@
 .settingsModalTitle{
   position: relative;
 }
+.headerLogoMobile,.modalsMobileTitle{
+  display: none;
+}
+.headerMobileFooter {
+  display: none;
+}
 /*Laptop 1440*/
 @media (max-width: 1900px) {
 }
@@ -732,8 +854,11 @@
   .headerConnectedModal{
     right: 25px;
   }
+  .headerNavLink {
+    margin: 0px 10px;
+  }
   .headerNav{
-    padding-left: 100px;
+    padding-left: 0px;
   }
   .headerLogoTxt,.headerLogoLine{
     display: none;
@@ -747,6 +872,12 @@
 }
 /*Ipad 768*/
 @media (max-width: 1023px) {
+  .headerLogoDesktop {
+    display: none;
+  }
+  .headerLogoMobile {
+    display: flex;
+  }
   .headerConnectedModal{
     right: 68px;
   }
@@ -791,36 +922,325 @@
     margin-left: auto;
   }
   .headerNav{
-    background: #ff7152;
     position: fixed;
     left: auto;
     right: 0px;
     height: 100vh;
     top: 0px;
     flex-direction: column;
-    width: 300px;
-    padding-left: 0px;
-    transform: translateX(110%);
+    width: 100%;
     transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
     z-index: 5;
+    justify-content: flex-start;
+    pointer-events: none;
+    padding: 0px 25px;
+    padding-top: 135px;
+  }
+  .headerNav > i{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background: #ff7152;
+    transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+    transform-origin: top;
+    transform: scaleY(0);
+  }
+  .activeHeaderNav.headerNav > i {
+    transform: scaleY(1);
   }
   .activeHeaderNav.headerNav{
-    transform: translateX(0%);
+    pointer-events: all;
   }
   .headerNavLink{
+    margin: 0px;
     margin-bottom: 15px;
+    position: relative;
+    z-index: 2;
+    transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  .activeHeaderNav .headerNavLink{
+    transform: translateY(0px);
+    transition-delay: .2s;
+    opacity: 1;
+  }
+  .headerNavLinkTtl {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: rgba(255,255,255,.7);
+  }
+  .headerNavLinkTtl svg{
+    display: flex;
+    transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+  }
+  .headerNavLinkTtl path {
+    transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+  }
+  .headerNavLinkTtl.activeTtl svg {
+    transform: rotate(180deg);
+  }
+  .headerNavLinkTtl.activeTtl path{
+    opacity: 1;
+  }
+  .headerNavOpacity .headerNavLinkTtl:not(.activeTtl) {
+    color: rgba(255,255,255,.7);
+  }
+  .activeTtl.headerNavLinkTtl {
+    color: #fff;
+  }
+  .activeMenuSub {
+    max-width: 100%!important;
+  }
+  .headerNavLinkSubTtl{
+    width: 100%;
+    max-width: 100%!important;
+    align-items: flex-start;
+    padding-left: 0px;
+  }
+  .headerRightOuter {
+    z-index: 10;
+    position: relative;
+  }
+  .headerLogo path {
+    transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+  }
+  .whiteLogo path{
+    fill: #fff;
+  }
+  .headerLine {
+    background: rgba(255,255,255,.1);
+    z-index: 10;
+  }
+  .headerLineActive{
+    transition-delay: .4s;
+  }
+  .headerLangNowMainTtl:hover path {
+    fill: #fff;
+  }
+  .headerLangNowMainTtl:hover span {
+    color: #fff;
+  }
+  .headerLogo {
+    margin-right: 0px;
+  }
+  .headerLangs {
+    margin: 0px 10px;
+  }
+  .headerSettingsBtn {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .headerConnectedBtn {
+    padding-left: 15px;
+  }
+  .feaderBalance {
+    margin-right: 10px;
+  }
+  .headerNavLink > i {
+    display: none;
   }
 }
 /*Mobile 320*/
 @media (max-width: 767px) {
-  .headerBalance,.headerLangs{
+  .headerLangsModalTtl {
+    display: none;
+  }
+  .headerLangsModal {
+    position: fixed;
+    z-index: 2;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    width: 100%;
+    padding-top: 105px;
+  }
+  .headerLangNow {
+    min-width: 0px;
+  }
+  .headerLangNowSvg {
+    display: none;
+  }
+  .headerLangNow > i {
+    display: none;
+  }
+  .headerMobileFooterOuter {
+    overflow: hidden;
+    margin-top: auto;
+    transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  .activeHeaderNav .headerMobileFooterOuter {
+    opacity: 1;
+    transform: translateY(0px);
+    transition-delay: .4s;
+  }
+  .headerMobileFooter {
+    display: flex;
+    position: relative;
+    bottom: 0px;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    z-index: 3;
+    margin-top: auto;
+    transition: .4s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+    transition-delay: .6s;
+  }
+  .headerNavOpacity .headerMobileFooter {
+    transform: translateY(20px);
+    opacity: 0;
+    transition-delay: 0s;
+  }
+  .headerMobileFooterSecond {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0px;
+  }
+  .headerMobileFooterSocs {
+    display: flex;
+    align-items: center;
+    margin-top: 16px;
+    margin-bottom: 30px;
+  }
+  .headerMobileFooterSocs a {
+    display: flex;
+    margin: 0px 8px;
+  }
+  .headerMobileFooterFirst {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding-bottom: 30px;
+    border-bottom: 1px solid rgba(255,255,255,.1);
+  }
+  .headerMobileFooterSecond div:last-child {
+    opacity: .5;
+  }
+  .headerMobileFooterFirst div {
+    display: flex;
+    align-items: center;
+  }
+  .headerMobileFooterFirst div svg{
+    margin-right: 5px;
+  }
+  .modalsMobileTitle {
+    display: flex;
+    width: 100%;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+    z-index: 5;
+    opacity: 0;
+    transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+    transform: translateY(-10px);
+  }
+  .modalsMobileTitle svg {
+    position: absolute;
+    left: 0px;
+  }
+  .headerSettingsBtnActive .modalsMobileTitle,.headerLangNowActive .modalsMobileTitle {
+    transform: translateY(0px);
+    opacity: 1;
+    transition-delay: .2s;
+  }
+  .modalsMobileTitle span {
+    font-size: 20px;
+    line-height: 22px;
+  }
+  .headerBalance{
     display: none;
   }
   .headerLogo{
     margin-right: 0px;
   }
-  .headerLogo svg{
+  .settingsModal {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    width: 100%;
+    padding-top: 115px;
+  }
+  .headerLogo {
+    z-index: 50;
+  }
+  .headerConnectedBtn span{
+    max-width: 60px;
+  }
+  .header {
+    height: 76px;
+  }
+  .headerConnectedBtnImg {
     height: 36px;
-    width: 86px;
+    width: 36px;
+  }
+  .headerConnectedBtnActive .headerConnectedBtnArrow i {
+    min-width: 65px;
+  }
+  .headerConnectedModal {
+    right: 58px;
+    top: 75px;
+  }
+  .headerSettingsBtn {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .headerConnectedBtn:after {
+    top: 28px;
+  }
+  .headerSettingsBtnActive > i {
+    min-width: 0px;
+  }
+  .headerSettingsBtnActive .settingsModal > i {
+    transition-delay: 0s;
+  }
+  .headerSettingsBtnActive .settingsModalInner {
+    transition-delay: .2s;
+  }
+  .settingsModalInner {
+    max-height: calc(100vh - 210px);
+  }
+  .headerNavLinkTtl{
+    font-size: 20px;
+    line-height: 25px;
+    padding-bottom: 15px;
+  }
+  .headerNavLink {
+    margin-bottom: 5px;
+  }
+  .headerNav {
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 105px;
+  }
+  .headerNavLinkSubTtl span {
+    font-size: 16px;
+    line-height: 20px;
+  }
+  .connectWalletItemImg {
+    height: 32px;
+    width: 32px;
+    margin-right: 5px;
+  }
+  .connectWalletItem div {
+    font-size: 11px;
+  }
+  .connectWalletItem {
+    padding: 5px;
+  }
+  .connectWalletItemOuter:first-child .connectWalletItem{
+    margin-left: 0px;
+  }
+  .headerCornerModal {
+    padding: 0px 10px;
   }
 }

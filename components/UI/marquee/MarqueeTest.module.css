@@ -1,0 +1,177 @@
+/* .container {
+    width: 100%;
+    display: flex;
+    position: relative;
+}
+.box {
+    width: 100%;
+    display: flex;
+    height: 200px;
+    white-space: noWrap;
+}
+.innerBox {
+    background-color: red;
+    width: 50%;
+    position: absolute;
+    right: 0;
+    height: 75px;
+    gap: 30px;
+    animation: row2 5s linear infinite;
+}
+.innerBox2 {
+    background-color: blue;
+    width: 50%;
+    position: absolute;
+    height: 75px;
+    right: -100%;
+    gap: 30px;
+    animation: row1 5s linear infinite;
+
+}
+.item {
+    width: 100px;
+    background-color: white;
+    z-index: 1111;
+    height: 50px;
+}
+@keyframes row2 {
+   0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+@keyframes row1 {
+    0% {
+         transform: translateX(0);
+     }
+     100% {
+        transform: translateX(-200%);
+     }
+ } */
+
+ /* .marquee {
+    height: 35px;
+    width: 100%;  
+    z-index: 1111;
+    position: relative;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    overflow: hidden;
+  } */
+  /* .marqueetwo {
+    background-color: blue;
+  }
+  .marqueeone {
+    background-color: red;
+  }
+  .marqueethree {
+    background-color: green;
+  }
+  .marqueefour {
+    background-color: wheat;
+  } */
+  /* .item {
+    z-index: 11111111;
+    color: #FFFFFF;
+  } */
+  /* would need to be adjusted depending on time */
+  /* .marquee .marqueeone{
+    animation: marquee 10s linear infinite
+  }
+  
+  .marquee .marqueetwo{
+    animation: marquee 10s linear 2.5s infinite 
+  }
+  
+  .marquee .marqueethree{
+    animation: marquee 10s linear 5s infinite
+  }
+  
+  .marquee .marqueefour{
+    animation: marquee 10s linear 7.5s infinite
+  } */
+  /* even out the elements */
+  /* .marquee div {
+    position: absolute;
+    width: 100%;
+    left: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .marquee:hover div {
+    animation-play-state: paused;
+  }
+   */
+  /* add delay at the end of animation so you dont start while another div is going */
+  /* @keyframes marquee {
+    0% { left: 100%; }
+    50% { left: -100%; }
+    100% {left: -100%}
+  }
+   */
+/* @keyframes row2 {
+    0%   {left: 0px;}
+    100%   {left: -100%;}
+} */
+
+/* new */
+
+.marqueeWrap {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    position: relative;
+    z-index: 11111;
+}
+.marqueeLine {
+    width: 100%;
+    left: 0%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    animation: marqueeForwardDefault 5s linear infinite;
+}
+.marqueeLine2 {
+    width: 100%;
+    left: 100%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    animation: marqueeForwardDefault2 5s linear infinite;
+}
+.marqueeItem {
+    border: 1px solid #FFFFFF;
+    height: auto;
+    text-align: center;
+    position: relative;
+}
+@keyframes marqueeForwardDefault2 {
+    0% { left: 100%; }
+    100% { left: 0% }
+}
+@keyframes marqueeForwardDefault {
+    0% { left: 0%; }
+    100% { left: -100% }
+}
+/* @keyframes marquee {
+    0%   {top: 0px; left: 100%;}
+    100%   {top: 0px; left: 0%;}
+}
+@keyframes second {
+    0%   {top: 0px; left: 0px;}
+    100%   {top: 0px; left: -100%;}
+} */
+/* @keyframes marquee {
+    0% {left: 100%;}
+    100% {left: 0%}
+}
+  @keyframes marquee2 {
+    100% {left: 100%;}
+    0% {left: 0%}
+} */

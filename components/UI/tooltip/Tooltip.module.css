@@ -30,12 +30,6 @@
 .tooltipBtn path {
     transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
 }
-.tooltipBtn:hover path {
-    fill: rgb(255, 113, 82);
-}
-.tooltipBtn:hover span {
-    color: rgb(255, 113, 82);
-}
 .tooltip {
     display: flex;
     position: absolute;
@@ -78,6 +72,12 @@
 }
 
 /*Dashboard Tooltip Start*/
+.dashboardTooltipContainer .tooltipBtn:hover path {
+    fill: rgb(255, 113, 82);
+}
+.dashboardTooltipContainer .tooltipBtn:hover span {
+    color: rgb(255, 113, 82);
+}
 .dashboardTooltipContainer .tooltipBtn span {
     color: rgba(255,255,255,.7);
     font-size: 13px;
@@ -97,7 +97,7 @@
 
 /*Settings Tooltip Start*/
 .settingsTooltipContainer .tooltip i {
-    background: rgba(255,255,255,.2);
+    background: #FF8D75;
     border: 1px solid rgba(255,255,255,1);
     transform-origin: left;
 }

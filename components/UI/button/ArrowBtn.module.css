@@ -1,0 +1,52 @@
+/* btn direction back styles */
+.backBtn {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+}
+.backBtn svg {
+    transform: .5s;
+    transition: .5s;
+}
+.backBtn p {
+    transition: .5s;
+    padding-left: 5px;
+    color: #FF7152;
+}
+.backBtn:hover svg {
+    transform: translateX(-5px);
+    transition: 0.5s;
+    cursor: pointer;
+}
+.backBtn:hover svg path {
+    fill: #0500FF;
+}
+.backBtn:hover p {
+    color: #0500FF;
+}
+/* btn direction forward styles */
+.forwardBtn {
+    margin-top: 10px;
+    color: #FF7152;
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    justify-content: space-between;
+    transition: .5s;
+}
+.forwardBtn:hover svg path {
+    fill: #0500FF;
+}
+.forwardBtn svg {
+    transition: 0.5s;
+    margin-left: 7px;
+    margin-right: 7px;
+
+}
+.forwardBtn:hover svg {
+    transform: translateX(5px);
+    transition: 0.5s;
+}
+.forwardBtn:hover {
+    color: #0500FF
+}

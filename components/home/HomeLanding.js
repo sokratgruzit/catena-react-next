@@ -1,13 +1,13 @@
 import Button from "../UI/button/Button";
-//import useConnect from "../../hooks/use-connect";
+import useConnect from "../../hooks/use-connect";
 
 import styles from "./HomeLanding.module.css";
 
 const HomeLanding = () => {
-  //const { handleWalletModal } = useConnect();
+  const { handleWalletModal } = useConnect();
 
   const cwClickHandler = () => {
-    //handleWalletModal(true);
+    handleWalletModal(true);
   };
 
   const tradeClickHandler = () => {
