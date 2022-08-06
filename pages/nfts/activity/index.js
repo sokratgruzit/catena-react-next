@@ -2,231 +2,462 @@ import Activity from "../../../components/nfts/Activity";
 
 let nftActivityData = [
   {
-      id: 0,
-      itemImg: '/images/nft/nft_activity_items/item1.png',
-      itemTitle: 'Alpha Kong #8223',
-      itemSubTitle: 'Alpha Kongs Club - AKC',
-      event: 'Listed',
-      priceInCmcx: '0.0123',
-      priceInDollar: '(~$51.028)',
-      fromImg: '/images/nft/nft_activity_items/sub_item1.png',
-      from: 'BilanCh',
-      fromAddress: '0xC7...061b',
-      toReciverImg: '/images/nft/nft_activity_items/sub_item2.png',
-      toReciver: '-',
-      toReciverAddress: '0xF5...301c',
-      dateDay: '4.7.2022',
-      dateTime: '6:28 PM',
-      lowestPrice: '0.198',
-      hightestPrice: '10,000',
-      items: '895',
-      supply: '7777'
+    id: 0,
+    data: [
+      {
+        img: '/images/nft/nft_activity_items/item1.png',
+        title: 'Alpha Kong #8223',
+        subTitle: 'Alpha Kongs Club - AKC',
+        type: 'img_text'
+      },
+      {
+        text: 'Listed',
+        type: 'text'
+      },
+      {
+        symbol: 'CMCX',
+        priceInCmcx: '0.0123',
+        priceInDollar: '(~$51.028)',
+        type: 'price'
+      },
+      {
+        img: '/images/nft/nft_activity_items/sub_item1.png',
+        title: 'BilanCh',
+        subTitle: '0xC7...061b',
+        type: 'img_text'
+      },
+      {
+        img: '/images/nft/nft_activity_items/sub_item2.png',
+        title: '-',
+        subTitle: '0xF5...301c',
+        type: 'img_text'
+      },
+      {
+        title: '4.7.2022',
+        subTitle: '6:28 PM',
+        type: 'svg'
+      }
+    ],
+    lowestPrice: '0.198',
+    hightestPrice: '10,000',
+    items: '895',
+    supply: '7777'
   },
   {
-      id: 1,
-      itemImg: '/images/nft/nft_activity_items/item1.png',
-      itemTitle: 'Alpha Kong #8223',
-      itemSubTitle: 'Alpha Kongs Club - AKC',
-      event: 'Sold',
-      priceInCmcx: 'CMCX 0.0123',
-      priceInDollar: '(~$51.028)',
-      fromImg: '/images/nft/nft_activity_items/sub_item1.png',
-      from: 'BilanCh',
-      fromAddress: '0xC7...061b',
-      toReciverImg: '/images/nft/nft_activity_items/sub_item2.png',
-      toReciver: '-',
-      toReciverAddress: '0xF5...301c',
-      dateDay: '4.7.2022',
-      dateTime: '6:28 PM',
-      lowestPrice: '0.198',
-      hightestPrice: '10,000',
-      items: '895',
-      supply: '7777'
+    id: 1,
+    data: [
+      {
+        img: '/images/nft/nft_activity_items/item1.png',
+        title: 'Alpha Kong #8223',
+        subTitle: 'Alpha Kongs Club - AKC',
+        type: 'img_text'
+      },
+      {
+        text: 'Listed',
+        type: 'text'
+      },
+      {
+        symbol: 'CMCX',
+        priceInCmcx: '0.0123',
+        priceInDollar: '(~$51.028)',
+        type: 'price'
+      },
+      {
+        img: '/images/nft/nft_activity_items/sub_item1.png',
+        title: 'BilanCh',
+        subTitle: '0xC7...061b',
+        type: 'img_text'
+      },
+      {
+        img: '/images/nft/nft_activity_items/sub_item2.png',
+        title: '-',
+        subTitle: '0xF5...301c',
+        type: 'img_text'
+      },
+      {
+        title: '4.7.2022',
+        subTitle: '6:28 PM',
+        type: 'svg'
+      }
+    ],
+    lowestPrice: '0.198',
+    hightestPrice: '10,000',
+    items: '895',
+    supply: '7777'
   },
   {
-      id: 2,
-      itemImg: '/images/nft/nft_activity_items/item1.png',
-      itemTitle: 'Alpha Kong #8223',
-      itemSubTitle: 'Alpha Kongs Club - AKC',
-      event: 'Delisted',
-      priceInCmcx: 'CMCX 0.0123',
-      priceInDollar: '(~$51.028)',
-      fromImg: '/images/nft/nft_activity_items/sub_item1.png',
-      from: 'BilanCh',
-      fromAddress: '0xC7...061b',
-      toReciverImg: '/images/nft/nft_activity_items/sub_item2.png',
-      toReciver: '-',
-      toReciverAddress: '0xF5...301c',
-      dateDay: '4.7.2022',
-      dateTime: '6:28 PM',
-      lowestPrice: '0.198',
-      hightestPrice: '10,000',
-      items: '895',
-      supply: '7777'
+    id: 2,
+    data: [
+      {
+        img: '/images/nft/nft_activity_items/item1.png',
+        title: 'Alpha Kong #8223',
+        subTitle: 'Alpha Kongs Club - AKC',
+        type: 'img_text'
+      },
+      {
+        text: 'Listed',
+        type: 'text'
+      },
+      {
+        symbol: 'CMCX',
+        priceInCmcx: '0.0123',
+        priceInDollar: '(~$51.028)',
+        type: 'price'
+      },
+      {
+        img: '/images/nft/nft_activity_items/sub_item1.png',
+        title: 'BilanCh',
+        subTitle: '0xC7...061b',
+        type: 'img_text'
+      },
+      {
+        img: '/images/nft/nft_activity_items/sub_item2.png',
+        title: '-',
+        subTitle: '0xF5...301c',
+        type: 'img_text'
+      },
+      {
+        title: '4.7.2022',
+        subTitle: '6:28 PM',
+        type: 'svg'
+      }
+    ],
+    lowestPrice: '0.198',
+    hightestPrice: '10,000',
+    items: '895',
+    supply: '7777'
   },
   {
-      id: 3,
-      itemImg: '/images/nft/nft_activity_items/item1.png',
-      itemTitle: 'Alpha Kong #8223',
-      itemSubTitle: 'Alpha Kongs Club - AKC',
-      event: 'Modified',
-      priceInCmcx: 'CMCX 0.0123',
-      priceInDollar: '(~$51.028)',
-      fromImg: '/images/nft/nft_activity_items/sub_item1.png',
-      from: 'BilanCh',
-      fromAddress: '0xC7...061b',
-      toReciverImg: '/images/nft/nft_activity_items/sub_item2.png',
-      toReciver: '-',
-      toReciverAddress: '0xF5...301c',
-      dateDay: '4.7.2022',
-      dateTime: '6:28 PM',
-      lowestPrice: '0.198',
-      hightestPrice: '10,000',
-      items: '895',
-      supply: '7777'
+    id: 3,
+    data: [
+      {
+        img: '/images/nft/nft_activity_items/item1.png',
+        title: 'Alpha Kong #8223',
+        subTitle: 'Alpha Kongs Club - AKC',
+        type: 'img_text'
+      },
+      {
+        text: 'Listed',
+        type: 'text'
+      },
+      {
+        symbol: 'CMCX',
+        priceInCmcx: '0.0123',
+        priceInDollar: '(~$51.028)',
+        type: 'price'
+      },
+      {
+        img: '/images/nft/nft_activity_items/sub_item1.png',
+        title: 'BilanCh',
+        subTitle: '0xC7...061b',
+        type: 'img_text'
+      },
+      {
+        img: '/images/nft/nft_activity_items/sub_item2.png',
+        title: '-',
+        subTitle: '0xF5...301c',
+        type: 'img_text'
+      },
+      {
+        title: '4.7.2022',
+        subTitle: '6:28 PM',
+        type: 'svg'
+      }
+    ],
+    lowestPrice: '0.198',
+    hightestPrice: '10,000',
+    items: '895',
+    supply: '7777'
   },
   {
-      id: 4,
-      itemImg: '/images/nft/nft_activity_items/item1.png',
-      itemTitle: 'Alpha Kong #8223',
-      itemSubTitle: 'Alpha Kongs Club - AKC',
-      event: 'Collection',
-      priceInCmcx: 'CMCX 0.0123',
-      priceInDollar: '(~$51.028)',
-      fromImg: '/images/nft/nft_activity_items/sub_item1.png',
-      from: 'BilanCh',
-      fromAddress: '0xC7...061b',
-      toReciverImg: '/images/nft/nft_activity_items/sub_item2.png',
-      toReciver: '-',
-      toReciverAddress: '0xF5...301c',
-      dateDay: '4.7.2022',
-      dateTime: '6:28 PM',
-      lowestPrice: '0.198',
-      hightestPrice: '10,000',
-      items: '895',
-      supply: '7777'
+    id: 4,
+    data: [
+      {
+        img: '/images/nft/nft_activity_items/item1.png',
+        title: 'Alpha Kong #8223',
+        subTitle: 'Alpha Kongs Club - AKC',
+        type: 'img_text'
+      },
+      {
+        text: 'Listed',
+        type: 'text'
+      },
+      {
+        symbol: 'CMCX',
+        priceInCmcx: '0.0123',
+        priceInDollar: '(~$51.028)',
+        type: 'price'
+      },
+      {
+        img: '/images/nft/nft_activity_items/sub_item1.png',
+        title: 'BilanCh',
+        subTitle: '0xC7...061b',
+        type: 'img_text'
+      },
+      {
+        img: '/images/nft/nft_activity_items/sub_item2.png',
+        title: '-',
+        subTitle: '0xF5...301c',
+        type: 'img_text'
+      },
+      {
+        title: '4.7.2022',
+        subTitle: '6:28 PM',
+        type: 'svg'
+      }
+    ],
+    lowestPrice: '0.198',
+    hightestPrice: '10,000',
+    items: '895',
+    supply: '7777'
   },
   {
-      id: 5,
-      itemImg: '/images/nft/nft_activity_items/item1.png',
-      itemTitle: 'Alpha Kong #8223',
-      itemSubTitle: 'Alpha Kongs Club - AKC',
-      event: 'Listed',
-      priceInCmcx: 'CMCX 0.0123',
-      priceInDollar: '(~$51.028)',
-      fromImg: '/images/nft/nft_activity_items/sub_item1.png',
-      from: 'BilanCh',
-      fromAddress: '0xC7...061b',
-      toReciverImg: '/images/nft/nft_activity_items/sub_item2.png',
-      toReciver: '-',
-      toReciverAddress: '0xF5...301c',
-      dateDay: '4.7.2022',
-      dateTime: '6:28 PM',
-      lowestPrice: '0.198',
-      hightestPrice: '10,000',
-      items: '895',
-      supply: '7777'
+    id: 6,
+    data: [
+      {
+        img: '/images/nft/nft_activity_items/item1.png',
+        title: 'Alpha Kong #8223',
+        subTitle: 'Alpha Kongs Club - AKC',
+        type: 'img_text'
+      },
+      {
+        text: 'Listed',
+        type: 'text'
+      },
+      {
+        symbol: 'CMCX',
+        priceInCmcx: '0.0123',
+        priceInDollar: '(~$51.028)',
+        type: 'price'
+      },
+      {
+        img: '/images/nft/nft_activity_items/sub_item1.png',
+        title: 'BilanCh',
+        subTitle: '0xC7...061b',
+        type: 'img_text'
+      },
+      {
+        img: '/images/nft/nft_activity_items/sub_item2.png',
+        title: '-',
+        subTitle: '0xF5...301c',
+        type: 'img_text'
+      },
+      {
+        title: '4.7.2022',
+        subTitle: '6:28 PM',
+        type: 'svg'
+      }
+    ],
+    lowestPrice: '0.198',
+    hightestPrice: '10,000',
+    items: '895',
+    supply: '7777'
   },
   {
-      id: 6,
-      itemImg: '/images/nft/nft_activity_items/item1.png',
-      itemTitle: 'Alpha Kong #8223',
-      itemSubTitle: 'Alpha Kongs Club - AKC',
-      event: 'Modified',
-      priceInCmcx: 'CMCX 0.0123',
-      priceInDollar: '(~$51.028)',
-      fromImg: '/images/nft/nft_activity_items/sub_item1.png',
-      from: 'BilanCh',
-      fromAddress: '0xC7...061b',
-      toReciverImg: '/images/nft/nft_activity_items/sub_item2.png',
-      toReciver: '-',
-      toReciverAddress: '0xF5...301c',
-      dateDay: '4.7.2022',
-      dateTime: '6:28 PM',
-      lowestPrice: '0.198',
-      hightestPrice: '10,000',
-      items: '895',
-      supply: '7777'
+    id: 7,
+    data: [
+      {
+        img: '/images/nft/nft_activity_items/item1.png',
+        title: 'Alpha Kong #8223',
+        subTitle: 'Alpha Kongs Club - AKC',
+        type: 'img_text'
+      },
+      {
+        text: 'Listed',
+        type: 'text'
+      },
+      {
+        symbol: 'CMCX',
+        priceInCmcx: '0.0123',
+        priceInDollar: '(~$51.028)',
+        type: 'price'
+      },
+      {
+        img: '/images/nft/nft_activity_items/sub_item1.png',
+        title: 'BilanCh',
+        subTitle: '0xC7...061b',
+        type: 'img_text'
+      },
+      {
+        img: '/images/nft/nft_activity_items/sub_item2.png',
+        title: '-',
+        subTitle: '0xF5...301c',
+        type: 'img_text'
+      },
+      {
+        title: '4.7.2022',
+        subTitle: '6:28 PM',
+        type: 'svg'
+      }
+    ],
+    lowestPrice: '0.198',
+    hightestPrice: '10,000',
+    items: '895',
+    supply: '7777'
   },
   {
-      id: 7,
-      itemImg: '/images/nft/nft_activity_items/item1.png',
-      itemTitle: 'Alpha Kong #8223',
-      itemSubTitle: 'Alpha Kongs Club - AKC',
-      event: 'Sold',
-      priceInCmcx: 'CMCX 0.0123',
-      priceInDollar: '(~$51.028)',
-      fromImg: '/images/nft/nft_activity_items/sub_item1.png',
-      from: 'BilanCh',
-      fromAddress: '0xC7...061b',
-      toReciverImg: '/images/nft/nft_activity_items/sub_item2.png',
-      toReciver: '-',
-      toReciverAddress: '0xF5...301c',
-      dateDay: '4.7.2022',
-      dateTime: '6:28 PM',
-      lowestPrice: '0.198',
-      hightestPrice: '10,000',
-      items: '895',
-      supply: '7777'
+    id: 8,
+    data: [
+      {
+        img: '/images/nft/nft_activity_items/item1.png',
+        title: 'Alpha Kong #8223',
+        subTitle: 'Alpha Kongs Club - AKC',
+        type: 'img_text'
+      },
+      {
+        text: 'Listed',
+        type: 'text'
+      },
+      {
+        symbol: 'CMCX',
+        priceInCmcx: '0.0123',
+        priceInDollar: '(~$51.028)',
+        type: 'price'
+      },
+      {
+        img: '/images/nft/nft_activity_items/sub_item1.png',
+        title: 'BilanCh',
+        subTitle: '0xC7...061b',
+        type: 'img_text'
+      },
+      {
+        img: '/images/nft/nft_activity_items/sub_item2.png',
+        title: '-',
+        subTitle: '0xF5...301c',
+        type: 'img_text'
+      },
+      {
+        title: '4.7.2022',
+        subTitle: '6:28 PM',
+        type: 'svg'
+      }
+    ],
+    lowestPrice: '0.198',
+    hightestPrice: '10,000',
+    items: '895',
+    supply: '7777'
   },
   {
-      id: 12312323,
-      itemImg: '/images/nft/nft_activity_items/item1.png',
-      itemTitle: 'Alpha Kong #8223',
-      itemSubTitle: 'Alpha Kongs Club - AKC',
-      event: 'Listed',
-      priceInCmcx: 'CMCX 0.0123',
-      priceInDollar: '(~$51.028)',
-      fromImg: '/images/nft/nft_activity_items/sub_item1.png',
-      from: 'BilanCh',
-      fromAddress: '0xC7...061b',
-      toReciverImg: '/images/nft/nft_activity_items/sub_item2.png',
-      toReciver: '-',
-      toReciverAddress: '0xF5...301c',
-      dateDay: '4.7.2022',
-      dateTime: '6:28 PM',
-      lowestPrice: '0.198',
-      hightestPrice: '10,000',
-      items: '895',
-      supply: '7777'
+    id: 10,
+    data: [
+      {
+        img: '/images/nft/nft_activity_items/item1.png',
+        title: 'Alpha Kong #8223',
+        subTitle: 'Alpha Kongs Club - AKC',
+        type: 'img_text'
+      },
+      {
+        text: 'Listed',
+        type: 'text'
+      },
+      {
+        symbol: 'CMCX',
+        priceInCmcx: '0.0123',
+        priceInDollar: '(~$51.028)',
+        type: 'price'
+      },
+      {
+        img: '/images/nft/nft_activity_items/sub_item1.png',
+        title: 'BilanCh',
+        subTitle: '0xC7...061b',
+        type: 'img_text'
+      },
+      {
+        img: '/images/nft/nft_activity_items/sub_item2.png',
+        title: '-',
+        subTitle: '0xF5...301c',
+        type: 'img_text'
+      },
+      {
+        title: '4.7.2022',
+        subTitle: '6:28 PM',
+        type: 'svg'
+      }
+    ],
+    lowestPrice: '0.198',
+    hightestPrice: '10,000',
+    items: '895',
+    supply: '7777'
   },
   {
-      id: 13232,
-      itemImg: '/images/nft/nft_activity_items/item1.png',
-      itemTitle: 'Alpha Kong #8223',
-      itemSubTitle: 'Alpha Kongs Club - AKC',
-      event: 'Sold',
-      priceInCmcx: 'CMCX 0.0123',
-      priceInDollar: '(~$51.028)',
-      fromImg: '/images/nft/nft_activity_items/sub_item1.png',
-      from: 'BilanCh',
-      fromAddress: '0xC7...061b',
-      toReciverImg: '/images/nft/nft_activity_items/sub_item2.png',
-      toReciver: '-',
-      toReciverAddress: '0xF5...301c',
-      dateDay: '4.7.2022',
-      dateTime: '6:28 PM',
-      lowestPrice: '0.198',
-      hightestPrice: '10,000',
-      items: '895',
-      supply: '7777'
+    id: 11,
+    data: [
+      {
+        img: '/images/nft/nft_activity_items/item1.png',
+        title: 'Alpha Kong #8223',
+        subTitle: 'Alpha Kongs Club - AKC',
+        type: 'img_text'
+      },
+      {
+        text: 'Listed',
+        type: 'text'
+      },
+      {
+        symbol: 'CMCX',
+        priceInCmcx: '0.0123',
+        priceInDollar: '(~$51.028)',
+        type: 'price'
+      },
+      {
+        img: '/images/nft/nft_activity_items/sub_item1.png',
+        title: 'BilanCh',
+        subTitle: '0xC7...061b',
+        type: 'img_text'
+      },
+      {
+        img: '/images/nft/nft_activity_items/sub_item2.png',
+        title: '-',
+        subTitle: '0xF5...301c',
+        type: 'img_text'
+      },
+      {
+        title: '4.7.2022',
+        subTitle: '6:28 PM',
+        type: 'svg'
+      }
+    ],
+    lowestPrice: '0.198',
+    hightestPrice: '10,000',
+    items: '895',
+    supply: '7777'
   },
   {
-    id: 22222,
-    itemImg: '/images/nft/nft_activity_items/item1.png',
-    itemTitle: 'Alpha Kong #8223',
-    itemSubTitle: 'Alpha Kongs Club - AKC',
-    event: 'Delisted',
-    priceInCmcx: 'CMCX 0.0123',
-    priceInDollar: '(~$51.028)',
-    fromImg: '/images/nft/nft_activity_items/sub_item1.png',
-    from: 'BilanCh',
-    fromAddress: '0xC7...061b',
-    toReciverImg: '/images/nft/nft_activity_items/sub_item2.png',
-    toReciver: '-',
-    toReciverAddress: '0xF5...301c',
-    dateDay: '4.7.2022',
-    dateTime: '6:28 PM',
+    id: 12,
+    data: [
+      {
+        img: '/images/nft/nft_activity_items/item1.png',
+        title: 'Alpha Kong #8223',
+        subTitle: 'Alpha Kongs Club - AKC',
+        type: 'img_text'
+      },
+      {
+        text: 'Listed',
+        type: 'text'
+      },
+      {
+        symbol: 'CMCX',
+        priceInCmcx: '0.0123',
+        priceInDollar: '(~$51.028)',
+        type: 'price'
+      },
+      {
+        img: '/images/nft/nft_activity_items/sub_item1.png',
+        title: 'BilanCh',
+        subTitle: '0xC7...061b',
+        type: 'img_text'
+      },
+      {
+        img: '/images/nft/nft_activity_items/sub_item2.png',
+        title: '-',
+        subTitle: '0xF5...301c',
+        type: 'img_text'
+      },
+      {
+        title: '4.7.2022',
+        subTitle: '6:28 PM',
+        type: 'svg'
+      }
+    ],
     lowestPrice: '0.198',
     hightestPrice: '10,000',
     items: '895',
@@ -234,20 +465,41 @@ let nftActivityData = [
   },
   {
     id: 3555,
-    itemImg: '/images/nft/nft_activity_items/item1.png',
-    itemTitle: 'Alpha Kong #8223',
-    itemSubTitle: 'Alpha Kongs Club - AKC',
-    event: 'Modified',
-    priceInCmcx: 'CMCX 0.0123',
-    priceInDollar: '(~$51.028)',
-    fromImg: '/images/nft/nft_activity_items/sub_item1.png',
-    from: 'BilanCh',
-    fromAddress: '0xC7...061b',
-    toReciverImg: '/images/nft/nft_activity_items/sub_item2.png',
-    toReciver: '-',
-    toReciverAddress: '0xF5...301c',
-    dateDay: '4.7.2022',
-    dateTime: '6:28 PM',
+    data: [
+      {
+        img: '/images/nft/nft_activity_items/item1.png',
+        title: 'Alpha Kong #8223',
+        subTitle: 'Alpha Kongs Club - AKC',
+        type: 'img_text'
+      },
+      {
+        text: 'Listed',
+        type: 'text'
+      },
+      {
+        symbol: 'CMCX',
+        priceInCmcx: '0.0123',
+        priceInDollar: '(~$51.028)',
+        type: 'price'
+      },
+      {
+        img: '/images/nft/nft_activity_items/sub_item1.png',
+        title: 'BilanCh',
+        subTitle: '0xC7...061b',
+        type: 'img_text'
+      },
+      {
+        img: '/images/nft/nft_activity_items/sub_item2.png',
+        title: '-',
+        subTitle: '0xF5...301c',
+        type: 'img_text'
+      },
+      {
+        title: '4.7.2022',
+        subTitle: '6:28 PM',
+        type: 'svg'
+      }
+    ],
     lowestPrice: '0.198',
     hightestPrice: '10,000',
     items: '895',
@@ -255,20 +507,41 @@ let nftActivityData = [
   },
   {
     id: 411,
-    itemImg: '/images/nft/nft_activity_items/item1.png',
-    itemTitle: 'Alpha Kong #8223',
-    itemSubTitle: 'Alpha Kongs Club - AKC',
-    event: 'Collection',
-    priceInCmcx: 'CMCX 0.0123',
-    priceInDollar: '(~$51.028)',
-    fromImg: '/images/nft/nft_activity_items/sub_item1.png',
-    from: 'BilanCh',
-    fromAddress: '0xC7...061b',
-    toReciverImg: '/images/nft/nft_activity_items/sub_item2.png',
-    toReciver: '-',
-    toReciverAddress: '0xF5...301c',
-    dateDay: '4.7.2022',
-    dateTime: '6:28 PM',
+    data: [
+      {
+        img: '/images/nft/nft_activity_items/item1.png',
+        title: 'Alpha Kong #8223',
+        subTitle: 'Alpha Kongs Club - AKC',
+        type: 'img_text'
+      },
+      {
+        text: 'Listed',
+        type: 'text'
+      },
+      {
+        symbol: 'CMCX',
+        priceInCmcx: '0.0123',
+        priceInDollar: '(~$51.028)',
+        type: 'price'
+      },
+      {
+        img: '/images/nft/nft_activity_items/sub_item1.png',
+        title: 'BilanCh',
+        subTitle: '0xC7...061b',
+        type: 'img_text'
+      },
+      {
+        img: '/images/nft/nft_activity_items/sub_item2.png',
+        title: '-',
+        subTitle: '0xF5...301c',
+        type: 'img_text'
+      },
+      {
+        title: '4.7.2022',
+        subTitle: '6:28 PM',
+        type: 'svg'
+      }
+    ],
     lowestPrice: '0.198',
     hightestPrice: '10,000',
     items: '895',
@@ -276,20 +549,41 @@ let nftActivityData = [
   },
   {
     id: 51,
-    itemImg: '/images/nft/nft_activity_items/item1.png',
-    itemTitle: 'Alpha Kong #8223',
-    itemSubTitle: 'Alpha Kongs Club - AKC',
-    event: 'Listed',
-    priceInCmcx: 'CMCX 0.0123',
-    priceInDollar: '(~$51.028)',
-    fromImg: '/images/nft/nft_activity_items/sub_item1.png',
-    from: 'BilanCh',
-    fromAddress: '0xC7...061b',
-    toReciverImg: '/images/nft/nft_activity_items/sub_item2.png',
-    toReciver: '-',
-    toReciverAddress: '0xF5...301c',
-    dateDay: '4.7.2022',
-    dateTime: '6:28 PM',
+    data: [
+      {
+        img: '/images/nft/nft_activity_items/item1.png',
+        title: 'Alpha Kong #8223',
+        subTitle: 'Alpha Kongs Club - AKC',
+        type: 'img_text'
+      },
+      {
+        text: 'Listed',
+        type: 'text'
+      },
+      {
+        symbol: 'CMCX',
+        priceInCmcx: '0.0123',
+        priceInDollar: '(~$51.028)',
+        type: 'price'
+      },
+      {
+        img: '/images/nft/nft_activity_items/sub_item1.png',
+        title: 'BilanCh',
+        subTitle: '0xC7...061b',
+        type: 'img_text'
+      },
+      {
+        img: '/images/nft/nft_activity_items/sub_item2.png',
+        title: '-',
+        subTitle: '0xF5...301c',
+        type: 'img_text'
+      },
+      {
+        title: '4.7.2022',
+        subTitle: '6:28 PM',
+        type: 'svg'
+      }
+    ],
     lowestPrice: '0.198',
     hightestPrice: '10,000',
     items: '895',
@@ -297,20 +591,41 @@ let nftActivityData = [
   },
   {
     id: 6343,
-    itemImg: '/images/nft/nft_activity_items/item1.png',
-    itemTitle: 'Alpha Kong #8223',
-    itemSubTitle: 'Alpha Kongs Club - AKC',
-    event: 'Modified',
-    priceInCmcx: 'CMCX 0.0123',
-    priceInDollar: '(~$51.028)',
-    fromImg: '/images/nft/nft_activity_items/sub_item1.png',
-    from: 'BilanCh',
-    fromAddress: '0xC7...061b',
-    toReciverImg: '/images/nft/nft_activity_items/sub_item2.png',
-    toReciver: '-',
-    toReciverAddress: '0xF5...301c',
-    dateDay: '4.7.2022',
-    dateTime: '6:28 PM',
+    data: [
+      {
+        img: '/images/nft/nft_activity_items/item1.png',
+        title: 'Alpha Kong #8223',
+        subTitle: 'Alpha Kongs Club - AKC',
+        type: 'img_text'
+      },
+      {
+        text: 'Listed',
+        type: 'text'
+      },
+      {
+        symbol: 'CMCX',
+        priceInCmcx: '0.0123',
+        priceInDollar: '(~$51.028)',
+        type: 'price'
+      },
+      {
+        img: '/images/nft/nft_activity_items/sub_item1.png',
+        title: 'BilanCh',
+        subTitle: '0xC7...061b',
+        type: 'img_text'
+      },
+      {
+        img: '/images/nft/nft_activity_items/sub_item2.png',
+        title: '-',
+        subTitle: '0xF5...301c',
+        type: 'img_text'
+      },
+      {
+        title: '4.7.2022',
+        subTitle: '6:28 PM',
+        type: 'svg'
+      }
+    ],
     lowestPrice: '0.198',
     hightestPrice: '10,000',
     items: '895',
@@ -318,20 +633,41 @@ let nftActivityData = [
   },
   {
     id: 72,
-    itemImg: '/images/nft/nft_activity_items/item1.png',
-    itemTitle: 'Alpha Kong #8223',
-    itemSubTitle: 'Alpha Kongs Club - AKC',
-    event: 'Sold',
-    priceInCmcx: 'CMCX 0.0123',
-    priceInDollar: '(~$51.028)',
-    fromImg: '/images/nft/nft_activity_items/sub_item1.png',
-    from: 'BilanCh',
-    fromAddress: '0xC7...061b',
-    toReciverImg: '/images/nft/nft_activity_items/sub_item2.png',
-    toReciver: '-',
-    toReciverAddress: '0xF5...301c',
-    dateDay: '4.7.2022',
-    dateTime: '6:28 PM',
+    data: [
+      {
+        img: '/images/nft/nft_activity_items/item1.png',
+        title: 'Alpha Kong #8223',
+        subTitle: 'Alpha Kongs Club - AKC',
+        type: 'img_text'
+      },
+      {
+        text: 'Listed',
+        type: 'text'
+      },
+      {
+        symbol: 'CMCX',
+        priceInCmcx: '0.0123',
+        priceInDollar: '(~$51.028)',
+        type: 'price'
+      },
+      {
+        img: '/images/nft/nft_activity_items/sub_item1.png',
+        title: 'BilanCh',
+        subTitle: '0xC7...061b',
+        type: 'img_text'
+      },
+      {
+        img: '/images/nft/nft_activity_items/sub_item2.png',
+        title: '-',
+        subTitle: '0xF5...301c',
+        type: 'img_text'
+      },
+      {
+        title: '4.7.2022',
+        subTitle: '6:28 PM',
+        type: 'svg'
+      }
+    ],
     lowestPrice: '0.198',
     hightestPrice: '10,000',
     items: '895',
@@ -339,41 +675,83 @@ let nftActivityData = [
   },
   {
     id: 999,
-    itemImg: '/images/nft/nft_activity_items/item1.png',
-    itemTitle: 'Alpha Kong #8223',
-    itemSubTitle: 'Alpha Kongs Club - AKC',
-    event: 'Listed',
-    priceInCmcx: 'CMCX 0.0123',
-    priceInDollar: '(~$51.028)',
-    fromImg: '/images/nft/nft_activity_items/sub_item1.png',
-    from: 'BilanCh',
-    fromAddress: '0xC7...061b',
-    toReciverImg: '/images/nft/nft_activity_items/sub_item2.png',
-    toReciver: '-',
-    toReciverAddress: '0xF5...301c',
-    dateDay: '4.7.2022',
-    dateTime: '6:28 PM',
+    data: [
+      {
+        img: '/images/nft/nft_activity_items/item1.png',
+        title: 'Alpha Kong #8223',
+        subTitle: 'Alpha Kongs Club - AKC',
+        type: 'img_text'
+      },
+      {
+        text: 'Listed',
+        type: 'text'
+      },
+      {
+        symbol: 'CMCX',
+        priceInCmcx: '0.0123',
+        priceInDollar: '(~$51.028)',
+        type: 'price'
+      },
+      {
+        img: '/images/nft/nft_activity_items/sub_item1.png',
+        title: 'BilanCh',
+        subTitle: '0xC7...061b',
+        type: 'img_text'
+      },
+      {
+        img: '/images/nft/nft_activity_items/sub_item2.png',
+        title: '-',
+        subTitle: '0xF5...301c',
+        type: 'img_text'
+      },
+      {
+        title: '4.7.2022',
+        subTitle: '6:28 PM',
+        type: 'svg'
+      }
+    ],
     lowestPrice: '0.198',
     hightestPrice: '10,000',
     items: '895',
     supply: '7777'
   },
   {
-    id: 15,
-    itemImg: '/images/nft/nft_activity_items/item1.png',
-    itemTitle: 'Alpha Kong #8223',
-    itemSubTitle: 'Alpha Kongs Club - AKC',
-    event: 'Sold',
-    priceInCmcx: 'CMCX 0.0123',
-    priceInDollar: '(~$51.028)',
-    fromImg: '/images/nft/nft_activity_items/sub_item1.png',
-    from: 'BilanCh',
-    fromAddress: '0xC7...061b',
-    toReciverImg: '/images/nft/nft_activity_items/sub_item2.png',
-    toReciver: '-',
-    toReciverAddress: '0xF5...301c',
-    dateDay: '4.7.2022',
-    dateTime: '6:28 PM',
+    id: 15234234,
+    data: [
+      {
+        img: '/images/nft/nft_activity_items/item1.png',
+        title: 'Alpha Kong #8223',
+        subTitle: 'Alpha Kongs Club - AKC',
+        type: 'img_text'
+      },
+      {
+        text: 'Listed',
+        type: 'text'
+      },
+      {
+        symbol: 'CMCX',
+        priceInCmcx: '0.0123',
+        priceInDollar: '(~$51.028)',
+        type: 'price'
+      },
+      {
+        img: '/images/nft/nft_activity_items/sub_item1.png',
+        title: 'BilanCh',
+        subTitle: '0xC7...061b',
+        type: 'img_text'
+      },
+      {
+        img: '/images/nft/nft_activity_items/sub_item2.png',
+        title: '-',
+        subTitle: '0xF5...301c',
+        type: 'img_text'
+      },
+      {
+        title: '4.7.2022',
+        subTitle: '6:28 PM',
+        type: 'svg'
+      }
+    ],
     lowestPrice: '0.198',
     hightestPrice: '10,000',
     items: '895',
@@ -381,41 +759,83 @@ let nftActivityData = [
   },
   {
     id: 21,
-    itemImg: '/images/nft/nft_activity_items/item1.png',
-    itemTitle: 'Alpha Kong #8223',
-    itemSubTitle: 'Alpha Kongs Club - AKC',
-    event: 'Delisted',
-    priceInCmcx: 'CMCX 0.0123',
-    priceInDollar: '(~$51.028)',
-    fromImg: '/images/nft/nft_activity_items/sub_item1.png',
-    from: 'BilanCh',
-    fromAddress: '0xC7...061b',
-    toReciverImg: '/images/nft/nft_activity_items/sub_item2.png',
-    toReciver: '-',
-    toReciverAddress: '0xF5...301c',
-    dateDay: '4.7.2022',
-    dateTime: '6:28 PM',
+    data: [
+      {
+        img: '/images/nft/nft_activity_items/item1.png',
+        title: 'Alpha Kong #8223',
+        subTitle: 'Alpha Kongs Club - AKC',
+        type: 'img_text'
+      },
+      {
+        text: 'Listed',
+        type: 'text'
+      },
+      {
+        symbol: 'CMCX',
+        priceInCmcx: '0.0123',
+        priceInDollar: '(~$51.028)',
+        type: 'price'
+      },
+      {
+        img: '/images/nft/nft_activity_items/sub_item1.png',
+        title: 'BilanCh',
+        subTitle: '0xC7...061b',
+        type: 'img_text'
+      },
+      {
+        img: '/images/nft/nft_activity_items/sub_item2.png',
+        title: '-',
+        subTitle: '0xF5...301c',
+        type: 'img_text'
+      },
+      {
+        title: '4.7.2022',
+        subTitle: '6:28 PM',
+        type: 'svg'
+      }
+    ],
     lowestPrice: '0.198',
     hightestPrice: '10,000',
     items: '895',
     supply: '7777'
   },
   {
-    id: 13,
-    itemImg: '/images/nft/nft_activity_items/item1.png',
-    itemTitle: 'Alpha Kong #8223',
-    itemSubTitle: 'Alpha Kongs Club - AKC',
-    event: 'Modified',
-    priceInCmcx: 'CMCX 0.0123',
-    priceInDollar: '(~$51.028)',
-    fromImg: '/images/nft/nft_activity_items/sub_item1.png',
-    from: 'BilanCh',
-    fromAddress: '0xC7...061b',
-    toReciverImg: '/images/nft/nft_activity_items/sub_item2.png',
-    toReciver: '-',
-    toReciverAddress: '0xF5...301c',
-    dateDay: '4.7.2022',
-    dateTime: '6:28 PM',
+    id: 13854345,
+    data: [
+      {
+        img: '/images/nft/nft_activity_items/item1.png',
+        title: 'Alpha Kong #8223',
+        subTitle: 'Alpha Kongs Club - AKC',
+        type: 'img_text'
+      },
+      {
+        text: 'Listed',
+        type: 'text'
+      },
+      {
+        symbol: 'CMCX',
+        priceInCmcx: '0.0123',
+        priceInDollar: '(~$51.028)',
+        type: 'price'
+      },
+      {
+        img: '/images/nft/nft_activity_items/sub_item1.png',
+        title: 'BilanCh',
+        subTitle: '0xC7...061b',
+        type: 'img_text'
+      },
+      {
+        img: '/images/nft/nft_activity_items/sub_item2.png',
+        title: '-',
+        subTitle: '0xF5...301c',
+        type: 'img_text'
+      },
+      {
+        title: '4.7.2022',
+        subTitle: '6:28 PM',
+        type: 'svg'
+      }
+    ],
     lowestPrice: '0.198',
     hightestPrice: '10,000',
     items: '895',
@@ -423,20 +843,41 @@ let nftActivityData = [
   },
   {
     id: 4343,
-    itemImg: '/images/nft/nft_activity_items/item1.png',
-    itemTitle: 'Alpha Kong #8223',
-    itemSubTitle: 'Alpha Kongs Club - AKC',
-    event: 'Collection',
-    priceInCmcx: 'CMCX 0.0123',
-    priceInDollar: '(~$51.028)',
-    fromImg: '/images/nft/nft_activity_items/sub_item1.png',
-    from: 'BilanCh',
-    fromAddress: '0xC7...061b',
-    toReciverImg: '/images/nft/nft_activity_items/sub_item2.png',
-    toReciver: '-',
-    toReciverAddress: '0xF5...301c',
-    dateDay: '4.7.2022',
-    dateTime: '6:28 PM',
+    data: [
+      {
+        img: '/images/nft/nft_activity_items/item1.png',
+        title: 'Alpha Kong #8223',
+        subTitle: 'Alpha Kongs Club - AKC',
+        type: 'img_text'
+      },
+      {
+        text: 'Listed',
+        type: 'text'
+      },
+      {
+        symbol: 'CMCX',
+        priceInCmcx: '0.0123',
+        priceInDollar: '(~$51.028)',
+        type: 'price'
+      },
+      {
+        img: '/images/nft/nft_activity_items/sub_item1.png',
+        title: 'BilanCh',
+        subTitle: '0xC7...061b',
+        type: 'img_text'
+      },
+      {
+        img: '/images/nft/nft_activity_items/sub_item2.png',
+        title: '-',
+        subTitle: '0xF5...301c',
+        type: 'img_text'
+      },
+      {
+        title: '4.7.2022',
+        subTitle: '6:28 PM',
+        type: 'svg'
+      }
+    ],
     lowestPrice: '0.198',
     hightestPrice: '10,000',
     items: '895',
@@ -444,20 +885,41 @@ let nftActivityData = [
   },
   {
     id: 5551,
-    itemImg: '/images/nft/nft_activity_items/item1.png',
-    itemTitle: 'Alpha Kong #8223',
-    itemSubTitle: 'Alpha Kongs Club - AKC',
-    event: 'Listed',
-    priceInCmcx: 'CMCX 0.0123',
-    priceInDollar: '(~$51.028)',
-    fromImg: '/images/nft/nft_activity_items/sub_item1.png',
-    from: 'BilanCh',
-    fromAddress: '0xC7...061b',
-    toReciverImg: '/images/nft/nft_activity_items/sub_item2.png',
-    toReciver: '-',
-    toReciverAddress: '0xF5...301c',
-    dateDay: '4.7.2022',
-    dateTime: '6:28 PM',
+    data: [
+      {
+        img: '/images/nft/nft_activity_items/item1.png',
+        title: 'Alpha Kong #8223',
+        subTitle: 'Alpha Kongs Club - AKC',
+        type: 'img_text'
+      },
+      {
+        text: 'Listed',
+        type: 'text'
+      },
+      {
+        symbol: 'CMCX',
+        priceInCmcx: '0.0123',
+        priceInDollar: '(~$51.028)',
+        type: 'price'
+      },
+      {
+        img: '/images/nft/nft_activity_items/sub_item1.png',
+        title: 'BilanCh',
+        subTitle: '0xC7...061b',
+        type: 'img_text'
+      },
+      {
+        img: '/images/nft/nft_activity_items/sub_item2.png',
+        title: '-',
+        subTitle: '0xF5...301c',
+        type: 'img_text'
+      },
+      {
+        title: '4.7.2022',
+        subTitle: '6:28 PM',
+        type: 'svg'
+      }
+    ],
     lowestPrice: '0.198',
     hightestPrice: '10,000',
     items: '895',
@@ -465,20 +927,41 @@ let nftActivityData = [
   },
   {
     id: 61,
-    itemImg: '/images/nft/nft_activity_items/item1.png',
-    itemTitle: 'Alpha Kong #8223',
-    itemSubTitle: 'Alpha Kongs Club - AKC',
-    event: 'Modified',
-    priceInCmcx: 'CMCX 0.0123',
-    priceInDollar: '(~$51.028)',
-    fromImg: '/images/nft/nft_activity_items/sub_item1.png',
-    from: 'BilanCh',
-    fromAddress: '0xC7...061b',
-    toReciverImg: '/images/nft/nft_activity_items/sub_item2.png',
-    toReciver: '-',
-    toReciverAddress: '0xF5...301c',
-    dateDay: '4.7.2022',
-    dateTime: '6:28 PM',
+    data: [
+      {
+        img: '/images/nft/nft_activity_items/item1.png',
+        title: 'Alpha Kong #8223',
+        subTitle: 'Alpha Kongs Club - AKC',
+        type: 'img_text'
+      },
+      {
+        text: 'Listed',
+        type: 'text'
+      },
+      {
+        symbol: 'CMCX',
+        priceInCmcx: '0.0123',
+        priceInDollar: '(~$51.028)',
+        type: 'price'
+      },
+      {
+        img: '/images/nft/nft_activity_items/sub_item1.png',
+        title: 'BilanCh',
+        subTitle: '0xC7...061b',
+        type: 'img_text'
+      },
+      {
+        img: '/images/nft/nft_activity_items/sub_item2.png',
+        title: '-',
+        subTitle: '0xF5...301c',
+        type: 'img_text'
+      },
+      {
+        title: '4.7.2022',
+        subTitle: '6:28 PM',
+        type: 'svg'
+      }
+    ],
     lowestPrice: '0.198',
     hightestPrice: '10,000',
     items: '895',
@@ -486,20 +969,41 @@ let nftActivityData = [
   },
   {
     id: 71,
-    itemImg: '/images/nft/nft_activity_items/item1.png',
-    itemTitle: 'Alpha Kong #8223',
-    itemSubTitle: 'Alpha Kongs Club - AKC',
-    event: 'Sold',
-    priceInCmcx: 'CMCX 0.0123',
-    priceInDollar: '(~$51.028)',
-    fromImg: '/images/nft/nft_activity_items/sub_item1.png',
-    from: 'BilanCh',
-    fromAddress: '0xC7...061b',
-    toReciverImg: '/images/nft/nft_activity_items/sub_item2.png',
-    toReciver: '-',
-    toReciverAddress: '0xF5...301c',
-    dateDay: '4.7.2022',
-    dateTime: '6:28 PM',
+    data: [
+      {
+        img: '/images/nft/nft_activity_items/item1.png',
+        title: 'Alpha Kong #8223',
+        subTitle: 'Alpha Kongs Club - AKC',
+        type: 'img_text'
+      },
+      {
+        text: 'Listed',
+        type: 'text'
+      },
+      {
+        symbol: 'CMCX',
+        priceInCmcx: '0.0123',
+        priceInDollar: '(~$51.028)',
+        type: 'price'
+      },
+      {
+        img: '/images/nft/nft_activity_items/sub_item1.png',
+        title: 'BilanCh',
+        subTitle: '0xC7...061b',
+        type: 'img_text'
+      },
+      {
+        img: '/images/nft/nft_activity_items/sub_item2.png',
+        title: '-',
+        subTitle: '0xF5...301c',
+        type: 'img_text'
+      },
+      {
+        title: '4.7.2022',
+        subTitle: '6:28 PM',
+        type: 'svg'
+      }
+    ],
     lowestPrice: '0.198',
     hightestPrice: '10,000',
     items: '895',

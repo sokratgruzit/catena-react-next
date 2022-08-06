@@ -8,103 +8,293 @@ import styles from './DashboardUserData.module.css';
 const DASHBOARD_DATA = [
   {
     id: 0,
-    hash: '0xa8d101cc60db0e0409e789a30ae00eda6f38d7b20',
-    from: '0xa8d101cc6db0e0409e789a30ae00eda6f38d7b20',
-    to: '0xa8d101cc6db0e0409e789a30ae00eda6f38d7b20',
-    transactionType: 'Stake',
-    currency: 'CMCX',
-    result: 'Success',
-    amount: 1000000000,
+    data: [
+      {
+        text: '0xa8d101cc60db0e0409e789a30ae00eda6f38d7b20',
+        type: 'text'
+      },
+      {
+        text: '0xa8d101cc6db0e0409e789a30ae00eda6f38d7b20',
+        type: 'text'
+      },
+      {
+        text: '0xa8d101cc6db0e0409e789a30ae00eda6f38d7b20',
+        type: 'text'
+      },
+      {
+        text: 'Stake',
+        type: 'text'
+      },
+      {
+        text: 'Success',
+        type: 'text'
+      },
+      {
+        text: 10000000,
+        type: 'text'
+      }
+    ]
   },
   {
     id: 1,
-    hash: '0xa8d101cc6db03e0409e789a30ae00eda6f38d7b20',
-    from: '0xa8d101cc6db0e0409e789a30ae00eda6f38d7b20',
-    to: '0xa8d101cc6db0e0409e789a30ae00eda6f38d7b20',
-    transactionType: 'Stake',
-    currency: 'CMCX',
-    result: 'Success',
-    amount: 10,
+    data: [
+      {
+        text: '0xa8d101cc60db0e0409e789a30ae00eda6f38d7b20',
+        type: 'text'
+      },
+      {
+        text: '0xa8d101cc6db0e0409e789a30ae00eda6f38d7b20',
+        type: 'text'
+      },
+      {
+        text: '0xa8d101cc6db0e0409e789a30ae00eda6f38d7b20',
+        type: 'text'
+      },
+      {
+        text: 'Stake',
+        type: 'text'
+      },
+      {
+        text: 'Success',
+        type: 'text'
+      },
+      {
+        text: 10000000,
+        type: 'text'
+      }
+    ]
   },
   {
     id: 2,
-    hash: '0xa8d101cc6db30e0409e789a30ae00eda6f38d7b20',
-    from: '0xa8d101cc6db0e0409e789a30ae00eda6f38d7b20',
-    to: '0xa8d101cc6db0e0409e789a30ae00eda6f38d7b20',
-    transactionType: 'Stake',
-    currency: 'CMCX',
-    result: 'Success',
-    amount: 10,
+    data: [
+      {
+        text: '0xa8d101cc60db0e0409e789a30ae00eda6f38d7b20',
+        type: 'text'
+      },
+      {
+        text: '0xa8d101cc6db0e0409e789a30ae00eda6f38d7b20',
+        type: 'text'
+      },
+      {
+        text: '0xa8d101cc6db0e0409e789a30ae00eda6f38d7b20',
+        type: 'text'
+      },
+      {
+        text: 'Stake',
+        type: 'text'
+      },
+      {
+        text: 'Success',
+        type: 'text'
+      },
+      {
+        text: 10000000,
+        type: 'text'
+      }
+    ]
   },
   {
     id: 3,
-    hash: '0xa8d101c3c6db0e0409e789a30ae00eda6f38d7b20',
-    from: '0xa8d101cc6db0e0409e789a30ae00eda6f38d7b20',
-    to: '0xa8d101cc6db0e0409e789a30ae00eda6f38d7b20',
-    transactionType: 'Stake',
-    currency: 'CMCX',
-    result: 'Success',
-    amount: 10,
+    data: [
+      {
+        text: '0xa8d101cc60db0e0409e789a30ae00eda6f38d7b20',
+        type: 'text'
+      },
+      {
+        text: '0xa8d101cc6db0e0409e789a30ae00eda6f38d7b20',
+        type: 'text'
+      },
+      {
+        text: '0xa8d101cc6db0e0409e789a30ae00eda6f38d7b20',
+        type: 'text'
+      },
+      {
+        text: 'Stake',
+        type: 'text'
+      },
+      {
+        text: 'Success',
+        type: 'text'
+      },
+      {
+        text: 10000000,
+        type: 'text'
+      }
+    ]
   },
   {
     id: 4,
-    hash: '0xa8d101cc6db0e0409e789a3130ae00eda6f38d7b20',
-    from: '0xa8d101cc6db0e0409e789a30ae00eda6f38d7b20',
-    to: '0xa8d101cc6db0e0409e789a30ae00eda6f38d7b20',
-    transactionType: 'Stake',
-    currency: 'CMCX',
-    result: 'Success',
-    amount: 10,
+    data: [
+      {
+        text: '0xa8d101cc60db0e0409e789a30ae00eda6f38d7b20',
+        type: 'text'
+      },
+      {
+        text: '0xa8d101cc6db0e0409e789a30ae00eda6f38d7b20',
+        type: 'text'
+      },
+      {
+        text: '0xa8d101cc6db0e0409e789a30ae00eda6f38d7b20',
+        type: 'text'
+      },
+      {
+        text: 'Stake',
+        type: 'text'
+      },
+      {
+        text: 'Success',
+        type: 'text'
+      },
+      {
+        text: 10000000,
+        type: 'text'
+      }
+    ]
   },
   {
     id: 5,
-    hash: '0xa8d101cc6db0e0409e789a301ae00eda6f38d7b20',
-    from: '0xa8d101cc6db0e0409e789a30ae00eda6f38d7b20',
-    to: '0xa8d101cc6db0e0409e789a30ae00eda6f38d7b20',
-    transactionType: 'Stake',
-    currency: 'CMCX',
-    result: 'Success',
-    amount: 10,
+    data: [
+      {
+        text: '0xa8d101cc60db0e0409e789a30ae00eda6f38d7b20',
+        type: 'text'
+      },
+      {
+        text: '0xa8d101cc6db0e0409e789a30ae00eda6f38d7b20',
+        type: 'text'
+      },
+      {
+        text: '0xa8d101cc6db0e0409e789a30ae00eda6f38d7b20',
+        type: 'text'
+      },
+      {
+        text: 'Stake',
+        type: 'text'
+      },
+      {
+        text: 'Success',
+        type: 'text'
+      },
+      {
+        text: 10000000,
+        type: 'text'
+      }
+    ]
   },
   {
     id: 6,
-    hash: '0xa8d101cc6db0e0409e789a30ae200eda6f38d7b20',
-    from: '0xa8d101cc6db0e0409e789a30ae00eda6f38d7b20',
-    to: '0xa8d101cc6db0e0409e789a30ae00eda6f38d7b20',
-    transactionType: 'Stake',
-    currency: 'CMCX',
-    result: 'Success',
-    amount: 10,
+    data: [
+      {
+        text: '0xa8d101cc60db0e0409e789a30ae00eda6f38d7b20',
+        type: 'text'
+      },
+      {
+        text: '0xa8d101cc6db0e0409e789a30ae00eda6f38d7b20',
+        type: 'text'
+      },
+      {
+        text: '0xa8d101cc6db0e0409e789a30ae00eda6f38d7b20',
+        type: 'text'
+      },
+      {
+        text: 'Stake',
+        type: 'text'
+      },
+      {
+        text: 'Success',
+        type: 'text'
+      },
+      {
+        text: 10000000,
+        type: 'text'
+      }
+    ]
   },
   {
     id: 7,
-    hash: '0xa8d101cc6db0e0409e789a430ae00eda6f38d7b20',
-    from: '0xa8d101cc6db0e0409e789a30ae00eda6f38d7b20',
-    to: '0xa8d101cc6db0e0409e789a30ae00eda6f38d7b20',
-    transactionType: 'Stake',
-    currency: 'CMCX',
-    result: 'Success',
-    amount: 10,
+    data: [
+      {
+        text: '0xa8d101cc60db0e0409e789a30ae00eda6f38d7b20',
+        type: 'text'
+      },
+      {
+        text: '0xa8d101cc6db0e0409e789a30ae00eda6f38d7b20',
+        type: 'text'
+      },
+      {
+        text: '0xa8d101cc6db0e0409e789a30ae00eda6f38d7b20',
+        type: 'text'
+      },
+      {
+        text: 'Stake',
+        type: 'text'
+      },
+      {
+        text: 'Success',
+        type: 'text'
+      },
+      {
+        text: 10000000,
+        type: 'text'
+      }
+    ]
   },
   {
     id: 8,
-    hash: '0xa8d101cc6db0e0409e789a30ae00eda6f38d7b230',
-    from: '0xa8d101cc6db0e0409e789a30ae00eda6f38d7b20',
-    to: '0xa8d101cc6db0e0409e789a30ae00eda6f38d7b20',
-    transactionType: 'Stake',
-    currency: 'CMCX',
-    result: 'Success',
-    amount: 10,
+    data: [
+      {
+        text: '0xa8d101cc60db0e0409e789a30ae00eda6f38d7b20',
+        type: 'text'
+      },
+      {
+        text: '0xa8d101cc6db0e0409e789a30ae00eda6f38d7b20',
+        type: 'text'
+      },
+      {
+        text: '0xa8d101cc6db0e0409e789a30ae00eda6f38d7b20',
+        type: 'text'
+      },
+      {
+        text: 'Stake',
+        type: 'text'
+      },
+      {
+        text: 'Success',
+        type: 'text'
+      },
+      {
+        text: 10000000,
+        type: 'text'
+      }
+    ]
   },
   {
     id: 9,
-    hash: '0xa8d101cc6db0e04029e789a30ae00ed3a6f38d7b20',
-    from: '0xa8d101cc6db0e0409e789a30ae00eda6f38d7b20',
-    to: '0xa8d101cc6db0e0409e789a30ae00eda6f38d7b20',
-    transactionType: 'Stake',
-    currency: 'CMCX',
-    result: 'Success',
-    amount: 10,
+    data: [
+      {
+        text: '0xa8d101cc60db0e0409e789a30ae00eda6f38d7b20',
+        type: 'text'
+      },
+      {
+        text: '0xa8d101cc6db0e0409e789a30ae00eda6f38d7b20',
+        type: 'text'
+      },
+      {
+        text: '0xa8d101cc6db0e0409e789a30ae00eda6f38d7b20',
+        type: 'text'
+      },
+      {
+        text: 'Stake',
+        type: 'text'
+      },
+      {
+        text: 'Success',
+        type: 'text'
+      },
+      {
+        text: 10000000,
+        type: 'text'
+      }
+    ]
   },
 ];
 

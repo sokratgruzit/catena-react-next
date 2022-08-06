@@ -3,7 +3,7 @@ import React from 'react';
 import styles from './ImgTextItem.module.css';
 import listStyles from '../../ListItemRow.module.css';
 
-const ImgTextItem = ({ data, darkened, onClick }) => {
+const ImgTextItem = ({ data, onClick }) => {
   return (
     <div
       className={` ${listStyles.imgTextItem} ${listStyles.td} ${styles.imgTextItem}`}
@@ -16,7 +16,7 @@ const ImgTextItem = ({ data, darkened, onClick }) => {
         <p className={listStyles.imgTextTitle}>{data.title}</p>
         <p
           className={`${listStyles.imgTextSubTitle} ${
-            darkened ? styles.darkened : ''
+            data.darkened ? styles.darkened : ''
           }`}
         >
           {data.subTitle}
