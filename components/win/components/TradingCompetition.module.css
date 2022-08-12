@@ -1,0 +1,192 @@
+.competitionMargin {
+  position: relative;
+}
+.imagetest {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding-top: 100%; 
+  top: -30%;
+  z-index: -1;
+}
+.mainContent {
+  position: relative;
+  margin-top: 100px;
+  padding: 0 69px 0 45px;
+}
+.borderTab {
+  display: flex;
+  margin-top: 160px;
+}
+.backgroundFinished div {
+  position: absolute;
+  top: 115%;
+  left: 10%;
+  z-index: -1;
+}
+.backgroundFinished1 {
+  position: absolute;
+  top: 185%;
+  left: 0;
+  opacity: 0.5;
+  z-index: -10;
+}
+.day {
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 24px;
+}
+.titleSpan {
+  color: #ff7152;
+  font-weight: 400;
+  font-size: 51px;
+  line-height: 66px;
+}
+.title {
+  font-weight: 400;
+  font-size: 51px;
+  line-height: 66px;
+  width: 70%;
+}
+.prizes {
+  margin: 32px 0 10px;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 42px;
+  color: #ff7152;
+  text-shadow: 0px 10px 50px;
+}
+.voutingBox {
+  position: relative;
+  margin-top: 80px;
+}
+.hourglass {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding-top: 10%; 
+  left: -48%;
+  top: -50%;
+}
+.competition {
+  display: inline-block;
+  padding: 13px 30px 16px 58px;
+  border: 1px solid #27272b;
+  border-radius: 4px;
+}
+.spaceBoy {
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  padding-top: 50%;
+  top: -15%;
+  right: 5%;
+}
+.trandingVolume {
+  margin: 10px 0 41px 0;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 24px;
+  color: #ffffff;
+  opacity: 0.7;
+}
+.voutingCompetition {
+  display: flex;
+  gap: 14px;
+}
+.voutingIcone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.voutingIcone svg {
+  margin: 10px 0 3px 0;
+}
+.allCompetition {
+  display: inline-block;
+  margin-top: 3%;
+}
+
+.colorBlue {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  color: #0500ff;
+}
+.rankMargin {
+  margin-top: 230px;
+}
+.tab {
+  position: relative;
+  margin: auto;
+  z-index: 20;
+}
+
+/*Ipad Pro 1024*/
+@media (max-width: 1300px) {
+}
+/*Ipad 768*/
+@media (max-width: 1023px) {
+  .borderTab {
+    padding: 0 5px;
+  }
+  .title {
+    font-size: 51px;
+    line-height: 66px;
+    width: 80%;
+  }
+  .spaceBoy {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+  }
+}
+@media (max-width: 767px) {
+  .borderTab {
+    margin-top: 160px;
+  }
+  .predictionMargin {
+    position: relative;
+  }
+  .Container__background {
+    position: absolute;
+    top: 30%;
+    left: 0;
+    z-index: -1;
+  }
+  .spaceBoy {
+    position: absolute;
+    top: -50%;
+    left: 25%;
+    width: 55%;
+    z-index: -1;
+  }
+  .leftSideContent {
+    margin-top: 300px;
+  }
+  .title {
+    font-size: 30px;
+    line-height: 48px;
+  }
+  .titleSpan {
+    font-size: 34px;
+    line-height: 48px;
+  }
+  .prizes {
+    font-size: 24px;
+    line-height: 34px;
+  }
+  .competition h5 {
+    margin-top: -30px;
+  }
+  .mainContent {
+    padding: 0 25px;
+  }
+  .competition {
+    padding: 50px 40px;
+  }
+  .hourglass {
+    left: -6%;
+    top: -27%;
+  }
+}

@@ -1,5 +1,5 @@
 import React from 'react';
-import Prediction from '../../../components/win/Prediction/Prediction';
+import Prediction from '../../../components/win/Prediction';
 
 const index = () => {
   return <Prediction />;

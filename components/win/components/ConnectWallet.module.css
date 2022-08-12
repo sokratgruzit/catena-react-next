@@ -1,0 +1,52 @@
+.mainContent {
+    position: relative;
+    text-align: center;
+    margin-top: 350px;
+}
+.text {
+    margin-bottom: 32px;
+}
+.text p {
+    font-size: 20px;
+    line-height: 38px;
+}
+.star {
+    position: absolute;
+    top: -52%;
+    left: 58%;
+}
+.starSmal {
+    position: absolute;
+    top: -70%;
+    left: 60%;
+}
+.ConnectWalletBg {
+    position: absolute;
+    top: -75%;
+    left: 0;
+    z-index: -1;
+}
+.tickets {
+    position: absolute;
+    left: 25%;
+    top: 70%;
+    transform: rotateZ(-45deg);
+}
+.ticket {
+    position: absolute;
+    left: 66%;
+    top: 70%;
+}
+@media (max-width: 1023px) {
+    .mainContent {
+        position: relative;
+        text-align: center;
+        margin-top: 250px;
+    }
+    .ConnectWalletBg {
+        position: absolute;
+        top: -15%;
+        left: 0;
+        z-index: -1;
+    }
+}
