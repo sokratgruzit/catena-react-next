@@ -7,12 +7,12 @@ import { OpenSVG } from '../../svg/InfoIcons';
 
 import { formatCurrency } from '../../utils/formatCurrency';
 
-import Dashboard from './Rows/dashboard/Dashboard';
-import NftActivity from './Rows/nftActivity/NftActivity';
-import NftCollections from './Rows/nftCollections/NftCollections';
-import InfoTableTokens from './Rows/infoTableTokens/InfoTableTokens';
-import InfoTablePools from './Rows/infoTablePools/InfoTablePools';
-import InfoTableTransactions from './Rows/infoTableTransactions/InfoTableTransactions';
+import Dashboard from './rows/dashboard/Dashboard';
+import NftActivity from './rows/nftActivity/NftActivity';
+import NftCollections from './rows/nftCollections/NftCollections';
+import InfoTableTokens from './rows/infoTableTokens/InfoTableTokens';
+import InfoTablePools from './rows/infoTablePools/InfoTablePools';
+import InfoTableTransactions from './rows/infoTableTransactions/InfoTableTransactions';
 
 import styles from './ListItemRow.module.css';
 
