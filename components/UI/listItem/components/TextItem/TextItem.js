@@ -2,9 +2,9 @@ import React from 'react';
 
 import styles from '../../ListItemRow.module.css';
 
-const TextItem = ({ text, className }) => {
+const TextItem = props => {
   return (
-    <div className={`${styles.td} ${styles.textItem} ${className}`}>{text}</div>
+    <div className={`${styles.td} ${styles.textItem}`}>{props.data.text}</div>
   );
 };
 

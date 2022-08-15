@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 
-import ListItemRow from '../../../UI/listItem/ListItemRow';
 import MaruqeeTest from '../../../UI/marquee/MarqueeTest';
 import CornerDecor from '../../../UI/cornerDecor/CornerDecor';
 
 import styles from './VotingNow.module.css';
+import VotingNowItem from './VotingNowItem';
 
 const votingData = [
   {
@@ -238,7 +238,7 @@ const VotingNow = props => {
                   onClick={() => router.push(`/voting/${item.id}`)}
                   key={item.id + 'voting'}
                 >
-                  <ListItemRow data={item} type={'voting'} />
+                  <VotingNowItem data={item} />
                 </div>
               );
             })}
