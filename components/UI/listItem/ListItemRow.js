@@ -79,7 +79,7 @@ const ListItemRow = props => {
         }
 
         if (item.type === 'multi_text') {
-          return <div>Multi text</div>;
+          return <div key={index}>Multi text</div>;
         }
 
         if (item.type === 'price') {

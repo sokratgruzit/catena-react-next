@@ -1,0 +1,84 @@
+.mainContainer{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    width: 100%;
+}
+.side{
+    position: relative;
+    width: calc(50% - 15px);
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+.progressParent{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+.progressContainer{
+    width: calc(100% - 100px);
+    padding-right: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.progress{
+    width: 100%;
+    background: rgba(255,255,255,.1);
+    height: 6px;
+    border-radius: 3px;
+    position: relative;
+    overflow: hidden;
+    margin-top: 8px;
+}
+.progress i{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    background: rgba(5, 0, 255, 1);
+    height: 100%;
+    z-index: 2;
+    border-radius: 3px;
+}
+.progressTitle > span {
+    color: rgba(5, 0, 255, 1);
+}
+.progressTitle {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+.sideSubTtl *,.sideSubTtl {
+    font-size: 13px;
+    line-height: 18px;
+}
+.sideSubTtl {
+    margin-top: 5px;
+}
+.progressParentSecond {
+    margin-top: 20px;
+}
+.progressParentSecond .progressContainer {
+    width: 100%;
+}
+.buttonsContainer{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: auto;
+}
+/*Laptop 1440*/
+@media (max-width: 1900px) {
+}
+/*Ipad Pro 1024*/
+@media (max-width: 1300px) {
+}
+/*Ipad 768*/
+@media (max-width: 1023px) {
+
+}
+/*Mobile 320*/
+@media (max-width: 767px) {
+
+}

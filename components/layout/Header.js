@@ -81,6 +81,8 @@ const Header = () => {
   const isConnected = useSelector(state => state.connect.isConnected);
   const [balance, setBalance] = useState(0);
   const [stickHead, setStickHead] = useState(false);
+  const [routerLocale, setRouterLocale] = useState(null);
+
   const { t } = useTranslation('header');
 
   const NAV_DATA = [
@@ -297,6 +299,7 @@ const Header = () => {
     }
     if (window.innerWidth <= 767) {
     }
+    setRouterLocale(router.locale);
   }, []);
 
   useEffect(() => {
@@ -533,7 +536,7 @@ const Header = () => {
                         fill='white'
                       />
                     </svg>
-                    {t('top_menu.lang.default')}
+                    {routerLocale}
                   </div>
                 </div>
                 <div className={styles.headerMobileFooterSecond}>
@@ -690,7 +693,7 @@ const Header = () => {
                         />
                       </svg>
                       <div className={styles.headerLangNowTtl}>
-                        <span>EN</span>
+                        <span> {routerLocale}</span>
                       </div>
                     </div>
                   </div>
