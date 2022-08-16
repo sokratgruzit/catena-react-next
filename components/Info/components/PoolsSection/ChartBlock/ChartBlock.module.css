@@ -1,8 +1,8 @@
 .wrapper{
   width: 897px;
-  max-width: 63%;
-  border: 1px solid #111826;
+  max-width: 55vw;
   display: flex;
+  position: relative;
 }
 
 .Activity__filterWrap {
@@ -33,3 +33,19 @@
 .Activity__filterActive {
   background-color: rgba(255, 255, 255, 0.1)!important;
 }
+
+@media (max-width: 896px) {
+  .wrapper{
+    margin-top: 50px;
+    max-width: 100%;
+    width: 100%;
+    height: 450px;
+  }
+}
+
+/* 
+@media (min-width: 1200px) {
+  .wrapper{
+    max-width: none;
+  }
+} */

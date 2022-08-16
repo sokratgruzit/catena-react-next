@@ -38,20 +38,20 @@ const TopMovers_Data = [
     price_change: 4.06,
     price: 19.88,
   },
-  // {
-  //   id: 5,
-  //   imgSrc: '/images/Info/TopTokens/6.png',
-  //   name: 'LUNA',
-  //   price_change: 4.06,
-  //   price: 0.00018,
-  // },
-  // {
-  //   id: 6,
-  //   imgSrc: '/images/Info/TopTokens/7.png',
-  //   name: 'CMC',
-  //   price_change: 4.06,
-  //   price: 5.03,
-  // },
+  {
+    id: 5,
+    imgSrc: '/images/Info/TopTokens/6.png',
+    name: 'LUNA',
+    price_change: 4.06,
+    price: 0.00018,
+  },
+  {
+    id: 6,
+    imgSrc: '/images/Info/TopTokens/7.png',
+    name: 'CMC',
+    price_change: 4.06,
+    price: 5.03,
+  },
 ];
 
 const TopMovers = () => {
@@ -59,11 +59,23 @@ const TopMovers = () => {
     <>
       <div className={styles.wrapper}>
         <h2 className={`${styles.moversTitle} font_16`}>Top Movers</h2>
-        <div className={styles.topMoversWrapper}>
+        <div className={styles.slideWrapper}>
+          <div className={styles.slider}>
+            <div className={styles.slideTrack}>
+              {TopMovers_Data.map(item => (
+                <TopMoversSingleItem key={item.id} data={item} />
+              ))}
+              {TopMovers_Data.map(item => (
+                <TopMoversSingleItem key={item.id} data={item} />
+              ))}
+            </div>
+          </div>
+        </div>
+        {/* <div className={styles.topMoversWrapper}>
           {TopMovers_Data.map(item => (
             <TopMoversSingleItem key={item.id} data={item} />
           ))}
-        </div>
+        </div> */}
       </div>
     </>
   );

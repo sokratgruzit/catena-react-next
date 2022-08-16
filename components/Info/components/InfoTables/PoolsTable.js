@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import Table from '../../../UI/table/Table';
 import Button from '../../../UI/button/Button';
+import CornerDecor from '../../../UI/cornerDecor/CornerDecor';
 import PageNumber from './PageNumber';
 import { PaginationButtonSVG } from '../../../svg/InfoIcons';
 
@@ -110,11 +111,19 @@ const InfoTablePool_Data = [
   },
 ];
 
-const PoolsTable = () => {
+const PoolsTable = props => {
   const [pageCountPools, setPageCountPools] = useState(1);
+  const itemsPerPage = props.itemsPerPage || 10;
+  const [filteredData, setFilteredData] = useState(
+    InfoTablePool_Data.slice(
+      itemsPerPage * (pageCountPools - 1),
+      itemsPerPage - 1 + pageCountPools,
+    ),
+  );
 
   return (
     <div className={styles.Table__wrapper}>
+      <CornerDecor />
       <Table
         tableLabels={[
           '#',
@@ -126,7 +135,7 @@ const PoolsTable = () => {
           'Liquidity',
           '',
         ]}
-        tableData={InfoTablePool_Data}
+        tableData={filteredData}
         type={'info_table_pools'}
       />
       <div className={styles.Table__buttons}>

@@ -1,8 +1,9 @@
-import React, { useState, useEffect, useMemo } from 'react';
-
+import React, { useState } from 'react';
 import { useRouter } from 'next/router';
-import styles from './InfoRoutes.module.css';
+
 import TabFilter from '../../../UI/filters/TabFilter';
+
+import styles from './InfoRoutes.module.css';
 
 let tabsData = [
   {
@@ -46,7 +47,7 @@ const InfoRoutes = () => {
   };
 
   return (
-    <div className={styles.container}>
+    <>
       <TabFilter
         onClick={navigationHandler}
         data={tabsData}
@@ -58,7 +59,7 @@ const InfoRoutes = () => {
           item: styles.Activity__filter__item,
         }}
       />
-    </div>
+    </>
   );
 };
 

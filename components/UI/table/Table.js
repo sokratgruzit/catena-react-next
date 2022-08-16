@@ -5,6 +5,7 @@ import ListItemRow from '../listItem/ListItemRow';
 
 const Table = props => {
   let custom_th = '';
+  let custom_th_text = '';
 
   if (props.type == 'nft_activity') {
     custom_th = styles.th_activity;
@@ -15,6 +16,7 @@ const Table = props => {
   }
   if (props.type == 'info_table_tokens') {
     custom_th = listStyles.th_info_tokens;
+    custom_th_text = listStyles.th_info_tokens_text;
   }
   if (props.type == 'info_table_pools') {
     custom_th = listStyles.th_info_pools;
@@ -31,10 +33,10 @@ const Table = props => {
           return (
             <div
               key={label + 'unique'}
-              className={`${styles.th} ${custom_th}`}
+              className={`${custom_th}`}
               onClick={IdentifyOnClick}
             >
-              {label}
+              <div className={`${styles.th} ${custom_th_text}`}>{label}</div>
             </div>
           );
         })}

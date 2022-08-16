@@ -1,10 +1,8 @@
 import React from 'react';
 import { useRouter } from 'next/router';
-import { MongoClient } from 'mongodb';
+// import { MongoClient } from 'mongodb';
 import Image from 'next/image';
 
-import InfoRoutes from '../../../../components/Info/components/InfoRoutes/InfoRoutes';
-import SearchBar from '../../../../components/Info/components/SearchBar/SearchBar';
 import TokenSection from '../../../../components/Info/components/TokensSection/TokenSection';
 import BackgroundImg from '../../../../public/images/Info/background/background.png';
 
@@ -25,8 +23,8 @@ const InfoTokensInngerPage_Data = {
 };
 
 const InfoTokensInnerPage = props => {
-  const router = useRouter();
-  const { id } = router.query;
+  // const router = useRouter();
+  // const { id } = router.query;
   // fetch data by ID
 
   return (
@@ -40,9 +38,9 @@ const InfoTokensInnerPage = props => {
           alt='background'
         />
       </div>
-      <InfoRoutes />
-      <SearchBar />
-      <TokenSection data={props.infoTokensDetails} />
+      <div className={styles.section}>
+        <TokenSection data={props.infoTokensDetails} />
+      </div>
     </div>
   );
 };
@@ -50,17 +48,31 @@ const InfoTokensInnerPage = props => {
 export default InfoTokensInnerPage;
 
 export async function getStaticPaths(context) {
+  console.log(context);
   return {
     fallback: true,
     paths: [
+      { params: { tokenId: 'bitcoin' }, locale: 'ge' },
+      { params: { tokenId: 'bitcoin' }, locale: 'en' },
+      { params: { tokenId: 'bitcoin' }, locale: 'fr' },
       {
         params: {
-          tokenId: '1',
+          tokenId: 'ethereum',
         },
       },
       {
         params: {
-          tokenId: '2',
+          tokenId: 'tether',
+        },
+      },
+      {
+        params: {
+          tokenId: 'usd-coin',
+        },
+      },
+      {
+        params: {
+          tokenId: 'binancecoin',
         },
       },
     ],
@@ -68,24 +80,31 @@ export async function getStaticPaths(context) {
 }
 
 export async function getStaticProps(context) {
-  const client = await MongoClient.connect(
-    'mongodb+srv://sokrat:sokrat12345@cluster0.x2cvw.mongodb.net/cmcx?retryWrites=true&w=majority',
+  const { tokenId } = context.params;
+
+  // const client = await MongoClient.connect(
+  //   'mongodb+srv://sokrat:sokrat12345@cluster0.x2cvw.mongodb.net/cmcx?retryWrites=true&w=majority',
+  // );
+  // const db = client.db();
+
+  // const InfoTokensDetails = db.collection('InfoTokensDetails');
+  // const tokensData = await InfoTokensDetails.findOne({ id: 1 });
+
+  // delete tokensData._id;
+
+  // client.close();
+
+  // console.log(tokensData);
+  const res = await fetch(
+    `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${tokenId}`,
   );
-  const db = client.db();
 
-  const tokenId = context.params.tokenId;
-
-  const InfoTokensDetails = db.collection('InfoTokensDetails');
-  const tokensData = await InfoTokensDetails.findOne({ id: 1 });
-
-  delete tokensData._id;
-
-  client.close();
+  const tokensData = await res.json();
 
   return {
     props: {
       infoTokensDetails: {
-        ...tokensData,
+        ...tokensData[0],
       },
     },
   };

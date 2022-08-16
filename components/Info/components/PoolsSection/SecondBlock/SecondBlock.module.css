@@ -1,11 +1,11 @@
 .secondBlock{
   width: 433px;
   height: 175px;
-  border: 1px solid #111826;
   padding: 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  position: relative;
 }
 
 .bottomRow{
@@ -57,4 +57,19 @@
   font-size: 13px;
   line-height: 13px;
   color: #51515E;
+}
+
+@media (max-width: 1200px) {
+  .secondBlock{
+    max-width: 35vw;
+  }
+  .totalTokens{
+    max-width: 100%;
+  }
+}
+
+@media(max-width:896px){
+  .secondBlock{
+    max-width: none;
+  }
 }

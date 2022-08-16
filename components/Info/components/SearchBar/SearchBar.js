@@ -45,6 +45,10 @@ const SearchBar = () => {
     setSearchMode(type);
   };
 
+  // useEffect(() => {
+  //   console.log(searchValue);
+  // }, [searchValue]);
+
   return (
     <>
       <div className={styles.section}>
@@ -71,7 +75,7 @@ const SearchBar = () => {
                     activeMenu={searchMode}
                     css={{
                       wrap: styles.Activity__filterWrap,
-                      filter: tableStyles.Activity__filter,
+                      filter: styles.Activity__filter,
                       active: styles.Activity__filterActive,
                       item: styles.Activity__filter__item,
                     }}

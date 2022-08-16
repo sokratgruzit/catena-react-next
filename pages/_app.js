@@ -2,9 +2,11 @@ import Head from 'next/head';
 import { Provider } from 'react-redux';
 import Header from '../components/layout/Header';
 import Footer from '../components/layout/Footer';
-import store from '../store/index';
+import store, { persistor } from '../store/index';
 import Web3 from 'web3';
 import { Web3ReactProvider } from '@web3-react/core';
+
+import { PersistGate } from 'redux-persist/integration/react';
 
 import '../styles/globals.css';
 import '../styles/style.css';
@@ -24,9 +26,11 @@ function MyApp({ Component, pageProps }) {
       </Head>
       <Web3ReactProvider getLibrary={getLibrary}>
         <Provider store={store}>
-          <Header />
-          <Component {...pageProps} />
-          <Footer />
+          <PersistGate loading={null} persistor={persistor}>
+            <Header />
+            <Component {...pageProps} />
+            <Footer />
+          </PersistGate>
         </Provider>
       </Web3ReactProvider>
     </div>

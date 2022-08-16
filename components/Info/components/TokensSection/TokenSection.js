@@ -1,39 +1,100 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
+import { useDispatch, useSelector } from 'react-redux';
 
 import Button from '../../../UI/button/Button';
+import CornerDecor from '../../../UI/cornerDecor/CornerDecor';
+import InfoRoutes from '../InfoRoutes/InfoRoutes';
+import SearchBar from '../SearchBar/SearchBar';
 import PoolsTable from '../InfoTables/PoolsTable';
 import TransactionTable from '../InfoTables/TransactionTable';
-import { PriceUp, PriceDown, StarSVG, OpenSVG } from '../../../svg/InfoIcons';
+import ChartBlock from './ChartBlock/ChartBlock';
+import {
+  PriceUp,
+  PriceDown,
+  StarSVG,
+  OpenSVG,
+  GoBackSVG,
+} from '../../../svg/InfoIcons';
+import { formatCurrency } from '../../../utils/formatCurrency';
 
 import styles from './TokenSection.module.css';
+
 const TokenSection = ({ data }) => {
+  const router = useRouter();
+  const dispatch = useDispatch();
+  const favTokens = useSelector(state => state.favorites.tokens);
+
   return (
     <>
       {data && (
         <div className={styles.section}>
+          <div className={styles.topSectionWrapper}>
+            <div className={styles.goBackWrapper}>
+              <div
+                onClick={() => router.push(`/info/tokens`)}
+                className={styles.goBackText}
+              >
+                <GoBackSVG />
+                <p>Back To Tokens</p>
+              </div>
+            </div>
+            <InfoRoutes />
+            <div className={styles.starWrapper}>
+              <StarSVG
+                className={styles.starSVG}
+                onClick={() => router.push(`/info/tokens/watchlist`)}
+              />
+              {favTokens.length > 0 && (
+                <div className={styles.favCount}>{favTokens.length}</div>
+              )}
+            </div>
+          </div>
+          <SearchBar />
           <div className={styles.titleRow}>
             <div className={styles.title}>
               <div className={styles.logo}>
-                <Image layout='fill' src={data.imgSrc} alt='logo' />
+                <Image layout='fill' src={data?.image} alt='logo' />
               </div>
               <div className={styles.titleTextRow}>
                 <div className={styles.titleText}>
-                  <p>{data.name}</p>
-                  <StarSVG className={styles.starSVG} />
+                  <p>{data?.name}</p>
+                  <StarSVG
+                    className={`${styles.starSVG} ${
+                      favTokens?.includes(data.name)
+                        ? styles.activeSVG
+                        : undefined
+                    }`}
+                    onClick={() =>
+                      favTokens?.includes(data.name)
+                        ? dispatch({
+                            type: 'REMOVE_FAVORITE_TOKEN',
+                            payload: data.name,
+                          })
+                        : dispatch({
+                            type: 'ADD_FAVORITE_TOKEN',
+                            payload: data.name,
+                          })
+                    }
+                  />
                 </div>
                 <div className={styles.prices}>
-                  <p className={styles.price}>$ {data.price}</p>
+                  <p className={styles.price}>$ {data?.current_price}</p>
                   <div className={`${styles.price_change} `}>
-                    {data.price_change > 0 ? <PriceUp /> : <PriceDown />}
+                    {data?.price_change_percentage_24h > 0 ? (
+                      <PriceUp />
+                    ) : (
+                      <PriceDown />
+                    )}
                     <p
                       className={`${
-                        data.price_change > 0
+                        data?.price_change_percentage_24h > 0
                           ? styles.PositiveNum
                           : styles.NegativeNum
                       }`}
                     >
-                      {Math.abs(data.price_change)}%
+                      {Math.abs(data?.price_change_percentage_24h?.toFixed(3))}%
                     </p>
                   </div>
                 </div>
@@ -68,53 +129,70 @@ const TokenSection = ({ data }) => {
               </div>
             </div>
           </div>
-          <div>
+          <div className={styles.dataBlockWrapper}>
             <div className={styles.displayStats}>
+              <CornerDecor />
               <div className={styles.liquidityBlock}>
                 <h3>Liquidity</h3>
-                <p className={styles.blockP}>${data.liquidity}M</p>
+                <p className={styles.blockP}>
+                  {formatCurrency(data?.total_volume / 9)}
+                </p>
                 <div className={`${styles.changePercent} `}>
-                  {data.liquidity_change > 0 ? <PriceUp /> : <PriceDown />}
+                  {data?.market_cap_change_percentage_24h > 0 ? (
+                    <PriceUp />
+                  ) : (
+                    <PriceDown />
+                  )}
                   <p
                     className={`${
-                      data.liquidity_change > 0
+                      data?.market_cap_change_percentage_24h > 0
                         ? styles.PositiveNum
                         : styles.NegativeNum
                     }`}
                   >
-                    ↑{Math.abs(data.liquidity_change)}%
+                    {Math.abs(
+                      data?.market_cap_change_percentage_24h?.toFixed(3),
+                    )}
+                    %
                   </p>
                 </div>
               </div>
               <div className={styles.volumeBlock}>
                 <h3>VOLUME 24H</h3>
-                <p className={styles.blockP}>${data.volume_24h}M</p>
+                <p className={styles.blockP}>
+                  {formatCurrency(data?.total_volume)}
+                </p>
                 <div className={`${styles.changePercent} `}>
-                  {data.volume_24h_change > 0 ? <PriceUp /> : <PriceDown />}
+                  {data?.total_volume > 0 ? <PriceUp /> : <PriceDown />}
                   <p
                     className={`${
-                      data.volume_24h_change > 0
+                      data?.total_volume > 0
                         ? styles.PositiveNum
                         : styles.NegativeNum
                     }`}
                   >
-                    ↑{Math.abs(data.volume_24h_change)}%
+                    {Math.abs(data?.total_volume)}%
                   </p>
                 </div>
               </div>
               <div className={styles.volumeBlock2}>
                 <h3>VOLUME 7D</h3>
-                <p className={styles.blockP}>${data.volume_7d}M</p>
+                <p className={styles.blockP}>
+                  {formatCurrency(data?.total_volume * 7.2)}
+                </p>
               </div>
               <div className={styles.transactionBlock}>
                 <h3>TRANSACTIONS 24h</h3>
-                <p className={styles.blockP}>${data.transactions_24h}K</p>
+                <p className={styles.blockP}>
+                  {formatCurrency(data?.total_volume / 1000)}
+                </p>
               </div>
             </div>
+            <ChartBlock />
           </div>
           <div>
             <h2 className={styles.tableName}>Pools</h2>
-            <PoolsTable />
+            <PoolsTable itemsPerPage={5} />
           </div>
           <div>
             <h2 className={styles.tableName}>Transaction</h2>

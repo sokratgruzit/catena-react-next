@@ -1,6 +1,4 @@
 .section{
-  margin-left: 40px;
-  margin-right: 40px;
   margin-top: 40px;
 }
 .titleRow{
@@ -16,12 +14,16 @@
 .logo{
   z-index: -1;
   position: relative;
-  width: 35px;
-  height: 35px;
+  width: 50px;
+  height: 50px;
 }
 .titleText {
   display: flex;
   align-items: center;
+}
+
+.titleText p {
+  font-size: 22px;
 }
 .titleTextRow{
   display: flex;
@@ -33,6 +35,10 @@
 
 .prices{
   display: flex;
+}
+
+.price{
+  white-space: nowrap;
 }
 
 .price_change{
@@ -57,14 +63,20 @@
 }
 
 .starSVG{
-  width: 15px;
-  height: 15px;
-  margin-left: 5px;
+  width: 20px;
+  height: 20px;
+  margin-left: 7px;
   cursor: pointer;
 }
 .name{
+  cursor: pointer;
   display: flex;
   justify-content: flex-end;
+}
+
+.name:hover{
+  text-decoration: underline;
+  text-decoration-color: #0500FF;
 }
 .name p{
   font-size: 16px;
@@ -94,10 +106,10 @@
   flex-direction: column;
   width: 202px;
   height: 437px;
-  left: 40px;
-  top: 464px;
-  border: 1px solid #111826;
+  max-width: 20%;
   padding:20px 25px;
+  position: relative;
+
 }
 
 
@@ -151,4 +163,143 @@
   font-size: 13px;
   line-height: 18px;
   color: #627EEA;
+}
+
+.dataBlockWrapper{
+  display: flex;
+  justify-content: space-between;
+}
+
+.chartWrapper{
+  width: 1128px;
+  height: 438px;
+  max-width: 78%;
+  height: inherit;
+  border: 1px solid #111826;
+}
+
+.goBackWrapper{
+  width: 27%;
+  align-self: center;
+}
+.goBackText:hover{
+  text-decoration: underline;
+  text-decoration-color: #FF7152;
+}
+.goBackText{
+  cursor: pointer;
+  width: fit-content;
+  align-items: center;
+  display: flex;
+}
+
+.goBackText p{
+  font-size: 15px;
+  line-height: 21px;
+  color: #FF7152;
+  margin-left: 5px;
+}
+
+.starSVG{
+  width: 30px;
+  height: 30px;
+}
+
+.starWrapper{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 27%;
+}
+
+.favCount{
+  width: 20px;
+  height: 20px;
+  padding: 3px;
+  border-radius: 50%;
+  background-color: #FF7152;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  margin-left: 20px;
+  margin-bottom: 12px;
+  pointer-events: none;
+}
+
+.topSectionWrapper{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.activeSVG{
+  fill:#EAAB4D;
+}
+
+
+@media (max-width: 768px) {
+  .dataBlockWrapper{
+     flex-direction: column;
+     align-items: center;
+  }
+  .displayStats{
+    width: 100%;
+    max-width: 100%;
+  }
+  .dataBlockWrapper{
+    align-items:flex-start;
+  }
+  .liquidityBlock{
+    height: 25%;
+    padding: 10px;
+
+  }
+  .volumeBlock{
+    height: 25%; 
+    padding: 10px;
+  }
+  .volumeBlock2{
+    height: 25%;
+    padding: 10px;
+  }
+  .transactionBlock{
+    padding: 10px;
+    height: 25%;
+  } 
+  .blockP{
+    font-size: 20px;
+    line-height: 18px;
+    margin-bottom: 5px;
+  }
+  .displayStats h3{
+    margin-bottom: 5px;
+    margin-top: 5px;
+  }
+}
+
+@media (max-width:600px){
+  .topSectionWrapper{
+    flex-wrap: wrap;
+  }
+   .goBackWrapper{
+    align-self: flex-start;
+    width: 100%;
+    margin-bottom: 20px;
+   }
+   .starWrapper{
+    width: fit-content;
+   }
+}
+
+@media (max-width: 460px) {
+  .titleRow{
+    flex-direction: column;
+  }
+  .name{
+    justify-content: flex-start;
+  }
+  .buttons{
+    margin-bottom: 20px;
+  }
 }

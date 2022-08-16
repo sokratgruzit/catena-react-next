@@ -11,7 +11,7 @@ const collections = [
   '0xA46A4920B40f134420b472B16b3328d74D7B6B70',
   '0xebFBFD7C41B123500fb16B71C43B400c12B08bE0',
   '0x57A7c5d10c3F87f5617Ac1C60DA60082E44D539e',
-  '0x98F606A4cdDE68b9f68732D21fb9bA8B5510eE48'
+  '0x98F606A4cdDE68b9f68732D21fb9bA8B5510eE48',
 ];
 
 const nftOwners = [
@@ -20,9 +20,7 @@ const nftOwners = [
   '0x26a1dc454cbd9bd138337762e6cb261c3266b6e2',
 ];
 
-const creator = [
-  '0x2188c2e746ea138d7d3c7bf6f16a32947363f56e'
-];
+const creator = ['0x2188c2e746ea138d7d3c7bf6f16a32947363f56e'];
 
 const ownerItemData = [
   {
@@ -225,7 +223,6 @@ export async function getStaticProps(context) {
   const buyInfo = await buyCollection.find().toArray();
 
   client.close();
-  const buyId = context.params.buyId;
 
   return {
     props: {

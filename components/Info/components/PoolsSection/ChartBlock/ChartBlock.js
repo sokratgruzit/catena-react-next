@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import TabFilter from '../../../../UI/filters/TabFilter';
+import CornerDecor from '../../../../UI/cornerDecor/CornerDecor';
 
 import styles from './ChartBlock.module.css';
 
@@ -24,6 +25,7 @@ const ChartBlock = () => {
 
   return (
     <div className={styles.wrapper}>
+      <CornerDecor />
       <TabFilter
         onClick={navigationHandler}
         data={tabsData}

@@ -1,7 +1,8 @@
 import React from 'react';
+import Proposals from '../../components/voting/Proposals/Proposals';
 
 const Voting = () => {
-  return <div>Voting</div>;
+  return <Proposals />;
 };
 
 export default Voting;

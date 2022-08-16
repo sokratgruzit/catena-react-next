@@ -545,28 +545,15 @@
   display: flex;
   flex-direction: column;
   border: 1px solid transparent;
-  background-image: -webkit-gradient(
-      linear,
-      left bottom,
-      left top,
-      from(#00050f),
-      to(#00050f)
-    ),
-    -webkit-gradient(linear, left bottom, left top, from(#7464d7), to(rgba(116, 100, 215, 0.6))),
-    -webkit-gradient(linear, left bottom, left top, from(#7464d7), to(rgba(116, 100, 215, 0.6))),
-    -webkit-gradient(linear, left bottom, left top, from(#7464d7), to(rgba(116, 100, 215, 0.6))),
-    -webkit-gradient(linear, left bottom, left top, from(#7464d7), to(rgba(116, 100, 215, 0.6)));
-  background-image: linear-gradient(0deg, #00050f, #00050f),
-    linear-gradient(0deg, #7464d7, rgba(116, 100, 215, 0.6)),
-    linear-gradient(0deg, #7464d7, rgba(116, 100, 215, 0.6)),
-    linear-gradient(0deg, #7464d7, rgba(116, 100, 215, 0.6)),
-    linear-gradient(0deg, #7464d7, rgba(116, 100, 215, 0.6));
   background-origin: padding-box, border-box, border-box, border-box, border-box;
   background-repeat: no-repeat;
   background-size: 100% 100%, 20px 20px, 20px 20px, 20px 20px, 20px 20px;
   background-position: 0 0, 0 0, 100% 0, 0 100%, 100% 100%;
   padding: 0px 30px;
   margin-bottom: 30px;
+}
+.stack-box__double{
+  position: relative;
 }
 .stack-section .stack-box__double {
   display: flex;
@@ -603,6 +590,9 @@
 
 .stack-section .stack-box .stack-header .right-side {
   float: right;
+}
+.stack-box{
+  position: relative;
 }
 .stack-section .stack-box .stack-header .right-side .sr-btn-wrap {
   flex-wrap: wrap;
@@ -831,24 +821,9 @@
   position: relative;
 }
 .table-section .rounded-tbl {
+  position: relative;
   width: 100%;
   border: 1px solid transparent;
-  background-image: -webkit-gradient(
-      linear,
-      left bottom,
-      left top,
-      from(#00050f),
-      to(#00050f)
-    ),
-    -webkit-gradient(linear, left bottom, left top, from(#7464d7), to(rgba(116, 100, 215, 0.6))),
-    -webkit-gradient(linear, left bottom, left top, from(#7464d7), to(rgba(116, 100, 215, 0.6))),
-    -webkit-gradient(linear, left bottom, left top, from(#7464d7), to(rgba(116, 100, 215, 0.6))),
-    -webkit-gradient(linear, left bottom, left top, from(#7464d7), to(rgba(116, 100, 215, 0.6)));
-  background-image: linear-gradient(0deg, #00050f, #00050f),
-    linear-gradient(0deg, #7464d7, rgba(116, 100, 215, 0.6)),
-    linear-gradient(0deg, #7464d7, rgba(116, 100, 215, 0.6)),
-    linear-gradient(0deg, #7464d7, rgba(116, 100, 215, 0.6)),
-    linear-gradient(0deg, #7464d7, rgba(116, 100, 215, 0.6));
   background-origin: padding-box, border-box, border-box, border-box, border-box;
   background-repeat: no-repeat;
   background-size: 100% 100%, 20px 20px, 20px 20px, 20px 20px, 20px 20px;
@@ -2441,4 +2416,50 @@ footer p {
     width: calc(50% - 7px);
     margin-bottom: 15px;
   }
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.swiper-container {
+  width: 100%;
+  height: 400px;
+  padding: 0 50px;
+}
+.swiper-button-prev{
+  display: none !important;
+}
+
+.swiper-pagination-progressbar{
+  
+    background: rgba(0,0,0,.25) !important;
+    position: absolute !important;
+}
+
+.swiper-button-next{
+  display:none !important;
+}
+
+.swiper-pagination{
+  bottom: 0 !important;
+  top: auto !important;
+  margin-bottom: 10px;
+  max-width: 90%;
 }

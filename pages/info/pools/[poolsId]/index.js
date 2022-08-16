@@ -49,9 +49,9 @@ const InfoPoolsInnerPage = props => {
           alt='background'
         />
       </div>
-      <InfoRoutes />
-      <SearchBar />
-      <PoolsSection data={props.infoPoolsDetails} />
+      <div className={styles.section}>
+        <PoolsSection data={props.infoPoolsDetails} />
+      </div>
     </div>
   );
 };
@@ -86,8 +86,6 @@ export async function getStaticProps(context) {
 
   const InfoPoolsDetails = db.collection('InfoPoolsDetails');
   const poolsData = await InfoPoolsDetails.findOne({ name: 'USDC/WBNB' });
-
-  console.log(poolsId);
 
   client.close();
   return {

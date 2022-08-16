@@ -1,12 +1,12 @@
 .firstBlock{
   width: 433px;
   height: 304px;
-  border: 1px solid #111826;
   padding: 20px;
   margin-bottom: 50px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  position: relative;
 }
 
 
@@ -24,13 +24,14 @@
 
 .poolsTopRow div:nth-child(2){
   margin-right: 50px;
-}.totalTokens{
+}
+.totalTokens{
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 393px;
   height: 104px;
-  border: 1px solid #111826;
+  position: relative;
 }
 
 .totalTokensRow{
@@ -50,4 +51,21 @@
 
 .totalTokensTitle{
   margin-bottom: 18px;
+}
+
+
+
+@media (max-width: 1200px) {
+  .firstBlock{
+    max-width: 35vw;
+  }
+  .totalTokens{
+    max-width: 100%;
+  }
+}
+
+@media(max-width:896px){
+  .firstBlock{
+    max-width: none;
+  }
 }

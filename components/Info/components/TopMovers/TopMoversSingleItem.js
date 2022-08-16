@@ -10,7 +10,7 @@ const TopMoversSingleItem = ({ data }) => {
     <div className={styles.wrapper}>
       <div className={styles.title}>
         <div className={styles.logo}>
-          <Image width={20} height={20} src={data.imgSrc} alt='logo' />
+          <Image width={20} height={20} src={data?.imgSrc} alt='logo' />
         </div>
         <p>{data.name}</p>
       </div>
