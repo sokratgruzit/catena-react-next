@@ -62,7 +62,7 @@ const TokensTable = props => {
 
       setData(data);
     });
-  }, [itemsPerPage, pageCountTokens]);
+  }, [itemsPerPage, pageCountTokens, router]);
 
   const sorting = col => {
     let sort;
