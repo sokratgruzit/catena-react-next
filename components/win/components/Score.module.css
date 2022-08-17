@@ -1,0 +1,118 @@
+.score {
+  position: relative;
+  text-align: center;
+  margin-top: 150px;
+}
+.scoreContent {
+  position: absolute;
+  width: 100%;
+  padding-top: 2%;
+  top: -25%;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+}
+.scoreContent svg {
+  margin: 0 40px;
+}
+.scoreBorder {
+  position: relative;
+  width: 665px;
+  height: 240px;
+  margin: auto;
+}
+.scoreTitle h3 {
+  padding-top: 35px;
+  font-size: 30px;
+  line-height: 42px;
+}
+.scoreTitle h4 {
+  font-size: 20px;
+  line-height: 28px;
+  color: #627eea;
+}
+.scoreTitle p {
+  font-size: 13px;
+  line-height: 18px;
+  color: #ffffff;
+  opacity: 0.7;
+}
+.scoreTitle div {
+  margin: 20px 0 30px 0;
+}
+.spaceShip {
+  position: absolute;
+  top: 70%;
+  left: 15%;
+  width: 10%;
+  padding-top: 10%;
+}
+.dimond {
+  position: absolute;
+  top: 15%;
+  right: 20%;
+  width: 10%;
+  padding-top: 5%;
+}
+.planet {
+  position: absolute;
+  top: 140%;
+  right: 15%;
+  width: 10%;
+  padding-top: 5%;
+}
+
+/*Ipad Pro 1024*/
+@media (max-width: 1300px) {
+  .dimond {
+    position: absolute;
+    right: 22%;
+    top: 15%;
+  }
+}
+/*Ipad 768*/
+@media (max-width: 1023px) {
+  .spaceShip {
+    position: absolute;
+    top:70%;
+    left: 5%;
+  }
+  .dimond {
+    position: absolute;
+    bottom: -63%;
+    right: 14%;
+  }
+  .planet {
+    position: absolute;
+    bottom: -89%;
+    right: 5%;
+  }
+}
+/*Mobile 320*/
+@media (max-width: 767px) {
+  .scoreContent {
+    position: absolute;
+    width: 100%;
+    padding-top: 3%;
+    top: -25%;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+  }
+  .scoreBorder {
+    width: 90%;
+    height: 250px;
+    margin: auto;
+  }
+  .spaceShip {
+    position: absolute;
+    top:90%;
+    left: -2%;
+    width: 80px;
+  }
+  .dimond {
+    position: absolute;
+    bottom: -63%;
+    right: 2%;
+  }
+}

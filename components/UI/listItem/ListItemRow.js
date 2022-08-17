@@ -40,7 +40,7 @@ const ListItemRow = props => {
   if (type === 'nft_activity') {
     cs = styles.nft_activity_table;
   }
-  
+
   if (type === 'nft_collections') {
     cs = styles.Collections__item;
   }
@@ -62,34 +62,39 @@ const ListItemRow = props => {
   }
 
   obj = (
-    <div
-      className={`${cs} ${styles.rowItem}`}
-    >
+    <div className={`${cs} ${styles.rowItem}`}>
       {data?.data?.map((item, index) => {
-        if (item.type === "img_text") {
-          return <ImgTextItem key={"img_text" + type + index} data={item} onClick={item.onClick} />;
+        if (item.type === 'img_text') {
+          return (
+            <ImgTextItem
+              key={'img_text' + type + index}
+              data={item}
+              onClick={item.onClick}
+            />
+          );
         }
 
-        if (item.type === "text") {
-          return <TextItem key={"text" + type + index} data={item} />;
+        if (item.type === 'text') {
+          return <TextItem key={'text' + type + index} data={item} />;
         }
 
-        if (item.type === "multi_text") {
-          return <div>Multi text</div>;
+        if (item.type === 'multi_text') {
+          return <div key={index}>Multi text</div>;
         }
 
-        if (item.type === "price") {
-          return <PriceItem key={"price" + type + index} data={item} />;
+        if (item.type === 'price') {
+          return <PriceItem key={'price' + type + index} data={item} />;
         }
 
-        if (item.type === "svg") {
-          return <TextSvg key={"svg" + type + index} data={item} />;
+        if (item.type === 'svg') {
+          return <TextSvg key={'svg' + type + index} data={item} />;
         }
 
-        if (item.type === "price_change") {
-          return <PriceChange key={"price_change" + type + index} data={item} />;
+        if (item.type === 'price_change') {
+          return (
+            <PriceChange key={'price_change' + type + index} data={item} />
+          );
         }
-
       })}
     </div>
   );
