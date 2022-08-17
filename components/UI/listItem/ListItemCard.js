@@ -141,12 +141,12 @@ const ListItemCard = props => {
             <div className={styles.Product__content}>
               <div className={styles.Product__images}>
                 {/* <Image src={data.toReciverImg} layout='fill' alt='nft' /> */}
-                <img src='../images/nft/nft_collection_items/fig1.png' />
-                <img src='../images/nft/nft_collection_items/fig2.png' />
-                <img src='../images/nft/nft_collection_items/fig3.png' />
+                <Image src='/images/nft/nft_collection_items/fig1.png' width={30} height={30} alt="img" />
+                <Image src='/images/nft/nft_collection_items/fig2.png' width={30} height={30} alt="img" />
+                <Image src='/images/nft/nft_collection_items/fig3.png' width={30} height={30} alt="img" />
               </div>
               <div className={styles.Product__logo}>
-                <img src='../images/nft/nft_collection_items/logo1.png' />
+                <Image src='/images/nft/nft_collection_items/logo1.png' width={30} height={30} alt="img" />
               </div>
               <div className={styles.Product__titles}>
                 <p>Created By</p>
