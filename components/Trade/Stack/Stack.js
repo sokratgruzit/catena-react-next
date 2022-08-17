@@ -146,7 +146,7 @@ function Stack() {
     } catch (err) {
       setLoadding(false);
     }
-  });
+  }, []);
 
   const approve = async () => {
     setLoadding(true);

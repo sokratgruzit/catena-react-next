@@ -216,7 +216,7 @@ const Header = () => {
         setBalance(res);
       });
     }
-  });
+  }, [balance]);
 
   const openMenu = id => {
     if (window.innerWidth >= 1024) {
@@ -1091,78 +1091,86 @@ const Header = () => {
                   />
                 </svg>
               </div>
-              <a href='/wallet' className={styles.headerConnectedModalLink}>
-                <span>Wallet</span>
-                <svg
-                    width='5'
-                    height='9'
-                    viewBox='0 0 5 9'
-                    fill='none'
-                    xmlns='http://www.w3.org/2000/svg'
+              <Link>
+                <a href='/wallet' className={styles.headerConnectedModalLink}>
+                  <span>Wallet</span>
+                  <svg
+                      width='5'
+                      height='9'
+                      viewBox='0 0 5 9'
+                      fill='none'
+                      xmlns='http://www.w3.org/2000/svg'
+                  >
+                    <path
+                        fillRule='evenodd'
+                        clipRule='evenodd'
+                        d='M0.640565 7.86627C0.328145 7.55385 0.328145 7.04732 0.640565 6.7349L3.27488 4.10059L0.640564 1.46627C0.328145 1.15385 0.328145 0.64732 0.640564 0.3349C0.952984 0.0224809 1.45952 0.0224809 1.77194 0.3349L4.40628 2.96924C5.02981 3.59277 5.02981 4.6084 4.40628 5.23193L1.77194 7.86627C1.45952 8.17869 0.952984 8.17869 0.640565 7.86627Z'
+                        fill='rgba(255, 255, 255, .7)'
+                    />
+                  </svg>
+                </a>
+              </Link>
+              <Link>
+                <a
+                    href='/recent-transactions'
+                    className={styles.headerConnectedModalLink}
                 >
-                  <path
-                      fillRule='evenodd'
-                      clipRule='evenodd'
-                      d='M0.640565 7.86627C0.328145 7.55385 0.328145 7.04732 0.640565 6.7349L3.27488 4.10059L0.640564 1.46627C0.328145 1.15385 0.328145 0.64732 0.640564 0.3349C0.952984 0.0224809 1.45952 0.0224809 1.77194 0.3349L4.40628 2.96924C5.02981 3.59277 5.02981 4.6084 4.40628 5.23193L1.77194 7.86627C1.45952 8.17869 0.952984 8.17869 0.640565 7.86627Z'
-                      fill='rgba(255, 255, 255, .7)'
-                  />
-                </svg>
-              </a>
-              <a
-                  href='/recent-transactions'
-                  className={styles.headerConnectedModalLink}
-              >
-                <span>Recent Transactions</span>
-                <svg
-                    width='5'
-                    height='9'
-                    viewBox='0 0 5 9'
-                    fill='none'
-                    xmlns='http://www.w3.org/2000/svg'
-                >
-                  <path
-                      fillRule='evenodd'
-                      clipRule='evenodd'
-                      d='M0.640565 7.86627C0.328145 7.55385 0.328145 7.04732 0.640565 6.7349L3.27488 4.10059L0.640564 1.46627C0.328145 1.15385 0.328145 0.64732 0.640564 0.3349C0.952984 0.0224809 1.45952 0.0224809 1.77194 0.3349L4.40628 2.96924C5.02981 3.59277 5.02981 4.6084 4.40628 5.23193L1.77194 7.86627C1.45952 8.17869 0.952984 8.17869 0.640565 7.86627Z'
-                      fill='rgba(255, 255, 255, .7)'
-                  />
-                </svg>
-              </a>
+                  <span>Recent Transactions</span>
+                  <svg
+                      width='5'
+                      height='9'
+                      viewBox='0 0 5 9'
+                      fill='none'
+                      xmlns='http://www.w3.org/2000/svg'
+                  >
+                    <path
+                        fillRule='evenodd'
+                        clipRule='evenodd'
+                        d='M0.640565 7.86627C0.328145 7.55385 0.328145 7.04732 0.640565 6.7349L3.27488 4.10059L0.640564 1.46627C0.328145 1.15385 0.328145 0.64732 0.640564 0.3349C0.952984 0.0224809 1.45952 0.0224809 1.77194 0.3349L4.40628 2.96924C5.02981 3.59277 5.02981 4.6084 4.40628 5.23193L1.77194 7.86627C1.45952 8.17869 0.952984 8.17869 0.640565 7.86627Z'
+                        fill='rgba(255, 255, 255, .7)'
+                    />
+                  </svg>
+                </a>
+              </Link>
               <i></i>
-              <a href='/your-nfts' className={styles.headerConnectedModalLink}>
-                <span>Your NFTs</span>
-                <svg
-                    width='5'
-                    height='9'
-                    viewBox='0 0 5 9'
-                    fill='none'
-                    xmlns='http://www.w3.org/2000/svg'
-                >
-                  <path
-                      fillRule='evenodd'
-                      clipRule='evenodd'
-                      d='M0.640565 7.86627C0.328145 7.55385 0.328145 7.04732 0.640565 6.7349L3.27488 4.10059L0.640564 1.46627C0.328145 1.15385 0.328145 0.64732 0.640564 0.3349C0.952984 0.0224809 1.45952 0.0224809 1.77194 0.3349L4.40628 2.96924C5.02981 3.59277 5.02981 4.6084 4.40628 5.23193L1.77194 7.86627C1.45952 8.17869 0.952984 8.17869 0.640565 7.86627Z'
-                      fill='rgba(255, 255, 255, .7)'
-                  />
-                </svg>
-              </a>
-              <a href='/make-profile' className={styles.headerConnectedModalLink}>
-                <span>Make a Profile</span>
-                <svg
-                    width='5'
-                    height='9'
-                    viewBox='0 0 5 9'
-                    fill='none'
-                    xmlns='http://www.w3.org/2000/svg'
-                >
-                  <path
-                      fillRule='evenodd'
-                      clipRule='evenodd'
-                      d='M0.640565 7.86627C0.328145 7.55385 0.328145 7.04732 0.640565 6.7349L3.27488 4.10059L0.640564 1.46627C0.328145 1.15385 0.328145 0.64732 0.640564 0.3349C0.952984 0.0224809 1.45952 0.0224809 1.77194 0.3349L4.40628 2.96924C5.02981 3.59277 5.02981 4.6084 4.40628 5.23193L1.77194 7.86627C1.45952 8.17869 0.952984 8.17869 0.640565 7.86627Z'
-                      fill='rgba(255, 255, 255, .7)'
-                  />
-                </svg>
-              </a>
+              <Link>
+                <a href='/your-nfts' className={styles.headerConnectedModalLink}>
+                  <span>Your NFTs</span>
+                  <svg
+                      width='5'
+                      height='9'
+                      viewBox='0 0 5 9'
+                      fill='none'
+                      xmlns='http://www.w3.org/2000/svg'
+                  >
+                    <path
+                        fillRule='evenodd'
+                        clipRule='evenodd'
+                        d='M0.640565 7.86627C0.328145 7.55385 0.328145 7.04732 0.640565 6.7349L3.27488 4.10059L0.640564 1.46627C0.328145 1.15385 0.328145 0.64732 0.640564 0.3349C0.952984 0.0224809 1.45952 0.0224809 1.77194 0.3349L4.40628 2.96924C5.02981 3.59277 5.02981 4.6084 4.40628 5.23193L1.77194 7.86627C1.45952 8.17869 0.952984 8.17869 0.640565 7.86627Z'
+                        fill='rgba(255, 255, 255, .7)'
+                    />
+                  </svg>
+                </a>
+              </Link>
+              <Link>
+                <a href='/make-profile' className={styles.headerConnectedModalLink}>
+                  <span>Make a Profile</span>
+                  <svg
+                      width='5'
+                      height='9'
+                      viewBox='0 0 5 9'
+                      fill='none'
+                      xmlns='http://www.w3.org/2000/svg'
+                  >
+                    <path
+                        fillRule='evenodd'
+                        clipRule='evenodd'
+                        d='M0.640565 7.86627C0.328145 7.55385 0.328145 7.04732 0.640565 6.7349L3.27488 4.10059L0.640564 1.46627C0.328145 1.15385 0.328145 0.64732 0.640564 0.3349C0.952984 0.0224809 1.45952 0.0224809 1.77194 0.3349L4.40628 2.96924C5.02981 3.59277 5.02981 4.6084 4.40628 5.23193L1.77194 7.86627C1.45952 8.17869 0.952984 8.17869 0.640565 7.86627Z'
+                        fill='rgba(255, 255, 255, .7)'
+                    />
+                  </svg>
+                </a>
+              </Link>
               <i></i>
               <div
                   className={styles.headerConnectedModalLink}
