@@ -118,7 +118,7 @@ function Stack() {
     }
   };
 
-  const checkAllowance = useCallback(async () => {
+  const checkAllowance = async () => {
     try {
       setLoadding(true);
 
@@ -146,7 +146,7 @@ function Stack() {
     } catch (err) {
       setLoadding(false);
     }
-  }, []);
+  };
 
   const approve = async () => {
     setLoadding(true);
@@ -243,7 +243,7 @@ function Stack() {
     }
   };
 
-  const getStackerInfo = useCallback(async () => {
+  const getStackerInfo = async () => {
     setLoadding(true);
     try {
       var tokenContract = new web3Obj.eth.Contract(WBNB, tokenAddress);
@@ -325,7 +325,7 @@ function Stack() {
       setStakersRecord([]);
       setBalance(0);
     }
-  });
+  };
 
   const setMaxWithdrawal = async () => {
     var tokenContract = new web3Obj.eth.Contract(WBNB, tokenAddress);
@@ -344,7 +344,7 @@ function Stack() {
       checkAllowance();
       getStackerInfo();
     }
-  }, [isActive, account, checkAllowance, getStackerInfo]);
+  }, [isActive, account]);
 
   return (
     <>

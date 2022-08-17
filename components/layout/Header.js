@@ -210,13 +210,13 @@ const Header = () => {
 
   let web3Obj = library;
 
-  const getBalance = useCallback(async () => {
+  const getBalance = async () => {
     if (web3Obj !== undefined) {
       web3Obj.eth.getBalance(account).then(res => {
         setBalance(res);
       });
     }
-  }, [balance]);
+  };
 
   const openMenu = id => {
     if (window.innerWidth >= 1024) {
@@ -289,7 +289,7 @@ const Header = () => {
       setBalance(0);
     }
     // console.log(isConnected);
-  }, [account, isConnected, getBalance]);
+  }, [account, isConnected]);
 
   useEffect(() => {
     if (window.innerWidth >= 1024) {
@@ -1091,8 +1091,8 @@ const Header = () => {
                   />
                 </svg>
               </div>
-              <Link>
-                <a href='/wallet' className={styles.headerConnectedModalLink}>
+              <Link href='/wallet'>
+                <a className={styles.headerConnectedModalLink}>
                   <span>Wallet</span>
                   <svg
                       width='5'
@@ -1110,10 +1110,9 @@ const Header = () => {
                   </svg>
                 </a>
               </Link>
-              <Link>
+              <Link href='/recent-transactions'>
                 <a
-                    href='/recent-transactions'
-                    className={styles.headerConnectedModalLink}
+                  className={styles.headerConnectedModalLink}
                 >
                   <span>Recent Transactions</span>
                   <svg
@@ -1133,8 +1132,8 @@ const Header = () => {
                 </a>
               </Link>
               <i></i>
-              <Link>
-                <a href='/your-nfts' className={styles.headerConnectedModalLink}>
+              <Link href='/your-nfts'>
+                <a className={styles.headerConnectedModalLink}>
                   <span>Your NFTs</span>
                   <svg
                       width='5'
@@ -1152,8 +1151,8 @@ const Header = () => {
                   </svg>
                 </a>
               </Link>
-              <Link>
-                <a href='/make-profile' className={styles.headerConnectedModalLink}>
+              <Link href='/make-profile'>
+                <a className={styles.headerConnectedModalLink}>
                   <span>Make a Profile</span>
                   <svg
                       width='5'
