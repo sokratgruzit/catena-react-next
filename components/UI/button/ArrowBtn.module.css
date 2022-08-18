@@ -26,6 +26,7 @@
 }
 /* btn direction forward styles */
 .forwardBtn {
+    cursor: pointer;
     margin-top: 10px;
     color: #FF7152;
     display: flex;
@@ -49,4 +50,9 @@
 }
 .forwardBtn:hover {
     color: #0500FF
+}
+/* win btns */
+.trandingCompetition:hover {
+    transition: 1.30s;
+    border-bottom: 1px solid #0500FF;
 }

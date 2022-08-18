@@ -1,4 +1,4 @@
-import React from 'react';
+import Image from 'next/image';
 import CornerDecor from "../../UI/cornerDecor/CornerDecor";
 import styles from './PrizeFunds.module.css';
 
@@ -52,9 +52,15 @@ const PrizeFunds = () => {
     return (
         <>
             <div className={styles.mainContainer}>
-                <img className={styles.blackHoule} src={'../../images/win/blackHoule.png'} alt="blackHoule" />
-                <img className={styles.star} src={'../../images/win/star.png'} alt="star" />
-                <img className={styles.littleStar} src={'../../images/win/namceca.png'} alt="star" />
+                <div className={styles.blackHoule}>
+                    <Image objectFit={'contain'} layout='fill' src={'/images/win/blackHoule.png'} alt="blackHoule" />
+                </div>
+                <div className={styles.star}>
+                    <Image objectFit={'contain'} layout='fill' src={'/images/win/star.png'} alt="star" />
+                </div>
+                <div className={styles.littleStar}>
+                    <Image objectFit={'contain'} layout='fill' src={'/images/win/namceca.png'} alt="star" />
+                </div>
                 <div className={styles.content}>
                     <div className={styles.title}>
                         <h1>Prize Funds</h1>

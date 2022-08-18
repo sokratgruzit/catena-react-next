@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
+import Image from 'next/image';
 import CornerDecor from '../../UI/cornerDecor/CornerDecor';
-
 import BuyTickets from './BuyTickets';
 import styles from "./Tickets.module.css";
 
@@ -78,14 +77,14 @@ const Tickets = () => {
     return (
         <div className={styles.alignteItems}>
             <div className={styles.blur}>
-                <img className={styles.imgBlur} src={'../../images/win/rectangle.png'} alt="" />
+                <Image layout='fill' objectFit={"contain"} src={'/images/win/rectangle.png'} alt="rectangle" />
             </div>
             <h1 className={styles.title}>
                 Get your tickets now!
             </h1>
             <div  className={styles.time}>
                 <span>
-                    1Day 35Minute
+                    1<sub className={styles.subtitre}>Day</sub>35<sub className={styles.subtitre}>Minute</sub>
                 </span>
                 <p>
                     until the draw
@@ -132,16 +131,16 @@ const Tickets = () => {
                     </div>
                     <div className={styles.list} >                    
                         {details && ticketsData.map(item => {
-                                return (
-                                    <>
-                                        <div className={styles.detailsList} key={item.id}>
-                                            <p className={styles.titlePar}>{item.title}</p>    
-                                            <p>{item.priceCore}</p>
-                                            <p  className={styles.priceCore}>{item.price}</p>
-                                        </div> 
-                                    </>
-                                )
-                            })}
+                            return (
+                                <>
+                                    <div className={styles.detailsList} key={item.id}>
+                                        <p className={styles.titlePar}>{item.title}</p>    
+                                        <p>{item.priceCore}</p>
+                                        <p  className={styles.priceCore}>{item.price}</p>
+                                    </div> 
+                                </>
+                            )
+                        })}
                     </div>
                     <div className={styles.details}>
                         <p onClick={handleClick}>

@@ -170,7 +170,10 @@
 /*Mobile 320*/
 @media (max-width: 767px) {
   .cup {
-    padding-top: 7%;
+    padding-top: 10%;
+  }
+  .svgImg {
+    margin-right: 50px;
   }
   .rankPosition {
     padding-top: 25%;

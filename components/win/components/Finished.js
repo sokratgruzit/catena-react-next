@@ -5,7 +5,7 @@ const Finished = () => {
     <>
     <div className={styles.blur}>
         <div className={styles.Finished__background}>
-            <Image  className={styles.background} layout="fill" src={"/images/win/background/backgroundBlur.png"}  alt="time" objectFit={"cover"}/>
+            <Image  layout="fill" src={"/images/win/background/backgroundBlur.png"}  alt="time" objectFit={"cover"}/>
         </div>
         <div className={styles.mainContent}>
             <div className={styles.blurContent}>

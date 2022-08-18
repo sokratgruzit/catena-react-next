@@ -140,6 +140,7 @@
   }
   .rulesDescription {
     display: block;
+    padding: 0 15px;
   }
   .rulesDescription span {
     display: none;
@@ -148,5 +149,27 @@
     position: absolute;
     left: 25%;
     margin-top: -100px;
+    padding-top: 20%;
+    width: 20%;
+  }
+  .asteroidFinish {
+    position: absolute;
+    left: 3%;
+    top: -100%;
+    padding-top: 8%;
+    width: 8%;
+  }
+  .planetFinish {
+    position: absolute;
+    margin-bottom: 3%;
+    left: 73%;
+    top: 70%;
+    padding-top: 8%;
+    width: 8%;
+  }
+  .rulsClock {
+    position: relative;
+    padding-top: 8%;
+    width: 8%;
   }
 }

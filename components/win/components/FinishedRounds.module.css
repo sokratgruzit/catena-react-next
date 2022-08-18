@@ -1,12 +1,19 @@
 .background {
     position: absolute;
     left: 0;
-    top: -45%;
+    top: -105%;
     z-index: -10;
+    width: 100%;
+    padding-top: 100%;
 }
 .marginTop {
     margin-top: 400px;
     position: relative;
+}
+.ballBlue {
+    position: relative;
+    width: 8%;
+    padding-top: 8%;
 }
 .title h1 {
     text-align: center;
@@ -22,6 +29,7 @@
 }
 .paddingDec {
     padding: 20px;
+    width: 700px;
 }
 .tab {
     border: 1px solid #ffffff10;
@@ -36,9 +44,31 @@
 }
 .titleRules {
     display: flex;
-    gap: 360px;
+    gap: 390px;
     border-bottom: 1px solid #ffffff10;
     padding-bottom: 20px;
+}
+.titleDesc h2 {
+    font-size: 16px;
+}
+.titleDesc p {
+    font-size: 13px;
+    opacity: 0.7;
+}
+.arrowNext {
+    margin: 0 20px;
+    cursor: pointer;
+}
+.arrowNext:hover {
+    opacity: 0.5;
+    transition: all 0.3s ease-in-out;
+}
+.arrow {
+    cursor: pointer;
+}
+.arrow:hover {
+    opacity: 0.5;
+    transition: all 0.3s ease-in-out;
 }
 .winNumber {
     display: flex;
@@ -64,8 +94,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 665px;
-    height: 276px;
+    width: 700px;
+    height: 295px;
 }
 .history p {
     margin-bottom: 40px;
@@ -95,10 +125,24 @@
     }
 }
 @media (max-width: 767px) {
+    .marginTop {
+        margin-top: 200px;
+        position: relative;
+    }
     .tabDecor {
         margin: 0 20px;
     }
+    .paddingDec {
+        width: 380px;
+    }
+    .titleDesc h2 {
+        font-size: 14px;
+    }
+    .titleDesc p {
+        font-size: 13px;
+        opacity: 0.7;
+    }
     .titleRules {
-        gap: 160px;
+        gap: 71px;
     }
 }

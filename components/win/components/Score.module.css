@@ -107,8 +107,9 @@
   .spaceShip {
     position: absolute;
     top:90%;
-    left: -2%;
-    width: 80px;
+    left: -1%;
+    padding-top: 15%;
+    width: 15%;
   }
   .dimond {
     position: absolute;

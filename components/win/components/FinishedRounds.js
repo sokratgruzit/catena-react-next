@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
-import TabFilter from '../../UI/filters/TabFilter'
+import { useState } from 'react';
+import Image from 'next/image';
+import TabFilter from '../../UI/filters/TabFilter';
 import CornerDecor from "../../UI/cornerDecor/CornerDecor";
-import filterStyles from "../../UI/filters/TabFilter.module.css"
-import styles from './FinishedRounds.module.css'
+import filterStyles from "../../UI/filters/TabFilter.module.css";
+import styles from './FinishedRounds.module.css';
 import ButtonWallet from './ButtonWallet';
 
 let tabsData = [
@@ -170,8 +171,8 @@ const FinishedRounds = () => {
 
     const displayUsers = finishedRoulesData.slice(pageNumber, pageNumber + 6).map((item) => {
         return (
-          <div key={item.id}>
-              <img src={`../../images/win/${item.img}`}   />
+          <div className={styles.ballBlue} key={item.id}>
+              <Image layout='fill' objectFit={'contain'} src={`/images/win/${item.img}`} alt='blue' />
           </div>
         );
     });
@@ -185,19 +186,19 @@ const FinishedRounds = () => {
                 <CornerDecor />
                 <div className={styles.paddingDec}>
                     <div className={styles.titleRules}>
-                        <div >
-                            <p>Round</p>
+                        <div className={styles.titleDesc}>
+                            <h2>Round</h2>
                             <p>Drawn Mar 31, 2022, 4:00 AM</p>
                         </div>
                         <div>
-                            <svg onClick={()=> {
+                            <svg className={styles.arrow} onClick={()=> {
                                 previous();
                             }}
                                 width="13" height="10" viewBox="0 0 13 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M4.98465 1.17914L1.41406 4.74972L4.98465 8.32031" stroke="white" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
                                 <path d="M11.4137 4.75L1.51367 4.75" stroke="white" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
                             </svg>                        
-                            <svg 
+                            <svg className={styles.arrowNext}
                                 onClick={()=> {
                                     next();
                                 }} 
@@ -205,7 +206,7 @@ const FinishedRounds = () => {
                                 <path d="M7.84347 1.17914L11.4141 4.74972L7.84347 8.32031" stroke="white" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
                                 <path d="M1.41445 4.75L11.3145 4.75" stroke="white" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
                             </svg>
-                            <svg 
+                            <svg className={styles.arrow} 
                                 // onClick={()=> {
                                 //     lastPage();
                                 // }}
@@ -216,7 +217,6 @@ const FinishedRounds = () => {
                                 <line x1="14.9141" y1="0.75" x2="14.9141" y2="8.75" stroke="white" strokeLinecap="round"/>
                                 </g>    
                             </svg>
-
                         </div>
                     </div>
                     <div className={styles.winNumber}>
@@ -258,7 +258,9 @@ const FinishedRounds = () => {
         </div>
         <div className={styles.border}>
             <div className={styles.tab}>
-            <img className={styles.background} src={'../../images/win/background/finishdRoundBg.png'} alt="" />
+                <div className={styles.background}>
+                    <Image layout='fill' objectFit={'contain'} src={'/images/win/background/finishdRoundBg.png'} alt="bg" />
+                </div>
                 <TabFilter
                     onClick={changeTabHendler}
                     activeMenu={activeMenuItem}

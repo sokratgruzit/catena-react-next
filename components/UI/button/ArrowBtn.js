@@ -16,6 +16,16 @@ const ArrowBtn = (props) => {
         title = 'Back'
     }
 
+    if (props.route === 'competitionFinished')  {
+        route = '/win/competition'
+        title = 'Back'
+    };
+
+    if (props.seeDirection === 'trandingCompetition')  {
+        route = '/win/competition/CompetitionFinished'
+        title = 'See All Finished Competition'
+    };
+
     if (props.route === 'activity') {
         route = `/nfts/activity`;
         title = `See Activities`;
@@ -54,6 +64,14 @@ const ArrowBtn = (props) => {
             </div>
         </Link>;
     }
+
+    if (props.seeDirection === 'trandingCompetition') {
+        btn = <Link href={route}>
+            <div className={`${styles.forwardBtn} ${styles.trandingCompetition}`} >
+                {title}
+            </div>
+        </Link>;
+    };
 
     return btn;
 };

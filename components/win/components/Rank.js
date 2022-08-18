@@ -347,9 +347,7 @@ const Rank = () => {
                     </div>
                     <div className={styles.icone}>
                         <Image  layout='fill' src={item.img} alt="HomeScreen" objectFit={"contain"}/>
-                    </div>
-                            
-
+                    </div>     
                 </div>
             ))}
         </div>
