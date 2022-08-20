@@ -13,7 +13,7 @@ import yellowStar from '../../../public/images/earn/yellowStar.png';
 import ufo from '../../../public/images/earn/ufo.png';
 
 import styles from './CommunityAuctions.module.css';
-import { GoBackSvg, InfoIcon, VectorSvg } from '../../svg';
+import { VectorSvg } from '../../svg';
 
 let whitelistedData = [
   {

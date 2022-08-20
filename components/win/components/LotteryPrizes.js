@@ -1,6 +1,9 @@
 import React from 'react';
-import styles from './LotteryPrizes.module.css';
+import Image from 'next/image';
+
 import WinRoutes from './WinRoutes';
+
+import styles from './LotteryPrizes.module.css';
 
 let tabsData = [
   {
@@ -22,11 +25,13 @@ const LotteryPrizes = () => {
     <>
       <div>
         <div className={styles.tab}>
-          <img
-            className={styles.Container__background}
-            src='../images/win/background/lotteryBg.png'
-            alt=''
-          />
+          <picture>
+            <img
+              className={styles.Container__background}
+              src='../images/win/background/lotteryBg.png'
+              alt=''
+            />
+          </picture>
           <div className={styles.container}>
             <WinRoutes />
           </div>
@@ -39,24 +44,40 @@ const LotteryPrizes = () => {
           <h2 className={styles.titleDesc}>Lottery in Prizes!</h2>
         </div>
         <div className={styles.imgPosition}>
-          <img
-            className={styles.pinkTicket}
-            src={'../images/win/pinkTicket.png'}
-            alt=''
-          />
-          <img
-            className={styles.smallStar}
-            src={'../images/win/pawawuna.png'}
-            alt=''
-          />
-          <img className={styles.star} src={'../images/win/star.png'} alt='' />
+          <div className={styles.pinkTicket}>
+            <Image
+              layout='fill'
+              objectFit='contain'
+              src={'/images/win/pinkTicket.png'}
+              alt=''
+            />
+          </div>
+          <div className={styles.smallStar}>
+            <Image
+              layout='fill'
+              objectFit='contain'
+              src={'/images/win/pawawuna.png'}
+              alt=''
+            />
+          </div>
+          <div className={styles.star}>
+            <Image
+              layout='fill'
+              objectFit='contain'
+              src={'/images/win/star.png'}
+              alt=''
+            />
+          </div>
         </div>
         <div className={styles.prizesContainer}>
-          <img
-            src={'../images/win/blurLottery.png'}
-            className={styles.blur}
-            alt=''
-          />
+          <div className={styles.blur}>
+            <Image
+              layout='fill'
+              objectFit='contain'
+              src={'/images/win/blurLottery.png'}
+              alt=''
+            />
+          </div>
           <div className={styles.lotteryNumber}>
             <p>2</p>
             <p>4</p>
@@ -67,31 +88,43 @@ const LotteryPrizes = () => {
           </div>
         </div>
         <div className={styles.pictureContainer}>
-          <img
-            className={styles.littleStar}
-            src={'../images/win/namceca.png'}
-            alt=''
-          />
-          <img
-            className={styles.ticket}
-            src={'../images/win/ticket.png'}
-            alt=''
-          />
+          <div className={styles.littleStar}>
+            <Image
+              layout='fill'
+              objectFit='contain'
+              src={'/images/win/namceca.png'}
+              alt=''
+            />
+          </div>
+          <div className={styles.ticket}>
+            <Image
+              layout='fill'
+              objectFit='contain'
+              src={'/images/win/ticket.png'}
+              alt=''
+            />
+          </div>
         </div>
         <div className={styles.buttonStyle}>
           <button className={styles.buyTicket}>Buy Tickets</button>
         </div>
         <div className={styles.pictureContainer}>
-          <img
-            className={styles.tickets}
-            src={'../images/win/tickets.png'}
-            alt=''
-          />
-          <img
-            className={styles.starr}
-            src={'../images/win/pawawuna.png'}
-            alt=''
-          />
+          <div className={styles.tickets}>
+            <Image
+              layout='fill'
+              objectFit='contain'
+              src={'/images/win/tickets.png'}
+              alt=''
+            />
+          </div>
+          <div className={styles.starr}>
+            <Image
+              layout='fill'
+              objectFit='contain'
+              src={'/images/win/pawawuna.png'}
+              alt=''
+            />
+          </div>
         </div>
       </div>
     </>

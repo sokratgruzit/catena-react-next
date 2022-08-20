@@ -1,7 +1,7 @@
 import Image from 'next/image';
-import ButtonWallet from './ButtonWallet';
 import CornerDecor from '../../UI/cornerDecor/CornerDecor';
 import styles from './Score.module.css';
+import Button from '../../UI/button/Button';
 const Score = () => {
   return (
     <>
@@ -157,8 +157,18 @@ const Score = () => {
               <p>Connect wallet to view</p>
             </div>
           </div>
-          <div>
-            <ButtonWallet />
+          <div className={styles.buttonWrapper}>
+            <Button
+              title={'Connect Wallet'}
+              type={'blue'}
+              customStyles={{
+                width: '100%',
+                padding: '7px 20px',
+                fontSize: '16px',
+                lineHeight: '22px',
+                marginTop: 'auto',
+              }}
+            />
           </div>
         </div>
         <div className={styles.spaceImgs}>

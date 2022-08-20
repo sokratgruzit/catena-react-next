@@ -11,7 +11,13 @@ import PoolsTable from '../InfoTables/PoolsTable';
 import TransactionTable from '../InfoTables/TransactionTable';
 import ChartBlock from './ChartBlock/ChartBlock';
 
-import { OpenSvg, StarSvg, GoBackSvg, PriceUp, PriceDown } from '../../../svg';
+import {
+  OpenSvg,
+  StarSvg,
+  SmlArrowSvg,
+  PriceUp,
+  PriceDown,
+} from '../../../svg';
 import { formatCurrency } from '../../../utils/formatCurrency';
 
 import styles from './TokenSection.module.css';
@@ -31,7 +37,7 @@ const TokenSection = ({ data }) => {
                 onClick={() => router.push(`/info/tokens`)}
                 className={styles.goBackText}
               >
-                <GoBackSvg />
+                <SmlArrowSvg />
                 <p>Back To Tokens</p>
               </div>
             </div>

@@ -1,9 +1,9 @@
-const GoBackSvg = props => (
+const SmlArrowSvg = props => (
   <svg
     width='14'
     height='10'
     viewBox='0 0 14 10'
-    fill='#FF7152'
+    fill='white'
     xmlns='http://www.w3.org/2000/svg'
     {...props}
   >
@@ -20,4 +20,4 @@ const GoBackSvg = props => (
   </svg>
 );
 
-export default GoBackSvg;
+export default SmlArrowSvg;

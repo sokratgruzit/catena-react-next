@@ -10,7 +10,7 @@ import SecondBlock from './SecondBlock/SecondBlock';
 import ChartBlock from './ChartBlock/ChartBlock';
 import TokensTable from '../InfoTables/TokensTable';
 import TransactionTable from '../InfoTables/TransactionTable';
-import { OpenSvg, StarSvg, GoBackSvg } from '../../../svg';
+import { OpenSvg, StarSvg, SmlArrowSvg } from '../../../svg';
 
 import styles from './PoolsSection.module.css';
 
@@ -24,7 +24,7 @@ const PoolsSection = ({ data }) => {
             onClick={() => router.push(`/info/pools`)}
             className={styles.goBackText}
           >
-            <GoBackSvg />
+            <SmlArrowSvg />
             <p>Back To Pools</p>
           </div>
         </div>

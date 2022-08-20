@@ -1,8 +1,7 @@
 import React from 'react';
 
 import { useRouter } from 'next/router';
-import Table from '../../../UI/table/Table';
-import { GoBackSvg } from '../../../svg';
+import { SmlArrowSvg } from '../../../svg';
 
 import styles from './Watchlist.module.css';
 
@@ -15,7 +14,7 @@ const Watchlist = () => {
           onClick={() => router.push(`/info/tokens`)}
           className={styles.goBackText}
         >
-          <GoBackSvg />
+          <SmlArrowSvg />
           <p>Back To Tokens</p>
         </div>
       </div>

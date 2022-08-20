@@ -1,7 +1,7 @@
 export { default as StarSvg } from './StarSvg';
 export { default as OpenSvg } from './OpenSvg';
 export { default as SearchIcon } from './SearchIcon';
-export { default as GoBackSvg } from './GoBackSvg';
+export { default as SmlArrowSvg } from './SmlArrowSvg';
 export { default as InfoIcon } from './InfoIcon';
 export { default as PaginationButtonSvg } from './PaginationButtonSvg';
 export { default as PriceUp } from './PriceUp';

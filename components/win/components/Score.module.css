@@ -61,7 +61,10 @@
   width: 10%;
   padding-top: 5%;
 }
-
+.buttonWrapper{
+  width: fit-content;
+  margin: auto;
+}
 /*Ipad Pro 1024*/
 @media (max-width: 1300px) {
   .dimond {
