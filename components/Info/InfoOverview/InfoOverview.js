@@ -8,6 +8,8 @@ import PoolsTable from '../components/InfoTables/PoolsTable';
 import TransactionTable from '../components/InfoTables/TransactionTable';
 import InfoCharts from '../components/InfoCharts/InfoCharts';
 
+import { OpenSvg } from '../../svg';
+
 import styles from '../InfoPages.module.css';
 
 const InfoOverview = () => {

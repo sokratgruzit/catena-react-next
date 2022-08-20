@@ -1,10 +1,23 @@
+import { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/router';
 
 import CornerDecor from '../../UI/cornerDecor/CornerDecor';
 import EarnRoutes from '../components/EarnRoutes/EarnRoutes';
 import TableFilter from '../components/TableFilter/TableFilter';
+import FarmsTableRow from '../components/farmsTableRow.js/FarmsTableRow';
+
+import { useWindowDimension } from '../../../hooks/useWindowDimension';
+
+import {
+  VectorSvg,
+  ArrowSvg,
+  TableViewSvg,
+  ComponentViewSvg,
+  InfoIcon,
+} from '../../svg';
 
 import styles from './Farms.module.css';
+import FarmsTableComponent from '../components/farmsTableComponent/FarmsTableComponent';
 
 let farmsData = [
   {
@@ -148,7 +161,7 @@ let farmsData = [
         </defs>
       </svg>
     ),
-    title: 'CMCX-ETH',
+    title: 'HOTCROSS-BNB',
     earned: 0,
     apr: '45.05%',
     liquidity: '$235.684.158',
@@ -222,7 +235,7 @@ let farmsData = [
         </defs>
       </svg>
     ),
-    title: 'CMCX-ETH',
+    title: 'DUET-CMCX',
     earned: 0,
     apr: '45.05%',
     liquidity: '$235.684.158',
@@ -377,10 +390,99 @@ let farmsData = [
     multiplier: '10x',
     id: 4,
   },
+  {
+    token: (
+      <svg
+        width='51'
+        height='31'
+        viewBox='0 0 51 31'
+        fill='none'
+        xmlns='http://www.w3.org/2000/svg'
+      >
+        <g clipPath='url(#clip0_2_977)'>
+          <path
+            d='M29.5352 15.9958C29.5352 24.004 23.0433 30.4958 15.0352 30.4958C7.02703 30.4958 0.535156 24.004 0.535156 15.9958C0.535156 7.98772 7.02703 1.49585 15.0352 1.49585C23.0433 1.49585 29.5352 7.98772 29.5352 15.9958Z'
+            fill='#627EEA'
+            stroke='white'
+          />
+          <path
+            d='M15.502 4.74585V13.0615L22.5304 16.2021L15.502 4.74585Z'
+            fill='white'
+            fillOpacity='0.602'
+          />
+          <path
+            d='M15.502 4.74585L8.47266 16.2021L15.502 13.0615V4.74585Z'
+            fill='white'
+          />
+          <path
+            d='M15.502 21.5907V27.2411L22.5351 17.5107L15.502 21.5907Z'
+            fill='white'
+            fillOpacity='0.602'
+          />
+          <path
+            d='M15.502 27.2411V21.5898L8.47266 17.5107L15.502 27.2411Z'
+            fill='white'
+          />
+          <path
+            d='M15.502 20.2832L22.5304 16.2022L15.502 13.0635V20.2832Z'
+            fill='white'
+            fillOpacity='0.2'
+          />
+          <path
+            d='M8.47266 16.2022L15.502 20.2832V13.0635L8.47266 16.2022Z'
+            fill='white'
+            fillOpacity='0.602'
+          />
+        </g>
+        <path
+          d='M49.5352 15.9958C49.5352 24.004 43.0433 30.4958 35.0352 30.4958C27.027 30.4958 20.5352 24.004 20.5352 15.9958C20.5352 7.98772 27.027 1.49585 35.0352 1.49585C43.0433 1.49585 49.5352 7.98772 49.5352 15.9958Z'
+          fill='#131313'
+          stroke='white'
+        />
+        <path
+          fillRule='evenodd'
+          clipRule='evenodd'
+          d='M28.4936 11.0531C29.3047 9.98194 30.3673 9.12622 31.5879 8.56128C32.8084 7.99633 34.1495 7.7395 35.4929 7.81339C36.8364 7.88729 38.141 8.28964 39.2919 8.98502C40.4428 9.6804 41.4048 10.6475 42.093 11.8011L42.6874 11.4716L43.6781 10.8916C42.7893 9.39958 41.527 8.16376 40.015 7.30545C38.503 6.44715 36.7934 5.99585 35.0539 5.99585C33.3143 5.99585 31.6047 6.44715 30.0927 7.30545C28.5807 8.16376 27.3184 9.39958 26.4296 10.8916L25.9375 11.6627L26.7235 12.1273L29.765 13.9298C29.2675 15.1782 29.2329 16.5628 29.6673 17.8344C30.1018 19.1061 30.9768 20.1813 32.135 20.8665C33.2931 21.5518 34.6583 21.8021 35.985 21.5725C37.3116 21.3429 38.5126 20.6484 39.3718 19.614L41.5877 20.932C40.7764 22.0041 39.7131 22.8605 38.4916 23.4255C37.2702 23.9906 35.9281 24.247 34.5838 24.1721C33.2396 24.0972 31.9344 23.6933 30.7836 22.9961C29.6328 22.2988 28.6717 21.3297 27.985 20.1741L26.4164 21.1001C27.3052 22.5921 28.5675 23.8279 30.0795 24.6862C31.5915 25.5445 33.3011 25.9958 35.0406 25.9958C36.7802 25.9958 38.4898 25.5445 40.0018 24.6862C41.5138 23.8279 42.7761 22.5921 43.6649 21.1001L44.1339 20.3158L43.3479 19.8512L40.8513 18.3717L38.6981 17.1327C38.436 17.9653 37.8962 18.6833 37.1685 19.1674C36.4409 19.6515 35.5691 19.8726 34.698 19.794C33.827 19.7153 33.0091 19.3416 32.3804 18.735C31.7517 18.1283 31.3499 17.3253 31.2419 16.4593C31.1338 15.5933 31.326 14.7165 31.7865 13.9745C32.247 13.2326 32.9481 12.6703 33.7732 12.3809C34.5984 12.0916 35.4979 12.0927 36.3223 12.384C37.1467 12.6754 37.8464 13.2395 38.3051 13.9825L39.887 13.073C39.4222 12.304 38.7802 11.6567 38.0143 11.1851C37.2484 10.7135 36.3807 10.4311 35.4834 10.3615C34.5861 10.2919 33.6852 10.437 32.8554 10.7849C32.0256 11.1327 31.2911 11.6731 30.7128 12.3613L28.4936 11.0531Z'
+          fill='#FF7152'
+        />
+        <defs>
+          <clipPath id='clip0_2_977'>
+            <rect
+              width='30'
+              height='30'
+              fill='white'
+              transform='translate(0.0351562 0.99585)'
+            />
+          </clipPath>
+        </defs>
+      </svg>
+    ),
+    title: 'CMCX-ETH',
+    earned: 0,
+    apr: '45.05%',
+    liquidity: '$235.684.158',
+    multiplier: '10x',
+    id: 5,
+  },
 ];
+const FilterData = ['hot', 'apr', 'multiplier', 'earned', 'liquidity'];
 
 const Farms = () => {
+  const [width, height] = useWindowDimension();
+  const [expand, setExpand] = useState(false);
+  const [filter, setFilter] = useState({
+    open: false,
+    selected: FilterData[0],
+  });
+  const [search, setSearch] = useState('');
+  const [dataViewType, setDataViewType] = useState('table');
+
   const router = useRouter();
+  const selectRef = useRef();
+  useEffect(() => {
+    if (width < 896) setDataViewType('components');
+  }, [width]);
+
   return (
     <div className={`container ${styles.farms__container}`}>
       <div className={styles.routesWrapper}>
@@ -392,108 +494,24 @@ const Farms = () => {
         className={styles.communityAuctions}
       >
         <p className={`${styles.blueHover}`}>Community Auctions</p>
-        <svg
-          className={styles.svgHoverBlue}
-          width='21'
-          height='13'
-          viewBox='0 0 21 13'
-          fill='none'
-          xmlns='http://www.w3.org/2000/svg'
-        >
-          <path
-            d='M14.2988 1.49561L19.2988 6.4956L14.2988 11.4956'
-            stroke='#FF7152'
-            strokeWidth='1.5'
-            strokeMiterlimit='10'
-            strokeLinecap='round'
-            strokeLinejoin='round'
-          />
-          <path
-            d='M1.03516 6.49561L19.1592 6.4956'
-            stroke='#FF7152'
-            strokeWidth='1.5'
-            strokeMiterlimit='10'
-            strokeLinecap='round'
-            strokeLinejoin='round'
-          />
-        </svg>
+        <ArrowSvg className={styles.svgHoverBlue} />
       </div>
-      <div className={`${styles.farms__filter}`}>
+      <div className={`${styles.farms__filter} `}>
         <CornerDecor />
         <div className={styles.farms__filterInner}>
           <div className={styles.Farms__filterLeftPanel}>
-            <svg
-              width='31'
-              height='31'
-              viewBox='0 0 31 31'
-              fill='none'
-              xmlns='http://www.w3.org/2000/svg'
-            >
-              <rect
-                opacity='0.1'
-                x='0.0351562'
-                y='0.995605'
-                width='30'
-                height='30'
-                rx='4'
-                fill='white'
-              />
-              <path
-                d='M21.3552 17.1956H8.71516C7.51516 17.1956 7.03516 17.7076 7.03516 18.9796V22.2116C7.03516 23.4836 7.51516 23.9956 8.71516 23.9956H21.3552C22.5552 23.9956 23.0352 23.4836 23.0352 22.2116V18.9796C23.0352 17.7076 22.5552 17.1956 21.3552 17.1956Z'
-                stroke='white'
-                strokeLinecap='round'
-                strokeLinejoin='round'
-              />
-              <path
-                d='M21.3552 7.99561H8.71516C7.51516 7.99561 7.03516 8.50761 7.03516 9.77961V13.0116C7.03516 14.2836 7.51516 14.7956 8.71516 14.7956H21.3552C22.5552 14.7956 23.0352 14.2836 23.0352 13.0116V9.77961C23.0352 8.50761 22.5552 7.99561 21.3552 7.99561Z'
-                stroke='white'
-                strokeLinecap='round'
-                strokeLinejoin='round'
-              />
-            </svg>
-            <svg
-              width='31'
-              height='31'
-              viewBox='0 0 31 31'
-              fill='none'
-              xmlns='http://www.w3.org/2000/svg'
-            >
-              <rect
-                opacity='0.1'
-                x='0.535156'
-                y='1.49561'
-                width='29'
-                height='29'
-                rx='3.5'
-                stroke='white'
-              />
-              <g opacity='0.7'>
-                <path
-                  d='M16.2344 8.70965L16.2344 14.0817C16.2344 14.5917 16.7464 14.7957 18.0184 14.7957L21.2504 14.7957C22.5224 14.7957 23.0344 14.5917 23.0344 14.0817L23.0344 8.70965C23.0344 8.19965 22.5224 7.99565 21.2504 7.99565L18.0184 7.99565C16.7464 7.99565 16.2344 8.19965 16.2344 8.70965Z'
-                  stroke='white'
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
-                />
-                <path
-                  d='M16.2344 17.9096L16.2344 23.2816C16.2344 23.7916 16.7464 23.9956 18.0184 23.9956L21.2504 23.9956C22.5224 23.9956 23.0344 23.7916 23.0344 23.2816L23.0344 17.9096C23.0344 17.3996 22.5224 17.1956 21.2504 17.1956L18.0184 17.1956C16.7464 17.1956 16.2344 17.3996 16.2344 17.9096Z'
-                  stroke='white'
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
-                />
-                <path
-                  d='M7.03516 8.70965L7.03516 14.0817C7.03516 14.5917 7.54716 14.7957 8.81916 14.7957L12.0512 14.7957C13.3232 14.7957 13.8352 14.5917 13.8352 14.0817L13.8352 8.70965C13.8352 8.19965 13.3232 7.99565 12.0512 7.99565L8.81916 7.99565C7.54716 7.99565 7.03516 8.19965 7.03516 8.70965Z'
-                  stroke='white'
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
-                />
-                <path
-                  d='M7.03516 17.9096L7.03516 23.2816C7.03516 23.7916 7.54716 23.9956 8.81916 23.9956L12.0512 23.9956C13.3232 23.9956 13.8352 23.7916 13.8352 23.2816L13.8352 17.9096C13.8352 17.3996 13.3232 17.1956 12.0512 17.1956L8.81916 17.1956C7.54716 17.1956 7.03516 17.3996 7.03516 17.9096Z'
-                  stroke='white'
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
-                />
-              </g>
-            </svg>
+            <TableViewSvg
+              onClick={() =>
+                setDataViewType(width > 896 ? 'table' : 'components')
+              }
+              className={`${dataViewType === 'components' && styles.tableView}`}
+            />
+            <ComponentViewSvg
+              onClick={() => setDataViewType('components')}
+              className={`${
+                dataViewType === 'components' && styles.componentsView
+              }`}
+            />
             <div className={styles.farms__radioBtn}>
               <div className='radio-btn'>
                 <input type='checkbox' />
@@ -506,299 +524,95 @@ const Farms = () => {
             <TableFilter />
           </div>
           <div className={styles.Farms__filterRightPanel}>
-            <select>
-              <option value='hot'>Hot</option>
-              <option value='apr'>APR</option>
-              <option value='multiplier'>Multiplier</option>
-              <option value='earned'>Earned</option>
-              <option value='liquidity'>Liquidity</option>
-            </select>
-            <input type='search' placeholder='Search Farms'></input>
-          </div>
-        </div>
-      </div>
-      <div className={`${styles.farms__tableContainer}`}>
-        <CornerDecor />
-        <div className={styles.farms__tableInner}>
-          <div className={styles.farms__tableHeader}>
-            <div>Earned</div>
-            <div>APR</div>
-            <div>
-              Liquidity
-              <svg
-                width='15'
-                height='15'
-                viewBox='0 0 15 15'
-                fill='none'
-                xmlns='http://www.w3.org/2000/svg'
+            <div className={styles.filterWrapper}>
+              <div
+                ref={selectRef}
+                className={styles.filters}
+                onClick={() =>
+                  setFilter(prevState => ({
+                    ...prevState,
+                    open: !prevState.open,
+                  }))
+                }
               >
-                <path
-                  d='M7.05273 14.9956C3.19134 14.9956 0.0527344 11.857 0.0527344 7.99561C0.0527344 4.13421 3.19134 0.995605 7.05273 0.995605C10.9141 0.995605 14.0527 4.13421 14.0527 7.99561C14.0527 11.857 10.9141 14.9956 7.05273 14.9956ZM7.05273 1.97235C3.7318 1.97235 1.02948 4.67468 1.02948 7.99561C1.02948 11.3165 3.7318 14.0189 7.05273 14.0189C10.3737 14.0189 13.076 11.3165 13.076 7.99561C13.076 4.67468 10.3737 1.97235 7.05273 1.97235Z'
-                  fill='#0500FF'
-                />
-                <path
-                  d='M7.05283 9.13515C6.78585 9.13515 6.56445 8.91375 6.56445 8.64677V5.39096C6.56445 5.12398 6.78585 4.90259 7.05283 4.90259C7.3198 4.90259 7.5412 5.12398 7.5412 5.39096V8.64677C7.5412 8.91375 7.3198 9.13515 7.05283 9.13515Z'
-                  fill='#0500FF'
-                />
-                <path
-                  d='M7.05351 11.2515C6.96886 11.2515 6.8842 11.2319 6.80606 11.1994C6.72793 11.1668 6.6563 11.1212 6.59118 11.0626C6.53258 10.9975 6.48699 10.9324 6.45444 10.8477C6.42099 10.7695 6.40329 10.6854 6.40234 10.6003C6.40234 10.5157 6.42188 10.431 6.45444 10.3529C6.48699 10.2747 6.53258 10.2031 6.59118 10.138C6.6563 10.0794 6.72793 10.0338 6.80606 10.0012C6.9646 9.93611 7.14242 9.93611 7.30095 10.0012C7.37909 10.0338 7.45072 10.0794 7.51583 10.138C7.57444 10.2031 7.62002 10.2747 7.65258 10.3529C7.68513 10.431 7.70467 10.5157 7.70467 10.6003C7.70467 10.685 7.68513 10.7696 7.65258 10.8477C7.62002 10.9324 7.57444 10.9975 7.51583 11.0626C7.45072 11.1212 7.37909 11.1668 7.30095 11.1994C7.22281 11.2319 7.13816 11.2515 7.05351 11.2515Z'
-                  fill='#0500FF'
-                />
-              </svg>
-            </div>
-            <div>
-              Multiplier
-              <svg
-                width='15'
-                height='15'
-                viewBox='0 0 15 15'
-                fill='none'
-                xmlns='http://www.w3.org/2000/svg'
-              >
-                <path
-                  d='M7.05273 14.9956C3.19134 14.9956 0.0527344 11.857 0.0527344 7.99561C0.0527344 4.13421 3.19134 0.995605 7.05273 0.995605C10.9141 0.995605 14.0527 4.13421 14.0527 7.99561C14.0527 11.857 10.9141 14.9956 7.05273 14.9956ZM7.05273 1.97235C3.7318 1.97235 1.02948 4.67468 1.02948 7.99561C1.02948 11.3165 3.7318 14.0189 7.05273 14.0189C10.3737 14.0189 13.076 11.3165 13.076 7.99561C13.076 4.67468 10.3737 1.97235 7.05273 1.97235Z'
-                  fill='#0500FF'
-                />
-                <path
-                  d='M7.05283 9.13515C6.78585 9.13515 6.56445 8.91375 6.56445 8.64677V5.39096C6.56445 5.12398 6.78585 4.90259 7.05283 4.90259C7.3198 4.90259 7.5412 5.12398 7.5412 5.39096V8.64677C7.5412 8.91375 7.3198 9.13515 7.05283 9.13515Z'
-                  fill='#0500FF'
-                />
-                <path
-                  d='M7.05351 11.2515C6.96886 11.2515 6.8842 11.2319 6.80606 11.1994C6.72793 11.1668 6.6563 11.1212 6.59118 11.0626C6.53258 10.9975 6.48699 10.9324 6.45444 10.8477C6.42099 10.7695 6.40329 10.6854 6.40234 10.6003C6.40234 10.5157 6.42188 10.431 6.45444 10.3529C6.48699 10.2747 6.53258 10.2031 6.59118 10.138C6.6563 10.0794 6.72793 10.0338 6.80606 10.0012C6.9646 9.93611 7.14242 9.93611 7.30095 10.0012C7.37909 10.0338 7.45072 10.0794 7.51583 10.138C7.57444 10.2031 7.62002 10.2747 7.65258 10.3529C7.68513 10.431 7.70467 10.5157 7.70467 10.6003C7.70467 10.685 7.68513 10.7696 7.65258 10.8477C7.62002 10.9324 7.57444 10.9975 7.51583 11.0626C7.45072 11.1212 7.37909 11.1668 7.30095 11.1994C7.22281 11.2319 7.13816 11.2515 7.05351 11.2515Z'
-                  fill='#0500FF'
-                />
-              </svg>
-            </div>
-          </div>
-          {farmsData.map(item => {
-            return (
-              <div key={item.id} className={styles.farms__tableWrapper}>
-                <div className={styles.farms__table}>
-                  <div className={styles.farms__tableItem}>
-                    {item.token}
-                    <p className={styles.farms__coloredItem}>{item.title}</p>
-                  </div>
-                  <div className={`${styles.farms__tableItems} ${styles.item}`}>
-                    {item.earned}
-                  </div>
-                  <div
-                    className={`${styles.farms__tableItems} ${styles.item1}`}
-                  >
-                    {item.apr}{' '}
-                    <svg
-                      width='13'
-                      height='14'
-                      viewBox='0 0 13 14'
-                      fill='none'
-                      xmlns='http://www.w3.org/2000/svg'
-                    >
-                      <path
-                        d='M12.236 3.60375H7.8402C7.5923 3.60375 7.38672 3.39817 7.38672 3.15026C7.38672 2.90236 7.5923 2.69678 7.8402 2.69678H12.236C12.4839 2.69678 12.6895 2.90236 12.6895 3.15026C12.6895 3.39817 12.4839 3.60375 12.236 3.60375Z'
-                        fill='#0500FF'
-                      />
-                      <path
-                        d='M4.90804 3.60375H0.506219C0.258314 3.60375 0.0527344 3.39817 0.0527344 3.15026C0.0527344 2.90236 0.258314 2.69678 0.506219 2.69678H4.902C5.1499 2.69678 5.35548 2.90236 5.35548 3.15026C5.35548 3.39817 5.15595 3.60375 4.90804 3.60375Z'
-                        fill='#0500FF'
-                      />
-                      <path
-                        d='M12.236 9.46263H7.8402C7.5923 9.46263 7.38672 9.25705 7.38672 9.00915C7.38672 8.76124 7.5923 8.55566 7.8402 8.55566H12.236C12.4839 8.55566 12.6895 8.76124 12.6895 9.00915C12.6895 9.25705 12.4839 9.46263 12.236 9.46263Z'
-                        fill='#0500FF'
-                      />
-                      <path
-                        d='M12.236 13.1269H7.8402C7.5923 13.1269 7.38672 12.9214 7.38672 12.6735C7.38672 12.4256 7.5923 12.22 7.8402 12.22H12.236C12.4839 12.22 12.6895 12.4256 12.6895 12.6735C12.6895 12.9214 12.4839 13.1269 12.236 13.1269Z'
-                        fill='#0500FF'
-                      />
-                      <path
-                        d='M10.0531 5.7986C9.80519 5.7986 9.59961 5.59302 9.59961 5.34511V0.949334C9.59961 0.701429 9.80519 0.49585 10.0531 0.49585C10.301 0.49585 10.5066 0.701429 10.5066 0.949334V5.34511C10.5066 5.59906 10.307 5.7986 10.0531 5.7986Z'
-                        fill='#0500FF'
-                      />
-                      <path
-                        d='M0.506782 13.4958C0.3919 13.4958 0.277017 13.4535 0.18632 13.3628C0.101984 13.2775 0.0546875 13.1623 0.0546875 13.0423C0.0546875 12.9223 0.101984 12.8072 0.18632 12.7219L4.5821 8.32609C4.75744 8.15074 5.04767 8.15074 5.22302 8.32609C5.39837 8.50144 5.39837 8.79167 5.22302 8.96702L0.827245 13.3628C0.786026 13.406 0.736233 13.4402 0.681051 13.4631C0.62587 13.486 0.566514 13.4972 0.506782 13.4958Z'
-                        fill='#0500FF'
-                      />
-                      <path
-                        d='M4.90842 13.4958C4.79354 13.4958 4.67865 13.4535 4.58796 13.3628L0.192179 8.96702C0.107843 8.88168 0.0605469 8.76653 0.0605469 8.64655C0.0605469 8.52657 0.107843 8.41143 0.192179 8.32609C0.367527 8.15074 0.657757 8.15074 0.833104 8.32609L5.22888 12.7219C5.40423 12.8972 5.40423 13.1874 5.22888 13.3628C5.13818 13.4535 5.0233 13.4958 4.90842 13.4958Z'
-                        fill='#0500FF'
-                      />
-                    </svg>
-                  </div>
-                  <div
-                    className={`${styles.farms__tableItems} ${styles.item2}`}
-                  >
-                    {item.liquidity}
-                  </div>
-                  <div
-                    className={`${styles.farms__tableItems} ${styles.item3}`}
-                  >
-                    {item.multiplier}
-                  </div>
-                  <svg
-                    className={styles.farms__tableArrow}
-                    width='8'
-                    height='6'
-                    viewBox='0 0 8 6'
-                    fill='none'
-                    xmlns='http://www.w3.org/2000/svg'
-                  >
-                    <path
-                      d='M7.05273 1.62451L4.58304 4.09421C4.29137 4.38588 3.8141 4.38588 3.52243 4.09421L1.05273 1.62451'
-                      stroke='white'
-                      strokeWidth='1.5'
-                      strokeMiterlimit='10'
-                      strokeLinecap='round'
-                      strokeLinejoin='round'
-                    />
-                  </svg>
-                </div>
-                <div className={styles.farms__subTable}>
-                  <div className={styles.flex}>
-                    <p className={styles.width}>Start Farming</p>
-                    <p>
-                      <span className={styles.farms__coloredItem}>CORE</span>{' '}
-                      Earned
-                    </p>
-                  </div>
-                  <div className={styles.farms__subTableInner}>
-                    <button className='btnBlue'>Connect Wallet</button>
-                    <p>0</p>
-                    <button className={`btnBlue ${styles.disabledBtn}`}>
-                      Harvest
-                    </button>
-                  </div>
-                  <div className={styles.farms__tableEnd}>
-                    <svg
-                      className={styles.coreSvg}
-                      width='52'
-                      height='21'
-                      viewBox='0 0 52 21'
-                      fill='none'
-                      xmlns='http://www.w3.org/2000/svg'
-                    >
-                      <rect
-                        x='0.535156'
-                        y='1.46875'
-                        width='50.16'
-                        height='19'
-                        rx='9.5'
-                        fill='#00050F'
-                        stroke='#7464D7'
-                      />
-                      <path
-                        d='M25.2313 14.1188C26.7613 14.1188 27.4613 13.5987 27.6213 13.5087V12.3387C27.0413 12.8287 26.1213 13.0887 25.2313 13.0887C23.5813 13.0887 22.6113 11.9987 22.6113 10.5687C22.6113 9.14875 23.5813 8.03875 25.2313 8.03875C26.4213 8.03875 27.3713 8.66875 27.4313 8.76875V7.61875C27.0813 7.37875 26.3513 7.01875 25.2313 7.01875C23.0013 6.98875 21.4513 8.62875 21.4813 10.5687C21.4513 12.5087 23.0013 14.1488 25.2313 14.1188ZM31.5023 14.1188C33.0723 14.1188 34.3323 12.8987 34.3323 11.3887C34.3323 9.87875 33.0723 8.64875 31.5023 8.64875C29.9323 8.64875 28.6723 9.87875 28.6723 11.3887C28.6723 12.8987 29.9323 14.1188 31.5023 14.1188ZM31.5023 13.1487C30.4823 13.1487 29.7123 12.3587 29.7123 11.3887C29.7123 10.4087 30.4823 9.61875 31.5023 9.61875C32.5223 9.61875 33.2923 10.4087 33.2923 11.3887C33.2923 12.3587 32.5223 13.1487 31.5023 13.1487ZM35.7371 13.9688H36.8171V11.3787C36.8371 10.2787 37.6271 9.52875 38.9371 9.52875V8.63875C37.8371 8.63875 37.0571 9.15875 36.8171 9.78875V8.78875H35.7371V13.9688ZM42.4987 14.1188C44.0087 14.1188 44.5687 13.5887 44.5687 13.5887V12.6187C44.5587 12.6187 43.7887 13.1587 42.5187 13.1587C41.3487 13.1587 40.7887 12.4387 40.6687 11.6387H44.7987V11.1387C44.7987 9.88875 43.9287 8.64875 42.4287 8.64875C40.8287 8.64875 39.6387 9.82875 39.6387 11.3787C39.6387 12.8687 40.6787 14.1188 42.4987 14.1188ZM40.7187 10.7987C40.7787 10.3987 41.1587 9.52875 42.2887 9.52875C43.4187 9.52875 43.6787 10.3987 43.7187 10.7987H40.7187Z'
-                        fill='#7464D7'
-                      />
-                      <path
-                        d='M15.8102 10.3389L15.1304 9.54911C15.0004 9.39914 14.8954 9.11921 14.8954 8.91926V8.06947C14.8954 7.53961 14.4606 7.10472 13.9307 7.10472H13.0809C12.8859 7.10472 12.601 6.99974 12.4511 6.86977L11.6613 6.18994C11.3163 5.89502 10.7515 5.89502 10.4016 6.18994L9.61676 6.87477C9.4668 6.99974 9.18187 7.10472 8.98692 7.10472H8.12213C7.59227 7.10472 7.15738 7.53961 7.15738 8.06947V8.92426C7.15738 9.11921 7.0524 9.39914 6.92743 9.54911L6.2526 10.3439C5.96267 10.6888 5.96267 11.2487 6.2526 11.5936L6.92743 12.3884C7.0524 12.5384 7.15738 12.8183 7.15738 13.0132V13.868C7.15738 14.3979 7.59227 14.8328 8.12213 14.8328H8.98692C9.18187 14.8328 9.4668 14.9378 9.61676 15.0677L10.4066 15.7476C10.7515 16.0425 11.3163 16.0425 11.6662 15.7476L12.4561 15.0677C12.606 14.9378 12.8859 14.8328 13.0859 14.8328H13.9357C14.4655 14.8328 14.9004 14.3979 14.9004 13.868V13.0182C14.9004 12.8233 15.0054 12.5384 15.1354 12.3884L15.8152 11.5986C16.1051 11.2537 16.1051 10.6838 15.8102 10.3389ZM13.1109 10.024L10.6965 12.4384C10.6262 12.5086 10.5309 12.548 10.4316 12.548C10.3322 12.548 10.2369 12.5086 10.1666 12.4384L8.95693 11.2287C8.8872 11.1581 8.8481 11.0629 8.8481 10.9638C8.8481 10.8646 8.8872 10.7694 8.95693 10.6988C9.10189 10.5539 9.34183 10.5539 9.48679 10.6988L10.4316 11.6436L12.581 9.49412C12.726 9.34915 12.9659 9.34915 13.1109 9.49412C13.2559 9.63908 13.2559 9.87902 13.1109 10.024Z'
-                        fill='#7464D7'
-                      />
-                    </svg>
-                    <div className={styles.farms__tableEndInner}>
-                      <div className={styles.pointer}>
-                        <p className={` ${styles.margin0} font_12 `}>
-                          Get CORE-BNB LP
+                <p className={styles.filterName}>
+                  {filter.selected}{' '}
+                  <VectorSvg
+                    className={`${styles.vectorSvg} ${
+                      filter.open && styles.rotate
+                    }`}
+                  />
+                </p>
+                {filter.open && (
+                  <>
+                    {FilterData.map((FilterName, index) => {
+                      if (FilterName === filter.selected) return false;
+                      return (
+                        <p
+                          key={FilterName}
+                          className={styles.FilterName}
+                          onClick={() => {
+                            setFilter({ open: 'false', selected: FilterName });
+                          }}
+                        >
+                          {FilterName}
                         </p>
-                        <svg
-                          width='14'
-                          height='14'
-                          viewBox='0 0 14 14'
-                          fill='none'
-                          xmlns='http://www.w3.org/2000/svg'
-                        >
-                          <path
-                            d='M7.6543 6.36873L12.5743 1.44873'
-                            stroke='white'
-                            strokeWidth='1.5'
-                            strokeLinecap='round'
-                            strokeLinejoin='round'
-                          />
-                          <path
-                            d='M13.0558 3.84875V0.96875H10.1758'
-                            stroke='white'
-                            strokeWidth='1.5'
-                            strokeLinecap='round'
-                            strokeLinejoin='round'
-                          />
-                          <path
-                            d='M6.45469 0.96875H5.25469C2.25469 0.96875 1.05469 2.16875 1.05469 5.16875V8.76875C1.05469 11.7688 2.25469 12.9688 5.25469 12.9688H8.85469C11.8547 12.9688 13.0547 11.7688 13.0547 8.76875V7.56875'
-                            stroke='white'
-                            strokeWidth='1.5'
-                            strokeLinecap='round'
-                            strokeLinejoin='round'
-                          />
-                        </svg>
-                      </div>
-                      <div className={styles.pointer}>
-                        <p className='font_12'>View Contract</p>
-                        <svg
-                          width='14'
-                          height='14'
-                          viewBox='0 0 14 14'
-                          fill='none'
-                          xmlns='http://www.w3.org/2000/svg'
-                        >
-                          <path
-                            d='M7.6543 6.36873L12.5743 1.44873'
-                            stroke='white'
-                            strokeWidth='1.5'
-                            strokeLinecap='round'
-                            strokeLinejoin='round'
-                          />
-                          <path
-                            d='M13.0558 3.84875V0.96875H10.1758'
-                            stroke='white'
-                            strokeWidth='1.5'
-                            strokeLinecap='round'
-                            strokeLinejoin='round'
-                          />
-                          <path
-                            d='M6.45469 0.96875H5.25469C2.25469 0.96875 1.05469 2.16875 1.05469 5.16875V8.76875C1.05469 11.7688 2.25469 12.9688 5.25469 12.9688H8.85469C11.8547 12.9688 13.0547 11.7688 13.0547 8.76875V7.56875'
-                            stroke='white'
-                            strokeWidth='1.5'
-                            strokeLinecap='round'
-                            strokeLinejoin='round'
-                          />
-                        </svg>
-                      </div>
-                      <div className={styles.pointer}>
-                        <p className='font_12'>See Pair Info</p>
-                        <svg
-                          width='14'
-                          height='14'
-                          viewBox='0 0 14 14'
-                          fill='none'
-                          xmlns='http://www.w3.org/2000/svg'
-                        >
-                          <path
-                            d='M7.6543 6.36873L12.5743 1.44873'
-                            stroke='white'
-                            strokeWidth='1.5'
-                            strokeLinecap='round'
-                            strokeLinejoin='round'
-                          />
-                          <path
-                            d='M13.0558 3.84875V0.96875H10.1758'
-                            stroke='white'
-                            strokeWidth='1.5'
-                            strokeLinecap='round'
-                            strokeLinejoin='round'
-                          />
-                          <path
-                            d='M6.45469 0.96875H5.25469C2.25469 0.96875 1.05469 2.16875 1.05469 5.16875V8.76875C1.05469 11.7688 2.25469 12.9688 5.25469 12.9688H8.85469C11.8547 12.9688 13.0547 11.7688 13.0547 8.76875V7.56875'
-                            stroke='white'
-                            strokeWidth='1.5'
-                            strokeLinecap='round'
-                            strokeLinejoin='round'
-                          />
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                      );
+                    })}
+                  </>
+                )}
               </div>
-            );
-          })}
+            </div>
+            <input
+              onChange={e => setSearch(e.target.value)}
+              className={styles.searchInput}
+              type='search'
+              placeholder='Search Farms'
+            ></input>
+          </div>
         </div>
       </div>
+      {dataViewType === 'table' && (
+        <div className={`${styles.farms__tableContainer}`}>
+          <CornerDecor />
+          <div className={styles.farms__tableInner}>
+            <div className={styles.farms__tableHeader}>
+              <div className={styles.earned}>Earned</div>
+              <div className={styles.apr}>APR</div>
+              <div className={styles.liquidity}>
+                Liquidity
+                <InfoIcon className={styles.infoIcon} />
+              </div>
+              <div className={styles.multiplier}>
+                Multiplier
+                <InfoIcon className={styles.infoIcon} />
+              </div>
+            </div>
+            {farmsData
+              .filter(item => {
+                return search.toLowerCase() === ''
+                  ? item
+                  : item.title.toLowerCase().includes(search);
+              })
+              .map((item, index) => {
+                return <FarmsTableRow item={item} key={index} />;
+              })}
+          </div>
+        </div>
+      )}
+      {dataViewType === 'components' && (
+        <div className={styles.componentsViewSection}>
+          {farmsData
+            .filter(item => {
+              return search.toLowerCase() === ''
+                ? item
+                : item.title.toLowerCase().includes(search);
+            })
+            .map((item, index) => {
+              return <FarmsTableComponent item={item} key={index} />;
+            })}
+        </div>
+      )}
     </div>
   );
 };

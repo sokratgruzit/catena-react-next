@@ -31,3 +31,8 @@
    margin: 0;
   }
 }
+@media (max-width:470px){
+  .Activity__filterWrap{
+    margin-top: 10px;
+  }
+}

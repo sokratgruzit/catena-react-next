@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import InfoRoutes from '../components/InfoRoutes/InfoRoutes';
 import TopMovers from '../components/TopMovers/TopMovers';
 import TokensTable from '../components/InfoTables/TokensTable';
-import { StarSVG } from '../../svg/InfoIcons';
+import { StarSvg } from '../../svg';
 
 import styles from '../InfoPages.module.css';
 
@@ -18,7 +18,7 @@ const InfoTokens = () => {
         <div className={styles.space}></div>
         <InfoRoutes />
         <div className={styles.starWrapper}>
-          <StarSVG
+          <StarSvg
             className={styles.starSVG}
             onClick={() => router.push(`/info/tokens/watchlist`)}
           />

@@ -1,9 +1,19 @@
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 
 import EarnRoutes from '../components/EarnRoutes/EarnRoutes';
 import Button from '../../UI/button/Button';
 import CornerDecor from '../../UI/cornerDecor/CornerDecor';
 import TableFilter from '../components/TableFilter/TableFilter';
+import {
+  ComponentViewSvg,
+  ExclamationSvg,
+  InfoIcon,
+  MathSignSvg,
+  TableViewSvg,
+  VectorSvg,
+} from '../../svg';
+
+import { useWindowDimension } from '../../../hooks/useWindowDimension';
 
 import styles from './Pools.module.css';
 
@@ -277,7 +287,22 @@ let poolsData = [
   },
 ];
 
+const FilterData = ['hot', 'apr', 'multiplier', 'earned', 'liquidity'];
+
 const Pools = () => {
+  const [width, height] = useWindowDimension();
+  const [dataViewType, setDataViewType] = useState('table');
+  const [search, setSearch] = useState('');
+  const [filter, setFilter] = useState({
+    open: false,
+    selected: FilterData[0],
+  });
+  const selectRef = useRef();
+
+  useEffect(() => {
+    if (width < 896) setDataViewType('components');
+  }, [width]);
+
   return (
     <div className={`container ${styles.pools__container} `}>
       <div className={styles.routesWrapper}>
@@ -291,26 +316,7 @@ const Pools = () => {
         <div className={styles.pools__panelInner}>
           <div>
             <p className='font_16'>Auto Cake Bounty</p>
-            <svg
-              width='15'
-              height='15'
-              viewBox='0 0 15 15'
-              fill='none'
-              xmlns='http://www.w3.org/2000/svg'
-            >
-              <path
-                d='M7.31641 14.7119C3.45501 14.7119 0.316406 11.5733 0.316406 7.71191C0.316406 3.85052 3.45501 0.711914 7.31641 0.711914C11.1778 0.711914 14.3164 3.85052 14.3164 7.71191C14.3164 11.5733 11.1778 14.7119 7.31641 14.7119ZM7.31641 1.68866C3.99548 1.68866 1.29315 4.39098 1.29315 7.71191C1.29315 11.0328 3.99548 13.7352 7.31641 13.7352C10.6373 13.7352 13.3397 11.0328 13.3397 7.71191C13.3397 4.39098 10.6373 1.68866 7.31641 1.68866Z'
-                fill='#0500FF'
-              />
-              <path
-                d='M7.3165 8.85145C7.04952 8.85145 6.82812 8.63006 6.82812 8.36308V5.10727C6.82812 4.84029 7.04952 4.6189 7.3165 4.6189C7.58347 4.6189 7.80487 4.84029 7.80487 5.10727V8.36308C7.80487 8.63006 7.58347 8.85145 7.3165 8.85145Z'
-                fill='#0500FF'
-              />
-              <path
-                d='M7.31523 10.9678C7.23057 10.9678 7.14592 10.9482 7.06778 10.9157C6.98964 10.8831 6.91802 10.8375 6.8529 10.7789C6.7943 10.7138 6.74871 10.6487 6.71616 10.5641C6.68271 10.4858 6.66501 10.4017 6.66406 10.3166C6.66406 10.232 6.6836 10.1473 6.71616 10.0692C6.74871 9.99104 6.7943 9.91941 6.8529 9.85429C6.91802 9.79569 6.98964 9.75011 7.06778 9.71755C7.22632 9.65242 7.40413 9.65242 7.56267 9.71755C7.64081 9.75011 7.71243 9.79569 7.77755 9.85429C7.83616 9.91941 7.88174 9.99104 7.9143 10.0692C7.94685 10.1473 7.96639 10.232 7.96639 10.3166C7.96639 10.4013 7.94685 10.4859 7.9143 10.5641C7.88174 10.6487 7.83616 10.7138 7.77755 10.7789C7.71243 10.8375 7.64081 10.8831 7.56267 10.9157C7.48453 10.9482 7.39988 10.9678 7.31523 10.9678Z'
-                fill='#0500FF'
-              />
-            </svg>
+            <ExclamationSvg className={styles.cakeBountySvg} />
           </div>
           <div className={styles.pools__flex}>
             <p className='font_20'>0.026</p>
@@ -330,28 +336,8 @@ const Pools = () => {
                 marginTop: 'auto',
               }}
             />
-            {/* <button className="btnBlue">Claim</button> */}
             <p className='font_13'>Help</p>
-            <svg
-              width='15'
-              height='15'
-              viewBox='0 0 15 15'
-              fill='none'
-              xmlns='http://www.w3.org/2000/svg'
-            >
-              <path
-                d='M7.05273 14.2122C3.19134 14.2122 0.0527344 11.0736 0.0527344 7.21216C0.0527344 3.35076 3.19134 0.212158 7.05273 0.212158C10.9141 0.212158 14.0527 3.35076 14.0527 7.21216C14.0527 11.0736 10.9141 14.2122 7.05273 14.2122ZM7.05273 1.1889C3.7318 1.1889 1.02948 3.89123 1.02948 7.21216C1.02948 10.5331 3.7318 13.2354 7.05273 13.2354C10.3737 13.2354 13.076 10.5331 13.076 7.21216C13.076 3.89123 10.3737 1.1889 7.05273 1.1889Z'
-                fill='white'
-              />
-              <path
-                d='M7.05345 8.65915C6.71541 8.65915 6.43508 8.37882 6.43508 8.04078V7.86763C6.43508 6.91122 7.1359 6.44125 7.39974 6.25986C7.7048 6.05374 7.80374 5.91357 7.80374 5.6992C7.80374 5.28695 7.4657 4.94891 7.05345 4.94891C6.6412 4.94891 6.30316 5.28695 6.30316 5.6992C6.30316 6.03725 6.02283 6.31758 5.68478 6.31758C5.34674 6.31758 5.06641 6.03725 5.06641 5.6992C5.06641 4.60262 5.95687 3.71216 7.05345 3.71216C8.15003 3.71216 9.04049 4.60262 9.04049 5.6992C9.04049 6.63913 8.34791 7.1091 8.09232 7.28224C7.77076 7.49661 7.67182 7.63678 7.67182 7.86763V8.04078C7.67182 8.38707 7.39149 8.65915 7.05345 8.65915Z'
-                fill='white'
-              />
-              <path
-                d='M7.05392 10.7122C6.97282 10.7123 6.8925 10.6964 6.81753 10.6655C6.74257 10.6345 6.67443 10.5891 6.61701 10.5319C6.55959 10.4746 6.51401 10.4066 6.48287 10.3317C6.45174 10.2568 6.43566 10.1765 6.43555 10.0954C6.43544 10.0143 6.4513 9.934 6.48224 9.85904C6.51317 9.78407 6.55857 9.71593 6.61584 9.65851C6.67311 9.60109 6.74113 9.55551 6.81601 9.52438C6.89089 9.49324 6.97118 9.47716 7.05227 9.47705C7.21606 9.47683 7.37322 9.54169 7.48919 9.65734C7.60516 9.773 7.67043 9.92999 7.67065 10.0938C7.67087 10.2576 7.60601 10.4147 7.49035 10.5307C7.3747 10.6467 7.21771 10.7119 7.05392 10.7122Z'
-                fill='white'
-              />
-            </svg>
+            <InfoIcon />
           </div>
         </div>
       </div>
@@ -359,78 +345,18 @@ const Pools = () => {
         <CornerDecor />
         <div className={styles.farms__filterInner}>
           <div className={styles.Farms__filterLeftPanel}>
-            <svg
-              width='31'
-              height='31'
-              viewBox='0 0 31 31'
-              fill='none'
-              xmlns='http://www.w3.org/2000/svg'
-            >
-              <rect
-                opacity='0.1'
-                x='0.0351562'
-                y='0.995605'
-                width='30'
-                height='30'
-                rx='4'
-                fill='white'
-              />
-              <path
-                d='M21.3552 17.1956H8.71516C7.51516 17.1956 7.03516 17.7076 7.03516 18.9796V22.2116C7.03516 23.4836 7.51516 23.9956 8.71516 23.9956H21.3552C22.5552 23.9956 23.0352 23.4836 23.0352 22.2116V18.9796C23.0352 17.7076 22.5552 17.1956 21.3552 17.1956Z'
-                stroke='white'
-                strokeLinecap='round'
-                strokeLinejoin='round'
-              />
-              <path
-                d='M21.3552 7.99561H8.71516C7.51516 7.99561 7.03516 8.50761 7.03516 9.77961V13.0116C7.03516 14.2836 7.51516 14.7956 8.71516 14.7956H21.3552C22.5552 14.7956 23.0352 14.2836 23.0352 13.0116V9.77961C23.0352 8.50761 22.5552 7.99561 21.3552 7.99561Z'
-                stroke='white'
-                strokeLinecap='round'
-                strokeLinejoin='round'
-              />
-            </svg>
-            <svg
-              width='31'
-              height='31'
-              viewBox='0 0 31 31'
-              fill='none'
-              xmlns='http://www.w3.org/2000/svg'
-            >
-              <rect
-                opacity='0.1'
-                x='0.535156'
-                y='1.49561'
-                width='29'
-                height='29'
-                rx='3.5'
-                stroke='white'
-              />
-              <g opacity='0.7'>
-                <path
-                  d='M16.2344 8.70965L16.2344 14.0817C16.2344 14.5917 16.7464 14.7957 18.0184 14.7957L21.2504 14.7957C22.5224 14.7957 23.0344 14.5917 23.0344 14.0817L23.0344 8.70965C23.0344 8.19965 22.5224 7.99565 21.2504 7.99565L18.0184 7.99565C16.7464 7.99565 16.2344 8.19965 16.2344 8.70965Z'
-                  stroke='white'
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
-                />
-                <path
-                  d='M16.2344 17.9096L16.2344 23.2816C16.2344 23.7916 16.7464 23.9956 18.0184 23.9956L21.2504 23.9956C22.5224 23.9956 23.0344 23.7916 23.0344 23.2816L23.0344 17.9096C23.0344 17.3996 22.5224 17.1956 21.2504 17.1956L18.0184 17.1956C16.7464 17.1956 16.2344 17.3996 16.2344 17.9096Z'
-                  stroke='white'
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
-                />
-                <path
-                  d='M7.03516 8.70965L7.03516 14.0817C7.03516 14.5917 7.54716 14.7957 8.81916 14.7957L12.0512 14.7957C13.3232 14.7957 13.8352 14.5917 13.8352 14.0817L13.8352 8.70965C13.8352 8.19965 13.3232 7.99565 12.0512 7.99565L8.81916 7.99565C7.54716 7.99565 7.03516 8.19965 7.03516 8.70965Z'
-                  stroke='white'
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
-                />
-                <path
-                  d='M7.03516 17.9096L7.03516 23.2816C7.03516 23.7916 7.54716 23.9956 8.81916 23.9956L12.0512 23.9956C13.3232 23.9956 13.8352 23.7916 13.8352 23.2816L13.8352 17.9096C13.8352 17.3996 13.3232 17.1956 12.0512 17.1956L8.81916 17.1956C7.54716 17.1956 7.03516 17.3996 7.03516 17.9096Z'
-                  stroke='white'
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
-                />
-              </g>
-            </svg>
+            <TableViewSvg
+              onClick={() =>
+                setDataViewType(width > 896 ? 'table' : 'components')
+              }
+              className={`${dataViewType === 'components' && styles.tableView}`}
+            />
+            <ComponentViewSvg
+              onClick={() => setDataViewType('components')}
+              className={`${
+                dataViewType === 'components' && styles.componentsView
+              }`}
+            />
             <div className={styles.farms__radioBtn}>
               <div className='radio-btn'>
                 <input type='checkbox' />
@@ -443,140 +369,133 @@ const Pools = () => {
             <TableFilter />
           </div>
           <div className={styles.Farms__filterRightPanel}>
-            <select>
-              <option value='hot'>Hot</option>
-              <option value='apr'>APR</option>
-              <option value='multiplier'>Multiplier</option>
-              <option value='earned'>Earned</option>
-              <option value='liquidity'>Liquidity</option>
-            </select>
-            <input type='search' placeholder='Search Farms'></input>
+            <div className={styles.filterWrapper}>
+              <div
+                ref={selectRef}
+                className={styles.filters}
+                onClick={() =>
+                  setFilter(prevState => ({
+                    ...prevState,
+                    open: !prevState.open,
+                  }))
+                }
+              >
+                <p className={styles.filterName}>
+                  {filter.selected}{' '}
+                  <VectorSvg
+                    className={`${styles.vectorSvg} ${
+                      filter.open && styles.rotate
+                    }`}
+                  />
+                </p>
+                {filter.open && (
+                  <>
+                    {FilterData.map((FilterName, index) => {
+                      if (FilterName === filter.selected) return false;
+                      return (
+                        <p
+                          key={FilterName}
+                          className={styles.FilterName}
+                          onClick={() => {
+                            setFilter({ open: 'false', selected: FilterName });
+                          }}
+                        >
+                          {FilterName}
+                        </p>
+                      );
+                    })}
+                  </>
+                )}
+              </div>
+            </div>
+            <input
+              onChange={e => setSearch(e.target.value)}
+              type='search'
+              className={styles.searchInput}
+              placeholder='Search Farms'
+            ></input>
           </div>
         </div>
       </div>
       <div className={`${styles.pools__tableContainer}`}>
         <CornerDecor />
-        {poolsData.map(item => {
-          return (
-            <div key={item.id} className={styles.pools__tableInner}>
-              <div className={styles.farms__table}>
-                <div
-                  className={`${styles.pools__tableItemRow} ${styles.pools__svgCont} `}
-                >
-                  {item.coinIcon}
-                  {item.smallCoinIcon}
-                </div>
-                <div
-                  className={` ${styles.pools__tableItemColumn} ${styles.pools__columnItem1} `}
-                >
-                  <p>{item.coinTitle}</p>
-                  <p className={` font_12 ${styles.pools__tableSubText} `}>
-                    {item.coinSubTitle}
-                  </p>
-                </div>
-                <div
-                  className={` ${styles.pools__tableItemColumn} ${styles.pools__columnItem2} `}
-                >
-                  <p>{item.profitAmount}</p>
-                  <p className={` font_12 ${styles.pools__usd}`}>
-                    {item.profitAmountUsd}
-                  </p>
-                  <p className={` font_12 ${styles.pools__tableSubText} `}>
-                    {item.profitTitle}
-                  </p>
-                </div>
-                <div
-                  className={` ${styles.pools__tableItemColumn} ${styles.pools__columnItem3} `}
-                >
-                  <p>{item.creditAmount}</p>
-                  <p className={` font_12 ${styles.pools__usd}`}>
-                    {item.creditAmountUsd}
-                  </p>
-                  <p className={` font_12 ${styles.pools__tableSubText} `}>
-                    {item.creditTitle}
-                  </p>
-                </div>
-                <div
-                  className={` ${styles.pools__rowItem0} ${styles.pools__tableItem}`}
-                >
-                  <div className={`${styles.pools__tableItemRow} `}>
-                    <p>{item.apyPercentage}</p>
-                    <svg
-                      width='13'
-                      height='14'
-                      viewBox='0 0 13 14'
-                      fill='none'
-                      xmlns='http://www.w3.org/2000/svg'
-                    >
-                      <path
-                        d='M12.5172 3.82006H8.12145C7.87355 3.82006 7.66797 3.61448 7.66797 3.36657C7.66797 3.11867 7.87355 2.91309 8.12145 2.91309H12.5172C12.7651 2.91309 12.9707 3.11867 12.9707 3.36657C12.9707 3.61448 12.7651 3.82006 12.5172 3.82006Z'
-                        fill='#0500FF'
-                      />
-                      <path
-                        d='M5.18929 3.82006H0.787469C0.539564 3.82006 0.333984 3.61448 0.333984 3.36657C0.333984 3.11867 0.539564 2.91309 0.787469 2.91309H5.18325C5.43115 2.91309 5.63673 3.11867 5.63673 3.36657C5.63673 3.61448 5.4372 3.82006 5.18929 3.82006Z'
-                        fill='#0500FF'
-                      />
-                      <path
-                        d='M12.5172 9.67894H8.12145C7.87355 9.67894 7.66797 9.47336 7.66797 9.22546C7.66797 8.97755 7.87355 8.77197 8.12145 8.77197H12.5172C12.7651 8.77197 12.9707 8.97755 12.9707 9.22546C12.9707 9.47336 12.7651 9.67894 12.5172 9.67894Z'
-                        fill='#0500FF'
-                      />
-                      <path
-                        d='M12.5172 13.3432H8.12145C7.87355 13.3432 7.66797 13.1377 7.66797 12.8898C7.66797 12.6419 7.87355 12.4363 8.12145 12.4363H12.5172C12.7651 12.4363 12.9707 12.6419 12.9707 12.8898C12.9707 13.1377 12.7651 13.3432 12.5172 13.3432Z'
-                        fill='#0500FF'
-                      />
-                      <path
-                        d='M10.3343 6.0149C10.0864 6.0149 9.88086 5.80933 9.88086 5.56142V1.16564C9.88086 0.917738 10.0864 0.712158 10.3343 0.712158C10.5822 0.712158 10.7878 0.917738 10.7878 1.16564V5.56142C10.7878 5.81537 10.5883 6.0149 10.3343 6.0149Z'
-                        fill='#0500FF'
-                      />
-                      <path
-                        d='M0.788032 13.7121C0.67315 13.7121 0.558267 13.6698 0.46757 13.5791C0.383234 13.4938 0.335937 13.3786 0.335938 13.2586C0.335938 13.1387 0.383234 13.0235 0.46757 12.9382L4.86335 8.5424C5.03869 8.36705 5.32892 8.36705 5.50427 8.5424C5.67962 8.71775 5.67962 9.00798 5.50427 9.18332L1.10849 13.5791C1.06728 13.6224 1.01748 13.6565 0.962301 13.6794C0.90712 13.7023 0.847764 13.7135 0.788032 13.7121Z'
-                        fill='#0500FF'
-                      />
-                      <path
-                        d='M5.18967 13.7121C5.07479 13.7121 4.9599 13.6698 4.86921 13.5791L0.473429 9.18332C0.389093 9.09799 0.341797 8.98284 0.341797 8.86286C0.341797 8.74288 0.389093 8.62774 0.473429 8.5424C0.648777 8.36705 0.939007 8.36705 1.11435 8.5424L5.51013 12.9382C5.68548 13.1135 5.68548 13.4038 5.51013 13.5791C5.41943 13.6698 5.30455 13.7121 5.18967 13.7121Z'
-                        fill='#0500FF'
-                      />
-                    </svg>
+        {poolsData
+          .filter(item => {
+            return search.toLowerCase() === ''
+              ? item
+              : item.coinTitle.toLowerCase().includes(search);
+          })
+          .map(item => {
+            return (
+              <div key={item.id} className={styles.pools__tableInner}>
+                <div className={styles.farms__table}>
+                  <div
+                    className={`${styles.pools__tableItemRow} ${styles.pools__svgCont} `}
+                  >
+                    {item.coinIcon}
+                    {item.smallCoinIcon}
                   </div>
                   <div
-                    className={` ${styles.pools__tableItemColumn} ${styles.pools__columnItem4} `}
+                    className={` ${styles.pools__tableItemColumn} ${styles.pools__columnItem1} `}
                   >
+                    <p>{item.coinTitle}</p>
                     <p className={` font_12 ${styles.pools__tableSubText} `}>
-                      {item.apyTitle}
+                      {item.coinSubTitle}
                     </p>
                   </div>
-                </div>
-                <div
-                  className={` ${styles.pools__tableItemColumn} ${styles.pools__columnItem5} `}
-                >
-                  <p>{item.totalStaked}</p>
-                  <p className={` font_12 ${styles.pools__tableSubText} `}>
-                    {item.totalStakedTitle}
-                  </p>
-                  <div className={styles.pools__timer}>{item.timerIcon}</div>
-                </div>
-                <div className={styles.pools__arrow}>
-                  <svg
-                    width='9'
-                    height='5'
-                    viewBox='0 0 9 5'
-                    fill='none'
-                    xmlns='http://www.w3.org/2000/svg'
+                  <div
+                    className={` ${styles.pools__tableItemColumn} ${styles.pools__columnItem2} `}
                   >
-                    <path
-                      d='M7.33398 0.86792L4.86429 3.33762C4.57262 3.62928 4.09535 3.62928 3.80368 3.33762L1.33398 0.86792'
-                      stroke='white'
-                      strokeWidth='1.5'
-                      strokeMiterlimit='10'
-                      strokeLinecap='round'
-                      strokeLinejoin='round'
-                    />
-                  </svg>
+                    <p>{item.profitAmount}</p>
+                    <p className={` font_12 ${styles.pools__usd}`}>
+                      {item.profitAmountUsd}
+                    </p>
+                    <p className={` font_12 ${styles.pools__tableSubText} `}>
+                      {item.profitTitle}
+                    </p>
+                  </div>
+                  <div
+                    className={` ${styles.pools__tableItemColumn} ${styles.pools__columnItem3} `}
+                  >
+                    <p>{item.creditAmount}</p>
+                    <p className={` font_12 ${styles.pools__usd}`}>
+                      {item.creditAmountUsd}
+                    </p>
+                    <p className={` font_12 ${styles.pools__tableSubText} `}>
+                      {item.creditTitle}
+                    </p>
+                  </div>
+                  <div
+                    className={` ${styles.pools__rowItem0} ${styles.pools__tableItem}`}
+                  >
+                    <div className={`${styles.pools__tableItemRow} `}>
+                      <p>{item.apyPercentage}</p>
+                      <MathSignSvg />
+                    </div>
+                    <div
+                      className={` ${styles.pools__tableItemColumn} ${styles.pools__columnItem4} `}
+                    >
+                      <p className={` font_12 ${styles.pools__tableSubText} `}>
+                        {item.apyTitle}
+                      </p>
+                    </div>
+                  </div>
+                  <div
+                    className={` ${styles.pools__tableItemColumn} ${styles.pools__columnItem5} `}
+                  >
+                    <p>{item.totalStaked}</p>
+                    <p className={` font_12 ${styles.pools__tableSubText} `}>
+                      {item.totalStakedTitle}
+                    </p>
+                    <div className={styles.pools__timer}>{item.timerIcon}</div>
+                  </div>
+                  <div className={styles.pools__arrow}>
+                    <VectorSvg className={styles.VectorSvg} />
+                  </div>
                 </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
       </div>
     </div>
   );

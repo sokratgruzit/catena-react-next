@@ -129,7 +129,7 @@
 }
 .auction__notice svg {
   margin-right: 30px;
-  width: 100%;
+  width: 45px;
 }
 .auc .auction__notice h1 {
   margin-bottom: 20px;
@@ -308,15 +308,11 @@
   padding-top: 20px;
   margin-bottom: 20px;
 }
-.auction__details p:nth-child(2) {
-  color: #ff7152;
-  display: none;
+.vectorSvg{
+  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
 }
-.auction__details p:nth-child(1) {
-  display: block;
-}
-.auction__expendDetails {
-  display: none;
+.activeVector{
+  transform: rotateZ(-180deg);
 }
 /* Expend Details */
 /* Whitelist */
@@ -424,6 +420,11 @@
 }
 .archieveDate {
   margin-left: auto;
+}
+.goBackSvg{
+  width: 21px;
+  height: 13px;
+  stroke-width: 1.5px !important;
 }
 /*Laptop 1440*/
 @media (max-width: 1900px) {

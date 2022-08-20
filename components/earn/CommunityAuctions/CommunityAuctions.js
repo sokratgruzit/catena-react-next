@@ -7,12 +7,13 @@ import CornerDecor from '../../UI/cornerDecor/CornerDecor';
 import AuctionTable from '../components/AuctionTable/AuctionTable';
 import FAQ from '../../faq/FAQ';
 import egg from '../../../public/images/earn/egg.png';
-import astro from '../../../../public/images/earn/astro.png';
+import astro from '../../../public/images/earn/astro.png';
 import orbit from '../../../public/images/earn/orbit.png';
 import yellowStar from '../../../public/images/earn/yellowStar.png';
 import ufo from '../../../public/images/earn/ufo.png';
 
 import styles from './CommunityAuctions.module.css';
+import { GoBackSvg, InfoIcon, VectorSvg } from '../../svg';
 
 let whitelistedData = [
   {
@@ -255,95 +256,9 @@ let whitelistedData = [
   },
 ];
 
-let faqData = [
-  {
-    question: 'Step 1: Submit application',
-    answer:
-      'Projects can submit an application to sponsor a yield farm and/or pool on PancakeSwap via the Application Form',
-    id: 0,
-  },
-  {
-    question: 'Step 1: Submit application',
-    answer:
-      'Projects can submit an application to sponsor a yield farm and/or pool on PancakeSwap via the Application Form',
-    id: 1,
-  },
-  {
-    question: 'Step 1: Submit application',
-    answer:
-      'Projects can submit an application to sponsor a yield farm and/or pool on PancakeSwap via the Application Form',
-    id: 2,
-  },
-  {
-    question: 'Step 1: Submit application',
-    answer:
-      'Projects can submit an application to sponsor a yield farm and/or pool on PancakeSwap via the Application Form',
-    id: 3,
-  },
-];
-
-let auctionTableData;
-
-if (typeof window !== 'undefined') {
-  // Client-side-only code
-  if (window.innerWidth < 767) {
-    auctionTableData = (
-      <div>
-        {auctionData.map(item => {
-          return (
-            <div key={item.id} className={styles.auction__tableMobile}>
-              <div className={styles.auction__tableHeaderMobile}>
-                <p>POSITION</p>
-                <p>FARM</p>
-                <p>CORE BID</p>
-              </div>
-              <div className={styles.table__innerMobile}>
-                <p>{item.position}</p>
-                <div className={styles.auction__farmMobile}>
-                  <p>{item.farm}</p>
-                  <p className={` font_10 ${styles.subText}`}>{item.subFarm}</p>
-                </div>
-                <div className={styles.table__innerMobile}>
-                  <p>{item.coreBid}</p>
-                  <p className={` font_10 ${styles.subText}`}>
-                    {item.subCoreBid}
-                  </p>
-                </div>
-              </div>
-              <div>
-                <svg
-                  width='21'
-                  height='21'
-                  viewBox='0 0 21 21'
-                  fill='none'
-                  xmlns='http://www.w3.org/2000/svg'
-                >
-                  <path
-                    d='M5.01725 9.32129C4.10059 9.32129 3.35059 10.0713 3.35059 10.988C3.35059 11.9046 4.10059 12.6546 5.01725 12.6546C5.93392 12.6546 6.68392 11.9046 6.68392 10.988C6.68392 10.0713 5.93392 9.32129 5.01725 9.32129Z'
-                    stroke='white'
-                    strokeWidth='1.5'
-                  />
-                  <path
-                    d='M16.6833 9.32129C15.7666 9.32129 15.0166 10.0713 15.0166 10.988C15.0166 11.9046 15.7666 12.6546 16.6833 12.6546C17.5999 12.6546 18.3499 11.9046 18.3499 10.988C18.3499 10.0713 17.5999 9.32129 16.6833 9.32129Z'
-                    stroke='white'
-                    strokeWidth='1.5'
-                  />
-                  <path
-                    d='M10.8512 9.32129C9.93457 9.32129 9.18457 10.0713 9.18457 10.988C9.18457 11.9046 9.93457 12.6546 10.8512 12.6546C11.7679 12.6546 12.5179 11.9046 12.5179 10.988C12.5179 10.0713 11.7679 9.32129 10.8512 9.32129Z'
-                    stroke='white'
-                    strokeWidth='1.5'
-                  />
-                </svg>
-              </div>
-            </div>
-          );
-        })}
-      </div>
-    );
-  }
-}
-
 const CommunityAuctions = props => {
+  const [expandDetails, setExpandDetails] = useState(false);
+
   const router = useRouter();
 
   return (
@@ -567,35 +482,30 @@ const CommunityAuctions = props => {
               />
             </svg>
           </div>
-          <div className={styles.auction__expendDetails}>
-            <span className={styles.auction__borderBottom}></span>
-            <div>
-              <p>Multiplier per farm</p>
-              <p>1x each</p>
+          {expandDetails && (
+            <div className={styles.auction__expendDetails}>
+              <span className={styles.auction__borderBottom}></span>
+              <div>
+                <p>Multiplier per farm</p>
+                <p>1x each</p>
+              </div>
+              <div>
+                <p>Total whitelisted bidders</p>
+                <p>19</p>
+              </div>
             </div>
-            <div>
-              <p>Total whitelisted bidders</p>
-              <p>19</p>
-            </div>
-            <span className={styles.auction__borderBottom}></span>
-          </div>
-          <div className={styles.auction__details}>
-            <p>Details</p>
-            <p>Hide</p>
-            <svg
-              width='8'
-              height='6'
-              viewBox='0 0 8 6'
-              fill='none'
-              xmlns='http://www.w3.org/2000/svg'
-            >
-              <path
-                fillRule='evenodd'
-                clipRule='evenodd'
-                d='M0.234315 1.12543C0.546734 0.832538 1.05327 0.832538 1.36569 1.12543L4 3.5951L6.63432 1.12543C6.94673 0.832538 7.45327 0.832538 7.76569 1.12543C8.0781 1.41832 8.0781 1.8932 7.76569 2.18609L5.13134 4.65579C4.50781 5.24035 3.49219 5.24035 2.86866 4.65579L0.234315 2.18609C-0.0781049 1.8932 -0.0781049 1.41832 0.234315 1.12543Z'
-                fill='white'
-              />
-            </svg>
+          )}
+          <span className={styles.auction__borderBottom}></span>
+          <div
+            className={styles.auction__details}
+            onClick={() => setExpandDetails(prevState => !prevState)}
+          >
+            {expandDetails ? <p>Hide</p> : <p>Details</p>}
+            <VectorSvg
+              className={`${styles.vectorSvg} ${
+                expandDetails && styles.activeVector
+              }`}
+            />
           </div>
         </div>
         {/* {content} */}
