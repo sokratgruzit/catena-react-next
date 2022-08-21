@@ -17,6 +17,7 @@ import {
   SmlArrowSvg,
   PriceUp,
   PriceDown,
+  VectorSvg,
 } from '../../../svg';
 import { formatCurrency } from '../../../utils/formatCurrency';
 
@@ -37,7 +38,7 @@ const TokenSection = ({ data }) => {
                 onClick={() => router.push(`/info/tokens`)}
                 className={styles.goBackText}
               >
-                <SmlArrowSvg />
+                <SmlArrowSvg className={styles.goBackSvg} />
                 <p>Back To Tokens</p>
               </div>
             </div>

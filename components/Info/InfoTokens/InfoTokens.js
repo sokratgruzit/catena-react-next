@@ -28,7 +28,7 @@ const InfoTokens = () => {
         </div>
       </div>
       <TopMovers />
-      <h2 className={`${styles.tokensTitle} font_30`}>All Tokens</h2>
+      <h2>All Tokens</h2>
       <TokensTable />
     </div>
   );

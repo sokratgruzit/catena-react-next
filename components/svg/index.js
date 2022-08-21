@@ -12,3 +12,6 @@ export { default as TableViewSvg } from './TableViewSvg';
 export { default as ComponentViewSvg } from './ComponentViewSvg';
 export { default as MathSignSvg } from './MathSignSvg';
 export { default as ExclamationSvg } from './ExclamationSvg';
+export { default as PlusSvg } from './PlusSvg';
+export { default as CoreLogoSvg } from './CoreLogoSvg';
+export { default as ThreeDotsSvg } from './ThreeDotsSvg';

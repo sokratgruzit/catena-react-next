@@ -4,7 +4,6 @@ const PriceDown = props => (
     height='7'
     viewBox='0 0 10 7'
     fill='#E94A4A'
-    opacity='0.3'
     xmlns='http://www.w3.org/2000/svg'
     {...props}
   >

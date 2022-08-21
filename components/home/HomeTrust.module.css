@@ -3,28 +3,30 @@
   width: 100%;
   flex-direction: column;
 }
+
 .HomeTrust__wrapper {
   display: flex;
   flex-direction: column;
   width: 100%;
   margin-top: 600px;
 }
+
 .HomeTrust__wrapper h1,
 .HomeTrust__wrapper p {
   text-align: center;
 }
-.homeTrust__bg {
-  width: 100%;
-}
+
 .homeGlobeBg {
   position: absolute;
   left: 0;
   top: 0;
   z-index: -1;
 }
+
 .coreColor {
   color: #ff7152;
 }
+
 .textColor {
   color: #b2b4b7;
 }
@@ -32,12 +34,15 @@
 /*Laptop 1440*/
 @media (max-width: 1900px) {
 }
+
 /*Ipad Pro 1024*/
 @media (max-width: 1300px) {
 }
+
 /*Ipad 768*/
 @media (max-width: 1023px) {
 }
+
 /*Mobile 320*/
 @media (max-width: 767px) {
 }

@@ -112,7 +112,6 @@
 
 }
 
-
 .volumeBlock{
   height: 30%;
   border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
@@ -178,19 +177,32 @@
   border: 1px solid #111826;
 }
 
+
+
 .goBackWrapper{
   width: 27%;
   align-self: center;
 }
-.goBackText:hover{
-  text-decoration: underline;
-  text-decoration-color: #FF7152;
+.goBackSvg{
+  fill:#FF7152;
+  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
 }
+
 .goBackText{
   cursor: pointer;
   width: fit-content;
   align-items: center;
   display: flex;
+}
+.goBackText p {
+  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+}
+.goBackText:hover p{
+  color:#0500FF
+}
+.goBackText:hover .goBackSvg{
+  fill:#0500FF;
+  transform: translateX(-5px);
 }
 
 .goBackText p{

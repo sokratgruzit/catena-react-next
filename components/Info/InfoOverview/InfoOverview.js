@@ -1,5 +1,4 @@
 import React from 'react';
-import Image from 'next/image';
 
 import InfoRoutes from '../components/InfoRoutes/InfoRoutes';
 import SearchBar from '../components/SearchBar/SearchBar';
@@ -7,8 +6,6 @@ import TokensTable from '../components/InfoTables/TokensTable';
 import PoolsTable from '../components/InfoTables/PoolsTable';
 import TransactionTable from '../components/InfoTables/TransactionTable';
 import InfoCharts from '../components/InfoCharts/InfoCharts';
-
-import { OpenSvg } from '../../svg';
 
 import styles from '../InfoPages.module.css';
 

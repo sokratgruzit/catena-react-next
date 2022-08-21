@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
-import { MathSignSvg, VectorSvg } from '../../../svg';
+import { MathSignSvg, OpenSvg, VectorSvg } from '../../../svg';
+
+import { useWindowDimension } from '../../../../hooks/useWindowDimension';
 
 import styles from './FarmsTableRow.module.css';
 
 const FarmsTableRow = ({ item }) => {
   const [expandRow, setExpandRow] = useState(false);
+  const [width, height] = useWindowDimension();
   return (
-    <div
+    <section
       className={styles.farms__tableWrapper}
       onClick={() => setExpandRow(prevState => !prevState)}
     >
@@ -79,104 +82,20 @@ const FarmsTableRow = ({ item }) => {
           <div className={styles.farms__tableEndInner}>
             <div className={styles.pointer}>
               <p className={` ${styles.margin0} font_12 `}>Get CORE-BNB LP</p>
-              <svg
-                width='14'
-                height='14'
-                viewBox='0 0 14 14'
-                fill='none'
-                xmlns='http://www.w3.org/2000/svg'
-              >
-                <path
-                  d='M7.6543 6.36873L12.5743 1.44873'
-                  stroke='white'
-                  strokeWidth='1.5'
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
-                />
-                <path
-                  d='M13.0558 3.84875V0.96875H10.1758'
-                  stroke='white'
-                  strokeWidth='1.5'
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
-                />
-                <path
-                  d='M6.45469 0.96875H5.25469C2.25469 0.96875 1.05469 2.16875 1.05469 5.16875V8.76875C1.05469 11.7688 2.25469 12.9688 5.25469 12.9688H8.85469C11.8547 12.9688 13.0547 11.7688 13.0547 8.76875V7.56875'
-                  stroke='white'
-                  strokeWidth='1.5'
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
-                />
-              </svg>
+              <OpenSvg className={styles.openSvg} />
             </div>
             <div className={styles.pointer}>
               <p className='font_12'>View Contract</p>
-              <svg
-                width='14'
-                height='14'
-                viewBox='0 0 14 14'
-                fill='none'
-                xmlns='http://www.w3.org/2000/svg'
-              >
-                <path
-                  d='M7.6543 6.36873L12.5743 1.44873'
-                  stroke='white'
-                  strokeWidth='1.5'
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
-                />
-                <path
-                  d='M13.0558 3.84875V0.96875H10.1758'
-                  stroke='white'
-                  strokeWidth='1.5'
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
-                />
-                <path
-                  d='M6.45469 0.96875H5.25469C2.25469 0.96875 1.05469 2.16875 1.05469 5.16875V8.76875C1.05469 11.7688 2.25469 12.9688 5.25469 12.9688H8.85469C11.8547 12.9688 13.0547 11.7688 13.0547 8.76875V7.56875'
-                  stroke='white'
-                  strokeWidth='1.5'
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
-                />
-              </svg>
+              <OpenSvg className={styles.openSvg} />
             </div>
             <div className={styles.pointer}>
               <p className='font_12'>See Pair Info</p>
-              <svg
-                width='14'
-                height='14'
-                viewBox='0 0 14 14'
-                fill='none'
-                xmlns='http://www.w3.org/2000/svg'
-              >
-                <path
-                  d='M7.6543 6.36873L12.5743 1.44873'
-                  stroke='white'
-                  strokeWidth='1.5'
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
-                />
-                <path
-                  d='M13.0558 3.84875V0.96875H10.1758'
-                  stroke='white'
-                  strokeWidth='1.5'
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
-                />
-                <path
-                  d='M6.45469 0.96875H5.25469C2.25469 0.96875 1.05469 2.16875 1.05469 5.16875V8.76875C1.05469 11.7688 2.25469 12.9688 5.25469 12.9688H8.85469C11.8547 12.9688 13.0547 11.7688 13.0547 8.76875V7.56875'
-                  stroke='white'
-                  strokeWidth='1.5'
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
-                />
-              </svg>
+              <OpenSvg className={styles.openSvg} />
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
