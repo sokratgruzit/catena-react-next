@@ -3,7 +3,6 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 import Button from '../button/Button';
-import { OpenSVG } from '../../svg/InfoIcons';
 
 import { formatCurrency } from '../../utils/formatCurrency';
 
@@ -12,6 +11,7 @@ import TextItem from './components/TextItem/TextItem';
 import PriceItem from './components/PriceItem/PriceItem';
 import PriceChange from './components/priceChange/PriceChange';
 import TextSvg from './components/TextSvg/TextSvg';
+import MultiTextItem from './components/multiTextItem/MultiTextItem';
 
 import styles from './ListItemRow.module.css';
 
@@ -79,7 +79,9 @@ const ListItemRow = props => {
         }
 
         if (item.type === 'multi_text') {
-          return <div key={index}>Multi text</div>;
+          return (
+            <MultiTextItem key={'multi_text' + type + index} data={item} />
+          );
         }
 
         if (item.type === 'price') {

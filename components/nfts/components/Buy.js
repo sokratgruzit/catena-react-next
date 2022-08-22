@@ -36,63 +36,63 @@ const detailsTableData = [
     data: [
       {
         text: 'Modified',
-        type: 'text'
+        type: 'text',
       },
       {
         symbol: 'CMCX',
         priceInCmcx: '0.0123',
         priceInDollar: '(~$5.028)',
-        type: 'price'
+        type: 'price',
       },
       {
         img: '/images/nft/nft_buy/item2.png',
         title: 'BilanCh',
         subTitle: '0xC7...061b',
-        type: 'img_text'
+        type: 'img_text',
       },
       {
         img: '/images/nft/nft_buy/item3.png',
         title: '-',
         subTitle: '0xC7...062b',
-        type: 'img_text'
+        type: 'img_text',
       },
       {
         title: '4.7.2022',
         subTitle: '13:13',
-        type: 'svg'
-      }
-    ]
+        type: 'svg',
+      },
+    ],
   },
   {
     id: 1,
     data: [
       {
         text: 'Sold',
-        type: 'text'
+        type: 'text',
       },
       {
         symbol: 'CMCX',
         priceInCmcx: '0.0123',
         priceInDollar: '(~$5.028)',
-        type: 'price'
+        type: 'price',
       },
       {
         img: '/images/nft/nft_buy/item2.png',
         title: 'BilanCh',
         subTitle: '0xC7...061b',
-        type: 'img_text'
+        type: 'img_text',
       },
       {
         img: '/images/nft/nft_buy/item3.png',
         title: '-',
         subTitle: '0xC7...062b',
-        type: 'img_text'
+        type: 'img_text',
       },
       {
         title: '4.7.2022',
         subTitle: '13:13',
-        type: 'svg'
-      }
+        type: 'svg',
+      },
     ],
   },
   {
@@ -100,65 +100,65 @@ const detailsTableData = [
     data: [
       {
         text: 'Delisted',
-        type: 'text'
+        type: 'text',
       },
       {
         symbol: 'CMCX',
         priceInCmcx: '0.0123',
         priceInDollar: '(~$5.028)',
-        type: 'price'
+        type: 'price',
       },
       {
         img: '/images/nft/nft_buy/item2.png',
         title: 'BilanCh',
         subTitle: '0xC7...061b',
-        type: 'img_text'
+        type: 'img_text',
       },
       {
         img: '/images/nft/nft_buy/item3.png',
         title: '-',
         subTitle: '0xC7...062b',
-        type: 'img_text'
+        type: 'img_text',
       },
       {
         title: '4.7.2022',
         subTitle: '13:13',
-        type: 'svg'
-      }
-    ]
+        type: 'svg',
+      },
+    ],
   },
   {
     id: 3,
     data: [
       {
         text: 'Listed',
-        type: 'text'
+        type: 'text',
       },
       {
         symbol: 'CMCX',
         priceInCmcx: '0.0123',
         priceInDollar: '(~$5.028)',
-        type: 'price'
+        type: 'price',
       },
       {
         img: '/images/nft/nft_buy/item2.png',
         title: 'BilanCh',
         subTitle: '0xC7...061b',
-        type: 'img_text'
+        type: 'img_text',
       },
       {
         img: '/images/nft/nft_buy/item3.png',
         title: '-',
         subTitle: '0xC7...062b',
-        type: 'img_text'
+        type: 'img_text',
       },
       {
         title: '4.7.2022',
         subTitle: '13:13',
-        type: 'svg'
-      }
-    ]
-  }
+        type: 'svg',
+      },
+    ],
+  },
 ];
 const collectionItems = [
   {

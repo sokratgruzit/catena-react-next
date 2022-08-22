@@ -5,7 +5,7 @@ import { formatCurrency } from '../../../utils/formatCurrency';
 import Table from '../../../UI/table/Table';
 import Button from '../../../UI/button/Button';
 import PageNumber from './PageNumber';
-import { PaginationButtonSVG } from '../../../svg/InfoIcons';
+import { PaginationButtonSvg } from '../../../svg';
 import CornerDecor from '../../../UI/cornerDecor/CornerDecor';
 
 import styles from './InfoTables.module.css';
@@ -25,43 +25,43 @@ const TokensTable = props => {
     fetch(
       `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=${itemsPerPage}&page=${pageCountTokens}&sparkline=false`,
     )
-    .then(response => response.json())
-    .then(data => {
-      data.map(item => {
-        let tData = [
-          {
-            text: item.market_cap_rank,
-            type: 'text'
-          },
-          {
-            img: item.image,
-            title: item.name,
-            onClick: () => router.push(`/info/tokens/${item.id}`),
-            type: 'img_text'
-          },
-          {
-            text: formatCurrency(item.current_price),
-            type: 'text'
-          },
-          {
-            priceChange: item.price_change_percentage_24h,
-            type: 'price_change'
-          },
-          {
-            text: formatCurrency(item.market_cap_change_24h),
-            type: 'text'
-          },
-          {
-            text: formatCurrency(item.total_volume),
-            type: 'text'
-          }
-        ];
+      .then(response => response.json())
+      .then(data => {
+        data.map(item => {
+          let tData = [
+            {
+              text: item.market_cap_rank,
+              type: 'text',
+            },
+            {
+              img: item.image,
+              title: item.name,
+              onClick: () => router.push(`/info/tokens/${item.id}`),
+              type: 'img_text',
+            },
+            {
+              text: formatCurrency(item.current_price),
+              type: 'text',
+            },
+            {
+              priceChange: item.price_change_percentage_24h,
+              type: 'price_change',
+            },
+            {
+              text: formatCurrency(item.market_cap_change_24h),
+              type: 'text',
+            },
+            {
+              text: formatCurrency(item.total_volume),
+              type: 'text',
+            },
+          ];
 
-        item.data = tData;
+          item.data = tData;
+        });
+
+        setData(data);
       });
-
-      setData(data);
-    });
   }, [itemsPerPage, pageCountTokens]);
 
   const sorting = col => {
@@ -128,7 +128,7 @@ const TokensTable = props => {
         <Button
           customStyles={{ marginRight: '10px' }}
           title={
-            <PaginationButtonSVG
+            <PaginationButtonSvg
               className={styles.back}
               pageCountTokens={pageCountTokens}
               disabled={1}
@@ -200,7 +200,7 @@ const TokensTable = props => {
             marginLeft: '10px',
           }}
           title={
-            <PaginationButtonSVG
+            <PaginationButtonSvg
               className={styles.forward}
               pageCountTokens={pageCountTokens}
               disabled={totalPages}

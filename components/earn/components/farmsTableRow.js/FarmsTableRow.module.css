@@ -1,0 +1,196 @@
+.farms__tableContainer {
+  position: relative;
+  display: flex;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.farms__tableInner {
+  display: flex;
+  padding: 20px;
+  width: 100%;
+  flex-direction: column;
+}
+
+.farms__tableHeader {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  padding: 0 80px 20px 80px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.farms__tableHeader div {
+  color: #627eea;
+  display: flex;
+  align-items: center;
+}
+
+.farms__tableHeader svg {
+  margin-left: 5px;
+}
+
+.farms__tableHeader div {
+  width: 20%;
+}
+
+.farms__table {
+  display: flex;
+  align-items: center;
+  margin-top: 30px;
+  justify-content: flex-end;
+  width: 100%;
+  position: relative;
+}
+
+.farms__tableArrow {
+  position: absolute;
+  right: 0;
+  top: 15px;
+  cursor: pointer;
+  z-index: 1;
+  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+}
+
+.farms__tableArrowActive{
+  transform: rotateZ(-180deg);
+  stroke: #ff7152;
+}
+
+.flex {
+  display: flex;
+  width: 100%;
+}
+
+.width {
+  width: 23%;
+}
+
+.farms__coloredItem {
+  color: #ff7152;
+  margin-left: 10px;
+}
+
+.farms__tableItem {
+  display: flex;
+  align-items: center;
+  margin-right: auto;
+}
+
+.farms__tableItems {
+  width: 20%;
+}
+
+.farms__tableItems svg {
+  margin-left: 5px;
+}
+
+.item {
+  width: 17%;
+}
+
+.item1 {
+  width: 18%;
+}
+
+.item2 {
+  width: 18%;
+}
+
+.item3 {
+  width: 23%;
+}
+
+.farms__tableWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.farms__subTable {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  margin-top: 30px;
+  /* display: none; */
+  max-height: 0;
+  overflow: hidden;
+  transition: 0.6s;
+}
+
+.expandTableRow{
+  max-height: 800px;
+}
+
+.pointer {
+  display: flex;
+  align-items: center;
+  margin-left: 30px;
+}
+
+.margin0 {
+  margin-left: 0;
+}
+
+.farms__tableEnd {
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.farms__tableEndInner svg {
+  margin-left: 7px;
+  cursor: pointer;
+}
+
+.farms__tableEndInner svg path {
+  stroke: #b3b4b7;
+}
+
+.farms__tableEndInner {
+  display: flex;
+  align-items: center;
+}
+
+.farms__tableEndInner p {
+  color: #b3b4b7;
+  cursor: pointer;
+}
+
+.farms__subTableInner {
+  display: flex;
+  margin-top: 10px;
+  align-items: center;
+}
+
+.farms__subTableInner button:nth-child(1) {
+  height: 42px;
+  width: 250px;
+  border-radius: 4px;
+}
+
+.farms__subTableInner button:nth-child(3) {
+  height: 42px;
+  width: 90px;
+  border-radius: 4px;
+}
+
+.disabledBtn {
+  opacity: 0.3;
+  background-color: #000000 !important;
+  border-color: #ffffff !important;
+  cursor: not-allowed;
+}
+
+.farms__subTableInner p {
+  margin-left: 60px;
+  width: 17.3%;
+}
+
+.openSvg{
+  width: 13px;
+  height: 13px;
+  fill:#969BA6;
+  stroke-width: 0.1px;
+}
+

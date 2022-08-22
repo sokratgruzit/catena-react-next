@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 import CornerDecor from '../../../../UI/cornerDecor/CornerDecor';
 import Tooltip from '../../../../UI/tooltip/Tooltip';
-import { Info } from '../../../../svg/InfoIcons';
+import { InfoIcon } from '../../../../svg';
 
 import styles from './FirstBlock.module.css';
 
@@ -26,7 +26,7 @@ const FirstBlock = ({ data }) => {
             text={'dummy'}
           />
           {/* <div className={styles.info}>
-            <Info className={styles.icon} />7 day performance
+            <InfoIcon className={styles.icon} />7 day performance
           </div> */}
         </div>
       </div>

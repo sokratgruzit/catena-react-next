@@ -10,13 +10,15 @@ import SearchBar from '../SearchBar/SearchBar';
 import PoolsTable from '../InfoTables/PoolsTable';
 import TransactionTable from '../InfoTables/TransactionTable';
 import ChartBlock from './ChartBlock/ChartBlock';
+
 import {
+  OpenSvg,
+  StarSvg,
+  SmlArrowSvg,
   PriceUp,
   PriceDown,
-  StarSVG,
-  OpenSVG,
-  GoBackSVG,
-} from '../../../svg/InfoIcons';
+  VectorSvg,
+} from '../../../svg';
 import { formatCurrency } from '../../../utils/formatCurrency';
 
 import styles from './TokenSection.module.css';
@@ -36,13 +38,13 @@ const TokenSection = ({ data }) => {
                 onClick={() => router.push(`/info/tokens`)}
                 className={styles.goBackText}
               >
-                <GoBackSVG />
+                <SmlArrowSvg className={styles.goBackSvg} />
                 <p>Back To Tokens</p>
               </div>
             </div>
             <InfoRoutes />
             <div className={styles.starWrapper}>
-              <StarSVG
+              <StarSvg
                 className={styles.starSVG}
                 onClick={() => router.push(`/info/tokens/watchlist`)}
               />
@@ -60,7 +62,7 @@ const TokenSection = ({ data }) => {
               <div className={styles.titleTextRow}>
                 <div className={styles.titleText}>
                   <p>{data?.name}</p>
-                  <StarSVG
+                  <StarSvg
                     className={`${styles.starSVG} ${
                       favTokens?.includes(data.name)
                         ? styles.activeSVG
@@ -103,7 +105,7 @@ const TokenSection = ({ data }) => {
             <div className={styles.view}>
               <div className={styles.name}>
                 <p>View on BscScan</p>
-                <OpenSVG />
+                <OpenSvg />
               </div>
               <div className={styles.buttons}>
                 <Button

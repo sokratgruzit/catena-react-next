@@ -34,6 +34,7 @@ const Market = () => {
           <Image
             layout='fill'
             src='/images/nft/background/backgroundOfNftPage.png'
+            alt=''
           />
         </div>
         <div className={styles.Market__containers}>
@@ -94,28 +95,29 @@ const Market = () => {
           </div>
           <div className={styles.Market__asstronaut}>
             <div className={styles.Market__planet1}>
-              <Image layout='fill' src='/images/nft/planets/fig2.png' />
+              <Image layout='fill' src='/images/nft/planets/fig2.png' alt='' />
             </div>
             <div className={styles.Market__planet2}>
-              <Image layout='fill' src='/images/nft/planets/fig2.png' />
+              <Image layout='fill' src='/images/nft/planets/fig2.png' alt='' />
             </div>
             <div className={styles.Market__planet3}>
-              <Image layout='fill' src='/images/nft/planets/fig6.png' />
+              <Image layout='fill' src='/images/nft/planets/fig6.png' alt='' />
             </div>
             <div className={styles.Market__asstronautFigure}>
               <Image
                 layout='fill'
                 src='/images/nft/asstronaut/asstronaut.png'
+                alt=''
               />
             </div>
             <div className={styles.Market__planet4}>
-              <Image layout='fill' src='/images/nft/planets/fig5.png' />
+              <Image layout='fill' src='/images/nft/planets/fig5.png' alt='' />
             </div>
             <div className={styles.Market__planet5}>
-              <Image layout='fill' src='/images/nft/planets/fig4.png' />
+              <Image layout='fill' src='/images/nft/planets/fig4.png' alt='' />
             </div>
             <div className={styles.Market__rock1}>
-              <Image layout='fill' src='/images/nft/rocks/fig1.png' />
+              <Image layout='fill' src='/images/nft/rocks/fig1.png' alt='' />
             </div>
           </div>
         </div>

@@ -55,3 +55,13 @@
     background-color: #0500ff !important;
     color: rgba(255, 255, 255, 1) !important;
 }
+.transparent {
+    border: 1px solid #0500ff;
+    background-color: transparent;
+    color: #fff;
+}
+.transparent:hover{
+    border: 1px solid #0500ff !important;
+    background-color: #0500ff !important;
+    color: rgba(255, 255, 255, 1) !important;
+}

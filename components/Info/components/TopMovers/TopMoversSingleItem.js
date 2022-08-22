@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Image from 'next/image';
-import { PriceUp, PriceDown } from '../../../svg/InfoIcons';
+import { PriceUp, PriceDown } from '../../../svg';
 
 import styles from './TopMoversSingleItem.module.css';
 

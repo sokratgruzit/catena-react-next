@@ -1,0 +1,27 @@
+.Competition__filterWrap {
+  display: flex;
+  gap:50px;
+  margin-bottom: 0;
+  padding: 4px 0;
+}
+.Competition__filterActive {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.Competition__filter__item {
+  border-radius: 4px;
+  padding: 4px 12px;
+  cursor: pointer;
+  margin: 0 5px;
+}
+.Activity__filter {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+}
+.tab {
+  position: relative;
+  width: fit-content;
+  margin: auto;
+  z-index: 20;
+}
