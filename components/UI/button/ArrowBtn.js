@@ -26,6 +26,11 @@ const ArrowBtn = (props) => {
         title = 'See All Finished Competition'
     };
 
+    if (props.route === 'prediction')  {
+        route = '/win/prediction'
+        title = 'Back'
+    };
+
     if (props.route === 'activity') {
         route = `/nfts/activity`;
         title = `See Activities`;

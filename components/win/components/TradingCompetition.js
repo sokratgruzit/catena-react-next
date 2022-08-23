@@ -45,7 +45,7 @@ const TradingCompetition = () => {
         <>
             <div className={styles.competitionMargin}>
                 <div className={styles.imagetest}>
-                    <Image layout='fill' src={"/images/win/background/bggg.png"} alt="HomeScreen" objectFit={"contain"}/>
+                    <Image layout='fill' src={"/images/win/background/Bg.jpg"} alt="HomeScreen" objectFit={"contain"}/>
                 </div>
                 <div className={styles.borderTab}>
                 <div className={styles.tab}>
@@ -214,7 +214,7 @@ const TradingCompetition = () => {
                     </div>
                 </div>  
                 <div className={styles.spaceBoy}>
-                    <Image layout='fill' src={"/images/win/Astronaut.png"}  alt="time" objectFit={"contain"}/>
+                    <Image layout='fill' src={"/images/win/astronavt.png"}  alt="time" objectFit={"contain"}/>
                 </div>
                 </div>
                 <div className={styles.backgroundFinished}>
@@ -222,7 +222,7 @@ const TradingCompetition = () => {
                     <Image
                     layout='fill'
                     src={"/images/win/background/finishedBackground.png"}
-                    alt="ხზვცზ"
+                    alt="finishedBackground"
                     />
                 </div>
                 </div>

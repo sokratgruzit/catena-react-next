@@ -1,0 +1,98 @@
+.container {
+    width: 100%;
+    max-width: 1920px;
+    padding: 0px 40px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 5;
+    margin-top: 155px;
+}
+.title {
+    margin: 60px 0;
+    font-weight: 400;
+    font-size: 51px;
+    line-height: 71px;
+}
+.leaderboardBg {
+    position: absolute;
+    top: -50%;
+    left: 0%;
+    z-index: -10;
+    padding-top: 50% ;
+    width: 100%;
+}
+.TabBorder {
+    display: flex;
+}
+.border {
+    position: relative;
+}
+.content {
+    padding: 30px;
+    width: 433px;
+}
+.numbering {
+    display: flex;
+    justify-content: center;
+    align-items: top;
+    padding-bottom: 30px;
+}
+.spanNumber {
+    font-size: 30px;
+    color: #8E8E8E;
+}
+.leaderImageDesc {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-top: 1px solid #ffffff10;
+    border-bottom: 1px solid #ffffff10;
+}
+.leaderFlex {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 40%;
+}
+.leaderFlex p {
+    font-size: 18px;
+    margin-left: 15px;
+}
+.leaderDesc {
+    position: relative;
+    width: 100%;
+    padding-top: 60%;
+}
+.boxes {
+    display: flex;
+    justify-content: space-between;
+}
+.boxes h5 {
+    margin-top: 15px;
+    opacity: 0.7;
+    font-size: 13px;
+}
+.boxes p {
+    margin-top: 15px;
+    font-size: 13px;
+}
+.boxes2 {
+    padding: 15px 0;
+    margin: 15px 0;
+    align-items: center;
+    border-top: 1px dashed rgba(255, 255, 255, 0.05);
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.05);
+}
+.netWinnings h4 {
+    font-size: 13px;
+    line-height: 18px;
+    color: #66BB6A;
+}
+.netWinnings p {
+    font-size: 10px;
+    text-align: right;
+    opacity: 0.7;
+    margin: 0;
+    padding: 0;
+}
