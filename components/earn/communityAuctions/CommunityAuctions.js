@@ -12,7 +12,14 @@ import yellowStar from '../../../public/images/earn/yellowStar.png';
 import ufo from '../../../public/images/earn/ufo.png';
 
 import styles from './CommunityAuctions.module.css';
-import { OpenSvg, SearchIcon, SmlArrowSvg, VectorSvg } from '../../svg';
+import {
+  ArrowSvg,
+  OpenSvg,
+  QuestionMarkIcon,
+  SearchIcon,
+  SmlArrowSvg,
+  VectorSvg,
+} from '../../svg';
 
 const whitelistedData = [
   {
@@ -103,31 +110,9 @@ const CommunityAuctions = props => {
             onClick={() => router.push('/earn/farms')}
             className={styles.communityAuctions}
           >
-            <svg
-              className={styles.svgHoverBlue}
-              width='21'
-              height='13'
-              viewBox='0 0 21 13'
-              fill='none'
-              xmlns='http://www.w3.org/2000/svg'
-            >
-              <path
-                d='M6 11.5L1 6.5L6 1.5'
-                stroke='#FF7152'
-                strokeWidth='1.5'
-                strokeMiterlimit='10'
-                strokeLinecap='round'
-                strokeLinejoin='round'
-              />
-              <path
-                d='M19.2637 6.5L1.1396 6.5'
-                stroke='#FF7152'
-                strokeWidth='1.5'
-                strokeMiterlimit='10'
-                strokeLinecap='round'
-                strokeLinejoin='round'
-              />
-            </svg>
+            <div className={styles.arrowWrapper}>
+              <ArrowSvg className={styles.svgHoverBlue} />
+            </div>
             <p className={`${styles.blueHover}`}>Farms</p>
           </div>
           <div className={styles.auction__title}>
@@ -161,26 +146,7 @@ const CommunityAuctions = props => {
         </div>
       </div>
       <div className={styles.auction__notice}>
-        <svg
-          width='20'
-          height='20'
-          viewBox='0 0 20 20'
-          fill='none'
-          xmlns='http://www.w3.org/2000/svg'
-        >
-          <path
-            d='M9.11266 11.79H10.1927V11C10.8627 10.64 11.3227 9.94 11.3227 9.14C11.3227 7.97 10.3327 7.01 9.11266 7.01V8.04C9.74266 8.04 10.2127 8.53 10.2127 9.14C10.2127 9.75 9.74266 10.24 9.11266 10.24V11.79ZM9.62266 14.07C10.0627 14.07 10.4227 13.73 10.4227 13.27C10.4227 12.83 10.0627 12.47 9.62266 12.47C9.16266 12.47 8.82266 12.83 8.82266 13.27C8.82266 13.73 9.16266 14.07 9.62266 14.07Z'
-            fill='white'
-          />
-          <rect
-            x='0.5'
-            y='0.5'
-            width='19'
-            height='19'
-            rx='9.5'
-            stroke='white'
-          />
-        </svg>
+        <QuestionMarkIcon />
         <div className={styles.auction__noticeInner}>
           <h1>Notice</h1>
           <p>
@@ -244,26 +210,7 @@ const CommunityAuctions = props => {
           </div>
           <div className={styles.auction__panelQuestion}>
             <p>Why cant I bid for a farm?</p>
-            <svg
-              width='16'
-              height='16'
-              viewBox='0 0 16 16'
-              fill='none'
-              xmlns='http://www.w3.org/2000/svg'
-            >
-              <path
-                d='M7.11266 9.79H8.19266V9C8.86266 8.64 9.32266 7.94 9.32266 7.14C9.32266 5.97 8.33266 5.01 7.11266 5.01V6.04C7.74266 6.04 8.21266 6.53 8.21266 7.14C8.21266 7.75 7.74266 8.24 7.11266 8.24V9.79ZM7.62266 12.07C8.06266 12.07 8.42266 11.73 8.42266 11.27C8.42266 10.83 8.06266 10.47 7.62266 10.47C7.16266 10.47 6.82266 10.83 6.82266 11.27C6.82266 11.73 7.16266 12.07 7.62266 12.07Z'
-                fill='#B2B4B7'
-              />
-              <rect
-                x='0.5'
-                y='0.5'
-                width='15'
-                height='15'
-                rx='7.5'
-                stroke='#B2B4B7'
-              />
-            </svg>
+            <QuestionMarkIcon />
           </div>
           {expandDetails && (
             <div className={styles.auction__expendDetails}>

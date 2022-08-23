@@ -1,11 +1,11 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 
 import CornerDecor from '../../UI/cornerDecor/CornerDecor';
 import EarnRoutes from '../components/earnRoutes/EarnRoutes';
 import TableFilter from '../components/tableFilter/TableFilter';
-import FarmsTableRow from '../components/farmsTableRow.js/FarmsTableRow';
+import FarmsTableRow from '../components/farmsTableRow/FarmsTableRow';
 import FarmsTableComponent from '../components/farmsTableComponent/FarmsTableComponent';
 import background from '../../../public/images/earn/background.png';
 
@@ -468,7 +468,6 @@ const farmsData = [
 const FilterData = ['hot', 'apr', 'multiplier', 'earned', 'liquidity'];
 
 const Farms = () => {
-  const [expand, setExpand] = useState(false);
   const [filter, setFilter] = useState({
     open: false,
     selected: FilterData[0],

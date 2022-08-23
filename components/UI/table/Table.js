@@ -15,7 +15,6 @@ const Table = props => {
   }
   if (props.type == 'dashboard') {
     custom_th = listStyles.th_dashboard;
-    console.log(custom_th);
   }
   if (props.type == 'info_table_tokens') {
     custom_th = listStyles.th_info_tokens;
@@ -47,7 +46,11 @@ const Table = props => {
       <div className={styles.Table__content}>
         {props.tableData.map(item => {
           return (
-            <ListItemRow key={item.id + 'hash' + props.type} data={item} type={props.type} />
+            <ListItemRow
+              key={item.id + 'hash' + props.type}
+              data={item}
+              type={props.type}
+            />
           );
         })}
       </div>

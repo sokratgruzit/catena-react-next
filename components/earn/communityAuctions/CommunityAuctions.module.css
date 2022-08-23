@@ -82,21 +82,27 @@
   color: #0500ff;
 }
 
+
 .communityAuctions p,
 .svgHoverBlue path,
 .svgHoverBlue,
 .svgHoverOrange path,
 .hover svg,
 .hover a,
+.arrowWrapper,
 .orangeHover {
   transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
 }
 
-.communityAuctions:hover .svgHoverBlue {
+
+.svgHoverBlue{
+  transform: rotateZ(180deg);
+}
+.communityAuctions:hover .arrowWrapper {
   transform: translateX(-5px);
 }
 
-.communityAuctions:hover .svgHoverBlue path {
+.communityAuctions:hover .svgHoverBlue  {
   stroke: #0500ff;
 }
 

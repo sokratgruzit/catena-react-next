@@ -1,0 +1,27 @@
+.svg{
+  height: fit-content;
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.secondSvg{
+  position: absolute;
+  margin-top: -48px;
+  margin-left: 24px;
+}
+.section{
+  padding-left: 10px;
+}
+.titleWrapper{
+  margin-left: 10px;
+}
+
+.subTitle{
+  font-size: 12px;
+  line-height: 17px;
+  color: #627EEA;
+  opacity: 0.7;
+  white-space: wrap;
+  overflow-wrap: break-word;
+}

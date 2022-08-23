@@ -15,3 +15,8 @@ export { default as ExclamationSvg } from './ExclamationSvg';
 export { default as PlusSvg } from './PlusSvg';
 export { default as CoreLogoSvg } from './CoreLogoSvg';
 export { default as ThreeDotsSvg } from './ThreeDotsSvg';
+export { default as QuestionMarkIcon } from './QuestionMarkIcon';
+export { default as ArrowToLast } from './ArrowToLast';
+export { default as CoreTag } from './CoreTag';
+export { default as ETHCORE } from './ETHCORE';
+export { default as FinishedSvg } from './FinishedSvg';
