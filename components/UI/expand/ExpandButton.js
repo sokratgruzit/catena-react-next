@@ -12,18 +12,23 @@ const ExpandButton = ({
   onlyVector,
 }) => {
   return (
-    <div className={styles.buttonWrapper} onClick={toggleExpand}>
+    <div
+      className={`${styles.buttonWrapper} ${className}`}
+      onClick={toggleExpand}
+    >
       {!onlyVector && (
         <Button
           title={expandRow ? 'Hide' : 'Details'}
-          className={`${styles.expandButton} ${className}`}
+          className={`${styles.expandButton} ${
+            expandRow && styles.buttonActive
+          } `}
         />
       )}
 
       <VectorSvg
         className={`${styles.vectorSvg} ${
           expandRow && styles.rotate
-        } ${vectorClassName}`}
+        } ${vectorClassName} `}
       />
     </div>
   );

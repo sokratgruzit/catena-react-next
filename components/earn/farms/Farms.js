@@ -196,7 +196,7 @@ const Farms = () => {
       <div className={styles.background}>
         <Image src={background} alt='' />
       </div>
-      <div className={`container ${styles.farms__container}`}>
+      <main className={`container ${styles.farms__container}`}>
         <div className={styles.routesWrapper}>
           <EarnRoutes />
         </div>
@@ -239,7 +239,9 @@ const Farms = () => {
               <div className={styles.filterWrapper}>
                 <div
                   ref={selectRef}
-                  className={styles.filters}
+                  className={`${styles.filters} ${
+                    filter.open && styles.filterOpen
+                  }`}
                   onClick={() =>
                     setFilter(prevState => ({
                       ...prevState,
@@ -352,7 +354,7 @@ const Farms = () => {
               })}
           </div>
         )}
-      </div>
+      </main>
     </>
   );
 };

@@ -122,6 +122,16 @@
   margin: 0 30px;
 }
 
+.claimButton{
+  padding: 7px 0;
+  width: 235px;
+  font-size: 16px;
+  height: 32px;
+  margin-right: 25px;
+  line-height: 18px;
+  margin-top: auto;
+}
+
 .searchInput {
   background-color: #000000;
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -235,8 +245,15 @@
 .cakeBountySvg{
   fill:#0500ff;
 }
+
 /*Laptop 1440*/
 @media (max-width: 1900px) {
+}
+
+@media (max-width:1450px) {
+  .componentsViewSection{
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
 
 /*Ipad Pro 1024*/
@@ -244,9 +261,12 @@
 }
 
 @media (max-width: 1023px) {
-
   .Farms__filterLeftPanel{
     justify-content: space-between;
+  }
+
+  .componentsViewSection{
+    grid-template-columns: 1fr 1fr;
   }
   
 }
@@ -293,6 +313,10 @@
   
   .searchInput{
     width: 253px;
+  }
+
+  .componentsViewSection{
+    grid-template-columns: 1fr;
   }
   
 }

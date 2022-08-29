@@ -3,30 +3,29 @@ import { useRouter } from 'next/router';
 import Image from 'next/image';
 
 import Button from '../../UI/button/Button';
-import AuctionTable from '../components/auctionTable/AuctionTable';
-import FAQ from '../../faq/FAQ';
-import egg from '../../../public/images/earn/egg.png';
-import astro from '../../../public/images/earn/astro.png';
-import orbit from '../../../public/images/earn/orbit.png';
-import yellowStar from '../../../public/images/earn/yellowStar.png';
-import ufo from '../../../public/images/earn/ufo.png';
+import Expand from '../../UI/expand/Expand';
+import ExpandButton from '../../UI/expand/ExpandButton';
 
 import AuctionSchedule from '../components/auctionSchedule/AuctionSchedule';
 import AuctionScheduleExpand from '../components/auctionSchedule/AuctionScheduleExpand';
+import AuctionTable from '../components/auctionTable/AuctionTable';
+import CommunityAuctionsFAQ from '../../faq/communityAuctionsFAQ/CommunityAuctionsFAQ';
 
-import styles from './CommunityAuctions.module.css';
 import {
   ArrowSvg,
   OpenSvg,
   QuestionMarkIcon,
   SearchIcon,
   SmlArrowSvg,
-  VectorSvg,
 } from '../../svg';
-import Expand from '../../UI/expand/Expand';
-import ExpandButton from '../../UI/expand/ExpandButton';
-import FAQtest from '../../faq/FAQtest';
-import CommunityAuctionsFAQ from '../../faq/communityAuctionsFAQ/CommunityAuctionsFAQ';
+
+import egg from '../../../public/images/earn/egg.png';
+import astro from '../../../public/images/earn/astro.png';
+import orbit from '../../../public/images/earn/orbit.png';
+import yellowStar from '../../../public/images/earn/yellowStar.png';
+import ufo from '../../../public/images/earn/ufo.png';
+
+import styles from './CommunityAuctions.module.css';
 
 const whitelistedData = [
   {
@@ -138,15 +137,7 @@ const CommunityAuctions = props => {
             <Button
               title={'Apply For a Farm/Pool'}
               type={'blue'}
-              customStyles={{
-                width: '300px',
-                fontSize: '16px',
-                height: '32px',
-                marginRight: '25px',
-                lineHeight: '18px',
-                marginTop: '80px',
-                height: '56px',
-              }}
+              className={styles.applyButton}
             />
           </div>
         </div>
@@ -205,7 +196,7 @@ const CommunityAuctions = props => {
                 setShowWhiteListedWallets={setShowWhiteListedWallets}
               />
             }
-            expandButton={<ExpandButton />}
+            expandButton={<ExpandButton className={styles.center} />}
           >
             <AuctionSchedule />
           </Expand>
@@ -231,13 +222,6 @@ const CommunityAuctions = props => {
                 alt=''
               />
             </div>
-            {/* <picture>
-              <img
-                className={styles.logo__stars}
-                src='/images/earn/logoStars.png'
-                alt='logoStars'
-              ></img>
-            </picture> */}
           </div>
         </div>
       </div>

@@ -12,6 +12,10 @@
     align-items: center;
 }
 
+.expandButton{
+    transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+}
+
 .expandTableRow{
     height: fit-content;
     max-height: 500px;
@@ -24,7 +28,13 @@
 
 .rotate{
     transform: rotateZ(-180deg);
+    stroke: #ff7152;
 }
+
+.buttonActive{
+    color: #ff7152;
+}
+
 /*Laptop 1440*/
 @media (max-width: 1900px) {
 }

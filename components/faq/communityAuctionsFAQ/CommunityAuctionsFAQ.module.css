@@ -10,7 +10,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 50px;
+  height: 60px;
   cursor: pointer;
 }
 
@@ -25,6 +25,7 @@
   transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
   width: 12px;
   height: 6px;
+  margin-right: 10px;
 }
 .rotate{
   transform: rotateZ(-180deg);
@@ -36,6 +37,6 @@
 }
 
 .borderBottom{
-  padding-bottom: 10px;
+  padding-bottom: 4px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }

@@ -4,7 +4,6 @@ import { VectorSvg } from '../../../svg';
 import styles from '../CommunityAuctionsFAQ.module.css';
 
 const Question = ({ title, expandRow }) => {
-  console.log(expandRow);
   return (
     <div className={styles.questionWrapper}>
       <h2 className={`${styles.title} ${expandRow && styles.brighten}`}>

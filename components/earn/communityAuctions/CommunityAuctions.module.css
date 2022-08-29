@@ -98,6 +98,7 @@
 .svgHoverBlue{
   transform: rotateZ(180deg);
 }
+
 .communityAuctions:hover .arrowWrapper {
   transform: translateX(-5px);
 }
@@ -332,6 +333,15 @@
   margin-left: 10px;
 }
 
+.applyButton{
+  width: 300px;
+  font-size: 16px;
+  height: 32px;
+  margin-right: 25px;
+  line-height: 18px;
+  margin-top: 80px;
+  height: 56px;
+}
 
 /* Whitelist */
 .goBackSvg{
@@ -342,11 +352,12 @@
   display: flex;
   margin-top: 200px;
   position: relative;
-  height: 500px;
+  height: 550px;
 }
 
 .FAQTitleWrapper{
   width: fit-content;
+  max-width: 416px;
 }
 
 .FAQTitle{
@@ -378,6 +389,11 @@
   max-height: 1200px;
 }
 
+.center{
+  width:fit-content;
+  margin: auto;
+}
+
 /*Laptop 1440*/
 @media (max-width: 1900px) {
 }
@@ -387,6 +403,27 @@
 }
 
 /*Ipad 768*/
+@media (max-width:767px) {
+  .FAQSection{
+    flex-direction: column;
+  }
+  .FAQWrapper{
+    width: 100%;
+  }
+  .FAQTitle{
+    margin-bottom: 10px;
+  }
+  .FAQTitleWrapper{
+    max-width: 100%;
+  }
+  .auction__notice svg {
+    margin-right: 20px;
+  }
+  .auction__notice {
+    padding: 20px;
+  }
+  
+}
 @media (max-width: 1023px) {
   .astro {
     right: 0px;
@@ -520,16 +557,22 @@
     width: 100%;
   }
   
-  .auction__btn {
-    margin-top: 50px;
-    width: 100%;
-  }
-  
   .logo__stars {
     left: 50%;
     -webkit-transform: translateX(-50%);
     transform: translateX(-50%)
   }
   
+}
+
+@media (max-width: 450px) {
+  .auction__notice svg {
+    margin-right: 10px;
+  }
+
+  .auction__notice {
+    padding: 10px;
+  }
+
 }
 

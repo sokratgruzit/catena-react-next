@@ -348,15 +348,7 @@ const Pools = () => {
               <Button
                 title={'Claim'}
                 type={'blue__border'}
-                customStyles={{
-                  padding: '7px 0',
-                  width: '235px',
-                  fontSize: '16px',
-                  height: '32px',
-                  marginRight: '25px',
-                  lineHeight: '18px',
-                  marginTop: 'auto',
-                }}
+                className={styles.claimButton}
               />
               <p className='font_13'>Help</p>
               <InfoIcon />

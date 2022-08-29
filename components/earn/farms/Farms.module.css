@@ -154,8 +154,13 @@
   width: 120px;
   background-color: #000000;
   border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
   border-radius: 4px;
   padding: 1px;  
+}
+
+.filterOpen{
+  border:1px solid #0500ff;
 }
 
 .filters p{
@@ -287,6 +292,8 @@
   width: 12px;
   height: 12px;
 }
+
+
 
 /*Laptop 1440*/
 @media (max-width: 1900px) {
