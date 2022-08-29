@@ -1,31 +1,28 @@
 import React, { useState } from 'react';
 import {
   CoreTag,
-  ETHCORE,
   InfoIcon,
   MathSignSvg,
   OpenSvg,
   VectorSvg,
 } from '../../../svg';
 import CornerDecor from '../../../UI/cornerDecor/CornerDecor';
+import Expand from '../../../UI/expand/Expand';
 import Button from '../../../UI/button/Button';
 
 import styles from './FarmsTableComponent.module.css';
 
 const FarmsTableComponent = ({ item }) => {
-  const [expandItem, setExpandItem] = useState(false);
-
   return (
-    <div className={styles.itemWrapper}>
-      <CornerDecor />
+    <>
       <div className={styles.topSection}>
-        <ETHCORE />
+        {item.data[0].svg1}
         <div className={styles.titleWrapper}>
-          <h1>{item.title}</h1>
+          <h1>{item.data[0].title}</h1>
           <CoreTag className={styles.coreSvg} />
         </div>
         <div className={styles.multiplier}>
-          <p>{item.multiplier}</p>
+          <p>{item.data[4].text}</p>
           <InfoIcon className={styles.infoIcon} />
         </div>
       </div>
@@ -33,12 +30,12 @@ const FarmsTableComponent = ({ item }) => {
         <div className={styles.dataSectionRow}>
           <p>APR:</p>
           <p>
-            {item.apr} <MathSignSvg />
+            {item.data[2].title} <MathSignSvg />
           </p>
         </div>
         <div className={styles.dataSectionRow}>
           <p>Liquidity:</p>
-          <p>{item.liquidity}</p>
+          <p>{item.data[3].text}</p>
         </div>
         <div className={styles.dataSectionRow}>
           <p>Earn:</p>
@@ -64,35 +61,12 @@ const FarmsTableComponent = ({ item }) => {
               height: '42px',
               width: '100%',
               transition: '.5s',
+              marginBottom: '10px',
             }}
           />
         </div>
-        <p
-          className={styles.expand}
-          onClick={() => setExpandItem(prevState => !prevState)}
-        >
-          {expandItem ? 'Hide' : 'Details'}{' '}
-          <VectorSvg
-            className={`${styles.vector} ${expandItem && styles.vectorActive}`}
-          />
-        </p>
       </div>
-      <div
-        className={`${styles.expandSection} ${
-          expandItem && styles.expandedSection
-        }`}
-      >
-        <p>
-          Get CMCX-BNB LP <OpenSvg className={styles.openSvg} />
-        </p>
-        <p>
-          View Contract <OpenSvg className={styles.openSvg} />
-        </p>
-        <p>
-          See Pair Info <OpenSvg className={styles.openSvg} />
-        </p>
-      </div>
-    </div>
+    </>
   );
 };
 

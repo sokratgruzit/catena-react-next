@@ -6,9 +6,24 @@
     overflow: hidden;
     transition: .4s ease-in-out;
 }
+
+.buttonWrapper{
+    display: flex;
+    align-items: center;
+}
+
 .expandTableRow{
     height: fit-content;
     max-height: 500px;
+}
+
+.vectorSvg{
+    transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+    margin-left: 4px;
+}
+
+.rotate{
+    transform: rotateZ(-180deg);
 }
 /*Laptop 1440*/
 @media (max-width: 1900px) {

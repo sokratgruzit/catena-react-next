@@ -65,6 +65,9 @@ const ListItemRow = props => {
   if (type === 'earn_pools') {
     cs = styles.earn_poolsRow;
   }
+  if (type === 'earn_farms') {
+    cs = styles.earn_farmsRow;
+  }
   obj = (
     <div className={`${cs} ${styles.rowItem}`} onClick={props?.toggleExpand}>
       {data.data.map((item, index) => {

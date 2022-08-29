@@ -128,6 +128,7 @@
   padding: 5px 10px;
   width: 250px;
   margin-left: 30px;
+  border-radius: 4px;
   transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
 }
 
@@ -160,12 +161,32 @@
   width: 120px;
   background-color: #000000;
   border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
   border-radius: 4px;
   padding: 1px;
 }
 
+.filterOpen{
+  border:1px solid #0500ff;
+}
+
 .filters p{
   font-size: 13px;
+}
+
+.itemWrapper{
+  position: relative;
+  min-height: 494px;
+  width: 100%;
+  height: fit-content;
+  padding: 30px;
+}
+
+.componentsViewSection{
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 20px;
 }
 
 .FilterName{
@@ -188,7 +209,7 @@
 }
 
 .borderBottom{
-  border-bottom: 2px dashed rgba(255, 255, 255, 0.1);
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
 }
 
 .filterName{
@@ -214,7 +235,6 @@
 .cakeBountySvg{
   fill:#0500ff;
 }
-
 /*Laptop 1440*/
 @media (max-width: 1900px) {
 }
@@ -224,27 +244,28 @@
 }
 
 @media (max-width: 1023px) {
-  .farms__filterInner{
-    flex-direction: column;
-    justify-content: space-between;
-    width: 50%;
-    margin: auto;
-  }
-  
-  .Farms__filterRightPanel{
-    margin-top: 10px;
-    align-self: center;
-  }
-  
+
   .Farms__filterLeftPanel{
     justify-content: space-between;
   }
   
 }
 
-@media (max-width: 883px) {
+@media (max-width: 900px) {
   .farms__filterInner{
     width: 60%;
+  }
+
+  .farms__filterInner{
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  
+  .Farms__filterRightPanel{
+    margin-top: 10px;
+    margin-left: 110px;
+    margin-bottom: 10px;
   }
   
 }

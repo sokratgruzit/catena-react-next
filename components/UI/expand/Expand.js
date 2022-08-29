@@ -4,6 +4,7 @@ import styles from './Expand.module.css';
 
 const Expand = props => {
   const [expandRow, setExpandRow] = useState(false);
+  //always pass component as child
 
   const toggleExpand = () => setExpandRow(prevState => !prevState);
 
@@ -11,7 +12,16 @@ const Expand = props => {
     if (React.isValidElement(child)) {
       return React.cloneElement(child, {
         expandRow,
-        setExpandRow,
+        toggleExpand,
+      });
+    }
+    return child;
+  });
+
+  const buttonWithProps = React.Children.map(props.expandButton, child => {
+    if (React.isValidElement(child)) {
+      return React.cloneElement(child, {
+        expandRow,
         toggleExpand,
       });
     }
@@ -20,7 +30,9 @@ const Expand = props => {
 
   return (
     <div className={props.className}>
-      {childrenWithProps}
+      <div onClick={props.onChildClick && toggleExpand}>
+        {props.passingjSX ? props.children : childrenWithProps}
+      </div>
       <div
         className={`${styles.expandContent} ${
           expandRow && styles.expandTableRow
@@ -28,6 +40,7 @@ const Expand = props => {
       >
         {props.expandContent}
       </div>
+      {buttonWithProps}
     </div>
   );
 };

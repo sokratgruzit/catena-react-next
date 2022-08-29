@@ -20,3 +20,7 @@ export { default as ArrowToLast } from './ArrowToLast';
 export { default as CoreTag } from './CoreTag';
 export { default as ETHCORE } from './ETHCORE';
 export { default as FinishedSvg } from './FinishedSvg';
+export { default as ClockSvg } from './ClockSvg';
+
+export { default as CoreLogoBorder } from './dev/CoreLogoBorder';
+export { default as IfoCoreBorder } from './dev/IfoCoreBorder';

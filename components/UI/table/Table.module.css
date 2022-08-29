@@ -59,6 +59,8 @@
     overflow: hidden;
     white-space: nowrap;
     font-size: 13px;
+    display: flex;
+    align-items: center;
 }
 /*.th:last-child {*/
 /*    display: flex;*/

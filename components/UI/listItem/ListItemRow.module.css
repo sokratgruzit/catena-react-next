@@ -108,19 +108,12 @@
 .vectorSvg{
   transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
   margin-right: 25px;
+  cursor: pointer;
 }
 .vectorActive{
   transform: rotateZ(-180deg);
   stroke:#FF7152;
 }
-
-/*.rowItem .td:nth-child(6) {*/
-/*  width: 13%;*/
-/*  display: flex;*/
-/*  align-items: center;*/
-/*  overflow: none!important;*/
-/*  justify-content: end;*/
-/*}*/
 
 /*Dashboard Start*/
 .dashboardRowItem .td:first-child {
@@ -289,6 +282,32 @@
   line-height: 17px;
   color: #627EEA;
   opacity: 0.7;
+}
+
+
+
+/* earn_farms */
+.earn_farmsRow .td:first-child, .th_earn_farms:first-child{
+  width: 30%;
+  display: flex;
+  align-items: center;
+}
+.earn_farmsRow .td:nth-child(2), .th_earn_farms:nth-child(2){
+  width: 15%;
+  display: flex;
+  align-items: center;
+}
+.earn_farmsRow .td:nth-child(3), .th_earn_farms:nth-child(3){
+  width: 15%;
+  display: flex;
+  align-items: center;
+  padding-left: 0;
+}
+.earn_farmsRow .td:nth-child(4), .th_earn_farms:nth-child(4){
+  width: 18%;
+}
+.earn_farmsRow .td:nth-child(5), .th_earn_farms:nth-child(5){
+  width: 18%;
 }
 
 /*Laptop 1440*/
@@ -843,6 +862,7 @@
 
 /*Ipad 768*/
 @media (max-width: 1023px) {
+
 }
 /*Mobile 320*/
 @media (max-width: 767px) {
@@ -1017,6 +1037,21 @@
   .vectorSvg{
       margin-right: 5px;
   }
+  .earn_farmsRow .td:first-child, .th_earn_farms:first-child{
+    width: 45%;
+  }
+  .earn_farmsRow .td:nth-child(2), .th_earn_farms:nth-child(2){
+    width: 25%;
+  }
+  .earn_farmsRow .td:nth-child(3), .th_earn_farms:nth-child(3){
+    width: 25%;
+  }
+  .earn_farmsRow .td:nth-child(4), .th_earn_farms:nth-child(4){
+    display: none;
+  }
+  .earn_farmsRow .td:nth-child(5), .th_earn_farms:nth-child(5){
+    display: none;
+  }
 }
 
 @media(max-width:600px){
@@ -1035,5 +1070,16 @@
     overflow: hidden;
     white-space: nowrap;
     display:inline-block
+  }
+  .earn_farmsRow .td:first-child, .th_earn_farms:first-child{
+    width: 56%;
+    padding-left: 0;
+  }
+  .earn_farmsRow .td:nth-child(2), .th_earn_farms:nth-child(2){
+    display: none;
+  }
+  .earn_farmsRow .td:nth-child(3), .th_earn_farms:nth-child(3){
+    width: 38%;
+    padding-right: 0;
   }
 }

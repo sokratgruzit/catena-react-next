@@ -11,6 +11,9 @@ import orbit from '../../../public/images/earn/orbit.png';
 import yellowStar from '../../../public/images/earn/yellowStar.png';
 import ufo from '../../../public/images/earn/ufo.png';
 
+import AuctionSchedule from '../components/auctionSchedule/AuctionSchedule';
+import AuctionScheduleExpand from '../components/auctionSchedule/AuctionScheduleExpand';
+
 import styles from './CommunityAuctions.module.css';
 import {
   ArrowSvg,
@@ -20,6 +23,10 @@ import {
   SmlArrowSvg,
   VectorSvg,
 } from '../../svg';
+import Expand from '../../UI/expand/Expand';
+import ExpandButton from '../../UI/expand/ExpandButton';
+import FAQtest from '../../faq/FAQtest';
+import CommunityAuctionsFAQ from '../../faq/communityAuctionsFAQ/CommunityAuctionsFAQ';
 
 const whitelistedData = [
   {
@@ -74,13 +81,12 @@ const whitelistedData = [
 ];
 
 const CommunityAuctions = props => {
-  const [expandDetails, setExpandDetails] = useState(false);
   const [showWhiteListedWallets, setShowWhiteListedWallets] = useState(false);
 
   const router = useRouter();
 
   return (
-    <div className={`container ${styles.auction__container}`}>
+    <main className={`container ${styles.auction__container}`}>
       <div className={styles.galaxy}>
         <Image
           layout='fill'
@@ -146,7 +152,9 @@ const CommunityAuctions = props => {
         </div>
       </div>
       <div className={styles.auction__notice}>
-        <QuestionMarkIcon />
+        <div className={styles.questionMarkWrapper}>
+          <QuestionMarkIcon />
+        </div>
         <div className={styles.auction__noticeInner}>
           <h1>Notice</h1>
           <p>
@@ -191,58 +199,16 @@ const CommunityAuctions = props => {
           })}
         </div>
         <div className={styles.auction__leftPanel}>
-          <div>
-            <p className={` font_20 ${styles.auction__nextDate}`}>
-              Next Auction
-            </p>
-            <span className={styles.auction__borderBottom}></span>
-            <p className={styles.auction__schedule}>AUCTION SCHEDULE</p>
-          </div>
-          <div className={styles.auction__leftPanelInner}>
-            <div>
-              <p>start</p>
-              <p>To be announced</p>
-            </div>
-            <div>
-              <p>end</p>
-              <p>To be announced</p>
-            </div>
-          </div>
-          <div className={styles.auction__panelQuestion}>
-            <p>Why cant I bid for a farm?</p>
-            <QuestionMarkIcon />
-          </div>
-          {expandDetails && (
-            <div className={styles.auction__expendDetails}>
-              <span className={styles.auction__borderBottom}></span>
-              <div>
-                <p>Multiplier per farm</p>
-                <p>1x each</p>
-              </div>
-              <div>
-                <p>Total whitelisted bidders</p>
-                <p
-                  onClick={() =>
-                    setShowWhiteListedWallets(prevState => !prevState)
-                  }
-                >
-                  19
-                </p>
-              </div>
-            </div>
-          )}
-          <span className={styles.auction__borderBottom}></span>
-          <div
-            className={styles.auction__details}
-            onClick={() => setExpandDetails(prevState => !prevState)}
+          <Expand
+            expandContent={
+              <AuctionScheduleExpand
+                setShowWhiteListedWallets={setShowWhiteListedWallets}
+              />
+            }
+            expandButton={<ExpandButton />}
           >
-            {expandDetails ? <p>Hide</p> : <p>Details</p>}
-            <VectorSvg
-              className={`${styles.vectorSvg} ${
-                expandDetails && styles.activeVector
-              }`}
-            />
-          </div>
+            <AuctionSchedule />
+          </Expand>
         </div>
         <AuctionTable />
       </div>
@@ -256,18 +222,44 @@ const CommunityAuctions = props => {
             <p className='font_20'>~$2,227,764</p>
           </div>
           <div>
-            <picture>
+            <div className={styles.logo__stars}>
+              <Image
+                layout='fill'
+                objectFit='contain'
+                src={'/images/earn/logoStars.png'}
+                quality={100}
+                alt=''
+              />
+            </div>
+            {/* <picture>
               <img
                 className={styles.logo__stars}
                 src='/images/earn/logoStars.png'
                 alt='logoStars'
               ></img>
-            </picture>
+            </picture> */}
           </div>
         </div>
       </div>
-      <FAQ type={'auctionFAQ'} />
-    </div>
+      <aside className={styles.FAQSection}>
+        <div className={styles.clouds}>
+          <Image
+            layout='fill'
+            objectFit='contain'
+            src={'/images/earn/clouds.png'}
+            quality={100}
+            alt=''
+          />
+        </div>
+        <div className={styles.FAQTitleWrapper}>
+          <h2 className={styles.FAQTitle}>Frequently Asked Questions</h2>
+        </div>
+        <div className={styles.FAQWrapper}>
+          <h2 className={styles.FAQTitleRight}>How does it work?</h2>
+          <CommunityAuctionsFAQ />
+        </div>
+      </aside>
+    </main>
   );
 };
 
