@@ -134,6 +134,32 @@
   justify-content: space-between;
 }
 
+.coreStatsSection{
+  display: flex;
+}
+
+.coreStatsSection div{
+  display: flex;
+  margin-right: 100px;
+}
+
+.coreStatsSection div p{
+  font-size: 13px;
+  line-height: 22px;
+}
+
+.coreStatsSection div p:first-child{
+  color: #B2B4B7;
+  margin-right: 20px;
+}
+
+@media (max-width:1023px) {
+  .coreStatsSection{
+    flex-direction: column;
+  }
+}
+
+
 @media (max-width:596px) {
   .startSection{
     width: 100%;
@@ -159,6 +185,9 @@
   .lastSection{
     width: fit-content;
   }
+  .coreStatsSection div{
+    margin-right: 80px;
+  }
 }
 @media (max-width:400px) {
   .mobileExpand{
@@ -173,5 +202,8 @@
   .thirdSetion{
     width: 100%;
     margin-top: 30px;
+  }
+  .coreStatsSection div{
+    margin-right: 0px;
   }
 }

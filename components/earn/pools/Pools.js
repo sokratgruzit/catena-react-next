@@ -20,11 +20,14 @@ import {
   VectorSvg,
 } from '../../svg';
 
+import ExpandButton from '../../UI/expand/ExpandButton';
+
 import background from '../../../public/images/earn/background.png';
 import { useWindowDimension } from '../../../hooks/useWindowDimension';
 
 import styles from './Pools.module.css';
 import PoolsTableComponent from '../components/poolsTable/PoolsTableComponent';
+import PoolsTableComponentExpand from '../components/poolsTable/PoolsTableComponentExpand';
 
 const poolsData2 = [
   {
@@ -52,6 +55,7 @@ const poolsData2 = [
       {
         title: '45.05%',
         subTitle: 'APY',
+        lockedAPY: '67.39%',
         svg1: <OpenSvg />,
         type: 'multi_svg',
       },
@@ -63,6 +67,12 @@ const poolsData2 = [
       },
       {
         type: 'expand_custom',
+      },
+      {
+        totalLocked: '179,974,407 CORE',
+        averageLockDuration: '39 weeks',
+        performanceFee: '0~2%',
+        tag: 'auto',
       },
     ],
   },
@@ -90,7 +100,7 @@ const poolsData2 = [
       },
       {
         title: '45.05%',
-        subTitle: 'APY',
+        subTitle: 'APR',
         svg1: <OpenSvg />,
         type: 'multi_svg',
       },
@@ -102,6 +112,11 @@ const poolsData2 = [
       },
       {
         type: 'expand_custom',
+      },
+      {
+        totalStaked: '1000 cmcx',
+        maxPerUser: '100',
+        maxEndsIn: '0',
       },
     ],
   },
@@ -129,7 +144,7 @@ const poolsData2 = [
       },
       {
         title: '45.05%',
-        subTitle: 'APY',
+        subTitle: 'APR',
         svg1: <OpenSvg />,
         type: 'multi_svg',
       },
@@ -145,6 +160,11 @@ const poolsData2 = [
       },
       {
         type: 'expand_custom',
+      },
+      {
+        totalStaked: '1000 cmcx',
+        maxPerUser: '100',
+        maxEndsIn: '0',
       },
     ],
   },
@@ -172,7 +192,7 @@ const poolsData2 = [
       },
       {
         title: '45.05%',
-        subTitle: 'APY',
+        subTitle: 'APR',
         svg1: <OpenSvg />,
         type: 'multi_svg',
       },
@@ -198,6 +218,11 @@ const poolsData2 = [
       },
       {
         type: 'expand_custom',
+      },
+      {
+        totalStaked: '1000 cmcx',
+        maxPerUser: '100',
+        maxEndsIn: '0',
       },
     ],
   },
@@ -225,7 +250,7 @@ const poolsData2 = [
       },
       {
         title: '45.05%',
-        subTitle: 'APY',
+        subTitle: 'APR',
         svg1: <OpenSvg />,
         type: 'multi_svg',
       },
@@ -251,6 +276,11 @@ const poolsData2 = [
       },
       {
         type: 'expand_custom',
+      },
+      {
+        totalStaked: '1000 cmcx',
+        maxPerUser: '100',
+        maxEndsIn: '0',
       },
     ],
   },
@@ -278,7 +308,7 @@ const poolsData2 = [
       },
       {
         title: '45.05%',
-        subTitle: 'APY',
+        subTitle: 'APR',
         svg1: <OpenSvg />,
         type: 'multi_svg',
       },
@@ -304,6 +334,11 @@ const poolsData2 = [
       },
       {
         type: 'expand_custom',
+      },
+      {
+        totalStaked: '1000 cmcx',
+        maxPerUser: '100',
+        maxEndsIn: '0',
       },
     ],
   },
@@ -457,7 +492,9 @@ const Pools = () => {
             {poolsData2.map((item, index) => (
               <div className={`${styles.itemWrapper}`} key={index}>
                 <CornerDecor />
-                <Expand>
+                <Expand
+                  expandContent={<PoolsTableComponentExpand item={item} />}
+                >
                   <PoolsTableComponent item={item} />
                 </Expand>
               </div>

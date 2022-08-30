@@ -39,6 +39,22 @@ const PoolsTableRowExpand = ({ item }) => {
         </div>
       )}
       <div className={styles.expandWrapper}>
+        {item.data[6] && (
+          <div className={styles.coreStatsSection}>
+            <div>
+              <p>Total Locked</p>
+              <p>{item?.data[6]?.totalLocked}</p>
+            </div>
+            <div>
+              <p>Average lock duration</p>
+              <p>{item?.data[6]?.averageLockDuration}</p>
+            </div>
+            <div>
+              <p>Performance fee</p>
+              <p>{item?.data[6]?.performanceFee}</p>
+            </div>
+          </div>
+        )}
         <div className={styles.section}>
           <div className={styles.startSection}>
             <p>Start Farming</p>
