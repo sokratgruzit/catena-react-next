@@ -87,8 +87,8 @@ const poolsData2 = [
         type: 'multi_svg',
       },
       {
-        text: '0.1',
-        text2: '1 USD',
+        text: '0.0',
+        text2: '0 USD',
         text3: 'Recent CORE profit',
         type: 'multi_text',
       },
@@ -105,9 +105,13 @@ const poolsData2 = [
         type: 'multi_svg',
       },
       {
-        text: '$235.684.158',
-        core: true,
-        text2: 'Total staked',
+        text: (
+          <>
+            $1.263.697 Blocks
+            <ClockSvg />
+          </>
+        ),
+        text2: 'Ends in',
         type: 'multi_text',
       },
       {

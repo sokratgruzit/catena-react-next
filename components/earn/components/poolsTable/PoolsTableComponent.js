@@ -5,36 +5,19 @@ import {
   ManualTag,
   MathSignSvg,
   QuestionMarkIcon,
+  ReverseSvg,
   VectorSvg,
 } from '../../../svg';
 import Button from '../../../UI/button/Button';
-import TabFilter from '../../../UI/filters/TabFilter';
+import StakeCalculator from '../StakeCalculator/StakeCalculator';
 
 import styles from './PoolsTableComponent.module.css';
-
-const tabsData = [
-  {
-    id: 0,
-    label: 'Flexible',
-  },
-  {
-    id: 1,
-    label: 'Locked',
-  },
-];
 
 const PoolsTableComponent = ({ item, toggleExpand, expandRow }) => {
   const [itemType, setItemType] = useState(item?.data[6]?.tag);
   const [openCalculator, setOpenCalculator] = useState(false);
+  const [openCalculatorManual, setOpenCalculatorManual] = useState(false);
 
-  const [active, setActive] = useState('Latest');
-
-  const navigationHandler = activeItem => {
-    setActive(activeItem);
-  };
-
-  // const item = item.data;
-  console.log(openCalculator);
   return (
     <main className={styles.itemWrapper}>
       <section className={styles.headerSection}>
@@ -64,6 +47,7 @@ const PoolsTableComponent = ({ item, toggleExpand, expandRow }) => {
                 {item.data[3].title}
                 &#160;
                 <MathSignSvg
+                  className={styles.MathSignSvg}
                   onClick={() => setOpenCalculator(prevState => !prevState)}
                 />
               </div>
@@ -76,6 +60,7 @@ const PoolsTableComponent = ({ item, toggleExpand, expandRow }) => {
                 {item.data[3].lockedAPY}
                 &#160;
                 <MathSignSvg
+                  className={styles.MathSignSvg}
                   onClick={() => setOpenCalculator(prevState => !prevState)}
                 />
               </div>
@@ -90,32 +75,15 @@ const PoolsTableComponent = ({ item, toggleExpand, expandRow }) => {
             <div>
               {item.data[3].title}
               &#160;
-              <MathSignSvg />
+              <MathSignSvg
+                className={styles.MathSignSvg}
+                onClick={() => setOpenCalculatorManual(prevState => !prevState)}
+              />
             </div>
           </div>
         )}
-        {openCalculator && (
-          <section>
-            <TabFilter
-              onClick={navigationHandler}
-              data={tabsData}
-              activeMenu={active}
-              css={{
-                wrap: styles.Activity__filterWrap,
-                filter: styles.Activity__filter,
-                active: styles.Activity__filterActive,
-                item: styles.Activity__filter__item,
-              }}
-            />
-            <h3>CMCX Staked</h3>
-            <div className={styles.calculator}>
-              <div>
-                <p>0.00 USD</p>
-                <p>0.00 CMCX</p>
-              </div>
-            </div>
-          </section>
-        )}
+        {openCalculator && <StakeCalculator type='auto' />}
+        {openCalculatorManual && <StakeCalculator type='manual' />}
         <section className={styles.connectSection}>
           <h2>Start Earning</h2>
           <Button

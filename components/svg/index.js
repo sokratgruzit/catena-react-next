@@ -20,6 +20,7 @@ export { default as ArrowToLast } from './ArrowToLast';
 export { default as ETHCORE } from './ETHCORE';
 export { default as FinishedSvg } from './FinishedSvg';
 export { default as ClockSvg } from './ClockSvg';
+export { default as ReverseSvg } from './ReverseSvg';
 
 export { default as CoreTag } from './tags/CoreTag';
 export { default as AutoTag } from './tags/AutoTag';
