@@ -8,7 +8,7 @@ import TabFilter from '../UI/filters/TabFilter';
 import styles from './Activity.module.css';
 import filterStyles from '../UI/filters/TabFilter.module.css';
 
-let tabsData = [
+const tabsData = [
   {
     id: 0,
     label: 'All',
