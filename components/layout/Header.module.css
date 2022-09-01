@@ -641,6 +641,7 @@
 }
 .headerConnectedModalLink:hover span {
   color: rgba(255, 255, 255, 1);
+
 }
 .headerConnectedModalLink path{
   transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
