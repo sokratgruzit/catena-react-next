@@ -82,6 +82,7 @@ const Header = () => {
   const [balance, setBalance] = useState(0);
   const [stickHead, setStickHead] = useState(false);
   const { t } = useTranslation('header');
+  const [ routerLocale, setRouterLocale ] = useState(null);
 
   const NAV_DATA = [
     {
@@ -201,11 +202,8 @@ const Header = () => {
   const { locale, pathname, asPath, query } = useRouter();
   const changeLanguage = loc => {
     // i18n.changeLanguage(locale.toLowerCase());
-    router.push({ pathname, query }, asPath, { locale: loc.toLowerCase() });
-    // router.push('', '', {
-    //   locale: loc.toLowerCase(),
-    //   buyId: router.query.buyId,
-    // });
+    router.push("", "", {locale : loc.toLowerCase()});
+    setRouterLocale(loc)
   };
 
   let web3Obj = library;
@@ -297,6 +295,7 @@ const Header = () => {
     }
     if (window.innerWidth <= 767) {
     }
+    setRouterLocale(router.locale);
   }, []);
 
   useEffect(() => {
@@ -533,7 +532,7 @@ const Header = () => {
                             fill='white'
                         />
                       </svg>
-                      {t('top_menu.lang.default')}
+                      {routerLocale}
                     </div>
                   </div>
                   <div className={styles.headerMobileFooterSecond}>
@@ -690,7 +689,7 @@ const Header = () => {
                           />
                         </svg>
                         <div className={styles.headerLangNowTtl}>
-                          <span>EN</span>
+                          <span> {routerLocale}</span>
                         </div>
                       </div>
                     </div>
