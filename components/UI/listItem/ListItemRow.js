@@ -14,6 +14,8 @@ import TextSvg from './components/TextSvg/TextSvg';
 import MultiTextItem from './components/multiTextItem/MultiTextItem';
 
 import styles from './ListItemRow.module.css';
+import MultiTextSvg from './components/multiTextSvg/MultiTextSvg';
+import { VectorSvg } from '../../svg';
 
 const ListItemRow = props => {
   let data = props.data;
@@ -30,7 +32,6 @@ const ListItemRow = props => {
       setActiveList(hash);
     }
   };
-
   let cs = styles.nft_activity_table;
 
   if (type === 'dashboard') {
@@ -61,9 +62,15 @@ const ListItemRow = props => {
     cs = styles.buy__outer;
   }
 
+  if (type === 'earn_pools') {
+    cs = styles.earn_poolsRow;
+  }
+  if (type === 'earn_farms') {
+    cs = styles.earn_farmsRow;
+  }
   obj = (
-    <div className={`${cs} ${styles.rowItem}`}>
-      {data?.data?.map((item, index) => {
+    <div className={`${cs} ${styles.rowItem}`} onClick={props?.toggleExpand}>
+      {data.data.map((item, index) => {
         if (item.type === 'img_text') {
           return (
             <ImgTextItem
@@ -95,6 +102,19 @@ const ListItemRow = props => {
         if (item.type === 'price_change') {
           return (
             <PriceChange key={'price_change' + type + index} data={item} />
+          );
+        }
+        if (item.type === 'multi_svg') {
+          return <MultiTextSvg key={'multi_svg' + type + index} data={item} />;
+        }
+        if (item.type === 'expand_custom') {
+          return (
+            <VectorSvg
+              key={index}
+              className={`${styles.vectorSvg} ${
+                props.expandRow && styles.vectorActive
+              }`}
+            />
           );
         }
       })}

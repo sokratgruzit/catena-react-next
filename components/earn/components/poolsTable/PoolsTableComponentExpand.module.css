@@ -1,0 +1,95 @@
+.item{
+  margin-top: 15px;
+}
+
+.autoSection div{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.autoSection div p{
+  font-size: 12px;
+  line-height: 17px;
+}
+.autoSection div p:first-child{
+  color: #969BA6;
+  display: flex;
+  align-items: center;
+}
+
+.ExclamationSvg{
+  width: 12px;
+  height: 12px;
+  fill: #969BA6;
+  margin-left: 4px;
+}
+
+.openSection{
+  padding-top: 15px;
+  border-top: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+.openSection div{
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.openSection div:last-child{
+  margin-bottom: 0;
+}
+
+.openSection p {
+  font-size: 12px;
+  line-height: 17px;
+  letter-spacing: 0.02em;
+  color: #B2B4B7;
+  margin-right: 5px;
+}
+
+.manualSection div{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+.manualSection div:last-child{
+  margin-bottom: none;
+}
+.manualSection p{
+  font-size: 12px;
+  line-height: 17px;
+  letter-spacing: 0.02em;
+}
+
+.manualSection p:first-child{  
+  color: #969BA6;
+}
+
+.maxStake{
+  display: flex;
+  align-items: center;
+}
+
+.maxStake span{
+  font-size: 12px;
+  line-height: 17px;
+  letter-spacing: 0.02em;
+  color: #969BA6;
+}
+
+.maxUser span{
+  font-size: 12px;
+  line-height: 17px;
+  letter-spacing: 0.02em;
+  color: #969BA6;
+}
+
+.totalStaked span{
+  font-size: 12px;
+  line-height: 17px;
+  letter-spacing: 0.02em;
+  color: #969BA6;
+}

@@ -154,8 +154,13 @@
   width: 120px;
   background-color: #000000;
   border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
   border-radius: 4px;
   padding: 1px;  
+}
+
+.filterOpen{
+  border:1px solid #0500ff;
 }
 
 .filters p{
@@ -201,16 +206,23 @@
 }
 
 .infoIcon{
-  fill: #0500FF !important;
+  fill: #0500FF;
+  margin-left: 4px;
+}
+
+.itemWrapper{
+  position: relative;
+  min-height: 494px;
+  width: 100%;
+  height: fit-content;
+  padding: 30px;
 }
 
 .componentsViewSection{
   margin-top: 20px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(349px, max-content));
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 20px;
-  justify-content: center;
-  padding: initial;
 }
 
 .tableView rect{
@@ -249,8 +261,48 @@
   text-overflow: ellipsis;
 }
 
+.borderBottom{
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+.expandButton{
+  color:#0500FF
+}
+
+.expandVector{
+  stroke: #0500FF;
+}
+
+.expandSection p{
+  font-size: 12px;
+  line-height: 17px;
+  color: #B2B4B7;
+  opacity: 0.7;
+  margin-top: 7px;
+  margin-bottom: 3px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.openSvg{
+  fill: #B2B4B7;
+  opacity: 0.7;
+  margin-left: 4px;
+  width: 12px;
+  height: 12px;
+}
+
+
+
 /*Laptop 1440*/
 @media (max-width: 1900px) {
+}
+
+@media (max-width:1450px) {
+  .componentsViewSection{
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
 
 /*Ipad Pro 1024*/
@@ -259,16 +311,19 @@
 
 /*Ipad 768*/
 @media (max-width: 1023px) {
+  .componentsViewSection{
+    grid-template-columns: 1fr 1fr;
+  }
   .farms__filterInner{
-    flex-direction: column;
+    flex-direction: column-reverse;
     justify-content: space-between;
-    width: 50%;
-    margin: auto;
+    align-items: flex-start;
   }
   
   .Farms__filterRightPanel{
     margin-top: 10px;
-    align-self: center;
+    margin-left: 110px;
+    margin-bottom: 10px;
   }
   
   .Farms__filterLeftPanel{
@@ -293,6 +348,10 @@
 }
 
 @media (max-width: 710px) {
+  .componentsViewSection{
+    grid-template-columns: 1fr;
+  }
+
   .farms__filterInner{
     width: 100%;
   }
@@ -345,5 +404,9 @@
     display: block; 
   }
   
+  /* .itemWrapper{
+    max-width: 100%;
+    width: 100%;
+    margin-bottom: 20px;
+  } */
 }
-
