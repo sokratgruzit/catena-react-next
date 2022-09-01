@@ -21,6 +21,10 @@ export { default as ETHCORE } from './ETHCORE';
 export { default as FinishedSvg } from './FinishedSvg';
 export { default as ClockSvg } from './ClockSvg';
 export { default as ReverseSvg } from './ReverseSvg';
+export { default as CancelSvg } from './CancelSvg';
+export { default as LiveSvg } from './LiveSvg';
+export { default as NextSvg } from './NextSvg';
+export { default as LaterSvg } from './LaterSvg';
 
 export { default as CoreTag } from './tags/CoreTag';
 export { default as AutoTag } from './tags/AutoTag';

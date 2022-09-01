@@ -1,0 +1,121 @@
+.itemWrapper{
+  position: relative;
+  width: 388px;
+  height: 400px;
+}
+
+.sliderMainConteinerExpierd {
+  position: relative;
+  margin-top: 50px;
+  /* opacity: 0.5; */
+  width: 388px;
+  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+}
+.sliderMainConteinerExpierd:hover {
+  opacity: 1;
+}
+.titleExpierd {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 20px 0 20px;
+  border-bottom: 1px solid #1118269a;
+}
+.titleExpierd div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 10px;
+  width: 50%;
+  text-transform: capitalize;
+}
+.upPriceExpierd {
+  margin: 31px 0;
+}
+.upPriceExpierd div {
+  display: flex;
+  justify-content: center;
+}
+.upPriceExpierd div p {
+  font-size: 18px;
+  line-height: 25px;
+  text-align: center;
+  color: #66bb6a;
+}
+.upPriceExpierd p {
+  text-align: center;
+  font-size: 13px;
+}
+.lastPriceExpierd {
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #e94a4a;
+  border-radius: 4px;
+  width: 80%;
+}
+.mainPriceExpierd {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 0;
+  align-items: center;
+}
+.mainPriceExpierd h2 {
+  font-size: 20px;
+  line-height: 21px;
+  color: #e94a4a;
+}
+.priceUpExpierd {
+  display: flex;
+  padding: 4.5px 10px;
+  align-items: center;
+  border: 0 solid #66bb6a;
+  background: #e94a4a;
+  border-radius: 4px;
+}
+.border {
+  display: flex;
+  justify-content: space-between;
+}
+.widtBorder h2 {
+  margin: 25px 0;
+  font-size: 20px;
+  line-height: 21px;
+  color: #66bb6a;
+}
+.widtBorder h3 {
+  font-size: 15px;
+  line-height: 21px;
+  color: #ffffff;
+  opacity: 0.7;
+}
+.leftSide h3 {
+  font-size: 15px;
+  line-height: 21px;
+  text-align: right;
+  opacity: 0.7;
+}
+.priceDownContainer {
+  margin: 30px 0;
+  text-align: center;
+}
+.priceDownContainer p {
+  font-size: 13px;
+  opacity: 0.3;
+}
+.priceDownExpierd {
+  display: flex;
+  justify-content: center;
+}
+.priceDownExpierd svg {
+  opacity: 0.3;
+}
+.priceDownExpierd p {
+  font-size: 18px;
+  line-height: 25px;
+  text-align: center;
+  color: #e94a4a;
+  opacity: 0.3;
+}
+.wtf {
+  box-shadow: 10px 10px 80px 20px red;
+  margin-bottom: 30px;
+}

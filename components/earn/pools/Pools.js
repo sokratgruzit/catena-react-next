@@ -20,8 +20,6 @@ import {
   VectorSvg,
 } from '../../svg';
 
-import ExpandButton from '../../UI/expand/ExpandButton';
-
 import background from '../../../public/images/earn/background.png';
 import { useWindowDimension } from '../../../hooks/useWindowDimension';
 

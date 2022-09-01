@@ -580,3 +580,9 @@
     width: 100px;
   }
 }
+
+.swiperTest{
+  width: 100vw;
+  max-width: 1920px;
+  margin: auto;
+}
