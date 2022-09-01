@@ -1,0 +1,71 @@
+.mainContent {
+    position: relative;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin: 40px 40px 0 40px;
+    padding: 50px 0;
+}
+.sky {
+    position: absolute;
+    top: 0;
+    left: 65%;
+    z-index: -10;
+}
+.tickets {
+    position: absolute;
+    top: 5%;
+    left: 70%;
+}
+.descriptionTitle h3 {
+    font-size: 20px;
+    margin-bottom: 32px;
+}
+.descriptionTitle p {
+    font-size: 15px;
+    margin: 20px 0 15px 0;
+    opacity: 0.7;
+}
+.description div {
+    width: 60%;
+    display: flex;
+    align-items: baseline;
+    gap: 5px;
+}
+.spanOpacity {
+    opacity: 0.5;
+    margin-left: 5px;
+}
+.paragphB {
+    margin: 10px 0 30px 0;
+}
+.prizeBrackets {
+    margin: 50px 0;
+    width: 60%;
+    opacity: 0.7;
+}
+@media (max-width: 1023px) {
+    .sky {
+        position: absolute;
+        top: 5%;
+        left: 45%;
+        width: 440px;
+    }
+}
+@media (max-width: 767px) {
+    .sky {
+        position: absolute;
+        top: 5%;
+        left: 30%;
+        width: 200px;
+    }
+    .tickets {
+        top: 5%;
+        left: 60%;
+        width: 70px;
+    }
+    .description div {
+        width: 100%;
+    }
+    .prizeBrackets {
+        width: 100%;
+    }
+}

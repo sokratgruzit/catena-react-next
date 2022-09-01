@@ -469,11 +469,11 @@ function Stack() {
                   </div>
                 </div>
                 <div className='balance'>
-                  <div className='half'>
+                  <div className={`${styles.balanceLeft}`}>
                     <p>Bidding Balance</p>
                     <h3>{stackContractInfo.totalStakedToken} CMCX</h3>
                   </div>
-                  <div className='half'>
+                  <div className={`${styles.balanceRight}`}>
                     <p>Bidding Stakers</p>
                     <h3> {stackContractInfo.totalStakers}</h3>
                   </div>
@@ -540,7 +540,7 @@ function Stack() {
               </div>
             </div>
             <div className='half'>
-              <div className='stack-box'>
+              <div className={`${styles.half} stack-box`}>
                 <CornerDecor />
                 <div className='stack-header'>
                   <div className='float'>
@@ -569,7 +569,7 @@ function Stack() {
                   </form>
                 </div>
                 <div className='btn-section'>
-                  <div className='btn-section__btns'>
+                  <div className={`${styles.buttonSection}`}>
                     {BUTTONS_DATA.map(btn => {
                       return (
                         <Button
@@ -587,6 +587,8 @@ function Stack() {
                           customStyles={{
                             padding: '1% 0',
                             width: '20%',
+                            minWidth: '100px',
+                            marginTop: '3px',
                             border:
                               timeperiod === btn.time
                                 ? '1px solid #0500ff'

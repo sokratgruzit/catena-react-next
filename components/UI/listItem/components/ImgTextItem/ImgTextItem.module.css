@@ -1,0 +1,17 @@
+.imgTextItem {
+  display: flex;
+  align-items: center;
+}
+.imgTextItem p {
+  padding-left: 10px;
+}
+.imgTextItem img {
+  width: 25px;
+  height: 25px;
+}
+.imgTextItem p:last-child {
+  font-size: 12px;
+}
+.darkened{
+  opacity: 0.3;
+}

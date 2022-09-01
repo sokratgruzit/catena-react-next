@@ -1,0 +1,104 @@
+.background {
+    position: absolute;
+    left: 0;
+    top: -45%;
+    z-index: -10;
+}
+.marginTop {
+    margin-top: 400px;
+    position: relative;
+}
+.title h1 {
+    text-align: center;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 42px;
+}
+.border {
+    display: flex;
+    justify-content: center;
+    margin: 32px 0 20px 0;
+
+}
+.paddingDec {
+    padding: 20px;
+}
+.tab {
+    border: 1px solid #ffffff10;
+    border-radius: 4px;
+}
+.borderDecor {
+    display: flex;
+    justify-content: center;
+}
+.tabDecor {
+    position: relative;
+}
+.titleRules {
+    display: flex;
+    gap: 360px;
+    border-bottom: 1px solid #ffffff10;
+    padding-bottom: 20px;
+}
+.winNumber {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0 15px 0;
+}
+.ball {
+    display: flex;
+    justify-content: space-between;
+}
+.details {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    margin-top: 50px;
+}
+.details button {
+    color: blue;
+}
+.history {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 665px;
+    height: 276px;
+}
+.history p {
+    margin-bottom: 40px;
+    text-transform: capitalize;
+}
+.latest {
+    display: none;
+    color: red;
+}
+.latestActive {
+    display: block;
+    background-color: yellow;
+}
+@media (max-width: 1023px) {
+    .background {
+        position: absolute;
+        left: 0;
+        top: -15%;
+        z-index: -10;
+    }
+    .marginTop {
+        margin-top: 300px;
+        position: relative;
+    }
+    .tabDecor {
+        margin: 0 20px;
+    }
+}
+@media (max-width: 767px) {
+    .tabDecor {
+        margin: 0 20px;
+    }
+    .titleRules {
+        gap: 160px;
+    }
+}

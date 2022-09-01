@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useSelector } from 'react-redux';
-
 import { Swiper, SwiperSlide } from 'swiper/react';
 import ArrowBtn from '../../UI/button/ArrowBtn';
 import CornerDecor from '../../UI/cornerDecor/CornerDecor';

@@ -1,0 +1,65 @@
+.title {
+    text-align: center;
+    margin-top: 200px;
+}
+.title h1 {
+    color: #FF7152;
+    font-size: 30px;
+}
+.title p {
+    font-size: 14px;
+    opacity: 0.7;
+    margin: 20px 0;
+}
+.title h5 {
+    margin-bottom: 80px;
+}
+.pay {
+    display: flex;
+    align-items: center;
+    padding: 0 40px;
+}
+.pay div:nth-child(odd) {
+    width: 33%;
+    text-align: center;
+}
+.pay div:nth-child(even) {
+    padding: 0 70px;
+}
+.step {
+    font-size: 13px;
+    color: #0500FF;
+}
+.stepHtag {
+    font-size: 20px;
+    margin: 20px 0;
+}
+.paragraph {
+    font-size: 15px;
+    opacity: 0.7;
+}
+/* responsive */
+@media (max-width: 767px) {
+    .pay {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+    }
+    .pay div:nth-child(odd) {
+        width: 100%;
+        text-align: center;
+        margin: 20px;
+    }
+    .lines {
+        position: absolute;
+        top: 12%;
+        left: 50%;
+        transform: rotateZ(90deg);
+    }
+    .linesSecond {
+        position: absolute;
+        top: 47%;
+        left: 50%;
+        transform: rotateZ(90deg);
+    }
+}

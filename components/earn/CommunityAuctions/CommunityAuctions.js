@@ -7,7 +7,7 @@ import CornerDecor from '../../UI/cornerDecor/CornerDecor';
 import AuctionTable from '../components/AuctionTable/AuctionTable';
 import FAQ from '../../faq/FAQ';
 import egg from '../../../public/images/earn/egg.png';
-import astro from '../../../public/images/earn/astro.png';
+import astro from '../../../../public/images/earn/astro.png';
 import orbit from '../../../public/images/earn/orbit.png';
 import yellowStar from '../../../public/images/earn/yellowStar.png';
 import ufo from '../../../public/images/earn/ufo.png';

@@ -269,7 +269,40 @@
 }
 /*Ipad 768*/
 @media (max-width: 1023px) {
+  .farms__filterInner{
+    flex-direction: column;
+    justify-content: space-between;
+    width: 50%;
+    margin: auto;
+  }
+  .Farms__filterRightPanel{
+    margin-top: 10px;
+    align-self: center;
+  }
+  .Farms__filterLeftPanel{
+    justify-content: space-between;
+  }
+}
+@media (max-width: 883px) {
+  .farms__filterInner{
+    width: 60%;
+  }
 }
 /*Mobile 320*/
 @media (max-width: 767px) {
+  .farms__filterInner{
+    width: 70%;
+  }
+}
+
+@media (max-width: 710px) {
+  .farms__filterInner{
+    width: 100%;
+  }
+  .Farms__filterLeftPanel{
+    justify-content: flex-start;
+  }
+  .Farms__filterRightPanel{
+    align-self:flex-start;
+  }
 }

@@ -1,0 +1,139 @@
+.Container__background {
+  position: absolute;
+  top: 18%;
+  left: 0;
+  z-index: -10;
+}
+.tab {
+  display: flex;
+}
+.container {
+  position: relative;
+  margin: 160px auto;
+}
+.title {
+  font-size: 100px;
+  line-height: 66px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+.title span {
+    color: #FF7152;
+}
+.titleDesc {
+    text-align: center;
+    font-size: 70px;
+}
+.prizesContainer {
+  position: relative;
+  text-align: center;
+}
+.lotteryNumber {
+  position: absolute;
+  top: 0px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  width: 100%;
+}
+.lotteryNumber p {
+  margin-top: 35px;
+  font-size: 51px;
+}
+.imgPosition {
+    position: relative;
+    height: 80px;
+    width: 100%;
+}
+.pinkTicket {
+    position: absolute;
+    left: 15%;
+    top: 50%;
+}
+.smallStar {
+    position: absolute;
+    right: 20%;
+    top: 70%;
+}
+.star {
+    position: absolute;
+    right: 15%;
+    top: 20%;
+}
+.pictureContainer {
+    position: relative;
+    height: 80px;
+    margin-bottom: 150px;
+}
+.littleStar {
+    position: absolute;
+    top: 170%;
+    left: 25%;
+}
+.ticket {
+    position: absolute;
+    top: 170%;
+    left: 70%;
+}
+.buttonStyle {
+    /* margin-top: 150px; */
+    text-align: center;
+}
+.buyTicket {
+    background: radial-gradient(50% 50% at 50% 50%, #A09EFF 0%, #4A46FF 100%);
+    padding: 24px 60px;
+    border-radius: 4px;
+    font-size: 20px;
+    box-shadow: 0px 12px 50px rgba(90, 87, 255, 0.4);
+}
+.tickets {
+    position: absolute;
+    left: 16%;
+    top: 50%;
+}
+.starr {
+    position: absolute;
+    left: 80%;
+    top: 150%;
+}
+@media (max-width: 1300px) {
+  .pictureContainer {
+    height: 0px;
+  }
+}
+@media (max-width: 1023px) {
+  .Container__background {
+    position: absolute;
+    top: 30%;
+    left: 0;
+    z-index: -10;
+  }
+  .container {
+    position: relative;
+    margin: 160px auto 80px auto;
+  }
+  .title {
+    font-size: 64px;
+  }
+  .titleDesc {
+    font-size: 64px;
+  }
+}
+@media (max-width: 767px) {
+  .container {
+    position: relative;
+    margin: 160px auto 40px auto;
+  }
+  .title {
+    font-size: 40px;
+    margin-bottom: 20px;
+  }
+  .titleDesc {
+    font-size: 35px;
+  }
+  .pictureContainer {
+    position: relative;
+    height: 20px;
+    margin-bottom: 100px;
+  }
+}
