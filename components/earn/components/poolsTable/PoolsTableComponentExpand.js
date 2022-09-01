@@ -5,7 +5,8 @@ import styles from './PoolsTableComponentExpand.module.css';
 
 const PoolsTableComponentExpand = ({ item }) => {
   const [itemType, setItemType] = useState(item?.data[6]?.tag);
-  console.log(item.data);
+  const splitString = item?.data[4]?.title?.split(' ');
+
   return (
     <main className={styles.item}>
       {itemType === 'auto' ? (
@@ -47,6 +48,13 @@ const PoolsTableComponentExpand = ({ item }) => {
             </p>
           </div>
           <div>
+            <p>Total Staked</p>
+            <p>
+              {item?.data[6]?.totalStaked}{' '}
+              <span className={styles.cmcx}>CMCX</span>
+            </p>
+          </div>
+          <div>
             <p>Max. stake per user</p>
             <p className={styles.maxUser}>
               {item.data[6].maxPerUser} &#160;
@@ -61,8 +69,12 @@ const PoolsTableComponentExpand = ({ item }) => {
             </p>
           </div>
           <div>
-            <p>{item.data[4].text2} </p>
-            <p className={styles.totalStaked}>{item.data[4].text}&#160;</p>
+            <p>{item.data[4].subTitle} </p>
+            <p className={styles.endsIn}>
+              {splitString[0]}
+              &#160;
+              <span>{splitString[1]}</span>&#160; <ClockSvg />
+            </p>
           </div>
         </section>
       )}

@@ -93,3 +93,22 @@
   letter-spacing: 0.02em;
   color: #969BA6;
 }
+
+.cmcx{
+  font-size: 12px;
+  line-height: 17px;
+  letter-spacing: 0.02em;
+  color: #969BA6;
+}
+
+.endsIn{
+  display: flex;
+  align-items: center;
+}
+
+.endsIn span{
+  font-size: 12px;
+  line-height: 17px;
+  letter-spacing: 0.02em;
+  color: #969BA6;
+}

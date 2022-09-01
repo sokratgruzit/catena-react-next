@@ -114,7 +114,6 @@
   transform: rotateZ(-180deg);
   stroke:#FF7152;
 }
-
 /*Dashboard Start*/
 .dashboardRowItem .td:first-child {
   color: #0500ff;
@@ -225,6 +224,10 @@
   width: 35%;
   display: flex;
   align-items: center;
+  margin-left: 15px;
+}
+.earn_poolsRow .td:first-child p{
+ margin-left: 12px;
 }
 .earn_poolsRow .td:nth-child(2){
   width: 20%;
@@ -272,10 +275,17 @@
   padding-left: 1px;
 }
 .earn_poolsRow .td:nth-child(5){
+  position: relative;
   width: 15%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+}
+.earn_poolsRow .td:nth-child(5) svg{
+  position: absolute;
+  right: 0;
+  margin-right: 40px;
+  margin-top: 22px;
 }
 .earn_poolsRow .td:nth-child(5) p:nth-child(2){
    font-size: 12px;
