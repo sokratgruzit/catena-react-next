@@ -925,15 +925,7 @@ const Prediction = () => {
         </div>
       </div>
       <div className={styles.swiperTest}>
-        <Swiper
-          spaceBetween={30}
-          slidesPerView={'auto'}
-          className='mySwiper'
-          // freeMode={true}
-          // scrollbar={true}
-          // mousewheel={true}
-          // loop={true}
-        >
+        <Swiper spaceBetween={30} slidesPerView={'auto'} className='mySwiper'>
           {predictionData.map((item, index) => (
             <SwiperSlide key={index}>
               <SinglePredictionItem item={item} />

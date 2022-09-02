@@ -1,10 +1,12 @@
 import Link from 'next/link';
-import styles from './GetSuggestion.module.css';
+import { ProposalSvg } from '../../../svg';
 import Button from '../../../UI/button/Button';
+
+import styles from './GetSuggestion.module.css';
 
 const GetSuggestion = () => {
   return (
-    <div className={` container ${styles.getSuggestContainer}`}>
+    <div className={`container ${styles.getSuggestContainer}`}>
       <div className={styles.getSuggestInner}>
         <h1 className='font_20'>Get a Suggestion?</h1>
         <p className='font_13'>
@@ -19,15 +21,13 @@ const GetSuggestion = () => {
         <Link href={'/voting/proposal/create'}>
           <a>
             <Button
-              title={'Make a Proposal'}
+              title={
+                <>
+                  <ProposalSvg /> Make a Proposal
+                </>
+              }
               type={'blue'}
-              customStyles={{
-                padding: '0px 30px',
-                height: '40px',
-                fontSize: '16px',
-                lineHeight: '18px',
-                marginTop: '30px',
-              }}
+              className={styles.makeProposalButton}
             />
           </a>
         </Link>

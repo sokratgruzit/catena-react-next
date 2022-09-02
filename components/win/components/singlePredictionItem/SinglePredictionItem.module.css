@@ -35,11 +35,22 @@
   display: flex;
   justify-content: center;
 }
-.upPriceExpierd div p {
-  font-size: 18px;
-  line-height: 25px;
-  text-align: center;
-  color: #66bb6a;
+
+.priceUpSvg{
+  transform: rotateZ(90deg);
+  width: 10px;
+  height: 13px;
+  fill: #66bb6a;
+}
+.upPriceExpierd div  {
+  display: flex;
+  align-items: center;
+}
+.arrowSvg{
+  stroke: #ffffff;
+  transform: rotateZ(-90deg);
+  /* height: 15px !important; */
+  /* width: 15px; */
 }
 .upPriceExpierd p {
   text-align: center;
@@ -118,4 +129,43 @@
 .wtf {
   box-shadow: 10px 10px 80px 20px red;
   margin-bottom: 30px;
+}
+.lastPrice {
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #66bb6a;
+  border-radius: 4px;
+  width: 80%;
+}
+.lastPrice h4 {
+  font-size: 13px;
+  line-height: 18px;
+  opacity: 0.7;
+}
+.mainPrice {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 0;
+  align-items: center;
+}
+.mainPrice h2 {
+  font-size: 20px;
+  line-height: 21px;
+  color: #66bb6a;
+}
+.priceUP {
+  display: flex;
+  padding: 7px 10px;
+  align-items: center;
+  border: 0 solid #66bb6a;
+  background: #66bb6a;
+  border-radius: 4px;
+}
+
+.UpBackground {
+  font-size: 18px;
+  line-height: 25px;
+  text-align: center;
+  color: #66bb6a;
+  box-shadow: 10px 10px 80px 20px rgb(40, 155, 75);
 }
