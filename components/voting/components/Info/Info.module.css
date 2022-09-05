@@ -70,10 +70,13 @@
   width: 90%;
   white-space: nowrap;
 }
+.blueHover{
+  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+  color:#FF7152;
+}
 .ProposalInfo__backBtn:hover .blueHover {
   color: #0500ff;
 }
-.ProposalInfo__backBtn p,
 .svgHoverBlue path,
 .svgHoverBlue,
 .svgHoverOrange path,
@@ -82,13 +85,15 @@
 .orangeHover {
   transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
 }
-.ProposalInfo__backBtn:hover .svgHoverBlue {
-  transform: translateX(-5px);
+.arrowSvg{
+  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+  fill: #FF7152;
+  margin-right: 10px;
 }
-.ProposalInfo__backBtn:hover .svgHoverBlue path {
+.ProposalInfo__backBtn:hover .arrowSvg {
+  transform: translateX(-5px);
   fill: #0500ff;
 }
-
 .hover a:hover {
   color: #ff7152;
 }
@@ -118,12 +123,6 @@
   display: flex;
   align-items: center;
   cursor: pointer;
-}
-.ProposalInfo__backBtn svg {
-  margin-right: 10px;
-}
-.ProposalInfo__backBtn p {
-  color: #ffa800;
 }
 .ProposalInfo__details__border {
   border-top: 1px solid rgba(255, 255, 255, 0.1);

@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import Link, { useRouter } from 'next/router';
 import { useSelector } from 'react-redux';
 
+import { SmlArrowSvg } from '../../../svg/index';
+
 import styles from './Info.module.css';
 
 const votingData = [
@@ -103,35 +105,13 @@ const Info = () => {
     <div className='container'>
       <div className={styles.ProposalInfo}>
         <div className={`${styles.ProposalInfo__header} ${styles.width}`}>
-          {/* <Link href={'/voting'}> */}
           <div
             onClick={() => router.push('/voting')}
             className={styles.ProposalInfo__backBtn}
           >
-            <svg
-              className={styles.svgHoverBlue}
-              width='15'
-              height='11'
-              viewBox='0 0 15 11'
-              fill='none'
-              xmlns='http://www.w3.org/2000/svg'
-            >
-              <path
-                fillRule='evenodd'
-                clipRule='evenodd'
-                d='M0.788086 5.68359C0.788086 5.4534 0.879529 5.23264 1.0423 5.06987L5.17436 0.937808C5.51331 0.598857 6.06286 0.598857 6.40181 0.937808C6.74076 1.27676 6.74076 1.82631 6.40181 2.16526L2.88347 5.68359L6.40181 9.20193C6.74076 9.54088 6.74076 10.0904 6.40181 10.4294C6.06286 10.7683 5.51331 10.7683 5.17436 10.4294L1.0423 6.29732C0.879529 6.13455 0.788086 5.91378 0.788086 5.68359Z'
-                fill='#FF7152'
-              />
-              <path
-                fillRule='evenodd'
-                clipRule='evenodd'
-                d='M0.902344 5.68382C0.902344 5.20447 1.29093 4.81588 1.77028 4.81588L13.2271 4.81588C13.7064 4.81588 14.095 5.20447 14.095 5.68382C14.095 6.16317 13.7064 6.55176 13.2271 6.55176L1.77028 6.55176C1.29093 6.55176 0.902344 6.16317 0.902344 5.68382Z'
-                fill='#FF7152'
-              />
-            </svg>
+            <SmlArrowSvg className={styles.arrowSvg} />
             <p className={styles.blueHover}>Back</p>
           </div>
-          {/* </Link> */}
           <div className={styles.ProposalInfo__title}>
             <h1 className='font_30'>{votingItem.title}</h1>
           </div>
@@ -241,7 +221,6 @@ const Info = () => {
                   className={`${styles.ProposalInfo__details__item__inner} ${styles.hover}`}
                 >
                   <a href='##'>
-                    QmWVfYm3{' '}
                     <svg
                       className={styles.svgHoverOrange}
                       width='13'

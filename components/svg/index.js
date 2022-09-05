@@ -28,6 +28,7 @@ export { default as LaterSvg } from './LaterSvg';
 export { default as ProposalSvg } from './ProposalSvg';
 export { default as CoreCheck } from './CoreCheck';
 export { default as CommunitySign } from './CommunitySign';
+export { default as ProposalsText } from './ProposalsText';
 
 export { default as CoreTag } from './tags/CoreTag';
 export { default as AutoTag } from './tags/AutoTag';

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { ProposalSvg } from '../../../svg';
 import Button from '../../../UI/button/Button';
 
@@ -8,7 +9,7 @@ const GetSuggestion = () => {
   return (
     <div className={`container ${styles.getSuggestContainer}`}>
       <div className={styles.getSuggestInner}>
-        <h1 className='font_20'>Get a Suggestion?</h1>
+        <h1 className='font_20'>Got a Suggetion?</h1>
         <p className='font_13'>
           Community proposals are a great way to see how the community feels
           about your ideas.
@@ -31,20 +32,33 @@ const GetSuggestion = () => {
             />
           </a>
         </Link>
-        <picture>
-          <img
-            className={styles.chatCloud}
-            src='images/voting/chatCloud.png'
-            alt='cloud'
-          ></img>
-        </picture>
-        <picture>
-          <img
-            className={styles.stars}
-            src='/images/voting/stars.png'
-            alt='stars'
-          ></img>
-        </picture>
+        <div className={styles.chatCloud}>
+          <Image
+            layout='fill'
+            objectFit='contain'
+            src={'/images/voting/chatCloud.png'}
+            quality={100}
+            alt=''
+          />
+        </div>
+        <div className={styles.stars}>
+          <Image
+            layout='fill'
+            objectFit='contain'
+            src={'/images/voting/stars.png'}
+            quality={100}
+            alt=''
+          />
+        </div>
+      </div>
+      <div className={styles.footerBG}>
+        <Image
+          layout='fill'
+          objectFit='contain'
+          src={'/images/voting/footer-bg.png'}
+          quality={100}
+          alt=''
+        />
       </div>
     </div>
   );

@@ -13,7 +13,13 @@ const MainContainer = () => {
   return (
     <div className='container'>
       <div className={styles.mainContainerBg}>
-        <Image src={backgroundImg} quality={100} alt='' />
+        <Image
+          layout='fill'
+          objectFit='contain'
+          src={'/images/voting/main-bg.png'}
+          quality={100}
+          alt=''
+        />
       </div>
       <div className={styles.inner}>
         <div className={styles.leftContainer}>

@@ -1,7 +1,11 @@
 .mainContainerBg{
   position: absolute;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: -1;
+  width: 100vw;
+  height: calc(100vw * 0.7);
+
 }
 .marqueeContainer {
   display: flex;
@@ -37,14 +41,7 @@
   display: flex;
   min-height: 600px;
 }
-.mainContainerBg {
-  width: 100vw;
-  height: 100vh;
-  position: absolute;
-  left: 0;
-  top: 0;
-  z-index: -1;
-}
+
 .proposalSvg{
   margin-right: 10px;
 }
@@ -95,7 +92,8 @@
 /*Ipad Pro 1024*/
 @media (max-width: 1300px) {
   .mainContainerBg{
-    height: 500px;
+    height: 918px;
+    width: 1296px;
   }
   .astro{
     top:70px;
