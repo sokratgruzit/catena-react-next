@@ -275,15 +275,9 @@
   dependencies:
     "glob" "7.1.7"
 
-<<<<<<< HEAD
 "@next/swc-darwin-x64@12.2.0":
   "integrity" "sha512-iwMNFsrAPjfedjKDv9AXPAV16PWIomP3qw/FfPaxkDVRbUls7BNdofBLzkQmqxqWh93WrawLwaqyXpJuAaiwJA=="
   "resolved" "https://registry.npmjs.org/@next/swc-darwin-x64/-/swc-darwin-x64-12.2.0.tgz"
-=======
-"@next/swc-win32-x64-msvc@12.2.0":
-  "integrity" "sha512-OI14ozFLThEV3ey6jE47zrzSTV/6eIMsvbwozo+XfdWqOPwQ7X00YkRx4GVMKMC0rM44oGS2gmwMKYpe4EblnA=="
-  "resolved" "https://registry.npmjs.org/@next/swc-win32-x64-msvc/-/swc-win32-x64-msvc-12.2.0.tgz"
->>>>>>> 66887a2055c1833d4dd7dc68aba9d233dc850752
   "version" "12.2.0"
 
 "@nodelib/fs.scandir@2.1.5":
@@ -3770,6 +3764,11 @@
     "hoist-non-react-statics" "^3.3.2"
     "react-is" "^18.0.0"
     "use-sync-external-store" "^1.0.0"
+
+"react-spinner-animated@^3.1.1":
+  "integrity" "sha512-bv4YRVAKjAMahHmeQfLp9qD+Y4v/ZkV9L/kYzVeAOSvvjjVknqdTn9iNT0CBqsW4AU3oFZ/xTle/5C8qzOvvsg=="
+  "resolved" "https://registry.npmjs.org/react-spinner-animated/-/react-spinner-animated-3.1.1.tgz"
+  "version" "3.1.1"
 
 "react-toastify@^8.1.0":
   "integrity" "sha512-Pg2Ju7NngAamarFvLwqrFomJ57u/Ay6i6zfLurt/qPynWkAkOthu6vxfqYpJCyNhHRhR4hu7+bySSeWWJu6PAg=="
