@@ -151,7 +151,7 @@ const Marquee = props => {
   }
   if (props.label === 'voting') {
     svgArray = [
-      //   <ProposalsText key={'1'} />,
+      <ProposalsText key={'1'} />,
       <ProposalsText key={'2'} />,
       <ProposalsText key={'3'} />,
       <ProposalsText key={'4'} />,

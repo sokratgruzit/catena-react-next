@@ -165,7 +165,7 @@ const Form = () => {
 Form.modules = {
   toolbar: [
     ['bold', 'italic', 'underline'],
-    [{ list: 'ordered' }, { list: 'bullet' }],
+    [({ list: 'ordered' }, { list: 'bullet' })],
     [{ script: 'sub' }, { script: 'super' }],
     ['link'],
   ],

@@ -7,7 +7,12 @@ import TabFilter from '../../../UI/filters/TabFilter';
 
 import styles from './VotingNow.module.css';
 import VotingNowItem from './VotingNowItem';
-import { CommunitySign, CoreCheck, VectorSvg } from '../../../svg';
+import {
+  CommunitySign,
+  CoreCheck,
+  ProposalsText,
+  VectorSvg,
+} from '../../../svg';
 import Marquee from '../../../UI/marquee/Marquee';
 
 const votingData = [
@@ -161,7 +166,7 @@ const VotingNow = props => {
         direction={'rightToLeft'}
         lineElementsCount={9}
       /> */}
-      <Marquee label={'voting'} />
+      <Marquee label={'voting'} direction={'rightToLeft'} />
       <div className={` ${styles.votingNow__flex} container `}>
         <div className={styles.votingNow__inner}>
           <TabFilter

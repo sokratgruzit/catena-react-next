@@ -1,3 +1,7 @@
+.wrapper{
+  position: relative;
+}
+
 .input {
   background-color: transparent;
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -10,4 +14,12 @@
 
 .input:focus {
   border-color: rgba(5, 0, 255, 1);
+}
+
+.close{
+  position: absolute;
+  right: 10px;
+  top:50%;
+  transform: translateY(-50%);
+  cursor: pointer;
 }

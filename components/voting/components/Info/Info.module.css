@@ -2,12 +2,26 @@
   width: 100%;
   justify-content: center;
 }
-.proposalTop__vote {
+
+.proposalSection{
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 50px;
+  margin-bottom: 50px;
+  width: 60%;
+}
+.vote {
   width: 100%;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.04);
   border-radius: 4px;
   padding: 20px;
   margin-top: 10px;
+}
+.vote h3{
+  font-size: 16px;
+  line-height: 22px;
+
 }
 .seeMore {
   display: flex;
@@ -22,7 +36,7 @@
 .seeMore p:hover {
   color: #ffa800;
 }
-.proposalTop__input input {
+.inputWrapper input {
   width: 14px;
   color: #ffffff;
   height: 14px;
@@ -35,18 +49,19 @@
 .redWord {
   color: #e94a4a;
 }
-.proposalTop__input {
-  border: 1px solid #ffffff17;
-  border-radius: 4px;
-  padding: 15px;
-  margin-bottom: 10px;
-  display: flex;
-  align-items: center;
+
+.voteButton{
+  height: 42px;
 }
-.proposalTop__input span {
+.inputWrapper p{
+  font-size: 12px;
+  line-height: 17px;
+  color: #B2B4B7;
+}
+.inputWrapper span {
   font-size: 12px;
 }
-.ProposalInfo__list ul li::after {
+.list ul li::after {
   position: absolute;
   top: 8px;
   left: 0px;
@@ -56,15 +71,15 @@
   background: #0500ff;
   content: "";
 }
-.ProposalInfo__list ul li {
+.list ul li {
   position: relative;
   padding-left: 15px;
 }
-.ProposalInfo__list span {
+.list span {
   color: #ffffff;
   opacity: 0.7;
 }
-.ProposalInfo__hotLink {
+.hotLink {
   text-overflow: ellipsis;
   overflow: hidden;
   width: 90%;
@@ -74,7 +89,7 @@
   transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
   color:#FF7152;
 }
-.ProposalInfo__backBtn:hover .blueHover {
+.backBtn:hover .blueHover {
   color: #0500ff;
 }
 .svgHoverBlue path,
@@ -90,7 +105,7 @@
   fill: #FF7152;
   margin-right: 10px;
 }
-.ProposalInfo__backBtn:hover .arrowSvg {
+.backBtn:hover .arrowSvg {
   transform: translateX(-5px);
   fill: #0500ff;
 }
@@ -100,106 +115,101 @@
 .hover a:hover .svgHoverOrange path {
   fill: #ff7152;
 }
-.width {
-  margin-right: 95px;
-  width: 100%;
-}
-.ProposalInfo__header {
-  display: flex;
-  flex-direction: column;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  padding-bottom: 50px;
-  margin-bottom: 50px;
-}
-.ProposalInfo__header a:first-child {
-  margin-right: auto;
-}
 .ProposalInfo {
   display: flex;
   justify-content: space-between;
   margin-top: 150px;
+  width: 100%;
 }
-.ProposalInfo__backBtn {
+.backBtn {
   display: flex;
   align-items: center;
   cursor: pointer;
 }
-.ProposalInfo__details__border {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  width: 310px;
-  margin: 20px auto;
+.border {
+  width: 100%;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.1);
   display: block;
+  margin-top:18px;
+  margin-bottom: 18px;
 }
 .details__wrapper {
   display: flex;
   flex-direction: column;
 }
-.ProposalInfo__details {
-  width: 350px;
-  background-color: rgba(255, 255, 255, 0.1);
+.details {
+  width: 433px;
+  height: 308px;
+  background-color: rgba(255, 255, 255, 0.04);
   border-radius: 4px;
   padding: 20px;
 }
-.ProposalInfo__details__item a {
+.result{
+  width: 433px;
+  height: 241px;
+  background-color: rgba(255, 255, 255, 0.04);
+  border-radius: 4px;
+  padding: 20px;
+}
+.item a {
   color: #0500ff;
 }
-.ProposalInfo__details__item {
-  display: flex;
-  margin-bottom: 10px;
-}
-.ProposalInfo__details__item__inner svg {
-  margin-left: 7px;
-}
-.ProposalInfo__details__item__inner {
-  display: flex;
-  justify-content: flex-end;
-  width: 100%;
-  align-items: center;
-}
-.ProposalInfo__details__inner p {
-  color: #b2b4b7;
-}
-.fontColor {
-  color: #ffffff !important;
-}
-.green {
-  color: #66bb6a;
-}
-.ProposalInfo__detailsDate {
+.item {
+  margin-bottom: 8px;
   width: 100%;
   position: relative;
   display: flex;
   justify-content: space-between;
 }
-.ProposalInfo__detailsCont {
+
+.item p:first-child{
+  font-size: 15px;
+  line-height: 21px;
+}
+
+.itemInner svg {
+  margin-left: 7px;
+}
+.itemInner {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  align-items: center;
+}
+.details p {
+  color: #b2b4b7;
+}
+.details > p {
+  opacity: 1;
+}
+.fontColor {
+  color: #ffffff !important;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+.dateData{
+  color: #ffffff !important;
+  font-size: 13px;
+  line-height: 18px;
+}
+.green {
+  color: #66bb6a;
+}
+.detailsCont {
   display: flex;
   justify-content: space-between;
 }
-/* .details__voteNow {
-  padding: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 4px;
-  margin-top: 18px;
-} */
-.ProposalInfo__details__inner > p {
-  opacity: 1;
-}
-.ProposalInfo__details__item__inner > p {
+.itemInner > p {
   color: #ffffff;
 }
 .marginTop {
   margin-top: 10px;
 }
-.ProposalInfo__detailsWrap {
+.detailsWrapper {
   display: flex;
   flex-direction: column;
-}
-.proposal__current {
-  width: 350px;
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 4px;
-  padding: 20px;
-  margin: 20px 0;
 }
 .current__wrapper {
   display: flex;
@@ -216,46 +226,51 @@
   border: 1px solid #ff7152;
   border-radius: 15px;
   color: #ff7152;
+  font-size: 10px;
+  line-height: 14px;
 }
 .leftContainerMargin {
   margin-top: 10px;
 }
-.ProposalInfo__title {
-  margin-top: 20px;
+.title {
+  margin-bottom: 30px;
+  margin-top: 30px;
+  font-size: 30px;
+  line-height: 42px;
 }
-.ProposalInfo__blockquote p:nth-child(2) {
+.blockquote p:nth-child(2) {
   opacity: 0.7;
   margin-top: 10px;
 }
-.ProposalInfo__syrupPool p:nth-child(1) {
+.syrupPool p:nth-child(1) {
   margin-top: 10px;
 }
-.ProposalInfo__syrupPool {
+.syrupPool {
   margin-top: 30px;
 }
-.ProposalInfo__syrupPool__item {
+.syrupPool__item {
   opacity: 0.7;
 }
-.ProposalInfo__warning {
+.warning {
   display: flex;
   flex-direction: column;
 }
-.ProposalInfo__warning p:nth-child(3) {
+.warning p:nth-child(3) {
   opacity: 0.7;
 }
-.ProposalInfo__syrupPool a {
+.syrupPool a {
   color: #ff7152;
   opacity: 0.7;
   border-bottom: 2px solid rgba(255, 113, 82, 0);
   transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
 }
-.ProposalInfo__syrupPool a:hover {
+.syrupPool a:hover {
   border-bottom: 2px solid rgba(255, 113, 82, 1);
 }
-.ProposalInfo__warning svg {
+.warning svg {
   margin-right: 10px;
 }
-.ProposalInfo__warning__inner {
+.warning__inner {
   margin: 0 15px 0 0;
   color: #ffa800;
 }
@@ -314,28 +329,9 @@
   top: 107px;
   left: 0;
 }
-.ProposalInfo__votes {
+.votes {
   display: flex;
   flex-direction: column;
-}
-.ProposalInfo__votesInner {
-  display: flex;
-}
-.ProposalInfo__voteLengthContainer {
-  display: flex;
-  position: relative;
-  margin: 10px 0 5px 0;
-}
-.placeHolder {
-  width: 100%;
-  border: 3px solid rgba(255, 255, 255, 0.06);
-  border-radius: 3px;
-}
-.voteLength {
-  width: 90%;
-  border: 3px solid#FF7152;
-  border-radius: 3px;
-  position: absolute;
 }
 .voteLength1 {
   width: 5%;
@@ -343,17 +339,8 @@
   border-radius: 3px;
   position: absolute;
 }
-.voteNumbers {
-  display: flex;
-  justify-content: space-between;
-}
 .red {
   color: #e94a4a;
-}
-.result {
-  opacity: 0;
-  display: none;
-  visibility: hidden;
 }
 .resultActive {
   opacity: 1;
@@ -361,6 +348,13 @@
   -webkit-animation: fadeIn 1s;
   animation: fadeIn 1s;
 }
+
+.tagWrapper{
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
 @-webkit-keyframes fadeIn {
   from {
     opacity: 0;
@@ -382,32 +376,23 @@
 }
 /*Ipad Pro 1024*/
 @media (max-width: 1300px) {
-  /* .width {
-    margin-right: 50px;
-  } */
 }
 /*Ipad 768*/
 @media (max-width: 1023px) {
   .ProposalInfo {
     display: block;
   }
-  .ProposalInfo__details__border,
-  .ProposalInfo__details,
+  .border,
+  .details,
   .proposal__current {
     width: 100%;
   }
 
-  .ProposalInfo__title {
+  .title {
     width: 60%;
   }
-  /* .width {
-    width: 60%;
-  } */
-  .ProposalInfo__blockquote {
+  .blockquote {
     width: 80%;
-  }
-  .width {
-    margin-right: 0px;
   }
   /* .Info {
     justify-content: initial;
@@ -419,19 +404,16 @@
     flex-direction: column;
     width: 100%;
   }
-  .ProposalInfo__title {
+  .title {
     width: 100%;
   }
-  .ProposalInfo__blockquote {
+  .blockquote {
     width: 80%;
-  }
-  .width {
-    width: 100%;
   }
   /* .proposal__column p {
     width: 50%;
   } */
-  .ProposalInfo__syrupPool a {
+  .syrupPool a {
     font-size: 13px;
   }
 }

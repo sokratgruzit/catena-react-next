@@ -77,15 +77,6 @@ button {
   font-size: 100px;
   line-height: 110px;
 }
-.container {
-  width: 100%;
-  max-width: 1920px;
-  padding: 0px 40px;
-  margin: 0 auto;
-  display: flex;
-  position: relative;
-  z-index: 5;
-}
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {

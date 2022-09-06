@@ -3,9 +3,6 @@ import Image from 'next/image';
 
 import Button from '../../../UI/button/Button';
 
-import rocketMan from '../../../../public/images/voting/astro.png';
-import backgroundImg from '../../../../public/images/voting/main-bg.png';
-
 import styles from './MainContainer.module.css';
 import { ProposalSvg } from '../../../svg';
 
@@ -23,8 +20,8 @@ const MainContainer = () => {
       </div>
       <div className={styles.inner}>
         <div className={styles.leftContainer}>
-          <h1 className='font_51'>Voting</h1>
-          <p className='font_20'>
+          <h1>Voting</h1>
+          <p>
             Have your say in the future of the <a href='##'>Core</a> Ecosystem
           </p>
           <Link href={'/voting/proposal/create'}>

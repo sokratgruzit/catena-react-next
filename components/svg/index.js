@@ -33,6 +33,11 @@ export { default as ProposalsText } from './ProposalsText';
 export { default as CoreTag } from './tags/CoreTag';
 export { default as AutoTag } from './tags/AutoTag';
 export { default as ManualTag } from './tags/ManualTag';
+export { default as VoteNowTag } from './tags/VoteNowTag';
+export { default as CommunityTag } from './tags/CommunityTag';
+export { default as SoonTag } from './tags/SoonTag';
+export { default as CloseTag } from './tags/CloseTag';
+export { default as CoreTagLight } from './tags/CoreTagLight';
 
 export { default as CoreLogoBorder } from './temp/CoreLogoBorder';
 export { default as IfoCoreBorder } from './temp/IfoCoreBorder';

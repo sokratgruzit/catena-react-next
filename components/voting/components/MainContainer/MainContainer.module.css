@@ -2,10 +2,9 @@
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  z-index: -1;
+  z-index: -10;
   width: 100vw;
   height: calc(100vw * 0.7);
-
 }
 .marqueeContainer {
   display: flex;
@@ -17,7 +16,10 @@
 }
 .leftContainer p {
   color: #b2b4b7;
+  margin-top: 15px;
   margin-bottom: 96px;
+  font-size: 20px;
+  line-height: 24px;
 }
 .leftContainer a:nth-child(1) {
   color: #ff7152;
@@ -25,6 +27,8 @@
 }
 .leftContainer h1 {
   text-align: left;
+  font-size: 51px;
+  line-height: 66px;
 }
 
 .flex {
@@ -131,6 +135,10 @@
 }
 /*Mobile 320*/
 @media (max-width: 767px) {
+  .leftContainer h1 {
+    font-size: 34px;
+    line-height: 66px;
+  }
   .inner {
     flex-direction: column-reverse;
   }
