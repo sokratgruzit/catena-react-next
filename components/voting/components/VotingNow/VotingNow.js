@@ -8,12 +8,17 @@ import TabFilter from '../../../UI/filters/TabFilter';
 import styles from './VotingNow.module.css';
 import VotingNowItem from './VotingNowItem';
 import {
+  ArrowSvg,
   CommunitySign,
+  CommunityTag,
   CoreCheck,
   ProposalsText,
+  SmlArrowSvg,
   VectorSvg,
+  VoteNowTag,
 } from '../../../svg';
 import Marquee from '../../../UI/marquee/Marquee';
+import ListItemRow from '../../../UI/listItem/ListItemRow';
 
 const votingData = [
   {
@@ -89,6 +94,28 @@ const votingData = [
     announcement: 'Dear cock holders, we’re proud of u',
   },
 ];
+
+const votingData2 = votingData.map((item, index) => {
+  return {
+    id: index,
+    data: [
+      {
+        title: item.title,
+        subTitle: item.date,
+        svg1: <CommunityTag />,
+        svg2: <VoteNowTag />,
+        type: 'multi_svg',
+      },
+      {
+        title: 'Read More',
+        svg1: <SmlArrowSvg />,
+        type: 'multi_svg',
+      },
+    ],
+  };
+});
+
+console.log(votingData2);
 
 const dataDisplayOptions = [
   {
@@ -196,23 +223,18 @@ const VotingNow = props => {
               item: styles.frame__filter__item,
             }}
           />
-          <div
-            style={{
-              height: 'auto',
-              cursor: 'pointer',
-            }}
-          >
-            {filterData.map(item => {
-              return (
-                <div
-                  onClick={() => router.push(`/voting/${item.id}`)}
-                  key={item.id + 'voting'}
-                >
-                  <VotingNowItem data={item} />
-                </div>
-              );
-            })}
-          </div>
+          {votingData2.map(item => {
+            return (
+              <div
+                onClick={() => router.push(`/voting/${item.id}`)}
+                key={item.id + 'voting'}
+                className={styles.rowWrapper}
+              >
+                {/* <VotingNowItem data={item} /> */}
+                <ListItemRow data={item} type={'voting'} />
+              </div>
+            );
+          })}
           <div className={styles.seeMore}>
             <div onClick={showMoreProposalHandler}>
               <p>See More </p>

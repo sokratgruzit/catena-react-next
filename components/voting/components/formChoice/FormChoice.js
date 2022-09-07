@@ -2,7 +2,22 @@ import { useState } from 'react';
 
 import styles from './FormChoice.module.css';
 
-const FormChoice = ({ choice, handleChoiceInput, index, handleCloseInput }) => {
+const FormChoice = ({ choice, index, setFormData }) => {
+  const handleChoiceInput = (e, index) => {
+    setFormData(prevState => ({
+      ...prevState,
+      choices: prevState.choices.map((item, id) =>
+        id === index ? e.target.value : item,
+      ),
+    }));
+  };
+
+  const handleCloseInput = index => {
+    setFormData(prevState => ({
+      ...prevState,
+      choices: prevState.choices.filter((e, id) => id !== index),
+    }));
+  };
   return (
     <div className={styles.wrapper}>
       <input

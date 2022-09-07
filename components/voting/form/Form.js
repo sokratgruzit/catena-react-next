@@ -11,10 +11,12 @@ import 'react-quill/dist/quill.snow.css';
 
 import styles from './Form.module.css';
 import FormChoice from '../components/formChoice/FormChoice';
+import FormSelectDate from '../components/formDateInput/FormSelectDate';
+import FormSelectTime from '../components/formDateInput/FormSelectTime';
 
 const Form = () => {
   const [formData, setFormData] = useState({
-    name: '',
+    title: '',
     body: '',
     choices: ['', ''],
     startDate: null,
@@ -24,14 +26,10 @@ const Form = () => {
     snapshot: 0,
   });
 
-  const handleChoiceInput = (e, index) => {
-    setFormData(prevState => ({
-      ...prevState,
-      choices: prevState.choices.map((item, id) =>
-        id === index ? e.target.value : item,
-      ),
-    }));
-  };
+  const [editedField, setEditedField] = useState();
+  const [errorField, seterrorField] = useState({});
+
+  console.log(errorField);
 
   const handleAddChoice = () => {
     setFormData(prevState => ({
@@ -39,11 +37,31 @@ const Form = () => {
       choices: [...prevState.choices, ''],
     }));
   };
+  const checkForErrors = formData => {
+    if (!formData.title) {
+      errorField.title = 'required';
+    }
+  };
 
-  const handleCloseInput = index => {
+  const handleOnFormSubmit = e => {
+    e.preventDefault();
+
+    checkForErrors(formData);
+    // try {
+    //  send formData
+    // } catch (error) {
+    // }
+  };
+
+  const handleUpdateValue = (objKey, value) => {
     setFormData(prevState => ({
       ...prevState,
-      choices: prevState.choices.filter((e, id) => id !== index),
+      [objKey]: value,
+    }));
+
+    setEditedField(prevState => ({
+      ...prevState,
+      [objKey]: true,
     }));
   };
 
@@ -81,21 +99,25 @@ const Form = () => {
           </div>
         </div>
         <div className={styles.inner}>
-          <form>
+          <form onSubmit={handleOnFormSubmit}>
             <div className={styles.title}>
               <label>
                 <p className='font_12'>Title</p>
-                <input className={styles.input} type='text' name='title' />
+                <input
+                  onChange={e => handleUpdateValue('title', e.target.value)}
+                  className={styles.input}
+                  type='text'
+                  name='title'
+                />
               </label>
+              {formData && <p>{errorField.title}</p>}
             </div>
             <div className={styles.content}>
               <p className='font_12'>Content</p>
               <p className='font_10'>Tip: write in Markdown!</p>
               <ReactQuill
                 modules={Form.modules}
-                onChange={e =>
-                  setFormData(prevState => ({ ...prevState, body: e }))
-                }
+                onChange={e => handleUpdateValue('body', e)}
               />
               <span className={styles.bottomBorder}></span>
             </div>
@@ -107,8 +129,7 @@ const Form = () => {
                     key={index}
                     index={index}
                     choice={choice}
-                    handleChoiceInput={handleChoiceInput}
-                    handleCloseInput={handleCloseInput}
+                    setFormData={setFormData}
                   />
                 );
               })}
@@ -123,23 +144,39 @@ const Form = () => {
             <div className={styles.actions}>
               <p>ACTIONS</p>
               <div className={styles.actionsWrap}>
-                <div className={styles.date}>
-                  <p className='font_12'>Start Date</p>
-                  <input type='date'></input>
+                <div>
+                  <p>Start Date</p>
+                  <FormSelectDate
+                    placeholderText='YYYY/MM/DD'
+                    onChange={date => handleUpdateValue('startDate', date)}
+                    selected={formData.startDate}
+                  />
                 </div>
-                <div className={styles.time}>
-                  <p className='font_12'>Start Time</p>
-                  <input type='time' className={styles.timePicker}></input>
+                <div>
+                  <p>Start Time</p>
+                  <FormSelectTime
+                    placeholderText='00:00'
+                    onChange={date => handleUpdateValue('startTime', date)}
+                    selected={formData.startTime}
+                  />
                 </div>
               </div>
               <div className={`${styles.actionsWrap} ${styles.marginTop}`}>
-                <div className={styles.date}>
-                  <p className='font_12'>Start Date</p>
-                  <input type='date'></input>
+                <div>
+                  <p>End Date</p>
+                  <FormSelectDate
+                    placeholderText='YYYY/MM/DD'
+                    onChange={date => handleUpdateValue('endDate', date)}
+                    selected={formData.endDate}
+                  />
                 </div>
-                <div className={styles.time}>
-                  <p className='font_12'>Start Time</p>
-                  <input type='time'></input>
+                <div>
+                  <p>End Time</p>
+                  <FormSelectTime
+                    placeholderText='00:00'
+                    onChange={date => handleUpdateValue('endTime', date)}
+                    selected={formData.endTime}
+                  />
                 </div>
               </div>
             </div>
@@ -155,6 +192,7 @@ const Form = () => {
               type={'blue'}
               className={styles.connectWallet}
             />
+            <button>Submit</button>
           </form>
         </div>
       </div>

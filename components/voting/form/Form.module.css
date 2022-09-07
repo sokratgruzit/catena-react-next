@@ -108,12 +108,12 @@
 .addBtn svg {
   margin-right: 5px;
 }
-.ProposalForm p {
+/* .ProposalForm p {
   opacity: 0.5;
 }
 .ProposalForm li {
   opacity: 0.5;
-}
+} */
 .addBtn {
   margin-top: 25px;
 }
@@ -123,6 +123,7 @@
 }
 .actionsWrap {
   display: flex;
+  gap: 20px;
 }
 .actionsWrap input {
   background-color: transparent;
