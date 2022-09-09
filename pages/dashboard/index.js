@@ -1,8 +1,8 @@
 import React from 'react';
 import Dashboard from '../../components/Dashboard/Dashboard';
 
-const index = () => {
+const DashboardPage = () => {
   return <Dashboard />;
 };
 
-export default index;
+export default DashboardPage;

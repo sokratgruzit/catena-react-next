@@ -14,7 +14,7 @@ const ConnectWallet = () => {
         </div>
         <div className={styles.text}>
             <p>Connect your wallet</p>
-            <p> to check if you've won!</p>
+            <p> to check if you`&apos;`ve won!</p>
         </div>
         <div>
             <ButtonWallet />

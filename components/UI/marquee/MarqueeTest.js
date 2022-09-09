@@ -22,7 +22,7 @@ const MaruqeeTest = props => {
 
       setLineElements(lineItems);
     }
-  }, []);
+  }, [props.label, props.lineElementsCount]);
 
   return (
     <div className={styles.marqueeWrap}>

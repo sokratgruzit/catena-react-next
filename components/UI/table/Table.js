@@ -47,7 +47,7 @@ const Table = props => {
       <div className={styles.Table__content}>
         {props.tableData.map(item => {
           return (
-            <ListItemRow key={item.id + 'hash'} data={item} type={props.type} />
+            <ListItemRow key={item.id + 'hash' + props.type} data={item} type={props.type} />
           );
         })}
       </div>

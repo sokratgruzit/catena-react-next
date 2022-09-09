@@ -99,14 +99,13 @@ const BuyTickets = () => {
                             <ButtonWallet />
                         </div>
                         <p>
-                            "Buy Instantly" chooses random numbers, with no duplicates among your tickets. Prices are set before each round starts, equal to $5 at that time. Purchases are final.
+                            `&ldquo;`Buy Instantly`&rdquo;` chooses random numbers, with no duplicates among your tickets. Prices are set before each round starts, equal to $5 at that time. Purchases are final.
                         </p>
                     </div>
                 </div>
             </div>
         </div>
-
     )
 }
 
-export default BuyTickets
+export default BuyTickets;
