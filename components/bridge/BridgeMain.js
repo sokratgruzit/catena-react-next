@@ -29,6 +29,12 @@ function BridgeMain() {
 
     const [step, setStep] = useState(0);
 
+    const [prov, setProv] = useState(providerType);
+
+    useEffect(() => {
+        setProv(providerType);
+    },[])
+
     const [swapAmount, setSwapAmount] = useState("");
     const [outputAmount, setOutputAmount] = useState("");
 
@@ -161,7 +167,7 @@ function BridgeMain() {
 
     const setActiveNetwork = async () => {
         setLoading(true);
-        if (chainId === 1) {
+        if (chainId === 4) {
             setActiveNetwork1(network[0]);
             setActiveNetwork2(network[1]);
         } else {
@@ -390,7 +396,7 @@ function BridgeMain() {
                     </div>
                 </div>
                 {isActive ? (
-                    chainId === 1 || chainId === 56 ?
+                    chainId === 4 || chainId === 97 ?
                         allowance ? (
                             <button
                                 type="button"
@@ -673,7 +679,7 @@ function BridgeMain() {
                     <div>
                         <div className="sr-btn-wrap">
                             {isActive ? (
-                                chainId === 1 || chainId === 56 ?
+                                chainId === 4 || chainId === 97 ?
                                     allowance ? (
                                         <button
                                             type="button"

@@ -1,126 +1,157 @@
 [
   {
-    "type": "constructor",
-    "stateMutability": "nonpayable",
-    "inputs": [
-      { "type": "address", "name": "_owner", "internalType": "address" }
-    ]
-  },
-  {
-    "type": "event",
-    "name": "nativeTransfer",
     "inputs": [
       {
-        "type": "address",
-        "name": "",
         "internalType": "address",
-        "indexed": false
+        "name": "_token",
+        "type": "address"
       },
       {
-        "type": "uint256",
-        "name": "",
-        "internalType": "uint256",
-        "indexed": false
+        "internalType": "address",
+        "name": "_owner",
+        "type": "address"
       }
     ],
-    "anonymous": false
-  },
-  {
-    "type": "function",
-    "stateMutability": "payable",
-    "outputs": [],
-    "name": "Swap",
-    "inputs": [
-      { "type": "uint256", "name": "_amount", "internalType": "uint256" }
-    ]
-  },
-  {
-    "type": "function",
     "stateMutability": "nonpayable",
-    "outputs": [],
+    "type": "constructor"
+  },
+  {
+    "inputs": [],
     "name": "allowSwap",
-    "inputs": []
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    "type": "function",
-    "stateMutability": "view",
-    "outputs": [{ "type": "uint256", "name": "", "internalType": "uint256" }],
+    "inputs": [],
     "name": "balanceOf",
-    "inputs": []
-  },
-  {
-    "type": "function",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
     "stateMutability": "view",
-    "outputs": [{ "type": "address", "name": "", "internalType": "address" }],
+    "type": "function"
+  },
+  {
+    "inputs": [],
     "name": "owner",
-    "inputs": []
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    "type": "function",
-    "stateMutability": "nonpayable",
-    "outputs": [],
+    "inputs": [],
+    "name": "paused",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
     "name": "pausedSwap",
-    "inputs": []
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    "type": "function",
-    "stateMutability": "nonpayable",
-    "outputs": [],
-    "name": "removeAdmin",
-    "inputs": [
-      { "type": "address", "name": "_address", "internalType": "address" }
-    ]
-  },
-  {
-    "type": "function",
-    "stateMutability": "nonpayable",
-    "outputs": [],
-    "name": "tokenMint",
-    "inputs": [
-      { "type": "address", "name": "_to", "internalType": "address" },
-      { "type": "uint256", "name": "_amount", "internalType": "uint256" }
-    ]
-  },
-  {
-    "type": "function",
-    "stateMutability": "nonpayable",
-    "outputs": [],
-    "name": "updateAdmin",
-    "inputs": [
-      { "type": "address", "name": "_address", "internalType": "address" }
-    ]
-  },
-  {
-    "type": "function",
-    "stateMutability": "nonpayable",
-    "outputs": [],
-    "name": "upgradeOwner",
-    "inputs": [
-      { "type": "address", "name": "_owner", "internalType": "address" }
-    ]
-  },
-  {
-    "type": "function",
-    "stateMutability": "nonpayable",
-    "outputs": [],
-    "name": "withdrawBitgert",
-    "inputs": [
-      { "type": "uint256", "name": "_amount", "internalType": "uint256" }
-    ]
-  },
-  {
-    "type": "function",
-    "stateMutability": "nonpayable",
-    "outputs": [],
-    "name": "withdrawToken",
     "inputs": [
       {
-        "type": "address",
-        "name": "contractAddrress",
-        "internalType": "address"
-      },
-      { "type": "uint256", "name": "amount", "internalType": "uint256" }
-    ]
+        "internalType": "uint256",
+        "name": "_amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "swap",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
-  { "type": "receive", "stateMutability": "payable" }
+  {
+    "inputs": [],
+    "name": "swapToken",
+    "outputs": [
+      {
+        "internalType": "contract IERC20",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_to",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "tokenMint",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_owner",
+        "type": "address"
+      }
+    ],
+    "name": "upgradeOwner",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "withdrawNativeCurrency",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "contractAddress",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "withdrawToken",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "stateMutability": "payable",
+    "type": "receive"
+  }
 ]

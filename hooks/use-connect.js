@@ -14,6 +14,7 @@ const useConnect = () => {
   const dispatch = useDispatch();
 
   const isConnected = useSelector(state => state.connect.isConnected);
+
   const providerType = useSelector(state => state.connect.providerType);
 
   // Init Loading
@@ -122,8 +123,9 @@ const useConnect = () => {
       disconnect,
       library,
       shouldDisable,
+      providerType
     }),
-    [isActive, isLoading, shouldDisable, account, walletModal],
+    [isActive, isLoading, shouldDisable, account, walletModal, providerType],
   );
 
   return values;

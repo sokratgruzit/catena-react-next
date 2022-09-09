@@ -538,7 +538,7 @@ const Header = () => {
                   <div className={styles.headerMobileFooterSecond}>
                     <div>Following</div>
                     <div className={styles.headerMobileFooterSocs}>
-                      <Link>
+                      <Link href='##'>
                         <a href='##'>
                           <svg
                               width='11'
@@ -554,7 +554,7 @@ const Header = () => {
                           </svg>
                         </a>
                       </Link>
-                      <Link>
+                      <Link href='##'> 
                         <a href='##'>
                           <svg
                               width='21'
@@ -570,7 +570,7 @@ const Header = () => {
                           </svg>
                         </a>
                       </Link>
-                      <Link>
+                      <Link href='##'>
                         <a href='##'>
                           <svg
                               width='21'
@@ -606,7 +606,7 @@ const Header = () => {
                           </svg>
                         </a>
                       </Link>
-                      <Link>
+                      <Link href='##'>
                         <a href='##'>
                           <svg
                               width='21'
