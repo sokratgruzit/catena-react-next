@@ -11,6 +11,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 import '../styles/globals.css';
 import '../styles/style.css';
 import '../styles/default.css';
+import '../styles/bridge.css';
 
 function getLibrary(provider, connector) {
   return new Web3(provider);
