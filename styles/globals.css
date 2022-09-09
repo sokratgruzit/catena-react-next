@@ -181,6 +181,10 @@ input[type="number"] {
 .ql-tooltip input::placeholder{
   color:transparent;
 }
+.ql-formats:first-child{
+  margin-right: 0 !important;
+}
+
 
 .react-datepicker{
   background: #0A0F18 !important;
@@ -241,6 +245,7 @@ input[type="number"] {
   height: 6px !important;
   top:50%;
   transform: translateY(-50%);
+  top: 11px !important;
 }
 
 .react-datepicker__time-list-item {

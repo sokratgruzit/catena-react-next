@@ -17,26 +17,16 @@
 .arrowHover:hover .orangeHover {
   color: #ff7152;
 }
-.ProposalVoting {
-  width: 100%;
-  max-width: 1920px;
-  padding: 0px 40px;
-  margin: 0px auto;
-  display: block !important;
-  position: relative;
-  /* z-index: 5; */
-  margin: -100px 0 150px 0;
-}
+
 .proposalBottom__vote {
   padding: 20px;
   width: 50%;
 }
-.ProposalVoting__inner {
+.inner {
   position: relative;
   padding: 20px;
-  /* margin-top: 50px; */
-  display: flex;
-  flex-direction: column;
+  /* display: flex;
+  flex-direction: column; */
   width: 50%;
 }
 .proposalBottom__input input {
@@ -61,68 +51,66 @@
 .proposalBottom__input span {
   font-size: 12px;
 }
-.ProposalVoting__bottomBorder {
+.bottomBorder {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   margin: 20px auto 20px auto;
   display: flex;
   width: 100%;
 }
-.ProposalVoting__dataTitle {
+.dataTitle {
   color: #b2b4b7;
 }
-.ProposalVoting__datasubTitle {
+.datasubTitle {
   color: #e94a4a;
 }
 .proposalBottom__vote button {
   margin-top: 20px;
 }
-.ProposalVoting__header {
+.header {
   display: flex;
 }
-.ProposalVoting__list__inner {
+.list__inner {
   display: flex;
   justify-content: space-between;
   margin-bottom: 16px;
 }
-.ProposalVoting__header p:nth-child(2) {
+.header p:nth-child(2) {
   opacity: 0.3;
   margin-left: 5px;
 }
-.ProposalVoting__list__inner div {
+.list__inner div {
   display: flex;
   align-items: center;
 }
-.ProposalVoting__list__inner a {
+.list__inner a {
   color: #0500ff;
   margin-left: 5px;
 }
-.ProposalVoting__list svg {
+.list svg {
   margin-left: 5px;
 }
-.ProposalVoting__list__inner:last-child {
+.list__inner:last-child {
   margin: 0;
 }
-.ProposalVoting__seeMore {
+.seeMore {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 20px;
 }
-.ProposalVoting__seeMore svg {
+.seeMore svg {
   margin-left: 5px;
 }
-.ProposalVoting__seeMore p {
+.seeMore p {
   color: #0500ff;
 }
-.ProposalVoting__seeMore__inner {
+.seeMore__inner {
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
 }
-.proposalBottom__marginTop {
-  margin-top: 50px;
-}
+
 /*Laptop 1440*/
 @media (max-width: 1900px) {
 }
@@ -134,22 +122,19 @@
   .ProposalVoting {
     display: block;
   }
-  .wrapper {
-    margin-top: 50px;
-  }
   .proposalBottom__vote {
     width: 100%;
   }
-  .ProposalVoting__inner {
+  .inner {
     width: 100%;
   }
 }
 /*Mobile 320*/
 @media (max-width: 767px) {
-  .ProposalVoting__list__inner {
+  .list__inner {
     flex-direction: column;
   }
-  .ProposalVoting__list__inner > div {
+  .list__inner > div {
     margin: 0 0 10px 0;
   }
 }

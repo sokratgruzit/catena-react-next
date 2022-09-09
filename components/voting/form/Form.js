@@ -14,7 +14,11 @@ import FormChoice from '../components/formChoice/FormChoice';
 import FormSelectDate from '../components/formDateInput/FormSelectDate';
 import FormSelectTime from '../components/formDateInput/FormSelectTime';
 
+import useConnect from '../../../hooks/use-connect';
+import { getFormErrors, mergeDateAndTime } from './helpers';
+
 const Form = () => {
+  const { isActive } = useConnect();
   const [formData, setFormData] = useState({
     title: '',
     body: '',
@@ -26,26 +30,25 @@ const Form = () => {
   });
 
   const [editedField, setEditedField] = useState();
-  const [errorField, seterrorField] = useState({});
 
-  // console.log(errorField);
-
+  const formErrors = getFormErrors(formData);
   const handleAddChoice = () => {
     setFormData(prevState => ({
       ...prevState,
       choices: [...prevState.choices, ''],
     }));
   };
-  const checkForErrors = formData => {
-    if (!formData.title) {
-      errorField.title = 'required';
-    }
-  };
 
   const handleOnFormSubmit = e => {
     e.preventDefault();
 
-    checkForErrors(formData);
+    console.log('clicked');
+
+    const fullStartDate = mergeDateAndTime(
+      formData.startDate,
+      formData.startTime,
+    );
+    const fullEndDate = mergeDateAndTime(formData.endDate, formData.endTime);
     // try {
     //  send formData
     // } catch (error) {
@@ -65,7 +68,7 @@ const Form = () => {
   };
 
   return (
-    <div className={` container container-margin ${styles.wrapper}`}>
+    <div className={`container ${styles.wrapper}`}>
       <div className={styles.galaxy}>
         <Image
           layout='fill'
@@ -105,6 +108,9 @@ const Form = () => {
                 type='text'
                 name='title'
               />
+              {editedField?.title && formErrors.title && (
+                <p>{formErrors.title}</p>
+              )}
             </div>
             <div className={styles.content}>
               <h3>CONTENT</h3>
@@ -113,6 +119,7 @@ const Form = () => {
                 modules={Form.modules}
                 onChange={e => handleUpdateValue('body', e)}
               />
+              {editedField?.body && formErrors.body && <p>{formErrors.body}</p>}
               <span className={styles.bottomBorder}></span>
             </div>
             <div className={styles.choices}>
@@ -124,9 +131,14 @@ const Form = () => {
                     index={index}
                     choice={choice}
                     setFormData={setFormData}
+                    setEditedField={setEditedField}
                   />
                 );
               })}
+              {editedField?.choices && formErrors.choices && (
+                <p>{formErrors.choices}</p>
+              )}
+
               <Button
                 title={'+ Add Choice'}
                 type={'white__border'}
@@ -173,6 +185,7 @@ const Form = () => {
                   />
                 </div>
               </div>
+              {formErrors?.endDate && <p>{formErrors?.endDate}</p>}
             </div>
             <div className={styles.snapShot}>
               <p>Snapshot</p>
@@ -181,12 +194,20 @@ const Form = () => {
                 <OpenSvg className={styles.openSvg} />
               </a>
             </div>
-            <Button
-              title={'Connect Wallet'}
-              type={'blue'}
-              className={styles.connectWallet}
-            />
-            <button>Submit</button>
+            {isActive ? (
+              <button
+                className={styles.publishButton}
+                disabled={JSON.stringify(formErrors) !== '{}'}
+              >
+                Publish
+              </button>
+            ) : (
+              <Button
+                title={'Connect Wallet'}
+                type={'blue'}
+                className={styles.connectWallet}
+              />
+            )}
           </form>
         </div>
       </div>
@@ -196,10 +217,10 @@ const Form = () => {
 
 Form.modules = {
   toolbar: [
-    ['bold', 'italic', 'underline'],
-    [({ list: 'ordered' }, { list: 'bullet' })],
-    [{ script: 'sub' }, { script: 'super' }],
-    ['link'],
+    ['bold', 'italic'],
+    [{ header: 1 }, { header: 2 }],
+    [{ list: 'ordered' }, { list: 'bullet' }],
+    ['link', 'image'],
   ],
 };
 

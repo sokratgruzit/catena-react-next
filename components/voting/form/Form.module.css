@@ -14,6 +14,7 @@
   flex-direction: column;
   margin-bottom: 10px;
   width: 600px;
+  max-width: 100%;
 }
 .header svg {
   margin-right: 7px;
@@ -27,6 +28,7 @@
   background-color: rgba(255, 255, 255, 0.04);
   position: relative;
   margin-bottom: 150px;
+  max-width: 100%;
 }
 .ProposalForm {
   display: flex;
@@ -34,6 +36,7 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
+  max-width: 100%;
 }
 .ProposalForm h1 {
   margin: 10px 0 30px 0;
@@ -48,6 +51,7 @@
   color: #ffffff;
   padding-left: 15px;
   transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+  max-width: 100%;
 }
 .input:focus {
   border-color: rgba(5, 0, 255, 1);
@@ -127,12 +131,6 @@
 .addBtn svg {
   margin-right: 5px;
 }
-/* .ProposalForm p {
-  opacity: 0.5;
-}
-.ProposalForm li {
-  opacity: 0.5;
-} */
 .addBtn {
   margin-top: 25px;
 }
@@ -244,9 +242,19 @@
 .connectWallet{
   width: 250px;
   height: 42px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+}
+
+.publishButton{
+  width: 250px;
+  height: 42px;
+  background-color: #0500ff;
+  border: 1px solid #0500ff;
+  border-radius: 4px;
+  transition: .5s;
+}
+
+.publishButton:hover {
+  background-color: transparent;
 }
 
 .addChoice{
@@ -282,31 +290,34 @@
   z-index: -10;
   background: radial-gradient(50% 50% at 50% 50%, #000F2E 0%, rgba(0, 5, 15, 0) 100%);
 }
+
+.publishButton:disabled{
+  opacity: 0.3;
+  background-color: #000000 ;
+  border-color: #ffffff ;
+  cursor: not-allowed;
+}
 /*Laptop 1440*/
 @media (max-width: 1900px) {
 }
 /*Ipad Pro 1024*/
 @media (max-width: 1300px) {
+  .galaxy{
+    display: none;
+  }
+  .roundGalaxy{
+    display: none;
+  }
 }
 /*Ipad 768*/
 @media (max-width: 1023px) {
 }
 /*Mobile 320*/
-@media (max-width: 767px) {
-  .ProposalForm {
+@media (max-width: 667px) {
+  .actionsWrap{
+    flex-direction: column;
+  }
+  .actionsWrap input{
     width: 100%;
   }
-  .header {
-    width: 100%;
-  }
-  .inner {
-    width: 100%;
-  }
-  .input {
-    width: 100%;
-  }
-  .content textarea {
-    width: 100%;
-  }
-
 }

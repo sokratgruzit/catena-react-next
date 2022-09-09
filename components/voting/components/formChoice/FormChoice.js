@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import styles from './FormChoice.module.css';
 
-const FormChoice = ({ choice, index, setFormData }) => {
+const FormChoice = ({ choice, index, setFormData, setEditedField }) => {
   const handleChoiceInput = (e, index) => {
     setFormData(prevState => ({
       ...prevState,
@@ -10,6 +10,7 @@ const FormChoice = ({ choice, index, setFormData }) => {
         id === index ? e.target.value : item,
       ),
     }));
+    setEditedField(prevState => ({ ...prevState, choices: true }));
   };
 
   const handleCloseInput = index => {

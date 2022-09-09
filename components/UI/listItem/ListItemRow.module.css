@@ -1151,3 +1151,14 @@
     padding-right: 0;
   }
 }
+
+@media (max-Width:400px) {
+  .voting_row{
+    min-height: 180px;
+    height: fit-content;
+    flex-wrap: wrap;
+  }
+  .voting_row .td:first-child{
+    width: 100%;
+  }
+}
