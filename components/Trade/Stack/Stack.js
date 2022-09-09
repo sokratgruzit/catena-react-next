@@ -469,19 +469,19 @@ function Stack() {
                   </div>
                 </div>
                 <div className='balance'>
-                  <div className={`${styles.balanceLeft}`}>
+                  <div className="half">
                     <p>Bidding Balance</p>
                     <h3>{stackContractInfo.totalStakedToken} CMCX</h3>
                   </div>
-                  <div className={`${styles.balanceRight}`}>
+                  <div className="half">
                     <p>Bidding Stakers</p>
                     <h3> {stackContractInfo.totalStakers}</h3>
                   </div>
                 </div>
               </div>
               <div className='stack-box__double'>
-                <CornerDecor />
                 <div className='half'>
+                  <CornerDecor />
                   <div className='stack-box'>
                     <div className='stack'>
                       <p>Current Stake</p>
@@ -508,6 +508,7 @@ function Stack() {
                   </div>
                 </div>
                 <div className='half'>
+                  <CornerDecor />
                   <div className='stack-box'>
                     <div className='stack'>
                       <p>Your CMCX Wallet Balance</p>
@@ -585,14 +586,14 @@ function Stack() {
                             );
                           }}
                           customStyles={{
-                            padding: '1% 0',
-                            width: '20%',
-                            minWidth: '100px',
+                            height: '35px',
+                            width: 'calc(20% - 20px)',
                             marginTop: '3px',
+                            fontSize: '12px',
                             border:
                               timeperiod === btn.time
                                 ? '1px solid #0500ff'
-                                : '1px solid rgba(255, 255, 255, .1)',
+                                : '1px solid rgba(255, 255, 255, 0)',
                             color:
                               timeperiod === btn.time
                                 ? 'rgba(255, 255, 255, 1)'
@@ -706,7 +707,7 @@ function Stack() {
       <div className='table-section'>
         <div className='container'>
           {/*{stakersRecord.length == 0 ? (
-            <Table 
+            <Table
               tableLabels={["Staked Amount", "Stake Date", "Unstake Date", "Earn Reward", "Harvest", ""]}
               tableData={tableData}
               type={"staking"}
