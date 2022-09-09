@@ -266,7 +266,13 @@
 }
 
 .expandButton{
-  color:#0500FF
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.expandButton div{
+  color:#0500FF;
 }
 
 .expandVector{

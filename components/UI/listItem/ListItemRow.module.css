@@ -114,7 +114,6 @@
   transform: rotateZ(-180deg);
   stroke:#FF7152;
 }
-
 /*Dashboard Start*/
 .dashboardRowItem .td:first-child {
   color: #0500ff;
@@ -225,6 +224,10 @@
   width: 35%;
   display: flex;
   align-items: center;
+  margin-left: 15px;
+}
+.earn_poolsRow .td:first-child p{
+ margin-left: 12px;
 }
 .earn_poolsRow .td:nth-child(2){
   width: 20%;
@@ -272,10 +275,17 @@
   padding-left: 1px;
 }
 .earn_poolsRow .td:nth-child(5){
+  position: relative;
   width: 15%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+}
+.earn_poolsRow .td:nth-child(5) svg{
+  position: absolute;
+  right: 0;
+  margin-right: 40px;
+  margin-top: 22px;
 }
 .earn_poolsRow .td:nth-child(5) p:nth-child(2){
    font-size: 12px;
@@ -893,6 +903,64 @@
     position: absolute;
     top: 70px;
   }
+}
+
+.voting_row{
+  height: 130px;
+  padding-left: 20px;
+  padding-right: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.voting_row:hover{
+  background-color: rgba(255, 255, 255, 0.05);
+}
+.voting_row:hover >  .td:nth-child(2) p{
+  color: #FFF;
+}
+
+.voting_row:hover > .td:nth-child(2) svg{
+  fill:#FFF;
+}
+
+.voting_row .td:first-child{
+  display: flex;
+  flex-direction: column-reverse;
+  /* padding-left: 20px; */
+}
+.voting_row .td:first-child div:first-child{
+  display: flex;
+  gap: 10px;
+}
+.voting_row .td:first-child div:nth-child(2){
+  display: flex;
+  flex-direction: column;
+}
+.voting_row .td:first-child div:nth-child(2) p:last-child{
+  font-size: 13px;
+  line-height: 18px;
+  color:rgba(255, 255, 255, 0.3);
+  opacity: 1;
+  margin-bottom: 12px;
+}
+
+.voting_row .td:nth-child(2){
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  gap:10px;
+}
+
+.voting_row .td:nth-child(2) p{
+  font-size: 13px;
+  line-height: 18px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.voting_row .td:nth-child(2) svg{
+  transform: rotate(180deg);
+  fill:rgba(255, 255, 255, 0.7);
 }
 
 @media (max-width: 1300px) {

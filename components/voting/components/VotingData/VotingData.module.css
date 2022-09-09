@@ -24,7 +24,7 @@
   margin: 0px auto;
   display: block !important;
   position: relative;
-  z-index: 5;
+  /* z-index: 5; */
   margin: -100px 0 150px 0;
 }
 .proposalBottom__vote {

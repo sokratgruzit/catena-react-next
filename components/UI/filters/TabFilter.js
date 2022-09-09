@@ -1,9 +1,15 @@
-const TabFilter = (props) => {
+const TabFilter = props => {
   return (
     <div className={props.css.wrap}>
       <div className={props.css.filter}>
-        {props.data.map((tab) => {
-          let tabContent = tab.svg === undefined ? tab.label : tab.svg;
+        {props.data.map(tab => {
+          let tabContent = tab.svg ? (
+            <>
+              {tab.svg} {tab.label}
+            </>
+          ) : (
+            tab.label
+          );
 
           return (
             <div

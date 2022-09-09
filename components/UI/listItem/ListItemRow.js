@@ -68,6 +68,9 @@ const ListItemRow = props => {
   if (type === 'earn_farms') {
     cs = styles.earn_farmsRow;
   }
+  if (type === 'voting') {
+    cs = styles.voting_row;
+  }
   obj = (
     <div className={`${cs} ${styles.rowItem}`} onClick={props?.toggleExpand}>
       {data.data.map((item, index) => {

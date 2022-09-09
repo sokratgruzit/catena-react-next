@@ -20,29 +20,29 @@ const nftCollectionsData = [
       {
         title: 'The AKC',
         img: '../images/nft/nft_collection_items/logo1.png',
-        type: 'img_text'
+        type: 'img_text',
       },
       {
         symbol: 'CMCX',
         priceInCmcx: '0.0024',
-        type: 'price'
+        type: 'price',
       },
       {
         text: '0.198',
-        type: 'text'
+        type: 'text',
       },
       {
         text: '10,000',
-        type: 'text'
+        type: 'text',
       },
       {
         text: 824,
-        type: 'text'
+        type: 'text',
       },
       {
         text: 7777,
-        type: 'text'
-      }
+        type: 'text',
+      },
     ],
     img1: '../images/nft/nft_collection_items/fig1.png',
     img2: '../images/nft/nft_collection_items/fig2.png',
@@ -55,7 +55,7 @@ const nftCollectionsData = [
     highest: '10,000',
     items: 824,
     supply: 7777,
-    event: 'Hot'
+    event: 'Hot',
   },
   {
     id: 1,
@@ -63,29 +63,29 @@ const nftCollectionsData = [
       {
         title: 'The AKC',
         img: '../images/nft/nft_collection_items/logo1.png',
-        type: 'img_text'
+        type: 'img_text',
       },
       {
         symbol: 'CMCX',
         priceInCmcx: '0.0024',
-        type: 'price'
+        type: 'price',
       },
       {
         text: '0.198',
-        type: 'text'
+        type: 'text',
       },
       {
         text: '10,000',
-        type: 'text'
+        type: 'text',
       },
       {
         text: 824,
-        type: 'text'
+        type: 'text',
       },
       {
         text: 7777,
-        type: 'text'
-      }
+        type: 'text',
+      },
     ],
     img1: '../images/nft/nft_collection_items/fig1.png',
     img2: '../images/nft/nft_collection_items/fig2.png',
@@ -106,29 +106,29 @@ const nftCollectionsData = [
       {
         title: 'The AKC',
         img: '../images/nft/nft_collection_items/logo1.png',
-        type: 'img_text'
+        type: 'img_text',
       },
       {
         symbol: 'CMCX',
         priceInCmcx: '0.0024',
-        type: 'price'
+        type: 'price',
       },
       {
         text: '0.198',
-        type: 'text'
+        type: 'text',
       },
       {
         text: '10,000',
-        type: 'text'
+        type: 'text',
       },
       {
         text: 824,
-        type: 'text'
+        type: 'text',
       },
       {
         text: 7777,
-        type: 'text'
-      }
+        type: 'text',
+      },
     ],
     img1: '../images/nft/nft_collection_items/fig1.png',
     img2: '../images/nft/nft_collection_items/fig2.png',
@@ -149,29 +149,29 @@ const nftCollectionsData = [
       {
         title: 'The AKC',
         img: '../images/nft/nft_collection_items/logo1.png',
-        type: 'img_text'
+        type: 'img_text',
       },
       {
         symbol: 'CMCX',
         priceInCmcx: '0.0024',
-        type: 'price'
+        type: 'price',
       },
       {
         text: '0.198',
-        type: 'text'
+        type: 'text',
       },
       {
         text: '10,000',
-        type: 'text'
+        type: 'text',
       },
       {
         text: 824,
-        type: 'text'
+        type: 'text',
       },
       {
         text: 7777,
-        type: 'text'
-      }
+        type: 'text',
+      },
     ],
     img1: '../images/nft/nft_collection_items/fig1.png',
     img2: '../images/nft/nft_collection_items/fig2.png',
@@ -192,29 +192,29 @@ const nftCollectionsData = [
       {
         title: 'The AKC',
         img: '../images/nft/nft_collection_items/logo1.png',
-        type: 'img_text'
+        type: 'img_text',
       },
       {
         symbol: 'CMCX',
         priceInCmcx: '0.0024',
-        type: 'price'
+        type: 'price',
       },
       {
         text: '0.198',
-        type: 'text'
+        type: 'text',
       },
       {
         text: '10,000',
-        type: 'text'
+        type: 'text',
       },
       {
         text: 824,
-        type: 'text'
+        type: 'text',
       },
       {
         text: 7777,
-        type: 'text'
-      }
+        type: 'text',
+      },
     ],
     img1: '../images/nft/nft_collection_items/fig1.png',
     img2: '../images/nft/nft_collection_items/fig2.png',
@@ -235,29 +235,29 @@ const nftCollectionsData = [
       {
         title: 'The AKC',
         img: '../images/nft/nft_collection_items/logo1.png',
-        type: 'img_text'
+        type: 'img_text',
       },
       {
         symbol: 'CMCX',
         priceInCmcx: '0.0024',
-        type: 'price'
+        type: 'price',
       },
       {
         text: '0.198',
-        type: 'text'
+        type: 'text',
       },
       {
         text: '10,000',
-        type: 'text'
+        type: 'text',
       },
       {
         text: 824,
-        type: 'text'
+        type: 'text',
       },
       {
         text: 7777,
-        type: 'text'
-      }
+        type: 'text',
+      },
     ],
     img1: '../images/nft/nft_collection_items/fig1.png',
     img2: '../images/nft/nft_collection_items/fig2.png',
@@ -278,29 +278,29 @@ const nftCollectionsData = [
       {
         title: 'The AKC',
         img: '../images/nft/nft_collection_items/logo1.png',
-        type: 'img_text'
+        type: 'img_text',
       },
       {
         symbol: 'CMCX',
         priceInCmcx: '0.0024',
-        type: 'price'
+        type: 'price',
       },
       {
         text: '0.198',
-        type: 'text'
+        type: 'text',
       },
       {
         text: '10,000',
-        type: 'text'
+        type: 'text',
       },
       {
         text: 824,
-        type: 'text'
+        type: 'text',
       },
       {
         text: 7777,
-        type: 'text'
-      }
+        type: 'text',
+      },
     ],
     img1: '../images/nft/nft_collection_items/fig1.png',
     img2: '../images/nft/nft_collection_items/fig2.png',
@@ -321,29 +321,29 @@ const nftCollectionsData = [
       {
         title: 'The AKC',
         img: '../images/nft/nft_collection_items/logo1.png',
-        type: 'img_text'
+        type: 'img_text',
       },
       {
         symbol: 'CMCX',
         priceInCmcx: '0.0024',
-        type: 'price'
+        type: 'price',
       },
       {
         text: '0.198',
-        type: 'text'
+        type: 'text',
       },
       {
         text: '10,000',
-        type: 'text'
+        type: 'text',
       },
       {
         text: 824,
-        type: 'text'
+        type: 'text',
       },
       {
         text: 7777,
-        type: 'text'
-      }
+        type: 'text',
+      },
     ],
     img1: '../images/nft/nft_collection_items/fig1.png',
     img2: '../images/nft/nft_collection_items/fig2.png',
@@ -364,29 +364,29 @@ const nftCollectionsData = [
       {
         title: 'The AKC',
         img: '../images/nft/nft_collection_items/logo1.png',
-        type: 'img_text'
+        type: 'img_text',
       },
       {
         symbol: 'CMCX',
         priceInCmcx: '0.0024',
-        type: 'price'
+        type: 'price',
       },
       {
         text: '0.198',
-        type: 'text'
+        type: 'text',
       },
       {
         text: '10,000',
-        type: 'text'
+        type: 'text',
       },
       {
         text: 824,
-        type: 'text'
+        type: 'text',
       },
       {
         text: 7777,
-        type: 'text'
-      }
+        type: 'text',
+      },
     ],
     img1: '../images/nft/nft_collection_items/fig1.png',
     img2: '../images/nft/nft_collection_items/fig2.png',
@@ -407,29 +407,29 @@ const nftCollectionsData = [
       {
         title: 'The AKC',
         img: '../images/nft/nft_collection_items/logo1.png',
-        type: 'img_text'
+        type: 'img_text',
       },
       {
         symbol: 'CMCX',
         priceInCmcx: '0.0024',
-        type: 'price'
+        type: 'price',
       },
       {
         text: '0.198',
-        type: 'text'
+        type: 'text',
       },
       {
         text: '10,000',
-        type: 'text'
+        type: 'text',
       },
       {
         text: 824,
-        type: 'text'
+        type: 'text',
       },
       {
         text: 7777,
-        type: 'text'
-      }
+        type: 'text',
+      },
     ],
     img1: '../images/nft/nft_collection_items/fig1.png',
     img2: '../images/nft/nft_collection_items/fig2.png',

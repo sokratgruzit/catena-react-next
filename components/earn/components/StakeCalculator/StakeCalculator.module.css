@@ -275,6 +275,7 @@ line-height: 17px;
   display: flex;
   align-items: center;
   height: 30px;
+  margin-bottom: 5px;
   width: fit-content;
 }
 

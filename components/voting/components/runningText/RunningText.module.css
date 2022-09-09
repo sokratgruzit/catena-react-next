@@ -1,0 +1,43 @@
+.slider{
+  margin: auto;
+  position: relative;
+  width: 100%;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  margin-bottom: 150px;
+  margin-top: 150px;
+  max-width: 1920px;
+  overflow: hidden;
+}
+
+.sliderTrack{
+  display: flex;
+  width: fit-content;
+  animation: scroll 10s linear infinite;
+}
+
+.sliderTrack svg{
+  width: 476px;
+  height: 50px;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+
+@keyframes scroll{
+  0%{
+    transform: translateX(0);
+  }
+  100%{
+    transform: translateX(-50%);
+  }
+}
+
+@media (min-width:1920px) {
+  .slider{
+    max-width: 1520px;
+  }
+
+  
+}

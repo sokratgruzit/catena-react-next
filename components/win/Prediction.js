@@ -1,9 +1,14 @@
-import React, { useState } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { useState } from 'react';
+
 import CornerDecor from '../UI/cornerDecor/CornerDecor';
-import styles from './Prediction.module.css';
+import SinglePredictionItem from './components/singlePredictionItem/SinglePredictionItem';
 import Timer from './components/Timer';
 import WinRoutes from './components/WinRoutes';
+
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+
+import styles from './Prediction.module.css';
 
 let predictionData = [
   {
@@ -71,7 +76,7 @@ const Prediction = () => {
     setDownBtns(!downBtns);
   };
 
-  let swipetItems = predictionData.map(item => {
+  let swiperItems = predictionData.map(item => {
     if (item.action === 'expired') {
       return (
         <SwiperSlide key={item.id}>
@@ -764,6 +769,8 @@ const Prediction = () => {
     }
   });
 
+  console.log(swiperItems);
+
   return (
     <>
       <div className={styles.borderTab}>
@@ -917,17 +924,15 @@ const Prediction = () => {
           </div>
         </div>
       </div>
-      <div>
-        <Swiper
-          spaceBetween={30}
-          slidesPerView={'auto'}
-          freeMode={true}
-          loop={true}
-          scrollbar={true}
-          mousewheel={true}
-        >
-          {swipetItems}
+      <div className={styles.swiperTest}>
+        <Swiper spaceBetween={30} slidesPerView={'auto'} className='mySwiper'>
+          {predictionData.map((item, index) => (
+            <SwiperSlide key={index}>
+              <SinglePredictionItem item={item} />
+            </SwiperSlide>
+          ))}
         </Swiper>
+        {/* {swiperItems} */}
       </div>
     </>
   );

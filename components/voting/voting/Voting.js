@@ -3,7 +3,7 @@ import GetSuggestion from '../components/GetSuggestion/GetSuggestion';
 import VotingNow from '../components/VotingNow/VotingNow';
 import MainContainer from '../components/MainContainer/MainContainer';
 
-const Proposals = () => {
+const Voting = () => {
   return (
     <>
       <MainContainer />
@@ -13,4 +13,4 @@ const Proposals = () => {
   );
 };
 
-export default Proposals;
+export default Voting;

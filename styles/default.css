@@ -125,7 +125,6 @@ button {
     margin: 0px auto;
     display: flex;
     position: relative;
-    z-index: 5;
 }
 .font-20{
     font-size: 20px;

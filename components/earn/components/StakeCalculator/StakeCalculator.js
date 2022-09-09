@@ -183,7 +183,9 @@ const StakeCalculator = ({ type }) => {
           <div className={styles.borderBottom}>
             <div className={styles.ROIWrapper}>
               <div className={styles.headerColumn}>
-                <p>ROI at Current Rates</p>
+                <p>
+                  {activeStakeType === 'Flexible' ? 'ROI at Current Rates' : ''}
+                </p>
                 <p className={styles.displayMain}>$0.00</p>
                 <p>~ 8.137 SFUND(0.30%)</p>
               </div>
@@ -257,6 +259,18 @@ const StakeCalculator = ({ type }) => {
                 item: styles.stakeDuration__filter__item,
               }}
             />
+          </div>
+          <div className={styles.borderBottom}>
+            <div className={styles.ROIWrapper}>
+              <div className={styles.headerColumn}>
+                <p>
+                  {activeStakeType === 'Flexible' ? 'ROI at Current Rates' : ''}
+                </p>
+                <p className={styles.displayMain}>$0.00</p>
+                <p>~ 8.137 SFUND(0.30%)</p>
+              </div>
+              <ExclamationSvg className={styles.ExclamationSvg} />
+            </div>
           </div>
         </section>
       )}
