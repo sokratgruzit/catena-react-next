@@ -96,7 +96,7 @@ const BuyTickets = () => {
                         </p>
                     </div>
                     <div className={styles.buttonWallet}>
-                        <ButtonWallet />
+                        <Button />
                     </div>
                     <p>
                         `&ldquo;`Buy Instantly`&rdquo;` chooses random numbers, with no duplicates among your tickets. Prices are set before each round starts, equal to $5 at that time. Purchases are final.
