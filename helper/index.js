@@ -7,7 +7,7 @@ import Web3 from "web3";
 import axios from "axios";
 
 export async function CMCX_BSC_PRICE() {
-
+    return 0.1;
     const web3 = new Web3(config.BNB.CMCX.RPC_URL);
 
     var exchangeAddress = "0x86Ad4de1E240Be7892b02D0d2aD0586A38Ff0a8D";
@@ -28,7 +28,7 @@ export async function CMCX_BSC_PRICE() {
 }
 
 export async function CMCX_ETH_PRICE() {
-
+    return 0.1;
     var tokenInfo = await axios({
         method: "GET",
         url: encodeURI(`https://api.coingecko.com/api/v3/coins/ethereum/contract/0x5B685863494C33F344081F75e5430C260c224A32`)
