@@ -127,6 +127,7 @@ function BridgeMain() {
                         })
                         .catch(function (err) {
                             notify(true, err.message);
+                            setStep(2);
                         });
                 });
 
@@ -408,14 +409,14 @@ function BridgeMain() {
                                 {loading ? "Please wait, Loading.." : "Enable"}
                             </button>
                         ) : (
-                            <button
-                                type="button"
-                                className="sr-btn-2"
-                                onClick={() => swapBalance()}
-                                disabled={loading}
+                            <div
+                                className="bridge__box-connect-btn"
+                                onClick={() => {
+                                    setStep(1);
+                                }}
                             >
-                                {loading ? "Please wait, Loading.." : "Swap"}
-                            </button>
+                                {loading ? "Please wait, Loading.." : "Next"}
+                            </div>
                         ) :
                         <div>
                             <button
@@ -424,14 +425,6 @@ function BridgeMain() {
                             >
                                 swich network to eth or bsc
                             </button>
-                            <div
-                                className="bridge__box-connect-btn"
-                                onClick={() => {
-                                    setStep(1);
-                                }}
-                            >
-                                Next
-                            </div>
                         </div>
                 ) : (
                     <div
@@ -502,7 +495,7 @@ function BridgeMain() {
             <div
                 className="bridge__box-connect-btn"
                 onClick={() => {
-                    setStep(2)
+                    swapBalance();
                 }}
             >Confirm</div>
         </div>
