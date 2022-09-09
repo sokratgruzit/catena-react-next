@@ -59,10 +59,9 @@ const TokensTable = props => {
 
           item.data = tData;
         });
-
-        setData(data);
-      });
-  }, [itemsPerPage, pageCountTokens]);
+      setData(data);
+    });
+  }, [itemsPerPage, pageCountTokens, router]);
 
   const sorting = col => {
     let sort;
