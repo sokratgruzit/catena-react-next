@@ -278,7 +278,6 @@
 "@next/swc-darwin-x64@12.2.0":
   "integrity" "sha512-iwMNFsrAPjfedjKDv9AXPAV16PWIomP3qw/FfPaxkDVRbUls7BNdofBLzkQmqxqWh93WrawLwaqyXpJuAaiwJA=="
   "resolved" "https://registry.npmjs.org/@next/swc-darwin-x64/-/swc-darwin-x64-12.2.0.tgz"
->>>>>>> 91d32b184bd0157c1fbd496b7264131866a50cf4
   "version" "12.2.0"
 
 "@nodelib/fs.scandir@2.1.5":
