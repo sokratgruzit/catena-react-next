@@ -662,6 +662,7 @@ function Stack() {
                       customStyles={{
                         padding: '1% 0',
                         width: '100%',
+                        marginTop: '34px'
                       }}
                     />
                   )}

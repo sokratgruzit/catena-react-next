@@ -519,6 +519,9 @@
   position: relative;
   padding-top: 100px;
 }
+.title-container .title {
+  margin-bottom: 50px;
+}
 .title p {
   font-size: 20px;
   line-height: 30px;
