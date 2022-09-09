@@ -1,30 +1,30 @@
 {
   "ETH": {
-    "CMCX": {
-      "network": "ETH",
-      "name": "CMCX (ERC20)",
-      "symbol": "CMCX",
-      "decimals": 18,
-      "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/12938.png",
-      "chainId": "0x4",
-      "RPC_URL": "https://rinkeby.infura.io/v3/",
-      "tokenAddress": "0xe94c4090e77171d3DBA6186EbD8B26C585eBE5C9",
-      "bridgeAddress": "0xe94c4090e77171d3DBA6186EbD8B26C585eBE5C9",
-      "percentage": 0
-    }
+      "CMCX": {
+          "network": "ETH",
+          "name": "DMC (ERC20)",
+          "symbol": "DMC",
+          "decimals": 18,
+          "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/12938.png",
+          "chainId": "0x4",
+          "RPC_URL": "https://rinkeby.infura.io/v3/cbf4ab3d4878468f9bbb6ff7d761b985",
+          "tokenAddress": "0xe94c4090e77171d3DBA6186EbD8B26C585eBE5C9",
+          "bridgeAddress": "0x8D2b667E0345c848b266848f52Da930c17cC4fa4",
+          "percentage": 0
+      }
   },
   "BNB": {
-    "CMCX": {
-      "network": "BSC",
-      "name": "CMCX (BEP20)",
-      "symbol": "DMC",
-      "decimals": 18,
-      "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/12938.png",
-      "chainId": "0x61",
-      "RPC_URL": "https://data-seed-prebsc-1-s1.binance.org:8545",
-      "tokenAddress": "0x3B8Cd11EEAe55432e42306408e29D694A2939d19",
-      "bridgeAddress": "0x3B8Cd11EEAe55432e42306408e29D694A2939d19",
-      "percentage": 0
-    }
+      "CMCX": {
+          "network": "BSC",
+          "name": "DMC (BEP20)",
+          "symbol": "DMC",
+          "decimals": 18,
+          "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/12938.png",
+          "chainId": "0x61",
+          "RPC_URL": "https://data-seed-prebsc-1-s1.binance.org:8545/",
+          "tokenAddress": "0x3B8Cd11EEAe55432e42306408e29D694A2939d19",
+          "bridgeAddress": "0x3Ac0c3453A85467e4dccA52A7BAE6bC6ee899D52",
+          "percentage": 0
+      }
   }
 }

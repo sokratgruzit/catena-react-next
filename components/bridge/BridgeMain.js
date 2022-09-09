@@ -33,6 +33,7 @@ function BridgeMain() {
 
     useEffect(() => {
         setProv(providerType);
+        console.log(chainId, "chainid");
     },[])
 
     const [swapAmount, setSwapAmount] = useState("");
@@ -126,6 +127,7 @@ function BridgeMain() {
                         })
                         .catch(function (err) {
                             notify(true, err.message);
+                            setStep(2);
                         });
                 });
 
@@ -236,38 +238,38 @@ function BridgeMain() {
                                     </p>
                                     {/*<span>Ethereum</span>*/}
                                 </div>
-                                <div className="bridge__box-select-options">
-                                    <div className="bridge__box-select-options-inner">
-                                        <div className="bridge__box-select-option active">
-                                            <img src="images/eth-icon.png" alt="" />
-                                            Ethereum
-                                        </div>
-                                        <div className="bridge__box-select-option">
-                                            <img src="images/eth-icon.png" alt="" />
-                                            Ethereum
-                                        </div>
-                                        <div className="bridge__box-select-option">
-                                            <img src="images/eth-icon.png" alt="" />
-                                            Ethereum
-                                        </div>
-                                        <div className="bridge__box-select-option">
-                                            <img src="images/eth-icon.png" alt="" />
-                                            Ethereum
-                                        </div>
-                                        <div className="bridge__box-select-option">
-                                            <img src="images/eth-icon.png" alt="" />
-                                            Ethereum
-                                        </div>
-                                        <div className="bridge__box-select-option">
-                                            <img src="images/eth-icon.png" alt="" />
-                                            Ethereum
-                                        </div>
-                                        <div className="bridge__box-select-option">
-                                            <img src="images/eth-icon.png" alt="" />
-                                            Ethereum
-                                        </div>
-                                    </div>
-                                </div>
+                                {/*<div className="bridge__box-select-options">*/}
+                                {/*    <div className="bridge__box-select-options-inner">*/}
+                                {/*        <div className="bridge__box-select-option active">*/}
+                                {/*            <img src="images/eth-icon.png" alt="" />*/}
+                                {/*            Ethereum*/}
+                                {/*        </div>*/}
+                                {/*        <div className="bridge__box-select-option">*/}
+                                {/*            <img src="images/eth-icon.png" alt="" />*/}
+                                {/*            Ethereum*/}
+                                {/*        </div>*/}
+                                {/*        <div className="bridge__box-select-option">*/}
+                                {/*            <img src="images/eth-icon.png" alt="" />*/}
+                                {/*            Ethereum*/}
+                                {/*        </div>*/}
+                                {/*        <div className="bridge__box-select-option">*/}
+                                {/*            <img src="images/eth-icon.png" alt="" />*/}
+                                {/*            Ethereum*/}
+                                {/*        </div>*/}
+                                {/*        <div className="bridge__box-select-option">*/}
+                                {/*            <img src="images/eth-icon.png" alt="" />*/}
+                                {/*            Ethereum*/}
+                                {/*        </div>*/}
+                                {/*        <div className="bridge__box-select-option">*/}
+                                {/*            <img src="images/eth-icon.png" alt="" />*/}
+                                {/*            Ethereum*/}
+                                {/*        </div>*/}
+                                {/*        <div className="bridge__box-select-option">*/}
+                                {/*            <img src="images/eth-icon.png" alt="" />*/}
+                                {/*            Ethereum*/}
+                                {/*        </div>*/}
+                                {/*    </div>*/}
+                                {/*</div>*/}
                             </div>
                         </div>
                     </div>
@@ -298,38 +300,38 @@ function BridgeMain() {
                                     </p>
                                     {/*<span>Ethereum</span>*/}
                                 </div>
-                                <div className="bridge__box-select-options">
-                                    <div className="bridge__box-select-options-inner">
-                                        <div className="bridge__box-select-option">
-                                            <img src="images/eth-icon.png" alt="" />
-                                            Ethereum
-                                        </div>
-                                        <div className="bridge__box-select-option active">
-                                            <img src="images/eth-icon.png" alt="" />
-                                            Ethereum
-                                        </div>
-                                        <div className="bridge__box-select-option">
-                                            <img src="images/eth-icon.png" alt="" />
-                                            Ethereum
-                                        </div>
-                                        <div className="bridge__box-select-option">
-                                            <img src="images/eth-icon.png" alt="" />
-                                            Ethereum
-                                        </div>
-                                        <div className="bridge__box-select-option">
-                                            <img src="images/eth-icon.png" alt="" />
-                                            Ethereum
-                                        </div>
-                                        <div className="bridge__box-select-option">
-                                            <img src="images/eth-icon.png" alt="" />
-                                            Ethereum
-                                        </div>
-                                        <div className="bridge__box-select-option">
-                                            <img src="images/eth-icon.png" alt="" />
-                                            Ethereum
-                                        </div>
-                                    </div>
-                                </div>
+                                {/*<div className="bridge__box-select-options">*/}
+                                {/*    <div className="bridge__box-select-options-inner">*/}
+                                {/*        <div className="bridge__box-select-option">*/}
+                                {/*            <img src="images/eth-icon.png" alt="" />*/}
+                                {/*            Ethereum*/}
+                                {/*        </div>*/}
+                                {/*        <div className="bridge__box-select-option active">*/}
+                                {/*            <img src="images/eth-icon.png" alt="" />*/}
+                                {/*            Ethereum*/}
+                                {/*        </div>*/}
+                                {/*        <div className="bridge__box-select-option">*/}
+                                {/*            <img src="images/eth-icon.png" alt="" />*/}
+                                {/*            Ethereum*/}
+                                {/*        </div>*/}
+                                {/*        <div className="bridge__box-select-option">*/}
+                                {/*            <img src="images/eth-icon.png" alt="" />*/}
+                                {/*            Ethereum*/}
+                                {/*        </div>*/}
+                                {/*        <div className="bridge__box-select-option">*/}
+                                {/*            <img src="images/eth-icon.png" alt="" />*/}
+                                {/*            Ethereum*/}
+                                {/*        </div>*/}
+                                {/*        <div className="bridge__box-select-option">*/}
+                                {/*            <img src="images/eth-icon.png" alt="" />*/}
+                                {/*            Ethereum*/}
+                                {/*        </div>*/}
+                                {/*        <div className="bridge__box-select-option">*/}
+                                {/*            <img src="images/eth-icon.png" alt="" />*/}
+                                {/*            Ethereum*/}
+                                {/*        </div>*/}
+                                {/*    </div>*/}
+                                {/*</div>*/}
                             </div>
                         </div>
                     </div>
@@ -407,14 +409,14 @@ function BridgeMain() {
                                 {loading ? "Please wait, Loading.." : "Enable"}
                             </button>
                         ) : (
-                            <button
-                                type="button"
-                                className="sr-btn-2"
-                                onClick={() => swapBalance()}
-                                disabled={loading}
+                            <div
+                                className="bridge__box-connect-btn"
+                                onClick={() => {
+                                    setStep(1);
+                                }}
                             >
-                                {loading ? "Please wait, Loading.." : "Swap"}
-                            </button>
+                                {loading ? "Please wait, Loading.." : "Next"}
+                            </div>
                         ) :
                         <div>
                             <button
@@ -423,14 +425,6 @@ function BridgeMain() {
                             >
                                 swich network to eth or bsc
                             </button>
-                            <div
-                                className="bridge__box-connect-btn"
-                                onClick={() => {
-                                    setStep(1);
-                                }}
-                            >
-                                Next
-                            </div>
                         </div>
                 ) : (
                     <div
@@ -501,7 +495,7 @@ function BridgeMain() {
             <div
                 className="bridge__box-connect-btn"
                 onClick={() => {
-                    setStep(2)
+                    swapBalance();
                 }}
             >Confirm</div>
         </div>
