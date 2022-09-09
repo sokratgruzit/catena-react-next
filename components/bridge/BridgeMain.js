@@ -33,6 +33,7 @@ function BridgeMain() {
 
     useEffect(() => {
         setProv(providerType);
+        console.log(chainId, "chainid");
     },[])
 
     const [swapAmount, setSwapAmount] = useState("");
