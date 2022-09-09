@@ -5,7 +5,7 @@ import styles from './ChoiceItemResult.module.css';
 const ChoiceItemResult = ({ choice }) => {
   return (
     <div>
-      <p>{choice}</p>
+      <p className={styles.choice}>{choice}</p>
       <div className={styles.voteLengthContainer}>
         <span className={styles.placeHolder}></span>
         <span className={styles.voteLength}></span>

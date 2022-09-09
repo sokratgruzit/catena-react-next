@@ -37,6 +37,8 @@
 }
 .ProposalForm h1 {
   margin: 10px 0 30px 0;
+  font-size: 30px;
+  line-height: 42px;
 }
 .input {
   background-color: transparent;
@@ -53,14 +55,29 @@
 .title input {
   height: 44px;
 }
-.title p {
+.title h2 {
   margin-bottom: 8px;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.5);
 }
 .title {
-  margin-bottom: 28px;
+  margin-bottom: 24px;
 }
-.content p:nth-child(2) {
+
+.content h3{
+  font-size: 12px;
+  line-height: 16px;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.02em;
+}
+.tip {
   margin-bottom: 8px;
+  margin-top: 3px;
+  font-size: 10px;
+  line-height: 16px;
+  color: rgba(255, 255, 255, 0.3);
 }
 .backBtn {
   display: flex;
@@ -94,12 +111,14 @@
   display: flex;
   width: 100%;
 }
-.choices input {
-  height: 44px;
-  margin: 8px 0;
-  padding: 0 16px;
+.choices  h3:first-child{
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.02em;
+
 }
-.addBtn__inner {
+.addBtn__inner {  
   /* border: 1px solid #ffffff; */
   box-sizing: border-box;
   border-radius: 4px;
@@ -129,17 +148,25 @@
   background-color: transparent;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 4px;
-  color: #ffffff;
   width: 255px;
+  height: 44px;
   padding: 16px 0 16px 14px;
   margin-top: 8px;
+  font-size: 12px;
+  line-height: 16px;
+}
+.actionsWrap p{
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.5);
 }
 .date {
   margin-right: 30px;
 }
-.actions > p {
-  margin: 0 0 40px 0;
-  opacity: 1;
+.actions h3 {
+  margin: 0 0 38px 0;
+  line-height: 16px;
 }
 .marginTop {
   margin-top: 25px;
@@ -225,7 +252,7 @@
 .addChoice{
   width: 122px;
   height: 36px;
-  margin-top: 8px;
+  margin-top: 16px;
 }
 
 .galaxy{

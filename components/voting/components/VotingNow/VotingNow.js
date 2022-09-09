@@ -1,29 +1,30 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
 
-import MaruqeeTest from '../../../UI/marquee/MarqueeTest';
 import CornerDecor from '../../../UI/cornerDecor/CornerDecor';
 import TabFilter from '../../../UI/filters/TabFilter';
 
 import styles from './VotingNow.module.css';
-import VotingNowItem from './VotingNowItem';
 import {
-  ArrowSvg,
+  CloseTag,
   CommunitySign,
   CommunityTag,
   CoreCheck,
-  ProposalsText,
+  CoreTagLight,
   SmlArrowSvg,
+  SoonTag,
   VectorSvg,
   VoteNowTag,
 } from '../../../svg';
-import Marquee from '../../../UI/marquee/Marquee';
+
 import ListItemRow from '../../../UI/listItem/ListItemRow';
+import RunningText from '../runningText/RunningText';
 
 const votingData = [
   {
     id: 0,
-    title: 'Stop Minting more CORE',
+    title: 'Stop Minting more CORE1',
     subTitle: 'subTitle 1',
     date: 'Ends Mar 6th, 2022 11:15',
     location: 'Community',
@@ -41,7 +42,7 @@ const votingData = [
   },
   {
     id: 2,
-    title: 'Stop Minting more CORE',
+    title: 'Stop Minting more CORE2',
     subTitle: 'subTitle #2',
     date: 'Ends Mar 6th, 2022 11:15',
     location: 'Community',
@@ -59,7 +60,7 @@ const votingData = [
   },
   {
     id: 4,
-    title: 'Stop Minting more CORE',
+    title: 'Stop Minting more CORE3',
     subTitle: 'testSubTitle',
     date: 'Ends Mar 6th, 2022 11:15',
     location: 'Community',
@@ -93,17 +94,60 @@ const votingData = [
     activeStatus: 'Close',
     announcement: 'Dear cock holders, we’re proud of u',
   },
+  {
+    id: 8,
+    title: 'Stop Minting more CORE4',
+    subTitle: 'subTitle 1',
+    date: 'Ends Mar 6th, 2022 11:15',
+    location: 'Community',
+    activeStatus: 'Vote Now',
+    announcement: 'Dear cock holders, we’re proud of u',
+  },
+  {
+    id: 9,
+    title: 'Stop Minting more CORE5',
+    subTitle: 'subTitle 1',
+    date: 'Ends Mar 6th, 2022 11:15',
+    location: 'Community',
+    activeStatus: 'Vote Now',
+    announcement: 'Dear cock holders, we’re proud of u',
+  },
+  {
+    id: 10,
+    title: 'Stop Minting more CORE6',
+    subTitle: 'subTitle 1',
+    date: 'Ends Mar 6th, 2022 11:15',
+    location: 'Community',
+    activeStatus: 'Vote Now',
+    announcement: 'Dear cock holders, we’re proud of u',
+  },
 ];
 
 const votingData2 = votingData.map((item, index) => {
+  let firstIcon;
+  let secondIcon;
+
+  if (item.activeStatus === 'Close') {
+    firstIcon = <CloseTag />;
+  } else if (item.activeStatus === 'Soon') {
+    firstIcon = <SoonTag />;
+  } else if (item.activeStatus === 'Vote Now') {
+    firstIcon = <VoteNowTag />;
+  }
+
+  if (item.location === 'Community') {
+    secondIcon = <CommunityTag />;
+  } else if (item.location === 'Core') {
+    secondIcon = <CoreTagLight />;
+  }
   return {
     id: index,
     data: [
       {
         title: item.title,
         subTitle: item.date,
-        svg1: <CommunityTag />,
-        svg2: <VoteNowTag />,
+        svg1: firstIcon,
+        svg2: secondIcon,
         type: 'multi_svg',
       },
       {
@@ -111,11 +155,13 @@ const votingData2 = votingData.map((item, index) => {
         svg1: <SmlArrowSvg />,
         type: 'multi_svg',
       },
+      {
+        location: item.location,
+        activeStatus: item.activeStatus,
+      },
     ],
   };
 });
-
-console.log(votingData2);
 
 const dataDisplayOptions = [
   {
@@ -149,53 +195,44 @@ const dataTimeframeOptions = [
   },
 ];
 
-const VOTING_COUNT_STEP = 5;
+const VOTING_COUNT_STEP = 3;
 
 const VotingNow = props => {
   const router = useRouter();
-  const [subTab, setSubTab] = useState(0);
-  const [tab, setTab] = useState(0);
-  const [votingCount, setVoutingCount] = useState(5);
-  const [filterData, setFilterData] = useState(
-    votingData.slice(0, votingCount),
-  );
+  const [votingCount, setVoutingCount] = useState(2);
+  const [filteredData, setFilteredData] = useState(votingData2);
+
   const [activeTab, setActiveTab] = useState('Core');
   const [activeTimeframe, setActiveTimeframe] = useState('Vote Now');
 
   const showMoreProposalHandler = () => {
-    setVoutingCount(votingCount + VOTING_COUNT_STEP);
+    setVoutingCount(prevState => prevState + VOTING_COUNT_STEP);
   };
-
-  const filterHandler = status => {
-    let filtered = votingData.filter(item => {
-      if (status === item.location || status === item.activeStatus) {
-        return item;
-      }
-      if (status === 'All') {
-        return votingData;
-      }
-    });
-    setFilterData(filtered);
-  };
-
   useEffect(() => {
-    filterHandler(activeTimeframe);
-  }, [activeTimeframe]);
-
-  useEffect(() => {
-    setFilterData(votingData.slice(0, votingCount));
-  }, [votingCount]);
+    if (activeTab === 'All') {
+      setFilteredData(
+        votingData2
+          .filter(item => item.data[2].activeStatus === activeTimeframe)
+          .slice(0, votingCount),
+      );
+    } else {
+      setFilteredData(
+        votingData2
+          .filter(
+            item =>
+              item.data[2].location === activeTab &&
+              item.data[2].activeStatus === activeTimeframe,
+          )
+          .slice(0, votingCount),
+      );
+    }
+  }, [activeTab, activeTimeframe, votingCount]);
 
   return (
     <>
-      {/* <MaruqeeTest
-        label={'voting'}
-        direction={'rightToLeft'}
-        lineElementsCount={9}
-      /> */}
-      <Marquee label={'voting'} direction={'rightToLeft'} />
-      <div className={` ${styles.votingNow__flex} container `}>
-        <div className={styles.votingNow__inner}>
+      <RunningText />
+      <div className={` ${styles.flex} container `}>
+        <div className={styles.inner}>
           <TabFilter
             onClick={e => setActiveTab(e)}
             data={dataDisplayOptions}
@@ -208,10 +245,30 @@ const VotingNow = props => {
             }}
           />
         </div>
-        <div
-          className={`${styles.votingNow__mainContainer} ${styles.container}`}
-        >
+        <div className={styles.container}>
           <CornerDecor />
+          {filteredData.length >= 6 && (
+            <div className={styles.galaxy}>
+              <Image
+                layout='fill'
+                objectFit='contain'
+                src={'/images/voting/galaxy.png'}
+                quality={100}
+                alt=''
+              />
+            </div>
+          )}
+          {filteredData.length >= 7 && (
+            <div className={styles.smoke}>
+              <Image
+                layout='fill'
+                objectFit='contain'
+                src={'/images/voting/smoke.png'}
+                quality={100}
+                alt=''
+              />
+            </div>
+          )}
           <TabFilter
             onClick={e => setActiveTimeframe(e)}
             data={dataTimeframeOptions}
@@ -223,24 +280,26 @@ const VotingNow = props => {
               item: styles.frame__filter__item,
             }}
           />
-          {votingData2.map(item => {
+          {filteredData.length === 0 && (
+            <div className={styles.noProposal}>No proposals found</div>
+          )}
+          {filteredData.map(item => {
             return (
               <div
                 onClick={() => router.push(`/voting/${item.id}`)}
                 key={item.id + 'voting'}
                 className={styles.rowWrapper}
               >
-                {/* <VotingNowItem data={item} /> */}
                 <ListItemRow data={item} type={'voting'} />
               </div>
             );
           })}
-          <div className={styles.seeMore}>
-            <div onClick={showMoreProposalHandler}>
+          {filteredData.length >= votingCount && (
+            <div className={styles.seeMore} onClick={showMoreProposalHandler}>
               <p>See More </p>
-              <VectorSvg />
+              <VectorSvg className={styles.vectorSvg} />
             </div>
-          </div>
+          )}
         </div>
       </div>
     </>

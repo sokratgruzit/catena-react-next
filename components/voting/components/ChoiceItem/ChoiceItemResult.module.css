@@ -22,3 +22,17 @@
   justify-content: space-between;
   margin-bottom: 20px;
 }
+
+.voteNumbers p{
+  font-size: 13px;
+  line-height: 18px;
+}
+
+.voteNumbers p:first-child{
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.choice{
+  font-size: 15px;
+  line-height: 21px;
+}

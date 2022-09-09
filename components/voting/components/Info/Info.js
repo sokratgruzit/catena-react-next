@@ -3,6 +3,8 @@ import Link, { useRouter } from 'next/router';
 import DOMPurify from 'dompurify';
 import { useSelector } from 'react-redux';
 
+import useConnect from '../../../../hooks/use-connect';
+
 import {
   CloseTag,
   CommunityTag,
@@ -17,6 +19,7 @@ import styles from './Info.module.css';
 import Image from 'next/image';
 import ChoiceItemRow from '../ChoiceItem/ChoiceItemRow';
 import ChoiceItemResult from '../ChoiceItem/ChoiceItemResult';
+import Button from '../../../UI/button/Button';
 
 const votingData = [
   {
@@ -100,14 +103,11 @@ const votingData = [
 const Info = () => {
   const router = useRouter();
   const { id } = router.query;
+  const { account } = useConnect();
 
   const [votingItem, setVotingItem] = useState(votingData[id]);
   const [activeVoteResult, setActiveVoteResult] = useState(false);
   const [votingChoice, setVotingChoice] = useState(null);
-
-  const voteResultHandler = () => {
-    setActiveVoteResult(!activeVoteResult);
-  };
 
   const handleFormSubmit = e => {
     e.preventDefault();
@@ -132,6 +132,7 @@ const Info = () => {
             </picture>
           )}
           <div
+            className={styles.mainBody}
             dangerouslySetInnerHTML={{
               __html: DOMPurify.sanitize(votingItem.mainText),
             }}
@@ -176,7 +177,7 @@ const Info = () => {
               </div>
             </div>
             <span className={styles.border}></span>
-            {votingItem.activeStatus === 'close' && <CloseTag />}
+            {votingItem.activeStatus === 'Close' && <CloseTag />}
             {votingItem.activeStatus === 'Vote Now' && <VoteNowTag />}
             {votingItem.activeStatus === 'Soon' && <SoonTag />}
             <div className={styles.item}>
@@ -200,12 +201,27 @@ const Info = () => {
                   setVotingChoice={setVotingChoice}
                 />
               ))}
-              <button className={`btn btnBlue ${styles.voteButton}`}>
-                Vote
-              </button>
-              <div className={styles.seeMore}>
-                <p onClick={voteResultHandler}>See Result</p>
-              </div>
+              {account ? (
+                <button
+                  className={`btn btnBlue ${styles.voteButton}`}
+                  disabled={true}
+                >
+                  Vote
+                </button>
+              ) : (
+                <Button
+                  title={'Connect Wallet'}
+                  type={'blue'}
+                  className={styles.connectWallet}
+                />
+              )}
+
+              <p
+                className={styles.seeMore}
+                onClick={() => setActiveVoteResult(prevState => !prevState)}
+              >
+                See Result
+              </p>
             </form>
           </div>
           <div

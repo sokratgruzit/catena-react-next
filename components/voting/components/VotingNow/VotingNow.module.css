@@ -21,27 +21,13 @@
   justify-content: center;
   align-items: center;
 }
-.votingNow__navigation svg {
-  margin: 0 5px;
-}
-.votingNow__navigation {
-  padding: 10px 20px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 4px;
-  display: flex;
-}
-.votingNow__inner {
+.inner {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
 }
-.votingNow__navigation > .flex {
-  padding: 6px 15px;
-  cursor: pointer;
-  margin: 0 5px;
-}
-.votingNow__flex {
+.flex {
   display: flex;
   flex-direction: column;
 }
@@ -51,27 +37,10 @@
   color: #ffffff;
   transition: 0.3s;
 }
-/* .container {
-  margin-bottom: 150px;
-  flex-direction: column;
-} */
-.votingNow__mainContainer {
+.container {
   position: relative;
   width: 100%;
   margin-top: 25px;
-}
-.votingNow__head {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 20px 0;
-}
-.votingNow__head p:nth-child(2) {
-  margin: 0 30px;
-}
-.votingNow__head span {
-  border-bottom: 1px solid #111826;
-  width: 80%;
 }
 .border {
   border-top: 1px solid #111826;
@@ -137,10 +106,6 @@
   border-bottom: 2px solid #ffffff !important;
   transition: 0.3s;
 }
-.votingNow__head p {
-  cursor: pointer;
-  border-bottom: 2px solid #ffffff00;
-}
 .focused {
   background: #ffffff07;
 }
@@ -160,36 +125,39 @@
 .filled svg {
   opacity: 1 !important;
 }
+.seeMore  {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 30px auto;
+  cursor: pointer;
+}
 .seeMore p {
   color: #0500ff;
   margin-right: 5px;
   transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
 }
-.seeMore {
-  display: flex;
-}
-.seeMore div {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 50px auto 10px auto;
-  cursor: pointer;
-}
-.seeMoreSvg path {
+.vectorSvg{
+  stroke: #0500ff;
   transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
 }
-.seeMore div:hover .seeMoreSvg path {
-  stroke: #ff7152;
-}
-.seeMore div:hover p {
+.seeMore:hover p {
   color: #ff7152;
 }
-.seeMoreContainer {
+
+.seeMore:hover  .vectorSvg{
+  stroke: #ff7152;
+}
+
+.noProposal{
+  height: 130px;
   width: 100%;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
+
 /* .marqueeContainer svg {
   margin-right: 50px;
 }
@@ -259,6 +227,24 @@
   color: #FFF;
 }
 
+.galaxy{
+  position: absolute;
+  width: 311px;
+  height: 412px;
+  top: 393px;
+  right:0;
+  z-index: -1;
+}
+
+.smoke{
+  position: absolute;
+  width: 422.5px;
+  height: 388.9px;
+  bottom:80px;
+  left: -100px;
+  z-index: -11;
+}
+
 /*Laptop 1440*/
 @media (max-width: 1900px) {
 }
@@ -271,6 +257,9 @@
 }
 /*Mobile 320*/
 @media (max-width: 767px) {
+  .seeMore  {
+    margin: 20px auto;
+  }
   .votingNow__bar {
     height: 160px;
   }

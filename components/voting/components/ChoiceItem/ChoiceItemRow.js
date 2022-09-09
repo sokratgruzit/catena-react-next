@@ -12,7 +12,6 @@ const ChoiceItemRow = ({ choice, setVotingChoice, index }) => {
       <input
         type='radio'
         name={'choice'}
-        defaultChecked={index === 0}
         onChange={() => setVotingChoice(choice)}
       />
       <span className={styles.radioCheckmark}></span>

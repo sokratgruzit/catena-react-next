@@ -23,13 +23,12 @@ const Form = () => {
     startTime: null,
     endDate: null,
     endTime: null,
-    snapshot: 0,
   });
 
   const [editedField, setEditedField] = useState();
   const [errorField, seterrorField] = useState({});
 
-  console.log(errorField);
+  // console.log(errorField);
 
   const handleAddChoice = () => {
     setFormData(prevState => ({
@@ -94,27 +93,22 @@ const Form = () => {
               <p className={styles.blueHover}>Back</p>
             </div>
           </Link>
-          <div>
-            <h1 className='font_30'>Make a Proposal</h1>
-          </div>
+          <h1>Make a Proposal</h1>
         </div>
         <div className={styles.inner}>
           <form onSubmit={handleOnFormSubmit}>
             <div className={styles.title}>
-              <label>
-                <p className='font_12'>Title</p>
-                <input
-                  onChange={e => handleUpdateValue('title', e.target.value)}
-                  className={styles.input}
-                  type='text'
-                  name='title'
-                />
-              </label>
-              {formData && <p>{errorField.title}</p>}
+              <h2>TITLE</h2>
+              <input
+                onChange={e => handleUpdateValue('title', e.target.value)}
+                className={styles.input}
+                type='text'
+                name='title'
+              />
             </div>
             <div className={styles.content}>
-              <p className='font_12'>Content</p>
-              <p className='font_10'>Tip: write in Markdown!</p>
+              <h3>CONTENT</h3>
+              <p className={styles.tip}>Tip: write in Markdown!</p>
               <ReactQuill
                 modules={Form.modules}
                 onChange={e => handleUpdateValue('body', e)}
@@ -122,7 +116,7 @@ const Form = () => {
               <span className={styles.bottomBorder}></span>
             </div>
             <div className={styles.choices}>
-              <p className='font_12'>Choices</p>
+              <h3>CHOICES</h3>
               {formData.choices.map((choice, index) => {
                 return (
                   <FormChoice
@@ -142,7 +136,7 @@ const Form = () => {
               <span className={styles.bottomBorder}></span>
             </div>
             <div className={styles.actions}>
-              <p>ACTIONS</p>
+              <h3>ACTIONS</h3>
               <div className={styles.actionsWrap}>
                 <div>
                   <p>Start Date</p>
