@@ -1,7 +1,8 @@
 import React from 'react';
+import BridgeMain from '../../components/bridge/BridgeMain';
 
-const Bridge = () => {
-  return <div>Bridge</div>;
+const index = () => {
+  return <BridgeMain />;
 };
 
-export default Bridge;
+export default index;
