@@ -16,6 +16,7 @@ import FormSelectTime from '../components/formDateInput/FormSelectTime';
 
 import useConnect from '../../../hooks/use-connect';
 import { getFormErrors, mergeDateAndTime } from './helpers';
+import FormErrorsText from './FormErrorsText';
 
 const Form = () => {
   const { isActive } = useConnect();
@@ -28,21 +29,13 @@ const Form = () => {
     endDate: null,
     endTime: null,
   });
-
+  console.log(formData.body);
   const [editedField, setEditedField] = useState();
 
   const formErrors = getFormErrors(formData);
-  const handleAddChoice = () => {
-    setFormData(prevState => ({
-      ...prevState,
-      choices: [...prevState.choices, ''],
-    }));
-  };
 
   const handleOnFormSubmit = e => {
     e.preventDefault();
-
-    console.log('clicked');
 
     const fullStartDate = mergeDateAndTime(
       formData.startDate,
@@ -64,6 +57,13 @@ const Form = () => {
     setEditedField(prevState => ({
       ...prevState,
       [objKey]: true,
+    }));
+  };
+
+  const handleAddChoice = () => {
+    setFormData(prevState => ({
+      ...prevState,
+      choices: [...prevState.choices, ''],
     }));
   };
 
@@ -109,7 +109,7 @@ const Form = () => {
                 name='title'
               />
               {editedField?.title && formErrors.title && (
-                <p>{formErrors.title}</p>
+                <FormErrorsText text={formErrors.title} />
               )}
             </div>
             <div className={styles.content}>
@@ -119,7 +119,9 @@ const Form = () => {
                 modules={Form.modules}
                 onChange={e => handleUpdateValue('body', e)}
               />
-              {editedField?.body && formErrors.body && <p>{formErrors.body}</p>}
+              {editedField?.body && formErrors.body && (
+                <FormErrorsText text={formErrors.body} />
+              )}
               <span className={styles.bottomBorder}></span>
             </div>
             <div className={styles.choices}>
@@ -136,7 +138,7 @@ const Form = () => {
                 );
               })}
               {editedField?.choices && formErrors.choices && (
-                <p>{formErrors.choices}</p>
+                <FormErrorsText text={formErrors.choices} />
               )}
 
               <Button
@@ -185,7 +187,9 @@ const Form = () => {
                   />
                 </div>
               </div>
-              {formErrors?.endDate && <p>{formErrors?.endDate}</p>}
+              {formErrors?.endDate && (
+                <FormErrorsText text={formErrors?.endDate} />
+              )}
             </div>
             <div className={styles.snapShot}>
               <p>Snapshot</p>

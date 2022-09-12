@@ -1,6 +1,4 @@
 import { useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
-import Image from 'next/image';
 
 import CornerDecor from '../../../UI/cornerDecor/CornerDecor';
 import TabFilter from '../../../UI/filters/TabFilter';
@@ -20,6 +18,7 @@ import {
 
 import ListItemRow from '../../../UI/listItem/ListItemRow';
 import RunningText from '../runningText/RunningText';
+import VotingNowTable from '../VotingNowTable/VotingNowTable';
 
 const votingData = [
   {
@@ -198,35 +197,11 @@ const dataTimeframeOptions = [
 const VOTING_COUNT_STEP = 3;
 
 const VotingNow = props => {
-  const router = useRouter();
   const [votingCount, setVoutingCount] = useState(2);
   const [filteredData, setFilteredData] = useState(votingData2);
 
   const [activeTab, setActiveTab] = useState('Core');
   const [activeTimeframe, setActiveTimeframe] = useState('Vote Now');
-
-  const showMoreProposalHandler = () => {
-    setVoutingCount(prevState => prevState + VOTING_COUNT_STEP);
-  };
-  useEffect(() => {
-    if (activeTab === 'All') {
-      setFilteredData(
-        votingData2
-          .filter(item => item.data[2].activeStatus === activeTimeframe)
-          .slice(0, votingCount),
-      );
-    } else {
-      setFilteredData(
-        votingData2
-          .filter(
-            item =>
-              item.data[2].location === activeTab &&
-              item.data[2].activeStatus === activeTimeframe,
-          )
-          .slice(0, votingCount),
-      );
-    }
-  }, [activeTab, activeTimeframe, votingCount]);
 
   return (
     <>
@@ -247,28 +222,7 @@ const VotingNow = props => {
         </div>
         <div className={styles.container}>
           <CornerDecor />
-          {filteredData.length >= 6 && (
-            <div className={styles.galaxy}>
-              <Image
-                layout='fill'
-                objectFit='contain'
-                src={'/images/voting/galaxy.png'}
-                quality={100}
-                alt=''
-              />
-            </div>
-          )}
-          {filteredData.length >= 7 && (
-            <div className={styles.smoke}>
-              <Image
-                layout='fill'
-                objectFit='contain'
-                src={'/images/voting/smoke.png'}
-                quality={100}
-                alt=''
-              />
-            </div>
-          )}
+
           <TabFilter
             onClick={e => setActiveTimeframe(e)}
             data={dataTimeframeOptions}
@@ -280,26 +234,11 @@ const VotingNow = props => {
               item: styles.frame__filter__item,
             }}
           />
-          {filteredData.length === 0 && (
-            <div className={styles.noProposal}>No proposals found</div>
-          )}
-          {filteredData.map(item => {
-            return (
-              <div
-                onClick={() => router.push(`/voting/${item.id}`)}
-                key={item.id + 'voting'}
-                className={styles.rowWrapper}
-              >
-                <ListItemRow data={item} type={'voting'} />
-              </div>
-            );
-          })}
-          {filteredData.length >= votingCount && (
-            <div className={styles.seeMore} onClick={showMoreProposalHandler}>
-              <p>See More </p>
-              <VectorSvg className={styles.vectorSvg} />
-            </div>
-          )}
+          <VotingNowTable
+            votingData={votingData2}
+            activeTab={activeTab}
+            activeTimeframe={activeTimeframe}
+          />
         </div>
       </div>
     </>

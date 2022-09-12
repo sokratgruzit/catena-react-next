@@ -8,7 +8,7 @@ const ChoiceItemRow = ({ choice, setVotingChoice, index }) => {
       onClick={e => setVotingChoice(choice)}
       className={styles.radioContainer}
     >
-      {choice}
+      {choice.value}
       <input
         type='radio'
         name={'choice'}

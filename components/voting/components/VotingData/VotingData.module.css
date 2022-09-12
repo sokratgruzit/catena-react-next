@@ -11,12 +11,6 @@
 .hover:hover .svgHoverOrange path {
   fill: #ff7152;
 }
-.arrowHover:hover .svgHoverOrange path {
-  stroke: #ff7152;
-}
-.arrowHover:hover .orangeHover {
-  color: #ff7152;
-}
 
 .proposalBottom__vote {
   padding: 20px;
@@ -24,9 +18,7 @@
 }
 .inner {
   position: relative;
-  padding: 20px;
-  /* display: flex;
-  flex-direction: column; */
+  padding-top: 20px;
   width: 50%;
 }
 .proposalBottom__input input {
@@ -53,9 +45,9 @@
 }
 .bottomBorder {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  margin: 20px auto 20px auto;
+  margin: 20px auto 0 auto;
   display: flex;
-  width: 100%;
+  width: 92%;
 }
 .dataTitle {
   color: #b2b4b7;
@@ -68,7 +60,11 @@
 }
 .header {
   display: flex;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
 }
+
 .list__inner {
   display: flex;
   justify-content: space-between;
@@ -96,21 +92,41 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  width: fit-content;
+  margin: auto;
+  gap: 5px;
   margin-top: 20px;
-}
-.seeMore svg {
-  margin-left: 5px;
-}
-.seeMore p {
-  color: #0500ff;
-}
-.seeMore__inner {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin-bottom: 20px;
   cursor: pointer;
 }
 
+.seeMore p {
+  color: #0500ff;
+  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+}
+
+.VectorSvg{
+  stroke: #0500ff;
+  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+}
+
+.seeMore:hover > p{
+  color: #ff7152;
+}
+
+.seeMore:hover > .VectorSvg{
+  stroke: #ff7152;
+}
+
+@media (min-width:601px) {
+  .list::before{
+    content: "";
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    width: calc(100% - 40px);
+    display: block;
+    margin: 0 auto;
+  }
+}
 /*Laptop 1440*/
 @media (max-width: 1900px) {
 }
@@ -127,6 +143,7 @@
   }
   .inner {
     width: 100%;
+    margin-bottom: 150px;
   }
 }
 /*Mobile 320*/

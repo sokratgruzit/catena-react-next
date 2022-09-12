@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 import CornerDecor from '../../../UI/cornerDecor/CornerDecor';
 import { OpenSvg, VectorSvg } from '../../../svg/index';
@@ -6,6 +6,7 @@ import Table from '../../../UI/table/Table';
 
 import styles from './VotingData.module.css';
 import ListItemRow from '../../../UI/listItem/ListItemRow';
+import { useWindowDimension } from '../../../../hooks/useWindowDimension';
 
 const VotingTableData = [
   {
@@ -32,8 +33,9 @@ const dataForTable = VotingTableData.map((vote, index) => ({
   id: index,
   data: [
     {
-      text: vote.address,
-      type: 'text',
+      title: <a>{vote.address}</a>,
+      svg1: <OpenSvg />,
+      type: 'svg',
     },
     {
       text: vote.result,
@@ -44,13 +46,17 @@ const dataForTable = VotingTableData.map((vote, index) => ({
       type: 'text',
     },
     {
-      text: vote.votingPower,
-      type: 'text',
+      title: vote.address,
+      svg1: <OpenSvg />,
+      type: 'svg',
     },
   ],
 }));
 
 const VotingData = () => {
+  const [width, height] = useWindowDimension();
+  const [showItemsCount, setShowItemsCount] = useState(20);
+
   useEffect(() => {
     //fetch data for votes
   }, []);
@@ -61,21 +67,33 @@ const VotingData = () => {
         <CornerDecor />
         <div className={styles.header}>
           <p>
-            Votes <span>43</span>
+            Votes <span>{dataForTable.length}</span>
           </p>
         </div>
-        <span className={styles.bottomBorder}></span>
         <div className={styles.list}>
-          {dataForTable.map((item, index) => (
-            <ListItemRow key={index} data={item} type={'proposal votes'} />
-          ))}
+          {width >= 1023 ? (
+            <Table
+              tableLabels={['Address', 'Result', 'Date']}
+              tableData={dataForTable}
+              type={'proposal_votes'}
+            />
+          ) : (
+            dataForTable
+              .slice(0, showItemsCount)
+              .map((item, index) => (
+                <ListItemRow key={index} data={item} type={'proposal_votes'} />
+              ))
+          )}
         </div>
-        <div className={styles.seeMore}>
-          <div className={`${styles.seeMore__inner} ${styles.arrowHover}`}>
-            <p className={styles.orangeHover}>See More</p>
-            <VectorSvg />
+        {dataForTable.length > showItemsCount && (
+          <div
+            className={styles.seeMore}
+            onClick={() => setShowItemsCount(prevState => prevState + 20)}
+          >
+            <p>See More</p>
+            <VectorSvg className={styles.VectorSvg} />
           </div>
-        </div>
+        )}
       </div>
     </div>
   );

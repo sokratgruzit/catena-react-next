@@ -168,6 +168,18 @@ input[type="number"] {
 .ql-editor{
   min-height: 200px;
 }
+.ql-editor h1{
+  font-size: 30px !important;  
+}
+
+.ql-editor strong {
+  font-size: inherit !important;
+  line-height: inherit !important;
+}
+.ql-editor em{
+  font-size: inherit !important;
+  line-height: inherit !important;
+}
 .ql-tooltip{
   background-color: #0e1a36 !important;
   box-shadow: none !important;

@@ -46,10 +46,10 @@ export const getFormErrors = formData => {
       ? [...errors.endDate, 'End date must be after the start date']
       : (errors.endDate = 'End date must be after the start date');
   }
-
-  // if (snapshot === 0) {
-  //   errors.snapshot = [t('Invalid snapshot')];
-  // }
+  if (isValid(startDateTimestamp) && isValid(endDateTimestamp)) {
+    if (endDateTimestamp === startDateTimestamp)
+      errors.endDate = 'End date must be after the start date';
+  }
 
   return errors;
 };
