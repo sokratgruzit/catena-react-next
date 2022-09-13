@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 
 import CornerDecor from '../../../UI/cornerDecor/CornerDecor';
 import { OpenSvg, VectorSvg } from '../../../svg/index';
@@ -27,15 +28,96 @@ const VotingTableData = [
     date: '13.07.2022',
     votingPower: '14,269.176',
   },
+  {
+    address: '0xC7...061b',
+    result: 'no we are not happy at all',
+    date: '13.07.2022',
+    votingPower: '14,269.176',
+  },
+  {
+    address: '0xC7...061b',
+    result: 'no we are not happy at all',
+    date: '13.07.2022',
+    votingPower: '14,269.176',
+  },
+  {
+    address: '0xC7...061b',
+    result: 'no we are not happy at all',
+    date: '13.07.2022',
+    votingPower: '14,269.176',
+  },
+  {
+    address: '0xC7...061b',
+    result: 'no we are not happy at all',
+    date: '13.07.2022',
+    votingPower: '14,269.176',
+  },
+  {
+    address: '0xC7...061b',
+    result: 'no we are not happy at all',
+    date: '13.07.2022',
+    votingPower: '14,269.176',
+  },
+  {
+    address: '0xC7...061b',
+    result: 'no we are not happy at all',
+    date: '13.07.2022',
+    votingPower: '14,269.176',
+  },
+  {
+    address: '0xC7...061b',
+    result: 'no we are not happy at all',
+    date: '13.07.2022',
+    votingPower: '14,269.176',
+  },
+  {
+    address: '0xC7...061b',
+    result: 'no we are not happy at all',
+    date: '13.07.2022',
+    votingPower: '14,269.176',
+  },
+  {
+    address: '0xC7...061b',
+    result: 'no we are not happy at all',
+    date: '13.07.2022',
+    votingPower: '14,269.176',
+  },
+  {
+    address: '0xC7...061b',
+    result: 'no we are not happy at all',
+    date: '13.07.2022',
+    votingPower: '14,269.176',
+  },
+  {
+    address: '0xC7...061b',
+    result: 'no we are not happy at all',
+    date: '13.07.2022',
+    votingPower: '14,269.176',
+  },
+  {
+    address: '0xC7...061b',
+    result: 'no we are not happy at all',
+    date: '13.07.2022',
+    votingPower: '14,269.176',
+  },
+  {
+    address: '0xC7...061b',
+    result: 'no we are not happy at all',
+    date: '13.07.2022',
+    votingPower: '14,269.176',
+  },
 ];
 
 const dataForTable = VotingTableData.map((vote, index) => ({
   id: index,
   data: [
     {
-      title: <a>{vote.address}</a>,
-      svg1: <OpenSvg />,
-      type: 'svg',
+      text: (
+        <a>
+          {vote.address} <OpenSvg />
+        </a>
+      ),
+      type: 'text',
     },
     {
       text: vote.result,
@@ -46,9 +128,16 @@ const dataForTable = VotingTableData.map((vote, index) => ({
       type: 'text',
     },
     {
-      title: vote.address,
-      svg1: <OpenSvg />,
-      type: 'svg',
+      text: (
+        <>
+          {vote.address}
+          <a style={{ background: 'red' }}>
+            <OpenSvg />
+            shit
+          </a>
+        </>
+      ),
+      type: 'text',
     },
   ],
 }));
@@ -62,7 +151,7 @@ const VotingData = () => {
   }, []);
 
   return (
-    <div className={`container`}>
+    <div className={`container ${styles.wrapper}`}>
       <div className={styles.inner}>
         <CornerDecor />
         <div className={styles.header}>

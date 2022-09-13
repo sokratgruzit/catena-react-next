@@ -19,7 +19,7 @@ import { getFormErrors, mergeDateAndTime } from './helpers';
 import FormErrorsText from './FormErrorsText';
 
 const Form = () => {
-  const { isActive } = useConnect();
+  const { isActive, handleWalletModal } = useConnect();
   const [formData, setFormData] = useState({
     title: '',
     body: '',
@@ -29,7 +29,6 @@ const Form = () => {
     endDate: null,
     endTime: null,
   });
-  console.log(formData.body);
   const [editedField, setEditedField] = useState();
 
   const formErrors = getFormErrors(formData);
@@ -42,6 +41,9 @@ const Form = () => {
       formData.startTime,
     );
     const fullEndDate = mergeDateAndTime(formData.endDate, formData.endTime);
+
+    console.log(fullStartDate, fullEndDate);
+
     // try {
     //  send formData
     // } catch (error) {
@@ -208,6 +210,9 @@ const Form = () => {
             ) : (
               <Button
                 title={'Connect Wallet'}
+                onClick={() => {
+                  handleWalletModal(true);
+                }}
                 type={'blue'}
                 className={styles.connectWallet}
               />

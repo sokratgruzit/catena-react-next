@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { CloseSvg } from '../../../svg';
 
 import styles from './FormChoice.module.css';
 
@@ -31,7 +32,7 @@ const FormChoice = ({ choice, index, setFormData, setEditedField }) => {
       />
       {index > 1 && (
         <div className={styles.close} onClick={e => handleCloseInput(index)}>
-          X
+          <CloseSvg className={styles.closeSvg} />
         </div>
       )}
     </div>

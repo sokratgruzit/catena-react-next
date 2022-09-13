@@ -9,15 +9,11 @@ import styles from './VotingNowTable.module.css';
 
 const VOTING_COUNT_STEP = 3;
 
-const VotingNowTable = ({ votingData, activeTab, activeTimeframe, shit }) => {
+const VotingNowTable = ({ votingData, activeTab, activeTimeframe }) => {
   const router = useRouter();
-  const [showItemsCount, setShowItemsCount] = useState(10);
+  const [showItemsCount, setShowItemsCount] = useState(5);
 
   const [filteredData, setFilteredData] = useState(votingData);
-
-  useEffect(() => {
-    setShowItemsCount(10);
-  }, [activeTab, activeTimeframe]);
 
   useEffect(() => {
     if (activeTab === 'All') {

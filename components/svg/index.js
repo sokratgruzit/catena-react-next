@@ -29,6 +29,8 @@ export { default as ProposalSvg } from './ProposalSvg';
 export { default as CoreCheck } from './CoreCheck';
 export { default as CommunitySign } from './CommunitySign';
 export { default as ProposalsText } from './ProposalsText';
+export { default as HourGlass } from './HourGlass';
+export { default as CloseSvg } from './CloseSvg';
 
 export { default as CoreTag } from './tags/CoreTag';
 export { default as AutoTag } from './tags/AutoTag';

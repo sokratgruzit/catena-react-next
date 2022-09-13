@@ -872,13 +872,13 @@
 
 .proposal_votes_row .td:first-child, .th_proposal_votes:first-child{
   width: 25%;
-  cursor:pointer;
 }
 
 .proposal_votes_row .td:first-child a{
   color:#0500FF;
+  cursor:pointer;
 }
-.proposal_votes_row .td:first-child:hover a{
+.proposal_votes_row .td:first-child a:hover{
   text-decoration: underline;
 }
 

@@ -24,6 +24,7 @@
     "next": "12.2.0",
     "next-translate": "^1.5.0",
     "react": "18.2.0",
+    "react-countdown": "^2.3.2",
     "react-datepicker": "^4.8.0",
     "react-device-detect": "^2.1.2",
     "react-dom": "18.2.0",

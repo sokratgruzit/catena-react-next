@@ -25,4 +25,10 @@
   top:50%;
   transform: translateY(-50%);
   cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.closeSvg{
+  fill: rgba(255, 255, 255, 0.5);
 }

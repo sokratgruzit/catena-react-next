@@ -9,12 +9,12 @@ const GetSuggestion = () => {
   return (
     <div className={`container ${styles.getSuggestContainer}`}>
       <div className={styles.getSuggestInner}>
-        <h1 className='font_20'>Got a Suggetion?</h1>
-        <p className='font_13'>
+        <h1 className={styles.title}>Got a Suggetion?</h1>
+        <p>
           Community proposals are a great way to see how the community feels
           about your ideas.
         </p>
-        <p className='font_13'>
+        <p>
           They won&#39;t necessarily be implemented if the community votes
           successful, but suggestions with a lot of community support may be
           made into Core proposals.

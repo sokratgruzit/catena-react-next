@@ -6,7 +6,8 @@ export const mergeDateAndTime = (date, time) => {
   const dateStr = format(date, 'yyyy-MM-dd');
   const timeStr = format(time, 'HH:mm:ss');
 
-  return parseISO(`${dateStr}T${timeStr}`).getTime();
+  // return parseISO(`${dateStr}T${timeStr}`).getTime();
+  return parseISO(`${dateStr}T${timeStr}`);
 };
 
 export const getFormErrors = formData => {

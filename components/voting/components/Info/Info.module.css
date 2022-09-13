@@ -137,6 +137,7 @@
   display: flex;
   align-items: center;
   cursor: pointer;
+  margin-bottom: 60px;
 }
 .border {
   width: 100%;
@@ -467,6 +468,11 @@
 /*Laptop 1440*/
 @media (max-width: 1900px) {
 }
+@media (max-width:1500px) {
+  .backBtn {
+    margin-bottom: 40px;
+  }
+}
 /*Ipad Pro 1024*/
 @media (max-width: 1300px) {
 }
@@ -533,6 +539,10 @@
     margin-bottom: 10px;
     border-bottom: none;
   }
+
+  .backBtn {
+    margin-bottom: 30px;
+  }
 }
 /*Mobile 320*/
 @media (max-width: 767px) {
@@ -546,9 +556,6 @@
   .blockquote {
     width: 80%;
   }
-  /* .proposal__column p {
-    width: 50%;
-  } */
   .syrupPool a {
     font-size: 13px;
   }

@@ -19,7 +19,7 @@
 .inner {
   position: relative;
   padding-top: 20px;
-  width: 50%;
+  width: 60%;
 }
 .proposalBottom__input input {
   width: 10px;
@@ -116,6 +116,20 @@
 
 .seeMore:hover > .VectorSvg{
   stroke: #ff7152;
+}
+
+.proposalBg{
+  position: absolute;
+  z-index: -11;
+  width: 100vw;
+  height: calc(100vw *1.15);
+  max-width: 1920px;
+  left: 0;
+  bottom: 0;
+}
+
+.wrapper{
+  padding-bottom: 300px;
 }
 
 @media (min-width:601px) {

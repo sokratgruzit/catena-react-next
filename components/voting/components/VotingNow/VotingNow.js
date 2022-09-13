@@ -235,6 +235,7 @@ const VotingNow = props => {
             }}
           />
           <VotingNowTable
+            key={activeTab + activeTimeframe}
             votingData={votingData2}
             activeTab={activeTab}
             activeTimeframe={activeTimeframe}

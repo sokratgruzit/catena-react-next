@@ -1,5 +1,5 @@
 import React from 'react';
-import GetSuggestion from '../components/GetSuggestion/GetSuggestion';
+import GetSuggestion from '../components/getSuggestion/GetSuggestion';
 import VotingNow from '../components/VotingNow/VotingNow';
 import MainContainer from '../components/MainContainer/MainContainer';
 
