@@ -11,7 +11,7 @@ import styles from './InfoTables.module.css';
 const TransactionTable_DATA = [
   {
     id: 0,
-    action: 'Swap Elongate 2 for WBNB',
+    action: 'SwapBox Elongate 2 for WBNB',
     total_value: 36.09,
     token_1: {
       amount: 9500,
@@ -26,7 +26,7 @@ const TransactionTable_DATA = [
   },
   {
     id: 1,
-    action: 'Swap BUSD for WBNB',
+    action: 'SwapBox BUSD for WBNB',
     total_value: 133.1,
     token_1: {
       amount: 0.4,
@@ -41,7 +41,7 @@ const TransactionTable_DATA = [
   },
   {
     id: 2,
-    action: 'Swap COST for BUSD',
+    action: 'SwapBox COST for BUSD',
     total_value: 133.26,
     token_1: {
       amount: 1230,
@@ -56,7 +56,7 @@ const TransactionTable_DATA = [
   },
   {
     id: 3,
-    action: 'Swap UST for BUSD',
+    action: 'SwapBox UST for BUSD',
     total_value: 10.0,
     token_1: {
       amount: 151.38,
@@ -71,7 +71,7 @@ const TransactionTable_DATA = [
   },
   {
     id: 4,
-    action: 'Swap CRUX for WBNB',
+    action: 'SwapBox CRUX for WBNB',
     total_value: 67.73,
     token_1: {
       amount: 0.2,
@@ -86,7 +86,7 @@ const TransactionTable_DATA = [
   },
   {
     id: 5,
-    action: 'Swap TNN for WBNB',
+    action: 'SwapBox TNN for WBNB',
     total_value: 62.6,
     token_1: {
       amount: 0.2,
@@ -101,7 +101,7 @@ const TransactionTable_DATA = [
   },
   {
     id: 6,
-    action: 'Swap WBNB for TNN',
+    action: 'SwapBox WBNB for TNN',
     total_value: 166.07,
     token_1: {
       amount: 309.44,
@@ -116,7 +116,7 @@ const TransactionTable_DATA = [
   },
   {
     id: 7,
-    action: 'Swap BUSD for LUNA',
+    action: 'SwapBox BUSD for LUNA',
     total_value: 13.01,
     token_1: {
       amount: 564580,
@@ -131,7 +131,7 @@ const TransactionTable_DATA = [
   },
   {
     id: 8,
-    action: 'Swap WBNB for BUSD',
+    action: 'SwapBox WBNB for BUSD',
     total_value: 13.03,
     token_1: {
       amount: 69040,
@@ -146,7 +146,7 @@ const TransactionTable_DATA = [
   },
   {
     id: 9,
-    action: 'Swap BUSD for ETH',
+    action: 'SwapBox BUSD for ETH',
     total_value: 20.62,
     token_1: {
       amount: 0.01,
