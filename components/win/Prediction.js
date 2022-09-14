@@ -10,7 +10,7 @@ import 'swiper/css';
 
 import styles from './Prediction.module.css';
 
-let predictionData = [
+const predictionData = [
   {
     id: 1,
     numHashTag: '#23147',
@@ -768,8 +768,6 @@ const Prediction = () => {
       );
     }
   });
-
-  console.log(swiperItems);
 
   return (
     <>

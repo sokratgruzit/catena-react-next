@@ -95,7 +95,7 @@ const Form = () => {
           <Link href='/voting'>
             <div className={styles.backBtn}>
               <SmlArrowSvg className={styles.arrowSvg} />
-              <p className={styles.blueHover}>Back</p>
+              <p>Back Voting</p>
             </div>
           </Link>
           <h1>Make a Proposal</h1>

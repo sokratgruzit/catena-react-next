@@ -5,7 +5,7 @@ import DOMPurify from 'dompurify';
 import ChoiceItemRow from '../components/choiceItem/ChoiceItemRow';
 import ChoiceItemResult from '../components/choiceItem/ChoiceItemResult';
 import CountdownItem from '../components/countdownItem/CountdownItem';
-import VotingData from '../components/VotingData/VotingData';
+import VotingData from '../components/votingData/VotingData';
 import Button from '../../UI/button/Button';
 
 import {
@@ -205,6 +205,9 @@ const Proposal = () => {
                   {votingItem?.choices?.map((choice, index) => (
                     <ChoiceItemResult key={index} choice={choice} />
                   ))}
+                  <p className={styles.votedChoice}>
+                    you have voted for <span>{votingChoice.value}</span>
+                  </p>
                 </div>
               </div>
             )}

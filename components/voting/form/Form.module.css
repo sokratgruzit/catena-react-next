@@ -98,17 +98,6 @@
   color: rgba(255, 255, 255, 0.3);
 }
 
-.backBtn {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-}
-
-.backBtn p {
-  opacity: 1 !important;
-  color: rgba(255, 113, 82, 1);
-}
-
 .bottomBorder {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   margin: 50px auto 40px auto;
@@ -184,10 +173,24 @@
   transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
 }
 
+.backBtn p{
+  color: #FF7152;
+  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+}
+
 .arrowSvg{
   transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
   fill: #FF7152;
 }
+
+.backBtn:hover p{
+  color:#0500ff;
+}
+
+.backBtn:hover .arrowSvg{
+  fill:#0500ff;
+}
+
 
 .openLink{
   transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
