@@ -9,8 +9,6 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
 const DashboardAssetsSlider = () => {
-  const swiper = useSwiper();
-
   return (
     <div className={`container ${styles.marginTop}`}>
       <div className={styles.dashboardMid__wrapper}>

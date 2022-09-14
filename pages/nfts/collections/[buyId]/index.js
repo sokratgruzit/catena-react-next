@@ -52,60 +52,132 @@ const ownerItemData = [
 const detailsTableData = [
   {
     id: 0,
-    cmcx: '0.0123',
-    usd: '(~$5.028)',
-    fromImg: '/images/nft/nft_buy/item2.png',
-    from: 'BilanCh',
-    toImg: '/images/nft/nft_buy/item3.png',
-    to: '-',
-    fromAddress: '0xC7...061b',
-    toAddress: '0xC7...062b',
-    date: '4.7.2022',
-    time: '13:13',
-    event: 'Modified',
+    data: [
+      {
+        text: 'Modified',
+        type: 'text'
+      },
+      {
+        symbol: 'CMCX',
+        priceInCmcx: '0.0123',
+        priceInDollar: '(~$5.028)',
+        type: 'price'
+      },
+      {
+        img: '/images/nft/nft_buy/item2.png',
+        title: 'BilanCh',
+        subTitle: '0xC7...061b',
+        type: 'img_text'
+      },
+      {
+        img: '/images/nft/nft_buy/item3.png',
+        title: '-',
+        subTitle: '0xC7...062b',
+        type: 'img_text'
+      },
+      {
+        title: '4.7.2022',
+        subTitle: '13:13',
+        type: 'svg'
+      }
+    ]
   },
   {
     id: 1,
-    cmcx: '0.0123',
-    usd: '(~$5.028)',
-    fromImg: '/images/nft/nft_buy/item2.png',
-    from: 'BilanCh',
-    toImg: '/images/nft/nft_buy/item3.png',
-    to: '-',
-    fromAddress: '0xC7...061b',
-    toAddress: '0xC7...062b',
-    date: '4.7.2022',
-    time: '13:13',
-    event: 'Sold',
+    data: [
+      {
+        text: 'Sold',
+        type: 'text'
+      },
+      {
+        symbol: 'CMCX',
+        priceInCmcx: '0.0123',
+        priceInDollar: '(~$5.028)',
+        type: 'price'
+      },
+      {
+        img: '/images/nft/nft_buy/item2.png',
+        title: 'BilanCh',
+        subTitle: '0xC7...061b',
+        type: 'img_text'
+      },
+      {
+        img: '/images/nft/nft_buy/item3.png',
+        title: '-',
+        subTitle: '0xC7...062b',
+        type: 'img_text'
+      },
+      {
+        title: '4.7.2022',
+        subTitle: '13:13',
+        type: 'svg'
+      }
+    ],
   },
   {
     id: 2,
-    cmcx: '0.0123',
-    usd: '(~$5.028)',
-    fromImg: '/images/nft/nft_buy/item2.png',
-    from: 'BilanCh',
-    toImg: '/images/nft/nft_buy/item3.png',
-    to: '-',
-    fromAddress: '0xC7...061b',
-    toAddress: '0xC7...062b',
-    date: '4.7.2022',
-    time: '13:13',
-    event: 'Delisted',
+    data: [
+      {
+        text: 'Delisted',
+        type: 'text'
+      },
+      {
+        symbol: 'CMCX',
+        priceInCmcx: '0.0123',
+        priceInDollar: '(~$5.028)',
+        type: 'price'
+      },
+      {
+        img: '/images/nft/nft_buy/item2.png',
+        title: 'BilanCh',
+        subTitle: '0xC7...061b',
+        type: 'img_text'
+      },
+      {
+        img: '/images/nft/nft_buy/item3.png',
+        title: '-',
+        subTitle: '0xC7...062b',
+        type: 'img_text'
+      },
+      {
+        title: '4.7.2022',
+        subTitle: '13:13',
+        type: 'svg'
+      }
+    ]
   },
   {
     id: 3,
-    cmcx: '0.0123',
-    usd: '(~$5.028)',
-    fromImg: '/images/nft/nft_buy/item2.png',
-    from: 'BilanCh',
-    toImg: '/images/nft/nft_buy/item3.png',
-    to: '-',
-    toAddress: '0xC7...062b',
-    fromAddress: '0xC7...061b',
-    date: '4.7.2022',
-    time: '13:13',
-    event: 'Listed',
-  },
+    data: [
+      {
+        text: 'Listed',
+        type: 'text'
+      },
+      {
+        symbol: 'CMCX',
+        priceInCmcx: '0.0123',
+        priceInDollar: '(~$5.028)',
+        type: 'price'
+      },
+      {
+        img: '/images/nft/nft_buy/item2.png',
+        title: 'BilanCh',
+        subTitle: '0xC7...061b',
+        type: 'img_text'
+      },
+      {
+        img: '/images/nft/nft_buy/item3.png',
+        title: '-',
+        subTitle: '0xC7...062b',
+        type: 'img_text'
+      },
+      {
+        title: '4.7.2022',
+        subTitle: '13:13',
+        type: 'svg'
+      }
+    ]
+  }
 ];
 
 const collectionItems = [
@@ -215,7 +287,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context) {
   const client = await MongoClient.connect(
-    'mongodb+srv://sokrat:sokrat12345@cluster0.x2cvw.mongodb.net/cmcx?retryWrites=true&w=majority',
+    'mongodb+srv://sokrat:lalala12345@cluster0.x2cvw.mongodb.net/cmcx?retryWrites=true&w=majority',
   );
   const db = client.db();
 

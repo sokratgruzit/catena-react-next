@@ -6,11 +6,6 @@ import Button from '../../UI/button/Button';
 import CornerDecor from '../../UI/cornerDecor/CornerDecor';
 import AuctionTable from '../components/AuctionTable/AuctionTable';
 import FAQ from '../../faq/FAQ';
-import egg from '../../../public/images/earn/egg.png';
-import astro from '../../../../public/images/earn/astro.png';
-import orbit from '../../../public/images/earn/orbit.png';
-import yellowStar from '../../../public/images/earn/yellowStar.png';
-import ufo from '../../../public/images/earn/ufo.png';
 
 import styles from './CommunityAuctions.module.css';
 
@@ -358,19 +353,19 @@ const CommunityAuctions = props => {
       <div className={styles.auction__inner}>
         <div className={styles.auction__head}>
           <div className={styles.astro}>
-            <Image src={astro} alt='astro' />
+            <Image src='/images/earn/astro.png' alt='astro' />
           </div>
           <div className={styles.orbit}>
-            <Image src={orbit} alt='orbit' />
+            <Image src='/images/earn/orbit.png' alt='orbit' />
           </div>
           <div className={styles.yellowStar}>
-            <Image src={yellowStar} alt='yellowStar' />
+            <Image src='/images/earn/yellowStar.png' alt='yellowStar' />
           </div>
           <div className={styles.ufo}>
-            <Image src={ufo} alt='ufo' />
+            <Image src='/images/earn/ufo.png' alt='ufo' />
           </div>
           <div className={styles.egg}>
-            <Image src={egg} alt='egg' />
+            <Image src='/images/earn/egg.png' alt='egg' />
           </div>
           <div
             onClick={() => router.push('/earn/farms')}

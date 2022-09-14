@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 
+import { formatCurrency } from '../../../utils/formatCurrency';
 import Table from '../../../UI/table/Table';
 import Button from '../../../UI/button/Button';
 import PageNumber from './PageNumber';
@@ -8,104 +10,12 @@ import CornerDecor from '../../../UI/cornerDecor/CornerDecor';
 
 import styles from './InfoTables.module.css';
 
-const InfoTableTokens_Data = [
-  {
-    id: 0,
-    imgSrc: '../../images/Info/TopTokens/1.png',
-    name: 'Wrapped BNB (WBNB)',
-    price_change: 4.06,
-    price: 327.09,
-    volume_24h: 259.12,
-    liquidity: 2.47,
-  },
-  {
-    id: 1,
-    imgSrc: '../../images/Info/TopTokens/2.png',
-    name: 'BUSD Token (BUSD)',
-    price_change: -4.06,
-    price: 1.0,
-    volume_24h: 123.43,
-    liquidity: 1.66,
-  },
-  {
-    id: 2,
-    imgSrc: '../../images/Info/TopTokens/3.png',
-    name: 'Tether USD (USDT)',
-    price_change: 4.06,
-    price: 0.99,
-    volume_24h: 259.12,
-    liquidity: 1.04,
-  },
-  {
-    id: 3,
-    imgSrc: '../../images/Info/TopTokens/4.png',
-    name: 'USD Coin (USDC)',
-    price_change: 4.06,
-    price: 1,
-    volume_24h: 101.67,
-    liquidity: 359.59,
-  },
-  {
-    id: 4,
-    imgSrc: '../../images/Info/TopTokens/5.png',
-    name: 'Green Satoshi Token (GST)',
-    price_change: 4.06,
-    price: 19.88,
-    volume_24h: 100.53,
-    liquidity: 22.49,
-  },
-  {
-    id: 5,
-    imgSrc: '../../images/Info/TopTokens/6.png',
-    name: 'LUNA (Wormhole) (LUNA)',
-    price_change: 4.06,
-    price: 0.00018,
-    volume_24h: 36.44,
-    liquidity: 2.47,
-  },
-  {
-    id: 6,
-    imgSrc: '../../images/Info/TopTokens/7.png',
-    name: 'Core Multi Chain',
-    price_change: 4.06,
-    price: 5.03,
-    volume_24h: 259.12,
-    liquidity: 1.04,
-  },
-  {
-    id: 7,
-    imgSrc: '../../images/Info/TopTokens/8.png',
-    name: 'Green Metaverse Token (GMT)',
-    price_change: 4.06,
-    price: 1.44,
-    volume_24h: 123.43,
-    liquidity: 359.59,
-  },
-  {
-    id: 8,
-    imgSrc: '../../images/Info/TopTokens/9.png',
-    name: 'BTCB Tokne (BTCB)',
-    price_change: 4.06,
-    price: 30442.32,
-    volume_24h: 100.53,
-    liquidity: 22.49,
-  },
-  {
-    id: 9,
-    imgSrc: '../../images/Info/TopTokens/10.png',
-    name: 'Etherium Token',
-    price_change: 4.06,
-    price: 2060.94,
-    volume_24h: 36.44,
-    liquidity: 22.47,
-  },
-];
-
 const TokensTable = props => {
   const itemsPerPage = props.itemsPerPage || 10;
   const totalPages = 100;
   const [pageCountTokens, setPageCountTokens] = useState(1);
   const [data, setData] = useState();
+  const router = useRouter();
   const [filteredColumn, setFilteredColumn] = useState({
     colName: '',
     order: 'ASC',
@@ -115,9 +25,44 @@ const TokensTable = props => {
     fetch(
       `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=${itemsPerPage}&page=${pageCountTokens}&sparkline=false`,
     )
-      .then(response => response.json())
-      .then(data => setData(data));
-  }, [itemsPerPage, pageCountTokens]);
+    .then(response => response.json())
+    .then(data => {
+      data.map(item => {
+        let tData = [
+          {
+            text: item.market_cap_rank,
+            type: 'text'
+          },
+          {
+            img: item.image,
+            title: item.name,
+            onClick: () => router.push(`/info/tokens/${item.id}`),
+            type: 'img_text'
+          },
+          {
+            text: formatCurrency(item.current_price),
+            type: 'text'
+          },
+          {
+            priceChange: item.price_change_percentage_24h,
+            type: 'price_change'
+          },
+          {
+            text: formatCurrency(item.market_cap_change_24h),
+            type: 'text'
+          },
+          {
+            text: formatCurrency(item.total_volume),
+            type: 'text'
+          }
+        ];
+
+        item.data = tData;
+      });
+
+      setData(data);
+    });
+  }, [itemsPerPage, pageCountTokens, router]);
 
   const sorting = col => {
     let sort;
@@ -138,6 +83,7 @@ const TokensTable = props => {
       setFilteredColumn({ colName: col, order: 'ASC' });
     }
   };
+
   const filterArrows = col => {
     let title = col;
     title.trim();

@@ -396,35 +396,35 @@ const INIT_STATE = {
     },
   },
   votingData: {
-    QmbtMK57ksC7DEeqkqKSx7ehFg1ahYMCtiAAAiGaYjVbw4: {
+    'QmbtMK57ksC7DEeqkqKSx7ehFg1ahYMCtiAAAiGaYjVbw4': {
       id: 0,
       title: 'Stop Minting more CORE',
       date: 'Ends Mar 6th, 2022 11:15',
       location: 'Community',
       activeStatus: true,
     },
-    QmbtMK57ksC7DEeqkqKSx7ehFg1ahYMCtiAAAiGaYjVbw4: {
+    'QmbtMK57ksC7DEeqkqKSx7ehFg1ahYMCtiAAAiGaYjVbw4': {
       id: 1,
       title: 'Stop Minting more CORE',
       date: 'Ends Mar 6th, 2022 11:15',
       location: 'Core',
       activeStatus: true,
     },
-    QmbtMK57ksC7DEeqkqKSx7ehFg1ahYMCtiAAAiGaYjVbw4: {
+    'QmbtMK57ksC7DEeqkqKSx7ehFg1ahYMCtiAAAiGaYjVbw4': {
       id: 2,
       title: 'Stop Minting more CORE',
       date: 'Ends Mar 6th, 2022 11:15',
       location: 'Community',
       activeStatus: false,
     },
-    QmbtMK57ksC7DEeqkqKSx7ehFg1ahYMCtiAAAiGaYjVbw4: {
+    'QmbtMK57ksC7DEeqkqKSx7ehFg1ahYMCtiAAAiGaYjVbw4': {
       id: 3,
       title: 'Stop Minting more CORE',
       date: 'Ends Mar 6th, 2022 11:15',
       location: 'Core',
       activeStatus: false,
     },
-    QmbtMK57ksC7DEeqkqKSx7ehFg1ahYMCtiAAAiGaYjVbw4: {
+    'QmbtMK57ksC7DEeqkqKSx7ehFg1ahYMCtiAAAiGaYjVbw4': {
       id: 4,
       title: 'Stop Minting more CORE',
       date: 'Ends Mar 6th, 2022 11:15',

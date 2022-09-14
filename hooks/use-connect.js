@@ -4,7 +4,7 @@ import { injected, walletConnect } from './connector';
 import { useWeb3React } from '@web3-react/core';
 
 const useConnect = () => {
-  const { activate, account, library, connector, active, deactivate } =
+  const { activate, account, library, connector, active, deactivate, chainId } =
     useWeb3React();
 
   const [isActive, setIsActive] = useState(false);
@@ -14,6 +14,7 @@ const useConnect = () => {
   const dispatch = useDispatch();
 
   const isConnected = useSelector(state => state.connect.isConnected);
+
   const providerType = useSelector(state => state.connect.providerType);
 
   // Init Loading
@@ -122,8 +123,10 @@ const useConnect = () => {
       disconnect,
       library,
       shouldDisable,
+      providerType,
+      chainId
     }),
-    [isActive, isLoading, shouldDisable, account, walletModal],
+    [isActive, isLoading, shouldDisable, account, walletModal, providerType, chainId],
   );
 
   return values;
