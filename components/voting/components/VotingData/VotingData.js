@@ -131,9 +131,8 @@ const dataForTable = VotingTableData.map((vote, index) => ({
       text: (
         <>
           {vote.address}
-          <a style={{ background: 'red' }}>
+          <a className={styles.openLink}>
             <OpenSvg />
-            shit
           </a>
         </>
       ),
@@ -144,47 +143,45 @@ const dataForTable = VotingTableData.map((vote, index) => ({
 
 const VotingData = () => {
   const [width, height] = useWindowDimension();
-  const [showItemsCount, setShowItemsCount] = useState(20);
+  const [showItemsCount, setShowItemsCount] = useState(10);
 
   useEffect(() => {
     //fetch data for votes
   }, []);
 
   return (
-    <div className={`container ${styles.wrapper}`}>
-      <div className={styles.inner}>
-        <CornerDecor />
-        <div className={styles.header}>
-          <p>
-            Votes <span>{dataForTable.length}</span>
-          </p>
-        </div>
-        <div className={styles.list}>
-          {width >= 1023 ? (
-            <Table
-              tableLabels={['Address', 'Result', 'Date']}
-              tableData={dataForTable}
-              type={'proposal_votes'}
-            />
-          ) : (
-            dataForTable
-              .slice(0, showItemsCount)
-              .map((item, index) => (
-                <ListItemRow key={index} data={item} type={'proposal_votes'} />
-              ))
-          )}
-        </div>
-        {dataForTable.length > showItemsCount && (
-          <div
-            className={styles.seeMore}
-            onClick={() => setShowItemsCount(prevState => prevState + 20)}
-          >
-            <p>See More</p>
-            <VectorSvg className={styles.VectorSvg} />
-          </div>
+    <main className={styles.inner}>
+      <CornerDecor />
+      <div className={styles.header}>
+        <p>
+          Votes <span>{dataForTable.length}</span>
+        </p>
+      </div>
+      <div className={styles.list}>
+        {width >= 1023 ? (
+          <Table
+            tableLabels={['Address', 'Result', 'Date']}
+            tableData={dataForTable.slice(0, showItemsCount)}
+            type={'proposal_votes'}
+          />
+        ) : (
+          dataForTable
+            .slice(0, showItemsCount)
+            .map((item, index) => (
+              <ListItemRow key={index} data={item} type={'proposal_votes'} />
+            ))
         )}
       </div>
-    </div>
+      {dataForTable.length > showItemsCount && (
+        <div
+          className={styles.seeMore}
+          onClick={() => setShowItemsCount(prevState => prevState + 20)}
+        >
+          <p>See More</p>
+          <VectorSvg className={styles.VectorSvg} />
+        </div>
+      )}
+    </main>
   );
 };
 

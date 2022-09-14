@@ -48,10 +48,6 @@
   border: 2px solid #ffffff;
   margin-right: 16px;
 }
-.redWord {
-  color: #e94a4a;
-}
-
 .voteButton{
   height: 42px;
   margin-top: 30px;
@@ -88,24 +84,12 @@
   color: #ffffff;
   opacity: 0.7;
 }
-.hotLink {
-  text-overflow: ellipsis;
-  overflow: hidden;
-  width: 90%;
-  white-space: nowrap;
-}
 .blueHover{
   transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
   color:#FF7152;
 }
 .backBtn:hover .blueHover {
   color: #0500ff;
-}
-.svgHoverBlue path,
-.svgHoverBlue,
-.svgHoverOrange path,
-.orangeHover {
-  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
 }
 .arrowSvg{
   transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
@@ -116,14 +100,12 @@
   transform: translateX(-5px);
   fill: #0500ff;
 }
-
 .itemInner a,.itemInner svg{
   transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
 }
 .itemInner:hover a{
   color:#FF7152;
 }
-
 .itemInner:hover svg{
   fill:#FF7152;
 }
@@ -146,10 +128,6 @@
   display: block;
   margin-top:18px;
   margin-bottom: 18px;
-}
-.details__wrapper {
-  display: flex;
-  flex-direction: column;
 }
 .details {
   width: 433px;
@@ -182,7 +160,6 @@
   display: flex;
   justify-content: space-between;
 }
-
 .item p:first-child{
   font-size: 15px;
   line-height: 21px;
@@ -203,14 +180,10 @@
 .details > p {
   opacity: 1;
 }
-
 .dateData{
   color: #ffffff !important;
   font-size: 13px;
   line-height: 18px;
-}
-.green {
-  color: #66bb6a;
 }
 .detailsCont {
   display: flex;
@@ -225,13 +198,11 @@
   font-size: 16px;
   line-height: 22px;
 }
-
 .borderBottom{
   padding-bottom: 18px;
   margin-bottom: 18px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
-
 .itemInner > p {
   color: #ffffff;
 }
@@ -248,132 +219,15 @@
   display: flex;
   flex-direction: column;
 }
-.green {
-  color: #66bb6b;
-}
-.grey p:nth-child(1) {
-  color: #b2b4b7;
-}
-.voteNow {
-  padding: 4px 6px;
-  border: 1px solid #ff7152;
-  border-radius: 15px;
-  color: #ff7152;
-  font-size: 10px;
-  line-height: 14px;
-}
-.leftContainerMargin {
-  margin-top: 10px;
-}
 .title {
   margin-bottom: 30px;
   margin-top: 30px;
   font-size: 30px;
   line-height: 42px;
 }
-.blockquote p:nth-child(2) {
-  opacity: 0.7;
-  margin-top: 10px;
-}
-.syrupPool p:nth-child(1) {
-  margin-top: 10px;
-}
-.syrupPool {
-  margin-top: 30px;
-}
-.syrupPool__item {
-  opacity: 0.7;
-}
-.warning {
-  display: flex;
-  flex-direction: column;
-}
-.warning p:nth-child(3) {
-  opacity: 0.7;
-}
-.syrupPool a {
-  color: #ff7152;
-  opacity: 0.7;
-  border-bottom: 2px solid rgba(255, 113, 82, 0);
-  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
-}
-.syrupPool a:hover {
-  border-bottom: 2px solid rgba(255, 113, 82, 1);
-}
-.warning svg {
-  margin-right: 10px;
-}
-.warning__inner {
-  margin: 0 15px 0 0;
-  color: #ffa800;
-}
-.proposal__orangeLine1 {
-  position: absolute;
-  top: 34px;
-  left: 0;
-}
-.grey p:nth-child(4) {
-  opacity: 0.3;
-}
-.proposal__flexDiv {
-  display: flex;
-  justify-content: space-between;
-}
-.grey p:nth-child(5) {
-  color: #b2b4b7;
-  margin-top: 20px;
-}
-.proposal__orangeLine2 {
-  position: absolute;
-  top: 120px;
-  left: 0;
-}
-.details__leftLontainer div:nth-child(15) {
-  display: flex;
-  justify-content: space-between;
-}
-.proposal__blackLine1,
-.proposal__blackLine2 {
-  width: 100%;
-  background: #ffffff;
-  opacity: 0.06;
-  border-radius: 2px;
-  height: 6px;
-  margin: 10px 0 5px 0;
-  position: relative;
-}
-.proposal__orangeLine1 {
-  width: 98%;
-  background: #ff7152;
-  border-radius: 2px;
-  height: 6px;
-  margin: 10px 0 5px 0;
-  position: absolute;
-  top: 24px;
-  left: 0;
-}
-.proposal__orangeLine2 {
-  width: 3%;
-  background: #ff7152;
-  border-radius: 2px;
-  height: 6px;
-  margin: 10px 0 5px 0;
-  position: absolute;
-  top: 107px;
-  left: 0;
-}
 .votes {
   display: flex;
   flex-direction: column;
-}
-.voteLength1 {
-  width: 5%;
-  border: 3px solid#FF7152;
-  border-radius: 3px;
-  position: absolute;
-}
-.red {
-  color: #e94a4a;
 }
 .resultActive {
   display: block;
@@ -382,7 +236,6 @@
   height: fit-content;
   margin-top: 10px;
 }
-
 .resultHeader{
   display: flex;
   align-items: center;
@@ -390,47 +243,38 @@
   cursor: pointer;
   width: fit-content;
 }
-
 .tagWrapper{
   display: flex;
   gap: 8px;
   align-items: center;
 }
-
 .connectWallet{
   width: 100%;
   height: 42px;
   margin-top: 30px;
 }
-
 .mainBody h1{
   font-size: 30px;
   line-height: 42px;
 }
-
 .mainBody h2{
   font-size: 20px;
   line-height: 28px;
 }
-
 .mainBody p{
   color: #B2B4B7;
 }
-
 .mainBody li{
   color: #B2B4B7;
 }
-
 .mainBody a{
   color:#FF7152;
   text-decoration: underline;
   transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
 }
-
 .mainBody a:hover{
   color:#0500ff;
 }
-
 .mainBody li::before{
   background-color: #0500ff;
   border-radius: 50%;
@@ -441,17 +285,14 @@
   height: 8px;
   width: 8px;
 }
-
 .mainBody strong{
   font-size: inherit;
   line-height: inherit;
 }
-
 .mainBody em{
   font-size: inherit;
   line-height: inherit;
 }
-
 .gradient{
   position: absolute;
   width: 440px;
@@ -461,7 +302,6 @@
   z-index: -10;
   background: radial-gradient(50% 50% at 50% 50%, #000F2E 0%, rgba(0, 5, 15, 0) 100%);
 }
-
 .itemInner a{
   line-height: 21px;
 }
@@ -481,40 +321,31 @@
   .ProposalInfo {
     display: block;
   }
-
   .proposalSection{
     padding-bottom: 0px;
     margin-bottom: 0px;
   }
-  
-  .border,
-  .proposal__current {
+  .border {
     width: 100%;
   }
-
   .title {
     width: 60%;
   }
-
   .blockquote {
     width: 80%;
   }
-
   .proposalSection{
     width: 100%;
   }
-
   .details {
     margin-top: 30px;
     margin-bottom: 30px;
     width: 100%;
     height: 244px;
   }
-
   .proposalSection{
     border-bottom: none;
   }
-
   .gradient{
     width: 702px;
     height: 702px;
@@ -522,24 +353,19 @@
     right: 50%;
     transform: translate(50%,-50%);
   }
-
   .detailsWrapper {
-    position: relative;
     display: flex;
     flex-direction: column-reverse;
     height: fit-content;
   }
-
   .result{
     width: 100%;
   }
-
   .borderBottom{
     padding-bottom: 0;
     margin-bottom: 10px;
     border-bottom: none;
   }
-
   .backBtn {
     margin-bottom: 30px;
   }
@@ -548,15 +374,11 @@
 @media (max-width: 767px) {
   .ProposalInfo {
     flex-direction: column;
-    width: 100%;
   }
   .title {
     width: 100%;
   }
   .blockquote {
     width: 80%;
-  }
-  .syrupPool a {
-    font-size: 13px;
   }
 }

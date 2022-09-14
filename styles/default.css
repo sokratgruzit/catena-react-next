@@ -123,7 +123,6 @@ button {
     max-width: 1920px;
     padding: 0px 200px;
     margin: 0px auto;
-    display: flex;
     position: relative;
 }
 .font-20{

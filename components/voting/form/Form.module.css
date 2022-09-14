@@ -3,12 +3,14 @@
   display: flex;
   justify-content: center;
 }
+
 .backBtn {
   display: flex;
   align-items: center;
   cursor: pointer;
   margin-right: auto;
 }
+
 .header {
   display: flex;
   flex-direction: column;
@@ -16,9 +18,11 @@
   width: 600px;
   max-width: 100%;
 }
+
 .header svg {
   margin-right: 7px;
 }
+
 .inner {
   padding: 30px;
   display: flex;
@@ -30,6 +34,7 @@
   margin-bottom: 150px;
   max-width: 100%;
 }
+
 .ProposalForm {
   display: flex;
   justify-content: center;
@@ -39,11 +44,13 @@
   max-width: 100%;
 }
 
+
 .ProposalForm h1 {
   margin: 10px 0 30px 0;
   font-size: 30px;
   line-height: 42px;
 }
+
 .input {
   background-color: transparent;
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -54,12 +61,15 @@
   transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
   max-width: 100%;
 }
+
 .input:focus {
   border-color: rgba(5, 0, 255, 1);
 }
+
 .title input {
   height: 44px;
 }
+
 .title h2 {
   margin-bottom: 8px;
   font-size: 12px;
@@ -67,9 +77,11 @@
   letter-spacing: 0.02em;
   color: rgba(255, 255, 255, 0.5);
 }
+
 .title {
   margin-bottom: 24px;
 }
+
 
 .content h3{
   font-size: 12px;
@@ -77,6 +89,7 @@
   color: rgba(255, 255, 255, 0.5);
   letter-spacing: 0.02em;
 }
+
 .tip {
   margin-bottom: 8px;
   margin-top: 3px;
@@ -84,38 +97,25 @@
   line-height: 16px;
   color: rgba(255, 255, 255, 0.3);
 }
+
 .backBtn {
   display: flex;
   align-items: center;
   cursor: pointer;
 }
+
 .backBtn p {
   opacity: 1 !important;
   color: rgba(255, 113, 82, 1);
 }
-.content textarea {
-  background-color: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 4px;
-  width: 540px;
-  color: #ffffff;
-  height: 244px;
-  resize: none;
-  padding-left: 15px;
-  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
-}
-.content:focus {
-  border-color: rgba(5, 0, 255, 1);
-}
-.content textarea:focus {
-  border-color: rgba(5, 0, 255, 1);
-}
+
 .bottomBorder {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   margin: 50px auto 40px auto;
   display: flex;
   width: 100%;
 }
+
 .choices  h3:first-child{
   color: rgba(255, 255, 255, 0.5);
   font-size: 12px;
@@ -123,26 +123,17 @@
   letter-spacing: 0.02em;
 
 }
-.addBtn__inner {  
-  /* border: 1px solid #ffffff; */
-  box-sizing: border-box;
-  border-radius: 4px;
-  padding: 8px 16px;
-}
-.addBtn svg {
-  margin-right: 5px;
-}
-.addBtn {
-  margin-top: 25px;
-}
+
 .actions {
   display: flex;
   flex-direction: column;
 }
+
 .actionsWrap {
   display: flex;
   gap: 20px;
 }
+
 .actionsWrap input {
   background-color: transparent;
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -154,73 +145,50 @@
   font-size: 12px;
   line-height: 16px;
 }
+
 .actionsWrap p{
   font-size: 12px;
   line-height: 16px;
   letter-spacing: 0.02em;
   color: rgba(255, 255, 255, 0.5);
 }
-.date {
-  margin-right: 30px;
-}
+
 .actions h3 {
   margin: 0 0 38px 0;
   line-height: 16px;
 }
+
 .marginTop {
   margin-top: 25px;
 }
+
 .snapShot {
   margin: 26px 0;
   display: flex;
   align-items: center;
 }
+
 .snapShot p {
   opacity: 1;
   margin-right: 15px;
   transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
 }
+
 .snapShot svg {
   margin-left: 7px;
   cursor: pointer;
 }
+
 .snapShot a {
   color: rgba(5, 0, 255, 1);
   transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
 }
-.date input[type="date"]::-webkit-datetime-edit-text,
-.date input[type="date"]::-webkit-datetime-edit-month-field,
-.date input[type="date"]::-webkit-datetime-edit-day-field,
-.date input[type="date"]::-webkit-datetime-edit-year-field {
-  opacity: 0.7;
-}
-.hover {
-  display: flex;
-  align-items: center;
-}
-.hover a:hover {
-  color: #ff7152;
-}
-.hover:hover .svgHoverOrange path {
-  stroke: #ff7152;
-}
-.backBtn:hover .blueHover {
-  color: #0500ff;
-}
-.snapShot,
-.backBtn p,
-.snapShot svg,
-.svgHoverOrange path {
-  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
-}
+
 .arrowSvg{
   transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
   fill: #FF7152;
 }
-.backBtn:hover .arrowSvg{
-  transform: translateX(-5px);
-  fill: #0500ff;
-}
+
 .openLink{
   transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
   display: flex;
@@ -234,6 +202,7 @@
 .openLink:hover .openSvg{
   fill:#ff7152;
 }
+
 .openSvg{
   width: 12.75px;
   height: 13px;
@@ -305,27 +274,36 @@
   color:#E94A4A;
   margin-top: 8px;
 }
+
 /*Laptop 1440*/
 @media (max-width: 1900px) {
 }
+
 /*Ipad Pro 1024*/
 @media (max-width: 1300px) {
   .galaxy{
     display: none;
   }
+  
   .roundGalaxy{
     display: none;
   }
+  
 }
+
 /*Ipad 768*/
 @media (max-width: 1023px) {
 }
+
 /*Mobile 320*/
 @media (max-width: 667px) {
   .actionsWrap{
     flex-direction: column;
   }
+  
   .actionsWrap input{
     width: 100%;
   }
+  
 }
+

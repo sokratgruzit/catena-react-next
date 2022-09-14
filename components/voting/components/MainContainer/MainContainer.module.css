@@ -7,9 +7,6 @@
   height: calc(100vw * 0.7);
   max-width: 1920px;
 }
-.marqueeContainer {
-  display: flex;
-}
 .leftContainer {
   text-align: left;
   width: 50%;
@@ -31,10 +28,6 @@
   font-size: 51px;
   line-height: 66px;
 }
-
-.flex {
-  display: flex;
-}
 .rightContainer {
   width: 50%;
   position: relative;
@@ -46,7 +39,6 @@
   display: flex;
   min-height: 600px;
 }
-
 .proposalSvg{
   margin-right: 10px;
 }
