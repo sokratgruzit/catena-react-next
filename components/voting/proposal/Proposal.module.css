@@ -305,6 +305,16 @@
 .itemInner a{
   line-height: 21px;
 }
+.votedChoice{
+  font-size: 13px;
+  line-height: 18px;  
+  color: rgba(255, 255, 255, 0.3);
+}
+.votedChoice span{
+  margin-left: 5px;
+  font-size: 13px;
+  line-height: 18px; 
+}
 /*Laptop 1440*/
 @media (max-width: 1900px) {
 }

@@ -148,8 +148,12 @@ input[type="number"] {
 }
 .quill{
   border-radius: 4px;
-  border:1px solid rgba(255, 255, 255, 0.1)
+  border:1px solid rgba(255, 255, 255, 0.1);
+  transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
 }
+/* .quill:focus-within{
+  border: 1px solid #0500ff;
+} */
 .ql-toolbar.ql-snow{
   border: none !important;
 }
@@ -168,6 +172,7 @@ input[type="number"] {
 .ql-editor{
   min-height: 200px;
 }
+
 .ql-editor h1{
   font-size: 30px !important;  
 }

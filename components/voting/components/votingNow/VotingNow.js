@@ -19,7 +19,7 @@ import {
 
 import ListItemRow from '../../../UI/listItem/ListItemRow';
 import RunningText from '../runningText/RunningText';
-import VotingNowTable from '../VotingNowTable/VotingNowTable';
+import VotingNowTable from '../votingNowTable/VotingNowTable';
 
 const votingData = [
   {

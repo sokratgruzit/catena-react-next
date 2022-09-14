@@ -62,7 +62,9 @@ const VotingNowTable = ({ votingData, activeTab, activeTimeframe }) => {
         </div>
       )}
       {filteredData.length === 0 && (
-        <div className={styles.noProposal}>No proposals found</div>
+        <div className={styles.noProposal}>
+          <p>No proposals found</p>
+        </div>
       )}
       {filteredData.slice(0, showItemsCount).map(item => {
         return (
