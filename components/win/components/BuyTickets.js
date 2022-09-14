@@ -20,7 +20,7 @@ const BuyTickets = () => {
             setValue(e.target.value);
         }else {
             value === 100;
-        }     
+        }
     }
     const ticketBtns = () => {
         dispatch({
@@ -44,7 +44,7 @@ const BuyTickets = () => {
                             }}
                         >
                             <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M1 1L10 10M1 10L10 1" stroke="white" strokeWidth="2" strokeLinecap="round"/>
+                                <path d="M1 1L10 10M1 10L10 1" stroke="white" strokeWidth="2" strokeLinecap="round"/>
                             </svg>
                         </button>
                     </div>
@@ -67,7 +67,7 @@ const BuyTickets = () => {
                                 {cost} CMCX
                             </p>
                         </div>
-                        <div className={styles.cost}>                            
+                        <div className={styles.cost}>
                             <p>
                                 Cost
                             </p>
@@ -75,9 +75,9 @@ const BuyTickets = () => {
                                 {cost} CMCX
                             </p>
                         </div>
-                        <div className={styles.costBorder}>                    
+                        <div className={styles.costBorder}>
                             <p>
-                                {discountPercent}% Bulk Discount 
+                                {discountPercent}% Bulk Discount
                                 <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <circle cx="6.5" cy="6.5" r="6.25" stroke="#BFC0C3" strokeWidth="0.5"/>
                                     <path d="M6.068 8.348H7.364V7.4C8.168 6.968 8.72 6.128 8.72 5.168C8.72 3.764 7.532 2.612 6.068 2.612V3.848C6.824 3.848 7.388 4.436 7.388 5.168C7.388 5.9 6.824 6.488 6.068 6.488V8.348ZM6.68 11.084C7.208 11.084 7.64 10.676 7.64 10.124C7.64 9.596 7.208 9.164 6.68 9.164C6.128 9.164 5.72 9.596 5.72 10.124C5.72 10.676 6.128 11.084 6.68 11.084Z" fill="#BFC0C3"/>
@@ -87,7 +87,7 @@ const BuyTickets = () => {
                                 <svg width="10" height="4" viewBox="0 0 10 4" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M1 1.68263C4.4284 5.72434 4.6972 -1.08444 9 1.68263" stroke="#BFC0C3" strokeLinecap="round"/>
                                 </svg>
-                                {discountCake} CMCX    
+                                {discountCake} CMCX
                             </p>
                         </div>
                         <div className={styles.yourPay}>

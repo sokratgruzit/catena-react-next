@@ -49,6 +49,11 @@
     display: flex;
     justify-content: space-between;
 }
+.ballItem{
+    position: relative;
+    width: 51px;
+    height: 51px;
+}
 .details {
     display: flex;
     justify-content: center;
@@ -57,7 +62,7 @@
     margin-top: 50px;
 }
 .details button {
-    color: blue;
+    color: #0500FF;
 }
 .history {
     display: flex;
@@ -78,6 +83,13 @@
 .latestActive {
     display: block;
     background-color: yellow;
+}
+.previous{
+    width: 13px;
+    height: 10px;
+}
+.vectorSvg{
+    stroke:#0500FF ;
 }
 @media (max-width: 1023px) {
     .background {

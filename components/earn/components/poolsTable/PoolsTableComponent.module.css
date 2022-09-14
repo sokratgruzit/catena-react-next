@@ -1,0 +1,140 @@
+.itemWrapper{
+  display: flex;
+  flex-direction: column;
+}
+
+.headerSection{
+  display: flex;
+  align-items: center ;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 30px;
+}
+
+.headerSection h1{
+  margin-right: auto;
+}
+
+.questionMarkIcon{
+  margin-left: 4px;
+}
+
+.subTitle{
+  font-size: 12px;
+  line-height: 17px;
+  color: #627EEA;
+  opacity: 0.7;
+}
+
+.logoWrapper svg:last-child{
+  position: absolute;
+  left: 60%;
+  margin-bottom: 10px;
+}
+
+.headerSection h1{
+  display: flex;
+  align-items: center;
+}
+
+.logoWrapper{
+  position: relative;
+  margin-right: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.itemRow{
+  display: flex;
+  justify-content: space-between;
+}
+
+.itemRow p{
+  font-size: 12px;
+  line-height: 17px;
+}
+
+.itemRow p:first-child{
+  min-width: 148px;
+  color: #627EEA;
+  opacity: 0.7;
+}
+
+.autoBodyWrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: 15px;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+  margin-bottom: 15px;
+}
+
+.autoRow{
+  display: flex;
+  justify-content: space-between;
+}
+
+.autoRow:first-child{
+  margin-bottom: 5px;
+  margin-top: 30px;
+}
+
+.autoRow:last-child{
+  margin-top: 5px;
+}
+
+.autoRow p:first-child{
+  color: #627EEA;
+}
+
+.autoRow span{
+  color: #C4C4C4;
+}
+
+.connectButton{
+  width:100%;
+  height: 42px;
+  margin-top: 5px;
+}
+
+.manualRow{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+  padding-bottom: 15px;
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+.manualRow p{
+  display: flex;
+  align-items: center;
+  color: #627EEA;
+}
+
+.expandButton{
+  width: fit-content;
+  margin: auto;
+  color: #0500FF;
+  cursor: pointer;
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+}
+
+.VectorSvg{
+  stroke: #0500FF;
+  transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+}
+
+.vectorActive{
+  transform: rotateZ(-180deg);
+}
+
+.MathSignSvg{
+  cursor: pointer;
+}
+
+.MathSignSvg:hover{
+  opacity: 0.7;
+}

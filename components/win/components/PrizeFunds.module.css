@@ -6,19 +6,32 @@
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     margin: 0 40px;
 }
-.blackHoule {
+.blackHole{
     position: absolute;
     z-index: -1;
+    width: 284px;
+    height: 413px;
 }
 .star {
     position: absolute;
     top: -5%;
     left: 50%;
+    width: 48px;
+    height: 45px;
 }
 .littleStar {
     position: absolute;
     top: 5%;
-    left: 47%;    
+    left: 47%;   
+    width: 26px;
+    height: 25px; 
+}
+.circle{
+    width: 8.3px;
+    height: 8.3px;
+    background-color: #0500FF;
+    display: inline-block;
+    border-radius: 50%;
 }
 .title h1 {
     font-size: 20px;
@@ -35,7 +48,7 @@
 .description {
     opacity: 0.7;
 }
-.description svg {
+.description span {
     opacity: 1;
     margin-right: 10px;
 }

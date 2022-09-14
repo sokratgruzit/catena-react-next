@@ -10,7 +10,7 @@ import SecondBlock from './SecondBlock/SecondBlock';
 import ChartBlock from './ChartBlock/ChartBlock';
 import TokensTable from '../InfoTables/TokensTable';
 import TransactionTable from '../InfoTables/TransactionTable';
-import { StarSVG, OpenSVG, GoBackSVG } from '../../../svg/InfoIcons';
+import { OpenSvg, StarSvg, SmlArrowSvg } from '../../../svg';
 
 import styles from './PoolsSection.module.css';
 
@@ -24,13 +24,13 @@ const PoolsSection = ({ data }) => {
             onClick={() => router.push(`/info/pools`)}
             className={styles.goBackText}
           >
-            <GoBackSVG />
+            <SmlArrowSvg />
             <p>Back To Pools</p>
           </div>
         </div>
         <InfoRoutes />
         <div className={styles.starWrapper}>
-          <StarSVG
+          <StarSvg
             className={styles.starSVG}
             onClick={() => router.push(`/info/pools/watchlist`)}
           />
@@ -56,7 +56,7 @@ const PoolsSection = ({ data }) => {
               alt='logo2'
             />
             <p>{data.name}</p>
-            <StarSVG className={styles.starSVG} />
+            <StarSvg className={styles.starSVG} />
           </div>
           <div className={styles.titleBottomRow}>
             <Image
@@ -84,7 +84,7 @@ const PoolsSection = ({ data }) => {
         <div className={styles.view}>
           <div className={styles.name}>
             <p>View on BscScan</p>
-            <OpenSVG />
+            <OpenSvg />
           </div>
           <div className={styles.buttons}>
             <Button

@@ -1,5 +1,4 @@
 import React from 'react';
-import Image from 'next/image';
 
 import InfoRoutes from '../components/InfoRoutes/InfoRoutes';
 import SearchBar from '../components/SearchBar/SearchBar';

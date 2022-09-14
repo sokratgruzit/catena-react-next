@@ -5,11 +5,10 @@ import Table from '../../../UI/table/Table';
 import Button from '../../../UI/button/Button';
 import CornerDecor from '../../../UI/cornerDecor/CornerDecor';
 import PageNumber from './PageNumber';
-import { PaginationButtonSVG } from '../../../svg/InfoIcons';
+import { PaginationButtonSvg } from '../../../svg';
 
 import styles from './InfoTables.module.css';
 
-<<<<<<< HEAD
 const TransactionTable_DATA = [
   {
     id: 0,
@@ -163,8 +162,6 @@ const TransactionTable_DATA = [
   },
 ];
 
-=======
->>>>>>> 07548b7b92cfcb3c742dd602bef339bf043a8643
 const Table__Types = [
   {
     type: 'All',
@@ -190,310 +187,310 @@ const TransactionTable = () => {
       data: [
         {
           title: 'Swap Elongate 2 for WBNB',
-          type: 'svg'
+          type: 'svg',
         },
         {
           text: formatCurrency(36.09),
-          type: 'text'
+          type: 'text',
         },
         {
           text: formatCurrency(9500),
           text2: 'Elongate 2',
-          type: 'multi_text'
+          type: 'multi_text',
         },
         {
           text: formatCurrency(0.11),
           text2: 'WBNB',
-          type: 'multi_text'
+          type: 'multi_text',
         },
         {
           title: '0x20...139b',
-          type: 'svg'
+          type: 'svg',
         },
         {
           text: '3 hours',
-          type: 'text'
-        }
-      ]
+          type: 'text',
+        },
+      ],
     },
     {
       id: 1,
       data: [
         {
           title: 'Swap Elongate 2 for WBNB',
-          type: 'svg'
+          type: 'svg',
         },
         {
           text: formatCurrency(36.09),
-          type: 'text'
+          type: 'text',
         },
         {
           text: formatCurrency(9500),
           text2: 'Elongate 2',
-          type: 'multi_text'
+          type: 'multi_text',
         },
         {
           text: formatCurrency(0.11),
           text2: 'WBNB',
-          type: 'multi_text'
+          type: 'multi_text',
         },
         {
           title: '0x20...139b',
-          type: 'svg'
+          type: 'svg',
         },
         {
           text: '3 hours',
-          type: 'text'
-        }
-      ]
+          type: 'text',
+        },
+      ],
     },
     {
       id: 2,
       data: [
         {
           title: 'Swap Elongate 2 for WBNB',
-          type: 'svg'
+          type: 'svg',
         },
         {
           text: formatCurrency(36.09),
-          type: 'text'
+          type: 'text',
         },
         {
           text: formatCurrency(9500),
           text2: 'Elongate 2',
-          type: 'multi_text'
+          type: 'multi_text',
         },
         {
           text: formatCurrency(0.11),
           text2: 'WBNB',
-          type: 'multi_text'
+          type: 'multi_text',
         },
         {
           title: '0x20...139b',
-          type: 'svg'
+          type: 'svg',
         },
         {
           text: '3 hours',
-          type: 'text'
-        }
-      ]
+          type: 'text',
+        },
+      ],
     },
     {
       id: 3,
       data: [
         {
           title: 'Swap Elongate 2 for WBNB',
-          type: 'svg'
+          type: 'svg',
         },
         {
           text: formatCurrency(36.09),
-          type: 'text'
+          type: 'text',
         },
         {
           text: formatCurrency(9500),
           text2: 'Elongate 2',
-          type: 'multi_text'
+          type: 'multi_text',
         },
         {
           text: formatCurrency(0.11),
           text2: 'WBNB',
-          type: 'multi_text'
+          type: 'multi_text',
         },
         {
           title: '0x20...139b',
-          type: 'svg'
+          type: 'svg',
         },
         {
           text: '3 hours',
-          type: 'text'
-        }
-      ]
+          type: 'text',
+        },
+      ],
     },
     {
       id: 4,
       data: [
         {
           title: 'Swap Elongate 2 for WBNB',
-          type: 'svg'
+          type: 'svg',
         },
         {
           text: formatCurrency(36.09),
-          type: 'text'
+          type: 'text',
         },
         {
           text: formatCurrency(9500),
           text2: 'Elongate 2',
-          type: 'multi_text'
+          type: 'multi_text',
         },
         {
           text: formatCurrency(0.11),
           text2: 'WBNB',
-          type: 'multi_text'
+          type: 'multi_text',
         },
         {
           title: '0x20...139b',
-          type: 'svg'
+          type: 'svg',
         },
         {
           text: '3 hours',
-          type: 'text'
-        }
-      ]
+          type: 'text',
+        },
+      ],
     },
     {
       id: 5,
       data: [
         {
           title: 'Swap Elongate 2 for WBNB',
-          type: 'svg'
+          type: 'svg',
         },
         {
           text: formatCurrency(36.09),
-          type: 'text'
+          type: 'text',
         },
         {
           text: formatCurrency(9500),
           text2: 'Elongate 2',
-          type: 'multi_text'
+          type: 'multi_text',
         },
         {
           text: formatCurrency(0.11),
           text2: 'WBNB',
-          type: 'multi_text'
+          type: 'multi_text',
         },
         {
           title: '0x20...139b',
-          type: 'svg'
+          type: 'svg',
         },
         {
           text: '3 hours',
-          type: 'text'
-        }
-      ]
+          type: 'text',
+        },
+      ],
     },
     {
       id: 6,
       data: [
         {
           title: 'Swap Elongate 2 for WBNB',
-          type: 'svg'
+          type: 'svg',
         },
         {
           text: formatCurrency(36.09),
-          type: 'text'
+          type: 'text',
         },
         {
           text: formatCurrency(9500),
           text2: 'Elongate 2',
-          type: 'multi_text'
+          type: 'multi_text',
         },
         {
           text: formatCurrency(0.11),
           text2: 'WBNB',
-          type: 'multi_text'
+          type: 'multi_text',
         },
         {
           title: '0x20...139b',
-          type: 'svg'
+          type: 'svg',
         },
         {
           text: '3 hours',
-          type: 'text'
-        }
-      ]
+          type: 'text',
+        },
+      ],
     },
     {
       id: 7,
       data: [
         {
           title: 'Swap Elongate 2 for WBNB',
-          type: 'svg'
+          type: 'svg',
         },
         {
           text: formatCurrency(36.09),
-          type: 'text'
+          type: 'text',
         },
         {
           text: formatCurrency(9500),
           text2: 'Elongate 2',
-          type: 'multi_text'
+          type: 'multi_text',
         },
         {
           text: formatCurrency(0.11),
           text2: 'WBNB',
-          type: 'multi_text'
+          type: 'multi_text',
         },
         {
           title: '0x20...139b',
-          type: 'svg'
+          type: 'svg',
         },
         {
           text: '3 hours',
-          type: 'text'
-        }
-      ]
+          type: 'text',
+        },
+      ],
     },
     {
       id: 8,
       data: [
         {
           title: 'Swap Elongate 2 for WBNB',
-          type: 'svg'
+          type: 'svg',
         },
         {
           text: formatCurrency(36.09),
-          type: 'text'
+          type: 'text',
         },
         {
           text: formatCurrency(9500),
           text2: 'Elongate 2',
-          type: 'multi_text'
+          type: 'multi_text',
         },
         {
           text: formatCurrency(0.11),
           text2: 'WBNB',
-          type: 'multi_text'
+          type: 'multi_text',
         },
         {
           title: '0x20...139b',
-          type: 'svg'
+          type: 'svg',
         },
         {
           text: '3 hours',
-          type: 'text'
-        }
-      ]
+          type: 'text',
+        },
+      ],
     },
     {
       id: 9,
       data: [
         {
           title: 'Swap Elongate 2 for WBNB',
-          type: 'svg'
+          type: 'svg',
         },
         {
           text: formatCurrency(36.09),
-          type: 'text'
+          type: 'text',
         },
         {
           text: formatCurrency(9500),
           text2: 'Elongate 2',
-          type: 'multi_text'
+          type: 'multi_text',
         },
         {
           text: formatCurrency(0.11),
           text2: 'WBNB',
-          type: 'multi_text'
+          type: 'multi_text',
         },
         {
           title: '0x20...139b',
-          type: 'svg'
+          type: 'svg',
         },
         {
           text: '3 hours',
-          type: 'text'
-        }
-      ]
+          type: 'text',
+        },
+      ],
     },
   ];
 
@@ -534,7 +531,7 @@ const TransactionTable = () => {
         <Button
           customStyles={{ marginRight: '10px' }}
           title={
-            <PaginationButtonSVG
+            <PaginationButtonSvg
               className={styles.back}
               pageCountTokens={pageCountTransactions}
               disabled={1}
@@ -571,7 +568,7 @@ const TransactionTable = () => {
             marginLeft: '10px',
           }}
           title={
-            <PaginationButtonSVG
+            <PaginationButtonSvg
               className={styles.forward}
               pageCountTokens={pageCountTransactions}
               disabled={3}

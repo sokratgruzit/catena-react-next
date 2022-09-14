@@ -2,7 +2,7 @@
   position: absolute;
   border: 1px solid #111826;
   pointer-events: none;
-  z-index: -9;
+  z-index: -1;
   top: 0;
   left: 0;
   height: 100%;

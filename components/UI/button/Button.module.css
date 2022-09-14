@@ -55,3 +55,20 @@
     background-color: #0500ff !important;
     color: rgba(255, 255, 255, 1) !important;
 }
+.transparent {
+    border: 1px solid #0500ff;
+    background-color: transparent;
+    color: #fff;
+}
+.transparent:hover{
+    border: 1px solid #0500ff !important;
+    background-color: #0500ff !important;
+    color: rgba(255, 255, 255, 1) !important;
+}
+.white__border{
+    border: 1px solid #fff;
+}
+.white__border:hover{
+    border: 1px solid #ff7152;
+    color:#ff7152;
+}

@@ -1,8 +1,8 @@
 import React from 'react';
-import Proposals from '../../components/voting/Proposals/Proposals';
+import Voting from '../../components/voting/voting/Voting';
 
-const Voting = () => {
-  return <Proposals />;
+const VotingPage = () => {
+  return <Voting />;
 };
 
-export default Voting;
+export default VotingPage;

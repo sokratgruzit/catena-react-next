@@ -1,25 +1,46 @@
-import React from 'react';
-// import { useSpring, animated as a } from "react-spring";
-import styles from '../../faq/FAQ.module.css';
+import React, { useState } from 'react';
+
+import styles from './Expand.module.css';
 
 const Expand = props => {
-  // const faqAnimation = useSpring({
-  //     from: {
-  //         transform: "translate(" + Math.floor(Math.random() * 30) + "px, " + Math.floor(Math.random() * 30) + "px)",
-  //     },
-  //     to: [{
-  //         transform: "translate(" + Math.floor(Math.random() * 30) + "px, " + Math.floor(Math.random() * 30) + "px)",
-  //     }, {
-  //         transform: "translate(" + Math.floor(Math.random() * 30) + "px, " + Math.floor(Math.random() * 30) + "px)",
-  //     }],
-  //     config: { duration: "3000" },
-  //     loop: true,
-  //     reset: true,
-  // })
+  const [expandRow, setExpandRow] = useState(false);
+  //always pass component as child
+
+  const toggleExpand = () => setExpandRow(prevState => !prevState);
+
+  const childrenWithProps = React.Children.map(props.children, child => {
+    if (React.isValidElement(child)) {
+      return React.cloneElement(child, {
+        expandRow,
+        toggleExpand,
+      });
+    }
+    return child;
+  });
+
+  const buttonWithProps = React.Children.map(props.expandButton, child => {
+    if (React.isValidElement(child)) {
+      return React.cloneElement(child, {
+        expandRow,
+        toggleExpand,
+      });
+    }
+    return child;
+  });
 
   return (
-    <div onClick={props.onClick} className={styles.expandWrap}>
-      {props.children}
+    <div className={props.className}>
+      <div onClick={props.onChildClick && toggleExpand}>
+        {props.passingjSX ? props.children : childrenWithProps}
+      </div>
+      <div
+        className={`${styles.expandContent} ${
+          expandRow && styles.expandTableRow
+        }`}
+      >
+        {props.expandContent}
+      </div>
+      {buttonWithProps}
     </div>
   );
 };

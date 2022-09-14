@@ -12,11 +12,15 @@
 }
 .star {
     position: absolute;
-    top: -52%;
-    left: 58%;
+    width: 11px;
+    height: 10px;
+    left: 59%;
+    top: -51%;
 }
 .starSmal {
     position: absolute;
+    width: 25px;
+    height: 24px;
     top: -70%;
     left: 60%;
 }
@@ -25,17 +29,33 @@
     top: -75%;
     left: 0;
     z-index: -1;
+
+    /* position: absolute;
+    width: 100%;
+    height: 100%;
+    padding-top: 100%; 
+    top:-390%;
+    left: 0;
+    z-index: -1;  */
 }
 .tickets {
     position: absolute;
     left: 25%;
     top: 70%;
     transform: rotateZ(-45deg);
+    width: 80px;
+    height: 70px;
 }
 .ticket {
     position: absolute;
     left: 66%;
     top: 70%;
+    width: 65px;
+    height: 65px;
+}
+.buttonWrapper{
+    width: fit-content;
+    margin: auto;
 }
 @media (max-width: 1023px) {
     .mainContent {

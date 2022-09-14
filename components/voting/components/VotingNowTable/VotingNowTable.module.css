@@ -1,0 +1,60 @@
+.seeMore  {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 30px auto;
+  cursor: pointer;
+}
+.seeMore p {
+  color: #0500ff;
+  margin-right: 5px;
+  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+}
+.seeMore:hover  .vectorSvg{
+  stroke: #ff7152;
+}
+.vectorSvg{
+  stroke: #0500ff;
+  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+}
+.seeMore:hover p {
+  color: #ff7152;
+}
+.rowWrapper{
+  cursor: pointer;
+}
+.rowWrapper:before{
+  content: "";
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  width: 97%;
+  display: block;
+  margin: 0 auto;
+}
+
+.noProposal{
+  height: 130px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.galaxy{
+  position: absolute;
+  width: 311px;
+  height: 412px;
+  top: 393px;
+  right:0;
+  z-index: -1;
+}
+
+.smoke{
+  position: absolute;
+  width: 422.5px;
+  height: 388.9px;
+  bottom:80px;
+  left: -100px;
+  z-index: -11;
+}

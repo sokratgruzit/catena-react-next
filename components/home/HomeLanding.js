@@ -1,7 +1,8 @@
-import Button from "../UI/button/Button";
-import useConnect from "../../hooks/use-connect";
+import Button from '../UI/button/Button';
 
-import styles from "./HomeLanding.module.css";
+import useConnect from '../../hooks/use-connect';
+
+import styles from './HomeLanding.module.css';
 
 const HomeLanding = () => {
   const { handleWalletModal } = useConnect();
@@ -17,7 +18,7 @@ const HomeLanding = () => {
   return (
     <div className={`container ${styles.homeLanding__container}`}>
       <div className={styles.homeLanding__inner}>
-        <h1 className="font_100">
+        <h1 className='font_100'>
           Space is Made
           <br /> of <span className={styles.coreColor}>CORE</span>
         </h1>
@@ -27,21 +28,21 @@ const HomeLanding = () => {
         </p>
         <div className={styles.homeLanding__btnContainer}>
           <Button
-            title={"Connect Wallet"}
-            type={"red__border"}
+            title={'Connect Wallet'}
+            type={'red__border'}
             onClick={cwClickHandler}
             customStyles={{
-              padding: "2% 0",
-              width: "232px"
+              padding: '2% 0',
+              width: '232px',
             }}
           />
           <Button
-            title={"Trade Now"}
-            type={"red"}
+            title={'Trade Now'}
+            type={'red'}
             onClick={tradeClickHandler}
             customStyles={{
-              padding: "2% 0",
-              width: "232px"
+              padding: '2% 0',
+              width: '232px',
             }}
           />
         </div>

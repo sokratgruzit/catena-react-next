@@ -13,10 +13,6 @@
   height: fit-content;
 }
 
-.container{
-  margin-top: 10rem;
-}
-
 .routesWrapperMain{
   width: fit-content;
   margin: auto;
@@ -42,14 +38,6 @@
   position: relative;
   width: 100vw;
   height: auto;
-
-}
-
-.tokensTitle{
-  font-size: 30px;
-  line-height: 13px;
-  margin-top:50px;
-  margin-bottom: 30px;
 }
 
 .section{
@@ -59,7 +47,7 @@
   margin-top: 10rem;
 }
 
-.title{
+.section h2{
   margin: 50px auto 30px auto;
   font-size: 30px;
 }

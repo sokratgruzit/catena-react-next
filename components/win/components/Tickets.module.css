@@ -18,6 +18,8 @@
     left: 0;
     top: 160%;
     z-index: -1;
+    width: 100vw;
+    height: 100vw;
 }
 .title {
     font-size: 30px;
@@ -79,10 +81,9 @@
     color: #0500FF;
     transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
     padding-right: 5px;
-
-}
-.details svg {
-    margin-left: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .paragraph p {
     text-align: left;
@@ -105,8 +106,13 @@
     font-size: 12px;
     opacity: 0.7;
 }
+.vectorSvg{
+    transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+    stroke: #0500FF;
+    margin-left: 5px;
+}
 .rotate {
-    transform: rotateX(-180deg);
+    transform: rotateZ(-180deg);
 }
 .tabBorder {
     max-height: 0;

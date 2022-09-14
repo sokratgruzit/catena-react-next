@@ -1,127 +1,76 @@
-.svgHoverOrange path,
-.hover svg,
-.hover a,
-.orangeHover {
+.inner {
+  position: relative;
+  padding-top: 20px;
+  width: 60%;
+}
+.bottomBorder {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin: 20px auto 0 auto;
+  display: flex;
+  width: 92%;
+}
+.header {
+  display: flex;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+}
+.header p:nth-child(2) {
+  opacity: 0.3;
+  margin-left: 5px;
+}
+.list svg {
+  margin-left: 5px;
+}
+.seeMore {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  margin: auto;
+  gap: 5px;
+  margin-top: 20px;
+  padding-bottom: 20px;
+  cursor: pointer;
+}
+.seeMore p {
+  color: #0500ff;
   transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
 }
-
-.hover a:hover {
+.VectorSvg{
+  stroke: #0500ff;
+  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+}
+.seeMore:hover > p{
   color: #ff7152;
 }
-.hover:hover .svgHoverOrange path {
-  fill: #ff7152;
-}
-.arrowHover:hover .svgHoverOrange path {
+.seeMore:hover > .VectorSvg{
   stroke: #ff7152;
 }
-.arrowHover:hover .orangeHover {
-  color: #ff7152;
-}
-.ProposalVoting {
-  width: 100%;
+.proposalBg{
+  position: absolute;
+  z-index: -11;
+  width: 100vw;
+  height: calc(100vw *1.15);
   max-width: 1920px;
-  padding: 0px 40px;
-  margin: 0px auto;
-  display: block !important;
-  position: relative;
-  z-index: 5;
-  margin: -100px 0 150px 0;
+  left: 0;
+  bottom: 0;
 }
-.proposalBottom__vote {
-  padding: 20px;
-  width: 50%;
+.wrapper{
+  padding-bottom: 300px;
 }
-.ProposalVoting__inner {
-  position: relative;
-  padding: 20px;
-  /* margin-top: 50px; */
-  display: flex;
-  flex-direction: column;
-  width: 50%;
-}
-.proposalBottom__input input {
-  width: 10px;
-  color: #ffffff;
-  height: 10px;
-  border-radius: 10px;
-  cursor: pointer;
-  opacity: 0.3;
-  border: 2px solid #ffffff;
-  margin-right: 16px;
-}
-.redWord {
-  color: #e94a4a;
-}
-.proposalBottom__input {
-  /* border: 1px solid #ffffff17; */
-  border-radius: 4px;
-  padding: 15px;
-  /* width: 625px; */
-}
-.proposalBottom__input span {
-  font-size: 12px;
-}
-.ProposalVoting__bottomBorder {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  margin: 20px auto 20px auto;
-  display: flex;
-  width: 100%;
-}
-.ProposalVoting__dataTitle {
-  color: #b2b4b7;
-}
-.ProposalVoting__datasubTitle {
-  color: #e94a4a;
-}
-.proposalBottom__vote button {
-  margin-top: 20px;
-}
-.ProposalVoting__header {
-  display: flex;
-}
-.ProposalVoting__list__inner {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 16px;
-}
-.ProposalVoting__header p:nth-child(2) {
-  opacity: 0.3;
-  margin-left: 5px;
-}
-.ProposalVoting__list__inner div {
-  display: flex;
-  align-items: center;
-}
-.ProposalVoting__list__inner a {
-  color: #0500ff;
-  margin-left: 5px;
-}
-.ProposalVoting__list svg {
-  margin-left: 5px;
-}
-.ProposalVoting__list__inner:last-child {
-  margin: 0;
-}
-.ProposalVoting__seeMore {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 20px;
-}
-.ProposalVoting__seeMore svg {
-  margin-left: 5px;
-}
-.ProposalVoting__seeMore p {
-  color: #0500ff;
-}
-.ProposalVoting__seeMore__inner {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.openLink{
   cursor: pointer;
 }
-.proposalBottom__marginTop {
-  margin-top: 50px;
+
+@media (min-width:601px) {
+  .list::before{
+    content: "";
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    width: calc(100% - 40px);
+    display: block;
+    margin: 0 auto;
+  }
 }
 /*Laptop 1440*/
 @media (max-width: 1900px) {
@@ -134,22 +83,11 @@
   .ProposalVoting {
     display: block;
   }
-  .wrapper {
-    margin-top: 50px;
-  }
-  .proposalBottom__vote {
+  .inner {
     width: 100%;
-  }
-  .ProposalVoting__inner {
-    width: 100%;
+    margin-bottom: 150px;
   }
 }
 /*Mobile 320*/
 @media (max-width: 767px) {
-  .ProposalVoting__list__inner {
-    flex-direction: column;
-  }
-  .ProposalVoting__list__inner > div {
-    margin: 0 0 10px 0;
-  }
 }
