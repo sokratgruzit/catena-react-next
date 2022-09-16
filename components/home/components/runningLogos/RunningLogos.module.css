@@ -1,12 +1,10 @@
 .slider{
-  margin: auto;
   position: relative;
   width: 100%;
   display: grid;
   place-items: center;
   overflow: hidden;
   max-width: 1920px;
-  overflow: hidden;
 }
 
 .sliderTrack{
@@ -39,9 +37,9 @@
 }
 
 @media (min-width:1920px) {
-  .slider{
+  /* .slider{
     max-width: 1520px;
-  }
+  } */
 
   
 }

@@ -1,0 +1,67 @@
+.container{
+  width: 100%;
+  height: calc(100vw * 0.347);
+  min-height: 500px;
+}
+
+.mainBg{
+  position: absolute;
+  width: 100vw;
+  min-width: 1440px;
+  height: calc(100vw * 0.347);
+  min-height: 500px;
+  z-index: -1;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.main{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 500px;
+}
+
+.main a{
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.title{
+  font-size: 51px;
+  line-height: 42px;
+  width: fit-content;
+}
+
+.coreLogo{
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.buttonSection{
+  display: flex;
+  gap: 30px;
+  margin-top: 47px;
+  margin-bottom: 51px;
+}
+
+.buttonWrapper{
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 7px;
+  width: 169.91px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+@media (max-width:1300px) {
+
+}

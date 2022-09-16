@@ -1,11 +1,11 @@
 import Image from 'next/image';
 
-import Button from '../UI/button/Button';
-import useConnect from '../../hooks/use-connect';
-import { useWindowDimension } from '../../hooks/useWindowDimension';
+import Button from '../../UI/button/Button';
+import useConnect from '../../../hooks/use-connect';
+import { useWindowDimension } from '../../../hooks/useWindowDimension';
 
 import styles from './HomeLanding.module.css';
-import RunningLogos from './components/runningLogos/RunningLogos';
+import RunningLogos from '../components/runningLogos/RunningLogos';
 
 const HomeLanding = () => {
   const { handleWalletModal } = useConnect();

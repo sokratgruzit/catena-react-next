@@ -1,17 +1,23 @@
 import Image from 'next/image';
+import { useWindowDimension } from '../../../hooks/useWindowDimension';
 
-import JoinBoxItem from './components/joinBoxItem/JoinBoxItem';
+import JoinBoxItem from '../components/joinBoxItem/JoinBoxItem';
 
 import styles from './HomeTrust.module.css';
 
 const HomeTrust = () => {
+  const [height] = useWindowDimension();
   return (
     <main className={styles.container}>
       <div className={styles.bgContainer}>
         <Image
           layout='fill'
           objectFit='contain'
-          src={'/images/home/homeGlobe.png'}
+          src={
+            height > 800
+              ? '/images/home/homeGlobe.png'
+              : '/images/home/homeGlobeMobile.png'
+          }
           quality={100}
           alt=''
         />
