@@ -1,18 +1,22 @@
 .container{
   width: 100%;
+  max-width: 1920px;
   height: calc(100vw * 0.347);
   min-height: 500px;
+  max-height: 666.25px;
 }
 
 .mainBg{
   position: absolute;
   width: 100vw;
   min-width: 1440px;
+  max-width: 1920px;
   height: calc(100vw * 0.347);
   min-height: 500px;
-  z-index: -1;
+  max-height: 666.25px;
   left: 50%;
   transform: translateX(-50%);
+  z-index: -1;
 }
 
 .main{
@@ -21,17 +25,26 @@
   align-items: center;
   justify-content: center;
   min-height: 500px;
+  max-height: 666.25px;
+  height: inherit;
 }
 
 .main a{
   text-decoration: underline;
   cursor: pointer;
+  transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+}
+
+.main a:hover{
+  color: #FF7152;
 }
 
 .title{
   font-size: 51px;
   line-height: 42px;
   width: fit-content;
+  display: flex;
+  align-items: center;
 }
 
 .coreLogo{
@@ -50,7 +63,7 @@
   margin-bottom: 51px;
 }
 
-.buttonWrapper{
+.buttonSection div{
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: 7px;
@@ -64,4 +77,14 @@
 
 @media (max-width:1300px) {
 
+}
+
+@media (max-width:1023px) {
+  .title{
+    font-size: 34px;
+    line-height: 54px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }

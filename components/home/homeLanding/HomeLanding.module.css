@@ -6,7 +6,6 @@
   height: calc(100vw * 0.734);
   min-height: 1058px;
   max-height: 1409px ;
-
 }
 
 .bgContainer{
@@ -60,7 +59,18 @@
   height: 56px;
   font-size: 16px;
   line-height: 22px;
-  max-width: 100%;
+  max-width: calc(50% - 15px);
+}
+
+.button a{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 232.3px;
+  height: 56px;
+  font-size: 16px;
+  line-height: 22px;
+  max-width: calc(50% - 15px);
 }
 
 .coinsSection{
@@ -84,6 +94,9 @@
 
 /*Ipad Pro 1024*/
 @media (max-width: 1300px) {
+  .coinsSection{
+    left: -25px;
+  }
 }
 
 /*Ipad 768*/
@@ -108,6 +121,15 @@
   .subTitle{
     width: 404px;
   }
+  .bgContainer{
+    min-height: 998px;
+  }
+  .inner{
+    min-height: 998px;
+  }
+  .coinsSection{
+    left: -15px;
+  }
 
 }
 
@@ -126,12 +148,20 @@
     gap: 15px;
     width: 100%;
   }
+  .bgContainer{
+    left: 50%;
+    transform: translateX(-40%);
+  }
 }
 
 @media (max-width: 400px) {
   .title{
     font-size: 41px;
     line-height: 72px;
+  }
+
+  .inner{
+    min-height: 998px;
   }
 }
 

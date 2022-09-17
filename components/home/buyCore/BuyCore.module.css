@@ -3,15 +3,18 @@
   width: 100%;
   height: calc(100% * 0.558);
   min-height: 804px;
+  max-width: 1920px; 
 }
 
 .mainBg{
   position: absolute;
   width: 100vw;
+  max-width: 1920px;
   height: calc(100vw * 0.362);
+  min-height: 521px;
+  max-height: 695px;
   bottom:30px ;
   left: -40px;
-  min-height: 521px;
   z-index: -3;
 }
 
@@ -34,6 +37,7 @@
   z-index: -2;
   background: radial-gradient(50% 50% at 50% 50%, #000F2E 0%, rgba(0, 15, 46, 0) 100%);
   mix-blend-mode: normal;
+  max-width: 1920px;
 }
 
 .infoSection{
@@ -43,6 +47,14 @@
 }
 
 .button{
+  width: 150px;
+  height: 42px;
+}
+
+.button a{
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 150px;
   height: 42px;
   font-size: 16px;
@@ -57,10 +69,15 @@
   width: fit-content;
 }
 
-.buttonWrapper a{
+.buttonWrapper a:nth-child(2){
   display: flex;
   align-items: center;
   text-decoration: underline;
+  transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+}
+
+.buttonWrapper a:nth-child(2):hover{
+  color: #FF7152;
 }
 
 .title{
@@ -104,75 +121,19 @@
   line-height: 24px;
 }
 
-.tradeLearn::after {
-  content: "";
-  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
-  width: 100%;
-  display: block;
-  background-color: #fff;
-  padding-top: 1px;
-}
-.tradeLearn:hover::after {
-  width: 0%;
-}
-.tradeLearn {
-  cursor: pointer;
-}
-.inner {
-  width: 100%;
-}
-.orange {
-  color: #ff7152;
-}
-.lightBlue {
-  color: #627eea;
-}
-.grey {
-  color: #b2b4b7;
-}
-.bg {
-  position: absolute;
-  top: 100px;
-  left: 0;
-  z-index: -1;
-}
-
-.title div:first-child {
-  width: 65%;
-  margin-bottom: 30px;
-}
-.wrapper {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  position: relative;
-}
-.btnContainer {
-  display: flex;
-  align-items: center;
-  margin-top: 100px;
-}
-.supplyContainer {
-  display: flex;
-  width: 100%;
-  margin-top: 150px;
-  justify-content: space-between;
-}
-.supplyTitle {
-  display: flex;
-  margin-bottom: 20px;
-}
-.supplyTitle div:hover {
-  opacity: 1;
-}
-.cmcxStars {
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: -1;
-}
 /*Laptop 1440*/
 @media (max-width: 1900px) {
+}
+
+@media (min-width:1900px) {
+  .mainBg{
+    left: -200px;
+  }
+
+  .gradient{
+    left: -200px;
+  }
+  
 }
 /*Ipad Pro 1024*/
 @media (max-width: 1300px) {
@@ -209,37 +170,112 @@
   .cmcxStars {
     top: 50px;
   }
+
+  .infoSection{
+    width: 50%;
+    height: 525px;
+  }
+
+  .title{
+    font-size: 34px;
+    line-height: 54px;
+  }
+
+  .stats h3{
+    font-size: 25px;
+    line-height: 48px;
+  }
+  
+  .stats p{
+    font-size: 13px;
+    line-height: 21px;
+  }
+
+  .info{
+    font-size: 13px;
+    line-height: 21px;
+    margin-bottom: 76px;
+  }
+
 }
 /*Mobile 320*/
 @media (max-width: 767px) {
-  .inner {
-    width: initial;
+  .stats{
+    flex-wrap: wrap;
+    height: fit-content;
+    padding-bottom: 50px;
   }
-  .cmcxStars {
-    right: 10px;
-    top: -300px;
+
+  .stats div{
+    width: 50%;
   }
-  .supplyContainer {
-    flex-direction: column;
+
+  .container{
+    height: fit-content;
+    min-height: 700px;
+    max-width: 1920px; 
   }
-  .font_12 {
-    font-size: 12px;
-  }
-  .title:first-child div {
+
+  .coreLogo{
+    top: 0px;
+    left: 50%;
+    transform: translateX(-61%);
     width: 100%;
-    text-align: center;
+    height: calc(75% * 0.71);
+    min-width: 641px;
+    min-height: 461px;
   }
-  .btnContainer {
-    justify-content: center;
+
+  .mainContent{
+    padding-top: 100%;
   }
-  .bg {
-    top: 500px;
-  }
-  .supplyContainer {
+
+  .infoSection{
+    width: 100%;
+    max-width: 100%;
     display: flex;
+    flex-direction: column;
+    text-align: center;
     align-items: center;
   }
-  .supply {
-    margin-bottom: 30px;
+
+  .buttonWrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .info{
+    margin-bottom: 50px;
+  }
+
+  .infoSection{
+    padding-top: 0;
+    height: fit-content;
+    padding-bottom: 50px;
+  }
+
+  .mainBg{
+    bottom: -50px;
+    min-height: 521px;
+    min-width: 1024px;
+  }
+
+  .gradient{
+    min-width: inherit;
+    min-height: inherit;
+    width: 100vw;
+    height: 100vw;
+    left:50%;
+    top:50%;
+    transform: translate(-50%,-35%);
+    z-index: -3;
+  }
+}
+
+@media (max-width:430px) {
+  .coreLogo{
+    transform: translateX(-59%);
   }
 }

@@ -88,6 +88,7 @@
     width: 100vw;
     height: calc(100vw * 1.485);
     min-width: initial;
+    min-height: 615px;
   }
   .joinSection{
     display: flex;
@@ -104,10 +105,9 @@
     line-height: 21px;
   }
   .container{
-    padding-bottom: 132px;
-    padding-top: auto;
-    min-height: 1141px;
     height: calc(100vw * 1.485);
+    min-height: 836px;
+    padding-bottom: 20px;
   }
   .title{
     font-size: 34px;

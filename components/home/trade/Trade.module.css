@@ -1,6 +1,6 @@
 .container{
   position: relative;
-  height: calc(100vw * 0.548);
+  height: fit-content;
   min-height: 783px;
   max-height: 1042.5px;
   display: flex;
@@ -18,12 +18,13 @@
 .clouds{
   position: absolute;
   width: 100vw;
-  min-height: 783px;
+  max-width: 1920px;
   height: calc(100vw * 0.543);
+  min-height: 783px;
+  max-height: 1042.5px;
   top:0;
   left: 50%;
   transform: translateX(-50%);
-  max-width: 1920px;
   z-index: -1;
 }
 
@@ -49,6 +50,18 @@
 .tradeNow{
   width: 200px;
   height: 42px;
+  max-width: 100%;
+}
+
+.tradeNow a{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 42px;
+  font-size: 16px;
+  line-height: 22px;
+  max-width: 100%;
 }
 
 .buttonWrapper{
@@ -58,10 +71,15 @@
   line-height: 22px;
 }
 
-.buttonWrapper a{
+.buttonWrapper a:nth-child(2){
   display: flex;
   align-items: center;
   text-decoration: underline;
+  transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+}
+
+.buttonWrapper a:nth-child(2):hover{
+  color: #FF7152;
 }
 
 .tradeSection{
@@ -91,6 +109,12 @@
 @media (min-width:1900px) {
   .BlackHoleBg{
     left: -200px;
+  }
+  .rocketman{
+    margin-left: -50px;
+  }
+  .rocketmanSection{
+    padding-left: 0;
   }
 }
 @media (max-width: 1300px) {
@@ -133,25 +157,27 @@
   .tradeSection{
     margin-left: auto;
   }
-  .rocketmanSection{
-    padding-left: 0px;
-  }
 }
 
 @media (max-width:800px) {
   .container{
-    height: calc(100vw * 1.3);
     flex-direction: column;
-    /* min-height: fit-content; */
   }
   .BlackHoleBg{
     width: 100vw;
     height: calc(100vw * 1.115);
     min-width: 100vw;
   }
+  .clouds{
+    width: 100vw;
+    height: calc(100vw * 1.115);
+    min-width: 100vw;
+    min-height: 0px;
+  }
   .rocketmanSection{
     padding-top: 30%;
     margin-bottom: 50px;
+    padding-left: 0px;
   }
   .rocketman{
     left: 50%;

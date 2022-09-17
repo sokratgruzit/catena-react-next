@@ -1,12 +1,10 @@
-import React from 'react';
-
 import styles from './JoinBoxItem.module.css';
 
-const JoinBoxItem = ({ num, type, subTitle }) => {
+const JoinBoxItem = ({ title, type, subTitle }) => {
   return (
     <div className={styles.wrapper}>
       <h3>
-        {num} <span>{type}</span>
+        {title} <span>{type}</span>
       </h3>
       <p>{subTitle}</p>
     </div>

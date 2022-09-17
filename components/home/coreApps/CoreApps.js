@@ -1,12 +1,13 @@
 import Image from 'next/image';
 import Link from 'next/link';
+
 import { AppStore, GooglePlay } from '../../svg';
 
 import styles from './CoreApps.module.css';
 
 const CoreApps = () => {
   return (
-    <div className={styles.container}>
+    <section className={styles.container}>
       <div className={styles.mainBg}>
         <Image
           layout='fill'
@@ -16,7 +17,7 @@ const CoreApps = () => {
           alt=''
         />
       </div>
-      <main className={styles.main}>
+      <div className={styles.main}>
         <h1 className={styles.title}>
           Download
           <div className={styles.coreLogo}>
@@ -30,17 +31,21 @@ const CoreApps = () => {
           </div>
           <span>CORE</span> Wallet App
         </h1>
-        <section className={styles.buttonSection}>
-          <div className={styles.buttonWrapper}>
-            <GooglePlay />
-          </div>
-          <div className={styles.buttonWrapper}>
-            <AppStore />
-          </div>
-        </section>
+        <div className={styles.buttonSection}>
+          <Link href='/' scroll={false}>
+            <div>
+              <GooglePlay />
+            </div>
+          </Link>
+          <Link href='/' scroll={false}>
+            <div>
+              <AppStore />
+            </div>
+          </Link>
+        </div>
         <Link href='/'>Learn More About Wallet</Link>
-      </main>
-    </div>
+      </div>
+    </section>
   );
 };
 

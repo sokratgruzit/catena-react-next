@@ -1,14 +1,14 @@
 import Image from 'next/image';
-import { useWindowDimension } from '../../../hooks/useWindowDimension';
 
 import JoinBoxItem from '../components/joinBoxItem/JoinBoxItem';
+import { useWindowDimension } from '../../../hooks/useWindowDimension';
 
 import styles from './HomeTrust.module.css';
 
 const HomeTrust = () => {
   const [height] = useWindowDimension();
   return (
-    <main className={styles.container}>
+    <section className={styles.container}>
       <div className={styles.bgContainer}>
         <Image
           layout='fill'
@@ -31,24 +31,24 @@ const HomeTrust = () => {
         users are now entrusting the platform with over $4.4 billion in funds.
       </p>
       <h2 className={styles.subTitle}>Will You join them?</h2>
-      <section className={styles.joinSection}>
+      <article className={styles.joinSection}>
         <JoinBoxItem
-          num='3 Million'
+          title='3 Million'
           type='Users'
           subTitle='In the last 30 days'
         />
         <JoinBoxItem
-          num='42 Million'
+          title='42 Million'
           type='Traders'
           subTitle='Made in the last 30 days'
         />
         <JoinBoxItem
-          num='$4.4 Billion'
+          title='$4.4 Billion'
           type='Staked'
           subTitle='Total Value Locked'
         />
-      </section>
-    </main>
+      </article>
+    </section>
   );
 };
 

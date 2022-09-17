@@ -1,4 +1,3 @@
-import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -13,7 +12,7 @@ const Trade = () => {
   const [height] = useWindowDimension();
 
   return (
-    <main className={styles.container}>
+    <section className={styles.container}>
       <div className={styles.BlackHoleBg}>
         <Image
           layout='fill'
@@ -58,17 +57,14 @@ const Trade = () => {
         </p>
         <div className={styles.buttonWrapper}>
           <Button
-            title={'Trade Now'}
+            title={<Link href='/trade/swap'>Trade Now</Link>}
             type={'red__border'}
-            onClick={() => {
-              handleWalletModal(true);
-            }}
             className={styles.tradeNow}
           />
           <Link href={'/'}>Learn</Link>
         </div>
       </section>
-    </main>
+    </section>
   );
 };
 

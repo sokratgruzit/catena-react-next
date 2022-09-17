@@ -1,26 +1,17 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 import Button from '../../UI/button/Button';
 import useConnect from '../../../hooks/use-connect';
-import { useWindowDimension } from '../../../hooks/useWindowDimension';
-
-import styles from './HomeLanding.module.css';
 import RunningLogos from '../components/runningLogos/RunningLogos';
 
+import styles from './HomeLanding.module.css';
+
 const HomeLanding = () => {
-  const { handleWalletModal } = useConnect();
-  const [height] = useWindowDimension();
-
-  const handleConnectWallet = () => {
-    handleWalletModal(true);
-  };
-
-  const handleTradeNow = () => {
-    console.log('hello2');
-  };
+  const { isActive, handleWalletModal } = useConnect();
 
   return (
-    <div className={styles.inner}>
+    <section className={styles.inner}>
       <div className={styles.bgContainer}>
         <Image
           layout='fill'
@@ -38,24 +29,25 @@ const HomeLanding = () => {
         Trade, Earn, and Win crypto on the most popular decentralized platform
         in the galaxy.
       </p>
-      <section className={styles.buttonWrapper}>
+      <div className={styles.buttonWrapper}>
+        {!isActive && (
+          <Button
+            title={'Connect Wallet'}
+            type={'red'}
+            onClick={() => handleWalletModal(true)}
+            className={styles.button}
+          />
+        )}
         <Button
-          title={'Connect Wallet'}
-          type={'red'}
-          onClick={handleConnectWallet}
-          className={styles.button}
-        />
-        <Button
-          title={'Trade Now'}
+          title={<Link href='/trade/swap'>Trade Now</Link>}
           type={'red__border'}
-          onClick={handleTradeNow}
           className={styles.button}
         />
-      </section>
+      </div>
       <aside className={styles.coinsSection}>
         <RunningLogos />
       </aside>
-    </div>
+    </section>
   );
 };
 

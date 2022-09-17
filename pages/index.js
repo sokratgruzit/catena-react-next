@@ -6,13 +6,13 @@ import Trade from '../components/home/trade/Trade';
 
 const Home = () => {
   return (
-    <div className='container'>
+    <main className='container'>
       <HomeLanding />
       <HomeTrust />
       <Trade />
       <BuyCore />
       <CoreApps />
-    </div>
+    </main>
   );
 };
 
