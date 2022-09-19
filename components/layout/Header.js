@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import useTranslation from 'next-translate/useTranslation';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import useConnect from '../../hooks/use-connect';
 
 import Button from '../UI/button/Button';
@@ -19,35 +19,12 @@ const LANG_DATA = [
   {
     id: 2,
     title: 'EN',
-    fullName: 'EnglishMathafaka',
+    fullName: 'English',
   },
   {
     id: 3,
     title: 'FR',
     fullName: 'Français',
-  },
-];
-
-const SETTINGS_DATA = [
-  {
-    id: 1,
-    title: 'My churi',
-    route: '/xai',
-  },
-  {
-    id: 2,
-    title: 'My muchuri',
-    route: '/xai',
-  },
-  {
-    id: 3,
-    title: 'My kuchuri',
-    route: '/xai',
-  },
-  {
-    id: 4,
-    title: 'My racxa daaaa',
-    route: '/xai',
   },
 ];
 
@@ -79,10 +56,13 @@ const Header = () => {
   const [device, setDevice] = useState(null);
   const walletModal = useSelector(state => state.connect.walletModal);
   const isConnected = useSelector(state => state.connect.isConnected);
+  const slippage = useSelector(state => state.settings.slippage);
   const [balance, setBalance] = useState(0);
   const [stickHead, setStickHead] = useState(false);
   const { t } = useTranslation('header');
   const [ routerLocale, setRouterLocale ] = useState(null);
+
+  const dispatch = useDispatch();
 
   const NAV_DATA = [
     {
@@ -105,14 +85,14 @@ const Header = () => {
           title: 'Staking',
           route: '/trade/staking',
         },
-        {
+        /*{
           id: 4,
           title: 'Prepetual',
           route: '/prepetual',
-        },
+        },*/
       ],
     },
-    {
+    /*{
       id: 2,
       title: 'Earn',
       route: '/earn/farms',
@@ -172,27 +152,32 @@ const Header = () => {
           route: '/nfts/activity',
         },
       ],
-    },
+    },*/
     {
       id: 5,
       title: 'More',
-      route: '/info',
+      route: '/voiting',
       subNav: [
-        {
+        /*{
           id: 13,
           title: 'Info',
           route: '/info',
-        },
+        },*/
         {
           id: 14,
           title: 'Voting',
           route: '/voting',
         },
         {
+          id: 456,
+          title: 'Wallet',
+          route: 'https://wallet-landing-next-six.vercel.app'
+        }
+        /*{
           id: 15,
           title: 'Leaderbord',
           route: '/leaderbord',
-        },
+        },*/
       ],
     },
   ];
@@ -554,7 +539,7 @@ const Header = () => {
                           </svg>
                         </a>
                       </Link>
-                      <Link href='##'> 
+                      <Link href='##'>
                         <a href='##'>
                           <svg
                               width='21'
@@ -866,15 +851,38 @@ const Header = () => {
                           />
                         </div>
                         <div className={styles.settingsModalBtns}>
-                          <div className={styles.settingsModalBtn}>0.1%</div>
-                          <div className={styles.settingsModalBtn}>0.5%</div>
-                          <div className={styles.settingsModalBtn}>1.0%</div>
+                          <div
+                              className={`${styles.settingsModalBtn} ${slippage === 0.1 ? styles.settingsModalBtnActive : ''}`}
+                              onClick={(e) => dispatch({
+                                type: 'SET_SLIPPAGE',
+                                slippage: parseFloat(0.1)
+                              })}
+                          >0.1%</div>
+                          <div
+                              className={`${styles.settingsModalBtn} ${slippage === 0.5 ? styles.settingsModalBtnActive : ''}`}
+                              onClick={(e) => dispatch({
+                                type: 'SET_SLIPPAGE',
+                                slippage: parseFloat(0.5)
+                              })}
+                          >0.5%</div>
+                          <div
+                              className={`${styles.settingsModalBtn} ${slippage === 1 ? styles.settingsModalBtnActive : ''}`}
+                              onClick={(e) => dispatch({
+                                type: 'SET_SLIPPAGE',
+                                slippage: parseFloat(1)
+                              })}
+                          >1.0%</div>
                           <div className={styles.settingsModalInputOuter}>
                             <input
                                 type='number'
                                 className={styles.settingsModalInput}
-                                defaultValue={0.5}
-                                onChange={() => {}}
+                                value={slippage}
+                                min={1}
+                                max={49}
+                                onChange={(e) => dispatch({
+                                  type: 'SET_SLIPPAGE',
+                                  slippage: parseFloat(e.target.value)
+                                })}
                             />
                             <span>%</span>
                           </div>

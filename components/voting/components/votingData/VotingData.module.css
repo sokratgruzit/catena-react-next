@@ -1,0 +1,93 @@
+.inner {
+  position: relative;
+  padding-top: 20px;
+  width: 60%;
+}
+.bottomBorder {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin: 20px auto 0 auto;
+  display: flex;
+  width: 92%;
+}
+.header {
+  display: flex;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+}
+.header p:nth-child(2) {
+  opacity: 0.3;
+  margin-left: 5px;
+}
+.list svg {
+  margin-left: 5px;
+}
+.seeMore {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  margin: auto;
+  gap: 5px;
+  margin-top: 20px;
+  padding-bottom: 20px;
+  cursor: pointer;
+}
+.seeMore p {
+  color: #0500ff;
+  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+}
+.VectorSvg{
+  stroke: #0500ff;
+  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+}
+.seeMore:hover > p{
+  color: #ff7152;
+}
+.seeMore:hover > .VectorSvg{
+  stroke: #ff7152;
+}
+.proposalBg{
+  position: absolute;
+  z-index: -11;
+  width: 100vw;
+  height: calc(100vw *1.15);
+  max-width: 1920px;
+  left: 0;
+  bottom: 0;
+}
+.wrapper{
+  padding-bottom: 300px;
+}
+.openLink{
+  cursor: pointer;
+}
+
+@media (min-width:601px) {
+  .list::before{
+    content: "";
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    width: calc(100% - 40px);
+    display: block;
+    margin: 0 auto;
+  }
+}
+/*Laptop 1440*/
+@media (max-width: 1900px) {
+}
+/*Ipad Pro 1024*/
+@media (max-width: 1300px) {
+}
+/*Ipad 768*/
+@media (max-width: 1023px) {
+  .ProposalVoting {
+    display: block;
+  }
+  .inner {
+    width: 100%;
+    margin-bottom: 150px;
+  }
+}
+/*Mobile 320*/
+@media (max-width: 767px) {
+}

@@ -148,8 +148,12 @@ input[type="number"] {
 }
 .quill{
   border-radius: 4px;
-  border:1px solid rgba(255, 255, 255, 0.1)
+  border:1px solid rgba(255, 255, 255, 0.1);
+  transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
 }
+/* .quill:focus-within{
+  border: 1px solid #0500ff;
+} */
 .ql-toolbar.ql-snow{
   border: none !important;
 }
@@ -168,6 +172,19 @@ input[type="number"] {
 .ql-editor{
   min-height: 200px;
 }
+
+.ql-editor h1{
+  font-size: 30px !important;  
+}
+
+.ql-editor strong {
+  font-size: inherit !important;
+  line-height: inherit !important;
+}
+.ql-editor em{
+  font-size: inherit !important;
+  line-height: inherit !important;
+}
 .ql-tooltip{
   background-color: #0e1a36 !important;
   box-shadow: none !important;
@@ -181,6 +198,10 @@ input[type="number"] {
 .ql-tooltip input::placeholder{
   color:transparent;
 }
+.ql-formats:first-child{
+  margin-right: 0 !important;
+}
+
 
 .react-datepicker{
   background: #0A0F18 !important;
@@ -241,6 +262,7 @@ input[type="number"] {
   height: 6px !important;
   top:50%;
   transform: translateY(-50%);
+  top: 11px !important;
 }
 
 .react-datepicker__time-list-item {

@@ -870,8 +870,62 @@
   color: #ff7152;
 }
 
+.proposal_votes_row .td:first-child, .th_proposal_votes:first-child{
+  width: 25%;
+}
+
+.proposal_votes_row .td:first-child a{
+  color:#0500FF;
+  cursor:pointer;
+}
+.proposal_votes_row .td:first-child a:hover{
+  text-decoration: underline;
+}
+
+.proposal_votes_row .td:nth-child(2), .th_proposal_votes:nth-child(2) {
+ width: 35%;
+ font-size: 15px;
+ line-height: 21px;
+ white-space: nowrap;
+ overflow: hidden;
+ text-overflow: ellipsis;
+ flex-direction: row;
+ justify-content: flex-start ;
+}
+
+.proposal_votes_row .td:nth-child(3), .th_proposal_votes:nth-child(3){
+  width: 20%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.proposal_votes_row .td:nth-child(4){
+  width: 20%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: flex;
+  justify-content: flex-end;
+}
+
+
 /*Ipad 768*/
 @media (max-width: 1023px) {
+  .proposal_votes_row .td:first-child{
+    padding-left: 20px;
+    width: 35% ;
+  }
+  .proposal_votes_row .td:nth-child(2){
+    width: 35%;
+  }
+  .proposal_votes_row .td:nth-child(3){
+    display: none;
+  }
+  .proposal_votes_row .td:nth-child(4){
+    width: 30%;
+    padding-right: 20px;
+  }
 
 }
 /*Mobile 320*/
@@ -962,6 +1016,7 @@
   transform: rotate(180deg);
   fill:rgba(255, 255, 255, 0.7);
 }
+
 
 @media (max-width: 1300px) {
 
@@ -1149,5 +1204,40 @@
   .earn_farmsRow .td:nth-child(3), .th_earn_farms:nth-child(3){
     width: 38%;
     padding-right: 0;
+  }
+
+  .proposal_votes_row{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .proposal_votes_row .td:first-child{
+    width: fit-content;
+  }
+  .proposal_votes_row:before{
+    content: "";
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    width: 92%;
+    display: block;
+    margin: 0 auto;
+  }
+  .proposal_votes_row .td:nth-child(2){
+    padding-left: 20px;
+    width: 100%;
+  }
+  .proposal_votes_row .td:nth-child(4){
+    width: 100%;
+    padding-left: 20px;
+    justify-content: flex-start;
+  }
+}
+
+@media (max-Width:400px) {
+  .voting_row{
+    min-height: 180px;
+    height: fit-content;
+    flex-wrap: wrap;
+  }
+  .voting_row .td:first-child{
+    width: 100%;
   }
 }

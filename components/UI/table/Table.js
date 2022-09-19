@@ -30,7 +30,10 @@ const Table = props => {
   if (props.type == 'earn_farms') {
     custom_th = listStyles.th_earn_farms;
   }
-  let IdentifyOnClick = props.onClick !== undefined ? props.onClick : null;
+  if (props.type == 'proposal_votes') {
+    custom_th = listStyles.th_proposal_votes;
+  }
+  const IdentifyOnClick = props.onClick !== undefined ? props.onClick : null;
 
   return (
     <div className={styles.Table__wrap}>

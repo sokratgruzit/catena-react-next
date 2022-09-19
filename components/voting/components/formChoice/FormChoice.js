@@ -1,15 +1,19 @@
 import { useState } from 'react';
+import { CloseSvg } from '../../../svg';
 
 import styles from './FormChoice.module.css';
 
-const FormChoice = ({ choice, index, setFormData }) => {
+const FormChoice = ({ choice, index, setFormData, setEditedField }) => {
   const handleChoiceInput = (e, index) => {
     setFormData(prevState => ({
       ...prevState,
       choices: prevState.choices.map((item, id) =>
-        id === index ? e.target.value : item,
+        id === index
+          ? { ...prevState.choices[id], value: e.target.value }
+          : item,
       ),
     }));
+    setEditedField(prevState => ({ ...prevState, choices: true }));
   };
 
   const handleCloseInput = index => {
@@ -26,11 +30,11 @@ const FormChoice = ({ choice, index, setFormData }) => {
         type='text'
         name='input choice text'
         onChange={e => handleChoiceInput(e, index)}
-        value={choice}
+        value={choice.value}
       />
       {index > 1 && (
         <div className={styles.close} onClick={e => handleCloseInput(index)}>
-          X
+          <CloseSvg className={styles.closeSvg} />
         </div>
       )}
     </div>

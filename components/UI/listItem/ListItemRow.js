@@ -71,6 +71,9 @@ const ListItemRow = props => {
   if (type === 'voting') {
     cs = styles.voting_row;
   }
+  if (type === 'proposal_votes') {
+    cs = styles.proposal_votes_row;
+  }
   obj = (
     <div className={`${cs} ${styles.rowItem}`} onClick={props?.toggleExpand}>
       {data.data.map((item, index) => {

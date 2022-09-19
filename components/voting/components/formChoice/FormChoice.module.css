@@ -12,6 +12,7 @@
   height: 44px;
   margin: 8px 0;
   padding: 0 16px;
+  max-width: 100%;
 }
 
 .input:focus {
@@ -24,4 +25,10 @@
   top:50%;
   transform: translateY(-50%);
   cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.closeSvg{
+  fill: rgba(255, 255, 255, 0.5);
 }

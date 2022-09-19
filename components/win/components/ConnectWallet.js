@@ -15,9 +15,13 @@ const ConnectWallet = () => {
             objectFit={'contain'}
           />
         </div>
-        <div className={styles.text}>
-            <p>Connect your wallet</p>
-            <p> to check if you`&apos;`ve won!</p>
+        <div className={styles.starSmal}>
+          <Image
+            layout='fill'
+            src={'/images/win/starSmal.png'}
+            alt=''
+            objectFit={'contain'}
+          />
         </div>
         {/* <div className={styles.ConnectWalletBg}>
           <Image

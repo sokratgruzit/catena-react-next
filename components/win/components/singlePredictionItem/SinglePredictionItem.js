@@ -41,8 +41,8 @@ const SinglePredictionItem = ({ item }) => {
           <div className={styles.mainPriceExpierd}>
             <h2 className={styles.price}>{item.lastPrice}</h2>
             <div className={styles.priceUpExpierd}>
-              {/* <ArrowSvg className={styles.arrowSvg} /> */}
-              <svg
+              <ArrowSvg className={styles.arrowSvg} />
+              {/* <svg
                 width='12'
                 height='15'
                 viewBox='0 0 12 15'
@@ -57,7 +57,7 @@ const SinglePredictionItem = ({ item }) => {
                   d='M6.08815 14.6447C5.77784 14.6447 5.52051 14.3874 5.52051 14.0771V1.33913C5.52051 1.02882 5.77784 0.771484 6.08815 0.771484C6.39846 0.771484 6.6558 1.02882 6.6558 1.33913V14.0771C6.6558 14.3874 6.39846 14.6447 6.08815 14.6447Z'
                   fill='white'
                 />
-              </svg>
+              </svg> */}
               <p>{item.upPrice}</p>
             </div>
           </div>
@@ -112,13 +112,15 @@ const SinglePredictionItem = ({ item }) => {
           </div>
         </div>
       )}
+      {item.action === 'next' && <div>shit</div>}
+      {item.action === 'later' && <div>later</div>}
 
       <div className={styles.priceDownContainer}>
         <p>{item.payDown}</p>
         <div className={styles.priceDownExpierd}>
           <p className={styles.wtf}> DOWN</p>
           <span>
-            <svg
+            {/* <svg
               width='10'
               height='13'
               viewBox='0 0 10 13'
@@ -141,7 +143,7 @@ const SinglePredictionItem = ({ item }) => {
                 strokeLinecap='round'
                 strokeLinejoin='round'
               />
-            </svg>
+            </svg> */}
           </span>
         </div>
       </div>
