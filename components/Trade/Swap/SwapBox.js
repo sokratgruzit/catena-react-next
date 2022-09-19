@@ -69,7 +69,7 @@ const SwapBox = () => {
             <div>
                 <p>Transaction Successful</p>
                 {/* <br /> */}
-                <a target="_blank" href={`https://bscscan.com/tx/${tx}`}>
+                <a target="_blank" rel="noopener noreferrer" href={`https://bscscan.com/tx/${tx}`}>
                     View on Explorer
                 </a>
             </div>
