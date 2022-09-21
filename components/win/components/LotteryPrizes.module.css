@@ -27,27 +27,21 @@
     font-size: 70px;
 }
 .prizesContainer {
-  position: relative;
-  text-align: center;
-}
-.blur {
-  position: absolute;
-  width: 40%;
-  padding-top: 20%;
-  left: 30%;
-  top: 60%;
-}
-.lotteryNumber {
-  position: absolute;
-  top: 10px;
+  display: inline-block;
   display: flex;
   justify-content: center;
-  gap: 30px;
-  width: 100%;
 }
-.lotteryNumber p {
+.lotteryNumber {  
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  background: rgba(52, 52, 114, 0.39);
+  padding: 7px;
+}
+.lotteryNumber span {
   margin-top: 35px;
   font-size: 51px;
+  margin: 0 15px;
 }
 .imgPosition {
     position: relative;

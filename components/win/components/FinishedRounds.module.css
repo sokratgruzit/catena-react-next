@@ -101,6 +101,9 @@
     margin-bottom: 40px;
     text-transform: capitalize;
 }
+.connectWallet {
+    width: 160px;
+}
 .latest {
     display: none;
     color: red;

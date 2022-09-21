@@ -1,4 +1,6 @@
-import { useState } from 'react';
+import { useState } from "react";
+import useConnect from '../../../hooks/use-connect';
+import Button from '../../UI/button/Button';
 import Image from 'next/image';
 import TabFilter from '../../UI/filters/TabFilter';
 import CornerDecor from "../../UI/cornerDecor/CornerDecor";
@@ -20,132 +22,165 @@ let finishedRoulesData = [
     {
         id: 0,
         img: 'one.png',
+        title: 'details 1'
     },
     {
         id: 1,
         img: 'one.png',
+        title: 'details 2'
     },
     {
         id: 2,
         img: 'one.png',
+        title: 'details 3'
     },
     {
         id: 3,
         img: 'one.png',
+        title: 'details 4'
     },
     {
         id: 4,
         img: 'one.png',
+        title: 'details 5'
     },
     {
         id: 5,
         img: 'one.png',
+        title: 'details 6'
     },
     // nex page
     {
         id: 6,
         img: 'two.png',
+        title: 'details 7'
     },
     {
         id: 7,
         img: 'six.png',
+        title: 'details 8'
     },
     {
         id: 8,
-        img: 'zero.png'
+        img: 'zero.png',
+        title: 'details 9'
     },
     {
         id: 9,
         img: 'one.png',
+        title: 'details 10'
     },
     {
         id: 10,
         img: 'two.png',
+        title: 'details 13'
     },
     {
         id: 11,
         img: 'zero.png',
+        title: 'details 11'
     },
     {
         id: 12,
         img: 'nine.png',
+        title: 'details 12'
     },
     // nex page
     {
         id: 13,
         img: 'eight.png',
+        title: 'details 13'
     },
     {
         id: 14,
         img: 'six.png',
+        title: 'details one'
     },
     {
         id: 15,
         img: 'one.png',
+        title: 'details one'
     },
     {
         id: 16,
         img: 'two.png',
+        title: 'details one'
     },
     {
         id: 17,
         img: 'zero.png',
+        title: 'details one'
     },
     {
         id: 18,
         img: 'nine.png',
+        title: 'details one'
     },
     // nex
     {
         id: 19,
         img: 'eight.png',
+        title: 'details one'
     },
     {
         id: 20,
         img: 'six.png',
+        title: 'details one'
     },
     {
         id: 21,
         img: 'zero.png',
+        title: 'details one'
     },
     {
         id: 22,
         img: 'zero.png',
+        title: 'details one'
     },
     {
         id: 23,
         img: 'zero.png',
+        title: 'details one'
     },
     {
         id: 24,
         img: 'nine.png',
+        title: 'details one'
     },
     // nex
     {   
         id: 25,
         img: 'zero.png',
+        title: 'details one'
     },
     {
         id: 26,
         img: 'six.png',
+        title: 'details one'
     },
     {
         id: 27,
         img: 'one.png',
+        title: 'details one'
     },
     {
         id: 28,
         img: 'zero.png',
+        title: 'details one'
     },
     {
         id: 29,
         img: 'zero.png',
+        title: 'details one'
     },
 ]
 
 const FinishedRounds = () => {
     const [activeMenuItem, setActiveMenuItem] = useState("All History");
     const [pageNumber, setPageNumber] = useState(0);
+    const [data, setData] = useState(finishedRoulesData.slice(pageNumber, pageNumber + 6));
+    const { handleWalletModal } = useConnect();
+    const [connectBtnColor, setConnectBtnColor] = useState('blue');
 
     let latest = false;
     const changeTabHendler = (status) => {
@@ -159,7 +194,7 @@ const FinishedRounds = () => {
             latest=true;
             return false;
         };
-        
+        dataHandler();
     };
     const previous = () => {
         if(pageNumber > 0) {
@@ -167,16 +202,16 @@ const FinishedRounds = () => {
         }else if (pageNumber === 0) {
             return false;
         }
+        dataHandler();
     }
 
-    const displayUsers = finishedRoulesData.slice(pageNumber, pageNumber + 6).map((item) => {
-        return (
-          <div className={styles.ballBlue} key={item.id}>
-              <Image layout='fill' objectFit={'contain'} src={`/images/win/${item.img}`} alt='blue' />
-          </div>
-        );
-    });
-
+    const dataHandler = () => {
+        let data = finishedRoulesData.slice(pageNumber, pageNumber + 6).map((item) => {
+            return item;
+        });
+        setData(data);
+    };
+    console.log(data)
     let content = '';
 
     if (activeMenuItem === "All History") {
@@ -224,7 +259,13 @@ const FinishedRounds = () => {
                         <p className={`${styles.latest} ${latest ? styles.latestActive : ''}`}>Latest</p>
                     </div>
                     <div className={styles.ball}>
-                        {displayUsers}                     
+                        {data.map(item => {
+                            return (
+                                <div className={styles.ballBlue} key={item.id}>
+                                    <Image layout='fill' objectFit={'contain'} src={`/images/win/${item.img}`} alt='blue' />
+                                </div>
+                            )        
+                        })}
                     </div>
                     <div className={styles.details}>
                         <button>
@@ -232,7 +273,14 @@ const FinishedRounds = () => {
                         </button>
                         <svg width="9" height="5" viewBox="0 0 9 5" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M7.41406 1.24902L4.94437 3.71872C4.6527 4.01039 4.17543 4.01039 3.88376 3.71872L1.41406 1.24902" stroke="#0500FF" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
-                        </svg>
+                            </svg>
+                                                   {data.map(item => {
+                            return (
+                                <div className={styles.ballBlue} key={item.id}>
+                                    {item.title}
+                                </div>
+                            )        
+                        })}
                     </div>
                 </div>
             </div>
@@ -245,7 +293,19 @@ const FinishedRounds = () => {
                 <CornerDecor />
                 <div className={styles.history}>
                     <p>Connect your wallet to check your history</p>
-                    <ButtonWallet />
+                    <div className={styles.connectWallet}>   
+                        <Button
+                            title={'Connect Wallet'}
+                            type={`${connectBtnColor}`}
+                            onClick={() => {
+                            handleWalletModal(true);
+                            }}
+                            customStyles={{
+                                padding: '10px 20px',
+                                border: 'none',
+                            }}
+                        />
+                    </div>
                 </div>
             </div>
         </div>

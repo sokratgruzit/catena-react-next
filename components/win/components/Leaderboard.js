@@ -1,17 +1,24 @@
+import { useState } from "react";
 import ArrowBtn from "../../UI/button/ArrowBtn";
-import Image from "next/image"
+import Image from "next/image";
+import ReactPaginate from "react-paginate";
+import Select from "../../UI/select/Select";
+// import { Select, MenuItem } from '@mui/material';
+import Link from "next/link";
 
 import styles from "./Leaderboard.module.css";
 import CornerDecor from "../../UI/cornerDecor/CornerDecor";
 
 
+
+
     const contentData = [
         {
-            id : 0,
+            id: 0,
             numbering: "1",
-            img: "hero.png",
+            img: "einstein.png",
             title: "Spaceman",
-            winRate : "57.82%",
+            winRate: "57.82%",
             netWinnings: "+6,734.435774",
             netWinningsCMCX: "~$24,808.04",
             roundsWon: "3,898/6,742",
@@ -20,11 +27,11 @@ import CornerDecor from "../../UI/cornerDecor/CornerDecor";
             
         },
         {
-            id : 1,
+            id: 1,
             numbering: "2",
-            img: "einstein.png",
+            img: "rebyt.png",
             title: "Einstein",
-            winRate : "57.82%",
+            winRate: "57.82%",
             netWinnings: "+6,734.435774",
             netWinningsCMCX: "~$20,808.04",
             roundsWon: "3,898/6,742",
@@ -33,11 +40,11 @@ import CornerDecor from "../../UI/cornerDecor/CornerDecor";
             
         },
         {
-            id : 2,
+            id: 2,
             numbering: "3",
-            img: "rebyt.png",
+            img: "einstein.png",
             title: "PokeMoon25",
-            winRate : "57.82%",
+            winRate: "57.82%",
             netWinnings: "+6,734.435774",
             netWinningsCMCX: "~$24,808.04",
             roundsWon: "3,898/6,742",
@@ -45,23 +52,582 @@ import CornerDecor from "../../UI/cornerDecor/CornerDecor";
             roundsPlayed: "4,646"
             
         },
+        {
+            id: 3,
+            numbering: "#4",
+            img: "rebyt.png",
+            title: "PokeMoon25",
+            winRate: "57.82%",
+            netWinnings: "+6,734.435774",
+            netWinningsCMCX: "~$24,808.04",
+            roundsWon: "3,898/6,742",
+            netWinningsRed: "-64.269117",
+            roundsPlayed: "4,646"
+            
+        },
+        {
+            id: 4,
+            numbering: "#4",
+            img: "rebyt.png",
+            title: "PokeMoon25",
+            winRate: "57.82%",
+            netWinnings: "+6,734.435774",
+            netWinningsCMCX: "~$24,808.04",
+            roundsWon: "3,898/6,742",
+            netWinningsRed: "-64.269117",
+            roundsPlayed: "4,646"
+            
+        },
+        {
+            id: 5,
+            numbering: "#5",
+            img: "rebyt.png",
+            title: "PokeMoon25",
+            winRate: "57.82%",
+            netWinnings: "+6,734.435774",
+            netWinningsCMCX: "~$24,808.04",
+            roundsWon: "3,898/6,742",
+            netWinningsRed: "-64.269117",
+            roundsPlayed: "4,646"
+            
+        },
+        {
+            id: 6,
+            numbering: "#6",
+            img: "rebyt.png",
+            title: "PokeMoon25",
+            winRate: "57.82%",
+            netWinnings: "+6,734.435774",
+            netWinningsCMCX: "~$24,808.04",
+            roundsWon: "3,898/6,742",
+            netWinningsRed: "-64.269117",
+            roundsPlayed: "4,646"
+            
+        },
+        {
+            id: 7,
+            numbering: "#7",
+            img: "rebyt.png",
+            title: "PokeMoon25",
+            winRate: "57.82%",
+            netWinnings: "+6,734.435774",
+            netWinningsCMCX: "~$24,808.04",
+            roundsWon: "3,898/6,742",
+            netWinningsRed: "-64.269117",
+            roundsPlayed: "4,646"
+            
+        },
+        {
+            id: 8,
+            numbering: "#8",
+            img: "rebyt.png",
+            title: "PokeMoon25",
+            winRate: "57.82%",
+            netWinnings: "+6,734.435774",
+            netWinningsCMCX: "~$24,808.04",
+            roundsWon: "3,898/6,742",
+            netWinningsRed: "-64.269117",
+            roundsPlayed: "4,646"
+            
+        },
+        {
+            id: 9,
+            numbering: "#9",
+            img: "rebyt.png",
+            title: "PokeMoon25",
+            winRate: "57.82%",
+            netWinnings: "+6,734.435774",
+            netWinningsCMCX: "~$24,808.04",
+            roundsWon: "3,898/6,742",
+            netWinningsRed: "-64.269117",
+            roundsPlayed: "4,646"
+            
+        },
+        {
+            id: 10,
+            numbering: "#10",
+            img: "rebyt.png",
+            title: "PokeMoon25",
+            winRate: "57.82%",
+            netWinnings: "+6,734.435774",
+            netWinningsCMCX: "~$24,808.04",
+            roundsWon: "3,898/6,742",
+            netWinningsRed: "-64.269117",
+            roundsPlayed: "4,646"
+            
+        },
+        {
+            id: 11,
+            numbering: "#11",
+            img: "rebyt.png",
+            title: "PokeMoon25",
+            winRate: "57.82%",
+            netWinnings: "+6,734.435774",
+            netWinningsCMCX: "~$24,808.04",
+            roundsWon: "3,898/6,742",
+            netWinningsRed: "-64.269117",
+            roundsPlayed: "4,646"
+            
+        },
+        {
+            id: 12,
+            numbering: "#12",
+            img: "rebyt.png",
+            title: "PokeMoon25",
+            winRate: "57.82%",
+            netWinnings: "+6,734.435774",
+            netWinningsCMCX: "~$24,808.04",
+            roundsWon: "3,898/6,742",
+            netWinningsRed: "-64.269117",
+            roundsPlayed: "4,646"
+            
+        },
+        {
+            id: 13,
+            numbering: "#13",
+            img: "rebyt.png",
+            title: "PokeMoon25",
+            winRate: "57.82%",
+            netWinnings: "+6,734.435774",
+            netWinningsCMCX: "~$24,808.04",
+            roundsWon: "3,898/6,742",
+            netWinningsRed: "-64.269117",
+            roundsPlayed: "4,646"
+        },
+        {
+            id: 14,
+            numbering: "#14",
+            img: "rebyt.png",
+            title: "PokeMoon25",
+            winRate: "57.82%",
+            netWinnings: "+6,734.435774",
+            netWinningsCMCX: "~$24,808.04",
+            roundsWon: "3,898/6,742",
+            netWinningsRed: "-64.269117",
+            roundsPlayed: "4,646"            
+        },
+        {
+            id: 15,
+            numbering: "#15",
+            img: "rebyt.png",
+            title: "PokeMoon25",
+            winRate: "57.82%",
+            netWinnings: "+6,734.435774",
+            netWinningsCMCX: "~$24,808.04",
+            roundsWon: "3,898/6,742",
+            netWinningsRed: "-64.269117",
+            roundsPlayed: "4,646"
+        },
+        {
+            id: 16,
+            numbering: "#16",
+            img: "rebyt.png",
+            title: "PokeMoon25",
+            winRate: "57.82%",
+            netWinnings: "+6,734.435774",
+            netWinningsCMCX: "~$24,808.04",
+            roundsWon: "3,898/6,742",
+            netWinningsRed: "-64.269117",
+            roundsPlayed: "4,646"
+        },
+        {
+            id: 17,
+            numbering: "#17",
+            img: "rebyt.png",
+            title: "PokeMoon25",
+            winRate: "57.82%",
+            netWinnings: "+6,734.435774",
+            netWinningsCMCX: "~$24,808.04",
+            roundsWon: "3,898/6,742",
+            netWinningsRed: "-64.269117",
+            roundsPlayed: "4,646"
+        },
+        {
+            id: 18,
+            numbering: "#18",
+            img: "rebyt.png",
+            title: "PokeMoon25",
+            winRate: "57.82%",
+            netWinnings: "+6,734.435774",
+            netWinningsCMCX: "~$24,808.04",
+            roundsWon: "3,898/6,742",
+            netWinningsRed: "-64.269117",
+            roundsPlayed: "4,646"
+        },        
+        {
+            id: 19,
+            numbering: "#19",
+            img: "rebyt.png",
+            title: "PokeMoon25",
+            winRate: "57.82%",
+            netWinnings: "+6,734.435774",
+            netWinningsCMCX: "~$24,808.04",
+            roundsWon: "3,898/6,742",
+            netWinningsRed: "-64.269117",
+            roundsPlayed: "4,646"
+        },
+        {
+            id: 20,
+            numbering: "#20",
+            img: "rebyt.png",
+            title: "PokeMoon25",
+            winRate: "57.82%",
+            netWinnings: "+6,734.435774",
+            netWinningsCMCX: "~$24,808.04",
+            roundsWon: "3,898/6,742",
+            netWinningsRed: "-64.269117",
+            roundsPlayed: "4,646"
+        },
+        {
+            id: 21,
+            numbering: "#21",
+            img: "rebyt.png",
+            title: "PokeMoon25",
+            winRate: "57.82%",
+            netWinnings: "+6,734.435774",
+            netWinningsCMCX: "~$24,808.04",
+            roundsWon: "3,898/6,742",
+            netWinningsRed: "-64.269117",
+            roundsPlayed: "4,646"
+            
+        },
+        {
+            id: 22,
+            numbering: "#22",
+            img: "rebyt.png",
+            title: "PokeMoon25",
+            winRate: "57.82%",
+            netWinnings: "+6,734.435774",
+            netWinningsCMCX: "~$24,808.04",
+            roundsWon: "3,898/6,742",
+            netWinningsRed: "-64.269117",
+            roundsPlayed: "4,646"
+            
+        },
+        {
+            id: 23,
+            numbering: "#23",
+            img: "rebyt.png",
+            title: "PokeMoon25",
+            winRate: "57.82%",
+            netWinnings: "+6,734.435774",
+            netWinningsCMCX: "~$24,808.04",
+            roundsWon: "3,898/6,742",
+            netWinningsRed: "-64.269117",
+            roundsPlayed: "4,646"
+        },
+        {
+            id: 24,
+            numbering: "#24",
+            img: "rebyt.png",
+            title: "PokeMoon25",
+            winRate: "57.82%",
+            netWinnings: "+6,734.435774",
+            netWinningsCMCX: "~$24,808.04",
+            roundsWon: "3,898/6,742",
+            netWinningsRed: "-64.269117",
+            roundsPlayed: "4,646"            
+        },
+        {
+            id: 25,
+            numbering: "#25",
+            img: "rebyt.png",
+            title: "PokeMoon25",
+            winRate: "57.82%",
+            netWinnings: "+6,734.435774",
+            netWinningsCMCX: "~$24,808.04",
+            roundsWon: "3,898/6,742",
+            netWinningsRed: "-64.269117",
+            roundsPlayed: "4,646"
+        },
+        {
+            id: 26,
+            numbering: "#26",
+            img: "rebyt.png",
+            title: "PokeMoon25",
+            winRate: "57.82%",
+            netWinnings: "+6,734.435774",
+            netWinningsCMCX: "~$24,808.04",
+            roundsWon: "3,898/6,742",
+            netWinningsRed: "-64.269117",
+            roundsPlayed: "4,646"
+        },
+        {
+            id: 27,
+            numbering: "#27",
+            img: "rebyt.png",
+            title: "PokeMoon25",
+            winRate: "57.82%",
+            netWinnings: "+6,734.435774",
+            netWinningsCMCX: "~$24,808.04",
+            roundsWon: "3,898/6,742",
+            netWinningsRed: "-64.269117",
+            roundsPlayed: "4,646"
+        },
+        {
+            id: 28,
+            numbering: "#28",
+            img: "rebyt.png",
+            title: "PokeMoon25",
+            winRate: "57.82%",
+            netWinnings: "+6,734.435774",
+            netWinningsCMCX: "~$24,808.04",
+            roundsWon: "3,898/6,742",
+            netWinningsRed: "-64.269117",
+            roundsPlayed: "4,646"
+        },        
+        {
+            id: 29,
+            numbering: "#29",
+            img: "rebyt.png",
+            title: "PokeMoon25",
+            winRate: "57.82%",
+            netWinnings: "+6,734.435774",
+            netWinningsCMCX: "~$24,808.04",
+            roundsWon: "3,898/6,742",
+            netWinningsRed: "-64.269117",
+            roundsPlayed: "4,646"
+        },
+        {
+            id: 30,
+            numbering: "#30",
+            img: "rebyt.png",
+            title: "PokeMoon25",
+            winRate: "57.82%",
+            netWinnings: "+6,734.435774",
+            netWinningsCMCX: "~$24,808.04",
+            roundsWon: "3,898/6,742",
+            netWinningsRed: "-64.269117",
+            roundsPlayed: "4,646"
+        },
+        {
+            id: 31,
+            numbering: "#31",
+            img: "rebyt.png",
+            title: "PokeMoon25",
+            winRate: "57.82%",
+            netWinnings: "+6,734.435774",
+            netWinningsCMCX: "~$24,808.04",
+            roundsWon: "3,898/6,742",
+            netWinningsRed: "-64.269117",
+            roundsPlayed: "4,646"
+            
+        },
+        {
+            id: 32,
+            numbering: "#32",
+            img: "rebyt.png",
+            title: "PokeMoon25",
+            winRate: "57.82%",
+            netWinnings: "+6,734.435774",
+            netWinningsCMCX: "~$24,808.04",
+            roundsWon: "3,898/6,742",
+            netWinningsRed: "-64.269117",
+            roundsPlayed: "4,646"
+            
+        },
+        {
+            id: 33,
+            numbering: "#33",
+            img: "rebyt.png",
+            title: "PokeMoon25",
+            winRate: "57.82%",
+            netWinnings: "+6,734.435774",
+            netWinningsCMCX: "~$24,808.04",
+            roundsWon: "3,898/6,742",
+            netWinningsRed: "-64.269117",
+            roundsPlayed: "4,646"
+        },
+        {
+            id: 34,
+            numbering: "#34",
+            img: "rebyt.png",
+            title: "PokeMoon25",
+            winRate: "57.82%",
+            netWinnings: "+6,734.435774",
+            netWinningsCMCX: "~$24,808.04",
+            roundsWon: "3,898/6,742",
+            netWinningsRed: "-64.269117",
+            roundsPlayed: "4,646"            
+        },
+        {
+            id: 35,
+            numbering: "#35",
+            img: "rebyt.png",
+            title: "PokeMoon25",
+            winRate: "57.82%",
+            netWinnings: "+6,734.435774",
+            netWinningsCMCX: "~$24,808.04",
+            roundsWon: "3,898/6,742",
+            netWinningsRed: "-64.269117",
+            roundsPlayed: "4,646"
+        },
+        {
+            id: 36,
+            numbering: "#36",
+            img: "rebyt.png",
+            title: "PokeMoon25",
+            winRate: "57.82%",
+            netWinnings: "+6,734.435774",
+            netWinningsCMCX: "~$24,808.04",
+            roundsWon: "3,898/6,742",
+            netWinningsRed: "-64.269117",
+            roundsPlayed: "4,646"
+        },
+        {
+            id: 37,
+            numbering: "#37",
+            img: "rebyt.png",
+            title: "PokeMoon25",
+            winRate: "57.82%",
+            netWinnings: "+6,734.435774",
+            netWinningsCMCX: "~$24,808.04",
+            roundsWon: "3,898/6,742",
+            netWinningsRed: "-64.269117",
+            roundsPlayed: "4,646"
+        },
+        {
+            id: 38,
+            numbering: "#38",
+            img: "rebyt.png",
+            title: "PokeMoon25",
+            winRate: "57.82%",
+            netWinnings: "+6,734.435774",
+            netWinningsCMCX: "~$24,808.04",
+            roundsWon: "3,898/6,742",
+            netWinningsRed: "-64.269117",
+            roundsPlayed: "4,646"
+        },        
+        {
+            id: 39,
+            numbering: "#39",
+            img: "rebyt.png",
+            title: "PokeMoon25",
+            winRate: "57.82%",
+            netWinnings: "+6,734.435774",
+            netWinningsCMCX: "~$24,808.04",
+            roundsWon: "3,898/6,742",
+            netWinningsRed: "-64.269117",
+            roundsPlayed: "4,646"
+        },
+        {
+            id: 40,
+            numbering: "#40",
+            img: "rebyt.png",
+            title: "PokeMoon25",
+            winRate: "57.82%",
+            netWinnings: "+6,734.435774",
+            netWinningsCMCX: "~$24,808.04",
+            roundsWon: "3,898/6,742",
+            netWinningsRed: "-64.269117",
+            roundsPlayed: "4,646"
+        }
 
     ]
 const Leaderboard = () => {
+    const [users, setusers] = useState(contentData.slice(0, 100));
+    const [number, setNumber] = useState(0);
+
+    const click = (e) => {
+        setWtf(e.target.value)
+    }
+    
+    const usersPerPage = 10;
+    const pagesVisited = number * usersPerPage;
+    const pageCount = Math.ceil(users.length / usersPerPage);
+
+    const changePage = ({selected}) => {
+        setNumber(selected)
+    }
+
     let swipetItems = contentData.map(item => {
+
         if(item.id === 0) {
             return (
                 <>
                     <div className={styles.TabBorder}>
                         <div className={styles.border}>
                             <CornerDecor />
-                            <div>
-                               <Image layout='fill' objectFit={'contain'} src={`/images/win/${item.numbering}`} alt='number' />
-                                <Image layout='fill' objectFit={'contain'} src={`/images/win/${item.img}`} alt='icone' />
-                                <p>{item.winRate}</p>
-                                <p>{item.netWinnings}</p>
-                                <p>{item.netWinningsCMCX}</p>
-                                <p>{item.roundsWon}</p>
+                            <div className={styles.content}>
+                                <div>
+                                    <div className={styles.numbering} >
+                                    <svg width="34" height="40" viewBox="0 0 34 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <g clipPath="url(#clip0_5801_2020)">
+                                        <path d="M6.88914 17.5844C5.92605 17.6541 4.95913 17.5175 4.05369 17.1838C3.14825 16.8501 2.32536 16.327 1.6406 15.65C-0.594588 13.3524 0.10416 10.123 0.10416 10.123C2.06195 10.2429 3.90345 11.088 5.26534 12.4917C5.92729 13.1486 6.42044 13.9544 6.70308 14.8408C6.98572 15.7272 7.04954 16.6683 6.88914 17.5844Z" fill="#EAAB4D"/>
+                                        <path d="M15.0538 12.4531C14.8942 13.4004 14.532 14.3027 13.9916 15.0988C13.4512 15.895 12.7452 16.5666 11.9214 17.0681C11.255 16.4175 10.7562 15.6167 10.4673 14.7336C10.1785 13.8504 10.108 12.9111 10.2619 11.9952C10.5456 10.0622 11.5505 8.30612 13.0767 7.07617C13.0767 7.07617 15.5223 9.29484 15.0538 12.4531Z" fill="#EAAB4D"/>
+                                        <path d="M18.4703 20.0201C18.4352 20.9798 18.1934 21.9208 17.7612 22.7797C17.329 23.6385 16.7165 24.3951 15.9651 24.9983C15.2208 24.439 14.623 23.7097 14.2222 22.872C13.8214 22.0343 13.6294 21.113 13.6624 20.1859C13.6923 18.2379 14.4576 16.3722 15.8063 14.959C15.8063 14.959 18.5219 16.8263 18.4703 20.0201Z" fill="#EAAB4D"/>
+                                        <path d="M24.0114 24.3706C24.07 25.3319 23.9199 26.2945 23.5712 27.193C23.2225 28.0915 22.6835 28.9048 21.9906 29.5778C21.1957 29.0915 20.5304 28.4216 20.0515 27.6251C19.5725 26.8285 19.2939 25.9287 19.2393 25.0022C19.0885 23.0591 19.6764 21.1304 20.8869 19.5977C20.8869 19.5977 23.7613 21.1886 24.0114 24.3706Z" fill="#EAAB4D"/>
+                                        <path d="M29.985 27.9434C30.3129 28.8421 30.444 29.8002 30.3693 30.7534C30.2947 31.7066 30.0161 32.6329 29.5522 33.4703C28.6484 33.2339 27.8153 32.7837 27.1241 32.1582C26.4328 31.5327 25.9038 30.7504 25.5821 29.8778C24.8719 28.0609 24.8719 26.0454 25.5821 24.2285C25.5821 24.2285 28.8257 24.9667 29.985 27.9434Z" fill="#EAAB4D"/>
+                                        <path d="M4.67683 6.09227C4.09719 2.93401 6.47134 0.667969 6.47134 0.667969C8.0347 1.84146 9.09749 3.5563 9.44894 5.47246C9.63531 6.38327 9.59801 7.32535 9.34021 8.21878C9.08242 9.1122 8.61174 9.93062 7.96808 10.6046C7.12638 10.1309 6.39689 9.48283 5.82904 8.7043C5.26119 7.92578 4.86825 7.03498 4.67683 6.09227Z" fill="#EAAB4D"/>
+                                        <path d="M6.61164 19.3731C7.43797 19.8057 8.14748 20.4297 8.68025 21.1924C9.21301 21.9551 9.55338 22.8341 9.67262 23.7551C8.77268 24.1039 7.80794 24.2566 6.84358 24.2028C5.87922 24.149 4.93771 23.89 4.08266 23.4433C1.27179 21.9076 0.985948 18.6348 0.985948 18.6348C2.88802 18.1723 4.89534 18.4357 6.61164 19.3731Z" fill="#EAAB4D"/>
+                                        <path d="M10.5899 25.5833C11.4939 25.8208 12.3269 26.2717 13.0181 26.8979C13.7093 27.524 14.2383 28.3068 14.5601 29.1798C13.7608 29.7186 12.8546 30.0806 11.9025 30.2413C10.9505 30.4021 9.97491 30.3578 9.04158 30.1115C5.95281 29.2351 4.94439 26.1084 4.94439 26.1084C6.69384 25.237 8.70832 25.0496 10.5899 25.5833Z" fill="#EAAB4D"/>
+                                        <path d="M15.1249 30.8015C16.0573 30.7573 16.9867 30.9369 17.8346 31.3251C18.6824 31.7134 19.4239 32.2988 19.9963 33.032C19.3979 33.7872 18.6434 34.4057 17.7838 34.8457C16.9242 35.2857 15.9795 35.5369 15.0138 35.5823C11.8098 35.6731 9.89623 32.9965 9.89623 32.9965C11.3013 31.6396 13.1671 30.8563 15.1249 30.8015Z" fill="#EAAB4D"/>
+                                        <path d="M22.3258 34.6027C23.246 34.4475 24.1903 34.5154 25.0784 34.8006C25.9666 35.0858 26.7724 35.58 27.4275 36.2411C26.9248 37.0608 26.251 37.7638 25.4518 38.3025C24.6525 38.8412 23.7463 39.2031 22.7943 39.3638C19.6182 39.8375 17.3949 37.4096 17.3949 37.4096C18.6284 35.8945 20.3873 34.8932 22.3258 34.6027Z" fill="#EAAB4D"/>
+                                        <path d="M7.47056 12.1406L9.05862 12.1919C9.03877 12.8394 8.85217 28.1017 33.3519 35.2512L32.9152 36.7553C7.15692 29.2426 7.46262 12.3064 7.47056 12.1406Z" fill="#EAAB4D"/>
+                                        </g>
+                                        <defs>
+                                        <clipPath id="clip0_5801_2020">
+                                        <rect width="33.3333" height="38.7597" fill="white" transform="matrix(-1 0 0 1 33.3333 0.667969)"/>
+                                        </clipPath>
+                                        </defs>
+                                    </svg>
+                                        <p className={styles.numberOne}>{item.numbering}</p>
+                                        <svg width="34" height="40" viewBox="0 0 34 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <g clipPath="url(#clip0_5801_2032)">
+                                            <path d="M26.7775 17.5844C27.7406 17.6541 28.7075 17.5175 29.613 17.1838C30.5184 16.8501 31.3413 16.327 32.026 15.65C34.2612 13.3524 33.5625 10.123 33.5625 10.123C31.6047 10.2429 29.7632 11.088 28.4013 12.4917C27.7394 13.1486 27.2462 13.9544 26.9636 14.8408C26.6809 15.7272 26.6171 16.6683 26.7775 17.5844Z" fill="#EAAB4D"/>
+                                            <path d="M18.6128 12.4531C18.7724 13.4004 19.1346 14.3027 19.675 15.0988C20.2154 15.895 20.9214 16.5666 21.7453 17.0681C22.4116 16.4175 22.9104 15.6167 23.1993 14.7336C23.4882 13.8504 23.5587 12.9111 23.4048 11.9952C23.1211 10.0622 22.1162 8.30612 20.5899 7.07617C20.5899 7.07617 18.1443 9.29484 18.6128 12.4531Z" fill="#EAAB4D"/>
+                                            <path d="M15.1964 20.0201C15.2315 20.9798 15.4733 21.9208 15.9054 22.7797C16.3376 23.6385 16.9501 24.3951 17.7016 24.9983C18.4458 24.439 19.0437 23.7097 19.4445 22.872C19.8453 22.0343 20.0373 21.113 20.0042 20.1859C19.9743 18.2379 19.2091 16.3722 17.8604 14.959C17.8604 14.959 15.1448 16.8263 15.1964 20.0201Z" fill="#EAAB4D"/>
+                                            <path d="M9.65522 24.3706C9.5966 25.3319 9.74673 26.2945 10.0954 27.193C10.4441 28.0915 10.9832 28.9048 11.676 29.5778C12.471 29.0915 13.1362 28.4216 13.6152 27.6251C14.0942 26.8285 14.3728 25.9287 14.4273 25.0022C14.5782 23.0591 13.9902 21.1304 12.7797 19.5977C12.7797 19.5977 9.90534 21.1886 9.65522 24.3706Z" fill="#EAAB4D"/>
+                                            <path d="M3.68166 27.9434C3.35373 28.8421 3.22269 29.8002 3.29732 30.7534C3.37195 31.7066 3.65053 32.6329 4.1144 33.4703C5.01827 33.2339 5.8513 32.7837 6.54255 32.1582C7.23381 31.5327 7.76282 30.7504 8.08455 29.8778C8.79474 28.0609 8.79474 26.0454 8.08455 24.2285C8.08455 24.2285 4.84094 24.9667 3.68166 27.9434Z" fill="#EAAB4D"/>
+                                            <path d="M28.9898 6.09227C29.5695 2.93401 27.1953 0.667969 27.1953 0.667969C25.6319 1.84146 24.5692 3.5563 24.2177 5.47246C24.0313 6.38327 24.0686 7.32535 24.3264 8.21878C24.5842 9.1122 25.0549 9.93062 25.6986 10.6046C26.5403 10.1309 27.2698 9.48283 27.8376 8.7043C28.4055 7.92578 28.7984 7.03498 28.9898 6.09227Z" fill="#EAAB4D"/>
+                                            <path d="M27.055 19.3731C26.2287 19.8057 25.5192 20.4297 24.9864 21.1924C24.4536 21.9551 24.1133 22.8341 23.994 23.7551C24.894 24.1039 25.8587 24.2566 26.8231 24.2028C27.7874 24.149 28.7289 23.89 29.584 23.4433C32.3949 21.9076 32.6807 18.6348 32.6807 18.6348C30.7786 18.1723 28.7713 18.4357 27.055 19.3731Z" fill="#EAAB4D"/>
+                                            <path d="M23.0767 25.5833C22.1727 25.8208 21.3397 26.2717 20.6485 26.8979C19.9573 27.524 19.4283 28.3068 19.1066 29.1798C19.9058 29.7186 20.8121 30.0806 21.7641 30.2413C22.7161 30.4021 23.6917 30.3578 24.6251 30.1115C27.7138 29.2351 28.7223 26.1084 28.7223 26.1084C26.9728 25.237 24.9583 25.0496 23.0767 25.5833Z" fill="#EAAB4D"/>
+                                            <path d="M18.5417 30.8015C17.6093 30.7573 16.68 30.9369 15.8321 31.3251C14.9842 31.7134 14.2428 32.2988 13.6704 33.032C14.2687 33.7872 15.0232 34.4057 15.8829 34.8457C16.7425 35.2857 17.6872 35.5369 18.6529 35.5823C21.8568 35.6731 23.7704 32.9965 23.7704 32.9965C22.3654 31.6396 20.4995 30.8563 18.5417 30.8015Z" fill="#EAAB4D"/>
+                                            <path d="M11.3408 34.6027C10.4207 34.4475 9.4764 34.5154 8.58824 34.8006C7.70009 35.0858 6.89427 35.58 6.2392 36.2411C6.74189 37.0608 7.41561 37.7638 8.21489 38.3025C9.01417 38.8412 9.92039 39.2031 10.8724 39.3638C14.0485 39.8375 16.2718 37.4096 16.2718 37.4096C15.0383 35.8945 13.2793 34.8932 11.3408 34.6027Z" fill="#EAAB4D"/>
+                                            <path d="M26.1961 12.1406L24.608 12.1919C24.6279 12.8394 24.8145 28.1017 0.314716 35.2512L0.751429 36.7553C26.5097 29.2426 26.204 12.3064 26.1961 12.1406Z" fill="#EAAB4D"/>
+                                            </g>
+                                            <defs>
+                                            <clipPath id="clip0_5801_2032">
+                                            <rect width="33.3333" height="38.7597" fill="white" transform="translate(0.333317 0.667969)"/>
+                                            </clipPath>
+                                            </defs>
+                                        </svg>
+                                    </div>
+                                </div>
+                               <div className={styles.leaderImageDesc}>
+                                    <div className={styles.leaderFlex}>
+                                        <div className={styles.leaderDesc}>
+                                            <Image layout='fill' objectFit={'contain'} src={`/images/win/${item.img}`} alt='icone' />
+                                        </div>
+                                        <p>{item.title}</p>
+                                    </div>
+                                    <div className={styles.states}>
+                                        <p>View Stats</p>
+                                        <p  className={styles.bscsan}>
+                                            View on BscSan
+                                            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path fillRule="evenodd" clipRule="evenodd" d="M9.33014 0.497398C9.51763 0.681316 9.52052 0.982399 9.3366 1.16988L5.69712 4.87994C5.51321 5.06742 5.21212 5.07031 5.02464 4.88639C4.83715 4.70248 4.83426 4.40139 5.01818 4.21391L8.65765 0.503856C8.84157 0.31637 9.14266 0.313479 9.33014 0.497398Z" fill="#0500FF"/>
+                                                <path fillRule="evenodd" clipRule="evenodd" d="M6.74596 0.475542C6.74596 0.212907 6.95886 0 7.2215 0H9.35192C9.61455 0 9.82746 0.212907 9.82746 0.475542V2.64728C9.82746 2.90992 9.61455 3.12282 9.35192 3.12282C9.08928 3.12282 8.87637 2.90992 8.87637 2.64728V0.951084H7.2215C6.95886 0.951084 6.74596 0.738176 6.74596 0.475542Z" fill="#0500FF"/>
+                                                <path fillRule="evenodd" clipRule="evenodd" d="M0.857308 0.877752C1.48926 0.233548 2.42395 0 3.58241 0H4.47009C4.73273 0 4.94563 0.212907 4.94563 0.475542C4.94563 0.738176 4.73273 0.951084 4.47009 0.951084H3.58241C2.52169 0.951084 1.90294 1.16998 1.53625 1.54378C1.16734 1.91985 0.951084 2.55655 0.951084 3.64266V6.35734C0.951084 7.44345 1.16734 8.08015 1.53625 8.45622C1.90294 8.83002 2.52169 9.04892 3.58241 9.04892H6.24545C7.30617 9.04892 7.92492 8.83002 8.29161 8.45622C8.66053 8.08015 8.87678 7.44345 8.87678 6.35734V5.45245C8.87678 5.18981 9.08969 4.9769 9.35232 4.9769C9.61496 4.9769 9.82786 5.18981 9.82786 5.45245V6.35734C9.82786 7.53345 9.60028 8.48031 8.97056 9.12225C8.33861 9.76645 7.40392 10 6.24545 10H3.58241C2.42395 10 1.48926 9.76645 0.857308 9.12225C0.227584 8.48031 0 7.53345 0 6.35734V3.64266C0 2.46655 0.227584 1.51969 0.857308 0.877752Z" fill="#0500FF"/>
+                                            </svg>
+                                        </p>
+                                    </div>
+                               </div>
+                                <div className={styles.boxes}>
+                                    <h5>Win Rate</h5>
+                                    <p>{item.winRate}</p>
+                                </div>
+                                <div className={`${styles.boxes} && ${styles.boxes2}`}>
+                                    <h5> Net Winnings (CMCX)</h5>
+                                    <div className={styles.netWinnings}>
+                                        <h4>{item.netWinnings}</h4>
+                                        <p>{item.netWinningsCMCX}</p>
+                                    </div>
+                                </div>
+                                <div className={styles.boxes}>
+                                    <h5>Rounds Won</h5>
+                                    <p>{item.roundsWon}</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -97,7 +663,7 @@ const Leaderboard = () => {
                                             </clipPath>
                                             </defs>
                                         </svg>
-                                        <p className={styles.spanNumber}>{item.numbering}</p>
+                                        <p className={styles.numberSecond}>{item.numbering}</p>
                                         <svg width="34" height="40" viewBox="0 0 34 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <g clipPath="url(#clip0_5993_1401)">
                                             <path d="M26.7775 17.5844C27.7406 17.6541 28.7075 17.5175 29.613 17.1838C30.5184 16.8501 31.3413 16.327 32.0261 15.65C34.2613 13.3524 33.5625 10.123 33.5625 10.123C31.6047 10.2429 29.7632 11.088 28.4013 12.4917C27.7394 13.1486 27.2462 13.9544 26.9636 14.8408C26.681 15.7272 26.6171 16.6683 26.7775 17.5844Z" fill="#8E8E8E"/>
@@ -127,9 +693,101 @@ const Leaderboard = () => {
                                         </div>
                                         <p>{item.title}</p>
                                     </div>
-                                    <div>
+                                    <div className={styles.states}>
                                         <p>View Stats</p>
-                                        <p>
+                                        <p  className={styles.bscsan}>
+                                            View on BscSan
+                                            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path fillRule="evenodd" clipRule="evenodd" d="M9.33014 0.497398C9.51763 0.681316 9.52052 0.982399 9.3366 1.16988L5.69712 4.87994C5.51321 5.06742 5.21212 5.07031 5.02464 4.88639C4.83715 4.70248 4.83426 4.40139 5.01818 4.21391L8.65765 0.503856C8.84157 0.31637 9.14266 0.313479 9.33014 0.497398Z" fill="#0500FF"/>
+                                                <path fillRule="evenodd" clipRule="evenodd" d="M6.74596 0.475542C6.74596 0.212907 6.95886 0 7.2215 0H9.35192C9.61455 0 9.82746 0.212907 9.82746 0.475542V2.64728C9.82746 2.90992 9.61455 3.12282 9.35192 3.12282C9.08928 3.12282 8.87637 2.90992 8.87637 2.64728V0.951084H7.2215C6.95886 0.951084 6.74596 0.738176 6.74596 0.475542Z" fill="#0500FF"/>
+                                                <path fillRule="evenodd" clipRule="evenodd" d="M0.857308 0.877752C1.48926 0.233548 2.42395 0 3.58241 0H4.47009C4.73273 0 4.94563 0.212907 4.94563 0.475542C4.94563 0.738176 4.73273 0.951084 4.47009 0.951084H3.58241C2.52169 0.951084 1.90294 1.16998 1.53625 1.54378C1.16734 1.91985 0.951084 2.55655 0.951084 3.64266V6.35734C0.951084 7.44345 1.16734 8.08015 1.53625 8.45622C1.90294 8.83002 2.52169 9.04892 3.58241 9.04892H6.24545C7.30617 9.04892 7.92492 8.83002 8.29161 8.45622C8.66053 8.08015 8.87678 7.44345 8.87678 6.35734V5.45245C8.87678 5.18981 9.08969 4.9769 9.35232 4.9769C9.61496 4.9769 9.82786 5.18981 9.82786 5.45245V6.35734C9.82786 7.53345 9.60028 8.48031 8.97056 9.12225C8.33861 9.76645 7.40392 10 6.24545 10H3.58241C2.42395 10 1.48926 9.76645 0.857308 9.12225C0.227584 8.48031 0 7.53345 0 6.35734V3.64266C0 2.46655 0.227584 1.51969 0.857308 0.877752Z" fill="#0500FF"/>
+                                            </svg>
+                                        </p>
+                                    </div>
+                               </div>
+                                <div className={styles.boxes}>
+                                    <h5>Win Rate</h5>
+                                    <p>{item.winRate}</p>
+                                </div>
+                                <div className={`${styles.boxes} && ${styles.boxes2}`}>
+                                    <h5> Net Winnings (CMCX)</h5>
+                                    <div className={styles.netWinnings}>
+                                        <h4>{item.netWinnings}</h4>
+                                        <p>{item.netWinningsCMCX}</p>
+                                    </div>
+                                </div>
+                                <div className={styles.boxes}>
+                                    <h5>Rounds Won</h5>
+                                    <p>{item.roundsWon}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </>
+            )
+        }
+        if(item.id === 2) {
+            return (
+                <>
+                    <div className={styles.TabBorder}>
+                        <div className={styles.border}>
+                            <CornerDecor />
+                            <div className={styles.content}>
+                                <div>
+                                    <div className={styles.numbering} >
+                                    <svg width="34" height="40" viewBox="0 0 34 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <g clipPath="url(#clip0_5993_1458)">
+                                        <path d="M6.8891 17.5844C5.92601 17.6541 4.95909 17.5175 4.05365 17.1838C3.14821 16.8501 2.32532 16.327 1.64056 15.65C-0.59463 13.3524 0.104118 10.123 0.104118 10.123C2.0619 10.2429 3.90341 11.088 5.2653 12.4917C5.92725 13.1486 6.4204 13.9544 6.70304 14.8408C6.98568 15.7272 7.04949 16.6683 6.8891 17.5844Z" fill="#904B0B"/>
+                                        <path d="M15.0538 12.4531C14.8942 13.4004 14.532 14.3027 13.9916 15.0988C13.4512 15.895 12.7452 16.5666 11.9214 17.0681C11.255 16.4175 10.7562 15.6167 10.4673 14.7336C10.1785 13.8504 10.108 12.9111 10.2619 11.9952C10.5456 10.0622 11.5505 8.30612 13.0767 7.07617C13.0767 7.07617 15.5223 9.29484 15.0538 12.4531Z" fill="#904B0B"/>
+                                        <path d="M18.4702 20.0201C18.4351 20.9798 18.1934 21.9208 17.7612 22.7797C17.329 23.6385 16.7165 24.3951 15.9651 24.9983C15.2208 24.439 14.623 23.7097 14.2221 22.872C13.8213 22.0343 13.6293 21.113 13.6624 20.1859C13.6923 18.2379 14.4575 16.3722 15.8063 14.959C15.8063 14.959 18.5218 16.8263 18.4702 20.0201Z" fill="#904B0B"/>
+                                        <path d="M24.0114 24.3706C24.07 25.3319 23.9199 26.2945 23.5712 27.193C23.2225 28.0915 22.6835 28.9048 21.9906 29.5778C21.1957 29.0915 20.5304 28.4216 20.0515 27.6251C19.5725 26.8285 19.2939 25.9287 19.2393 25.0022C19.0885 23.0591 19.6765 21.1304 20.8869 19.5977C20.8869 19.5977 23.7613 21.1886 24.0114 24.3706Z" fill="#904B0B"/>
+                                        <path d="M29.9849 27.9434C30.3129 28.8421 30.4439 29.8002 30.3693 30.7534C30.2947 31.7066 30.0161 32.6329 29.5522 33.4703C28.6483 33.2339 27.8153 32.7837 27.124 32.1582C26.4328 31.5327 25.9038 30.7504 25.5821 29.8778C24.8719 28.0609 24.8719 26.0454 25.5821 24.2285C25.5821 24.2285 28.8257 24.9667 29.9849 27.9434Z" fill="#904B0B"/>
+                                        <path d="M4.6768 6.09227C4.09716 2.93401 6.47131 0.667969 6.47131 0.667969C8.03468 1.84146 9.09746 3.5563 9.44892 5.47246C9.63528 6.38327 9.59798 7.32535 9.34019 8.21878C9.0824 9.1122 8.61171 9.93062 7.96806 10.6046C7.12635 10.1309 6.39686 9.48283 5.82902 8.7043C5.26117 7.92578 4.86823 7.03498 4.6768 6.09227Z" fill="#904B0B"/>
+                                        <path d="M6.61162 19.3731C7.43796 19.8057 8.14747 20.4297 8.68023 21.1924C9.213 21.9551 9.55337 22.8341 9.67261 23.7551C8.77267 24.1039 7.80793 24.2566 6.84357 24.2028C5.87921 24.149 4.9377 23.89 4.08264 23.4433C1.27178 21.9076 0.985936 18.6348 0.985936 18.6348C2.88801 18.1723 4.89533 18.4357 6.61162 19.3731Z" fill="#904B0B"/>
+                                        <path d="M10.5899 25.5833C11.4939 25.8208 12.3269 26.2717 13.0181 26.8979C13.7093 27.524 14.2383 28.3068 14.5601 29.1798C13.7608 29.7186 12.8545 30.0806 11.9025 30.2413C10.9505 30.4021 9.97489 30.3578 9.04156 30.1115C5.95279 29.2351 4.94437 26.1084 4.94437 26.1084C6.69381 25.237 8.7083 25.0496 10.5899 25.5833Z" fill="#904B0B"/>
+                                        <path d="M15.1249 30.8015C16.0573 30.7573 16.9867 30.9369 17.8346 31.3251C18.6824 31.7134 19.4239 32.2988 19.9963 33.032C19.3979 33.7872 18.6434 34.4057 17.7838 34.8457C16.9242 35.2857 15.9795 35.5369 15.0137 35.5823C11.8098 35.6731 9.89623 32.9965 9.89623 32.9965C11.3013 31.6396 13.1671 30.8563 15.1249 30.8015Z" fill="#904B0B"/>
+                                        <path d="M22.3258 34.6027C23.246 34.4475 24.1902 34.5154 25.0784 34.8006C25.9665 35.0858 26.7724 35.58 27.4274 36.2411C26.9247 37.0608 26.251 37.7638 25.4517 38.3025C24.6525 38.8412 23.7462 39.2031 22.7943 39.3638C19.6182 39.8375 17.3949 37.4096 17.3949 37.4096C18.6283 35.8945 20.3873 34.8932 22.3258 34.6027Z" fill="#904B0B"/>
+                                        <path d="M7.47056 12.1406L9.05862 12.1919C9.03876 12.8394 8.85217 28.1017 33.3519 35.2512L32.9152 36.7553C7.15692 29.2426 7.46262 12.3064 7.47056 12.1406Z" fill="#904B0B"/>
+                                        </g>
+                                        <defs>
+                                        <clipPath id="clip0_5993_1458">
+                                        <rect width="33.3333" height="38.7597" fill="white" transform="matrix(-1 0 0 1 33.3333 0.667969)"/>
+                                        </clipPath>
+                                        </defs>
+                                    </svg>
+                                        <p className={styles.numberThird}>{item.numbering}</p>
+                                        <svg width="34" height="40" viewBox="0 0 34 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <g clipPath="url(#clip0_5993_1470)">
+                                            <path d="M26.7775 17.5844C27.7406 17.6541 28.7075 17.5175 29.613 17.1838C30.5184 16.8501 31.3413 16.327 32.0261 15.65C34.2613 13.3524 33.5625 10.123 33.5625 10.123C31.6047 10.2429 29.7632 11.088 28.4013 12.4917C27.7394 13.1486 27.2462 13.9544 26.9636 14.8408C26.681 15.7272 26.6171 16.6683 26.7775 17.5844Z" fill="#904B0B"/>
+                                            <path d="M18.6128 12.4531C18.7724 13.4004 19.1346 14.3027 19.675 15.0988C20.2154 15.895 20.9214 16.5666 21.7452 17.0681C22.4116 16.4175 22.9104 15.6167 23.1993 14.7336C23.4882 13.8504 23.5587 12.9111 23.4048 11.9952C23.121 10.0622 22.1162 8.30612 20.5899 7.07617C20.5899 7.07617 18.1443 9.29484 18.6128 12.4531Z" fill="#904B0B"/>
+                                            <path d="M15.1964 20.0201C15.2315 20.9798 15.4733 21.9208 15.9054 22.7797C16.3376 23.6385 16.9501 24.3951 17.7016 24.9983C18.4458 24.439 19.0437 23.7097 19.4445 22.872C19.8453 22.0343 20.0373 21.113 20.0043 20.1859C19.9743 18.2379 19.2091 16.3722 17.8604 14.959C17.8604 14.959 15.1448 16.8263 15.1964 20.0201Z" fill="#904B0B"/>
+                                            <path d="M9.6552 24.3706C9.59658 25.3319 9.74671 26.2945 10.0954 27.193C10.4441 28.0915 10.9832 28.9048 11.676 29.5778C12.471 29.0915 13.1362 28.4216 13.6152 27.6251C14.0942 26.8285 14.3727 25.9287 14.4273 25.0022C14.5781 23.0591 13.9902 21.1304 12.7797 19.5977C12.7797 19.5977 9.90531 21.1886 9.6552 24.3706Z" fill="#904B0B"/>
+                                            <path d="M3.68168 27.9434C3.35375 28.8421 3.22271 29.8002 3.29734 30.7534C3.37197 31.7066 3.65055 32.6329 4.11443 33.4703C5.0183 33.2339 5.85132 32.7837 6.54258 32.1582C7.23383 31.5327 7.76284 30.7504 8.08457 29.8778C8.79476 28.0609 8.79476 26.0454 8.08457 24.2285C8.08457 24.2285 4.84096 24.9667 3.68168 27.9434Z" fill="#904B0B"/>
+                                            <path d="M28.9898 6.09227C29.5695 2.93401 27.1953 0.667969 27.1953 0.667969C25.6319 1.84146 24.5692 3.5563 24.2177 5.47246C24.0313 6.38327 24.0686 7.32535 24.3264 8.21878C24.5842 9.1122 25.0549 9.93062 25.6986 10.6046C26.5403 10.1309 27.2698 9.48283 27.8376 8.7043C28.4055 7.92578 28.7984 7.03498 28.9898 6.09227Z" fill="#904B0B"/>
+                                            <path d="M27.055 19.3731C26.2287 19.8057 25.5192 20.4297 24.9864 21.1924C24.4536 21.9551 24.1133 22.8341 23.994 23.7551C24.894 24.1039 25.8587 24.2566 26.8231 24.2028C27.7874 24.149 28.7289 23.89 29.584 23.4433C32.3948 21.9076 32.6807 18.6348 32.6807 18.6348C30.7786 18.1723 28.7713 18.4357 27.055 19.3731Z" fill="#904B0B"/>
+                                            <path d="M23.0767 25.5833C22.1727 25.8208 21.3397 26.2717 20.6485 26.8979C19.9573 27.524 19.4283 28.3068 19.1066 29.1798C19.9058 29.7186 20.8121 30.0806 21.7641 30.2413C22.7161 30.4021 23.6917 30.3578 24.6251 30.1115C27.7138 29.2351 28.7223 26.1084 28.7223 26.1084C26.9728 25.237 24.9583 25.0496 23.0767 25.5833Z" fill="#904B0B"/>
+                                            <path d="M18.5417 30.8015C17.6093 30.7573 16.6799 30.9369 15.8321 31.3251C14.9842 31.7134 14.2427 32.2988 13.6703 33.032C14.2687 33.7872 15.0232 34.4057 15.8828 34.8457C16.7425 35.2857 17.6871 35.5369 18.6529 35.5823C21.8568 35.6731 23.7704 32.9965 23.7704 32.9965C22.3654 31.6396 20.4995 30.8563 18.5417 30.8015Z" fill="#904B0B"/>
+                                            <path d="M11.3408 34.6027C10.4207 34.4475 9.4764 34.5154 8.58824 34.8006C7.70009 35.0858 6.89427 35.58 6.2392 36.2411C6.74189 37.0608 7.41561 37.7638 8.21489 38.3025C9.01417 38.8412 9.92039 39.2031 10.8724 39.3638C14.0485 39.8375 16.2718 37.4096 16.2718 37.4096C15.0383 35.8945 13.2793 34.8932 11.3408 34.6027Z" fill="#904B0B"/>
+                                            <path d="M26.1961 12.1406L24.608 12.1919C24.6279 12.8394 24.8145 28.1017 0.314697 35.2512L0.75141 36.7553C26.5097 29.2426 26.204 12.3064 26.1961 12.1406Z" fill="#904B0B"/>
+                                            </g>
+                                            <defs>
+                                            <clipPath id="clip0_5993_1470">
+                                            <rect width="33.3333" height="38.7597" fill="white" transform="translate(0.333313 0.667969)"/>
+                                            </clipPath>
+                                            </defs>
+                                        </svg>
+                                    </div>
+                                </div>
+                               <div className={styles.leaderImageDesc}>
+                                    <div className={styles.leaderFlex}>
+                                        <div className={styles.leaderDesc}>
+                                            <Image layout='fill' objectFit={'contain'} src={`/images/win/${item.img}`} alt='icone' />
+                                        </div>
+                                        <p>{item.title}</p>
+                                    </div>
+                                    <div className={styles.states}>
+                                        <p>View Stats</p>
+                                        <p  className={styles.bscsan}>
                                             View on BscSan
                                             <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path fillRule="evenodd" clipRule="evenodd" d="M9.33014 0.497398C9.51763 0.681316 9.52052 0.982399 9.3366 1.16988L5.69712 4.87994C5.51321 5.06742 5.21212 5.07031 5.02464 4.88639C4.83715 4.70248 4.83426 4.40139 5.01818 4.21391L8.65765 0.503856C8.84157 0.31637 9.14266 0.313479 9.33014 0.497398Z" fill="#0500FF"/>
@@ -161,6 +819,48 @@ const Leaderboard = () => {
             )
         }
     })
+        const displayUser = users.slice(pagesVisited, pagesVisited + usersPerPage).map(item => {
+        if(item.id >= 3) {
+            return (                                   
+                <div key={item.id} className={styles.descriptionBox}>
+                    <div>
+                        <p className={styles.numberHashtag}>
+                            {item.numbering}
+                        </p>
+                    </div>
+                    <div className={styles.leaderFlex}>
+                            <div className={styles.descriptionImg}>
+                                <Image layout='fill' objectFit={'contain'} src={`/images/win/${item.img}`} alt='icone' />
+                            </div>
+                            <h3 className={styles.titleBox}>{item.title}</h3>
+                        </div>
+                    <div  className={styles.netWinningsBox}>
+                        <h4>
+                            {item.netWinningsCMCX}
+                        </h4>
+                        <p>
+                            {item.netWinnings}
+                        </p>
+                    </div>
+                    <div>
+                        <p>
+                            {item.winRate}
+                        </p>
+                    </div>
+                    <div>
+                        <p>
+                            {item.roundsWon}
+                        </p>
+                    </div>
+                    <div>
+                        <p>
+                            {item.roundsPlayed}
+                        </p>
+                    </div>
+                </div>
+            )
+        }
+    })
     return (
         <>
             <div className={styles.container}>
@@ -170,22 +870,79 @@ const Leaderboard = () => {
                         Leaderboard
                     </h1>
                     <div className={styles.leaderboardBg}>
-                        <Image  layout="fill" src={"/images/win/background/BG.png"}  alt="BG" objectFit={"contain"}/>
+                        <Image  layout="fill" src={"/images/win/background/BG.png"}  alt="BG" objectFit={"cover"}/>
                     </div>
                 </div>
-                <div>
-                    <p>
-                        Win Rate  
-                        <svg width="8" height="5" viewBox="0 0 8 5" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path fillRule="evenodd" clipRule="evenodd" d="M0.167368 0.270883C0.390524 0.0477264 0.752333 0.0477264 0.97549 0.270883L3.798 3.09339C3.90818 3.20357 4.09182 3.20357 4.202 3.09339L7.02451 0.270883C7.24767 0.0477264 7.60948 0.0477264 7.83263 0.270883C8.05579 0.49404 8.05579 0.855848 7.83263 1.07901L5.01012 3.90152C4.45363 4.45801 3.54637 4.45801 2.98988 3.90152L0.167368 1.07901C-0.0557892 0.855848 -0.0557892 0.49404 0.167368 0.270883Z" fill="white"/>
-                        </svg>
-                    </p>
-                    <input type={"search"} />
+
+                <div className={styles.select}>
+                    {/* <Select value={wtf} onChange={click} className={styles.collections}>
+                        <MenuItem value={wtf} >stf</MenuItem>
+                        <MenuItem value={1}>asd</MenuItem>
+                        <MenuItem value={2}>asdsadsad</MenuItem>
+                        <MenuItem value={3}>asdasdsadsadsadsad</MenuItem>
+                    </Select>
+                    <input type={"search"} /> */}
+                    <Select />
+                    <input
+                        type="text"
+                        placeholder="Search..."
+                    />
                 </div>
                 <div>
                     {swipetItems}
+                    <div className={styles.tab}>
+                        <div className={styles.borderBox}>
+                            <CornerDecor />
+                            <div className={styles.boxHeader}>
+                                <div>
+                                    <p className={styles.headerTitle}>Net Winnings (CMCX)</p>
+                                </div>
+                                <div>
+                                    <p className={styles.headerTitle}>Rounds Won</p>
+                                </div>
+                                <div>
+                                    <p className={styles.headerTitle}>Rounds Played</p>
+                                </div>
+                                <div>
+                                    <p className={styles.headerTitle}>Win Rate</p>
+                                </div>                                
+                            </div>
+                            {displayUser}
+                        </div>
+                    </div>
+                    <div className={styles.blueBg}>
+                        <Image layout="fill"
+                            objectFit={"cover"}
+                            alt="loteryBg"
+                            src="/images/win/background/finishedBackground.png"
+                        />
+                    </div>
+                    <div>
+                        <div>                                    
+                            <ReactPaginate
+                                previousLabel={
+                                    <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path opacity="0.3" fillRule="evenodd" clipRule="evenodd" d="M5.39592 9.79079C5.67487 9.51184 5.67487 9.05958 5.39592 8.78064L1.86779 5.2525C1.73007 5.11478 1.73007 4.88522 1.86779 4.7475L5.39592 1.21936C5.67487 0.940416 5.67487 0.488155 5.39592 0.209209C5.11698 -0.0697375 4.66472 -0.0697375 4.38577 0.209209L0.857633 3.73735C0.162021 4.43296 0.162021 5.56704 0.857633 6.26265L4.38577 9.79079C4.66472 10.0697 5.11698 10.0697 5.39592 9.79079Z" fill="white"/>
+                                    </svg>
+                                }
+                                nextLabel={
+                                    <svg className={styles.next} width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path fillRule="evenodd" clipRule="evenodd" d="M0.814312 9.79079C0.535366 9.51184 0.535366 9.05958 0.814312 8.78064L4.34245 5.2525C4.48017 5.11478 4.48017 4.88522 4.34245 4.7475L0.814312 1.21936C0.535366 0.940416 0.535366 0.488155 0.814312 0.209209C1.09326 -0.0697375 1.54552 -0.0697375 1.82446 0.209209L5.3526 3.73735C6.04821 4.43296 6.04821 5.56704 5.3526 6.26265L1.82446 9.79079C1.54552 10.0697 1.09326 10.0697 0.814312 9.79079Z" fill="white"/>
+                                    </svg>
+                                }
+                                breakLabel={"..."}
+                                pageCount={pageCount}
+                                onPageChange={changePage}
+                                containerClassName={styles.paginationBttns}
+                                previousLinkClassName={styles.previousBttn}
+                                nextLinkClassName={styles.previousBttn}
+                                disabledClassName={styles.paginationDisabled}
+                                activeClassName={styles.paginationActive}
+                            />
+                        </div>
+                    </div>
                 </div>
-            </div>
+            </div>            
         </>
     )
 }

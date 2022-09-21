@@ -47,6 +47,10 @@
     width: 4%;
     padding-top: 4%;
 }
+.connectWallet {
+    width: 160px;
+    margin: auto;
+}
 @media (max-width: 1300px) {
     .mainContent {
         position: relative;

@@ -1,0 +1,83 @@
+.selectContainer {
+    display: inline-block;
+    flex-direction: column;
+    background: #FFFFFF1A;
+    border-radius: 4px;
+    padding: 10px;
+    margin-top: 30px;
+}
+.selectTitleContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    gap: 35px;
+}
+.selectTitleContainer span{
+    margin-right: auto;
+    transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+}
+.selectTitleContainer:hover span {
+    color: #7F8287;
+}
+.selectTitleSvg {
+    height: 22px;
+    width: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #131313;
+    margin-right: 10px;
+}
+.selectOptionsInn {
+    display: flex;
+    flex-direction: column;
+    transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+    max-width: 0px;
+    overflow: hidden;
+    transition-delay: .6s;
+}
+.selectOption {
+    display: flex;
+    align-items: center;
+    padding-right: 20px;
+    cursor: pointer;
+    transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+    color: #7F8287;
+    margin: 10px 0px;
+    white-space: nowrap;
+    font-size: 13px;
+}
+.selectOption:hover {
+    color: #fff;
+}
+.selectOptions {
+    transition: .4s linear;
+    max-height: 0px;
+    overflow-y: auto;
+}
+.selectTitleContainer > svg {
+    margin-left: 10px;
+    transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+}
+.selectOptions::-webkit-scrollbar {
+    width: 3px;
+}
+.selectContainerActive .selectTitleContainer > svg {
+    transform: rotate(180deg);
+}
+.selectContainerActive .selectOptions {
+    max-height: 150px;
+    transition-delay: .4s;
+}
+.selectContainerActive .selectOptionsInn {
+    max-width: 200px;
+    transition-delay: 0s;
+}
+/*Ipad 768*/
+@media (max-width: 1023px) {
+    .selectTitleContainer span,.selectOption {
+        font-size: 13px;
+        line-height: 22px;
+    }
+}

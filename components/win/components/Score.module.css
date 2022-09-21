@@ -61,6 +61,10 @@
   width: 10%;
   padding-top: 5%;
 }
+.connectWallet {
+  width: 160px;
+  margin: auto;
+}
 
 /*Ipad Pro 1024*/
 @media (max-width: 1300px) {

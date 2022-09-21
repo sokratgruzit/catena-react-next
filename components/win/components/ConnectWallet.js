@@ -1,11 +1,16 @@
+import { useState } from "react";
+import useConnect from '../../../hooks/use-connect';
+import Button from '../../UI/button/Button';
 import Image from 'next/image';
-import ButtonWallet from './ButtonWallet';
 import styles from './ConnectWallet.module.css'
 
 const ConnectWallet = () => {
+  const { handleWalletModal } = useConnect();
+  const [connectBtnColor, setConnectBtnColor] = useState('blue');
+  
   return (
     <div className={styles.mainContent}>
-        <div>
+      <div>
           <div className={styles.star}>
             <Image objectFit={"contain"} layout='fill' src={"/images/win/pawawuna.png"} alt="star" />
           </div>
@@ -21,14 +26,24 @@ const ConnectWallet = () => {
           <div className={styles.ticket}>
             <Image objectFit={"contain"} layout='fill' src={"/images/win/ticket.png"} alt="ticket" />
           </div>
-        </div>
-        <div className={styles.text}>
-            <p>Connect your wallet</p>
-            <p> to check if you{`${"'"}`}ve won!</p>
-        </div>
-        <div>
-            <ButtonWallet />
-        </div>
+      </div>
+      <div className={styles.text}>
+          <p>Connect your wallet</p>
+          <p> to check if you{`${"'"}`}ve won!</p>
+      </div>
+      <div className={styles.connectWallet}>   
+        <Button
+            title={'Connect Wallet'}
+            type={`${connectBtnColor}`}
+            onClick={() => {
+            handleWalletModal(true);
+            }}
+            customStyles={{
+                padding: '10px 20px',
+                border: 'none',
+            }}
+        />
+      </div>
     </div>
   )
 }

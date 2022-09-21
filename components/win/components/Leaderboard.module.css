@@ -13,23 +13,53 @@
     font-size: 51px;
     line-height: 71px;
 }
+.states p {
+    color: #0500FF;
+    cursor: pointer;
+}
+.states p:hover {
+    cursor: pointer;
+    color: #fffefe;
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    justify-content: space-between;
+    transition: .5s;
+}
+.bscsan:hover path {
+    cursor: pointer;
+    fill: #fffefe;
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    justify-content: space-between;
+    transition: .5s;
+
+}
 .leaderboardBg {
     position: absolute;
-    top: -50%;
+    top: 0%;
     left: 0%;
     z-index: -10;
     padding-top: 50% ;
     width: 100%;
 }
 .TabBorder {
-    display: flex;
+    display: inline-flex;
+    margin-bottom: 30px;
+}
+.TabBorder:nth-child(1) {
+    margin-right: 24px;
+}
+.TabBorder:nth-child(2) {
+    margin-right: 24px;
 }
 .border {
     position: relative;
 }
 .content {
     padding: 30px;
-    width: 433px;
+    width: 410px;
 }
 .numbering {
     display: flex;
@@ -37,9 +67,18 @@
     align-items: top;
     padding-bottom: 30px;
 }
-.spanNumber {
+.numberOne {
+    font-size: 30px;
+    color: #EAAB4D;
+}
+.numberSecond {
     font-size: 30px;
     color: #8E8E8E;
+;
+}
+.numberThird {
+    font-size: 30px;
+    color: #904B0B;
 }
 .leaderImageDesc {
     display: flex;
@@ -95,4 +134,139 @@
     opacity: 0.7;
     margin: 0;
     padding: 0;
+}
+.header {
+    display: flex;
+    justify-content: right;
+}
+.descriptionBox {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 0;
+    border-top: 1px dashed #ffffff10;
+}
+.descriptionImg {
+    position: relative;
+    width: 15%;
+    padding-top: 15%;
+}
+.tab {
+    display: flex;
+}
+.boxHeader {
+    display: flex;
+    justify-content: right;
+    border-bottom: 1px solid #ffffff10;
+}
+.headerTitle {
+    color: #627EEA;
+    font-size: 13px;
+    padding: 20px 0;
+}
+.borderBox {
+    padding: 20px 30px;
+    position: relative;
+    width: 100%;
+}
+.netWinningsBox h4 {
+    font-size: 13px;
+    line-height: 18px;
+    color: #66BB6A;
+}
+.netWinningsBox p {
+    font-size: 10px;
+    opacity: 0.7;
+    margin-left: 8px;
+    padding: 0;
+}
+.numberHashtag {
+    color:  #0500FF;
+}
+.titleBox {
+    font-size: 13px;
+    margin-left: 10px;
+}
+.descriptionBox div:nth-child(1) {
+    width: 17%;
+}
+.descriptionBox div:nth-child(2) {
+    width: 42%;
+}
+.descriptionBox div:nth-child(3) {
+    width: 29%;
+}
+.descriptionBox div:nth-child(4) {
+    width: 26%;
+}
+.descriptionBox div:nth-child(5) {
+    width: 33%;
+}
+.descriptionBox div:nth-child(6) {
+    width: 12%;
+}
+.boxHeader div:nth-child(1){
+    width: 18%;
+}
+.boxHeader div:nth-child(2){
+    width: 17%;
+}
+.boxHeader div:nth-child(3){
+    width: 20%;
+}
+.boxHeader div:nth-child(4){
+    width: 8%;
+}
+.blueBg {
+    position: absolute;
+    padding-top: 50%;
+    width: 50%;
+    top: 58%;
+    left: 25%;
+    z-index: -1;
+}
+.paginationBttns {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    gap: 10px;
+}
+.paginationBttns a {
+    padding: 7px 10px;
+    font-size: 15px;
+    border: 1px solid #ffffff10;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.paginationBttns li:nth-child(1) {
+    border: none;
+}
+.paginationBttns a:hover {
+    background: #0500FF;
+
+}
+.previousBttn {
+    margin-right: 20px;
+}
+.previousBttn {
+    margin-left: 20px;
+}
+.paginationActive a{
+    background: #0500FF;
+    border: 1px solid #0500FF;
+}
+.select {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 30px;
+}
+.select input {
+    outline: none;
+    border: 1px solid #ffffff10;
+    border-radius: 4px;
+    background: none;
+    height: 39px;
+    padding: 4px 10px;
 }

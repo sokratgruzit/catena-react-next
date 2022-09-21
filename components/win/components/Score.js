@@ -1,8 +1,13 @@
+import { useState } from "react"
+import useConnect from '../../../hooks/use-connect';
+import Button from '../../UI/button/Button';
 import Image from 'next/image'
-import ButtonWallet from './ButtonWallet'
 import CornerDecor from "../../UI/cornerDecor/CornerDecor"
 import styles from './Score.module.css'
 const Score = () => {
+    const { handleWalletModal } = useConnect();
+    const [connectBtnColor, setConnectBtnColor] = useState('blue');
+
   return (
     <>
         <div className={styles.score}>
@@ -64,8 +69,19 @@ const Score = () => {
                         <p>Connect wallet to view</p>
                     </div>
                 </div>
-                <div>
-                    <ButtonWallet />
+                <div  className={styles.connectWallet}>
+                    <Button
+                        title={'Connect Wallet'}
+                        type={`${connectBtnColor}`}
+                        onClick={() => {
+                        handleWalletModal(true);
+                        }}
+                        customStyles={{
+                            padding: '10px 20px',
+                            border: 'none',
+                        }}
+                    />
+                    
                 </div>
             </div>
             <div className={styles.spaceImgs}>
