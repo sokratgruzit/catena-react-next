@@ -1,0 +1,45 @@
+.teamPrizesRank {
+  width: 100%;
+  padding: 15px 0;
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px dashed #ffffff10;
+  align-items: center;
+}
+
+.teamPrizesRank div:nth-child(1) {
+  width: 23%;
+}
+.teamPrizesRank div:nth-child(2) {
+  width: 19%;
+}
+.teamPrizesRank div:nth-child(3) {
+  width: 24%;
+}
+.teamPrizesRank div:nth-child(4) {
+  width: 24%;
+}
+.teamPrizesRank div:nth-child(5) {
+  width: 5%;
+}
+.medal {
+  position: relative;
+  left: -8%;
+  padding-top: 5%;
+  width: 2%;
+}
+.check {
+  position: relative;
+  left: -0.5%;
+  padding-top: 3%;
+  width: 2%;
+}
+
+@media (max-width: 767px) {
+  .teamPrizesRank {
+    width: 600px;
+  }
+  .medal {
+    padding-top: 6%;
+  }
+}

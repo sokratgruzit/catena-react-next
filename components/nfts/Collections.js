@@ -16,6 +16,34 @@ import styles from './Collections.module.css';
 const nftCollectionsData = [
   {
     id: 0,
+    data: [
+      {
+        title: 'The AKC',
+        img: '../images/nft/nft_collection_items/logo1.png',
+        type: 'img_text',
+      },
+      {
+        symbol: 'CMCX',
+        priceInCmcx: '0.0024',
+        type: 'price',
+      },
+      {
+        text: '0.198',
+        type: 'text',
+      },
+      {
+        text: '10,000',
+        type: 'text',
+      },
+      {
+        text: 824,
+        type: 'text',
+      },
+      {
+        text: 7777,
+        type: 'text',
+      },
+    ],
     img1: '../images/nft/nft_collection_items/fig1.png',
     img2: '../images/nft/nft_collection_items/fig2.png',
     img3: '../images/nft/nft_collection_items/fig3.png',
@@ -31,6 +59,34 @@ const nftCollectionsData = [
   },
   {
     id: 1,
+    data: [
+      {
+        title: 'The AKC',
+        img: '../images/nft/nft_collection_items/logo1.png',
+        type: 'img_text',
+      },
+      {
+        symbol: 'CMCX',
+        priceInCmcx: '0.0024',
+        type: 'price',
+      },
+      {
+        text: '0.198',
+        type: 'text',
+      },
+      {
+        text: '10,000',
+        type: 'text',
+      },
+      {
+        text: 824,
+        type: 'text',
+      },
+      {
+        text: 7777,
+        type: 'text',
+      },
+    ],
     img1: '../images/nft/nft_collection_items/fig1.png',
     img2: '../images/nft/nft_collection_items/fig2.png',
     img3: '../images/nft/nft_collection_items/fig3.png',
@@ -46,6 +102,34 @@ const nftCollectionsData = [
   },
   {
     id: 2,
+    data: [
+      {
+        title: 'The AKC',
+        img: '../images/nft/nft_collection_items/logo1.png',
+        type: 'img_text',
+      },
+      {
+        symbol: 'CMCX',
+        priceInCmcx: '0.0024',
+        type: 'price',
+      },
+      {
+        text: '0.198',
+        type: 'text',
+      },
+      {
+        text: '10,000',
+        type: 'text',
+      },
+      {
+        text: 824,
+        type: 'text',
+      },
+      {
+        text: 7777,
+        type: 'text',
+      },
+    ],
     img1: '../images/nft/nft_collection_items/fig1.png',
     img2: '../images/nft/nft_collection_items/fig2.png',
     img3: '../images/nft/nft_collection_items/fig3.png',
@@ -61,6 +145,34 @@ const nftCollectionsData = [
   },
   {
     id: 3,
+    data: [
+      {
+        title: 'The AKC',
+        img: '../images/nft/nft_collection_items/logo1.png',
+        type: 'img_text',
+      },
+      {
+        symbol: 'CMCX',
+        priceInCmcx: '0.0024',
+        type: 'price',
+      },
+      {
+        text: '0.198',
+        type: 'text',
+      },
+      {
+        text: '10,000',
+        type: 'text',
+      },
+      {
+        text: 824,
+        type: 'text',
+      },
+      {
+        text: 7777,
+        type: 'text',
+      },
+    ],
     img1: '../images/nft/nft_collection_items/fig1.png',
     img2: '../images/nft/nft_collection_items/fig2.png',
     img3: '../images/nft/nft_collection_items/fig3.png',
@@ -76,6 +188,34 @@ const nftCollectionsData = [
   },
   {
     id: 4,
+    data: [
+      {
+        title: 'The AKC',
+        img: '../images/nft/nft_collection_items/logo1.png',
+        type: 'img_text',
+      },
+      {
+        symbol: 'CMCX',
+        priceInCmcx: '0.0024',
+        type: 'price',
+      },
+      {
+        text: '0.198',
+        type: 'text',
+      },
+      {
+        text: '10,000',
+        type: 'text',
+      },
+      {
+        text: 824,
+        type: 'text',
+      },
+      {
+        text: 7777,
+        type: 'text',
+      },
+    ],
     img1: '../images/nft/nft_collection_items/fig1.png',
     img2: '../images/nft/nft_collection_items/fig2.png',
     img3: '../images/nft/nft_collection_items/fig3.png',
@@ -91,6 +231,34 @@ const nftCollectionsData = [
   },
   {
     id: 5,
+    data: [
+      {
+        title: 'The AKC',
+        img: '../images/nft/nft_collection_items/logo1.png',
+        type: 'img_text',
+      },
+      {
+        symbol: 'CMCX',
+        priceInCmcx: '0.0024',
+        type: 'price',
+      },
+      {
+        text: '0.198',
+        type: 'text',
+      },
+      {
+        text: '10,000',
+        type: 'text',
+      },
+      {
+        text: 824,
+        type: 'text',
+      },
+      {
+        text: 7777,
+        type: 'text',
+      },
+    ],
     img1: '../images/nft/nft_collection_items/fig1.png',
     img2: '../images/nft/nft_collection_items/fig2.png',
     img3: '../images/nft/nft_collection_items/fig3.png',
@@ -106,6 +274,34 @@ const nftCollectionsData = [
   },
   {
     id: 6,
+    data: [
+      {
+        title: 'The AKC',
+        img: '../images/nft/nft_collection_items/logo1.png',
+        type: 'img_text',
+      },
+      {
+        symbol: 'CMCX',
+        priceInCmcx: '0.0024',
+        type: 'price',
+      },
+      {
+        text: '0.198',
+        type: 'text',
+      },
+      {
+        text: '10,000',
+        type: 'text',
+      },
+      {
+        text: 824,
+        type: 'text',
+      },
+      {
+        text: 7777,
+        type: 'text',
+      },
+    ],
     img1: '../images/nft/nft_collection_items/fig1.png',
     img2: '../images/nft/nft_collection_items/fig2.png',
     img3: '../images/nft/nft_collection_items/fig3.png',
@@ -121,6 +317,34 @@ const nftCollectionsData = [
   },
   {
     id: 7,
+    data: [
+      {
+        title: 'The AKC',
+        img: '../images/nft/nft_collection_items/logo1.png',
+        type: 'img_text',
+      },
+      {
+        symbol: 'CMCX',
+        priceInCmcx: '0.0024',
+        type: 'price',
+      },
+      {
+        text: '0.198',
+        type: 'text',
+      },
+      {
+        text: '10,000',
+        type: 'text',
+      },
+      {
+        text: 824,
+        type: 'text',
+      },
+      {
+        text: 7777,
+        type: 'text',
+      },
+    ],
     img1: '../images/nft/nft_collection_items/fig1.png',
     img2: '../images/nft/nft_collection_items/fig2.png',
     img3: '../images/nft/nft_collection_items/fig3.png',
@@ -136,6 +360,34 @@ const nftCollectionsData = [
   },
   {
     id: 8,
+    data: [
+      {
+        title: 'The AKC',
+        img: '../images/nft/nft_collection_items/logo1.png',
+        type: 'img_text',
+      },
+      {
+        symbol: 'CMCX',
+        priceInCmcx: '0.0024',
+        type: 'price',
+      },
+      {
+        text: '0.198',
+        type: 'text',
+      },
+      {
+        text: '10,000',
+        type: 'text',
+      },
+      {
+        text: 824,
+        type: 'text',
+      },
+      {
+        text: 7777,
+        type: 'text',
+      },
+    ],
     img1: '../images/nft/nft_collection_items/fig1.png',
     img2: '../images/nft/nft_collection_items/fig2.png',
     img3: '../images/nft/nft_collection_items/fig3.png',
@@ -151,6 +403,34 @@ const nftCollectionsData = [
   },
   {
     id: 9,
+    data: [
+      {
+        title: 'The AKC',
+        img: '../images/nft/nft_collection_items/logo1.png',
+        type: 'img_text',
+      },
+      {
+        symbol: 'CMCX',
+        priceInCmcx: '0.0024',
+        type: 'price',
+      },
+      {
+        text: '0.198',
+        type: 'text',
+      },
+      {
+        text: '10,000',
+        type: 'text',
+      },
+      {
+        text: 824,
+        type: 'text',
+      },
+      {
+        text: 7777,
+        type: 'text',
+      },
+    ],
     img1: '../images/nft/nft_collection_items/fig1.png',
     img2: '../images/nft/nft_collection_items/fig2.png',
     img3: '../images/nft/nft_collection_items/fig3.png',
@@ -165,6 +445,7 @@ const nftCollectionsData = [
     event: 'Hot',
   },
 ];
+
 let tabsData = [
   {
     id: 0,
@@ -179,6 +460,7 @@ let tabsData = [
     label: 'Hot',
   },
 ];
+
 let tabsRightData = [
   {
     id: 0,
@@ -245,6 +527,7 @@ let tabsRightData = [
     ),
   },
 ];
+
 const Collections = () => {
   const [tableMode, setTableMode] = useState('Card');
   const [activeMenuItem, setActiveMenuItem] = useState('All');
@@ -293,7 +576,7 @@ const Collections = () => {
     setTableMode(status);
   };
 
-  if (screeWidth < 1200) {
+  /*if (screeWidth < 1200) {
     content = (
       <div className={styles.collections__mobile}>
         {nftCollectionsData.map(item => {
@@ -307,7 +590,7 @@ const Collections = () => {
         })}
       </div>
     );
-  }
+  }*/
 
   return (
     <div className={`${styles.NftCollections} ${styles.container}`}>
@@ -382,7 +665,7 @@ const Collections = () => {
           {tableData.map(item => {
             return (
               <ListItemCard
-                key={item.id}
+                key={item.id + 'card'}
                 data={item}
                 type={'nft_collections'}
               />

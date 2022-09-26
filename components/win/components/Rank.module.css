@@ -54,17 +54,19 @@
   margin: auto;
   width: 55%;
   padding: 20px;
- 
 }
 .content {
-  max-height: 440px;
+  max-height: 1300px;
   overflow: hidden;
+  transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
 }
 .contentActve {
-  max-width: 800px;
+  max-height: 420px;
+  overflow: hidden;
+  transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
 }
 .rankTrades {
-  border-bottom: 1px solid #ffffff10;
+  margin-bottom: 20px;
 }
 .rankTrades h5 {
   font-size: 16px;
@@ -79,59 +81,11 @@
 .borderCorner {
   position: relative;
 }
-.tradesTab { 
-  display: flex;
-  align-items: center;
-  border-bottom: 1px dashed #ffffff10;
-
-}
-.tradesTab div:nth-child(1) {
-  width: 40%;
-}
-.tradesTab div:nth-child(2) {
-  width: 58%;
-}
-.tradesTab div:nth-child(3) {
-  width: 60%;
-}
-.tradesTab div:nth-child(4) {
-  width: 15%;
-}
-.tradesTab:nth-last-child(1) {
-  border-bottom: none;
-}
-.tradesTab:nth-last-child(5) {
-  border-top: 1px solid #ffffff10;
-}
-.numbering {
-  white-space: nowrap; 
-  width: 50px; 
-  overflow: hidden;
-  text-overflow: ellipsis; 
-  color: #0500ff;
-}
 .price {
   white-space: nowrap; 
   width: 100px; 
   overflow: hidden;
   text-overflow: ellipsis; 
-}
-.nickName {
-  white-space: nowrap; 
-  width: 100px; 
-  overflow: hidden;
-  text-overflow: ellipsis; 
-  font-size: 15px;
-  line-height: 20px;
-  color: #ffffff;
-  opacity: 0.7;
-}
-.icone  {
-  position: relative;
-  padding-top: 12%;
-  width: 20%;
-  border-radius: 50%;
-  opacity: 0.5;
 }
 .buttonShowMore {
   text-align: center;
@@ -142,8 +96,12 @@
   margin-right: 5px;
   color: #0500ff;
 }
+.vectorSvg{
+  stroke: #0500FF;
+  transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+}
 .rotate {
-  transform: rotateZ(180deg);
+  transform: rotateZ(-180deg);
 }
 
 /*Ipad Pro 1024*/
@@ -181,7 +139,7 @@
   .rankBorder {
     position: relative;
     margin: auto;
-    width: 90%;
+    width: 95%;
     padding: 20px;
   }
   .sliderWidth {

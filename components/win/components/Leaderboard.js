@@ -4,526 +4,524 @@ import Image from "next/image";
 import ReactPaginate from "react-paginate";
 import Select from "../../UI/select/Select";
 // import { Select, MenuItem } from '@mui/material';
-import Link from "next/link";
+// import Link from "next/link";
 
 import styles from "./Leaderboard.module.css";
 import CornerDecor from "../../UI/cornerDecor/CornerDecor";
 
+const contentData = [
+    {
+        id: 0,
+        numbering: "1",
+        img: "einstein.png",
+        title: "Spaceman",
+        winRate: "57.82%",
+        netWinnings: "+6,734.435774",
+        netWinningsCMCX: "~$24,808.04",
+        roundsWon: "3,898/6,742",
+        netWinningsRed: "-64.269117",
+        roundsPlayed: "4,646"
+        
+    },
+    {
+        id: 1,
+        numbering: "2",
+        img: "rebyt.png",
+        title: "Einstein",
+        winRate: "57.82%",
+        netWinnings: "+6,734.435774",
+        netWinningsCMCX: "~$20,808.04",
+        roundsWon: "3,898/6,742",
+        netWinningsRed: "-64.269117",
+        roundsPlayed: "4,646"
+        
+    },
+    {
+        id: 2,
+        numbering: "3",
+        img: "einstein.png",
+        title: "PokeMoon25",
+        winRate: "57.82%",
+        netWinnings: "+6,734.435774",
+        netWinningsCMCX: "~$24,808.04",
+        roundsWon: "3,898/6,742",
+        netWinningsRed: "-64.269117",
+        roundsPlayed: "4,646"
+        
+    },
+    {
+        id: 3,
+        numbering: "#4",
+        img: "rebyt.png",
+        title: "PokeMoon25",
+        winRate: "57.82%",
+        netWinnings: "+6,734.435774",
+        netWinningsCMCX: "~$24,808.04",
+        roundsWon: "3,898/6,742",
+        netWinningsRed: "-64.269117",
+        roundsPlayed: "4,646"
+        
+    },
+    {
+        id: 4,
+        numbering: "#4",
+        img: "rebyt.png",
+        title: "PokeMoon25",
+        winRate: "57.82%",
+        netWinnings: "+6,734.435774",
+        netWinningsCMCX: "~$24,808.04",
+        roundsWon: "3,898/6,742",
+        netWinningsRed: "-64.269117",
+        roundsPlayed: "4,646"
+        
+    },
+    {
+        id: 5,
+        numbering: "#5",
+        img: "rebyt.png",
+        title: "PokeMoon25",
+        winRate: "57.82%",
+        netWinnings: "+6,734.435774",
+        netWinningsCMCX: "~$24,808.04",
+        roundsWon: "3,898/6,742",
+        netWinningsRed: "-64.269117",
+        roundsPlayed: "4,646"
+        
+    },
+    {
+        id: 6,
+        numbering: "#6",
+        img: "rebyt.png",
+        title: "PokeMoon25",
+        winRate: "57.82%",
+        netWinnings: "+6,734.435774",
+        netWinningsCMCX: "~$24,808.04",
+        roundsWon: "3,898/6,742",
+        netWinningsRed: "-64.269117",
+        roundsPlayed: "4,646"
+        
+    },
+    {
+        id: 7,
+        numbering: "#7",
+        img: "rebyt.png",
+        title: "PokeMoon25",
+        winRate: "57.82%",
+        netWinnings: "+6,734.435774",
+        netWinningsCMCX: "~$24,808.04",
+        roundsWon: "3,898/6,742",
+        netWinningsRed: "-64.269117",
+        roundsPlayed: "4,646"
+        
+    },
+    {
+        id: 8,
+        numbering: "#8",
+        img: "rebyt.png",
+        title: "PokeMoon25",
+        winRate: "57.82%",
+        netWinnings: "+6,734.435774",
+        netWinningsCMCX: "~$24,808.04",
+        roundsWon: "3,898/6,742",
+        netWinningsRed: "-64.269117",
+        roundsPlayed: "4,646"
+        
+    },
+    {
+        id: 9,
+        numbering: "#9",
+        img: "rebyt.png",
+        title: "PokeMoon25",
+        winRate: "57.82%",
+        netWinnings: "+6,734.435774",
+        netWinningsCMCX: "~$24,808.04",
+        roundsWon: "3,898/6,742",
+        netWinningsRed: "-64.269117",
+        roundsPlayed: "4,646"
+        
+    },
+    {
+        id: 10,
+        numbering: "#10",
+        img: "rebyt.png",
+        title: "PokeMoon25",
+        winRate: "57.82%",
+        netWinnings: "+6,734.435774",
+        netWinningsCMCX: "~$24,808.04",
+        roundsWon: "3,898/6,742",
+        netWinningsRed: "-64.269117",
+        roundsPlayed: "4,646"
+        
+    },
+    {
+        id: 11,
+        numbering: "#11",
+        img: "rebyt.png",
+        title: "PokeMoon25",
+        winRate: "57.82%",
+        netWinnings: "+6,734.435774",
+        netWinningsCMCX: "~$24,808.04",
+        roundsWon: "3,898/6,742",
+        netWinningsRed: "-64.269117",
+        roundsPlayed: "4,646"
+        
+    },
+    {
+        id: 12,
+        numbering: "#12",
+        img: "rebyt.png",
+        title: "PokeMoon25",
+        winRate: "57.82%",
+        netWinnings: "+6,734.435774",
+        netWinningsCMCX: "~$24,808.04",
+        roundsWon: "3,898/6,742",
+        netWinningsRed: "-64.269117",
+        roundsPlayed: "4,646"
+        
+    },
+    {
+        id: 13,
+        numbering: "#13",
+        img: "rebyt.png",
+        title: "PokeMoon25",
+        winRate: "57.82%",
+        netWinnings: "+6,734.435774",
+        netWinningsCMCX: "~$24,808.04",
+        roundsWon: "3,898/6,742",
+        netWinningsRed: "-64.269117",
+        roundsPlayed: "4,646"
+    },
+    {
+        id: 14,
+        numbering: "#14",
+        img: "rebyt.png",
+        title: "PokeMoon25",
+        winRate: "57.82%",
+        netWinnings: "+6,734.435774",
+        netWinningsCMCX: "~$24,808.04",
+        roundsWon: "3,898/6,742",
+        netWinningsRed: "-64.269117",
+        roundsPlayed: "4,646"            
+    },
+    {
+        id: 15,
+        numbering: "#15",
+        img: "rebyt.png",
+        title: "PokeMoon25",
+        winRate: "57.82%",
+        netWinnings: "+6,734.435774",
+        netWinningsCMCX: "~$24,808.04",
+        roundsWon: "3,898/6,742",
+        netWinningsRed: "-64.269117",
+        roundsPlayed: "4,646"
+    },
+    {
+        id: 16,
+        numbering: "#16",
+        img: "rebyt.png",
+        title: "PokeMoon25",
+        winRate: "57.82%",
+        netWinnings: "+6,734.435774",
+        netWinningsCMCX: "~$24,808.04",
+        roundsWon: "3,898/6,742",
+        netWinningsRed: "-64.269117",
+        roundsPlayed: "4,646"
+    },
+    {
+        id: 17,
+        numbering: "#17",
+        img: "rebyt.png",
+        title: "PokeMoon25",
+        winRate: "57.82%",
+        netWinnings: "+6,734.435774",
+        netWinningsCMCX: "~$24,808.04",
+        roundsWon: "3,898/6,742",
+        netWinningsRed: "-64.269117",
+        roundsPlayed: "4,646"
+    },
+    {
+        id: 18,
+        numbering: "#18",
+        img: "rebyt.png",
+        title: "PokeMoon25",
+        winRate: "57.82%",
+        netWinnings: "+6,734.435774",
+        netWinningsCMCX: "~$24,808.04",
+        roundsWon: "3,898/6,742",
+        netWinningsRed: "-64.269117",
+        roundsPlayed: "4,646"
+    },        
+    {
+        id: 19,
+        numbering: "#19",
+        img: "rebyt.png",
+        title: "PokeMoon25",
+        winRate: "57.82%",
+        netWinnings: "+6,734.435774",
+        netWinningsCMCX: "~$24,808.04",
+        roundsWon: "3,898/6,742",
+        netWinningsRed: "-64.269117",
+        roundsPlayed: "4,646"
+    },
+    {
+        id: 20,
+        numbering: "#20",
+        img: "rebyt.png",
+        title: "PokeMoon25",
+        winRate: "57.82%",
+        netWinnings: "+6,734.435774",
+        netWinningsCMCX: "~$24,808.04",
+        roundsWon: "3,898/6,742",
+        netWinningsRed: "-64.269117",
+        roundsPlayed: "4,646"
+    },
+    {
+        id: 21,
+        numbering: "#21",
+        img: "rebyt.png",
+        title: "PokeMoon25",
+        winRate: "57.82%",
+        netWinnings: "+6,734.435774",
+        netWinningsCMCX: "~$24,808.04",
+        roundsWon: "3,898/6,742",
+        netWinningsRed: "-64.269117",
+        roundsPlayed: "4,646"
+        
+    },
+    {
+        id: 22,
+        numbering: "#22",
+        img: "rebyt.png",
+        title: "PokeMoon25",
+        winRate: "57.82%",
+        netWinnings: "+6,734.435774",
+        netWinningsCMCX: "~$24,808.04",
+        roundsWon: "3,898/6,742",
+        netWinningsRed: "-64.269117",
+        roundsPlayed: "4,646"
+        
+    },
+    {
+        id: 23,
+        numbering: "#23",
+        img: "rebyt.png",
+        title: "PokeMoon25",
+        winRate: "57.82%",
+        netWinnings: "+6,734.435774",
+        netWinningsCMCX: "~$24,808.04",
+        roundsWon: "3,898/6,742",
+        netWinningsRed: "-64.269117",
+        roundsPlayed: "4,646"
+    },
+    {
+        id: 24,
+        numbering: "#24",
+        img: "rebyt.png",
+        title: "PokeMoon25",
+        winRate: "57.82%",
+        netWinnings: "+6,734.435774",
+        netWinningsCMCX: "~$24,808.04",
+        roundsWon: "3,898/6,742",
+        netWinningsRed: "-64.269117",
+        roundsPlayed: "4,646"            
+    },
+    {
+        id: 25,
+        numbering: "#25",
+        img: "rebyt.png",
+        title: "PokeMoon25",
+        winRate: "57.82%",
+        netWinnings: "+6,734.435774",
+        netWinningsCMCX: "~$24,808.04",
+        roundsWon: "3,898/6,742",
+        netWinningsRed: "-64.269117",
+        roundsPlayed: "4,646"
+    },
+    {
+        id: 26,
+        numbering: "#26",
+        img: "rebyt.png",
+        title: "PokeMoon25",
+        winRate: "57.82%",
+        netWinnings: "+6,734.435774",
+        netWinningsCMCX: "~$24,808.04",
+        roundsWon: "3,898/6,742",
+        netWinningsRed: "-64.269117",
+        roundsPlayed: "4,646"
+    },
+    {
+        id: 27,
+        numbering: "#27",
+        img: "rebyt.png",
+        title: "PokeMoon25",
+        winRate: "57.82%",
+        netWinnings: "+6,734.435774",
+        netWinningsCMCX: "~$24,808.04",
+        roundsWon: "3,898/6,742",
+        netWinningsRed: "-64.269117",
+        roundsPlayed: "4,646"
+    },
+    {
+        id: 28,
+        numbering: "#28",
+        img: "rebyt.png",
+        title: "PokeMoon25",
+        winRate: "57.82%",
+        netWinnings: "+6,734.435774",
+        netWinningsCMCX: "~$24,808.04",
+        roundsWon: "3,898/6,742",
+        netWinningsRed: "-64.269117",
+        roundsPlayed: "4,646"
+    },        
+    {
+        id: 29,
+        numbering: "#29",
+        img: "rebyt.png",
+        title: "PokeMoon25",
+        winRate: "57.82%",
+        netWinnings: "+6,734.435774",
+        netWinningsCMCX: "~$24,808.04",
+        roundsWon: "3,898/6,742",
+        netWinningsRed: "-64.269117",
+        roundsPlayed: "4,646"
+    },
+    {
+        id: 30,
+        numbering: "#30",
+        img: "rebyt.png",
+        title: "PokeMoon25",
+        winRate: "57.82%",
+        netWinnings: "+6,734.435774",
+        netWinningsCMCX: "~$24,808.04",
+        roundsWon: "3,898/6,742",
+        netWinningsRed: "-64.269117",
+        roundsPlayed: "4,646"
+    },
+    {
+        id: 31,
+        numbering: "#31",
+        img: "rebyt.png",
+        title: "PokeMoon25",
+        winRate: "57.82%",
+        netWinnings: "+6,734.435774",
+        netWinningsCMCX: "~$24,808.04",
+        roundsWon: "3,898/6,742",
+        netWinningsRed: "-64.269117",
+        roundsPlayed: "4,646"
+        
+    },
+    {
+        id: 32,
+        numbering: "#32",
+        img: "rebyt.png",
+        title: "PokeMoon25",
+        winRate: "57.82%",
+        netWinnings: "+6,734.435774",
+        netWinningsCMCX: "~$24,808.04",
+        roundsWon: "3,898/6,742",
+        netWinningsRed: "-64.269117",
+        roundsPlayed: "4,646"
+        
+    },
+    {
+        id: 33,
+        numbering: "#33",
+        img: "rebyt.png",
+        title: "PokeMoon25",
+        winRate: "57.82%",
+        netWinnings: "+6,734.435774",
+        netWinningsCMCX: "~$24,808.04",
+        roundsWon: "3,898/6,742",
+        netWinningsRed: "-64.269117",
+        roundsPlayed: "4,646"
+    },
+    {
+        id: 34,
+        numbering: "#34",
+        img: "rebyt.png",
+        title: "PokeMoon25",
+        winRate: "57.82%",
+        netWinnings: "+6,734.435774",
+        netWinningsCMCX: "~$24,808.04",
+        roundsWon: "3,898/6,742",
+        netWinningsRed: "-64.269117",
+        roundsPlayed: "4,646"            
+    },
+    {
+        id: 35,
+        numbering: "#35",
+        img: "rebyt.png",
+        title: "PokeMoon25",
+        winRate: "57.82%",
+        netWinnings: "+6,734.435774",
+        netWinningsCMCX: "~$24,808.04",
+        roundsWon: "3,898/6,742",
+        netWinningsRed: "-64.269117",
+        roundsPlayed: "4,646"
+    },
+    {
+        id: 36,
+        numbering: "#36",
+        img: "rebyt.png",
+        title: "PokeMoon25",
+        winRate: "57.82%",
+        netWinnings: "+6,734.435774",
+        netWinningsCMCX: "~$24,808.04",
+        roundsWon: "3,898/6,742",
+        netWinningsRed: "-64.269117",
+        roundsPlayed: "4,646"
+    },
+    {
+        id: 37,
+        numbering: "#37",
+        img: "rebyt.png",
+        title: "PokeMoon25",
+        winRate: "57.82%",
+        netWinnings: "+6,734.435774",
+        netWinningsCMCX: "~$24,808.04",
+        roundsWon: "3,898/6,742",
+        netWinningsRed: "-64.269117",
+        roundsPlayed: "4,646"
+    },
+    {
+        id: 38,
+        numbering: "#38",
+        img: "rebyt.png",
+        title: "PokeMoon25",
+        winRate: "57.82%",
+        netWinnings: "+6,734.435774",
+        netWinningsCMCX: "~$24,808.04",
+        roundsWon: "3,898/6,742",
+        netWinningsRed: "-64.269117",
+        roundsPlayed: "4,646"
+    },        
+    {
+        id: 39,
+        numbering: "#39",
+        img: "rebyt.png",
+        title: "PokeMoon25",
+        winRate: "57.82%",
+        netWinnings: "+6,734.435774",
+        netWinningsCMCX: "~$24,808.04",
+        roundsWon: "3,898/6,742",
+        netWinningsRed: "-64.269117",
+        roundsPlayed: "4,646"
+    },
+    {
+        id: 40,
+        numbering: "#40",
+        img: "rebyt.png",
+        title: "PokeMoon25",
+        winRate: "57.82%",
+        netWinnings: "+6,734.435774",
+        netWinningsCMCX: "~$24,808.04",
+        roundsWon: "3,898/6,742",
+        netWinningsRed: "-64.269117",
+        roundsPlayed: "4,646"
+    }
 
+]
 
-
-    const contentData = [
-        {
-            id: 0,
-            numbering: "1",
-            img: "einstein.png",
-            title: "Spaceman",
-            winRate: "57.82%",
-            netWinnings: "+6,734.435774",
-            netWinningsCMCX: "~$24,808.04",
-            roundsWon: "3,898/6,742",
-            netWinningsRed: "-64.269117",
-            roundsPlayed: "4,646"
-            
-        },
-        {
-            id: 1,
-            numbering: "2",
-            img: "rebyt.png",
-            title: "Einstein",
-            winRate: "57.82%",
-            netWinnings: "+6,734.435774",
-            netWinningsCMCX: "~$20,808.04",
-            roundsWon: "3,898/6,742",
-            netWinningsRed: "-64.269117",
-            roundsPlayed: "4,646"
-            
-        },
-        {
-            id: 2,
-            numbering: "3",
-            img: "einstein.png",
-            title: "PokeMoon25",
-            winRate: "57.82%",
-            netWinnings: "+6,734.435774",
-            netWinningsCMCX: "~$24,808.04",
-            roundsWon: "3,898/6,742",
-            netWinningsRed: "-64.269117",
-            roundsPlayed: "4,646"
-            
-        },
-        {
-            id: 3,
-            numbering: "#4",
-            img: "rebyt.png",
-            title: "PokeMoon25",
-            winRate: "57.82%",
-            netWinnings: "+6,734.435774",
-            netWinningsCMCX: "~$24,808.04",
-            roundsWon: "3,898/6,742",
-            netWinningsRed: "-64.269117",
-            roundsPlayed: "4,646"
-            
-        },
-        {
-            id: 4,
-            numbering: "#4",
-            img: "rebyt.png",
-            title: "PokeMoon25",
-            winRate: "57.82%",
-            netWinnings: "+6,734.435774",
-            netWinningsCMCX: "~$24,808.04",
-            roundsWon: "3,898/6,742",
-            netWinningsRed: "-64.269117",
-            roundsPlayed: "4,646"
-            
-        },
-        {
-            id: 5,
-            numbering: "#5",
-            img: "rebyt.png",
-            title: "PokeMoon25",
-            winRate: "57.82%",
-            netWinnings: "+6,734.435774",
-            netWinningsCMCX: "~$24,808.04",
-            roundsWon: "3,898/6,742",
-            netWinningsRed: "-64.269117",
-            roundsPlayed: "4,646"
-            
-        },
-        {
-            id: 6,
-            numbering: "#6",
-            img: "rebyt.png",
-            title: "PokeMoon25",
-            winRate: "57.82%",
-            netWinnings: "+6,734.435774",
-            netWinningsCMCX: "~$24,808.04",
-            roundsWon: "3,898/6,742",
-            netWinningsRed: "-64.269117",
-            roundsPlayed: "4,646"
-            
-        },
-        {
-            id: 7,
-            numbering: "#7",
-            img: "rebyt.png",
-            title: "PokeMoon25",
-            winRate: "57.82%",
-            netWinnings: "+6,734.435774",
-            netWinningsCMCX: "~$24,808.04",
-            roundsWon: "3,898/6,742",
-            netWinningsRed: "-64.269117",
-            roundsPlayed: "4,646"
-            
-        },
-        {
-            id: 8,
-            numbering: "#8",
-            img: "rebyt.png",
-            title: "PokeMoon25",
-            winRate: "57.82%",
-            netWinnings: "+6,734.435774",
-            netWinningsCMCX: "~$24,808.04",
-            roundsWon: "3,898/6,742",
-            netWinningsRed: "-64.269117",
-            roundsPlayed: "4,646"
-            
-        },
-        {
-            id: 9,
-            numbering: "#9",
-            img: "rebyt.png",
-            title: "PokeMoon25",
-            winRate: "57.82%",
-            netWinnings: "+6,734.435774",
-            netWinningsCMCX: "~$24,808.04",
-            roundsWon: "3,898/6,742",
-            netWinningsRed: "-64.269117",
-            roundsPlayed: "4,646"
-            
-        },
-        {
-            id: 10,
-            numbering: "#10",
-            img: "rebyt.png",
-            title: "PokeMoon25",
-            winRate: "57.82%",
-            netWinnings: "+6,734.435774",
-            netWinningsCMCX: "~$24,808.04",
-            roundsWon: "3,898/6,742",
-            netWinningsRed: "-64.269117",
-            roundsPlayed: "4,646"
-            
-        },
-        {
-            id: 11,
-            numbering: "#11",
-            img: "rebyt.png",
-            title: "PokeMoon25",
-            winRate: "57.82%",
-            netWinnings: "+6,734.435774",
-            netWinningsCMCX: "~$24,808.04",
-            roundsWon: "3,898/6,742",
-            netWinningsRed: "-64.269117",
-            roundsPlayed: "4,646"
-            
-        },
-        {
-            id: 12,
-            numbering: "#12",
-            img: "rebyt.png",
-            title: "PokeMoon25",
-            winRate: "57.82%",
-            netWinnings: "+6,734.435774",
-            netWinningsCMCX: "~$24,808.04",
-            roundsWon: "3,898/6,742",
-            netWinningsRed: "-64.269117",
-            roundsPlayed: "4,646"
-            
-        },
-        {
-            id: 13,
-            numbering: "#13",
-            img: "rebyt.png",
-            title: "PokeMoon25",
-            winRate: "57.82%",
-            netWinnings: "+6,734.435774",
-            netWinningsCMCX: "~$24,808.04",
-            roundsWon: "3,898/6,742",
-            netWinningsRed: "-64.269117",
-            roundsPlayed: "4,646"
-        },
-        {
-            id: 14,
-            numbering: "#14",
-            img: "rebyt.png",
-            title: "PokeMoon25",
-            winRate: "57.82%",
-            netWinnings: "+6,734.435774",
-            netWinningsCMCX: "~$24,808.04",
-            roundsWon: "3,898/6,742",
-            netWinningsRed: "-64.269117",
-            roundsPlayed: "4,646"            
-        },
-        {
-            id: 15,
-            numbering: "#15",
-            img: "rebyt.png",
-            title: "PokeMoon25",
-            winRate: "57.82%",
-            netWinnings: "+6,734.435774",
-            netWinningsCMCX: "~$24,808.04",
-            roundsWon: "3,898/6,742",
-            netWinningsRed: "-64.269117",
-            roundsPlayed: "4,646"
-        },
-        {
-            id: 16,
-            numbering: "#16",
-            img: "rebyt.png",
-            title: "PokeMoon25",
-            winRate: "57.82%",
-            netWinnings: "+6,734.435774",
-            netWinningsCMCX: "~$24,808.04",
-            roundsWon: "3,898/6,742",
-            netWinningsRed: "-64.269117",
-            roundsPlayed: "4,646"
-        },
-        {
-            id: 17,
-            numbering: "#17",
-            img: "rebyt.png",
-            title: "PokeMoon25",
-            winRate: "57.82%",
-            netWinnings: "+6,734.435774",
-            netWinningsCMCX: "~$24,808.04",
-            roundsWon: "3,898/6,742",
-            netWinningsRed: "-64.269117",
-            roundsPlayed: "4,646"
-        },
-        {
-            id: 18,
-            numbering: "#18",
-            img: "rebyt.png",
-            title: "PokeMoon25",
-            winRate: "57.82%",
-            netWinnings: "+6,734.435774",
-            netWinningsCMCX: "~$24,808.04",
-            roundsWon: "3,898/6,742",
-            netWinningsRed: "-64.269117",
-            roundsPlayed: "4,646"
-        },        
-        {
-            id: 19,
-            numbering: "#19",
-            img: "rebyt.png",
-            title: "PokeMoon25",
-            winRate: "57.82%",
-            netWinnings: "+6,734.435774",
-            netWinningsCMCX: "~$24,808.04",
-            roundsWon: "3,898/6,742",
-            netWinningsRed: "-64.269117",
-            roundsPlayed: "4,646"
-        },
-        {
-            id: 20,
-            numbering: "#20",
-            img: "rebyt.png",
-            title: "PokeMoon25",
-            winRate: "57.82%",
-            netWinnings: "+6,734.435774",
-            netWinningsCMCX: "~$24,808.04",
-            roundsWon: "3,898/6,742",
-            netWinningsRed: "-64.269117",
-            roundsPlayed: "4,646"
-        },
-        {
-            id: 21,
-            numbering: "#21",
-            img: "rebyt.png",
-            title: "PokeMoon25",
-            winRate: "57.82%",
-            netWinnings: "+6,734.435774",
-            netWinningsCMCX: "~$24,808.04",
-            roundsWon: "3,898/6,742",
-            netWinningsRed: "-64.269117",
-            roundsPlayed: "4,646"
-            
-        },
-        {
-            id: 22,
-            numbering: "#22",
-            img: "rebyt.png",
-            title: "PokeMoon25",
-            winRate: "57.82%",
-            netWinnings: "+6,734.435774",
-            netWinningsCMCX: "~$24,808.04",
-            roundsWon: "3,898/6,742",
-            netWinningsRed: "-64.269117",
-            roundsPlayed: "4,646"
-            
-        },
-        {
-            id: 23,
-            numbering: "#23",
-            img: "rebyt.png",
-            title: "PokeMoon25",
-            winRate: "57.82%",
-            netWinnings: "+6,734.435774",
-            netWinningsCMCX: "~$24,808.04",
-            roundsWon: "3,898/6,742",
-            netWinningsRed: "-64.269117",
-            roundsPlayed: "4,646"
-        },
-        {
-            id: 24,
-            numbering: "#24",
-            img: "rebyt.png",
-            title: "PokeMoon25",
-            winRate: "57.82%",
-            netWinnings: "+6,734.435774",
-            netWinningsCMCX: "~$24,808.04",
-            roundsWon: "3,898/6,742",
-            netWinningsRed: "-64.269117",
-            roundsPlayed: "4,646"            
-        },
-        {
-            id: 25,
-            numbering: "#25",
-            img: "rebyt.png",
-            title: "PokeMoon25",
-            winRate: "57.82%",
-            netWinnings: "+6,734.435774",
-            netWinningsCMCX: "~$24,808.04",
-            roundsWon: "3,898/6,742",
-            netWinningsRed: "-64.269117",
-            roundsPlayed: "4,646"
-        },
-        {
-            id: 26,
-            numbering: "#26",
-            img: "rebyt.png",
-            title: "PokeMoon25",
-            winRate: "57.82%",
-            netWinnings: "+6,734.435774",
-            netWinningsCMCX: "~$24,808.04",
-            roundsWon: "3,898/6,742",
-            netWinningsRed: "-64.269117",
-            roundsPlayed: "4,646"
-        },
-        {
-            id: 27,
-            numbering: "#27",
-            img: "rebyt.png",
-            title: "PokeMoon25",
-            winRate: "57.82%",
-            netWinnings: "+6,734.435774",
-            netWinningsCMCX: "~$24,808.04",
-            roundsWon: "3,898/6,742",
-            netWinningsRed: "-64.269117",
-            roundsPlayed: "4,646"
-        },
-        {
-            id: 28,
-            numbering: "#28",
-            img: "rebyt.png",
-            title: "PokeMoon25",
-            winRate: "57.82%",
-            netWinnings: "+6,734.435774",
-            netWinningsCMCX: "~$24,808.04",
-            roundsWon: "3,898/6,742",
-            netWinningsRed: "-64.269117",
-            roundsPlayed: "4,646"
-        },        
-        {
-            id: 29,
-            numbering: "#29",
-            img: "rebyt.png",
-            title: "PokeMoon25",
-            winRate: "57.82%",
-            netWinnings: "+6,734.435774",
-            netWinningsCMCX: "~$24,808.04",
-            roundsWon: "3,898/6,742",
-            netWinningsRed: "-64.269117",
-            roundsPlayed: "4,646"
-        },
-        {
-            id: 30,
-            numbering: "#30",
-            img: "rebyt.png",
-            title: "PokeMoon25",
-            winRate: "57.82%",
-            netWinnings: "+6,734.435774",
-            netWinningsCMCX: "~$24,808.04",
-            roundsWon: "3,898/6,742",
-            netWinningsRed: "-64.269117",
-            roundsPlayed: "4,646"
-        },
-        {
-            id: 31,
-            numbering: "#31",
-            img: "rebyt.png",
-            title: "PokeMoon25",
-            winRate: "57.82%",
-            netWinnings: "+6,734.435774",
-            netWinningsCMCX: "~$24,808.04",
-            roundsWon: "3,898/6,742",
-            netWinningsRed: "-64.269117",
-            roundsPlayed: "4,646"
-            
-        },
-        {
-            id: 32,
-            numbering: "#32",
-            img: "rebyt.png",
-            title: "PokeMoon25",
-            winRate: "57.82%",
-            netWinnings: "+6,734.435774",
-            netWinningsCMCX: "~$24,808.04",
-            roundsWon: "3,898/6,742",
-            netWinningsRed: "-64.269117",
-            roundsPlayed: "4,646"
-            
-        },
-        {
-            id: 33,
-            numbering: "#33",
-            img: "rebyt.png",
-            title: "PokeMoon25",
-            winRate: "57.82%",
-            netWinnings: "+6,734.435774",
-            netWinningsCMCX: "~$24,808.04",
-            roundsWon: "3,898/6,742",
-            netWinningsRed: "-64.269117",
-            roundsPlayed: "4,646"
-        },
-        {
-            id: 34,
-            numbering: "#34",
-            img: "rebyt.png",
-            title: "PokeMoon25",
-            winRate: "57.82%",
-            netWinnings: "+6,734.435774",
-            netWinningsCMCX: "~$24,808.04",
-            roundsWon: "3,898/6,742",
-            netWinningsRed: "-64.269117",
-            roundsPlayed: "4,646"            
-        },
-        {
-            id: 35,
-            numbering: "#35",
-            img: "rebyt.png",
-            title: "PokeMoon25",
-            winRate: "57.82%",
-            netWinnings: "+6,734.435774",
-            netWinningsCMCX: "~$24,808.04",
-            roundsWon: "3,898/6,742",
-            netWinningsRed: "-64.269117",
-            roundsPlayed: "4,646"
-        },
-        {
-            id: 36,
-            numbering: "#36",
-            img: "rebyt.png",
-            title: "PokeMoon25",
-            winRate: "57.82%",
-            netWinnings: "+6,734.435774",
-            netWinningsCMCX: "~$24,808.04",
-            roundsWon: "3,898/6,742",
-            netWinningsRed: "-64.269117",
-            roundsPlayed: "4,646"
-        },
-        {
-            id: 37,
-            numbering: "#37",
-            img: "rebyt.png",
-            title: "PokeMoon25",
-            winRate: "57.82%",
-            netWinnings: "+6,734.435774",
-            netWinningsCMCX: "~$24,808.04",
-            roundsWon: "3,898/6,742",
-            netWinningsRed: "-64.269117",
-            roundsPlayed: "4,646"
-        },
-        {
-            id: 38,
-            numbering: "#38",
-            img: "rebyt.png",
-            title: "PokeMoon25",
-            winRate: "57.82%",
-            netWinnings: "+6,734.435774",
-            netWinningsCMCX: "~$24,808.04",
-            roundsWon: "3,898/6,742",
-            netWinningsRed: "-64.269117",
-            roundsPlayed: "4,646"
-        },        
-        {
-            id: 39,
-            numbering: "#39",
-            img: "rebyt.png",
-            title: "PokeMoon25",
-            winRate: "57.82%",
-            netWinnings: "+6,734.435774",
-            netWinningsCMCX: "~$24,808.04",
-            roundsWon: "3,898/6,742",
-            netWinningsRed: "-64.269117",
-            roundsPlayed: "4,646"
-        },
-        {
-            id: 40,
-            numbering: "#40",
-            img: "rebyt.png",
-            title: "PokeMoon25",
-            winRate: "57.82%",
-            netWinnings: "+6,734.435774",
-            netWinningsCMCX: "~$24,808.04",
-            roundsWon: "3,898/6,742",
-            netWinningsRed: "-64.269117",
-            roundsPlayed: "4,646"
-        }
-
-    ]
 const Leaderboard = () => {
     const [users, setusers] = useState(contentData.slice(0, 100));
     const [number, setNumber] = useState(0);
@@ -947,4 +945,4 @@ const Leaderboard = () => {
     )
 }
 
-export default Leaderboard
+export default Leaderboard;

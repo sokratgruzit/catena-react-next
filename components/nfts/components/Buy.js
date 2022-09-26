@@ -33,60 +33,132 @@ const ownerItemData = [
 const detailsTableData = [
   {
     id: 0,
-    cmcx: '0.0123',
-    usd: '(~$5.028)',
-    fromImg: '../../../images/nft/nft_buy/item2.png',
-    from: 'BilanCh',
-    toImg: '../../../images/nft/nft_buy/item3.png',
-    to: '-',
-    fromAddress: '0xC7...061b',
-    toAddress: '0xC7...062b',
-    date: '4.7.2022',
-    time: '13:13 AM',
-    event: 'Modified',
+    data: [
+      {
+        text: 'Modified',
+        type: 'text',
+      },
+      {
+        symbol: 'CMCX',
+        priceInCmcx: '0.0123',
+        priceInDollar: '(~$5.028)',
+        type: 'price',
+      },
+      {
+        img: '/images/nft/nft_buy/item2.png',
+        title: 'BilanCh',
+        subTitle: '0xC7...061b',
+        type: 'img_text',
+      },
+      {
+        img: '/images/nft/nft_buy/item3.png',
+        title: '-',
+        subTitle: '0xC7...062b',
+        type: 'img_text',
+      },
+      {
+        title: '4.7.2022',
+        subTitle: '13:13',
+        type: 'svg',
+      },
+    ],
   },
-  // {
-  //     id: 1,
-  //     cmcx: '0.0123',
-  //     usd: '(~$5.028)',
-  //     fromImg: '../../../images/nft/nft_buy/item2.png',
-  //     from: 'BilanCh',
-  //     toImg: '../../../images/nft/nft_buy/item3.png',
-  //     to: '-',
-  //     fromAddress: '0xC7...061b',
-  //     toAddress: '0xC7...062b',
-  //     date: '4.7.2022',
-  //     time: '13:13 PM',
-  //     event: 'Sold'
-  // },
-  // {
-  //     id: 2,
-  //     cmcx: '0.0123',
-  //     usd: '(~$5.028)',
-  //     fromImg: '../../../images/nft/nft_buy/item2.png',
-  //     from: 'BilanCh',
-  //     toImg: '../../../images/nft/nft_buy/item3.png',
-  //     to: '-',
-  //     fromAddress: '0xC7...061b',
-  //     toAddress: '0xC7...062b',
-  //     date: '4.7.2022',
-  //     time: '13:13 AM',
-  //     event: 'Delisted'
-  // },
-  // {
-  //     id: 3 ,
-  //     cmcx: '0.0123',
-  //     usd: '(~$5.028)',
-  //     fromImg: '../../../images/nft/nft_buy/item2.png',
-  //     from: 'BilanCh',
-  //     toImg: '../../../images/nft/nft_buy/item3.png',
-  //     to: '-',
-  //     toAddress: '0xC7...062b',
-  //     fromAddress: '0xC7...061b',
-  //     date: '4.7.2022',
-  //     time: '13:13 PM',
-  //     event: 'Listed'
-  // }
+  {
+    id: 1,
+    data: [
+      {
+        text: 'Sold',
+        type: 'text',
+      },
+      {
+        symbol: 'CMCX',
+        priceInCmcx: '0.0123',
+        priceInDollar: '(~$5.028)',
+        type: 'price',
+      },
+      {
+        img: '/images/nft/nft_buy/item2.png',
+        title: 'BilanCh',
+        subTitle: '0xC7...061b',
+        type: 'img_text',
+      },
+      {
+        img: '/images/nft/nft_buy/item3.png',
+        title: '-',
+        subTitle: '0xC7...062b',
+        type: 'img_text',
+      },
+      {
+        title: '4.7.2022',
+        subTitle: '13:13',
+        type: 'svg',
+      },
+    ],
+  },
+  {
+    id: 2,
+    data: [
+      {
+        text: 'Delisted',
+        type: 'text',
+      },
+      {
+        symbol: 'CMCX',
+        priceInCmcx: '0.0123',
+        priceInDollar: '(~$5.028)',
+        type: 'price',
+      },
+      {
+        img: '/images/nft/nft_buy/item2.png',
+        title: 'BilanCh',
+        subTitle: '0xC7...061b',
+        type: 'img_text',
+      },
+      {
+        img: '/images/nft/nft_buy/item3.png',
+        title: '-',
+        subTitle: '0xC7...062b',
+        type: 'img_text',
+      },
+      {
+        title: '4.7.2022',
+        subTitle: '13:13',
+        type: 'svg',
+      },
+    ],
+  },
+  {
+    id: 3,
+    data: [
+      {
+        text: 'Listed',
+        type: 'text',
+      },
+      {
+        symbol: 'CMCX',
+        priceInCmcx: '0.0123',
+        priceInDollar: '(~$5.028)',
+        type: 'price',
+      },
+      {
+        img: '/images/nft/nft_buy/item2.png',
+        title: 'BilanCh',
+        subTitle: '0xC7...061b',
+        type: 'img_text',
+      },
+      {
+        img: '/images/nft/nft_buy/item3.png',
+        title: '-',
+        subTitle: '0xC7...062b',
+        type: 'img_text',
+      },
+      {
+        title: '4.7.2022',
+        subTitle: '13:13',
+        type: 'svg',
+      },
+    ],
+  },
 ];
 const collectionItems = [
   {

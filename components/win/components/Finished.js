@@ -72,6 +72,7 @@ const Finished = () => {
                                 handleWalletModal(true);
                                 }}
                                 customStyles={{
+                                    position: 'absolute',
                                     padding: '10px 20px',
                                     border: 'none',
                                 }}
@@ -85,4 +86,3 @@ const Finished = () => {
 }
 
 export default Finished
-

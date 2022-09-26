@@ -1,0 +1,59 @@
+.tradesTab { 
+  display: flex;
+  align-items: center;
+  border-bottom: 1px dashed #ffffff10;
+
+}
+.tradesTab div:nth-child(1) {
+  width: 40%;
+}
+.tradesTab div:nth-child(2) {
+  width: 58%;
+}
+.tradesTab div:nth-child(3) {
+  width: 60%;
+}
+.tradesTab div:nth-child(4) {
+  width: 15%;
+}
+.tradesTab:nth-last-child(1) {
+  border-bottom: none;
+}
+.numbering {
+  white-space: nowrap; 
+  width: 50px; 
+  overflow: hidden;
+  text-overflow: ellipsis; 
+  color: #0500ff;
+}
+.price {
+  white-space: nowrap; 
+  width: 150px; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.nickName {
+  white-space: nowrap; 
+  width: 100px; 
+  overflow: hidden;
+  text-overflow: ellipsis; 
+  font-size: 15px;
+  line-height: 20px;
+  color: #ffffff;
+  opacity: 0.7;
+}
+.icone  {
+  position: relative;
+  padding-top: 12%;
+  width: 20%;
+  border-radius: 50%;
+  opacity: 0.5;
+}
+@media (max-width: 767px) {
+  .price {
+    white-space: nowrap; 
+    width: 100px; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

@@ -22,7 +22,7 @@ const ArrowBtn = (props) => {
     };
 
     if (props.seeDirection === 'trandingCompetition')  {
-        route = '/win/competition/CompetitionFinished'
+        route = '/win/competition/competitionFinished'
         title = 'See All Finished Competition'
     };
 

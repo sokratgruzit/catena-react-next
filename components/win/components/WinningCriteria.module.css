@@ -8,15 +8,15 @@
     top: 0;
     left: 75%;
     z-index: -10;
-    padding-top: 30%;
-    width: 30%;
+    width: 451px;
+    height: 398px;
 }
 .tickets {
     position: absolute;
     top: 5%;
-    left: 80%;
-    padding-top: 10%;
-    width: 10%;
+    left: 70%;
+    width: 169px;
+    height: 169px;
 }
 .descriptionTitle h3 {
     font-size: 20px;
@@ -27,8 +27,12 @@
     margin: 20px 0 15px 0;
     opacity: 0.7;
 }
-.blueballs {
-    margin-right: 10px;
+.circle{
+    width: 8.3px;
+    height: 8.3px;
+    background-color: #0500FF;
+    display: inline-block;
+    border-radius: 50%;
 }
 .description div {
     width: 60%;
@@ -53,6 +57,11 @@
     width: 60%;
     opacity: 0.7;
 }
+.imgTab{
+    position: relative;
+    width: 550px;
+    height: 258px;
+}
 @media (max-width: 1023px) {
     .mainContent {
         margin: 50px 30px 0 30px;
@@ -62,6 +71,7 @@
         top: 5%;
         left: 45%;
         width: 440px;
+        height: 388px;
     }
 }
 @media (max-width: 767px) {
@@ -73,6 +83,7 @@
         top: 5%;
         left: 30%;
         width: 200px;
+        height: 176px;
     }
     .tickets {
         top: 5%;

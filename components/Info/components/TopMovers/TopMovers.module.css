@@ -8,13 +8,6 @@
   flex-direction: column;
   justify-content: center;
 }
-
-.topMoversWrapper{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-}
 .slideWrapper{
   display: grid;
   overflow: hidden;

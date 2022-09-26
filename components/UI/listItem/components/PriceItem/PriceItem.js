@@ -7,10 +7,10 @@ const PriceItem = ({ data }) => {
   return (
     <div className={`${styles.TableRow__titles} ${listStyles.td}`}>
       <p>
-        <span>{data?.title}</span>
-        {data?.priceCoin}
+        <span>{data?.symbol}</span>
+        {data?.priceInCmcx}
       </p>
-      <p>{data?.priceDollar}</p>
+      <p>{data?.priceInDollar}</p>
     </div>
   );
 };

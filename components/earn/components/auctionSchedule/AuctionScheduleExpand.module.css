@@ -1,0 +1,30 @@
+.auction__expandDetails div {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.auction__expandDetails p {
+  color: #b2b4b7;
+}
+
+.auction__expandDetails div:last-child p:last-child {
+  color: #0500ff;
+  cursor: pointer;
+}
+
+.auction__expandDetails {
+  width: 100%;
+  padding-bottom: 20px;
+}
+
+.auction__expandDetails div:nth-child(2) {
+  padding-top: 20px;
+  margin-bottom: 20px;
+}
+
+.auction__borderBottom {
+  width: 100%;
+  display: flex;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}

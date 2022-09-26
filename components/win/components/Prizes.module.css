@@ -107,43 +107,6 @@
   line-height: 22px;
   color: #627eea;
 }
-.teamPrizesRank {
-  width: 100%;
-  padding: 15px 0;
-  display: flex;
-  justify-content: space-between;
-  border-top: 1px dashed #ffffff10;
-  align-items: center;
-}
-
-.teamPrizesRank div:nth-child(1) {
-  width: 23%;
-}
-.teamPrizesRank div:nth-child(2) {
-  width: 19%;
-}
-.teamPrizesRank div:nth-child(3) {
-  width: 24%;
-}
-.teamPrizesRank div:nth-child(4) {
-  width: 24%;
-}
-.teamPrizesRank div:nth-child(5) {
-  width: 5%;
-}
-.check {
-  position: relative;
-  left: -0.5%;
-  padding-top: 3%;
-  width: 2%;
-}
-.medal {
-  position: relative;
-  left: -8%;
-  padding-top: 5%;
-  width: 2%;
-}
-
 .descriptionP {
   margin-top: 50px;
   font-size: 15px;
@@ -224,12 +187,6 @@
   }
   .teamPrizesRank {
     width: 600px;
-  }
-  .medal {
-    position: relative;
-    left: -8%;
-    padding-top: 6%;
-    width: 2%;
   }
   .prizesMedal {
     position: relative;

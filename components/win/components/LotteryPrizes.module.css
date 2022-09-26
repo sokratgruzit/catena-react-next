@@ -27,47 +27,60 @@
     font-size: 70px;
 }
 .prizesContainer {
-  display: inline-block;
+  position: relative;
+  text-align: center;
   display: flex;
   justify-content: center;
 }
-.lotteryNumber {  
+.ellipse {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  top: -130%;
+}
+.lotteryNumber {
   display: flex;
   align-items: center;
-  border-radius: 10px;
-  background: rgba(52, 52, 114, 0.39);
-  padding: 7px;
+  background:rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+  padding: 10px;
+  border-width: 1px;
+  border-style: solid;
+  border-image: linear-gradient(to top, rgba(98, 126, 234, 1), rgba(68, 84, 148, 1)) 1 ;
+
+  border-top: none;
+  border-bottom: none;
 }
 .lotteryNumber span {
-  margin-top: 35px;
   font-size: 51px;
-  margin: 0 15px;
+  margin: 15px;
+
 }
 .imgPosition {
-    position: relative;
-    height: 80px;
-    width: 100%;
+  position: relative;
+  height: 80px;
+  width: 100%;
 }
-.pinkTicket {
-    position: absolute;
-    left: 15%;
-    top: 50%;
-    width: 4%;
-    padding-top: 4%;
+.pinkTicket{
+  position: absolute;
+  left: 15%;
+  top: 43%;
+  width: 53px;
+  height: 53px;
 }
-.smallStar {
-    position: absolute;
-    right: 20%;
-    top: 70%;
-    width: 1.3%;
-    padding-top: 1.3%;
+.smallStar{
+  position: absolute;
+  right: 20%;
+  top: 70%;
+  width: 18px;
+  height: 18px;
 }
 .star {
-    position: absolute;
-    right: 15%;
-    top: 20%;
-    width: 4%;
-    padding-top: 4%;
+  position: absolute;
+  right: 15%;
+  top: 20%;
+  width: 48px;
+  height: 45px;
 }
 .pictureContainer {
     position: relative;
@@ -75,18 +88,19 @@
     margin-bottom: 150px;
 }
 .littleStar {
-    position: absolute;
-    top: 170%;
-    left: 25%;
-    padding-top: 2%;
-    width: 2%;
+  position: absolute;
+  top: 170%;
+  left: 25%;
+  width: 26px;
+  height: 25px;
 }
-.ticket {
-    position: absolute;
-    top: 170%;
-    left: 70%;
-    padding-top: 4%;
-    width: 4%;
+
+.ticket{
+  position: absolute;
+  top: 170%;
+  left: 70%;
+  width:76px;
+  height:55px;
 }
 .buttonStyle {
   text-align: center;
@@ -102,15 +116,15 @@
     position: absolute;
     left: 16%;
     top: 50%;
-    padding-top: 4%;
-    width: 4%;
+    width: 79px;
+    height: 60px;
 }
 .starr {
     position: absolute;
     left: 80%;
     top: 150%;
-    padding-top: 1.3%;
-    width: 1.3%;
+    width: 18px;
+    height: 17px;
 }
 @media (max-width: 1300px) {
   .pictureContainer {

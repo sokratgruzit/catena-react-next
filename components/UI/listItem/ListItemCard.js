@@ -2,6 +2,8 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
+import CornerDecor from '../../UI/cornerDecor/CornerDecor';
+
 import styles from './ListItemCard.module.css';
 
 const ListItemCard = props => {
@@ -16,18 +18,17 @@ const ListItemCard = props => {
   ) {
     obj = (
       <div key={data.id} className={styles.Arrivals__listItemWrap}>
-        <Link href={`/nfts/collections/62c48170c86d95e8a1871733`}>
-          <div>
+        <CornerDecor />
+        <Link href={`/nfts/collections/buy`}>
+          <a>
             <div className={styles.Arrivals__imgBlock}>
-              <Image src={data.imgSrc} width={30} height={30} alt='nft' />
-              <p
-                className={`${styles.nftArrivals__imgBlockTitle} font_13`}
-              >
+              <div className={styles.imgWrap}>
+                <img src={data.imgSrc} />
+              </div>
+              <p className={`${styles.nftArrivals__imgBlockTitle} font_13`}>
                 {data.title}
               </p>
-              <p
-                className={`${styles.nftArrivals__imgBlockTeaser} font_13`}
-              >
+              <p className={`${styles.nftArrivals__imgBlockTeaser} font_13`}>
                 {data.subTitle}
               </p>
             </div>
@@ -38,14 +39,12 @@ const ListItemCard = props => {
                   <span className={styles.colored}>{data.value}</span>
                   {data.price}
                 </p>
-                <p
-                  className={`${styles.Arrivals__contentTeaser} font_13`}
-                >
+                <p className={`${styles.Arrivals__contentTeaser} font_13`}>
                   ({data.priceUSD})
                 </p>
               </div>
             </div>
-          </div>
+          </a>
         </Link>
       </div>
     );
