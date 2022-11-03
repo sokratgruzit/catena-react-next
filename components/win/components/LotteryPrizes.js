@@ -1,10 +1,24 @@
 import Image from "next/image"
+import { useDispatch, useSelector } from 'react-redux';
+import Button from '../../UI/button/Button';
+import BuyTickets from './BuyTickets';
 
 import styles from "./LotteryPrizes.module.css";
 import WinRoutes from "./WinRoutes";
 
 const LotteryPrizes = () => {
+    const activebtns = useSelector(state => state.connect.activeBuyTicketsBtn);
+    const dispatch = useDispatch();
 
+    const ticketBtns = () => {
+        dispatch({
+            type: 'BUY_TICKETS_ACTIVE',
+            payload: {
+                activeBuyTicketsBtn: !activebtns,
+            },
+        });
+    };
+    
     return (
         <>
             <div>
@@ -37,36 +51,33 @@ const LotteryPrizes = () => {
                         <Image layout="fill" objectFit={"contain"} src={'/images/win/star.png'} alt="ticket" />
                     </div>
                 </div>
-                {/* <div className={styles.blur}>
-                    <Image layout="fill" objectFit={"contain"} src={'/images/win/blurLottery.png'} alt="blurLottery" />
-                </div> */}
                 <div className={styles.prizesContainer}>                
-                    {/* <svg width="22" height="87" viewBox="0 0 22 87" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <g filter="url(#filter0_d_1537_5224)">
-                        <rect x="6.91406" y="10.0449" width="1" height="66" fill="url(#paint0_linear_1537_5224)" shapeRendering="crispEdges"/>
-                        </g>
-                        <defs>
-                        <filter id="filter0_d_1537_5224" x="0.914062" y="0.0449219" width="21" height="86" filterUnits="userSpaceOnUse" colorInterpolation-filters="sRGB">
-                        <feFlood floodOpacity="0" result="BackgroundImageFix"/>
-                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-                        <feOffset dx="4"/>
-                        <feGaussianBlur stdDeviation="5"/>
-                        <feComposite in2="hardAlpha" operator="out"/>
-                        <feColorMatrix type="matrix" values="0 0 0 0 0.384314 0 0 0 0 0.494118 0 0 0 0 0.917647 0 0 0 0.6 0"/>
-                        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1537_5224"/>
-                        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1537_5224" result="shape"/>
-                        </filter>
-                        <linearGradient id="paint0_linear_1537_5224" x1="7.41406" y1="10.0449" x2="7.41406" y2="76.0449" gradientUnits="userSpaceOnUse">
-                        <stop stopColor="#627EEA" stopOpacity="0"/>
-                        <stop offset="0.510417" stopColor="#627EEA"/>
-                        <stop offset="1" stopColor="#627EEA" stopOpacity="0"/>
-                        </linearGradient>
-                        </defs>
-                    </svg>   */}
                     <div className={styles.ellipse}>
                         <Image objectFit={"contain"} layout="fill" src={'/images/win/Ellipse.png'} alt="Ellipse" />
                     </div>
-                    <div className={styles.lotteryNumber}>    
+                    <div className={styles.lotteryNumber}>
+                        <svg className={styles.wtf} width="22" height="87" viewBox="0 0 22 87" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g filter="url(#filter0_d_1537_5224)">
+                            <rect x="6.91406" y="10.0449" width="1" height="66" fill="url(#paint0_linear_1537_5224)" shapeRendering="crispEdges"/>
+                            </g>
+                            <defs>
+                            <filter id="filter0_d_1537_5224" x="0.914062" y="0.0449219" width="21" height="86" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                            <feFlood floodOpacity="0" result="BackgroundImageFix"/>
+                            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                            <feOffset dx="4"/>
+                            <feGaussianBlur stdDeviation="5"/>
+                            <feComposite in2="hardAlpha" operator="out"/>
+                            <feColorMatrix type="matrix" values="0 0 0 0 0.384314 0 0 0 0 0.494118 0 0 0 0 0.917647 0 0 0 0.6 0"/>
+                            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1537_5224"/>
+                            <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1537_5224" result="shape"/>
+                            </filter>
+                            <linearGradient id="paint0_linear_1537_5224" x1="7.41406" y1="10.0449" x2="7.41406" y2="76.0449" gradientUnits="userSpaceOnUse">
+                            <stop stopColor="#627EEA" stopOpacity="0"/>
+                            <stop offset="0.510417" stopColor="#627EEA"/>
+                            <stop offset="1" stopColor="#627EEA" stopOpacity="0"/>
+                            </linearGradient>
+                            </defs>
+                        </svg>  
                         <span>
                             4
                         </span>
@@ -122,6 +133,28 @@ const LotteryPrizes = () => {
                         <span>
                             1
                         </span>
+                        <svg className={styles.blurLine} width="22" height="87" viewBox="0 0 22 87" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g filter="url(#filter0_d_1537_5224)">
+                            <rect x="6.91406" y="10.0449" width="1" height="66" fill="url(#paint0_linear_1537_5224)" shapeRendering="crispEdges"/>
+                            </g>
+                            <defs>
+                            <filter id="filter0_d_1537_5224" x="0.914062" y="0.0449219" width="21" height="86" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                            <feFlood floodOpacity="0" result="BackgroundImageFix"/>
+                            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                            <feOffset dx="4"/>
+                            <feGaussianBlur stdDeviation="5"/>
+                            <feComposite in2="hardAlpha" operator="out"/>
+                            <feColorMatrix type="matrix" values="0 0 0 0 0.384314 0 0 0 0 0.494118 0 0 0 0 0.917647 0 0 0 0.6 0"/>
+                            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1537_5224"/>
+                            <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1537_5224" result="shape"/>
+                            </filter>
+                            <linearGradient id="paint0_linear_1537_5224" x1="7.41406" y1="10.0449" x2="7.41406" y2="76.0449" gradientUnits="userSpaceOnUse">
+                            <stop stopColor="#627EEA" stopOpacity="0"/>
+                            <stop offset="0.510417" stopColor="#627EEA"/>
+                            <stop offset="1" stopColor="#627EEA" stopOpacity="0"/>
+                            </linearGradient>
+                            </defs>
+                        </svg>
                     </div>
                 </div>
                 <div className={styles.pictureContainer}>
@@ -133,9 +166,20 @@ const LotteryPrizes = () => {
                     </div>
                 </div>
                 <div className={styles.buttonStyle}>
-                    <button  className={styles.buyTicket}>
-                        Buy Tickets
+                    <button className={styles.buyTicket}>
+                        <Button
+                            title={'Buy Tickets'}
+                            type={'transparent'}
+                            customStyles={{
+                                padding: '24px 60px',
+                                border: 'none',
+                            }}
+                            onClick={() => {
+                                ticketBtns();
+                            }}
+                        />
                     </button>
+                    <BuyTickets />
                 </div>
                 <div className={styles.pictureContainer}>
                     <div className={styles.tickets}>

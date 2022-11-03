@@ -1,5 +1,6 @@
 .tab {
     display: flex;
+    justify-content: center;
 }
 .border {
     position: relative;
@@ -54,6 +55,11 @@
     padding-right: 10px;
     opacity: 0.7;
 }
+.bulk {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
 .yourPay {
     text-align: left;
     margin-top: 10px;
@@ -75,5 +81,9 @@
     }
     .inputStyle {
         border-radius: 4px;
+    }
+    .buy {
+        display: flex;
+        gap: 178px;
     }
 }

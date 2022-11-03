@@ -330,6 +330,7 @@ let finishedRoulesData = [
 const FinishedRounds = () => {
     const [activeMenuItem, setActiveMenuItem] = useState("All History");
     const [pageNumber, setPageNumber] = useState(0);
+    const [dataDetails, setDataDetail] = useState(finishedRoulesData.slice(pageNumber, pageNumber + 8))
     const [data, setData] = useState(finishedRoulesData.slice(pageNumber, pageNumber + 6));
     const { handleWalletModal } = useConnect();
     const [connectBtnColor, setConnectBtnColor] = useState('blue');
@@ -347,6 +348,7 @@ const FinishedRounds = () => {
             return false;
         };
         dataHandler();
+        clicDdataHandler()
     };
     const previous = () => {
         if(pageNumber > 0) {
@@ -355,6 +357,7 @@ const FinishedRounds = () => {
             return false;
         }
         dataHandler();
+        clicDdataHandler()
     }
 
     const dataHandler = () => {
@@ -362,6 +365,12 @@ const FinishedRounds = () => {
             return item;
         });
         setData(data);
+    };
+        const clicDdataHandler = () => {
+        let dataDetails = finishedRoulesData.slice(pageNumber, pageNumber + 8).map((item) => {
+            return item;
+        });
+        setDataDetail(dataDetails);
     };
 
     const clickHendler = () => {
@@ -444,7 +453,7 @@ const FinishedRounds = () => {
                                 </p>
                             </div>
                         <div className={styles.allMatch}>
-                            {data.map(item => {
+                            {dataDetails.map(item => {
                                 return (
                                     <div  key={item.id}>
                                         <p className={styles.title}>{item.title}</p>

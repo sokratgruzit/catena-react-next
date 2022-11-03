@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import useConnect from '../../../hooks/use-connect';
 import Button from '../../UI/button/Button';
 
 import CornerDecor from '../../UI/cornerDecor/CornerDecor';
@@ -7,8 +8,9 @@ import CornerDecor from '../../UI/cornerDecor/CornerDecor';
 import styles from './BuyTickets.module.css';
 
 const BuyTickets = () => {
+  const { handleWalletModal } = useConnect();
   const [value, setValue] = useState('');
-  const activebtns = useSelector(state => state.activeBuyTicketsBtn);
+  const activebtns = useSelector(state => state.connect.activeBuyTicketsBtn);
   const dispatch = useDispatch();
 
   let cost = value * 1.72;
@@ -100,7 +102,7 @@ const BuyTickets = () => {
               <p>{cost} CMCX</p>
             </div>
             <div className={styles.costBorder}>
-              <p>
+              <p className={styles.bulk}>
                 {discountPercent}% Bulk Discount
                 <svg
                   width='13'
@@ -144,6 +146,9 @@ const BuyTickets = () => {
             </div>
             <div className={styles.buttonWallet}>
               <Button
+            onClick={() => {
+            handleWalletModal(true);
+            }}
                 title={'Connect Wallet'}
                 type={'blue'}
                 customStyles={{

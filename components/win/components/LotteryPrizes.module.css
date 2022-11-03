@@ -40,16 +40,22 @@
 }
 .lotteryNumber {
   display: flex;
+  position: relative;
   align-items: center;
   background:rgba(255, 255, 255, 0.05);
   border-radius: 4px;
   padding: 10px;
-  border-width: 1px;
-  border-style: solid;
-  border-image: linear-gradient(to top, rgba(98, 126, 234, 1), rgba(68, 84, 148, 1)) 1 ;
 
   border-top: none;
   border-bottom: none;
+}
+.wtf {
+  position: absolute;
+  left: -7px;
+}
+.blurLine {
+  position: absolute;
+  left: 315px;
 }
 .lotteryNumber span {
   font-size: 51px;
@@ -104,10 +110,11 @@
 }
 .buttonStyle {
   text-align: center;
+  margin: auto;
 }
 .buyTicket {
+    margin-bottom: 20px;
     background: radial-gradient(50% 50% at 50% 50%, #A09EFF 0%, #4A46FF 100%);
-    padding: 24px 60px;
     border-radius: 4px;
     font-size: 20px;
     box-shadow: 0px 12px 50px rgba(90, 87, 255, 0.4);

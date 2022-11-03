@@ -61,7 +61,7 @@ let ticketsData = [
 
 const Tickets = () => {
   const [details, setDetails] = useState(false);
-  const activebtns = useSelector(state => state.activeBuyTicketsBtn);
+  const activebtns = useSelector(state => state.connect.activeBuyTicketsBtn);
   const dispatch = useDispatch();
 
   const handleClick = () => {
@@ -134,13 +134,11 @@ const Tickets = () => {
             {
               ticketsData.map(item => {
                 return (
-                  <>
-                    <div className={`${styles.detailsList} ${details === true ? styles.detailsList1 : ''}`} key={item.id}>
-                      <p className={styles.titlePar}>{item.title}</p>
-                      <p>{item.priceCore}</p>
-                      <p className={styles.priceCore}>{item.price}</p>
-                    </div>
-                  </>
+                  <div className={`${styles.detailsList} ${details === true ? styles.detailsList1 : ''}`} key={item.id}>
+                    <p className={styles.titlePar}>{item.title}</p>
+                    <p>{item.priceCore}</p>
+                    <p className={styles.priceCore}>{item.price}</p>
+                  </div>
                 );
               })}
           </div>
