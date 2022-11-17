@@ -146,9 +146,9 @@ const BuyTickets = () => {
             </div>
             <div className={styles.buttonWallet}>
               <Button
-            onClick={() => {
-            handleWalletModal(true);
-            }}
+                onClick={() => {
+                  handleWalletModal(true);
+                }}
                 title={'Connect Wallet'}
                 type={'blue'}
                 customStyles={{

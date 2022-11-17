@@ -597,7 +597,7 @@ const Leaderboard = () => {
                                         <div className={styles.leaderDesc}>
                                             <Image layout='fill' objectFit={'contain'} src={`/images/win/${item.img}`} alt='icone' />
                                         </div>
-                                        <p>{item.title}</p>
+                                        <p className={styles.titleAvatar}>{item.title}</p>
                                     </div>
                                     <div className={styles.states}>
                                         <p>View Stats</p>
@@ -689,7 +689,7 @@ const Leaderboard = () => {
                                         <div className={styles.leaderDesc}>
                                             <Image layout='fill' objectFit={'contain'} src={`/images/win/${item.img}`} alt='icone' />
                                         </div>
-                                        <p>{item.title}</p>
+                                        <p className={styles.titleAvatar}>{item.title}</p>
                                     </div>
                                     <div className={styles.states}>
                                         <p>View Stats</p>
@@ -781,7 +781,7 @@ const Leaderboard = () => {
                                         <div className={styles.leaderDesc}>
                                             <Image layout='fill' objectFit={'contain'} src={`/images/win/${item.img}`} alt='icone' />
                                         </div>
-                                        <p>{item.title}</p>
+                                        <p className={styles.titleAvatar}>{item.title}</p>
                                     </div>
                                     <div className={styles.states}>
                                         <p>View Stats</p>
@@ -831,7 +831,7 @@ const Leaderboard = () => {
                                 <Image layout='fill' objectFit={'contain'} src={`/images/win/${item.img}`} alt='icone' />
                             </div>
                             <h3 className={styles.titleBox}>{item.title}</h3>
-                        </div>
+                    </div>
                     <div  className={styles.netWinningsBox}>
                         <h4>
                             {item.netWinningsCMCX}
@@ -868,7 +868,7 @@ const Leaderboard = () => {
                         Leaderboard
                     </h1>
                     <div className={styles.leaderboardBg}>
-                        <Image  layout="fill" src={"/images/win/background/BG.png"}  alt="BG" objectFit={"cover"}/>
+                        <Image  layout="fill" src={"/images/win/background/bgPrediction.png"}  alt="BG" objectFit={"cover"}/>
                     </div>
                 </div>
 
@@ -887,7 +887,10 @@ const Leaderboard = () => {
                     />
                 </div>
                 <div>
-                    {swipetItems}
+                    <div className={styles.swipetItemsContent}>
+                        {swipetItems}    
+                    </div>
+                    
                     <div className={styles.tab}>
                         <div className={styles.borderBox}>
                             <CornerDecor />
