@@ -1,6 +1,5 @@
-import React from 'react';
 import Image from 'next/image';
-
+import Link from 'next/link';
 import CornerDecor from '../../UI/cornerDecor/CornerDecor';
 
 import styles from './PrizeFunds.module.css';
@@ -108,9 +107,9 @@ const PrizeFunds = () => {
               An average total of 35,000 CAKE from the treasury is added to
               lottery rounds over the course of a week. This CAKE is of course
               also included in rollovers! Read more in our guide to{' '}
-              <a className={styles.links} href='#'>
+              <Link className={styles.links} href={'/win/lottery/CoreTokenomics'}>
                 CORE Tokenomics
-              </a>
+              </Link>
             </p>
           </div>
         </div>

@@ -1,0 +1,26 @@
+.CoreTokenomics__background {
+    position: absolute;
+    padding-top: 100%;
+    top: -70%;
+    left: 0;
+    z-index: -10;
+    width: 100%;
+}
+.container {
+    width: 100%;
+    max-width: 1920px;
+    padding: 0px 40px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 5;
+    margin-top: 155px;
+}
+.sideBar {
+    max-height: 20px;
+    margin-bottom: 24px;
+    overflow: hidden; 
+    transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+}
+.sideBarActive {
+    max-height: 50px;       
+}

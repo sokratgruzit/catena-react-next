@@ -17,30 +17,30 @@ import styles from './SinglePredictionItem.module.css';
 
 const SinglePredictionItem = ({ item }) => {
 
-    const [activeBtns, setActiveBtns] = useState(null);
-    const [activeBtnsDwn, setActiveBtnsDwn] = useState(null);
-    const [upBtns, setUpBtns] = useState(false);
+  const [activeBtns, setActiveBtns] = useState(null);
+  const [activeBtnsDwn, setActiveBtnsDwn] = useState(null);
+  const [upBtns, setUpBtns] = useState(false);
   const [downBtns, setDownBtns] = useState(false);
 
-    const { handleWalletModal } = useConnect();
-    const activebtns = useSelector(state => state.connect.activeBuyTicketsBtn);
+  const { handleWalletModal } = useConnect();
+  const activebtns = useSelector(state => state.connect.activeBuyTicketsBtn);
   const dispatch = useDispatch();
 
-    const activateBtns = (id) => {
-        setActiveBtns(id);
-    }
-    
-    const activateDwn = (id) => {
-        setActiveBtnsDwn(id)
-    }
-    const changeUpBtns = () => {
-        setUpBtns(!upBtns)
-    }
-    const changeDownBtns = () => {
-        setDownBtns(!downBtns)
-    }
+  const activateBtns = (id) => {
+    setActiveBtns(id);
+  }
+  
+  const activateDwn = (id) => {
+    setActiveBtnsDwn(id)
+  }
+  const changeUpBtns = () => {
+    setUpBtns(!upBtns)
+  }
+  const changeDownBtns = () => {
+    setDownBtns(!downBtns)
+  }
 
-      const ticketBtns = () => {
+  const ticketBtns = () => {
     dispatch({
       type: 'BUY_TICKETS_ACTIVE',
       payload: {
