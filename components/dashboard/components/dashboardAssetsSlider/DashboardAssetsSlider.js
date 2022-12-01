@@ -1,20 +1,20 @@
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Navigation } from 'swiper';
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Navigation } from "swiper";
 
-import SlideNextButton from '../slideIcons/SlideIcons';
-import { CoreLogoSvg, PlusSvg } from '../../../svg';
+import SlideNextButton from "../slideIcons/SlideIcons";
+import { CoreLogoSvg, PlusSvg } from "../../../svg";
 
-import DashboardSingleSlide from '../dashboardSingleSlide/DashboardSingleSlide';
+import DashboardSingleSlide from "../dashboardSingleSlide/DashboardSingleSlide";
 
-import styles from './DashboardAssetsSlider.module.css';
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
+import styles from "./DashboardAssetsSlider.module.css";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 
 const dashboardSliderData = [
   {
     logoSvg: <CoreLogoSvg />,
-    assetName: 'CMCX (CMCX)',
+    assetName: "CMCX (CMCX)",
     available: 345.400214,
     stake: 30,
     value: 345.400214,
@@ -22,7 +22,7 @@ const dashboardSliderData = [
   },
   {
     logoSvg: <CoreLogoSvg />,
-    assetName: 'CMCX (CMCX)',
+    assetName: "CMCX (CMCX)",
     available: 345.400214,
     stake: 30,
     value: 345.400214,
@@ -30,7 +30,7 @@ const dashboardSliderData = [
   },
   {
     logoSvg: <CoreLogoSvg />,
-    assetName: 'CMCX (CMCX)',
+    assetName: "CMCX (CMCX)",
     available: 345.400214,
     stake: 30,
     value: 345.400214,
@@ -38,7 +38,7 @@ const dashboardSliderData = [
   },
   {
     logoSvg: <CoreLogoSvg />,
-    assetName: 'CMCX (CMCX)',
+    assetName: "CMCX (CMCX)",
     available: 345.400214,
     stake: 30,
     value: 345.400214,
@@ -54,35 +54,35 @@ const DashboardAssetsSlider = () => {
           <div className={styles.sliderHeader}>
             <div className={`${styles.assetsBtn}`}>
               <PlusSvg />
-              <p className='font_13'>Add Assets</p>
+              <p className="font_13">Add Assets</p>
             </div>
             <div className={styles.dashboardMid__checkbox}>
-              <div className='radio-btn'>
-                <input type='checkbox' />
-                <div className='radio-btn__inner'>
-                  <div className='radio-btn__icon'></div>
+              <div className="radio-btn">
+                <input type="checkbox" />
+                <div className="radio-btn__inner">
+                  <div className="radio-btn__icon"></div>
                 </div>
                 Staked only
               </div>
             </div>
             <input
-              type='search'
-              placeholder='Search Farms'
+              type="search"
+              placeholder="Search Farms"
               className={styles.sliderHeader__search}
             ></input>
           </div>
           <Swiper
-            slidesPerView={'auto'}
+            slidesPerView={"auto"}
             keyboard={{
               enabled: true,
             }}
             spaceBetween={20}
             pagination={{
-              type: 'progressbar',
+              type: "progressbar",
             }}
             navigation={true}
             modules={[Pagination, Navigation]}
-            className='mySwiper'
+            className="mySwiper"
             freeMode={true}
             scrollbar={true}
             mousewheel={true}
