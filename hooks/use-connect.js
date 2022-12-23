@@ -1,11 +1,10 @@
-import { useState, useEffect, useMemo, useCallback } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { injected, walletConnect } from './connector';
-import { useWeb3React } from '@web3-react/core';
+import { useState, useEffect, useMemo, useCallback } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { injected, walletConnect } from "./connector";
+import { useWeb3React } from "@web3-react/core";
 
 const useConnect = () => {
-  const { activate, account, library, connector, active, deactivate } =
-    useWeb3React();
+  const { activate, account, library, connector, active, deactivate } = useWeb3React();
 
   const [isActive, setIsActive] = useState(false);
   const [walletModal, setWalletModal] = useState(false);
@@ -13,14 +12,14 @@ const useConnect = () => {
   const [isLoading, setIsLoading] = useState(true);
   const dispatch = useDispatch();
 
-  const isConnected = useSelector(state => state.connect.isConnected);
-  const providerType = useSelector(state => state.connect.providerType);
+  const isConnected = useSelector((state) => state.connect.isConnected);
+  const providerType = useSelector((state) => state.connect.providerType);
 
   // Init Loading
   useEffect(() => {
     async function fetchData() {
       if (isConnected) {
-        connect(providerType).then(val => {
+        connect(providerType).then((val) => {
           setIsLoading(false);
         });
       }
@@ -28,11 +27,11 @@ const useConnect = () => {
     fetchData();
   }, []);
 
-  const handleWalletModal = async state => {
-    console.log('state ===>' + state);
+  const handleWalletModal = async (state) => {
+    console.log("state ===>" + state);
     setWalletModal(state);
     dispatch({
-      type: 'TOGGLE_WALLET_CONNECT_MODAL',
+      type: "TOGGLE_WALLET_CONNECT_MODAL",
       payload: {
         walletModal: state,
       },
@@ -52,38 +51,38 @@ const useConnect = () => {
   useEffect(() => {
     if (!isActive) {
       dispatch({
-        type: 'CONNECT',
+        type: "CONNECT",
         payload: {
           isConnected: false,
-          providerType: '',
+          providerType: "",
         },
       });
     }
   }, [isActive]);
 
   // Connect to wallet
-  const connect = async providerType => {
+  const connect = async (providerType) => {
     setShouldDisable(true);
     try {
-      if (providerType === 'metaMask') {
-        await activate(injected).then(ts => {
+      if (providerType === "metaMask") {
+        await activate(injected).then((ts) => {
           setShouldDisable(false);
           dispatch({
-            type: 'CONNECT',
+            type: "CONNECT",
             payload: {
               isConnected: true,
-              providerType: 'metaMask',
+              providerType: "metaMask",
             },
           });
         });
-      } else if (providerType === 'walletConnect') {
+      } else if (providerType === "walletConnect") {
         await activate(walletConnect).then(() => {
           setShouldDisable(false);
           dispatch({
-            type: 'CONNECT',
+            type: "CONNECT",
             payload: {
               isConnected: true,
-              providerType: 'walletConnect',
+              providerType: "walletConnect",
             },
           });
         });
@@ -91,7 +90,7 @@ const useConnect = () => {
 
       setWalletModal(false);
     } catch (error) {
-      console.log('Error on connecting: ', error);
+      console.log("Error on connecting: ", error);
     }
   };
 
@@ -100,14 +99,14 @@ const useConnect = () => {
     try {
       await deactivate();
       dispatch({
-        type: 'CONNECT',
+        type: "CONNECT",
         payload: {
           isConnected: false,
-          providerType: '',
+          providerType: "",
         },
       });
     } catch (error) {
-      console.log('Error on disconnnect: ', error);
+      console.log("Error on disconnnect: ", error);
     }
   };
 
