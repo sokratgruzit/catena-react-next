@@ -309,7 +309,7 @@ const INIT_STATE = {
     },
   },
   votingData: {
-    QmbtMK57ksC7DEeqkqKSx7ehFg1ahYMCtiAAAiGaYjVbw4: {
+    'QmbtMK57ksC7DEeqkqKSx7ehFg1ahYMCtiAAAiGaYjVbw4': {
       id: 0,
       title: 'test12345',
       subTitle: 'subTitle #2',
@@ -317,7 +317,7 @@ const INIT_STATE = {
       location: 'Community',
       activeStatus: true,
     },
-    QmbtMK57ksC7DEeqkqKSx7ehFg1ahYMCtiAAAiGaYjVbw4: {
+    'QmbtMK57ksC7DEeqkqKSx7ehFg1ahYMCtiAAAiGaYjVbw4': {
       id: 1,
       title: 'Stop Minting more CORE',
       subTitle: 'subTitle 1',
@@ -325,7 +325,7 @@ const INIT_STATE = {
       location: 'Core',
       activeStatus: true,
     },
-    QmbtMK57ksC7DEeqkqKSx7ehFg1ahYMCtiAAAiGaYjVbw4: {
+    'QmbtMK57ksC7DEeqkqKSx7ehFg1ahYMCtiAAAiGaYjVbw4': {
       id: 2,
       title: 'test#2',
       subTitle: 'test593059',
@@ -333,7 +333,7 @@ const INIT_STATE = {
       location: 'Community',
       activeStatus: false,
     },
-    QmbtMK57ksC7DEeqkqKSx7ehFg1ahYMCtiAAAiGaYjVbw4: {
+    'QmbtMK57ksC7DEeqkqKSx7ehFg1ahYMCtiAAAiGaYjVbw4': {
       id: 3,
       title: 'Stop Minting more CORE',
       subTitle: 'qwerty',
@@ -341,7 +341,7 @@ const INIT_STATE = {
       location: 'Core',
       activeStatus: false,
     },
-    QmbtMK57ksC7DEeqkqKSx7ehFg1ahYMCtiAAAiGaYjVbw4: {
+    'QmbtMK57ksC7DEeqkqKSx7ehFg1ahYMCtiAAAiGaYjVbw4': {
       id: 4,
       title: 'test#3',
       subTitle: 'qwerty123',

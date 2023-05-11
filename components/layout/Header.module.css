@@ -735,7 +735,7 @@
 .settingsModalBtn:last-child {
   margin-right: 0px;
 }
-.settingsModalBtn:hover {
+.settingsModalBtn:hover,.settingsModalBtnActive {
   background: #fff;
   border-color: #fff;
   color: #ff7152;

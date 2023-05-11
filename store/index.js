@@ -7,10 +7,12 @@ import storage from 'redux-persist/lib/storage';
 
 import connectReducer from './connectReducer';
 import favoritesReducer from './favoritesReducer';
+import settingsReducer from './settingsReducer';
 
 const rootReducer = combineReducers({
   connect: connectReducer,
   favorites: favoritesReducer,
+  settings: settingsReducer
 });
 
 const persistConfig = {

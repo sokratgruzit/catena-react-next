@@ -2,12 +2,15 @@ import { InjectedConnector } from "@web3-react/injected-connector";
 import { WalletConnectConnector } from "@web3-react/walletconnect-connector";
 
 export const injected = new InjectedConnector({
-  supportedChainIds: [56, 2122], // Pass multiple chain id like - [1,3,4,56,80001]
+  supportedChainIds: [4, 97],
 });
 
-const RPC_URL = "https://bsc-dataseed.binance.org"; // rpc url of following chain
 export const walletConnect = new WalletConnectConnector({
-  rpc: { 56: RPC_URL }, // pass multiple rpc for chain like {chainid1 :chainRPCUrl_1, chainid2:chainRpcUrl2}
-  drcode: true,
-  chainId: 56,
+  rpc: {
+    4: "https://rinkeby.infura.io/v3/cbf4ab3d4878468f9bbb6ff7d761b985",
+    97: "https://data-seed-prebsc-1-s1.binance.org:8545/",
+  },
+  bridge: "https://bridge.walletconnect.org",
+  qrcode: true,
+  pollingInterval: 12000,
 });

@@ -8,7 +8,9 @@ const FormChoice = ({ choice, index, setFormData, setEditedField }) => {
     setFormData(prevState => ({
       ...prevState,
       choices: prevState.choices.map((item, id) =>
-        id === index ? e.target.value : item,
+        id === index
+          ? { ...prevState.choices[id], value: e.target.value }
+          : item,
       ),
     }));
     setEditedField(prevState => ({ ...prevState, choices: true }));
@@ -28,7 +30,7 @@ const FormChoice = ({ choice, index, setFormData, setEditedField }) => {
         type='text'
         name='input choice text'
         onChange={e => handleChoiceInput(e, index)}
-        value={choice}
+        value={choice.value}
       />
       {index > 1 && (
         <div className={styles.close} onClick={e => handleCloseInput(index)}>

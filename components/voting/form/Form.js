@@ -23,7 +23,7 @@ const Form = () => {
   const [formData, setFormData] = useState({
     title: '',
     body: '',
-    choices: ['', ''],
+    choices: [{ value: '' }, { value: '' }],
     startDate: null,
     startTime: null,
     endDate: null,

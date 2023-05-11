@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import Button from '../../UI/button/Button';
 
+// import ButtonWallet from './ButtonWallet';
 import CornerDecor from '../../UI/cornerDecor/CornerDecor';
 
 import styles from './BuyTickets.module.css';
@@ -142,21 +142,9 @@ const BuyTickets = () => {
             <div className={styles.yourPay}>
               <p>You pay:</p>
             </div>
-            <div className={styles.buttonWallet}>
-              <Button
-                title={'Connect Wallet'}
-                type={'blue'}
-                customStyles={{
-                  width: '100%',
-                  padding: '7px 20px',
-                  fontSize: '16px',
-                  lineHeight: '22px',
-                  marginTop: 'auto',
-                }}
-              />
-            </div>
+            <div className={styles.buttonWallet}>{/* <ButtonWallet /> */}</div>
             <p>
-              &quot;Buy Instantly&quot; chooses random numbers, with no
+              `&ldquo;`Buy Instantly`&rdquo;` chooses random numbers, with no
               duplicates among your tickets. Prices are set before each round
               starts, equal to $5 at that time. Purchases are final.
             </p>
