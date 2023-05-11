@@ -1,30 +1,30 @@
-import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
-import { combineReducers } from '@reduxjs/toolkit';
-import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2';
+import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
+import { combineReducers } from "@reduxjs/toolkit";
+import autoMergeLevel2 from "redux-persist/lib/stateReconciler/autoMergeLevel2";
 
-import { persistReducer, persistStore } from 'redux-persist';
-import storage from 'redux-persist/lib/storage';
+import { persistReducer, persistStore } from "redux-persist";
+import storage from "redux-persist/lib/storage";
 
-import connectReducer from './connectReducer';
-import favoritesReducer from './favoritesReducer';
-import settingsReducer from './settingsReducer';
-
-const rootReducer = combineReducers({
-  connect: connectReducer,
-  favorites: favoritesReducer,
-  settings: settingsReducer
-});
+import connectReducer from "./connectReducer";
+import favoritesReducer from "./favoritesReducer";
+import settingsReducer from "./settingsReducer";
+import appStateReducer from "./appStateReducer";
 
 const persistConfig = {
-  key: 'root',
+  key: "root",
   storage,
   stateReconciler: autoMergeLevel2,
 };
 
-const persistedReducer = persistReducer(persistConfig, rootReducer);
+const rootReducer = combineReducers({
+  connect: persistReducer(persistConfig, connectReducer),
+  favorites: persistReducer(persistConfig, favoritesReducer),
+  settings: persistReducer(persistConfig, settingsReducer),
+  appState: appStateReducer,
+});
 
 const store = configureStore({
-  reducer: persistedReducer,
+  reducer: rootReducer,
   middleware: getDefaultMiddleware({
     serializableCheck: false,
   }),

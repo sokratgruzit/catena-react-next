@@ -3,7 +3,10 @@ import Image from "next/image";
 import Link from "next/link";
 import useTranslation from "next-translate/useTranslation";
 import { useSelector, useDispatch } from "react-redux";
+// import useConnect from "../../hooks/use-connect";
+
 import useConnect from "../../hooks/use-connect";
+import { injected, walletConnect } from "../../connector";
 
 import Button from "../UI/button/Button";
 import Tooltip from "../UI/tooltip/Tooltip";
@@ -44,8 +47,17 @@ const WALLETS_DATA = [
 ];
 
 const Header = () => {
-  const { connect, disconnect, account, isActive, library, handleWalletModal } =
-    useConnect();
+  // const { connect, disconnect, account, isActive, library, handleWalletModal } =
+  //   useConnect();
+  const { connect, disconnect, library, error, setError } = useConnect();
+
+  const account = useSelector((state) => state.connect.account);
+  const triedReconnect = useSelector((state) => state.appState.triedReconnect);
+  const isActive = true;
+
+  console.log(triedReconnect);
+  // const isConnected = true;
+
   const [activeMenu, setActiveMenu] = useState(null);
   const [activeLangs, setActiveLangs] = useState(false);
   const [activeSettings, setActiveSettings] = useState(false);
@@ -54,9 +66,10 @@ const Header = () => {
   const [profileModal, setProfileModal] = useState(false);
   const [connectBtnColor, setConnectBtnColor] = useState("red");
   const [device, setDevice] = useState(null);
-  const walletModal = useSelector(state => state.connect.walletModal);
-  const isConnected = useSelector(state => state.connect.isConnected);
-  const slippage = useSelector(state => state.settings.slippage);
+  // const walletModal = useSelector((state) => state.connect.walletModal);
+  const [walletModal, setWalletModal] = useState(false);
+  const isConnected = useSelector((state) => state.connect.isConnected);
+  const slippage = useSelector((state) => state.settings.slippage);
   const [balance, setBalance] = useState(0);
   const [stickHead, setStickHead] = useState(false);
   const { t } = useTranslation("header");
@@ -185,7 +198,7 @@ const Header = () => {
   const router = useRouter();
 
   const { locale, pathname, asPath, query } = useRouter();
-  const changeLanguage = loc => {
+  const changeLanguage = (loc) => {
     // i18n.changeLanguage(locale.toLowerCase());
     router.push("", "", { locale: loc.toLowerCase() });
     setRouterLocale(loc);
@@ -195,13 +208,13 @@ const Header = () => {
 
   const getBalance = async () => {
     if (web3Obj !== undefined) {
-      web3Obj.eth.getBalance(account).then(res => {
+      web3Obj.eth.getBalance(account).then((res) => {
         setBalance(res);
       });
     }
   };
 
-  const openMenu = id => {
+  const openMenu = (id) => {
     if (window.innerWidth >= 1024) {
       closeAll();
     }
@@ -212,7 +225,7 @@ const Header = () => {
     }
   };
 
-  const openLangs = state => {
+  const openLangs = (state) => {
     closeAll();
     setActiveLangs(state);
     if (device === "mobile") {
@@ -224,7 +237,7 @@ const Header = () => {
     }
   };
 
-  const openSettings = state => {
+  const openSettings = (state) => {
     closeAll();
     setActiveSettings(state);
     if (device === "mobile") {
@@ -258,7 +271,8 @@ const Header = () => {
   const closeAll = () => {
     setActiveLangs(false);
     setActiveSettings(false);
-    handleWalletModal(false);
+    // handleWalletModal(false);
+    setWalletModal(false);
     setProfileModal(false);
     setActiveLangs(false);
     setActiveBurger(false);
@@ -289,7 +303,7 @@ const Header = () => {
       window.removeEventListener("scroll", isSticky);
     };
   });
-  const isSticky = e => {
+  const isSticky = (e) => {
     const scrollTop = window.scrollY;
     if (scrollTop >= 10) {
       setStickHead(true);
@@ -300,18 +314,13 @@ const Header = () => {
 
   return (
     <div>
-      <header
-        className={`${styles.header} ${stickHead ? styles.stickHeader : ""}`}
-      >
+      <header className={`${styles.header} ${stickHead ? styles.stickHeader : ""}`}>
         <div className={`${styles.headerInner} container`}>
           <Link href="/">
             <div>
               <div
                 className={`${styles.headerLogo} ${styles.headerLogoMobile} ${
-                  activeBurger !== false ||
-                  activeLangs ||
-                  activeSettings ||
-                  profileModal
+                  activeBurger !== false || activeLangs || activeSettings || profileModal
                     ? styles.whiteLogo
                     : ""
                 }`}
@@ -331,9 +340,7 @@ const Header = () => {
                   />
                 </svg>
               </div>
-              <div
-                className={`${styles.headerLogo} ${styles.headerLogoDesktop}`}
-              >
+              <div className={`${styles.headerLogo} ${styles.headerLogoDesktop}`}>
                 <svg
                   width="113"
                   height="46"
@@ -387,7 +394,7 @@ const Header = () => {
             } ${activeMenu !== null ? styles.headerNavOpacity : ""}`}
           >
             <i></i>
-            {NAV_DATA.map(item => {
+            {NAV_DATA.map((item) => {
               return (
                 <div
                   className={`${styles.headerNavLink} ${
@@ -434,9 +441,7 @@ const Header = () => {
                       activeMenu === item.id ? styles.activeMenuSub : ""
                     }`}
                   >
-                    <i
-                      className={activeMenu === item.id ? styles.activeBg : ""}
-                    ></i>
+                    <i className={activeMenu === item.id ? styles.activeBg : ""}></i>
                     {item.subNav.map((sub, index) => {
                       return (
                         <Link href={sub.route} key={sub.id}>
@@ -445,11 +450,7 @@ const Header = () => {
                               style={{
                                 transitionDelay:
                                   activeMenu === item.id
-                                    ? `${
-                                        (index +
-                                          (device === "desktop" ? 9 : 0)) /
-                                        10
-                                      }s`
+                                    ? `${(index + (device === "desktop" ? 9 : 0)) / 10}s`
                                     : "0s",
                               }}
                             >
@@ -637,7 +638,7 @@ const Header = () => {
                     fill="#FF7152"
                   />
                 </svg>
-                ${isConnected && isActive ? balance : 0}
+                ${account && triedReconnect ? balance : 0}
               </div>
               <div className={`${styles.headerLangs}`}>
                 <div
@@ -688,9 +689,7 @@ const Header = () => {
                   </div>
                   <div className={styles.headerLangsModal}>
                     <i></i>
-                    <div className={styles.headerLangsModalTtl}>
-                      Change Language
-                    </div>
+                    <div className={styles.headerLangsModalTtl}>Change Language</div>
                     <div className={styles.modalsMobileTitle}>
                       <svg
                         onClick={() => {
@@ -718,13 +717,11 @@ const Header = () => {
                       <span>Change Language</span>
                     </div>
                     <div className={styles.headerLangsModalInner}>
-                      {LANG_DATA.map(item => {
+                      {LANG_DATA.map((item) => {
                         return (
                           <div
                             className={`${styles.headerLangsModalLink} ${
-                              "en" === item.title
-                                ? styles.headerLangsModalLinkActive
-                                : ""
+                              "en" === item.title ? styles.headerLangsModalLinkActive : ""
                             }`}
                             key={item.id}
                             onClick={() => {
@@ -806,11 +803,7 @@ const Header = () => {
                     <div className={styles.settingsModalFloor}>
                       <div>Dark Mode</div>
                       <div className={styles.settingsCheckboxContainer}>
-                        <input
-                          type="checkbox"
-                          defaultValue={false}
-                          onChange={() => {}}
-                        />
+                        <input type="checkbox" defaultValue={false} onChange={() => {}} />
                         <div className={styles.settingsCheckbox}>
                           <i></i>
                         </div>
@@ -822,42 +815,34 @@ const Header = () => {
                           title={"Default Transaction Speed (GWEI)"}
                           type={"settings"}
                           text={
-                            "Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi"
+                            "Vigacas cudi ragaceebi ewera aq. ar qnat es. arsheidleba. gtovt nu."
                           }
                         />
                       </div>
                       <div className={styles.settingsModalBtns}>
-                        <div className={styles.settingsModalBtn}>
-                          Standard (5)
-                        </div>
+                        <div className={styles.settingsModalBtn}>Standard (5)</div>
                         <div className={styles.settingsModalBtn}>Fast (6)</div>
-                        <div className={styles.settingsModalBtn}>
-                          Instant (7)
-                        </div>
+                        <div className={styles.settingsModalBtn}>Instant (7)</div>
                       </div>
                     </div>
                     <div className={styles.settingsModalLine}></div>
-                    <div className={styles.settingsModalTtl}>
-                      Core & Liquidity
-                    </div>
+                    <div className={styles.settingsModalTtl}>Core & Liquidity</div>
                     <div className={styles.settingsModalBtnslFloor}>
                       <div className={styles.settingsModalTitle}>
                         <Tooltip
                           title={"Slippage Tolerance"}
                           type={"settings"}
                           text={
-                            "Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi"
+                            "Vigacas cudi ragaceebi ewera aq. ar qnat es. arsheidleba. gtovt nu."
                           }
                         />
                       </div>
                       <div className={styles.settingsModalBtns}>
                         <div
                           className={`${styles.settingsModalBtn} ${
-                            slippage === 0.1
-                              ? styles.settingsModalBtnActive
-                              : ""
+                            slippage === 0.1 ? styles.settingsModalBtnActive : ""
                           }`}
-                          onClick={e =>
+                          onClick={(e) =>
                             dispatch({
                               type: "SET_SLIPPAGE",
                               slippage: parseFloat(0.1),
@@ -868,11 +853,9 @@ const Header = () => {
                         </div>
                         <div
                           className={`${styles.settingsModalBtn} ${
-                            slippage === 0.5
-                              ? styles.settingsModalBtnActive
-                              : ""
+                            slippage === 0.5 ? styles.settingsModalBtnActive : ""
                           }`}
-                          onClick={e =>
+                          onClick={(e) =>
                             dispatch({
                               type: "SET_SLIPPAGE",
                               slippage: parseFloat(0.5),
@@ -885,7 +868,7 @@ const Header = () => {
                           className={`${styles.settingsModalBtn} ${
                             slippage === 1 ? styles.settingsModalBtnActive : ""
                           }`}
-                          onClick={e =>
+                          onClick={(e) =>
                             dispatch({
                               type: "SET_SLIPPAGE",
                               slippage: parseFloat(1),
@@ -901,7 +884,7 @@ const Header = () => {
                             value={slippage}
                             min={1}
                             max={49}
-                            onChange={e =>
+                            onChange={(e) =>
                               dispatch({
                                 type: "SET_SLIPPAGE",
                                 slippage: parseFloat(e.target.value),
@@ -918,7 +901,7 @@ const Header = () => {
                           title={"Tx deadlines (mins)"}
                           type={"settings"}
                           text={
-                            "Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi"
+                            "Vigacas cudi ragaceebi ewera aq. ar qnat es. arsheidleba. gtovt nu."
                           }
                         />
                       </div>
@@ -935,16 +918,12 @@ const Header = () => {
                           title={"Expert Mode"}
                           type={"settings"}
                           text={
-                            "Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi"
+                            "Vigacas cudi ragaceebi ewera aq. ar qnat es. arsheidleba. gtovt nu."
                           }
                         />
                       </div>
                       <div className={styles.settingsCheckboxContainer}>
-                        <input
-                          type="checkbox"
-                          defaultValue={false}
-                          onChange={() => {}}
-                        />
+                        <input type="checkbox" defaultValue={false} onChange={() => {}} />
                         <div className={styles.settingsCheckbox}>
                           <i></i>
                         </div>
@@ -956,16 +935,12 @@ const Header = () => {
                           title={"Disable Multihops"}
                           type={"settings"}
                           text={
-                            "Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi"
+                            "Vigacas cudi ragaceebi ewera aq. ar qnat es. arsheidleba. gtovt nu."
                           }
                         />
                       </div>
                       <div className={styles.settingsCheckboxContainer}>
-                        <input
-                          type="checkbox"
-                          defaultValue={false}
-                          onChange={() => {}}
-                        />
+                        <input type="checkbox" defaultValue={false} onChange={() => {}} />
                         <div className={styles.settingsCheckbox}>
                           <i></i>
                         </div>
@@ -977,16 +952,12 @@ const Header = () => {
                           title={"Subgraph Health Indicator"}
                           type={"settings"}
                           text={
-                            "Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi"
+                            "Vigacas cudi ragaceebi ewera aq. ar qnat es. arsheidleba. gtovt nu."
                           }
                         />
                       </div>
                       <div className={styles.settingsCheckboxContainer}>
-                        <input
-                          type="checkbox"
-                          defaultValue={false}
-                          onChange={() => {}}
-                        />
+                        <input type="checkbox" defaultValue={false} onChange={() => {}} />
                         <div className={styles.settingsCheckbox}>
                           <i></i>
                         </div>
@@ -1003,11 +974,7 @@ const Header = () => {
                         />
                       </div>
                       <div className={styles.settingsCheckboxContainer}>
-                        <input
-                          type="checkbox"
-                          defaultValue={false}
-                          onChange={() => {}}
-                        />
+                        <input type="checkbox" defaultValue={false} onChange={() => {}} />
                         <div className={styles.settingsCheckbox}>
                           <i></i>
                         </div>
@@ -1018,7 +985,7 @@ const Header = () => {
               </div>
               <div
                 className={`${
-                  isConnected && isActive ? styles.headerNotConnected : ""
+                  account && triedReconnect ? styles.headerNotConnected : ""
                 } ${styles.headerConnectBtnContainer} ${
                   activeSettings ? styles.transformRight : ""
                 }`}
@@ -1028,7 +995,7 @@ const Header = () => {
                   type={`${connectBtnColor}`}
                   onClick={() => {
                     closeAll();
-                    handleWalletModal(true);
+                    setWalletModal(true);
                   }}
                   customStyles={{
                     padding: "10px 20px",
@@ -1037,7 +1004,7 @@ const Header = () => {
               </div>
               <div
                 className={`${styles.headerConnected} ${
-                  isConnected && isActive ? "" : styles.headerNotConnected
+                  account && triedReconnect ? "" : styles.headerNotConnected
                 } ${activeSettings ? styles.transformRight : ""}`}
               >
                 <div
@@ -1049,14 +1016,10 @@ const Header = () => {
                   }}
                 >
                   <div className={styles.headerConnectedBtnImg}>
-                    <Image
-                      src={`/images/meta.png`}
-                      alt="avatar"
-                      layout="fill"
-                    />
+                    <Image src={`/images/meta.png`} alt="avatar" layout="fill" />
                     <i></i>
                   </div>
-                  <span>{isConnected && isActive ? account : ""}</span>
+                  <span>{account && triedReconnect ? account : ""}</span>
                   <div className={styles.headerConnectedBtnArrow}>
                     <i></i>
                     <div className={styles.headerConnectedBtnArrowSvg}>
@@ -1081,9 +1044,7 @@ const Header = () => {
             </div>
           </div>
           <div
-            className={`${styles.burger} ${
-              activeBurger ? styles.activeBurger : ""
-            }`}
+            className={`${styles.burger} ${activeBurger ? styles.activeBurger : ""}`}
             onClick={() => {
               openBurger();
             }}
@@ -1102,7 +1063,7 @@ const Header = () => {
           <div className={styles.headerConnectedModalInner}>
             <div className={styles.headerConnectedModalAddress}>
               <div>
-                <span>{isConnected && isActive ? account : ""}</span>
+                <span>{account && triedReconnect ? account : ""}</span>
                 <span>metamask</span>
               </div>
               <svg
@@ -1250,13 +1211,15 @@ const Header = () => {
                   className={styles.connectWalletItemOuter}
                   key={item.id}
                   style={{
-                    transitionDelay: walletModal
-                      ? `${(index + 2) / 10}s`
-                      : null,
+                    transitionDelay: walletModal ? `${(index + 2) / 10}s` : null,
                   }}
                   onClick={() => {
                     closeAll();
-                    connect(item.type);
+                    if (item.type === "walletConnect") {
+                      connect(item.type, walletConnect);
+                    } else {
+                      connect(item.type, injected);
+                    }
                   }}
                 >
                   <div className={styles.connectWalletItem}>

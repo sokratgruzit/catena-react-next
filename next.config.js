@@ -1,10 +1,10 @@
 /** @type {import('next').NextConfig} */
-const nextTranslate = require('next-translate');
+const nextTranslate = require("next-translate");
 
 const nextConfig = nextTranslate({
-  reactStrictMode: true,
+  reactStrictMode: false,
   images: {
-    domains: ['assets.coingecko.com', 'localhost'],
+    domains: ["assets.coingecko.com", "localhost"],
   },
 });
 

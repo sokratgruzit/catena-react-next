@@ -1,11 +1,11 @@
-import Image from 'next/image';
-import Link from 'next/link';
+import Image from "next/image";
+import Link from "next/link";
 
-import Button from '../../UI/button/Button';
-import useConnect from '../../../hooks/use-connect';
-import RunningLogos from '../components/runningLogos/RunningLogos';
+import Button from "../../UI/button/Button";
+import useConnect from "../../../hooks/use-connect";
+import RunningLogos from "../components/runningLogos/RunningLogos";
 
-import styles from './HomeLanding.module.css';
+import styles from "./HomeLanding.module.css";
 
 const HomeLanding = () => {
   const { isActive, handleWalletModal } = useConnect();
@@ -14,11 +14,11 @@ const HomeLanding = () => {
     <section className={styles.inner}>
       <div className={styles.bgContainer}>
         <Image
-          layout='fill'
-          objectFit='contain'
-          src={'/images/home/homelandingBg.png'}
+          layout="fill"
+          objectFit="contain"
+          src={"/images/home/homelandingBg.png"}
           quality={100}
-          alt=''
+          alt=""
         />
       </div>
       <h1 className={styles.title}>
@@ -26,21 +26,21 @@ const HomeLanding = () => {
         <br /> of <span>CORE</span>
       </h1>
       <p className={styles.subTitle}>
-        Trade, Earn, and Win crypto on the most popular decentralized platform
-        in the galaxy.
+        Trade, Earn, and Win crypto on the most popular decentralized platform in the
+        galaxy.
       </p>
       <div className={styles.buttonWrapper}>
         {!isActive && (
           <Button
-            title={'Connect Wallet'}
-            type={'red'}
+            title={"Connect Wallet"}
+            type={"red"}
             onClick={() => handleWalletModal(true)}
             className={styles.button}
           />
         )}
         <Button
-          title={<Link href='/trade/swap'>Trade Now</Link>}
-          type={'red__border'}
+          title={<Link href="/trade/swap">Trade Now</Link>}
+          type={"red__border"}
           className={styles.button}
         />
       </div>
