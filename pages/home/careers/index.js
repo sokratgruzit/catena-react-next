@@ -1,5 +1,3 @@
-import React from "react";
-
 import { Button } from "@catena-network/catena-ui-module";
 
 const Careers = () => {
