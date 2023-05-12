@@ -39,10 +39,10 @@
     "redux-persist": "^6.0.0",
     "swiper": "^8.2.2",
     "web-vitals": "^1.0.1",
-    "web3": "^1.6.1"
+    "web3": "^1.6.1",
+    "@catena-network/catena-ui-module": "^0.0.3"
   },
   "devDependencies": {
-    "@catena-network/catena-ui-module": "^0.0.3",
     "eslint": "8.18.0",
     "eslint-config-next": "12.2.0"
   }
