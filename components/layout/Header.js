@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import useTranslation from "next-translate/useTranslation";
@@ -7,6 +7,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 import useConnect from "../../hooks/use-connect";
 import { injected, walletConnect } from "../../connector";
+import createAxiosInstance from "../../pages/api/axios";
 
 import Button from "../UI/button/Button";
 import Tooltip from "../UI/tooltip/Tooltip";
@@ -47,16 +48,21 @@ const WALLETS_DATA = [
 ];
 
 const Header = () => {
-  // const { connect, disconnect, account, isActive, library, handleWalletModal } =
-  //   useConnect();
   const { connect, disconnect, library, error, setError } = useConnect();
+  const axios = useMemo(() => createAxiosInstance(), []);
 
   const account = useSelector((state) => state.connect.account);
   const triedReconnect = useSelector((state) => state.appState.triedReconnect);
-  const isActive = true;
 
-  console.log(triedReconnect);
-  // const isConnected = true;
+  useEffect(() => {
+    if (account && triedReconnect) {
+      axios
+        .post("/auth/register-wallet-address", { address: account })
+        .then((res) => console.log(res))
+        .catch(() => {});
+    }
+    // eslint-disable-next-line
+  }, [account]);
 
   const [activeMenu, setActiveMenu] = useState(null);
   const [activeLangs, setActiveLangs] = useState(false);
@@ -66,7 +72,6 @@ const Header = () => {
   const [profileModal, setProfileModal] = useState(false);
   const [connectBtnColor, setConnectBtnColor] = useState("red");
   const [device, setDevice] = useState(null);
-  // const walletModal = useSelector((state) => state.connect.walletModal);
   const [walletModal, setWalletModal] = useState(false);
   const isConnected = useSelector((state) => state.connect.isConnected);
   const slippage = useSelector((state) => state.settings.slippage);

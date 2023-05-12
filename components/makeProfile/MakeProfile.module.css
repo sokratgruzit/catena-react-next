@@ -1,0 +1,23 @@
+.container {
+  padding-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 670px;
+}
+
+.makeProfileWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 600px;
+}
+
+.input {
+  width: 100%;
+  height: 44px;
+  border: 1px solid gray;
+  background: none;
+  padding: 0 20px;
+}
