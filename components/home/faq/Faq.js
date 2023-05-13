@@ -1,11 +1,11 @@
-import React from 'react'
+import FaqItem from "./components/FaqItem";
 
-const Faq = () => {
+function Faq() {
   return (
-    <div>
-      
+    <div className="container">
+      <FaqItem />
     </div>
-  )
+  );
 }
 
-export default Faq
+export default Faq;
