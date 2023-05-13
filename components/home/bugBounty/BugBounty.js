@@ -1,6 +1,7 @@
 import BugBountyItem from "./components/BugBountyItem";
 import BugBountyNumList from "./components/BugBountyNumList";
 import BugBountyTitle from "./components/BugBountyTitle";
+import BugBountyList from "./components/BugBountyList";
 
 function BugBounty() {
   return (
@@ -8,7 +9,7 @@ function BugBounty() {
       <BugBountyTitle />
       <BugBountyItem />
       <BugBountyNumList />
-      {/* <BugBountyList /> */}
+      <BugBountyList />
     </div>
   );
 }
