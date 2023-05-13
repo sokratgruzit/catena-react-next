@@ -1,29 +1,28 @@
-import Link from 'next/link';
-import Image from 'next/image';
-import { useState } from 'react';
-import { OpenSvg, SmlArrowSvg } from '../../svg';
-import Button from '../../UI/button/Button';
+import Link from "next/link";
+import Image from "next/image";
+import { useState } from "react";
+import { OpenSvg, SmlArrowSvg } from "../../svg";
+import Button from "../../UI/button/Button";
 
-const ReactQuill =
-  typeof window === 'object' ? require('react-quill') : () => false;
+const ReactQuill = typeof window === "object" ? require("react-quill") : () => false;
 
-import 'react-quill/dist/quill.snow.css';
+import "react-quill/dist/quill.snow.css";
 
-import styles from './Form.module.css';
-import FormChoice from '../components/formChoice/FormChoice';
-import FormSelectDate from '../components/formDateInput/FormSelectDate';
-import FormSelectTime from '../components/formDateInput/FormSelectTime';
+import styles from "./Form.module.css";
+import FormChoice from "../components/formChoice/FormChoice";
+import FormSelectDate from "../components/formDateInput/FormSelectDate";
+import FormSelectTime from "../components/formDateInput/FormSelectTime";
 
-import useConnect from '../../../hooks/use-connect';
-import { getFormErrors, mergeDateAndTime } from './helpers';
-import FormErrorsText from './FormErrorsText';
+import useConnect from "../../../hooks/use-connect";
+import { getFormErrors, mergeDateAndTime } from "./helpers";
+import FormErrorsText from "./FormErrorsText";
 
 const Form = () => {
   const { isActive, handleWalletModal } = useConnect();
   const [formData, setFormData] = useState({
-    title: '',
-    body: '',
-    choices: [{ value: '' }, { value: '' }],
+    title: "",
+    body: "",
+    choices: [{ value: "" }, { value: "" }],
     startDate: null,
     startTime: null,
     endDate: null,
@@ -33,16 +32,13 @@ const Form = () => {
 
   const formErrors = getFormErrors(formData);
 
-  const handleOnFormSubmit = e => {
+  const handleOnFormSubmit = (e) => {
     e.preventDefault();
 
-    const fullStartDate = mergeDateAndTime(
-      formData.startDate,
-      formData.startTime,
-    );
+    const fullStartDate = mergeDateAndTime(formData.startDate, formData.startTime);
     const fullEndDate = mergeDateAndTime(formData.endDate, formData.endTime);
 
-    console.log(fullStartDate, fullEndDate);
+    console.log(fullStartDate, fullEndDate, formData);
 
     // try {
     //  send formData
@@ -51,21 +47,21 @@ const Form = () => {
   };
 
   const handleUpdateValue = (objKey, value) => {
-    setFormData(prevState => ({
+    setFormData((prevState) => ({
       ...prevState,
       [objKey]: value,
     }));
 
-    setEditedField(prevState => ({
+    setEditedField((prevState) => ({
       ...prevState,
       [objKey]: true,
     }));
   };
 
   const handleAddChoice = () => {
-    setFormData(prevState => ({
+    setFormData((prevState) => ({
       ...prevState,
-      choices: [...prevState.choices, ''],
+      choices: [...prevState.choices, ""],
     }));
   };
 
@@ -73,26 +69,26 @@ const Form = () => {
     <div className={`container ${styles.wrapper}`}>
       <div className={styles.galaxy}>
         <Image
-          layout='fill'
-          objectFit='contain'
-          src={'/images/voting/form/galaxy.png'}
+          layout="fill"
+          objectFit="contain"
+          src={"/images/voting/form/galaxy.png"}
           quality={100}
-          alt=''
+          alt=""
         />
       </div>
       <div className={styles.roundGalaxy}>
         <Image
-          layout='fill'
-          objectFit='contain'
-          src={'/images/voting/form/roundGalaxy.png'}
+          layout="fill"
+          objectFit="contain"
+          src={"/images/voting/form/roundGalaxy.png"}
           quality={100}
-          alt=''
+          alt=""
         />
       </div>
       <div className={styles.gradient}></div>
       <div className={styles.ProposalForm}>
         <div className={styles.header}>
-          <Link href='/voting'>
+          <Link href="/voting">
             <div className={styles.backBtn}>
               <SmlArrowSvg className={styles.arrowSvg} />
               <p>Back Voting</p>
@@ -105,10 +101,10 @@ const Form = () => {
             <div className={styles.title}>
               <h2>TITLE</h2>
               <input
-                onChange={e => handleUpdateValue('title', e.target.value)}
+                onChange={(e) => handleUpdateValue("title", e.target.value)}
                 className={styles.input}
-                type='text'
-                name='title'
+                type="text"
+                name="title"
               />
               {editedField?.title && formErrors.title && (
                 <FormErrorsText text={formErrors.title} />
@@ -119,7 +115,7 @@ const Form = () => {
               <p className={styles.tip}>Tip: write in Markdown!</p>
               <ReactQuill
                 modules={Form.modules}
-                onChange={e => handleUpdateValue('body', e)}
+                onChange={(e) => handleUpdateValue("body", e)}
               />
               {editedField?.body && formErrors.body && (
                 <FormErrorsText text={formErrors.body} />
@@ -144,8 +140,8 @@ const Form = () => {
               )}
 
               <Button
-                title={'+ Add Choice'}
-                type={'white__border'}
+                title={"+ Add Choice"}
+                type={"white__border"}
                 onClick={handleAddChoice}
                 className={styles.addChoice}
               />
@@ -157,16 +153,16 @@ const Form = () => {
                 <div>
                   <p>Start Date</p>
                   <FormSelectDate
-                    placeholderText='YYYY/MM/DD'
-                    onChange={date => handleUpdateValue('startDate', date)}
+                    placeholderText="YYYY/MM/DD"
+                    onChange={(date) => handleUpdateValue("startDate", date)}
                     selected={formData.startDate}
                   />
                 </div>
                 <div>
                   <p>Start Time</p>
                   <FormSelectTime
-                    placeholderText='00:00'
-                    onChange={date => handleUpdateValue('startTime', date)}
+                    placeholderText="00:00"
+                    onChange={(date) => handleUpdateValue("startTime", date)}
                     selected={formData.startTime}
                   />
                 </div>
@@ -175,48 +171,46 @@ const Form = () => {
                 <div>
                   <p>End Date</p>
                   <FormSelectDate
-                    placeholderText='YYYY/MM/DD'
-                    onChange={date => handleUpdateValue('endDate', date)}
+                    placeholderText="YYYY/MM/DD"
+                    onChange={(date) => handleUpdateValue("endDate", date)}
                     selected={formData.endDate}
                   />
                 </div>
                 <div>
                   <p>End Time</p>
                   <FormSelectTime
-                    placeholderText='00:00'
-                    onChange={date => handleUpdateValue('endTime', date)}
+                    placeholderText="00:00"
+                    onChange={(date) => handleUpdateValue("endTime", date)}
                     selected={formData.endTime}
                   />
                 </div>
               </div>
-              {formErrors?.endDate && (
-                <FormErrorsText text={formErrors?.endDate} />
-              )}
+              {formErrors?.endDate && <FormErrorsText text={formErrors?.endDate} />}
             </div>
             <div className={styles.snapShot}>
               <p>Snapshot</p>
-              <a className={styles.openLink} href='##'>
+              <a className={styles.openLink} href="##">
                 16672898
                 <OpenSvg className={styles.openSvg} />
               </a>
             </div>
-            {isActive ? (
-              <button
-                className={styles.publishButton}
-                disabled={JSON.stringify(formErrors) !== '{}'}
-              >
-                Publish
-              </button>
+            <button
+              className={styles.publishButton}
+              disabled={JSON.stringify(formErrors) !== "{}"}
+            >
+              Publish
+            </button>
+            {/* {isActive ? (
             ) : (
               <Button
-                title={'Connect Wallet'}
+                title={"Connect Wallet"}
                 onClick={() => {
                   handleWalletModal(true);
                 }}
-                type={'blue'}
+                type={"blue"}
                 className={styles.connectWallet}
               />
-            )}
+            )} */}
           </form>
         </div>
       </div>
@@ -226,10 +220,10 @@ const Form = () => {
 
 Form.modules = {
   toolbar: [
-    ['bold', 'italic'],
+    ["bold", "italic"],
     [{ header: 1 }, { header: 2 }],
-    [{ list: 'ordered' }, { list: 'bullet' }],
-    ['link', 'image'],
+    [{ list: "ordered" }, { list: "bullet" }],
+    ["link", "image"],
   ],
 };
 

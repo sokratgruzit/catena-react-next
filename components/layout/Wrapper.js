@@ -36,7 +36,6 @@ const Wrapper = ({ children }) => {
         .catch((err) => {
           console.log(err.response);
         });
-      // dispatch({ type: "SET_TRIED_RECONNECT", payload: false });
     }
     // eslint-disable-next-line
   }, [account]);
