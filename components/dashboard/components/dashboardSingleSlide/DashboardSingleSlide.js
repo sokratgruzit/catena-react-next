@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Button from '../../../UI/button/Button';
-import { ThreeDotsSvg } from '../../../svg';
+import { ThreeDotsSvg } from '../../../../svg';
 
 import styles from './DashboardSingleSlide.module.css';
 

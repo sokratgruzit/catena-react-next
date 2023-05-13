@@ -2,7 +2,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper";
 
 import SlideNextButton from "../slideIcons/SlideIcons";
-import { CoreLogoSvg, PlusSvg } from "../../../svg";
+import { CoreLogoSvg, PlusSvg } from "../../../../svg";
 
 import DashboardSingleSlide from "../dashboardSingleSlide/DashboardSingleSlide";
 

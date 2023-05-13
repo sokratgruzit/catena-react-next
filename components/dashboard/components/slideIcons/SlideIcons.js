@@ -1,7 +1,7 @@
 import { React } from 'react';
 import { useSwiper } from 'swiper/react';
 
-import { SmlArrowSvg } from '../../../svg/index';
+import { SmlArrowSvg } from '../../../../svg/index';
 
 import styles from './SlideIcons.module.css';
 
