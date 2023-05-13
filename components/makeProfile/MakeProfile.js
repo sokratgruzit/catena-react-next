@@ -1,8 +1,15 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import styles from "./MakeProfile.module.css";
+import { useSelector, useDispatch } from "react-redux";
 import createAxiosInstance from "../../pages/api/axios";
 
 function MakeProfile() {
+  const account = useSelector((state) => state.connect.account);
+  const user = useSelector((state) => state.appState.user);
+  const dispatch = useDispatch();
+
+  console.log(user);
+
   const axios = useMemo(() => createAxiosInstance(), []);
   const [inputs, setInputs] = useState({
     username: "",
@@ -78,14 +85,19 @@ function MakeProfile() {
 
     setErrors(newErrors);
 
+    console.log(account);
+
     if (isValid) {
       const payload = { ...inputs, address: account };
       axios
-        .post("/user/profile", inputs)
+        .post("/user/profile", payload)
         .then((res) => console.log(res.data))
         .catch((e) => console.log(e.response));
     }
   };
+  useEffect(() => {
+    setInputs({ username: user?.username ?? "", email: user?.email ?? "", password: "" });
+  }, [user]);
 
   return (
     <div className={styles.container}>
