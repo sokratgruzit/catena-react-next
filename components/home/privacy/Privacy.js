@@ -20,8 +20,8 @@ export default function Privacy() {
   return (
     <div>
       <h1>
-        <span>Privacy </span>
-        <span>Policy </span>
+        <span>Privacy</span>
+        <span>Policy</span>
       </h1>
       {privacyHeader.map((item, index) => {
         return (
