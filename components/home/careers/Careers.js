@@ -1,10 +1,14 @@
 import React from 'react';
-import Benefits from './components/Benefits';
-import Recruitment from './components/Recruitment';
-import HowWeWork from './components/HowWeWork';
-// import CoreTeam from './components/CoreTeam';
+import Benefits from './components/benefits/Benefits';
+import Recruitment from './components/recruitment/Recruitment';
+import HowWeWork from './components/howwework/HowWeWork';
+import CurrentOpenings from './components/currentopenings/CurrentOpenings';
+import CoreTeam from './components/coreteam/CoreTeam';
+import OurValues from './components/ourvalues/OurValues'
+import Feature from './components/feature/Feature'
+import HowWeHire from './components/howwehire/HowWeHire';
 
-const howWork = [
+const workflow = [
   {
     title: "At CORE, our remote global team works together to accomplish a common objective. Our worldwide team enables the positive impact of our technology to infiltrate every corner of the world as we utilize the experience and feedback of our remote teams to improve and spread CORE."
   },
@@ -13,6 +17,116 @@ const howWork = [
   },
   {
     title: "On our relentless pursuit to revolutionise the blockchain and distributed ledger industry, CORE aims to transcend the current limitations of blockchain technology and enable it to reach its true, unrealised potential. CORE intends to drastically improve blockchain interoperability, transaction processing, sustainability, and more! To achieve this, we will destroy the boundaries of innovation and stand at the forefront of blockchain and distributed ledger technology. Our purpose is to create a better decentralised future to benefit all, without boundaries."
+  }
+]
+
+const featureLinkList =[
+  {
+    link: "senioruxdesigner_te000054",
+    title: "Senior UX Designer",
+    list: [
+      "Technology •",
+      " Full-Time •",
+      " Remote • "
+    ]
+  },
+  {
+    link: "web3engineer_te000047",
+    title: "Web 3 Engineer",
+    list: [
+      "Technology •",
+      " Full-Time •",
+      " Remote • "
+    ]
+  },
+  {
+    link:"rustcoreprotocoldeveloper_te000040",
+    title: "Rust Core Protocol Developer",
+    list: [
+      "Technology •",
+      " Full-Time •",
+      " Remote • "
+    ]
+  },
+  {
+    link: "juniorgamedesigner_te000033",
+    title: "Junior Game Designer",
+    list: [
+      "Technology •",
+      " Full-Time •",
+      " Remote • "
+    ]
+  },
+  {
+    link: "iosdevelopermidtosenior_te000032",
+    title: "iOS Developer (Mid to Senior)",
+    list: [
+      "Technology •",
+      " Full-Time •",
+      " Remote • "
+    ]
+  },
+  {
+    link: "fullstackweb30developer_te000028",
+    title: "Full Stack Web 3.0 Developer",
+    list: [
+      "Technology •",
+      " Full-Time •",
+      " Remote • "
+    ]
+  },
+  {
+    link: "directorofcommunications-english_sa000024",
+    title: "Director of Communications - English",
+    list: [
+      "Sales & Support •",
+      " Remote • "
+    ]
+  },
+  {
+    link: "cryptoresearchanalyst_op000019",
+    title: "Crypto Research Analyst",
+    list: [
+      "Operations •",
+      " Full-Time •",
+      " Remote • "
+    ]
+  },
+  {
+    link: "creativedirector_te000018",
+    title: "Creative Director",
+    list: [
+      "Technology •",
+      " Full-Time •",
+      " Remote • "
+    ]
+  },
+  {
+    link: "backendarchitect-riskmanagement_te000011",
+    title: "Backend Architect - Risk Management",
+    list: [
+      "Technology •",
+      " Full-Time •",
+      " Remote • "
+    ]
+  },
+  {
+    link: "apisolutionengineerpythonnodejsdeveloperclientsupport_te000010",
+    title: "API Solution Engineer (Python + Node.JS Developer / Client Support)",
+    list: [
+      "Technology •",
+      " Full-Time •",
+      " Remote • "
+    ]
+  },
+  {
+    link: "affiliateinfluencermarketingcoordinator-latam_ma000008",
+    title: "Affiliate/Influencer Marketing Coordinator - LATAM",
+    list: [
+      "Marketing •",
+      " Full-Time •",
+      " Remote • "
+    ]
   }
 ]
 
@@ -48,6 +162,77 @@ const data = [
   }
 ]
 
+const iconImages = [
+  {
+    title: "Destroy Boundaries"
+  },
+  {
+    title: "Quality Performance"
+  },
+  {
+    title: "Original Output"
+  },
+  {
+    title: "Unified Team"
+  },
+  {
+    title: "Community Driven"
+  }
+]
+
+const currentOpeningsList = [
+  {
+    title: "Technology",
+    list: [
+      "Planning",
+      "Research",
+      "Development",
+      "Design & User Experience",
+      "Testing & Quality Assurance",
+      "DevOps",
+      "Security"
+    ]
+  },
+  {
+    title: "Marketing:",
+    list: [
+      "Editorial",
+      "Media & Productions",
+      "Social Media",
+      "PR",
+      "Community"
+    ]
+  },
+  {
+    title: "Business Development and Partnerships:",
+    list: [
+      "Market Research & Strategy",
+      "Reporting",
+      "Events"
+    ]
+  },
+  {
+    title: "Sales & Support:",
+    list: [
+      "Direct Sales",
+      "Channel Sales",
+      "Customer Support"
+    ]
+  },
+  {
+    title: "Operations:",
+    list: [
+      "Admin & Secretarial"
+    ]
+  },
+  {
+    title: "Finance",
+  },
+  {
+    title: "Legal"
+  }
+]
+
 const benefitsArr = [
   {
       title: "An offer you can't refuse"
@@ -78,13 +263,39 @@ const benefitsArr = [
   },
 ];
 
+const hiringProcess = [
+  {
+    number: "01",
+    title: "Application Review"
+  },
+  {
+    number: "02",
+    title: "Interviews"
+  },
+  {
+    number: "03",
+    title: "Offer"
+  },
+  {
+    number: "04",
+    title: "Onboarding"
+  }
+]
+
 const Careers = () => {
   return (
     <div>
-      <HowWeWork howWork={howWork} title="how we work" />
-      {/* <CoreTeam team={team} title="Qualities of a CORE Team:" /> */}
-      <Recruitment data={data} title="Recruitment Process:"/>
-      <Benefits benefitsArr={benefitsArr} title="Benefits"/>
+      <HowWeWork workflow={workflow} title="how we work" />
+      <Feature featureLinkList={featureLinkList} title="Featured Jobs" />
+      <CoreTeam team={team} title="Qualities of a CORE Team:" />
+      <Recruitment data={data} title="Recruitment Process:" />
+      <OurValues iconImages={iconImages} title="Our Values" description ="
+        Our core values establish the framework for our ability to create a lasting,
+        positive impact for humanity:"
+      />
+      <CurrentOpenings currentOpeningsList={currentOpeningsList} title="Current Openings" />
+      <Benefits benefitsArr={benefitsArr} title="Benefits" />
+      <HowWeHire hiringProcess={hiringProcess} title="How We Hire" description="On average 2~4 week interview process with 4 interviews." />
     </div>
   );
 };

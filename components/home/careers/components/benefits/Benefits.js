@@ -1,11 +1,11 @@
-import React from 'react';
+import styles from "./Benefits.module.css"
 
 const Benefits = (props) => {
   const { benefitsArr, title } = props;
 
   return (
-    <div>
-        <h2>{title}</h2>
+    <div className="container career-qualities">
+        <h2 className="font-51">{title}</h2>
       {benefitsArr.map((item) => {
         return (
           <ul key={item.title}>
