@@ -1,23 +1,7 @@
-let listData = [
-  {
-    title: "Examples of Eligible Vulnerabilities:",
-    listItem: [
-      "Serious production environment vulnerabilities",
-      "Vulnerabilities that can cause remote loss of user funds/assets",
-      "Privilege escalation",
-      "Code/SQL Injection",
-      "Cross-Site Request Forgery (CSRF)",
-      "Cross-Site Scripting (XSS)",
-      "Remote Code Execution",
-      "Authentication Bypass",
-    ],
-  },
-];
-
-function BugBountyNumList() {
+function BugBountyNumList({ data }) {
   return (
     <div>
-      {listData?.map((item, i) => {
+      {data?.map((item, i) => {
         return (
           <div key={i}>
             <h3 className="eligibility-subtitle">{item.title}</h3>

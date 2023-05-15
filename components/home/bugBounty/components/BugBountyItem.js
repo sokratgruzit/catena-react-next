@@ -1,11 +1,4 @@
-let data = [
-  {
-    title: "Eligibility",
-    text: "Any bug that poses a serious vulnerability to the entire network, protocols, implementation, or security, could be eligible for a reward. It is entirely at our discretion to decide whether a bug is serious and significant enough to be eligible.",
-  },
-];
-
-function BugBountyItem() {
+function BugBountyItem({ data }) {
   return (
     <div>
       {data?.map((item, i) => {

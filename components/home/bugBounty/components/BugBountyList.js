@@ -32,7 +32,7 @@ let data = [
   },
 ];
 
-function BugBountyList() {
+function BugBountyList({ data }) {
   return (
     <>
       {data?.map((item, i) => {
