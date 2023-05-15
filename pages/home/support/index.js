@@ -1,4 +1,3 @@
-import React from "react";
 import Support from "../../../components/home/supportCenter/Support";
 
 const index = () => {

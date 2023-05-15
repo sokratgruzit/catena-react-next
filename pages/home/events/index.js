@@ -1,4 +1,3 @@
-import React from "react";
 import Events from "../../../components/home/events/Events";
 
 const index = () => {
