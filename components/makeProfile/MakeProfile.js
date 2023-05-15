@@ -4,6 +4,9 @@ import { useSelector, useDispatch } from "react-redux";
 import createAxiosInstance from "../../pages/api/axios";
 import PhoneNumberSelect from "./components/phoneNumberSelect/PhoneNumberSelect";
 import FormSelectDate from "../voting/components/formDateInput/FormSelectDate";
+import CustomSelect from "../UI/customSelect/CustomSelect";
+
+const nationalities = ["American", "British", "French", "German", "Italian", "Spanish"];
 
 function MakeProfile() {
   const account = useSelector((state) => state.connect.account);
@@ -12,15 +15,6 @@ function MakeProfile() {
 
   const [fileURL, setFIleURL] = useState("");
   const [file, setFile] = useState(null);
-
-  // const handleSubmit = async () => {
-  //   const formData = new FormData();
-  //   formData.append("image", file);
-
-  //   axios.post("http://localhost:4000/upload-image", formData).then((res) => {
-  //     console.log(res);
-  //   });
-  // };
 
   const axios = useMemo(() => createAxiosInstance(), []);
   const [inputs, setInputs] = useState({
@@ -44,9 +38,10 @@ function MakeProfile() {
         error = value ? "" : "Name is required";
         break;
       case "email":
-        if (!value) {
-          error = "Email is required";
-        } else if (!/^\S+@\S+\.\S+$/.test(value)) {
+        // if (!value) {
+        //   error = "Email is required";
+        // } else
+        if (value && !/^\S+@\S+\.\S+$/.test(value)) {
           error = "Email is not valid";
         }
         break;
@@ -83,9 +78,10 @@ function MakeProfile() {
           newErrors[key] = value ? "" : "Fullname is required";
           break;
         case "email":
-          if (!value) {
-            newErrors[key] = "Email is required";
-          } else if (!/^\S+@\S+\.\S+$/.test(value)) {
+          // if (!value) {
+          //   newErrors[key] = "Email is required";
+          // } else
+          if (value && !/^\S+@\S+\.\S+$/.test(value)) {
             newErrors[key] = "Email is not valid";
           }
           break;
@@ -107,13 +103,18 @@ function MakeProfile() {
       formData.append("fullname", inputs.fullname);
       formData.append("email", inputs.email);
       formData.append("mobile", inputs.mobile);
+      formData.append("nationality", inputs.nationality);
       formData.append("dateOfBirth", inputs.dateOfBirth);
-
-      console.log(formData);
 
       axios
         .post("/user/profile", formData)
-        .then((res) => dispatch({ type: "SET_USER", payload: res.data.result }))
+        .then((res) => {
+          const cacheBuster = new Date().getTime(); // Generate unique cache-busting value
+          setFIleURL(
+            `http://localhost:4000/image/profile/${account?.toLowerCase()}.png?cache=${cacheBuster}`,
+          );
+          dispatch({ type: "SET_USER", payload: res.data.result });
+        })
         .catch((e) => console.log(e.response));
     }
   };
@@ -123,7 +124,13 @@ function MakeProfile() {
       email: user?.email ?? "",
       mobile: user?.mobile ?? "",
       dateOfBirth: user?.dateOfBirth ? new Date(user?.dateOfBirth) : "",
+      nationality: user?.nationality,
     });
+
+    const cacheBuster = new Date().getTime(); // Generate unique cache-busting value
+    setFIleURL(
+      `http://localhost:4000/image/profile/${account?.toLowerCase()}.png?cache=${cacheBuster}`,
+    );
   }, [user]);
 
   return (
@@ -180,11 +187,14 @@ function MakeProfile() {
             onChange={(e) => {
               setFIleURL(URL.createObjectURL(e.target.files[0]));
               setFile(e.target.files[0]);
-              // setImageTitle(e.target.files[0]?.name);
-              // getImageFile(e.target.files[0]);
             }}
           />
         </label>
+        <CustomSelect
+          options={nationalities}
+          handleSelectChange={(value) => handleCustomUpdate("nationality", value)}
+          selected={inputs.nationality}
+        />
         <div className={styles.imgOverview}>
           <img className={styles.preview} src={fileURL} alt="img" />
         </div>
@@ -197,75 +207,3 @@ function MakeProfile() {
 }
 
 export default MakeProfile;
-
-// import React, { useState, useEffect } from "react";
-// import styles from "./MakeProfile.module.css";
-
-// const MakeProfile = () => {
-//   const [formData, setFormData] = useState({});
-//   const [formData1, setFormData1] = useState({});
-//   const [hasTriedSubmit, setHasTriedSubmit] = useState(false);
-//   const [formErrors, setFormErrors] = useState({});
-
-//   new FormData();
-//   const handleSubmit = (event) => {
-//     event.preventDefault();
-
-//     // if (!username) return setUsernameError("username is required");
-//     // setUsernameError("");
-//   };
-
-//   // console.log(formErrors);
-
-//   function handleDataChange(value, key) {
-//     setFormData((prev) => ({ ...prev, [key]: value }));
-//     // setFormData1((prev) => ({ ...prev, [key]: true }));
-//     setFormErrors((prev) => ({ ...prev, ...detectErrors(key, value) }));
-//     // console.log(detectErrors(key, value));
-//   }
-
-//   function detectErrors(key, value) {
-//     let errorsObj = {};
-//     if (key === "username" && !value) {
-//       errorsObj.username = "username is required";
-//     }
-//     const emailRegex = /\S+@\S+\.\S+/;
-//     if (key === "email" && !emailRegex.test(value)) {
-//       errorsObj.email = "enter valid email";
-//     }
-//     if (key === "email" && !value) {
-//       errorsObj.email = "email is required";
-//     }
-//     return errorsObj;
-//   }
-
-//   // useEffect(() => {
-//   //   if (!username) setUsernameError("username is required bitch");
-//   // }, [username]);
-
-//   return (
-//     <div className={styles.container}>
-//       <form onSubmit={handleSubmit} className={styles.makeProfileWrapper}>
-//         <input
-//           type="text"
-//           placeholder="Username"
-//           value={formData.username ?? ""}
-//           onChange={(e) => handleDataChange(e.target.value, "username")}
-//           className={styles.input}
-//         />
-//         {formErrors.username ? <p>{formErrors.username}</p> : ""}
-//         <input
-// type="text"
-// placeholder="Email"
-// value={formData.email ?? ""}
-// onChange={(e) => handleDataChange(e.target.value, "email")}
-// className={styles.input}
-//         />
-//         {formErrors.email ? <p>{formErrors.email}</p> : ""}
-//         <button type="submit">Submit</button>
-//       </form>
-//     </div>
-//   );
-// };
-
-// export default MakeProfile;
