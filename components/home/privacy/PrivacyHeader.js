@@ -1,4 +1,4 @@
-export default function Privacy() {
+export default function PrivacyHeader() {
   const privacyHeader = [
     {
       text: 'We are committed to protecting Your privacy. This Privacy Policy describes how We collect, use, store, share and protect the information collected through https://www.coremultichain.com/ (the “Website”).In this Privacy Policy, "We", "Us", and "Our" refer to CORE. For more information about Us, see “Our Details” at the end of this Policy.',
@@ -20,8 +20,8 @@ export default function Privacy() {
   return (
     <div>
       <h1>
-        <span>Privacy </span>
-        <span>Policy </span>
+        <span>Privacy</span>
+        <span>Policy</span>
       </h1>
       {privacyHeader.map((item, index) => {
         return (
