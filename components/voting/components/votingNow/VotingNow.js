@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import Image from 'next/image';
 
 import CornerDecor from '../../../UI/cornerDecor/CornerDecor';
 import TabFilter from '../../../UI/filters/TabFilter';

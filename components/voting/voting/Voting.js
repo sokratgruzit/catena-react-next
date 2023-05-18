@@ -1,14 +1,22 @@
-import React from 'react';
-import GetSuggestion from '../components/getSuggestion/GetSuggestion';
-import VotingNow from '../components/votingNow/VotingNow';
-import MainContainer from '../components/mainContainer/MainContainer';
+import React from "react";
+import GetSuggestion from "../components/getSuggestion/GetSuggestion";
+import VotingNow from "../components/votingNow/VotingNow";
+import MainContainer from "../components/mainContainer/MainContainer";
+import { useState } from "react";
 
 const Voting = () => {
+  const [active, setActive] = useState(false);
   return (
     <>
-      <MainContainer />
+      <MainContainer
+        active={active}
+        setActive={() => setActive((prev) => !prev)}
+      />
       <VotingNow />
-      <GetSuggestion />
+      <GetSuggestion
+        active={active}
+        setActive={() => setActive((prev) => !prev)}
+      />
     </>
   );
 };
