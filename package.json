@@ -15,6 +15,7 @@
     "@web3-react/core": "^6.1.9",
     "@web3-react/injected-connector": "^6.0.7",
     "@web3-react/walletconnect-connector": "^6.2.8",
+    "aos": "^2.3.4",
     "date-fns": "^2.29.2",
     "dompurify": "^2.4.0",
     "i18next": "^21.6.16",
