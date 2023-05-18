@@ -1,55 +1,56 @@
-.bodyMarginTop {
-  margin-top: 100px;
-}
-.buttonSection {
-  display: flex;
-  justify-content: space-between;
-}
-@media (max-width: 1023px) {
-  .half{
-    margin-top:14px;
-  }
-}
-.buttonSection{
-  margin-top: 10px;
-  display: flex;
-  flex-direction: row;
-}
-.balanceLeft p{
-  font-size: 12px;
-  text-align: left;
-  color: #969ba6;
-  text-transform: capitalize;
-  line-height: 16px;
-}
-.balanceLeft h3{
-  margin-top: 10px;
-  text-overflow: ellipsis;
-  white-space: nowrap ;
-  overflow: hidden;
-}
-.balanceRight p{
-  font-size: 12px;
-  text-align: left;
-  color: #969ba6;
-  text-transform: capitalize;
-  line-height: 16px;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
-}
-.balanceRight h3{
-  margin-top: 10px;
+.stakingMain {
+  padding: 70px 0 0 0;
+  background: #272c57;
+  width: 100%;
+  height: 100vh;
+  overflow-y: auto;
 }
 
-@media (max-width: 767px) {
-  .buttonSection{
-    flex-wrap: wrap;
+.stakingTablesContainer {
+  background: #2d3364;
+  border-bottom-right-radius: 100px;
+  border-bottom-left-radius: 100px;
+  padding: 70px 100px;
+}
+
+.stakingContent {
+  background-color: #2f3674;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 125px;
+  padding: 60px 100px;
+}
+
+.stakingContentMain {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.stakingContentMain > h2 {
+  font-weight: 700;
+  font-size: 60px;
+  line-height: 130%;
+}
+
+.stakinContentInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+
+.stakingContentInfoButtons {
+  display: flex;
+  padding-top: 30px;
+}
+
+@media only screen and (max-width: 1025px) {
+  .stakingContent {
+    display: flex;
+    flex-direction: column;
+    padding: 60px 20px;
   }
-  .balanceLeft{
-   width: 65%;
+  .stakingTablesContainer {
+    padding: 70px 20px;
   }
-  .balanceRight{
-    width: 35%;
-   }
 }
