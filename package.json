@@ -6,9 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "prepare": "husky install",
-    "pre-commit": "lint-staged"
+    "lint": "next lint --fix",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@catena-network/catena-ui-module": "^0.0.3",

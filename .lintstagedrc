@@ -1,3 +1,11 @@
 {
-  "*.{js,jsx}": ["eslint --fix --ext .js,.jsx", "prettier --write"]
+  "*.js": [
+    "prettier --write",
+    "eslint --fix"
+  ],
+  "*.jsx": [
+    "prettier --write",
+    "eslint --fix"
+  ]
 }
+
