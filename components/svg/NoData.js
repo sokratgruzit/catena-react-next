@@ -41,7 +41,7 @@ const NoData = ({ className, ...props }) => {
         </clipPath>
       </defs>
     </svg>
-  )
-}
+  );
+};
 
-export default NoData
+export default NoData;

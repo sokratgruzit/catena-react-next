@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const AutoTag = props => (
   <svg width='52' height='20' viewBox='0 0 52 20' fill='none' xmlns='http://www.w3.org/2000/svg' {...props}>
@@ -14,6 +14,6 @@ const AutoTag = props => (
       fill='#66BB6A'
     />
   </svg>
-)
+);
 
-export default AutoTag
+export default AutoTag;

@@ -1,20 +1,20 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
-import styles from './Tooltip.module.css'
+import styles from './Tooltip.module.css';
 
 const Tooltip = props => {
-  let color = styles[props.type]
-  const [activeTooltip, setActiveTooltip] = useState(false)
+  let color = styles[props.type];
+  const [activeTooltip, setActiveTooltip] = useState(false);
 
   let openTooltip = state => {
     if (activeTooltip) {
-      setActiveTooltip(false)
+      setActiveTooltip(false);
     } else {
-      setActiveTooltip(true)
+      setActiveTooltip(true);
     }
-  }
+  };
 
-  let tooltip
+  let tooltip;
 
   if (props.type === 'dashboard') {
     tooltip = (
@@ -26,7 +26,7 @@ const Tooltip = props => {
         <div
           className={styles.tooltipBtn}
           onMouseEnter={() => {
-            openTooltip(true)
+            openTooltip(true);
           }}
         >
           <svg
@@ -57,14 +57,14 @@ const Tooltip = props => {
         <div
           className={`${styles.tooltip}`}
           onMouseLeave={() => {
-            openTooltip(false)
+            openTooltip(false);
           }}
         >
           <i></i>
           <span>{props.text}</span>
         </div>
       </div>
-    )
+    );
   }
   if (props.type === 'settings') {
     tooltip = (
@@ -79,7 +79,7 @@ const Tooltip = props => {
           </div>
           <svg
             onMouseEnter={() => {
-              openTooltip(true)
+              openTooltip(true);
             }}
             style={{ marginLeft: '5px' }}
             width='17'
@@ -98,17 +98,17 @@ const Tooltip = props => {
         <div
           className={`${styles.tooltip}`}
           onMouseLeave={() => {
-            openTooltip(false)
+            openTooltip(false);
           }}
         >
           <i></i>
           <span>{props.text}</span>
         </div>
       </div>
-    )
+    );
   }
 
-  return <div>{tooltip}</div>
-}
+  return <div>{tooltip}</div>;
+};
 
-export default Tooltip
+export default Tooltip;

@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 
-import styles from './ImgTextItem.module.css'
-import listStyles from '../../ListItemRow.module.css'
+import styles from './ImgTextItem.module.css';
+import listStyles from '../../ListItemRow.module.css';
 
 const ImgTextItem = ({ data, onClick }) => {
   return (
@@ -19,7 +19,7 @@ const ImgTextItem = ({ data, onClick }) => {
         <p className={`${listStyles.imgTextSubTitle} ${data.darkened ? styles.darkened : ''}`}>{data.subTitle}</p>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ImgTextItem
+export default ImgTextItem;

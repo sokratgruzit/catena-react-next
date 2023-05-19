@@ -1,13 +1,13 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
-import PageNumber from './PageNumber'
-import { PaginationButtonSvg } from '../../../svg'
-import Button from '../../../UI/button/Button'
-import CornerDecor from '../../../UI/cornerDecor/CornerDecor'
-import Table from '../../../UI/table/Table'
-import { formatCurrency } from '../../../utils/formatCurrency'
+import PageNumber from './PageNumber';
+import { PaginationButtonSvg } from '../../../svg';
+import Button from '../../../UI/button/Button';
+import CornerDecor from '../../../UI/cornerDecor/CornerDecor';
+import Table from '../../../UI/table/Table';
+import { formatCurrency } from '../../../utils/formatCurrency';
 
-import styles from './InfoTables.module.css'
+import styles from './InfoTables.module.css';
 
 const TransactionTable_DATA = [
   {
@@ -160,7 +160,7 @@ const TransactionTable_DATA = [
     account: '0x20...139b',
     time: '3 hours',
   },
-]
+];
 
 const Table__Types = [
   {
@@ -175,11 +175,11 @@ const Table__Types = [
   {
     type: 'Removes',
   },
-]
+];
 
 const TransactionTable = () => {
-  const [pageCountTransactions, setPageCountTransactions] = useState(1)
-  const [dataType, setDataType] = useState('All')
+  const [pageCountTransactions, setPageCountTransactions] = useState(1);
+  const [dataType, setDataType] = useState('All');
 
   const TransactionTable_DATA = [
     {
@@ -492,7 +492,7 @@ const TransactionTable = () => {
         },
       ],
     },
-  ]
+  ];
 
   return (
     <div className={styles.Table__wrapper}>
@@ -516,7 +516,7 @@ const TransactionTable = () => {
           customStyles={{ marginRight: '10px' }}
           title={<PaginationButtonSvg className={styles.back} pageCountTokens={pageCountTransactions} disabled={1} />}
           onClick={() => {
-            if (pageCountTransactions > 1) setPageCountTransactions(prevValue => prevValue - 1)
+            if (pageCountTransactions > 1) setPageCountTransactions(prevValue => prevValue - 1);
           }}
         />
         <PageNumber
@@ -548,12 +548,12 @@ const TransactionTable = () => {
             <PaginationButtonSvg className={styles.forward} pageCountTokens={pageCountTransactions} disabled={3} />
           }
           onClick={() => {
-            if (pageCountTransactions < 3) setPageCountTransactions(prevValue => prevValue + 1)
+            if (pageCountTransactions < 3) setPageCountTransactions(prevValue => prevValue + 1);
           }}
         />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default TransactionTable
+export default TransactionTable;

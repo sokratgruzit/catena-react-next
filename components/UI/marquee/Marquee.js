@@ -1,30 +1,30 @@
-import React from 'react'
+import React from 'react';
 
-import { ProposalsText } from '../../svg'
+import { ProposalsText } from '../../svg';
 
-import styles from './Marquee.module.css'
+import styles from './Marquee.module.css';
 
 const Marquee = props => {
-  let svgArray = ''
+  let svgArray = '';
 
-  let custumClass = ''
-  let custumClass2 = ''
+  let custumClass = '';
+  let custumClass2 = '';
 
   if (props.direction === 'forward') {
     if (props.speed === 0) {
-      custumClass = styles.default__forward__first
-      custumClass2 = styles.default__forward__second
+      custumClass = styles.default__forward__first;
+      custumClass2 = styles.default__forward__second;
     } else {
-      custumClass = styles.speed__forward__first
-      custumClass2 = styles.speed__forward__second
+      custumClass = styles.speed__forward__first;
+      custumClass2 = styles.speed__forward__second;
     }
   } else {
     if (props.speed === 0) {
-      custumClass = styles.default__forward__reverse__first
-      custumClass2 = styles.default__forward__reverse__second
+      custumClass = styles.default__forward__reverse__first;
+      custumClass2 = styles.default__forward__reverse__second;
     } else {
-      custumClass = styles.speed__forward__reverse__first
-      custumClass2 = styles.speed__forward__reverse__second
+      custumClass = styles.speed__forward__reverse__first;
+      custumClass2 = styles.speed__forward__reverse__second;
     }
   }
 
@@ -90,10 +90,10 @@ const Marquee = props => {
           strokeWidth='0.5'
         />
       </svg>,
-    ]
+    ];
   }
   if (props.label === 'propsal') {
-    svgArray = [<p key={'1'}>hi</p>]
+    svgArray = [<p key={'1'}>hi</p>];
   }
   if (props.label === 'voting') {
     svgArray = [
@@ -102,7 +102,7 @@ const Marquee = props => {
       <ProposalsText key={'3'} />,
       <ProposalsText key={'4'} />,
       <ProposalsText key={'5'} />,
-    ]
+    ];
   }
 
   return (
@@ -110,17 +110,17 @@ const Marquee = props => {
       <div className={styles.Running__text__row}>
         <div className={`${styles.Running__text__first} ${custumClass}`}>
           {svgArray.map(item => {
-            return item
+            return item;
           })}
         </div>
         <div className={`${styles.Running__text__second} ${custumClass2}`}>
           {svgArray.map(item => {
-            return item
+            return item;
           })}
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Marquee
+export default Marquee;

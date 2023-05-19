@@ -1,15 +1,15 @@
-import Image from 'next/image'
-import Link from 'next/link'
-import React from 'react'
+import Image from 'next/image';
+import Link from 'next/link';
+import React from 'react';
 
-import CornerDecor from '../../UI/cornerDecor/CornerDecor'
+import CornerDecor from '../../UI/cornerDecor/CornerDecor';
 
-import styles from './ListItemCard.module.css'
+import styles from './ListItemCard.module.css';
 
 const ListItemCard = props => {
-  let data = props.data
-  let type = props.type
-  let obj = null
+  let data = props.data;
+  let type = props.type;
+  let obj = null;
 
   if (type === 'nft_arrivals' || type === 'nft_activity' || type === 'nft_creator') {
     obj = (
@@ -37,7 +37,7 @@ const ListItemCard = props => {
           </a>
         </Link>
       </div>
-    )
+    );
   }
 
   if (type === 'nft_activity_mobile') {
@@ -113,7 +113,7 @@ const ListItemCard = props => {
           </div>
         </div>
       </div>
-    )
+    );
   }
 
   if (type === 'nft_collections') {
@@ -152,10 +152,10 @@ const ListItemCard = props => {
           </div>
         </Link>
       </div>
-    )
+    );
   }
 
-  return obj
-}
+  return obj;
+};
 
-export default ListItemCard
+export default ListItemCard;

@@ -1,10 +1,10 @@
-import Image from 'next/image'
-import React from 'react'
+import Image from 'next/image';
+import React from 'react';
 
-import CornerDecor from '../../../../UI/cornerDecor/CornerDecor'
-import Tooltip from '../../../../UI/tooltip/Tooltip'
+import CornerDecor from '../../../../UI/cornerDecor/CornerDecor';
+import Tooltip from '../../../../UI/tooltip/Tooltip';
 
-import styles from './FirstBlock.module.css'
+import styles from './FirstBlock.module.css';
 
 const FirstBlock = ({ data }) => {
   return (
@@ -46,7 +46,7 @@ const FirstBlock = ({ data }) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default FirstBlock
+export default FirstBlock;

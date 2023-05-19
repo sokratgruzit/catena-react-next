@@ -1,32 +1,32 @@
-import { useRouter } from 'next/router'
-import React, { useState, useEffect } from 'react'
+import { useRouter } from 'next/router';
+import React, { useState, useEffect } from 'react';
 
-import BalanceCard from './components/BalanceCard/BalanceCard'
-import BlockchainProvingTimeChart from './components/BlockchainProvingTimeChart/BlockchainProvingTimeChart'
-import BlocksProducedChart from './components/BlocksProducedChart/BlocksProducedChart'
-import CurrentRanking from './components/CurrentStats/CurrentRanking'
-import CurrentVotes from './components/CurrentStats/CurrentVotes'
-import HardwareStatus from './components/HardwareStatus/HardwareStatus'
-import NodeDetails from './components/NodeDetails/NodeDetails'
-import SoftwareStatus from './components/SoftwareStatus/SoftwareStatus'
-import Table from './components/Table/Table'
-import { useMobileWidth } from '../../hooks/useMobileWidth'
-import { BlocksIcon, DashboardIcon, DocsIcon, ProfileIcon, RewardsCalcIcon, ValidatorsListIcon } from '../svg'
+import BalanceCard from './components/BalanceCard/BalanceCard';
+import BlockchainProvingTimeChart from './components/BlockchainProvingTimeChart/BlockchainProvingTimeChart';
+import BlocksProducedChart from './components/BlocksProducedChart/BlocksProducedChart';
+import CurrentRanking from './components/CurrentStats/CurrentRanking';
+import CurrentVotes from './components/CurrentStats/CurrentVotes';
+import HardwareStatus from './components/HardwareStatus/HardwareStatus';
+import NodeDetails from './components/NodeDetails/NodeDetails';
+import SoftwareStatus from './components/SoftwareStatus/SoftwareStatus';
+import Table from './components/Table/Table';
+import { useMobileWidth } from '../../hooks/useMobileWidth';
+import { BlocksIcon, DashboardIcon, DocsIcon, ProfileIcon, RewardsCalcIcon, ValidatorsListIcon } from '../svg';
 
-import styles from './Dashboard.module.css'
+import styles from './Dashboard.module.css';
 //
 const Dashboard = () => {
-  const [sortBy, setSortBy] = useState('Validated Blocks')
-  const [animate, setAnimate] = useState(false)
+  const [sortBy, setSortBy] = useState('Validated Blocks');
+  const [animate, setAnimate] = useState(false);
   //   const [currentPage, setCurrentPage] = useState(1);
   //   const [totalPages, setTotalPages] = useState(1);
   //   const [td, setTd] = useState([]);
-  const { width } = useMobileWidth()
-  const router = useRouter()
+  const { width } = useMobileWidth();
+  const router = useRouter();
 
   useEffect(() => {
-    setAnimate(true)
-  }, [])
+    setAnimate(true);
+  }, []);
 
   let td = [
     {
@@ -50,7 +50,7 @@ const Dashboard = () => {
       cumulativeStake: '',
       totalStake: `-`,
     },
-  ]
+  ];
 
   let tableMoreTd = [
     {
@@ -86,7 +86,7 @@ const Dashboard = () => {
       rating: '-',
       nonce: '-',
     },
-  ]
+  ];
 
   let validatedBlocksTd = [
     {
@@ -113,7 +113,7 @@ const Dashboard = () => {
       gas: `-`,
       rewards: `-`,
     },
-  ]
+  ];
 
   const sortByButtons = [
     {
@@ -122,7 +122,7 @@ const Dashboard = () => {
     {
       title: 'Delegators',
     },
-  ]
+  ];
 
   return (
     <div className={`${styles.mainContainer} ${animate ? styles.animate : ''}`}>
@@ -220,7 +220,7 @@ const Dashboard = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Dashboard
+export default Dashboard;

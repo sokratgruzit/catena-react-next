@@ -1,12 +1,12 @@
-import { Button, AccountSummary, Visual, Table } from '@catena-network/catena-ui-module'
-import { React, useState } from 'react'
+import { Button, AccountSummary, Visual, Table } from '@catena-network/catena-ui-module';
+import { React, useState } from 'react';
 
-import { useMobileWidth } from '../../../hooks/useMobileWidth'
-import AddSquareIcon from '../../svg/AddSquareIcon'
-import ArrowSvg from '../../svg/ArrowSvg'
-import EarnIcon from '../../svg/EarnIcon'
+import { useMobileWidth } from '../../../hooks/useMobileWidth';
+import AddSquareIcon from '../../svg/AddSquareIcon';
+import ArrowSvg from '../../svg/ArrowSvg';
+import EarnIcon from '../../svg/EarnIcon';
 
-import styles from './Stack.module.css'
+import styles from './Stack.module.css';
 
 function Stack() {
   // let closeHandler = () => {
@@ -19,30 +19,30 @@ function Stack() {
     walletBalance: 0,
     totalStaked: 0,
     totalUnstaked: 0,
-  })
-  const [mobileExpand, setMobileExpand] = useState(null)
-  const { width, mobile } = useMobileWidth()
-  const [loading, setLoading] = useState(false)
-  const [createStakingPopUpActive, setCreateStakingPopUpActive] = useState(false)
+  });
+  const [mobileExpand, setMobileExpand] = useState(null);
+  const { width, mobile } = useMobileWidth();
+  const [loading, setLoading] = useState(false);
+  const [createStakingPopUpActive, setCreateStakingPopUpActive] = useState(false);
 
   const handlePopUpOpen = () => {
-    setCreateStakingPopUpActive(true)
-  }
+    setCreateStakingPopUpActive(true);
+  };
 
   let mobileExpandFunc = id => {
     if (mobile) {
       if (id !== mobileExpand) {
-        setMobileExpand(id)
+        setMobileExpand(id);
       } else {
-        setMobileExpand(null)
+        setMobileExpand(null);
       }
     }
-  }
+  };
 
   const [stackContractInfo, setStackContractInfo] = useState({
     totalStakers: 0,
     totalStakedToken: 0,
-  })
+  });
 
   const tableHead = [
     {
@@ -90,7 +90,7 @@ function Stack() {
       className: 'buttons-th',
       onClick: index => console.log(index),
     },
-  ]
+  ];
 
   const accountSummaryData = [
     [
@@ -127,7 +127,7 @@ function Stack() {
         value: stakersInfo?.totalUnstaked,
       },
     ],
-  ]
+  ];
 
   const stakersRecord = [
     {
@@ -154,14 +154,14 @@ function Stack() {
       CML: 'CML',
       realtimeRewardPerBlock: '1,132,000.1',
     },
-  ]
+  ];
 
   const tableEmptyData = {
     label: 'Stake to earn Complend reward',
     button: (
       <Button element={'referral-button'} label={'Create Staking'} icon={<ArrowSvg />} onClick={handlePopUpOpen} />
     ),
-  }
+  };
 
   let tableData =
     stakersRecord?.length > 0 &&
@@ -170,7 +170,7 @@ function Stack() {
         className={`table-parent ${mobileExpand === index ? 'active' : ''}`}
         key={index}
         onClick={() => {
-          mobileExpandFunc(index)
+          mobileExpandFunc(index);
         }}
       >
         <div className={'table'}>
@@ -258,7 +258,7 @@ function Stack() {
           </div>
         </div>
       </div>
-    ))
+    ));
 
   return (
     <>
@@ -314,7 +314,7 @@ function Stack() {
         </div>
       </div>
     </>
-  )
+  );
 }
 
-export default Stack
+export default Stack;

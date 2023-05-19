@@ -1,4 +1,4 @@
-import Activity from '../../../components/nfts/Activity'
+import Activity from '../../../components/nfts/Activity';
 
 let nftActivityData = [
   {
@@ -1009,18 +1009,18 @@ let nftActivityData = [
     items: '895',
     supply: '7777',
   },
-]
+];
 
 const ActivityPage = props => {
-  return <Activity {...props} />
-}
+  return <Activity {...props} />;
+};
 
 export async function getStaticProps() {
   return {
     props: {
       activityData: nftActivityData.slice(0, 20),
     },
-  }
+  };
 }
 
-export default ActivityPage
+export default ActivityPage;

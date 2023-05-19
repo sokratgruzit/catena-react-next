@@ -1,12 +1,12 @@
-import React, { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
-import BuyTickets from './BuyTickets'
-import { VectorSvg } from '../../svg'
-import Button from '../../UI/button/Button'
-import CornerDecor from '../../UI/cornerDecor/CornerDecor'
+import BuyTickets from './BuyTickets';
+import { VectorSvg } from '../../svg';
+import Button from '../../UI/button/Button';
+import CornerDecor from '../../UI/cornerDecor/CornerDecor';
 
-import styles from './Tickets.module.css'
+import styles from './Tickets.module.css';
 
 let ticketsData = [
   {
@@ -57,16 +57,16 @@ let ticketsData = [
     priceCore: '156 CORE',
     price: '~$3.215',
   },
-]
+];
 
 const Tickets = () => {
-  const [details, setDetails] = useState(false)
-  const activebtns = useSelector(state => state.activeBuyTicketsBtn)
-  const dispatch = useDispatch()
+  const [details, setDetails] = useState(false);
+  const activebtns = useSelector(state => state.activeBuyTicketsBtn);
+  const dispatch = useDispatch();
 
   const handleClick = () => {
-    setDetails(!details)
-  }
+    setDetails(!details);
+  };
 
   const ticketBtns = () => {
     dispatch({
@@ -74,8 +74,8 @@ const Tickets = () => {
       payload: {
         activeBuyTicketsBtn: !activebtns,
       },
-    })
-  }
+    });
+  };
   return (
     <div className={styles.alignteItems}>
       <picture>
@@ -106,7 +106,7 @@ const Tickets = () => {
               title={'Buy Tickets'}
               type={'transparent'}
               onClick={() => {
-                ticketBtns()
+                ticketBtns();
               }}
               customStyles={{
                 padding: '10px 80px',
@@ -130,7 +130,7 @@ const Tickets = () => {
                       <p className={styles.priceCore}>{item.price}</p>
                     </div>
                   </>
-                )
+                );
               })}
           </div>
           <div className={styles.details}>
@@ -143,7 +143,7 @@ const Tickets = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Tickets
+export default Tickets;

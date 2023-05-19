@@ -1,13 +1,13 @@
-import React from 'react'
+import React from 'react';
 
-import { useWindowDimension } from '../../../../hooks/useWindowDimension'
-import { CoreTag, OpenSvg } from '../../../svg'
-import Button from '../../../UI/button/Button'
+import { useWindowDimension } from '../../../../hooks/useWindowDimension';
+import { CoreTag, OpenSvg } from '../../../svg';
+import Button from '../../../UI/button/Button';
 
-import styles from './PoolsTableRowExpand.module.css'
+import styles from './PoolsTableRowExpand.module.css';
 
 const PoolsTableRowExpand = ({ item }) => {
-  const [width, height] = useWindowDimension()
+  const [width, height] = useWindowDimension();
   return (
     <>
       {width <= 1200 && (
@@ -85,7 +85,7 @@ const PoolsTableRowExpand = ({ item }) => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default PoolsTableRowExpand
+export default PoolsTableRowExpand;

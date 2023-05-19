@@ -7,6 +7,6 @@ const StarSvg = props => (
       strokeLinejoin='round'
     />
   </svg>
-)
+);
 
-export default StarSvg
+export default StarSvg;

@@ -1,24 +1,24 @@
-import Image from 'next/image'
-import { useRouter } from 'next/router'
-import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import Image from 'next/image';
+import { useRouter } from 'next/router';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
-import ChartBlock from './ChartBlock/ChartBlock'
-import { OpenSvg, StarSvg, SmlArrowSvg, PriceUp, PriceDown } from '../../../svg'
-import Button from '../../../UI/button/Button'
-import CornerDecor from '../../../UI/cornerDecor/CornerDecor'
-import { formatCurrency } from '../../../utils/formatCurrency'
-import InfoRoutes from '../InfoRoutes/InfoRoutes'
-import PoolsTable from '../InfoTables/PoolsTable'
-import TransactionTable from '../InfoTables/TransactionTable'
-import SearchBar from '../SearchBar/SearchBar'
+import ChartBlock from './ChartBlock/ChartBlock';
+import { OpenSvg, StarSvg, SmlArrowSvg, PriceUp, PriceDown } from '../../../svg';
+import Button from '../../../UI/button/Button';
+import CornerDecor from '../../../UI/cornerDecor/CornerDecor';
+import { formatCurrency } from '../../../utils/formatCurrency';
+import InfoRoutes from '../InfoRoutes/InfoRoutes';
+import PoolsTable from '../InfoTables/PoolsTable';
+import TransactionTable from '../InfoTables/TransactionTable';
+import SearchBar from '../SearchBar/SearchBar';
 
-import styles from './TokenSection.module.css'
+import styles from './TokenSection.module.css';
 
 const TokenSection = ({ data }) => {
-  const router = useRouter()
-  const dispatch = useDispatch()
-  const favTokens = useSelector(state => state.favorites.tokens)
+  const router = useRouter();
+  const dispatch = useDispatch();
+  const favTokens = useSelector(state => state.favorites.tokens);
 
   return (
     <>
@@ -150,7 +150,7 @@ const TokenSection = ({ data }) => {
         </div>
       )}
     </>
-  )
-}
+  );
+};
 
-export default TokenSection
+export default TokenSection;

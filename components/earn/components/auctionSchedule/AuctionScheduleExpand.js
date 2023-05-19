@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'react';
 
-import styles from './AuctionScheduleExpand.module.css'
+import styles from './AuctionScheduleExpand.module.css';
 
 const AuctionScheduleExpand = ({ setShowWhiteListedWallets }) => {
   return (
@@ -15,7 +15,7 @@ const AuctionScheduleExpand = ({ setShowWhiteListedWallets }) => {
         <p onClick={() => setShowWhiteListedWallets(prevState => !prevState)}>19</p>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default AuctionScheduleExpand
+export default AuctionScheduleExpand;

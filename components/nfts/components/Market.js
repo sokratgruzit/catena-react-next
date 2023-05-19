@@ -1,31 +1,31 @@
-import Image from 'next/image'
-import Link from 'next/link'
-import { useState, useEffect } from 'react'
-import { useSelector } from 'react-redux'
+import Image from 'next/image';
+import Link from 'next/link';
+import { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 
-import styles from './Market.module.css'
+import styles from './Market.module.css';
 
 const Market = () => {
-  const [btnActive, setActiveBtn] = useState(false)
-  const [matchedAddress, setMatchedAddress] = useState(null)
-  const nftStatsData = useSelector(state => state.connect.nftStatisticsData)
-  const [addresses, setAdresses] = useState([nftStatsData])
+  const [btnActive, setActiveBtn] = useState(false);
+  const [matchedAddress, setMatchedAddress] = useState(null);
+  const nftStatsData = useSelector(state => state.connect.nftStatisticsData);
+  const [addresses, setAdresses] = useState([nftStatsData]);
 
   useEffect(() => {
-    setAdresses(Object.keys(nftStatsData))
-  }, [])
+    setAdresses(Object.keys(nftStatsData));
+  }, []);
 
   const searchInputHandler = event => {
     addresses.filter(item => {
       if (item === event.target.value) {
-        setActiveBtn(true)
-        setMatchedAddress(item)
+        setActiveBtn(true);
+        setMatchedAddress(item);
       }
       if (item.length > event.target.value.length) {
-        setActiveBtn(false)
+        setActiveBtn(false);
       }
-    })
-  }
+    });
+  };
 
   return (
     <div className={`container`}>
@@ -363,7 +363,7 @@ const Market = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Market
+export default Market;

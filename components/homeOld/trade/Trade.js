@@ -1,15 +1,15 @@
-import Image from 'next/image'
-import Link from 'next/link'
+import Image from 'next/image';
+import Link from 'next/link';
 
-import useConnect from '../../../hooks/use-connect'
-import { useWindowDimension } from '../../../hooks/useWindowDimension'
-import Button from '../../UI/button/Button'
+import useConnect from '../../../hooks/use-connect';
+import { useWindowDimension } from '../../../hooks/useWindowDimension';
+import Button from '../../UI/button/Button';
 
-import styles from './Trade.module.css'
+import styles from './Trade.module.css';
 
 const Trade = () => {
-  const { handleWalletModal } = useConnect()
-  const [height] = useWindowDimension()
+  const { handleWalletModal } = useConnect();
+  const [height] = useWindowDimension();
 
   return (
     <section className={styles.container}>
@@ -42,7 +42,7 @@ const Trade = () => {
         </div>
       </section>
     </section>
-  )
-}
+  );
+};
 
-export default Trade
+export default Trade;

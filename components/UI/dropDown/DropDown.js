@@ -1,4 +1,4 @@
-import styles from './DropDown.module.css'
+import styles from './DropDown.module.css';
 
 const DropDown = () => {
   return (
@@ -97,7 +97,7 @@ const DropDown = () => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default DropDown
+export default DropDown;

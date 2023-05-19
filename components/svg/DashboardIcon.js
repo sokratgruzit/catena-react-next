@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const DashboardIcon = ({ className, ...props }) => {
   return (
@@ -28,7 +28,7 @@ const DashboardIcon = ({ className, ...props }) => {
         </clipPath>
       </defs>
     </svg>
-  )
-}
+  );
+};
 
-export default DashboardIcon
+export default DashboardIcon;

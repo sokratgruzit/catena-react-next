@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'react';
 
-import styles from './HowToPay.module.css'
+import styles from './HowToPay.module.css';
 
 const HowToPay = () => {
   return (
@@ -86,7 +86,7 @@ const HowToPay = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default HowToPay
+export default HowToPay;

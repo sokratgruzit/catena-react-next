@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
-import { ExclamationSvg, QuestionMarkIcon, ReverseSvg } from '../../../svg'
-import TabFilter from '../../../UI/filters/TabFilter'
+import { ExclamationSvg, QuestionMarkIcon, ReverseSvg } from '../../../svg';
+import TabFilter from '../../../UI/filters/TabFilter';
 
-import styles from './StakeCalculator.module.css'
+import styles from './StakeCalculator.module.css';
 
 const stakeTypeData = [
   {
@@ -14,7 +14,7 @@ const stakeTypeData = [
     id: 1,
     label: 'Locked',
   },
-]
+];
 
 const stakeData = [
   {
@@ -29,7 +29,7 @@ const stakeData = [
     id: 2,
     label: 'My Balance',
   },
-]
+];
 
 const stakeDurationData = [
   {
@@ -52,7 +52,7 @@ const stakeDurationData = [
     id: 4,
     label: '5Y',
   },
-]
+];
 
 const stakeDurationDataLocked = [
   {
@@ -75,27 +75,27 @@ const stakeDurationDataLocked = [
     id: 4,
     label: 'MAX',
   },
-]
+];
 
 const StakeCalculator = ({ type }) => {
-  const [reverseStake, setReverseStake] = useState(false)
-  const [activeStakeType, setActiveStakeType] = useState('Flexible')
-  const [stakeAmount, setStakeAmount] = useState('$ 100')
-  const [stakeDuration, setStakeDuration] = useState('1D')
-  const [enableCompound, setEnableCompound] = useState(false)
-  const [compoundEvery, setCompoundEvery] = useState('1D')
-  const [stakeDurationLocked, setStakeDurationLocked] = useState(1)
+  const [reverseStake, setReverseStake] = useState(false);
+  const [activeStakeType, setActiveStakeType] = useState('Flexible');
+  const [stakeAmount, setStakeAmount] = useState('$ 100');
+  const [stakeDuration, setStakeDuration] = useState('1D');
+  const [enableCompound, setEnableCompound] = useState(false);
+  const [compoundEvery, setCompoundEvery] = useState('1D');
+  const [stakeDurationLocked, setStakeDurationLocked] = useState(1);
 
   const handleStakeDurationLocked = e => {
     if (!isNaN(e?.target?.value) && e?.target?.value.length < 4) {
-      setStakeDurationLocked(e.target.value)
+      setStakeDurationLocked(e.target.value);
     }
-    if (e === '1W') setStakeDurationLocked(1)
-    if (e === '5W') setStakeDurationLocked(5)
-    if (e === '10W') setStakeDurationLocked(10)
-    if (e === '25W') setStakeDurationLocked(25)
-    if (e === 'MAX') setStakeDurationLocked(52)
-  }
+    if (e === '1W') setStakeDurationLocked(1);
+    if (e === '5W') setStakeDurationLocked(5);
+    if (e === '10W') setStakeDurationLocked(10);
+    if (e === '25W') setStakeDurationLocked(25);
+    if (e === 'MAX') setStakeDurationLocked(52);
+  };
 
   return (
     <>
@@ -249,7 +249,7 @@ const StakeCalculator = ({ type }) => {
         </section>
       )}
     </>
-  )
-}
+  );
+};
 
-export default StakeCalculator
+export default StakeCalculator;

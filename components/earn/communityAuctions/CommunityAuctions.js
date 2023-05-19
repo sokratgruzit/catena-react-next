@@ -1,22 +1,22 @@
-import Image from 'next/image'
-import { useRouter } from 'next/router'
-import { useState } from 'react'
+import Image from 'next/image';
+import { useRouter } from 'next/router';
+import { useState } from 'react';
 
-import astro from '../../../public/images/earn/astro.png'
-import egg from '../../../public/images/earn/egg.png'
-import orbit from '../../../public/images/earn/orbit.png'
-import ufo from '../../../public/images/earn/ufo.png'
-import yellowStar from '../../../public/images/earn/yellowStar.png'
-import CommunityAuctionsFAQ from '../../faqOld/communityAuctionsFAQ/CommunityAuctionsFAQ'
-import { ArrowSvg, OpenSvg, QuestionMarkIcon, SearchIcon, SmlArrowSvg } from '../../svg'
-import Button from '../../UI/button/Button'
-import Expand from '../../UI/expand/Expand'
-import ExpandButton from '../../UI/expand/ExpandButton'
-import AuctionSchedule from '../components/auctionSchedule/AuctionSchedule'
-import AuctionScheduleExpand from '../components/auctionSchedule/AuctionScheduleExpand'
-import AuctionTable from '../components/auctionTable/AuctionTable'
+import astro from '../../../public/images/earn/astro.png';
+import egg from '../../../public/images/earn/egg.png';
+import orbit from '../../../public/images/earn/orbit.png';
+import ufo from '../../../public/images/earn/ufo.png';
+import yellowStar from '../../../public/images/earn/yellowStar.png';
+import CommunityAuctionsFAQ from '../../faqOld/communityAuctionsFAQ/CommunityAuctionsFAQ';
+import { ArrowSvg, OpenSvg, QuestionMarkIcon, SearchIcon, SmlArrowSvg } from '../../svg';
+import Button from '../../UI/button/Button';
+import Expand from '../../UI/expand/Expand';
+import ExpandButton from '../../UI/expand/ExpandButton';
+import AuctionSchedule from '../components/auctionSchedule/AuctionSchedule';
+import AuctionScheduleExpand from '../components/auctionSchedule/AuctionScheduleExpand';
+import AuctionTable from '../components/auctionTable/AuctionTable';
 
-import styles from './CommunityAuctions.module.css'
+import styles from './CommunityAuctions.module.css';
 
 const whitelistedData = [
   {
@@ -68,12 +68,12 @@ const whitelistedData = [
     link: '0xC7...061b',
     subLink: <OpenSvg />,
   },
-]
+];
 
 const CommunityAuctions = props => {
-  const [showWhiteListedWallets, setShowWhiteListedWallets] = useState(false)
+  const [showWhiteListedWallets, setShowWhiteListedWallets] = useState(false);
 
-  const router = useRouter()
+  const router = useRouter();
 
   return (
     <main className={`container ${styles.auction__container}`}>
@@ -156,7 +156,7 @@ const CommunityAuctions = props => {
                   {item.subLink}
                 </div>
               </div>
-            )
+            );
           })}
         </div>
         <div className={styles.auction__leftPanel}>
@@ -198,7 +198,7 @@ const CommunityAuctions = props => {
         </div>
       </aside>
     </main>
-  )
-}
+  );
+};
 
-export default CommunityAuctions
+export default CommunityAuctions;

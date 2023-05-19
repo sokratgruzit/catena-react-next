@@ -1,9 +1,9 @@
-import Image from 'next/image'
-import Link from 'next/link'
+import Image from 'next/image';
+import Link from 'next/link';
 
-import Button from '../../UI/button/Button'
+import Button from '../../UI/button/Button';
 
-import styles from './BuyCore.module.css'
+import styles from './BuyCore.module.css';
 
 const BuyCore = () => {
   return (
@@ -49,7 +49,7 @@ const BuyCore = () => {
         </article>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default BuyCore
+export default BuyCore;

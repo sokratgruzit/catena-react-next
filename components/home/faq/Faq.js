@@ -1,11 +1,11 @@
-import FaqItem from './components/FaqItem'
+import FaqItem from './components/FaqItem';
 
 function Faq() {
   return (
     <div className='container'>
       <FaqItem />
     </div>
-  )
+  );
 }
 
-export default Faq
+export default Faq;

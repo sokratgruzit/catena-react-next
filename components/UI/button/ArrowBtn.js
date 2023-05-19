@@ -1,35 +1,35 @@
-import Link from 'next/link'
+import Link from 'next/link';
 
-import styles from './ArrowBtn.module.css'
+import styles from './ArrowBtn.module.css';
 
 const ArrowBtn = props => {
-  let title = ''
-  let route = ''
-  let btn = ''
+  let title = '';
+  let route = '';
+  let btn = '';
 
   if (props.route === 'nfts') {
-    route = '/nfts'
-    title = 'Back to Overview'
+    route = '/nfts';
+    title = 'Back to Overview';
   }
 
   if (props.route === 'back__collections') {
-    route = '/nfts/collections'
-    title = 'Back'
+    route = '/nfts/collections';
+    title = 'Back';
   }
 
   if (props.route === 'activity') {
-    route = `/nfts/activity`
-    title = `See Activities`
+    route = `/nfts/activity`;
+    title = `See Activities`;
   }
 
   if (props.route === 'activity' && props.direction === 'forward' && props.title === 'viewAll') {
-    route = '/nfts/activity'
-    title = 'View All'
+    route = '/nfts/activity';
+    title = 'View All';
   }
 
   if (props.route === 'collections' && props.direction === 'forward' && props.title === 'viewAll') {
-    route = '/nfts/collections'
-    title = 'View All'
+    route = '/nfts/collections';
+    title = 'View All';
   }
 
   if (props.direction === 'back') {
@@ -53,7 +53,7 @@ const ArrowBtn = props => {
           <p>{title}</p>
         </div>
       </Link>
-    )
+    );
   }
 
   if (props.direction === 'forward') {
@@ -77,10 +77,10 @@ const ArrowBtn = props => {
           </svg>
         </div>
       </Link>
-    )
+    );
   }
 
-  return btn
-}
+  return btn;
+};
 
-export default ArrowBtn
+export default ArrowBtn;

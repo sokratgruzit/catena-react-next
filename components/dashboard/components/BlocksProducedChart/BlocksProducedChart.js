@@ -1,12 +1,12 @@
-import dynamic from 'next/dynamic'
-import React, { useState } from 'react'
+import dynamic from 'next/dynamic';
+import React, { useState } from 'react';
 
-import styles from './BlocksProducedChart.module.css'
+import styles from './BlocksProducedChart.module.css';
 
 const ReactApexChart = dynamic(() => import('react-apexcharts'), {
   loading: () => <p>Loading...</p>,
   ssr: false,
-})
+});
 
 const BlocksProducedChart = () => {
   const options = {
@@ -90,10 +90,10 @@ const BlocksProducedChart = () => {
     tooltip: {
       enabled: true,
       custom: function ({ series, seriesIndex, dataPointIndex, w }) {
-        const value = series[0][dataPointIndex]
+        const value = series[0][dataPointIndex];
         return `<div class="currentVotes-tooltip">
                     <span>Votes ${value}</span>
-                </div>`
+                </div>`;
       },
     },
     xaxis: {
@@ -128,7 +128,7 @@ const BlocksProducedChart = () => {
     stroke: {
       width: 0,
     },
-  }
+  };
 
   const [chartSeries, setChartSeries] = useState([
     {
@@ -146,7 +146,7 @@ const BlocksProducedChart = () => {
     //     18, 26,
     //   ],
     // },
-  ])
+  ]);
 
   return (
     <div className={styles.blocksProducedWrap}>
@@ -161,7 +161,7 @@ const BlocksProducedChart = () => {
         <div className={styles.chartGrad}></div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default BlocksProducedChart
+export default BlocksProducedChart;

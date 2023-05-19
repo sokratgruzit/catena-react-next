@@ -1,9 +1,9 @@
-import React from 'react'
+import React from 'react';
 
-import Pools from '../../../components/earn/pools/Pools'
+import Pools from '../../../components/earn/pools/Pools';
 
 const index = () => {
-  return <Pools />
-}
+  return <Pools />;
+};
 
-export default index
+export default index;

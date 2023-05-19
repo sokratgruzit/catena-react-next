@@ -1,9 +1,9 @@
-import React from 'react'
+import React from 'react';
 
-import ArrowBtn from '../../UI/button/ArrowBtn'
-import CornerDecor from '../../UI/cornerDecor/CornerDecor'
+import ArrowBtn from '../../UI/button/ArrowBtn';
+import CornerDecor from '../../UI/cornerDecor/CornerDecor';
 
-import styles from './CompetitionFinished.module.css'
+import styles from './CompetitionFinished.module.css';
 // import mainStyles from '../../main.module.css'
 
 let finishedData = [
@@ -22,7 +22,7 @@ let finishedData = [
     img: '../../images/win/background/trendingBg.png',
     text: 'Easter Trading Competition',
   },
-]
+];
 
 const CompetitionFinished = () => {
   return (
@@ -54,7 +54,7 @@ const CompetitionFinished = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default CompetitionFinished
+export default CompetitionFinished;

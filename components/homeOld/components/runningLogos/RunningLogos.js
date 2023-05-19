@@ -1,8 +1,8 @@
-import Image from 'next/image'
+import Image from 'next/image';
 
-import styles from './RunningLogos.module.css'
+import styles from './RunningLogos.module.css';
 
-const arr = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+const arr = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'];
 
 const RunningLogos = () => {
   return (
@@ -24,7 +24,7 @@ const RunningLogos = () => {
         ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default RunningLogos
+export default RunningLogos;

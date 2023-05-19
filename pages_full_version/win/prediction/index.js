@@ -1,9 +1,9 @@
-import React from 'react'
+import React from 'react';
 
-import Prediction from '../../../components/win/Prediction'
+import Prediction from '../../../components/win/Prediction';
 
 const index = () => {
-  return <Prediction />
-}
+  return <Prediction />;
+};
 
-export default index
+export default index;

@@ -1,12 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
-import { ClockSvg, ExclamationSvg, MathSignSvg, OpenSvg } from '../../../svg'
+import { ClockSvg, ExclamationSvg, MathSignSvg, OpenSvg } from '../../../svg';
 
-import styles from './PoolsTableComponentExpand.module.css'
+import styles from './PoolsTableComponentExpand.module.css';
 
 const PoolsTableComponentExpand = ({ item }) => {
-  const [itemType, setItemType] = useState(item?.data[6]?.tag)
-  const splitString = item?.data[4]?.title?.split(' ')
+  const [itemType, setItemType] = useState(item?.data[6]?.tag);
+  const splitString = item?.data[4]?.title?.split(' ');
 
   return (
     <main className={styles.item}>
@@ -90,7 +90,7 @@ const PoolsTableComponentExpand = ({ item }) => {
         </div>
       </section>
     </main>
-  )
-}
+  );
+};
 
-export default PoolsTableComponentExpand
+export default PoolsTableComponentExpand;

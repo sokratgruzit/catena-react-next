@@ -1,4 +1,4 @@
-import styles from './DropDownFilter.module.css'
+import styles from './DropDownFilter.module.css';
 
 const DropDownFilter = () => {
   return (
@@ -110,7 +110,7 @@ const DropDownFilter = () => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default DropDownFilter
+export default DropDownFilter;

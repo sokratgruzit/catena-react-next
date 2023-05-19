@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
-import { ArrowToLast, FinishedSvg, SmlArrowSvg } from '../../../svg'
-import CornerDecor from '../../../UI/cornerDecor/CornerDecor'
-import TabFilter from '../../../UI/filters/TabFilter'
+import { ArrowToLast, FinishedSvg, SmlArrowSvg } from '../../../svg';
+import CornerDecor from '../../../UI/cornerDecor/CornerDecor';
+import TabFilter from '../../../UI/filters/TabFilter';
 
-import styles from './AuctionTable.module.css'
+import styles from './AuctionTable.module.css';
 
 const auctionData = [
   {
@@ -142,7 +142,7 @@ const auctionData = [
       </svg>
     ),
   },
-]
+];
 
 const tabsData = [
   {
@@ -153,14 +153,14 @@ const tabsData = [
     id: 1,
     label: 'Archieve',
   },
-]
+];
 
 const AuctionTable = () => {
-  const [active, setActive] = useState('Latest')
+  const [active, setActive] = useState('Latest');
 
   const navigationHandler = activeItem => {
-    setActive(activeItem)
-  }
+    setActive(activeItem);
+  };
 
   return (
     <div className={styles.auction__table}>
@@ -213,12 +213,12 @@ const AuctionTable = () => {
                 </div>
                 <div className={styles.auction__dotMenu}>{item.dotMenu}</div>
               </div>
-            )
+            );
           })}
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default AuctionTable
+export default AuctionTable;

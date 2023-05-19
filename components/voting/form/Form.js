@@ -1,23 +1,23 @@
-import Image from 'next/image'
-import Link from 'next/link'
-import { useState } from 'react'
+import Image from 'next/image';
+import Link from 'next/link';
+import { useState } from 'react';
 
-import FormErrorsText from './FormErrorsText'
-import { getFormErrors, mergeDateAndTime } from './helpers'
-import useConnect from '../../../hooks/use-connect'
-import { OpenSvg, SmlArrowSvg } from '../../svg'
-import Button from '../../UI/button/Button'
-import FormChoice from '../components/formChoice/FormChoice'
-import FormSelectDate from '../components/formDateInput/FormSelectDate'
-import FormSelectTime from '../components/formDateInput/FormSelectTime'
+import FormErrorsText from './FormErrorsText';
+import { getFormErrors, mergeDateAndTime } from './helpers';
+import useConnect from '../../../hooks/use-connect';
+import { OpenSvg, SmlArrowSvg } from '../../svg';
+import Button from '../../UI/button/Button';
+import FormChoice from '../components/formChoice/FormChoice';
+import FormSelectDate from '../components/formDateInput/FormSelectDate';
+import FormSelectTime from '../components/formDateInput/FormSelectTime';
 
-const ReactQuill = typeof window === 'object' ? require('react-quill') : () => false
+const ReactQuill = typeof window === 'object' ? require('react-quill') : () => false;
 
-import 'react-quill/dist/quill.snow.css'
-import styles from './Form.module.css'
+import 'react-quill/dist/quill.snow.css';
+import styles from './Form.module.css';
 
 const Form = () => {
-  const { isActive, handleWalletModal } = useConnect()
+  const { isActive, handleWalletModal } = useConnect();
   const [formData, setFormData] = useState({
     title: '',
     body: '',
@@ -26,43 +26,43 @@ const Form = () => {
     startTime: null,
     endDate: null,
     endTime: null,
-  })
-  const [editedField, setEditedField] = useState()
+  });
+  const [editedField, setEditedField] = useState();
 
-  const formErrors = getFormErrors(formData)
+  const formErrors = getFormErrors(formData);
 
   const handleOnFormSubmit = e => {
-    e.preventDefault()
+    e.preventDefault();
 
-    const fullStartDate = mergeDateAndTime(formData.startDate, formData.startTime)
-    const fullEndDate = mergeDateAndTime(formData.endDate, formData.endTime)
+    const fullStartDate = mergeDateAndTime(formData.startDate, formData.startTime);
+    const fullEndDate = mergeDateAndTime(formData.endDate, formData.endTime);
 
-    console.log(fullStartDate, fullEndDate)
+    console.log(fullStartDate, fullEndDate);
 
     // try {
     //  send formData
     // } catch (error) {
     // }
-  }
+  };
 
   const handleUpdateValue = (objKey, value) => {
     setFormData(prevState => ({
       ...prevState,
       [objKey]: value,
-    }))
+    }));
 
     setEditedField(prevState => ({
       ...prevState,
       [objKey]: true,
-    }))
-  }
+    }));
+  };
 
   const handleAddChoice = () => {
     setFormData(prevState => ({
       ...prevState,
       choices: [...prevState.choices, ''],
-    }))
-  }
+    }));
+  };
 
   return (
     <div className={`container ${styles.wrapper}`}>
@@ -113,7 +113,7 @@ const Form = () => {
                     setFormData={setFormData}
                     setEditedField={setEditedField}
                   />
-                )
+                );
               })}
               {editedField?.choices && formErrors.choices && <FormErrorsText text={formErrors.choices} />}
 
@@ -180,7 +180,7 @@ const Form = () => {
               <Button
                 title={'Connect Wallet'}
                 onClick={() => {
-                  handleWalletModal(true)
+                  handleWalletModal(true);
                 }}
                 type={'blue'}
                 className={styles.connectWallet}
@@ -190,8 +190,8 @@ const Form = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 Form.modules = {
   toolbar: [
@@ -200,8 +200,8 @@ Form.modules = {
     [{ list: 'ordered' }, { list: 'bullet' }],
     ['link', 'image'],
   ],
-}
+};
 
-export default Form
+export default Form;
 
 // cleaning of classes end, need to correct routes of every proposal its coming from /voting

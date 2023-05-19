@@ -1,12 +1,12 @@
-import React from 'react'
+import React from 'react';
 // import "./Setting.css";
 function Setting({ setSlippage, setDeadLine }) {
   const NumericOnly = e => {
-    const reg = /^[0-9\b]+$/
-    let preval = e.target.value
-    if (e.target.value === '' || reg.test(e.target.value)) return true
-    else e.target.value = preval.substring(0, preval.length - 1)
-  }
+    const reg = /^[0-9\b]+$/;
+    let preval = e.target.value;
+    if (e.target.value === '' || reg.test(e.target.value)) return true;
+    else e.target.value = preval.substring(0, preval.length - 1);
+  };
   return (
     <div>
       <div
@@ -69,7 +69,7 @@ function Setting({ setSlippage, setDeadLine }) {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default Setting
+export default Setting;

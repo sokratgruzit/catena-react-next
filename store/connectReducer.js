@@ -349,21 +349,21 @@ const INIT_STATE = {
       activeStatus: true,
     },
   },
-}
+};
 
 const connectReducer = (state = INIT_STATE, action) => {
   if (action.type === 'TOGGLE_WALLET_CONNECT_MODAL') {
     return {
       ...state,
       walletModal: action.payload.walletModal,
-    }
+    };
   }
 
   if (action.type === 'GET_BALANCE') {
     return {
       ...state,
       balance: action.payload.balance,
-    }
+    };
   }
 
   if (action.type === 'CONNECT') {
@@ -371,17 +371,17 @@ const connectReducer = (state = INIT_STATE, action) => {
       ...state,
       isConnected: action.payload.isConnected,
       providerType: action.payload.providerType,
-    }
+    };
   }
 
   if (action.type === 'BUY_TICKETS_ACTIVE') {
     return {
       ...state,
       activeBuyTicketsBtn: action.payload.activeBuyTicketsBtn,
-    }
+    };
   }
 
-  return state
-}
+  return state;
+};
 
-export default connectReducer
+export default connectReducer;

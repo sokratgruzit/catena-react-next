@@ -47,7 +47,7 @@ function BugBountyRewards() {
       </div>
       <li></li>
     </section>
-  )
+  );
 }
 
-export default BugBountyRewards
+export default BugBountyRewards;

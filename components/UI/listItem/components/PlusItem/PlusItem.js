@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'react';
 
-import styles from '../../ListItemRow.module.css'
+import styles from '../../ListItemRow.module.css';
 
 const PlusItem = ({ hash, activeList }) => {
   return (
@@ -8,7 +8,7 @@ const PlusItem = ({ hash, activeList }) => {
       <span></span>
       <span></span>
     </div>
-  )
-}
+  );
+};
 
-export default PlusItem
+export default PlusItem;

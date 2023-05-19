@@ -1,14 +1,14 @@
-import Image from 'next/image'
-import Link from 'next/link'
+import Image from 'next/image';
+import Link from 'next/link';
 
-import useConnect from '../../../hooks/use-connect'
-import Button from '../../UI/button/Button'
-import RunningLogos from '../components/runningLogos/RunningLogos'
+import useConnect from '../../../hooks/use-connect';
+import Button from '../../UI/button/Button';
+import RunningLogos from '../components/runningLogos/RunningLogos';
 
-import styles from './HomeLanding.module.css'
+import styles from './HomeLanding.module.css';
 
 const HomeLanding = () => {
-  const { isActive, handleWalletModal } = useConnect()
+  const { isActive, handleWalletModal } = useConnect();
 
   return (
     <section className={styles.inner}>
@@ -37,7 +37,7 @@ const HomeLanding = () => {
         <RunningLogos />
       </aside>
     </section>
-  )
-}
+  );
+};
 
-export default HomeLanding
+export default HomeLanding;

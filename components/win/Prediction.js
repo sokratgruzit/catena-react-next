@@ -1,13 +1,13 @@
-import { useState } from 'react'
-import { Swiper, SwiperSlide } from 'swiper/react'
+import { useState } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
-import SinglePredictionItem from './components/singlePredictionItem/SinglePredictionItem'
-import Timer from './components/Timer'
-import WinRoutes from './components/WinRoutes'
-import CornerDecor from '../UI/cornerDecor/CornerDecor'
-import 'swiper/css'
+import SinglePredictionItem from './components/singlePredictionItem/SinglePredictionItem';
+import Timer from './components/Timer';
+import WinRoutes from './components/WinRoutes';
+import CornerDecor from '../UI/cornerDecor/CornerDecor';
+import 'swiper/css';
 
-import styles from './Prediction.module.css'
+import styles from './Prediction.module.css';
 
 const predictionData = [
   {
@@ -53,27 +53,27 @@ const predictionData = [
     payDown: '1.21x Payout',
     action: 'later',
   },
-]
+];
 
 const Prediction = () => {
-  const [activeBtns, setActiveBtns] = useState(null)
-  const [activeBtnsDwn, setActiveBtnsDwn] = useState(null)
-  const [upBtns, setUpBtns] = useState(false)
-  const [downBtns, setDownBtns] = useState(false)
+  const [activeBtns, setActiveBtns] = useState(null);
+  const [activeBtnsDwn, setActiveBtnsDwn] = useState(null);
+  const [upBtns, setUpBtns] = useState(false);
+  const [downBtns, setDownBtns] = useState(false);
 
   const activateBtns = id => {
-    setActiveBtns(id)
-  }
+    setActiveBtns(id);
+  };
 
   const activateDwn = id => {
-    setActiveBtnsDwn(id)
-  }
+    setActiveBtnsDwn(id);
+  };
   const changeUpBtns = () => {
-    setUpBtns(!upBtns)
-  }
+    setUpBtns(!upBtns);
+  };
   const changeDownBtns = () => {
-    setDownBtns(!downBtns)
-  }
+    setDownBtns(!downBtns);
+  };
 
   let swiperItems = predictionData.map(item => {
     if (item.action === 'expired') {
@@ -181,7 +181,7 @@ const Prediction = () => {
             </div>
           </div>
         </SwiperSlide>
-      )
+      );
     }
     if (item.action === 'live') {
       return (
@@ -284,7 +284,7 @@ const Prediction = () => {
             </div>
           </div>
         </SwiperSlide>
-      )
+      );
     }
     if (item.action === 'next') {
       return (
@@ -343,7 +343,7 @@ const Prediction = () => {
                 <div>
                   <button
                     onClick={() => {
-                      activateBtns(item.id)
+                      activateBtns(item.id);
                     }}
                     className={styles.enterBottom}
                   >
@@ -352,7 +352,7 @@ const Prediction = () => {
                   <button
                     className={styles.downBottom}
                     onClick={() => {
-                      activateDwn(item.id)
+                      activateDwn(item.id);
                     }}
                   >
                     Enter DOWN
@@ -393,7 +393,7 @@ const Prediction = () => {
                   <div className={styles.positionBt}>
                     <p
                       onClick={() => {
-                        activateBtns(null)
+                        activateBtns(null);
                       }}
                     >
                       <svg width='12' height='11' viewBox='0 0 12 11' fill='none' xmlns='http://www.w3.org/2000/svg'>
@@ -460,7 +460,7 @@ const Prediction = () => {
                   <div className={styles.positionBt}>
                     <p
                       onClick={() => {
-                        setActiveBtnsDwn(null)
+                        setActiveBtnsDwn(null);
                       }}
                     >
                       <svg width='12' height='11' viewBox='0 0 12 11' fill='none' xmlns='http://www.w3.org/2000/svg'>
@@ -522,7 +522,7 @@ const Prediction = () => {
             </div>
           </div>
         </SwiperSlide>
-      )
+      );
     }
     if (item.action === 'later') {
       return (
@@ -603,9 +603,9 @@ const Prediction = () => {
             </div>
           </div>
         </SwiperSlide>
-      )
+      );
     }
-  })
+  });
 
   return (
     <>
@@ -714,7 +714,7 @@ const Prediction = () => {
         {/* {swiperItems} */}
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Prediction
+export default Prediction;

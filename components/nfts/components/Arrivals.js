@@ -1,9 +1,9 @@
-import Link from 'next/link'
+import Link from 'next/link';
 
 //import FAQ from '../../faq/FAQ';
-import ListItemCard from '../../UI/listItem/ListItemCard'
+import ListItemCard from '../../UI/listItem/ListItemCard';
 
-import styles from './Arrivals.module.css'
+import styles from './Arrivals.module.css';
 
 const Arrivals = props => {
   return (
@@ -40,7 +40,7 @@ const Arrivals = props => {
         </div>
         <div className={styles.Arrivals__itemsList}>
           {props.arrivals.map(item => {
-            return <ListItemCard key={item.id} data={item} type={'nft_arrivals'} />
+            return <ListItemCard key={item.id} data={item} type={'nft_arrivals'} />;
           })}
         </div>
         {/*<FAQ />*/}
@@ -73,7 +73,7 @@ const Arrivals = props => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Arrivals
+export default Arrivals;

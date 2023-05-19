@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const BlocksIcon = ({ className, ...props }) => {
   return (
@@ -26,7 +26,7 @@ const BlocksIcon = ({ className, ...props }) => {
         </clipPath>
       </defs>
     </svg>
-  )
-}
+  );
+};
 
-export default BlocksIcon
+export default BlocksIcon;

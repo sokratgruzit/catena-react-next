@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 
-import styles from './PriceItem.module.css'
-import listStyles from '../../ListItemRow.module.css'
+import styles from './PriceItem.module.css';
+import listStyles from '../../ListItemRow.module.css';
 
 const PriceItem = ({ data }) => {
   return (
@@ -12,7 +12,7 @@ const PriceItem = ({ data }) => {
       </p>
       <p>{data?.priceInDollar}</p>
     </div>
-  )
-}
+  );
+};
 
-export default PriceItem
+export default PriceItem;

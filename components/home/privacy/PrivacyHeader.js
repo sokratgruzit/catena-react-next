@@ -16,7 +16,7 @@ export default function PrivacyHeader() {
     {
       text: 'We reserve the right to modify or amend the Privacy Policy from time to time without notice. Your continued use of the Website following the posting of changes to these terms will mean You accept those changes. If We intend to apply the modifications or amendments to this Privacy Policy retroactively or to Personal Data already in Our possession, We will provide You with notice of the modifications or amendments.',
     },
-  ]
+  ];
   return (
     <div>
       <h1>
@@ -29,8 +29,8 @@ export default function PrivacyHeader() {
             <span>{item.span}</span>
             <p>{item.text}</p>
           </div>
-        )
+        );
       })}
     </div>
-  )
+  );
 }

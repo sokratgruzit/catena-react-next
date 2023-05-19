@@ -1,6 +1,6 @@
-import { CloseSvg } from '../../../svg'
+import { CloseSvg } from '../../../svg';
 
-import styles from './FormChoice.module.css'
+import styles from './FormChoice.module.css';
 
 const FormChoice = ({ choice, index, setFormData, setEditedField }) => {
   const handleChoiceInput = (e, index) => {
@@ -9,16 +9,16 @@ const FormChoice = ({ choice, index, setFormData, setEditedField }) => {
       choices: prevState.choices.map((item, id) =>
         id === index ? { ...prevState.choices[id], value: e.target.value } : item,
       ),
-    }))
-    setEditedField(prevState => ({ ...prevState, choices: true }))
-  }
+    }));
+    setEditedField(prevState => ({ ...prevState, choices: true }));
+  };
 
   const handleCloseInput = index => {
     setFormData(prevState => ({
       ...prevState,
       choices: prevState.choices.filter((e, id) => id !== index),
-    }))
-  }
+    }));
+  };
   return (
     <div className={styles.wrapper}>
       <input
@@ -35,7 +35,7 @@ const FormChoice = ({ choice, index, setFormData, setEditedField }) => {
         </div>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default FormChoice
+export default FormChoice;

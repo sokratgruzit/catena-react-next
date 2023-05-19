@@ -1,25 +1,25 @@
-import dynamic from 'next/dynamic'
-import { useState } from 'react'
+import dynamic from 'next/dynamic';
+import { useState } from 'react';
 
-import { useMobileWidth } from '../../../../hooks/useMobileWidth'
-import { Circle3MoreDetails } from '../../../svg'
+import { useMobileWidth } from '../../../../hooks/useMobileWidth';
+import { Circle3MoreDetails } from '../../../svg';
 
-import styles from './CurrentVotes.module.css'
+import styles from './CurrentVotes.module.css';
 
 const ReactApexChart = dynamic(() => import('react-apexcharts'), {
   loading: () => <p>Loading...</p>,
   ssr: false,
-})
+});
 
-let isMorethan0 = false
+let isMorethan0 = false;
 
 const data = [0, 0, 0].map(i => {
-  if (i > 0) isMorethan0 = true
-  return i + 10
-})
+  if (i > 0) isMorethan0 = true;
+  return i + 10;
+});
 
 const CurrentVotes = () => {
-  const { width } = useMobileWidth()
+  const { width } = useMobileWidth();
   const options = {
     chart: {
       height: '100%',
@@ -54,10 +54,10 @@ const CurrentVotes = () => {
       enabled: true,
 
       custom: function ({ series, seriesIndex, dataPointIndex, w }) {
-        const value = series[0][dataPointIndex]
+        const value = series[0][dataPointIndex];
         return `<div class="currentVotes-tooltip">
                     <span>Votes ${value - 10 > 0 ? value - 10 : 0}</span>
-                </div>`
+                </div>`;
       },
     },
     xaxis: {
@@ -74,13 +74,13 @@ const CurrentVotes = () => {
     legend: {
       show: false,
     },
-  }
+  };
   const [chartSeries, setChartSeries] = useState([
     {
       name: 'Price',
       data: data,
     },
-  ])
+  ]);
   return (
     <div className={styles.container}>
       <header className={styles.header}>
@@ -117,7 +117,7 @@ const CurrentVotes = () => {
       )}
       <div className={styles.topCorner}></div>
     </div>
-  )
-}
+  );
+};
 
-export default CurrentVotes
+export default CurrentVotes;

@@ -1,16 +1,16 @@
-import Image from 'next/image'
-import React from 'react'
-import Countdown from 'react-countdown'
+import Image from 'next/image';
+import React from 'react';
+import Countdown from 'react-countdown';
 
-import { HourGlass } from '../../../svg'
+import { HourGlass } from '../../../svg';
 
-import styles from './CountdownItem.module.css'
+import styles from './CountdownItem.module.css';
 
 const CountdownItem = ({ votingTo, ...props }) => {
   const renderer = ({ days, hours, minutes, seconds, completed }) => {
     if (completed) {
       // Render a completed state
-      return <></>
+      return <></>;
     } else {
       return (
         <div className={styles.Countdown}>
@@ -33,9 +33,9 @@ const CountdownItem = ({ votingTo, ...props }) => {
             <sup>S</sup>
           </span>
         </div>
-      )
+      );
     }
-  }
+  };
   return (
     <div className={styles.relative}>
       <div className={styles.CountdownBg}>
@@ -43,7 +43,7 @@ const CountdownItem = ({ votingTo, ...props }) => {
       </div>
       <Countdown date={votingTo} renderer={renderer} {...props} />
     </div>
-  )
-}
+  );
+};
 
-export default CountdownItem
+export default CountdownItem;

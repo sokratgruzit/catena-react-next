@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const CoreTag = props => (
   <svg width='52' height='21' viewBox='0 0 52 21' fill='none' xmlns='http://www.w3.org/2000/svg' {...props}>
@@ -12,6 +12,6 @@ const CoreTag = props => (
       fill='#7464D7'
     />
   </svg>
-)
+);
 
-export default CoreTag
+export default CoreTag;

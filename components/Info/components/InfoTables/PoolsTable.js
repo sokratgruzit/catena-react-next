@@ -1,17 +1,17 @@
-import { useRouter } from 'next/router'
-import React, { useState } from 'react'
+import { useRouter } from 'next/router';
+import React, { useState } from 'react';
 
-import PageNumber from './PageNumber'
-import { PaginationButtonSvg } from '../../../svg'
-import Button from '../../../UI/button/Button'
-import CornerDecor from '../../../UI/cornerDecor/CornerDecor'
-import Table from '../../../UI/table/Table'
-import { formatCurrency } from '../../../utils/formatCurrency'
+import PageNumber from './PageNumber';
+import { PaginationButtonSvg } from '../../../svg';
+import Button from '../../../UI/button/Button';
+import CornerDecor from '../../../UI/cornerDecor/CornerDecor';
+import Table from '../../../UI/table/Table';
+import { formatCurrency } from '../../../utils/formatCurrency';
 
-import styles from './InfoTables.module.css'
+import styles from './InfoTables.module.css';
 
 const PoolsTable = props => {
-  const router = useRouter()
+  const router = useRouter();
 
   const InfoTablePool_Data = [
     {
@@ -294,13 +294,13 @@ const PoolsTable = props => {
         },
       ],
     },
-  ]
+  ];
 
-  const [pageCountPools, setPageCountPools] = useState(1)
-  const itemsPerPage = props.itemsPerPage || 10
+  const [pageCountPools, setPageCountPools] = useState(1);
+  const itemsPerPage = props.itemsPerPage || 10;
   const [filteredData, setFilteredData] = useState(
     InfoTablePool_Data.slice(itemsPerPage * (pageCountPools - 1), itemsPerPage - 1 + pageCountPools),
-  )
+  );
 
   return (
     <div className={styles.Table__wrapper}>
@@ -315,7 +315,7 @@ const PoolsTable = props => {
           customStyles={{ marginRight: '10px' }}
           title={<PaginationButtonSvg className={styles.back} pageCountTokens={pageCountPools} disabled={1} />}
           onClick={() => {
-            if (pageCountPools > 1) setPageCountPools(prevValue => prevValue - 1)
+            if (pageCountPools > 1) setPageCountPools(prevValue => prevValue - 1);
           }}
         />
         <PageNumber
@@ -345,11 +345,11 @@ const PoolsTable = props => {
           }}
           title={<PaginationButtonSvg className={styles.forward} pageCountTokens={pageCountPools} disabled={3} />}
           onClick={() => {
-            if (pageCountPools < 3) setPageCountPools(prevValue => prevValue + 1)
+            if (pageCountPools < 3) setPageCountPools(prevValue => prevValue + 1);
           }}
         />
       </div>
     </div>
-  )
-}
-export default PoolsTable
+  );
+};
+export default PoolsTable;

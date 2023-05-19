@@ -9,10 +9,10 @@ function BugBountyItem({ data }) {
               <div className='eligibility_description'>{item.text}</div>
             </div>
           </div>
-        )
+        );
       })}
     </div>
-  )
+  );
 }
 
-export default BugBountyItem
+export default BugBountyItem;

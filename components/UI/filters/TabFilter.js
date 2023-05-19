@@ -9,23 +9,23 @@ const TabFilter = props => {
             </>
           ) : (
             tab.label
-          )
+          );
 
           return (
             <div
               key={tab.id + tab.label}
               onClick={() => {
-                props.onClick(tab.label)
+                props.onClick(tab.label);
               }}
               className={props.activeMenu == tab.label ? `${props.css.active} ${props.css.item}` : props.css.item}
             >
               {tabContent}
             </div>
-          )
+          );
         })}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default TabFilter
+export default TabFilter;

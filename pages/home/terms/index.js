@@ -1,7 +1,7 @@
-import Terms from '../../../components/home/terms/Terms'
+import Terms from '../../../components/home/terms/Terms';
 
 function index() {
-  return <Terms />
+  return <Terms />;
 }
 
-export default index
+export default index;

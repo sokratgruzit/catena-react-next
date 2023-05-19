@@ -1,6 +1,6 @@
-import Image from 'next/image'
+import Image from 'next/image';
 
-import styles from './Finished.module.css'
+import styles from './Finished.module.css';
 
 const Finished = () => {
   return (
@@ -139,7 +139,7 @@ const Finished = () => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Finished
+export default Finished;

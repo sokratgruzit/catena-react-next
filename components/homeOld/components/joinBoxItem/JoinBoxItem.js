@@ -1,4 +1,4 @@
-import styles from './JoinBoxItem.module.css'
+import styles from './JoinBoxItem.module.css';
 
 const JoinBoxItem = ({ title, type, subTitle }) => {
   return (
@@ -8,7 +8,7 @@ const JoinBoxItem = ({ title, type, subTitle }) => {
       </h3>
       <p>{subTitle}</p>
     </div>
-  )
-}
+  );
+};
 
-export default JoinBoxItem
+export default JoinBoxItem;

@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 
-import styles from './MultiTextSvg.module.css'
-import listStyles from '../../ListItemRow.module.css'
+import styles from './MultiTextSvg.module.css';
+import listStyles from '../../ListItemRow.module.css';
 
 const MultiTextSvg = ({ data }) => {
   return (
@@ -15,7 +15,7 @@ const MultiTextSvg = ({ data }) => {
         <p className={styles.subTitle}>{data?.subTitle}</p>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default MultiTextSvg
+export default MultiTextSvg;

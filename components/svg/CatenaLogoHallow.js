@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const CatenaLogoHallow = ({ className, ...props }) => {
   return (
@@ -24,7 +24,7 @@ const CatenaLogoHallow = ({ className, ...props }) => {
         fill='#00FFF0'
       />
     </svg>
-  )
-}
+  );
+};
 
-export default CatenaLogoHallow
+export default CatenaLogoHallow;

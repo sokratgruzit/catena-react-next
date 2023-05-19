@@ -1,11 +1,11 @@
-import Image from 'next/image'
-import React from 'react'
+import Image from 'next/image';
+import React from 'react';
 
-import InfoOverview from '../../components/Info/InfoOverview/InfoOverview'
-import BackgroundImg from '../../public/images/Info/background/background.png'
-import smokeBackground from '../../public/images/Info/background/smokeBackground.png'
+import InfoOverview from '../../components/Info/InfoOverview/InfoOverview';
+import BackgroundImg from '../../public/images/Info/background/background.png';
+import smokeBackground from '../../public/images/Info/background/smokeBackground.png';
 
-import styles from '../../components/Info/InfoPages.module.css'
+import styles from '../../components/Info/InfoPages.module.css';
 
 const index = () => {
   return (
@@ -18,10 +18,10 @@ const index = () => {
         <Image src={smokeBackground} layout='responsive' objectFit='cover' alt='shit' quality={100} />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default index
+export default index;
 
 // export async function getStaticProps() {
 

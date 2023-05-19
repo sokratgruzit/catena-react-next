@@ -1,19 +1,28 @@
-import Image from 'next/image'
-import { useRouter } from 'next/router'
-import { useState, useRef } from 'react'
+import Image from 'next/image';
+import { useRouter } from 'next/router';
+import { useState, useRef } from 'react';
 
-import background from '../../../public/images/earn/background.png'
-import { VectorSvg, ArrowSvg, TableViewSvg, ComponentViewSvg, InfoIcon, ETHCORE, MathSignSvg, OpenSvg } from '../../svg'
-import CornerDecor from '../../UI/cornerDecor/CornerDecor'
-import Expand from '../../UI/expand/Expand'
-import ExpandButton from '../../UI/expand/ExpandButton'
-import Table from '../../UI/table/Table'
-import EarnRoutes from '../components/earnRoutes/EarnRoutes'
-import FarmsTableComponent from '../components/farmsTable/FarmsTableComponent'
-import FarmsTableRowExpand from '../components/farmsTable/FarmsTableRowExpand'
-import TableFilter from '../components/tableFilter/TableFilter'
+import background from '../../../public/images/earn/background.png';
+import {
+  VectorSvg,
+  ArrowSvg,
+  TableViewSvg,
+  ComponentViewSvg,
+  InfoIcon,
+  ETHCORE,
+  MathSignSvg,
+  OpenSvg,
+} from '../../svg';
+import CornerDecor from '../../UI/cornerDecor/CornerDecor';
+import Expand from '../../UI/expand/Expand';
+import ExpandButton from '../../UI/expand/ExpandButton';
+import Table from '../../UI/table/Table';
+import EarnRoutes from '../components/earnRoutes/EarnRoutes';
+import FarmsTableComponent from '../components/farmsTable/FarmsTableComponent';
+import FarmsTableRowExpand from '../components/farmsTable/FarmsTableRowExpand';
+import TableFilter from '../components/tableFilter/TableFilter';
 
-import styles from './Farms.module.css'
+import styles from './Farms.module.css';
 
 const farmsData = [
   {
@@ -166,20 +175,20 @@ const farmsData = [
       },
     ],
   },
-]
+];
 
-const FilterData = ['hot', 'apr', 'multiplier', 'earned', 'liquidity']
+const FilterData = ['hot', 'apr', 'multiplier', 'earned', 'liquidity'];
 
 const Farms = () => {
   const [filter, setFilter] = useState({
     open: false,
     selected: FilterData[0],
-  })
-  const [search, setSearch] = useState('')
-  const [dataViewType, setDataViewType] = useState('table')
+  });
+  const [search, setSearch] = useState('');
+  const [dataViewType, setDataViewType] = useState('table');
 
-  const router = useRouter()
-  const selectRef = useRef()
+  const router = useRouter();
+  const selectRef = useRef();
 
   return (
     <>
@@ -236,7 +245,7 @@ const Farms = () => {
                   {filter.open && (
                     <>
                       {FilterData.map((FilterName, index) => {
-                        if (FilterName === filter.selected) return false
+                        if (FilterName === filter.selected) return false;
                         return (
                           <p
                             key={FilterName}
@@ -245,12 +254,12 @@ const Farms = () => {
                               setFilter({
                                 open: 'false',
                                 selected: FilterName,
-                              })
+                              });
                             }}
                           >
                             {FilterName}
                           </p>
-                        )
+                        );
                       })}
                     </>
                   )}
@@ -293,7 +302,7 @@ const Farms = () => {
           <div className={styles.componentsViewSection}>
             {farmsData
               .filter(item => {
-                return search.toLowerCase() === '' ? item : item.title.toLowerCase().includes(search)
+                return search.toLowerCase() === '' ? item : item.title.toLowerCase().includes(search);
               })
               .map((item, index) => {
                 return (
@@ -320,13 +329,13 @@ const Farms = () => {
                       <FarmsTableComponent item={item} />
                     </Expand>
                   </div>
-                )
+                );
               })}
           </div>
         )}
       </main>
     </>
-  )
-}
+  );
+};
 
-export default Farms
+export default Farms;

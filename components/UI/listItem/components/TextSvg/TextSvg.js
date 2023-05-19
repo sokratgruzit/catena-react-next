@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 
-import styles from './TextSvg.module.css'
-import listStyles from '../../ListItemRow.module.css'
+import styles from './TextSvg.module.css';
+import listStyles from '../../ListItemRow.module.css';
 
 const TextSvg = ({ data }) => {
   return (
@@ -38,7 +38,7 @@ const TextSvg = ({ data }) => {
       </svg>
       {/* </Link> */}
     </div>
-  )
-}
+  );
+};
 
-export default TextSvg
+export default TextSvg;

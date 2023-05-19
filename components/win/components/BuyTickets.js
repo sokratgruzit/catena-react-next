@@ -1,35 +1,35 @@
-import React, { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 // import ButtonWallet from './ButtonWallet';
-import CornerDecor from '../../UI/cornerDecor/CornerDecor'
+import CornerDecor from '../../UI/cornerDecor/CornerDecor';
 
-import styles from './BuyTickets.module.css'
+import styles from './BuyTickets.module.css';
 
 const BuyTickets = () => {
-  const [value, setValue] = useState('')
-  const activebtns = useSelector(state => state.activeBuyTicketsBtn)
-  const dispatch = useDispatch()
+  const [value, setValue] = useState('');
+  const activebtns = useSelector(state => state.activeBuyTicketsBtn);
+  const dispatch = useDispatch();
 
-  let cost = value * 1.72
-  let discountCake = value * 0.00774
-  let discountPercent = value * 22.2
-  let pay = cost - discountCake
+  let cost = value * 1.72;
+  let discountCake = value * 0.00774;
+  let discountPercent = value * 22.2;
+  let pay = cost - discountCake;
   const inputValue = e => {
     if (value >= 0 && value <= 100) {
-      setValue(e.target.value)
+      setValue(e.target.value);
     } else {
-      value === 100
+      value === 100;
     }
-  }
+  };
   const ticketBtns = () => {
     dispatch({
       type: 'BUY_TICKETS_ACTIVE',
       payload: {
         activeBuyTicketsBtn: !activebtns,
       },
-    })
-  }
+    });
+  };
 
   return (
     <div className={styles.container}>
@@ -40,7 +40,7 @@ const BuyTickets = () => {
             <p>Buy Tickets</p>
             <button
               onClick={() => {
-                ticketBtns()
+                ticketBtns();
               }}
             >
               <svg width='11' height='11' viewBox='0 0 11 11' fill='none' xmlns='http://www.w3.org/2000/svg'>
@@ -107,7 +107,7 @@ const BuyTickets = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default BuyTickets
+export default BuyTickets;

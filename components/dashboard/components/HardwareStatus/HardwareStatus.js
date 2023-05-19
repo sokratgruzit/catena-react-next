@@ -1,8 +1,8 @@
-import React from 'react'
+import React from 'react';
 
-import CPUstats from '../CPUstats/CPUstats'
+import CPUstats from '../CPUstats/CPUstats';
 
-import styles from './HardwareStatus.module.css'
+import styles from './HardwareStatus.module.css';
 
 const HardwareStatus = () => {
   return (
@@ -87,7 +87,7 @@ const HardwareStatus = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default HardwareStatus
+export default HardwareStatus;

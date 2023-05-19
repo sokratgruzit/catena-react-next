@@ -1,8 +1,8 @@
-import React from 'react'
+import React from 'react';
 
-import { CatenaLogoHallow } from '../../../svg'
+import { CatenaLogoHallow } from '../../../svg';
 
-import styles from './SoftwareStatus.module.css'
+import styles from './SoftwareStatus.module.css';
 
 const SoftwareStatus = () => {
   return (
@@ -46,7 +46,7 @@ const SoftwareStatus = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default SoftwareStatus
+export default SoftwareStatus;

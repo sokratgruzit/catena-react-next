@@ -1,9 +1,9 @@
-import React from 'react'
+import React from 'react';
 
-import Collections from '../../../components/nfts/Collections'
+import Collections from '../../../components/nfts/Collections';
 
 const index = () => {
-  return <Collections />
-}
+  return <Collections />;
+};
 
-export default index
+export default index;

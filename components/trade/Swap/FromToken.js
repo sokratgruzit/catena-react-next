@@ -1,12 +1,12 @@
 // import "./token/token.css";
-import React from 'react'
-import Web3 from 'web3'
+import React from 'react';
+import Web3 from 'web3';
 
-import { tokenList } from './token/token'
-import WBNB from '../../abi/WBNB.json'
-import CornerDecor from '../../UI/cornerDecor/CornerDecor'
+import { tokenList } from './token/token';
+import WBNB from '../../abi/WBNB.json';
+import CornerDecor from '../../UI/cornerDecor/CornerDecor';
 
-import styles from './SwapBox.module.css'
+import styles from './SwapBox.module.css';
 
 export default function SelectToken({
   setIsOpen,
@@ -18,17 +18,17 @@ export default function SelectToken({
   getTokenBalance,
 }) {
   const searchToken = async search => {
-    var token = tokenList(search)
+    var token = tokenList(search);
 
     if (token.length === 0) {
-      const web3 = new Web3('https://bsc-dataseed1.binance.org/')
-      var isAddress = web3.utils.isAddress(search)
+      const web3 = new Web3('https://bsc-dataseed1.binance.org/');
+      var isAddress = web3.utils.isAddress(search);
 
       if (isAddress) {
-        const contract = new web3.eth.Contract(WBNB, search)
-        const name = await contract.methods.name().call()
-        const symbol = await contract.methods.symbol().call()
-        const decimals = await contract.methods.decimals().call()
+        const contract = new web3.eth.Contract(WBNB, search);
+        const name = await contract.methods.name().call();
+        const symbol = await contract.methods.symbol().call();
+        const decimals = await contract.methods.decimals().call();
 
         var tokenInfo = [
           {
@@ -38,16 +38,16 @@ export default function SelectToken({
             decimals: decimals,
             logo: '/images/information.png',
           },
-        ]
+        ];
 
-        setTokenInfo(tokenInfo)
+        setTokenInfo(tokenInfo);
       } else {
-        setTokenInfo(tokenList(search))
+        setTokenInfo(tokenList(search));
       }
     } else {
-      setTokenInfo(tokenList(search))
+      setTokenInfo(tokenList(search));
     }
-  }
+  };
 
   return (
     <div className={`${styles.swapContainerModal} ${styles.swapContainerActive}`}>
@@ -88,13 +88,13 @@ export default function SelectToken({
             className={styles.swapContainerToken}
             key={index}
             onClick={e => {
-              setFromToken(row)
-              getTokenBalance(row.address, 'From')
-              setIsOpen(false)
+              setFromToken(row);
+              getTokenBalance(row.address, 'From');
+              setIsOpen(false);
               setTimeout(function () {
-                e.target.value = fromAmount
-                quateSwap(e)
-              }, 1000)
+                e.target.value = fromAmount;
+                quateSwap(e);
+              }, 1000);
             }}
           >
             <div className={styles.swapSelectBtnTop}>
@@ -106,5 +106,5 @@ export default function SelectToken({
         ))}
       </div>
     </div>
-  )
+  );
 }

@@ -1,7 +1,7 @@
-import Image from 'next/image'
-import React from 'react'
+import Image from 'next/image';
+import React from 'react';
 
-import styles from './WinningCriteria.module.css'
+import styles from './WinningCriteria.module.css';
 
 const WinningCriteria = () => {
   return (
@@ -51,7 +51,7 @@ const WinningCriteria = () => {
         </p>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default WinningCriteria
+export default WinningCriteria;

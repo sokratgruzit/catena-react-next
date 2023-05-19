@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const CloseTag = props => (
   <svg width='56' height='21' viewBox='0 0 56 21' fill='none' xmlns='http://www.w3.org/2000/svg' {...props}>
@@ -20,6 +20,6 @@ const CloseTag = props => (
       fill='#B0BEC5'
     />
   </svg>
-)
+);
 
-export default CloseTag
+export default CloseTag;

@@ -1,9 +1,9 @@
-import Image from 'next/image'
-import React from 'react'
+import Image from 'next/image';
+import React from 'react';
 
-import CornerDecor from '../../UI/cornerDecor/CornerDecor'
+import CornerDecor from '../../UI/cornerDecor/CornerDecor';
 
-import styles from './PrizeFunds.module.css'
+import styles from './PrizeFunds.module.css';
 
 let statisticsData = [
   {
@@ -48,7 +48,7 @@ let statisticsData = [
     percent: '20%',
     color: '#FF8A65',
   },
-]
+];
 
 const PrizeFunds = () => {
   return (
@@ -114,7 +114,7 @@ const PrizeFunds = () => {
                     </div>
                     <p>{item.percent}</p>
                   </div>
-                )
+                );
               })}
             </div>
           </div>
@@ -127,7 +127,7 @@ const PrizeFunds = () => {
         </p>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default PrizeFunds
+export default PrizeFunds;

@@ -1,8 +1,8 @@
-import Image from 'next/image'
-import React, { useState, useRef } from 'react'
+import Image from 'next/image';
+import React, { useState, useRef } from 'react';
 
-import { useWindowDimension } from '../../../hooks/useWindowDimension'
-import background from '../../../public/images/earn/background.png'
+import { useWindowDimension } from '../../../hooks/useWindowDimension';
+import background from '../../../public/images/earn/background.png';
 import {
   ClockSvg,
   ComponentViewSvg,
@@ -13,18 +13,18 @@ import {
   OpenSvg,
   TableViewSvg,
   VectorSvg,
-} from '../../svg'
-import Button from '../../UI/button/Button'
-import CornerDecor from '../../UI/cornerDecor/CornerDecor'
-import Expand from '../../UI/expand/Expand'
-import ListItemRow from '../../UI/listItem/ListItemRow'
-import EarnRoutes from '../components/earnRoutes/EarnRoutes'
-import PoolsTableComponent from '../components/poolsTable/PoolsTableComponent'
-import PoolsTableComponentExpand from '../components/poolsTable/PoolsTableComponentExpand'
-import PoolsTableRowExpand from '../components/poolsTable/PoolsTableRowExpand'
-import TableFilter from '../components/tableFilter/TableFilter'
+} from '../../svg';
+import Button from '../../UI/button/Button';
+import CornerDecor from '../../UI/cornerDecor/CornerDecor';
+import Expand from '../../UI/expand/Expand';
+import ListItemRow from '../../UI/listItem/ListItemRow';
+import EarnRoutes from '../components/earnRoutes/EarnRoutes';
+import PoolsTableComponent from '../components/poolsTable/PoolsTableComponent';
+import PoolsTableComponentExpand from '../components/poolsTable/PoolsTableComponentExpand';
+import PoolsTableRowExpand from '../components/poolsTable/PoolsTableRowExpand';
+import TableFilter from '../components/tableFilter/TableFilter';
 
-import styles from './Pools.module.css'
+import styles from './Pools.module.css';
 
 const poolsData2 = [
   {
@@ -293,19 +293,19 @@ const poolsData2 = [
       },
     ],
   },
-]
+];
 
-const FilterData = ['hot', 'apr', 'multiplier', 'earned', 'liquidity']
+const FilterData = ['hot', 'apr', 'multiplier', 'earned', 'liquidity'];
 
 const Pools = () => {
-  const [width] = useWindowDimension()
-  const [dataViewType, setDataViewType] = useState('table')
-  const [search, setSearch] = useState('')
+  const [width] = useWindowDimension();
+  const [dataViewType, setDataViewType] = useState('table');
+  const [search, setSearch] = useState('');
   const [filter, setFilter] = useState({
     open: false,
     selected: FilterData[0],
-  })
-  const selectRef = useRef()
+  });
+  const selectRef = useRef();
 
   return (
     <>
@@ -378,7 +378,7 @@ const Pools = () => {
                   {filter.open && (
                     <>
                       {FilterData.map((FilterName, index) => {
-                        if (FilterName === filter.selected) return false
+                        if (FilterName === filter.selected) return false;
                         return (
                           <p
                             key={FilterName}
@@ -387,12 +387,12 @@ const Pools = () => {
                               setFilter({
                                 open: 'false',
                                 selected: FilterName,
-                              })
+                              });
                             }}
                           >
                             {FilterName}
                           </p>
-                        )
+                        );
                       })}
                     </>
                   )}
@@ -415,7 +415,7 @@ const Pools = () => {
                 <Expand expandContent={<PoolsTableRowExpand item={item} />} className={styles.borderBottom} key={index}>
                   <ListItemRow data={item} type={'earn_pools'} />
                 </Expand>
-              )
+              );
             })}
           </div>
         )}
@@ -433,7 +433,7 @@ const Pools = () => {
         )}
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Pools
+export default Pools;

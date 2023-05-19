@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 
-import SupportItem from './components/SupportItem'
-import Title from '../components/Title'
+import SupportItem from './components/SupportItem';
+import Title from '../components/Title';
 
 const Support = () => {
   return (
@@ -13,7 +13,7 @@ const Support = () => {
       </div>
       <SupportItem />
     </div>
-  )
-}
+  );
+};
 
-export default Support
+export default Support;

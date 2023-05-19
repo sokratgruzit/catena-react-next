@@ -23,7 +23,7 @@ const AddSquareIcon = ({ color }) => {
         strokeLinejoin='round'
       />
     </svg>
-  )
-}
+  );
+};
 
-export default AddSquareIcon
+export default AddSquareIcon;

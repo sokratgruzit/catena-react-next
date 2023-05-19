@@ -1,9 +1,9 @@
-import Image from 'next/image'
+import Image from 'next/image';
 
-import Finished from './Finished'
-import FAQ from '../../faqOld/FAQ'
+import Finished from './Finished';
+import FAQ from '../../faqOld/FAQ';
 
-import styles from './Rules.module.css'
+import styles from './Rules.module.css';
 
 const Rules = () => {
   return (
@@ -226,7 +226,7 @@ const Rules = () => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Rules
+export default Rules;

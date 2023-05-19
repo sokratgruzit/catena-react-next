@@ -1,7 +1,7 @@
-import Support from '../../../components/home/supportCenter/Support'
+import Support from '../../../components/home/supportCenter/Support';
 
 const index = () => {
-  return <Support />
-}
+  return <Support />;
+};
 
-export default index
+export default index;

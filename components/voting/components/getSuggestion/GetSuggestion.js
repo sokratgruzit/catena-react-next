@@ -1,6 +1,6 @@
-import { Button } from '@catena-network/catena-ui-module'
+import { Button } from '@catena-network/catena-ui-module';
 
-import styles from './GetSuggestion.module.css'
+import styles from './GetSuggestion.module.css';
 
 const GetSuggestion = ({ setActive }) => {
   return (
@@ -23,7 +23,7 @@ const GetSuggestion = ({ setActive }) => {
         />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default GetSuggestion
+export default GetSuggestion;

@@ -1,8 +1,8 @@
-import React from 'react'
+import React from 'react';
 
-import { ProposalsText } from '../../../svg'
+import { ProposalsText } from '../../../svg';
 
-import styles from './RunningText.module.css'
+import styles from './RunningText.module.css';
 
 const RunningText = () => {
   return (
@@ -16,7 +16,7 @@ const RunningText = () => {
         <ProposalsText opacity={0.3} />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default RunningText
+export default RunningText;

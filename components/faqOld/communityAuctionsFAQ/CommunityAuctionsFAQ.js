@@ -1,9 +1,9 @@
-import React from 'react'
+import React from 'react';
 
-import Question from './questionRows/Question'
-import Expand from '../../UI/expand/Expand'
+import Question from './questionRows/Question';
+import Expand from '../../UI/expand/Expand';
 
-import styles from './CommunityAuctionsFAQ.module.css'
+import styles from './CommunityAuctionsFAQ.module.css';
 
 const CommunityAuctionsFAQ = () => {
   return (
@@ -79,7 +79,7 @@ const CommunityAuctionsFAQ = () => {
         <Question title={'Step 4: After the auction'} />
       </Expand>
     </div>
-  )
-}
+  );
+};
 
-export default CommunityAuctionsFAQ
+export default CommunityAuctionsFAQ;

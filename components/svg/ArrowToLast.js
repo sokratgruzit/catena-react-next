@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const ArrowToLast = props => (
   <svg width='17' height='11' viewBox='0 0 17 11' fill='white' xmlns='http://www.w3.org/2000/svg' {...props}>
@@ -18,6 +18,6 @@ const ArrowToLast = props => (
       d='M15.8506 0.987793C16.4029 0.987793 16.8506 1.43551 16.8506 1.98779V9.98779C16.8506 10.5401 16.4029 10.9878 15.8506 10.9878C15.2983 10.9878 14.8506 10.5401 14.8506 9.98779V1.98779C14.8506 1.43551 15.2983 0.987793 15.8506 0.987793Z'
     />
   </svg>
-)
+);
 
-export default ArrowToLast
+export default ArrowToLast;

@@ -1,15 +1,15 @@
-import Image from 'next/image'
-import Link from 'next/link'
-import { useRouter } from 'next/router'
-import useTranslation from 'next-translate/useTranslation'
-import { useState, useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import Image from 'next/image';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import useTranslation from 'next-translate/useTranslation';
+import { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
-import useConnect from '../../hooks/use-connect'
-import Button from '../UI/button/Button'
-import Tooltip from '../UI/tooltip/Tooltip'
+import useConnect from '../../hooks/use-connect';
+import Button from '../UI/button/Button';
+import Tooltip from '../UI/tooltip/Tooltip';
 
-import styles from './Header.module.css'
+import styles from './Header.module.css';
 
 const LANG_DATA = [
   {
@@ -27,7 +27,7 @@ const LANG_DATA = [
     title: 'FR',
     fullName: 'Français',
   },
-]
+];
 
 const WALLETS_DATA = [
   {
@@ -42,27 +42,27 @@ const WALLETS_DATA = [
     img: 'walletconnect.png',
     type: 'walletConnect',
   },
-]
+];
 
 const Header = () => {
-  const { connect, disconnect, account, isActive, library, handleWalletModal } = useConnect()
-  const [activeMenu, setActiveMenu] = useState(null)
-  const [activeLangs, setActiveLangs] = useState(false)
-  const [activeSettings, setActiveSettings] = useState(false)
-  const [settingRightOffset, setSettingRightOffset] = useState(0)
-  const [activeBurger, setActiveBurger] = useState(false)
-  const [profileModal, setProfileModal] = useState(false)
-  const [connectBtnColor, setConnectBtnColor] = useState('red')
-  const [device, setDevice] = useState(null)
-  const walletModal = useSelector(state => state.connect.walletModal)
-  const isConnected = useSelector(state => state.connect.isConnected)
-  const slippage = useSelector(state => state.settings.slippage)
-  const [balance, setBalance] = useState(0)
-  const [stickHead, setStickHead] = useState(false)
-  const { t } = useTranslation('header')
-  const [routerLocale, setRouterLocale] = useState(null)
+  const { connect, disconnect, account, isActive, library, handleWalletModal } = useConnect();
+  const [activeMenu, setActiveMenu] = useState(null);
+  const [activeLangs, setActiveLangs] = useState(false);
+  const [activeSettings, setActiveSettings] = useState(false);
+  const [settingRightOffset, setSettingRightOffset] = useState(0);
+  const [activeBurger, setActiveBurger] = useState(false);
+  const [profileModal, setProfileModal] = useState(false);
+  const [connectBtnColor, setConnectBtnColor] = useState('red');
+  const [device, setDevice] = useState(null);
+  const walletModal = useSelector(state => state.connect.walletModal);
+  const isConnected = useSelector(state => state.connect.isConnected);
+  const slippage = useSelector(state => state.settings.slippage);
+  const [balance, setBalance] = useState(0);
+  const [stickHead, setStickHead] = useState(false);
+  const { t } = useTranslation('header');
+  const [routerLocale, setRouterLocale] = useState(null);
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const NAV_DATA = [
     {
@@ -180,123 +180,123 @@ const Header = () => {
         },*/
       ],
     },
-  ]
+  ];
 
-  const router = useRouter()
+  const router = useRouter();
 
-  const { locale, pathname, asPath, query } = useRouter()
+  const { locale, pathname, asPath, query } = useRouter();
   const changeLanguage = loc => {
     // i18n.changeLanguage(locale.toLowerCase());
-    router.push('', '', { locale: loc.toLowerCase() })
-    setRouterLocale(loc)
-  }
+    router.push('', '', { locale: loc.toLowerCase() });
+    setRouterLocale(loc);
+  };
 
-  let web3Obj = library
+  let web3Obj = library;
 
   const getBalance = async () => {
     if (web3Obj !== undefined) {
       web3Obj.eth.getBalance(account).then(res => {
-        setBalance(res)
-      })
+        setBalance(res);
+      });
     }
-  }
+  };
 
   const openMenu = id => {
     if (window.innerWidth >= 1024) {
-      closeAll()
+      closeAll();
     }
     if (activeMenu !== id) {
-      setActiveMenu(id)
+      setActiveMenu(id);
     } else {
-      setActiveMenu(null)
+      setActiveMenu(null);
     }
-  }
+  };
 
   const openLangs = state => {
-    closeAll()
-    setActiveLangs(state)
+    closeAll();
+    setActiveLangs(state);
     if (device === 'mobile') {
       if (state === true) {
-        setConnectBtnColor('white')
+        setConnectBtnColor('white');
       } else {
-        setConnectBtnColor('red')
+        setConnectBtnColor('red');
       }
     }
-  }
+  };
 
   const openSettings = state => {
-    closeAll()
-    setActiveSettings(state)
+    closeAll();
+    setActiveSettings(state);
     if (device === 'mobile') {
       if (state === true) {
-        setConnectBtnColor('white')
+        setConnectBtnColor('white');
       } else {
-        setConnectBtnColor('red')
+        setConnectBtnColor('red');
       }
     }
-  }
+  };
 
   const openBurger = () => {
-    closeAll()
+    closeAll();
     if (activeBurger) {
-      setActiveBurger(false)
+      setActiveBurger(false);
     } else {
-      setActiveBurger(true)
-      setConnectBtnColor('white')
+      setActiveBurger(true);
+      setConnectBtnColor('white');
     }
-  }
+  };
 
   const openProfile = () => {
-    closeAll()
+    closeAll();
     if (profileModal) {
-      setProfileModal(false)
+      setProfileModal(false);
     } else {
-      setProfileModal(true)
+      setProfileModal(true);
     }
-  }
+  };
 
   const closeAll = () => {
-    setActiveLangs(false)
-    setActiveSettings(false)
-    handleWalletModal(false)
-    setProfileModal(false)
-    setActiveLangs(false)
-    setActiveBurger(false)
-    setConnectBtnColor('red')
-  }
+    setActiveLangs(false);
+    setActiveSettings(false);
+    handleWalletModal(false);
+    setProfileModal(false);
+    setActiveLangs(false);
+    setActiveBurger(false);
+    setConnectBtnColor('red');
+  };
 
   useEffect(() => {
     if (isConnected) {
-      getBalance()
+      getBalance();
     } else {
-      setBalance(0)
+      setBalance(0);
     }
     // console.log(isConnected);
-  }, [account, isConnected])
+  }, [account, isConnected]);
 
   useEffect(() => {
     if (window.innerWidth >= 1024) {
-      setDevice('desktop')
+      setDevice('desktop');
     }
     if (window.innerWidth <= 767) {
     }
-    setRouterLocale(router.locale)
-  }, [])
+    setRouterLocale(router.locale);
+  }, []);
 
   useEffect(() => {
-    window.addEventListener('scroll', isSticky)
+    window.addEventListener('scroll', isSticky);
     return () => {
-      window.removeEventListener('scroll', isSticky)
-    }
-  })
+      window.removeEventListener('scroll', isSticky);
+    };
+  });
   const isSticky = e => {
-    const scrollTop = window.scrollY
+    const scrollTop = window.scrollY;
     if (scrollTop >= 10) {
-      setStickHead(true)
+      setStickHead(true);
     } else {
-      setStickHead(false)
+      setStickHead(false);
     }
-  }
+  };
 
   return (
     <div>
@@ -366,7 +366,7 @@ const Header = () => {
                   className={`${styles.headerNavLink} ${activeMenu === item.id ? styles.activeMenu : ''}`}
                   key={item.id}
                   onMouseLeave={() => {
-                    openMenu(null)
+                    openMenu(null);
                   }}
                 >
                   <i></i>
@@ -374,10 +374,10 @@ const Header = () => {
                     <a
                       className={`${styles.headerNavLinkTtl} ${activeMenu === item.id ? styles.activeTtl : ''}`}
                       onMouseEnter={() => {
-                        openMenu(item.id)
+                        openMenu(item.id);
                       }}
                       onClick={() => {
-                        openMenu(item.id)
+                        openMenu(item.id);
                       }}
                     >
                       {item.title}
@@ -410,11 +410,11 @@ const Header = () => {
                             </div>
                           </a>
                         </Link>
-                      )
+                      );
                     })}
                   </div>
                 </div>
-              )
+              );
             })}
             <div className={styles.headerMobileFooterOuter}>
               <div className={styles.headerMobileFooter}>
@@ -433,7 +433,7 @@ const Header = () => {
                   </div>
                   <div
                     onClick={() => {
-                      openLangs(true)
+                      openLangs(true);
                     }}
                   >
                     <svg width='21' height='20' viewBox='0 0 21 20' fill='none' xmlns='http://www.w3.org/2000/svg'>
@@ -547,7 +547,7 @@ const Header = () => {
                     <div
                       className={styles.headerLangNowMainTtl}
                       onClick={() => {
-                        openLangs(true)
+                        openLangs(true);
                       }}
                     >
                       <svg width='21' height='21' viewBox='0 0 21 21' fill='none' xmlns='http://www.w3.org/2000/svg'>
@@ -583,7 +583,7 @@ const Header = () => {
                     <div className={styles.modalsMobileTitle}>
                       <svg
                         onClick={() => {
-                          closeAll()
+                          closeAll();
                         }}
                         width='14'
                         height='10'
@@ -615,15 +615,15 @@ const Header = () => {
                             }`}
                             key={item.id}
                             onClick={() => {
-                              openLangs(false)
-                              changeLanguage(item.title)
+                              openLangs(false);
+                              changeLanguage(item.title);
                             }}
                           >
                             {item.fullName}
                             <div>-</div>
                             {item.title}
                           </div>
-                        )
+                        );
                       })}
                     </div>
                   </div>
@@ -640,9 +640,9 @@ const Header = () => {
                     xmlns='http://www.w3.org/2000/svg'
                     onClick={() => {
                       if (!activeSettings) {
-                        openSettings(true)
+                        openSettings(true);
                       } else {
-                        openSettings(false)
+                        openSettings(false);
                       }
                     }}
                   >
@@ -661,7 +661,7 @@ const Header = () => {
                   <div className={styles.modalsMobileTitle}>
                     <svg
                       onClick={() => {
-                        closeAll()
+                        closeAll();
                       }}
                       width='14'
                       height='10'
@@ -878,8 +878,8 @@ const Header = () => {
                   title={'Connect Wallet'}
                   type={`${connectBtnColor}`}
                   onClick={() => {
-                    closeAll()
-                    handleWalletModal(true)
+                    closeAll();
+                    handleWalletModal(true);
                   }}
                   customStyles={{
                     padding: '10px 20px',
@@ -894,7 +894,7 @@ const Header = () => {
                 <div
                   className={`${styles.headerConnectedBtn} ${profileModal ? styles.headerConnectedBtnActive : ''}`}
                   onClick={() => {
-                    openProfile()
+                    openProfile();
                   }}
                 >
                   <div className={styles.headerConnectedBtnImg}>
@@ -922,7 +922,7 @@ const Header = () => {
           <div
             className={`${styles.burger} ${activeBurger ? styles.activeBurger : ''}`}
             onClick={() => {
-              openBurger()
+              openBurger();
             }}
           >
             <span></span>
@@ -1006,8 +1006,8 @@ const Header = () => {
             <div
               className={styles.headerConnectedModalLink}
               onClick={() => {
-                closeAll()
-                disconnect()
+                closeAll();
+                disconnect();
               }}
             >
               <span>Disconnect Wallet</span>
@@ -1042,8 +1042,8 @@ const Header = () => {
                     transitionDelay: walletModal ? `${(index + 2) / 10}s` : null,
                   }}
                   onClick={() => {
-                    closeAll()
-                    connect(item.type)
+                    closeAll();
+                    connect(item.type);
                   }}
                 >
                   <div className={styles.connectWalletItem}>
@@ -1053,7 +1053,7 @@ const Header = () => {
                     <div>{item.title}</div>
                   </div>
                 </div>
-              )
+              );
             })}
           </div>
         </div>
@@ -1072,11 +1072,11 @@ const Header = () => {
             : ''
         }`}
         onClick={() => {
-          closeAll()
+          closeAll();
         }}
       ></div>
     </div>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

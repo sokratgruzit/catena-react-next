@@ -1,23 +1,23 @@
-import Image from 'next/image'
-import React, { useState } from 'react'
+import Image from 'next/image';
+import React, { useState } from 'react';
 
-import Expand from '../UI/expand/Expand'
+import Expand from '../UI/expand/Expand';
 
-import styles from './FAQ.module.css'
+import styles from './FAQ.module.css';
 
 const FAQ = props => {
-  const [answers, setAnswers] = useState(null)
+  const [answers, setAnswers] = useState(null);
 
-  let FAQ = ''
-  let content = ''
+  let FAQ = '';
+  let content = '';
 
   let openFaq = id => {
     if (answers === id) {
-      setAnswers(null)
+      setAnswers(null);
     } else {
-      setAnswers(id)
+      setAnswers(id);
     }
-  }
+  };
   if (props.type === 'overview') {
     FAQ = [
       {
@@ -43,7 +43,7 @@ const FAQ = props => {
         answer:
           'Team ranks are calculated by the total combined volume of the top 500 members of each respective team.',
       },
-    ]
+    ];
     content = (
       <div className={styles.Faq}>
         <Image
@@ -60,7 +60,7 @@ const FAQ = props => {
                 className={styles.expandWrap}
                 key={item.id}
                 onClick={() => {
-                  openFaq(item.id)
+                  openFaq(item.id);
                 }}
               >
                 <p
@@ -95,11 +95,11 @@ const FAQ = props => {
                   <p className={styles.Faq__item__answer}>- {item.answer}</p>
                 </div>
               </Expand>
-            )
+            );
           })}
         </div>
       </div>
-    )
+    );
   }
 
   if (props.type === 'auctionFAQ') {
@@ -128,7 +128,7 @@ const FAQ = props => {
           'Projects can submit an application to sponsor a yield farm and/or pool on PancakeSwap via the Application Form',
         id: 3,
       },
-    ]
+    ];
     content = (
       <div className={styles.auction__faqExpendContainer}>
         <div className={`${styles.askedQuestions} font_30`}>Frequently Asked Questions</div>
@@ -140,7 +140,7 @@ const FAQ = props => {
                 className={styles.expandWrap}
                 key={item.id}
                 onClick={() => {
-                  openFaq(item.id)
+                  openFaq(item.id);
                 }}
               >
                 <p
@@ -175,14 +175,14 @@ const FAQ = props => {
                   <p className={styles.Faq__item__answer}>- {item.answer}</p>
                 </div>
               </Expand>
-            )
+            );
           })}
         </div>
       </div>
-    )
+    );
   }
 
-  return <>{content}</>
-}
+  return <>{content}</>;
+};
 
-export default FAQ
+export default FAQ;

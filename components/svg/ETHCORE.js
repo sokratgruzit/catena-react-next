@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const ETHCORE = props => (
   <svg width='51' height='31' viewBox='0 0 51 31' fill='none' xmlns='http://www.w3.org/2000/svg' {...props}>
@@ -32,6 +32,6 @@ const ETHCORE = props => (
       </clipPath>
     </defs>
   </svg>
-)
+);
 
-export default ETHCORE
+export default ETHCORE;

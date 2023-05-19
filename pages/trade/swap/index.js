@@ -1,9 +1,9 @@
-import React from 'react'
+import React from 'react';
 
-import SwapBox from '../../../components/trade/Swap/SwapBox'
+import SwapBox from '../../../components/trade/Swap/SwapBox';
 
 const index = () => {
-  return <SwapBox />
-}
+  return <SwapBox />;
+};
 
-export default index
+export default index;

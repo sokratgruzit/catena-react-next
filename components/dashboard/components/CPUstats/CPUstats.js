@@ -1,12 +1,12 @@
-import dynamic from 'next/dynamic'
-import React from 'react'
+import dynamic from 'next/dynamic';
+import React from 'react';
 
-import styles from './CPUstats.module.css'
+import styles from './CPUstats.module.css';
 
 const ReactApexChart = dynamic(() => import('react-apexcharts'), {
   loading: () => <p>Loading...</p>,
   ssr: false,
-})
+});
 
 const CPUstats = ({ label }) => {
   const options = {
@@ -68,14 +68,14 @@ const CPUstats = ({ label }) => {
       dashArray: 4,
     },
     labels: [label],
-  }
+  };
 
   return (
     <div className={`${styles.CPUStats} cpu-chart`}>
       <ReactApexChart options={options} series={[60]} type='radialBar' height={'100%'} />
       <div className={styles.borderRound}></div>
     </div>
-  )
-}
+  );
+};
 
-export default CPUstats
+export default CPUstats;

@@ -1,8 +1,8 @@
-import BugBountyItem from './components/BugBountyItem'
-import BugBountyList from './components/BugBountyList'
-import BugBountyNumList from './components/BugBountyNumList'
-import BugBountyRewards from './components/BugBountyRewards'
-import BugBountyTitle from './components/BugBountyTitle'
+import BugBountyItem from './components/BugBountyItem';
+import BugBountyList from './components/BugBountyList';
+import BugBountyNumList from './components/BugBountyNumList';
+import BugBountyRewards from './components/BugBountyRewards';
+import BugBountyTitle from './components/BugBountyTitle';
 
 function BugBounty() {
   let data = [
@@ -10,13 +10,13 @@ function BugBounty() {
       title: 'Eligibility',
       text: 'Any bug that poses a serious vulnerability to the entire network, protocols, implementation, or security, could be eligible for a reward. It is entirely at our discretion to decide whether a bug is serious and significant enough to be eligible.',
     },
-  ]
+  ];
   let reportData = [
     {
       title: 'Report a Bug?',
       text: 'Submission quality largely determines the reward. Including an explanation of how the bug was discovered, how it can be reproduced, and other critical details increases the quality of the submission. Disclosure to any third parties disqualifies bug bounty eligibility. The ideal report includes the following:',
     },
-  ]
+  ];
 
   let listData = [
     {
@@ -32,7 +32,7 @@ function BugBounty() {
         'Authentication Bypass',
       ],
     },
-  ]
+  ];
 
   let list = [
     {
@@ -66,7 +66,7 @@ function BugBounty() {
         'Disrupt of services',
       ],
     },
-  ]
+  ];
 
   let numList = [
     {
@@ -79,7 +79,7 @@ function BugBounty() {
         'Provide adequate time for CORE to respond before disclosing Bug to others',
       ],
     },
-  ]
+  ];
 
   return (
     <div className='container'>
@@ -91,7 +91,7 @@ function BugBounty() {
       <BugBountyItem data={reportData} />
       <BugBountyNumList data={numList} />
     </div>
-  )
+  );
 }
 
-export default BugBounty
+export default BugBounty;

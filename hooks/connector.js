@@ -1,9 +1,9 @@
-import { InjectedConnector } from '@web3-react/injected-connector'
-import { WalletConnectConnector } from '@web3-react/walletconnect-connector'
+import { InjectedConnector } from '@web3-react/injected-connector';
+import { WalletConnectConnector } from '@web3-react/walletconnect-connector';
 
 export const injected = new InjectedConnector({
   supportedChainIds: [4, 97],
-})
+});
 
 export const walletConnect = new WalletConnectConnector({
   rpc: {
@@ -13,4 +13,4 @@ export const walletConnect = new WalletConnectConnector({
   bridge: 'https://bridge.walletconnect.org',
   qrcode: true,
   pollingInterval: 12000,
-})
+});

@@ -23,7 +23,7 @@ const EarnIcon = () => {
         strokeLinejoin='round'
       />
     </svg>
-  )
-}
+  );
+};
 
-export default EarnIcon
+export default EarnIcon;

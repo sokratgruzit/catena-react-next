@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const NextSvg = props => (
   <svg width='15' height='15' viewBox='0 0 15 15' fill='none' xmlns='http://www.w3.org/2000/svg' {...props}>
@@ -8,5 +8,5 @@ const NextSvg = props => (
       fill='#0500FF'
     />
   </svg>
-)
-export default NextSvg
+);
+export default NextSvg;

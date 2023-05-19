@@ -1,63 +1,63 @@
-import React, { useState, useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { toast } from 'react-toastify'
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
 
-import FromToken from './FromToken'
-import { tokenList } from './token/token'
-import ToToken from './ToToken'
-import CornerDecor from '../../../components/UI/cornerDecor/CornerDecor'
-import useMetaMask from '../../../hooks/use-connect'
-import PANCAKE_ABI from '../../abi/Router.json'
-import WBNB from '../../abi/WBNB.json'
+import FromToken from './FromToken';
+import { tokenList } from './token/token';
+import ToToken from './ToToken';
+import CornerDecor from '../../../components/UI/cornerDecor/CornerDecor';
+import useMetaMask from '../../../hooks/use-connect';
+import PANCAKE_ABI from '../../abi/Router.json';
+import WBNB from '../../abi/WBNB.json';
 
-import styles from './SwapBox.module.css'
+import styles from './SwapBox.module.css';
 
 // import ImportToken from "../components/ImportToken";
 // import WarnToken from "../components/WarnToken";
 
-import 'react-toastify/dist/ReactToastify.css'
+import 'react-toastify/dist/ReactToastify.css';
 
 function getRPCErrorMessage(error) {
-  const start = error.message.indexOf('{')
-  const end = error.message.indexOf('}')
+  const start = error.message.indexOf('{');
+  const end = error.message.indexOf('}');
   if (start && end) {
-    error = JSON.parse(error.message.substring(start, end + 1))
+    error = JSON.parse(error.message.substring(start, end + 1));
   }
 
-  return error
+  return error;
 }
 
 const SwapBox = () => {
-  const [tab, setTab] = useState(0)
-  const [slippageBox, setSlippageBox] = useState(false)
-  const [swapSelect, setSwapSelect] = useState(false)
+  const [tab, setTab] = useState(0);
+  const [slippageBox, setSlippageBox] = useState(false);
+  const [swapSelect, setSwapSelect] = useState(false);
 
-  const { library, account, isActive, chainId } = useMetaMask()
-  var web3Obj = library
-  var Router = '0x10ED43C718714eb63d5aA57B78B54704E256024E'
+  const { library, account, isActive, chainId } = useMetaMask();
+  var web3Obj = library;
+  var Router = '0x10ED43C718714eb63d5aA57B78B54704E256024E';
 
-  const [fromModal, setFromModal] = useState(false)
-  const [toModal, setToModal] = useState(false)
+  const [fromModal, setFromModal] = useState(false);
+  const [toModal, setToModal] = useState(false);
 
-  const [tokenInfo, setTokenInfo] = useState([])
+  const [tokenInfo, setTokenInfo] = useState([]);
 
-  const [fromToken, setFromToken] = useState({})
-  const [fromAmount, setFromAmount] = useState('')
-  const [toToken, setToToken] = useState('')
-  const [toAmount, setToAmount] = useState(0)
+  const [fromToken, setFromToken] = useState({});
+  const [fromAmount, setFromAmount] = useState('');
+  const [toToken, setToToken] = useState('');
+  const [toAmount, setToAmount] = useState(0);
 
-  const [fromBalance, setFromBalance] = useState(0)
-  const [toBalance, setToBalance] = useState(0)
+  const [fromBalance, setFromBalance] = useState(0);
+  const [toBalance, setToBalance] = useState(0);
 
-  const slippage = useSelector(state => state.settings.slippage)
-  const [deadLine, setDeadLine] = useState(20)
-  const [swapActive, setSwapActive] = useState(false)
-  const [isAllowance, setIsAllowance] = useState(true)
-  const [loading, setLoadding] = useState(true)
+  const slippage = useSelector(state => state.settings.slippage);
+  const [deadLine, setDeadLine] = useState(20);
+  const [swapActive, setSwapActive] = useState(false);
+  const [isAllowance, setIsAllowance] = useState(true);
+  const [loading, setLoadding] = useState(true);
 
-  const [isBscNetwork, setIsBscNetwork] = useState(false)
+  const [isBscNetwork, setIsBscNetwork] = useState(false);
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const successAlert = tx => {
     return (
@@ -68,123 +68,123 @@ const SwapBox = () => {
           View on Explorer
         </a>
       </div>
-    )
-  }
+    );
+  };
 
   const notify = (isError, msg) => {
     if (isError) {
       toast.error(msg, {
         position: toast.POSITION.TOP_RIGHT,
-      })
+      });
     } else {
       toast.success(msg, {
         position: toast.POSITION.TOP_RIGHT,
-      })
+      });
     }
-  }
+  };
 
   const approve = async () => {
-    setLoadding(true)
+    setLoadding(true);
     try {
       if (!fromToken.address) {
-        return
+        return;
       }
 
-      var contract = new web3Obj.eth.Contract(WBNB, fromToken.address)
+      var contract = new web3Obj.eth.Contract(WBNB, fromToken.address);
       // const decimals = await contract.methods.decimals().call();
       // var amountIn = new ethers.utils.BigNumber("10").pow(69);
-      var amountIn = 10 ** 69
-      amountIn = amountIn.toLocaleString('fullwide', { useGrouping: false })
+      var amountIn = 10 ** 69;
+      amountIn = amountIn.toLocaleString('fullwide', { useGrouping: false });
 
-      await contract.methods.approve(Router, amountIn.toString()).send({ from: account })
-      setLoadding(false)
-      setIsAllowance(false)
+      await contract.methods.approve(Router, amountIn.toString()).send({ from: account });
+      setLoadding(false);
+      setIsAllowance(false);
     } catch (err) {
-      console.log(err)
+      console.log(err);
     }
-  }
+  };
 
   const quateSwap = async e => {
-    setLoadding(true)
+    setLoadding(true);
     try {
-      setFromAmount(e.target.value)
-      setIsAllowance(true)
-      var fromAmount = e.target.value
+      setFromAmount(e.target.value);
+      setIsAllowance(true);
+      var fromAmount = e.target.value;
 
       if (!fromToken || !toToken || fromAmount <= 0) {
-        setLoadding(false)
-        return
+        setLoadding(false);
+        return;
       }
 
-      var fromTokenContract = new web3Obj.eth.Contract(WBNB, fromToken.address)
-      var fromTokenDecimals = await fromTokenContract.methods.decimals().call()
-      var allowance = await fromTokenContract.methods.allowance(account, Router).call()
+      var fromTokenContract = new web3Obj.eth.Contract(WBNB, fromToken.address);
+      var fromTokenDecimals = await fromTokenContract.methods.decimals().call();
+      var allowance = await fromTokenContract.methods.allowance(account, Router).call();
 
-      var amountIn = parseFloat(fromAmount) * 10 ** fromTokenDecimals
-      amountIn = amountIn.toLocaleString('fullwide', { useGrouping: false })
+      var amountIn = parseFloat(fromAmount) * 10 ** fromTokenDecimals;
+      amountIn = amountIn.toLocaleString('fullwide', { useGrouping: false });
 
-      var toAddressContract = new web3Obj.eth.Contract(WBNB, toToken.address)
-      var toAddressDecimals = await toAddressContract.methods.decimals().call()
+      var toAddressContract = new web3Obj.eth.Contract(WBNB, toToken.address);
+      var toAddressDecimals = await toAddressContract.methods.decimals().call();
 
-      var contract = new web3Obj.eth.Contract(PANCAKE_ABI, Router)
-      var WETH = await contract.methods.WETH().call()
+      var contract = new web3Obj.eth.Contract(PANCAKE_ABI, Router);
+      var WETH = await contract.methods.WETH().call();
 
       if (parseFloat(amountIn) < allowance) {
-        console.log(allowance)
-        setIsAllowance(false)
+        console.log(allowance);
+        setIsAllowance(false);
       }
       if (fromToken.address === WETH) {
-        setIsAllowance(false)
+        setIsAllowance(false);
       }
 
       if (fromToken.address === WETH) {
-        var amountsOut = await contract.methods.getAmountsOut(`${amountIn}`, [WETH, toToken.address]).call()
+        var amountsOut = await contract.methods.getAmountsOut(`${amountIn}`, [WETH, toToken.address]).call();
 
-        var outputAmount = amountsOut[1] / 10 ** toAddressDecimals
+        var outputAmount = amountsOut[1] / 10 ** toAddressDecimals;
       } else if (toToken.address === WETH) {
-        var amountsOut = await contract.methods.getAmountsOut(`${amountIn}`, [fromToken.address, WETH]).call()
-        var outputAmount = amountsOut[1] / 10 ** toAddressDecimals
+        var amountsOut = await contract.methods.getAmountsOut(`${amountIn}`, [fromToken.address, WETH]).call();
+        var outputAmount = amountsOut[1] / 10 ** toAddressDecimals;
       } else {
         var amountsOut = await contract.methods
           .getAmountsOut(`${amountIn}`, [fromToken.address, WETH, toToken.address])
-          .call()
-        var outputAmount = amountsOut[2] / 10 ** toAddressDecimals
+          .call();
+        var outputAmount = amountsOut[2] / 10 ** toAddressDecimals;
       }
-      setToAmount(outputAmount)
-      setSwapActive(true)
+      setToAmount(outputAmount);
+      setSwapActive(true);
 
-      setLoadding(false)
+      setLoadding(false);
     } catch (err) {
-      setLoadding(false)
+      setLoadding(false);
     }
-  }
+  };
 
   const estimateSwap = async e => {
-    setLoadding(true)
-    var fromTokenContract = new web3Obj.eth.Contract(WBNB, fromToken.address)
-    var fromTokenDecimals = await fromTokenContract.methods.decimals().call()
+    setLoadding(true);
+    var fromTokenContract = new web3Obj.eth.Contract(WBNB, fromToken.address);
+    var fromTokenDecimals = await fromTokenContract.methods.decimals().call();
 
-    var toAddressContract = new web3Obj.eth.Contract(WBNB, toToken.address)
-    var toAddressDecimals = await toAddressContract.methods.decimals().call()
+    var toAddressContract = new web3Obj.eth.Contract(WBNB, toToken.address);
+    var toAddressDecimals = await toAddressContract.methods.decimals().call();
 
-    var contract = new web3Obj.eth.Contract(PANCAKE_ABI, Router)
-    var WETH = await contract.methods.WETH().call()
+    var contract = new web3Obj.eth.Contract(PANCAKE_ABI, Router);
+    var WETH = await contract.methods.WETH().call();
 
-    var pow = Math.pow(10, fromTokenDecimals)
-    var amountIn = parseFloat(fromAmount) * pow
-    amountIn = amountIn.toLocaleString('fullwide', { useGrouping: false })
+    var pow = Math.pow(10, fromTokenDecimals);
+    var amountIn = parseFloat(fromAmount) * pow;
+    amountIn = amountIn.toLocaleString('fullwide', { useGrouping: false });
 
     if (fromToken.address === WETH) {
-      var amountsOut = await contract.methods.getAmountsOut(`${amountIn}`, [WETH, toToken.address]).call()
-      var amountOutMin = (amountsOut[1] - amountsOut[1] * (parseFloat(slippage) / 100)).toFixed(0)
+      var amountsOut = await contract.methods.getAmountsOut(`${amountIn}`, [WETH, toToken.address]).call();
+      var amountOutMin = (amountsOut[1] - amountsOut[1] * (parseFloat(slippage) / 100)).toFixed(0);
     } else if (toToken.address === WETH) {
-      var amountsOut = await contract.methods.getAmountsOut(`${amountIn}`, [fromToken.address, WETH]).call()
-      var amountOutMin = (amountsOut[1] - amountsOut[1] * (parseFloat(slippage) / 100)).toFixed(0)
+      var amountsOut = await contract.methods.getAmountsOut(`${amountIn}`, [fromToken.address, WETH]).call();
+      var amountOutMin = (amountsOut[1] - amountsOut[1] * (parseFloat(slippage) / 100)).toFixed(0);
     } else {
       var amountsOut = await contract.methods
         .getAmountsOut(`${amountIn}`, [fromToken.address, WETH, toToken.address])
-        .call()
-      var amountOutMin = (amountsOut[2] - amountsOut[2] * (parseFloat(slippage) / 100)).toFixed(0)
+        .call();
+      var amountOutMin = (amountsOut[2] - amountsOut[2] * (parseFloat(slippage) / 100)).toFixed(0);
     }
 
     try {
@@ -209,10 +209,10 @@ const SwapBox = () => {
               )
               .send({ from: account, value: amountIn.toString() })
               .then(result => {
-                notify(false, successAlert(result.transactionHash))
+                notify(false, successAlert(result.transactionHash));
               })
-              .catch(er => notify(true, er.message))
-          })
+              .catch(er => notify(true, er.message));
+          });
       } else if (toToken.address === WETH) {
         var tx = await contract.methods
           .swapExactTokensForETH(
@@ -234,10 +234,10 @@ const SwapBox = () => {
               )
               .send({ from: account })
               .then(result => {
-                notify(false, successAlert(result.transactionHash))
+                notify(false, successAlert(result.transactionHash));
               })
-              .catch(er => notify(true, er.message))
-          })
+              .catch(er => notify(true, er.message));
+          });
       } else {
         var tx = await contract.methods
           .swapExactTokensForTokens(
@@ -259,14 +259,14 @@ const SwapBox = () => {
               )
               .send({ from: account })
               .then(result => {
-                notify(false, successAlert(result.transactionHash))
+                notify(false, successAlert(result.transactionHash));
               })
-              .catch(er => notify(true, er.message))
-          })
+              .catch(er => notify(true, er.message));
+          });
       }
-      setLoadding(false)
+      setLoadding(false);
     } catch (err) {
-      var error = getRPCErrorMessage(err)
+      var error = getRPCErrorMessage(err);
 
       if (error.message === 'execution reverted: Pancake: K') {
         try {
@@ -291,10 +291,10 @@ const SwapBox = () => {
                   )
                   .send({ from: account })
                   .then(result => {
-                    notify(false, successAlert(result.transactionHash))
+                    notify(false, successAlert(result.transactionHash));
                   })
-                  .catch(er => notify(true, er.message))
-              })
+                  .catch(er => notify(true, er.message));
+              });
           } else {
             await contract.methods
               .swapExactTokensForTokensSupportingFeeOnTransferTokens(
@@ -316,123 +316,123 @@ const SwapBox = () => {
                   )
                   .send({ from: account })
                   .then(result => {
-                    notify(false, successAlert(result.transactionHash))
+                    notify(false, successAlert(result.transactionHash));
                   })
-                  .catch(er => notify(true, er.message))
-              })
+                  .catch(er => notify(true, er.message));
+              });
           }
-          setLoadding(false)
+          setLoadding(false);
         } catch (err) {
-          var getError = getRPCErrorMessage(err)
+          var getError = getRPCErrorMessage(err);
           if (getError.message === 'execution reverted: PancakeRouter: INSUFFICIENT_OUTPUT_AMOUNT') {
             notify(
               true,
               'This transaction will not succeed either due to price movement or fee on transfer. Try increasing your slippage tolerance.',
-            )
+            );
           }
 
-          setLoadding(false)
+          setLoadding(false);
         }
       } else {
         notify(
           true,
           'This transaction will not succeed either due to price movement or fee on transfer. Try increasing your slippage tolerance.',
-        )
-        setLoadding(false)
+        );
+        setLoadding(false);
       }
     }
-  }
+  };
 
   const getTokenBalance = async (tokenAddress, type) => {
     try {
       if (type === 'From') {
         if (tokenAddress === '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c') {
-          var result = await web3Obj.eth.getBalance(account)
-          var format = web3Obj.utils.fromWei(result) // 29803630.997051883414242659
-          setFromBalance(parseFloat(format).toFixed(10))
+          var result = await web3Obj.eth.getBalance(account);
+          var format = web3Obj.utils.fromWei(result); // 29803630.997051883414242659
+          setFromBalance(parseFloat(format).toFixed(10));
         } else {
-          var tokenContract = new web3Obj.eth.Contract(WBNB, tokenAddress)
-          var decimals = await tokenContract.methods.decimals().call()
-          var getBalance = await tokenContract.methods.balanceOf(account).call()
+          var tokenContract = new web3Obj.eth.Contract(WBNB, tokenAddress);
+          var decimals = await tokenContract.methods.decimals().call();
+          var getBalance = await tokenContract.methods.balanceOf(account).call();
 
-          var pow = 10 ** decimals
-          var balanceInEth = getBalance / pow
-          setFromBalance(balanceInEth)
+          var pow = 10 ** decimals;
+          var balanceInEth = getBalance / pow;
+          setFromBalance(balanceInEth);
         }
       } else {
         if (tokenAddress === '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c') {
-          var result = await web3Obj.eth.getBalance(account)
-          var format = web3Obj.utils.fromWei(result) // 29803630.997051883414242659
-          setToBalance(parseFloat(format).toFixed(10))
+          var result = await web3Obj.eth.getBalance(account);
+          var format = web3Obj.utils.fromWei(result); // 29803630.997051883414242659
+          setToBalance(parseFloat(format).toFixed(10));
         } else {
-          var tokenContract = new web3Obj.eth.Contract(WBNB, tokenAddress)
-          var decimals = await tokenContract.methods.decimals().call()
-          var getBalance = await tokenContract.methods.balanceOf(account).call()
+          var tokenContract = new web3Obj.eth.Contract(WBNB, tokenAddress);
+          var decimals = await tokenContract.methods.decimals().call();
+          var getBalance = await tokenContract.methods.balanceOf(account).call();
 
-          var pow = 10 ** decimals
-          var balanceInEth = getBalance / pow
-          setToBalance(balanceInEth)
+          var pow = 10 ** decimals;
+          var balanceInEth = getBalance / pow;
+          setToBalance(balanceInEth);
         }
       }
     } catch (err) {
-      console.log(err)
+      console.log(err);
     }
-  }
+  };
 
   const rotateSwap = async () => {
-    var fromtemp = fromToken
-    var totemp = toToken
-    setFromToken(totemp)
-    setToToken(fromtemp)
-    setFromAmount('')
-    setToAmount('')
+    var fromtemp = fromToken;
+    var totemp = toToken;
+    setFromToken(totemp);
+    setToToken(fromtemp);
+    setFromAmount('');
+    setToAmount('');
     if (isActive) {
-      getTokenBalance(totemp.address, 'From')
-      getTokenBalance(fromtemp.address, 'To')
+      getTokenBalance(totemp.address, 'From');
+      getTokenBalance(fromtemp.address, 'To');
     }
-  }
+  };
 
   const switchNetwork = async () => {
-    setLoadding(true)
+    setLoadding(true);
     await window.ethereum.request({
       method: 'wallet_switchEthereumChain',
       params: [{ chainId: '0x38' }], // chainId must be in hexadecimal numbers
-    })
-    setLoadding(false)
-  }
+    });
+    setLoadding(false);
+  };
 
   useEffect(() => {
     if (isActive) {
       if (chainId !== 56) {
-        setIsBscNetwork(false)
+        setIsBscNetwork(false);
       } else {
         if (fromToken?.address) {
-          setIsBscNetwork(true)
-          getTokenBalance(fromToken.address, 'From')
-          getTokenBalance(toToken.address, 'To')
+          setIsBscNetwork(true);
+          getTokenBalance(fromToken.address, 'From');
+          getTokenBalance(toToken.address, 'To');
         }
       }
     }
-  }, [chainId])
+  }, [chainId]);
   useEffect(() => {
-    setLoadding(true)
-    var token = tokenList()
+    setLoadding(true);
+    var token = tokenList();
     if (token) {
-      setTokenInfo(token)
+      setTokenInfo(token);
       if (isActive) {
         if (chainId !== 56) {
-          setIsBscNetwork(false)
+          setIsBscNetwork(false);
         } else {
-          getTokenBalance(token[0].address, 'From')
-          getTokenBalance(token[1].address, 'To')
-          setIsBscNetwork(true)
+          getTokenBalance(token[0].address, 'From');
+          getTokenBalance(token[1].address, 'To');
+          setIsBscNetwork(true);
         }
       }
-      setFromToken(token[0])
-      setToToken(token[1])
+      setFromToken(token[0]);
+      setToToken(token[1]);
     }
-    setLoadding(false)
-  }, [isActive])
+    setLoadding(false);
+  }, [isActive]);
 
   return (
     <div className={styles.mainContainer}>
@@ -446,7 +446,7 @@ const SwapBox = () => {
               <div
                 className={styles.swapSelectBtn}
                 onClick={() => {
-                  setFromModal(true)
+                  setFromModal(true);
                   // setSwapSelect(true);
                 }}
               >
@@ -473,7 +473,7 @@ const SwapBox = () => {
                   dir='rtl'
                   value={fromAmount}
                   onChange={e => {
-                    quateSwap(e)
+                    quateSwap(e);
                   }}
                 />
                 <span>~$3,182.17</span>
@@ -523,7 +523,7 @@ const SwapBox = () => {
                 className={styles.swapSelectBtn}
                 onClick={() => {
                   // setSwapSelect(true);
-                  setToModal(true)
+                  setToModal(true);
                 }}
               >
                 <div className={styles.swapSelectBtnTop}>
@@ -577,7 +577,7 @@ const SwapBox = () => {
               <div
                 className={styles.swapDescriptionBtn}
                 onClick={() => {
-                  setSlippageBox(true)
+                  setSlippageBox(true);
                 }}
               >
                 <svg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'>
@@ -668,7 +668,7 @@ const SwapBox = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default SwapBox
+export default SwapBox;

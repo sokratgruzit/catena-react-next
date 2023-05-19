@@ -1,9 +1,9 @@
-import Image from 'next/image'
+import Image from 'next/image';
 
-import Button from '../../UI/button/Button'
-import CornerDecor from '../../UI/cornerDecor/CornerDecor'
+import Button from '../../UI/button/Button';
+import CornerDecor from '../../UI/cornerDecor/CornerDecor';
 
-import styles from './Score.module.css'
+import styles from './Score.module.css';
 
 const Score = () => {
   return (
@@ -160,7 +160,7 @@ const Score = () => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Score
+export default Score;

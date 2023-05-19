@@ -1,9 +1,9 @@
-import Image from 'next/image'
-import React from 'react'
+import Image from 'next/image';
+import React from 'react';
 
-import WinRoutes from './WinRoutes'
+import WinRoutes from './WinRoutes';
 
-import styles from './LotteryPrizes.module.css'
+import styles from './LotteryPrizes.module.css';
 
 let tabsData = [
   {
@@ -18,7 +18,7 @@ let tabsData = [
     id: 2,
     label: 'Lottery',
   },
-]
+];
 
 const LotteryPrizes = () => {
   return (
@@ -84,7 +84,7 @@ const LotteryPrizes = () => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default LotteryPrizes
+export default LotteryPrizes;

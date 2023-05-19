@@ -1,5 +1,5 @@
-import PrivacyHeader from './PrivacyHeader'
-import PrivacyList from '../../../components/home/privacy/PrivacyList'
+import PrivacyHeader from './PrivacyHeader';
+import PrivacyList from '../../../components/home/privacy/PrivacyList';
 
 export default function privacy() {
   const privacyList = [
@@ -214,11 +214,11 @@ export default function privacy() {
       text: 'If you have questions or concerns regarding this policy or if you need to make a request please contact us at:',
       link: 'info@coremultichain.com',
     },
-  ]
+  ];
   return (
     <div className='container' style={{ paddingTop: '100px' }}>
       <PrivacyHeader />
       <PrivacyList privacyList={privacyList} />
     </div>
-  )
+  );
 }

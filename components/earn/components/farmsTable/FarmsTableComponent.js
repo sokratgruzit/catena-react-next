@@ -1,9 +1,9 @@
-import React from 'react'
+import React from 'react';
 
-import { CoreTag, InfoIcon, MathSignSvg } from '../../../svg'
-import Button from '../../../UI/button/Button'
+import { CoreTag, InfoIcon, MathSignSvg } from '../../../svg';
+import Button from '../../../UI/button/Button';
 
-import styles from './FarmsTableComponent.module.css'
+import styles from './FarmsTableComponent.module.css';
 
 const FarmsTableComponent = ({ item }) => {
   return (
@@ -60,7 +60,7 @@ const FarmsTableComponent = ({ item }) => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default FarmsTableComponent
+export default FarmsTableComponent;

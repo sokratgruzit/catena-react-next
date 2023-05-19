@@ -1,16 +1,16 @@
-import React from 'react'
+import React from 'react';
 
-import CornerDecor from '../../UI/cornerDecor/CornerDecor'
+import CornerDecor from '../../UI/cornerDecor/CornerDecor';
 
-import styles from './SwapBox.module.css'
+import styles from './SwapBox.module.css';
 // import "./Setting.css";
 function Slippage({ setSlippage, setIsOpen }) {
   const NumericOnly = e => {
-    const reg = /^[0-9\b]+$/
-    let preval = e.target.value
-    if (e.target.value === '' || reg.test(e.target.value)) return true
-    else e.target.value = preval.substring(0, preval.length - 1)
-  }
+    const reg = /^[0-9\b]+$/;
+    let preval = e.target.value;
+    if (e.target.value === '' || reg.test(e.target.value)) return true;
+    else e.target.value = preval.substring(0, preval.length - 1);
+  };
   return (
     <div className={`${styles.swapContainerModal} ${styles.swapContainerActive}`}>
       <CornerDecor />
@@ -51,7 +51,7 @@ function Slippage({ setSlippage, setIsOpen }) {
       {/*    Set Auto*/}
       {/*</div>*/}
     </div>
-  )
+  );
 }
 
-export default Slippage
+export default Slippage;

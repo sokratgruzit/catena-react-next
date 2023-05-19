@@ -19,7 +19,7 @@ function BugBountyTitle() {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default BugBountyTitle
+export default BugBountyTitle;

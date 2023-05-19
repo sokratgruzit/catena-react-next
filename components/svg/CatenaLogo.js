@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const CatenaLogo = ({ className, ...props }) => {
   return (
@@ -24,7 +24,7 @@ const CatenaLogo = ({ className, ...props }) => {
         fill='#00FFF0'
       />
     </svg>
-  )
-}
+  );
+};
 
-export default CatenaLogo
+export default CatenaLogo;

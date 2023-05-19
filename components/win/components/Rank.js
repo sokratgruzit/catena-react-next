@@ -1,13 +1,13 @@
-import Image from 'next/image'
-import { useState } from 'react'
+import Image from 'next/image';
+import { useState } from 'react';
 
-import CompetitionTable from './competitionTable/CompetitionTable'
-import { VectorSvg } from '../../svg/index'
-import CornerDecor from '../../UI/cornerDecor/CornerDecor'
-import TabFilter from '../../UI/filters/TabFilter'
+import CompetitionTable from './competitionTable/CompetitionTable';
+import { VectorSvg } from '../../svg/index';
+import CornerDecor from '../../UI/cornerDecor/CornerDecor';
+import TabFilter from '../../UI/filters/TabFilter';
 
-import styles from './Rank.module.css'
-import filterStyles from '../../UI/filters/TabFilter.module.css'
+import styles from './Rank.module.css';
+import filterStyles from '../../UI/filters/TabFilter.module.css';
 
 let tabsData = [
   {
@@ -26,18 +26,18 @@ let tabsData = [
     id: 3,
     label: 'cakers',
   },
-]
+];
 
 const Rank = () => {
-  const [activeMenuItem, setActiveMenuItem] = useState('total')
-  const [details, setDetails] = useState(false)
+  const [activeMenuItem, setActiveMenuItem] = useState('total');
+  const [details, setDetails] = useState(false);
 
   const DetailsHendler = () => {
-    setDetails(!details)
-  }
+    setDetails(!details);
+  };
   const changeTabHendler = status => {
-    setActiveMenuItem(status)
-  }
+    setActiveMenuItem(status);
+  };
   return (
     <>
       <div className={styles.rankBkPosition}>
@@ -219,7 +219,7 @@ const Rank = () => {
         <div className={styles.buttonShowMore}>
           <button
             onClick={() => {
-              DetailsHendler()
+              DetailsHendler();
             }}
           >
             {details === false ? 'Show More' : 'Hidden'}
@@ -228,7 +228,7 @@ const Rank = () => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Rank
+export default Rank;

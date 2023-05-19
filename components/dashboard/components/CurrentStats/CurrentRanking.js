@@ -1,12 +1,12 @@
-import React from 'react'
+import React from 'react';
 
-import { useMobileWidth } from '../../../../hooks/useMobileWidth'
-import { Circle3MoreDetails } from '../../../svg'
+import { useMobileWidth } from '../../../../hooks/useMobileWidth';
+import { Circle3MoreDetails } from '../../../svg';
 
-import styles from './CurrentRanking.module.css'
+import styles from './CurrentRanking.module.css';
 
 const CurrentRanking = () => {
-  const { width } = useMobileWidth()
+  const { width } = useMobileWidth();
   return (
     <div className={styles.currentRankingContainer}>
       <header className={styles.header}>
@@ -78,7 +78,7 @@ const CurrentRanking = () => {
       </div>
       <div className={styles.topCorner}></div>
     </div>
-  )
-}
+  );
+};
 
-export default CurrentRanking
+export default CurrentRanking;

@@ -1,9 +1,9 @@
-import { useRouter } from 'next/router'
-import React, { useState } from 'react'
+import { useRouter } from 'next/router';
+import React, { useState } from 'react';
 
-import TabFilter from '../../../UI/filters/TabFilter'
+import TabFilter from '../../../UI/filters/TabFilter';
 
-import styles from './InfoRoutes.module.css'
+import styles from './InfoRoutes.module.css';
 
 let tabsData = [
   {
@@ -18,31 +18,31 @@ let tabsData = [
     id: 2,
     label: 'Tokens',
   },
-]
+];
 
 const InfoRoutes = () => {
-  const router = useRouter()
+  const router = useRouter();
 
   const getCurrentLocation = loc => {
-    let returnStatement = ''
-    if (loc === '/info') returnStatement = 'Overview'
-    if (loc === '/info/pools') returnStatement = 'Pools'
-    if (loc.startsWith('/info/pools/')) returnStatement = 'Pools'
-    if (loc === '/info/tokens') returnStatement = 'Tokens'
-    if (loc.startsWith('/info/tokens/')) returnStatement = 'Tokens'
-    return returnStatement
-  }
+    let returnStatement = '';
+    if (loc === '/info') returnStatement = 'Overview';
+    if (loc === '/info/pools') returnStatement = 'Pools';
+    if (loc.startsWith('/info/pools/')) returnStatement = 'Pools';
+    if (loc === '/info/tokens') returnStatement = 'Tokens';
+    if (loc.startsWith('/info/tokens/')) returnStatement = 'Tokens';
+    return returnStatement;
+  };
 
-  const [activeMenuItem, setActiveMenuItem] = useState(getCurrentLocation(router.pathname))
+  const [activeMenuItem, setActiveMenuItem] = useState(getCurrentLocation(router.pathname));
 
   const navigationHandler = route => {
     if (route === 'Overview') {
-      router.push('/info')
+      router.push('/info');
     } else {
-      router.push(`/info/${route.toLowerCase()}`)
+      router.push(`/info/${route.toLowerCase()}`);
     }
-    setActiveMenuItem(route)
-  }
+    setActiveMenuItem(route);
+  };
 
   return (
     <>
@@ -58,7 +58,7 @@ const InfoRoutes = () => {
         }}
       />
     </>
-  )
-}
+  );
+};
 
-export default InfoRoutes
+export default InfoRoutes;

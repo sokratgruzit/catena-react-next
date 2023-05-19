@@ -1,4 +1,4 @@
-import listStyles from '../../ListItemRow.module.css'
+import listStyles from '../../ListItemRow.module.css';
 
 const PriceChange = props => {
   return (
@@ -28,7 +28,7 @@ const PriceChange = props => {
         {Math.abs(props.data.priceChange?.toFixed(3))}%
       </p>
     </div>
-  )
-}
+  );
+};
 
-export default PriceChange
+export default PriceChange;

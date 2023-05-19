@@ -11,14 +11,14 @@ function BugBountyNumList({ data }) {
                   <li key={i} className='eligibility__list-item'>
                     {item}
                   </li>
-                )
+                );
               })}
             </ol>
           </div>
-        )
+        );
       })}
     </div>
-  )
+  );
 }
 
-export default BugBountyNumList
+export default BugBountyNumList;

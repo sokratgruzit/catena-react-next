@@ -1,9 +1,9 @@
-import Image from 'next/image'
-import React from 'react'
+import Image from 'next/image';
+import React from 'react';
 
-import Button from '../../UI/button/Button'
+import Button from '../../UI/button/Button';
 
-import styles from './ConnectWallet.module.css'
+import styles from './ConnectWallet.module.css';
 
 const ConnectWallet = () => {
   return (
@@ -51,7 +51,7 @@ const ConnectWallet = () => {
         />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ConnectWallet
+export default ConnectWallet;

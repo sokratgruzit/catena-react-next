@@ -1,7 +1,7 @@
-import Competition from '../../../components/win/Competition'
+import Competition from '../../../components/win/Competition';
 
 const index = () => {
-  return <Competition />
-}
+  return <Competition />;
+};
 
-export default index
+export default index;

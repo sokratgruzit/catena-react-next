@@ -1,10 +1,10 @@
-import Image from 'next/image'
-import React from 'react'
+import Image from 'next/image';
+import React from 'react';
 
-import WinRoutes from './WinRoutes'
-import ArrowBtn from '../../UI/button/ArrowBtn'
+import WinRoutes from './WinRoutes';
+import ArrowBtn from '../../UI/button/ArrowBtn';
 
-import styles from './TradingCompetition.module.css'
+import styles from './TradingCompetition.module.css';
 
 let tabsData = [
   {
@@ -19,7 +19,7 @@ let tabsData = [
     id: 2,
     label: 'Lottery',
   },
-]
+];
 
 const TradingCompetition = () => {
   return (
@@ -162,7 +162,7 @@ const TradingCompetition = () => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default TradingCompetition
+export default TradingCompetition;

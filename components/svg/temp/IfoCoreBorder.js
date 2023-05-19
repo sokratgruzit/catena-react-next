@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const IfoCoreBorder = props => (
   <svg width='25' height='25' viewBox='0 0 25 25' fill='none' xmlns='http://www.w3.org/2000/svg' {...props}>
@@ -24,5 +24,5 @@ const IfoCoreBorder = props => (
       fill='white'
     />
   </svg>
-)
-export default IfoCoreBorder
+);
+export default IfoCoreBorder;

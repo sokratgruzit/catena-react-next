@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const SUPPORT_ITEMS = [
   {
@@ -21,7 +21,7 @@ const SUPPORT_ITEMS = [
     title: 'Submit a request',
     description: "Can't find the solution to your problem? Submit a request to support team.",
   },
-]
+];
 
 const SupportItem = () => {
   return (
@@ -43,7 +43,7 @@ const SupportItem = () => {
         ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default SupportItem
+export default SupportItem;

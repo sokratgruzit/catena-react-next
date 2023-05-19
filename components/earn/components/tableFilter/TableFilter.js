@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
-import TabFilter from '../../../UI/filters/TabFilter'
+import TabFilter from '../../../UI/filters/TabFilter';
 
-import styles from './TableFilter.module.css'
+import styles from './TableFilter.module.css';
 
 const tabsData = [
   {
@@ -13,14 +13,14 @@ const tabsData = [
     id: 1,
     label: 'Finished',
   },
-]
+];
 
 const TableFilter = () => {
-  const [activeFilter, setActiveFilter] = useState('Live')
+  const [activeFilter, setActiveFilter] = useState('Live');
 
   const navigationHandler = activeItem => {
-    setActiveFilter(activeItem)
-  }
+    setActiveFilter(activeItem);
+  };
 
   return (
     <TabFilter
@@ -34,7 +34,7 @@ const TableFilter = () => {
         item: styles.Activity__filter__item,
       }}
     />
-  )
-}
+  );
+};
 
-export default TableFilter
+export default TableFilter;

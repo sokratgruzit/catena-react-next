@@ -1,9 +1,9 @@
-import React from 'react'
+import React from 'react';
 
-import styles from '../../ListItemRow.module.css'
+import styles from '../../ListItemRow.module.css';
 
 const TextItem = props => {
-  return <div className={`${styles.td} ${styles.textItem}`}>{props.data.text}</div>
-}
+  return <div className={`${styles.td} ${styles.textItem}`}>{props.data.text}</div>;
+};
 
-export default TextItem
+export default TextItem;

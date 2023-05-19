@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
-import { Circle3MoreDetails } from '../../../svg'
+import { Circle3MoreDetails } from '../../../svg';
 
-import styles from './NodeDetails.module.css'
+import styles from './NodeDetails.module.css';
 
 const NodeDetails = () => {
-  const [activeTab, setActiveTab] = useState('NodeInformation')
+  const [activeTab, setActiveTab] = useState('NodeInformation');
   return (
     <div className={styles.container}>
       <div className={styles.left}>
@@ -144,7 +144,7 @@ const NodeDetails = () => {
       </div>
       <div className={styles.containerCorner}></div>
     </div>
-  )
-}
+  );
+};
 
-export default NodeDetails
+export default NodeDetails;

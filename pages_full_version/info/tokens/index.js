@@ -1,10 +1,10 @@
-import Image from 'next/image'
-import React from 'react'
+import Image from 'next/image';
+import React from 'react';
 
-import InfoTokens from '../../../components/Info/InfoTokens/InfoTokens'
-import BackgroundImg from '../../../public/images/Info/background/background.png'
+import InfoTokens from '../../../components/Info/InfoTokens/InfoTokens';
+import BackgroundImg from '../../../public/images/Info/background/background.png';
 
-import styles from '../../../components/Info/InfoPages.module.css'
+import styles from '../../../components/Info/InfoPages.module.css';
 
 const Tokens = () => {
   return (
@@ -14,7 +14,7 @@ const Tokens = () => {
       </div>
       <InfoTokens />
     </div>
-  )
-}
+  );
+};
 
-export default Tokens
+export default Tokens;

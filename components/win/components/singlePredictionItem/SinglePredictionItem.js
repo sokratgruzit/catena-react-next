@@ -1,12 +1,12 @@
-import React from 'react'
+import React from 'react';
 
-import { ArrowSvg, CancelSvg, LaterSvg, LiveSvg, NextSvg, SmlArrowSvg } from '../../../svg'
-import CornerDecor from '../../../UI/cornerDecor/CornerDecor'
+import { ArrowSvg, CancelSvg, LaterSvg, LiveSvg, NextSvg, SmlArrowSvg } from '../../../svg';
+import CornerDecor from '../../../UI/cornerDecor/CornerDecor';
 
-import styles from './SinglePredictionItem.module.css'
+import styles from './SinglePredictionItem.module.css';
 
 const SinglePredictionItem = ({ item }) => {
-  console.log(item.action)
+  console.log(item.action);
   return (
     <div className={`${styles.sliderMainConteinerExpierd}`}>
       <CornerDecor />
@@ -136,10 +136,10 @@ const SinglePredictionItem = ({ item }) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 {
   /* <p><div style={{ background: 'transparent' }}>UP</div></p> */
 }
-export default SinglePredictionItem
+export default SinglePredictionItem;

@@ -1,9 +1,9 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef, useEffect } from 'react';
 
-import { SearchIcon } from '../../../svg'
-import TabFilter from '../../../UI/filters/TabFilter'
+import { SearchIcon } from '../../../svg';
+import TabFilter from '../../../UI/filters/TabFilter';
 
-import styles from './SearchBar.module.css'
+import styles from './SearchBar.module.css';
 
 let tabsData = [
   {
@@ -14,35 +14,35 @@ let tabsData = [
     id: 1,
     label: 'Watchlist',
   },
-]
+];
 
 function useOutsideAlerter(ref, setOpenSearchResults) {
   useEffect(() => {
     function handleClickOutside(event) {
       if (ref.current && !ref.current.contains(event.target)) {
-        setOpenSearchResults(false)
+        setOpenSearchResults(false);
       }
     }
     // Bind the event listener
-    document.addEventListener('mousedown', handleClickOutside)
+    document.addEventListener('mousedown', handleClickOutside);
     return () => {
       // Unbind the event listener on clean up
-      document.removeEventListener('mousedown', handleClickOutside)
-    }
-  }, [ref, setOpenSearchResults])
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [ref, setOpenSearchResults]);
 }
 
 const SearchBar = () => {
-  const [searchValue, setSearchValue] = useState('')
-  const [openSearchResults, setOpenSearchResults] = useState(false)
-  const [searchMode, setSearchMode] = useState('Search')
+  const [searchValue, setSearchValue] = useState('');
+  const [openSearchResults, setOpenSearchResults] = useState(false);
+  const [searchMode, setSearchMode] = useState('Search');
 
-  const wrapperRef = useRef(null)
-  useOutsideAlerter(wrapperRef, setOpenSearchResults)
+  const wrapperRef = useRef(null);
+  useOutsideAlerter(wrapperRef, setOpenSearchResults);
 
   const handleSearchModeChange = type => {
-    setSearchMode(type)
-  }
+    setSearchMode(type);
+  };
 
   // useEffect(() => {
   //   console.log(searchValue);
@@ -109,7 +109,7 @@ const SearchBar = () => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default SearchBar
+export default SearchBar;

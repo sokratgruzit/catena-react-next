@@ -1,5 +1,5 @@
-import JoinCommunity from '../components/JoinCommunity'
-import Title from '../components/Title'
+import JoinCommunity from '../components/JoinCommunity';
+import Title from '../components/Title';
 
 const Press = () => {
   return (
@@ -7,7 +7,7 @@ const Press = () => {
       <Title spanOne='core' spanTwo='press' />
       <JoinCommunity />
     </div>
-  )
-}
+  );
+};
 
-export default Press
+export default Press;

@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const PageNumber = props => {
   return (
@@ -8,7 +8,7 @@ const PageNumber = props => {
     >
       {props.title}
     </div>
-  )
-}
+  );
+};
 
-export default PageNumber
+export default PageNumber;

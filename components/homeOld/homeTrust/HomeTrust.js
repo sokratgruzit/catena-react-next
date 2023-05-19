@@ -1,12 +1,12 @@
-import Image from 'next/image'
+import Image from 'next/image';
 
-import { useWindowDimension } from '../../../hooks/useWindowDimension'
-import JoinBoxItem from '../components/joinBoxItem/JoinBoxItem'
+import { useWindowDimension } from '../../../hooks/useWindowDimension';
+import JoinBoxItem from '../components/joinBoxItem/JoinBoxItem';
 
-import styles from './HomeTrust.module.css'
+import styles from './HomeTrust.module.css';
 
 const HomeTrust = () => {
-  const [height] = useWindowDimension()
+  const [height] = useWindowDimension();
   return (
     <section className={styles.container}>
       <div className={styles.bgContainer}>
@@ -33,7 +33,7 @@ const HomeTrust = () => {
         <JoinBoxItem title='$4.4 Billion' type='Staked' subTitle='Total Value Locked' />
       </article>
     </section>
-  )
-}
+  );
+};
 
-export default HomeTrust
+export default HomeTrust;

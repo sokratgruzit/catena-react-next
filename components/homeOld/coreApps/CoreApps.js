@@ -1,9 +1,9 @@
-import Image from 'next/image'
-import Link from 'next/link'
+import Image from 'next/image';
+import Link from 'next/link';
 
-import { AppStore, GooglePlay } from '../../svg'
+import { AppStore, GooglePlay } from '../../svg';
 
-import styles from './CoreApps.module.css'
+import styles from './CoreApps.module.css';
 
 const CoreApps = () => {
   return (
@@ -34,7 +34,7 @@ const CoreApps = () => {
         <Link href='/'>Learn More About Wallet</Link>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default CoreApps
+export default CoreApps;

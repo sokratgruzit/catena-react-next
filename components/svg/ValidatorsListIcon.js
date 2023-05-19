@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const ValidatorsListIcon = ({ className, ...props }) => {
   return (
@@ -30,7 +30,7 @@ const ValidatorsListIcon = ({ className, ...props }) => {
         </clipPath>
       </defs>
     </svg>
-  )
-}
+  );
+};
 
-export default ValidatorsListIcon
+export default ValidatorsListIcon;

@@ -1,12 +1,12 @@
-import dynamic from 'next/dynamic'
-import React, { useState } from 'react'
+import dynamic from 'next/dynamic';
+import React, { useState } from 'react';
 
-import styles from './BlockchainProvingTimeChart.module.css'
+import styles from './BlockchainProvingTimeChart.module.css';
 
 const ReactApexChart = dynamic(() => import('react-apexcharts'), {
   loading: () => <p>Loading...</p>,
   ssr: false,
-})
+});
 
 const BlockchainProvingTimeChart = () => {
   const options = {
@@ -85,10 +85,10 @@ const BlockchainProvingTimeChart = () => {
     tooltip: {
       enabled: true,
       custom: function ({ series, seriesIndex, dataPointIndex, w }) {
-        const value = series[0][dataPointIndex]
+        const value = series[0][dataPointIndex];
         return `<div class="currentVotes-tooltip">
                     <span>Votes ${value}</span>
-                </div>`
+                </div>`;
       },
     },
     xaxis: {
@@ -126,7 +126,7 @@ const BlockchainProvingTimeChart = () => {
       width: 5,
       colors: ['transparent'],
     },
-  }
+  };
 
   const [chartSeries, setChartSeries] = useState([
     {
@@ -137,7 +137,7 @@ const BlockchainProvingTimeChart = () => {
       name: 'Revenue',
       data: [76, 85, 101, 98, 87, 105],
     },
-  ])
+  ]);
 
   return (
     <div className={styles.blocksProducedWrap}>
@@ -152,7 +152,7 @@ const BlockchainProvingTimeChart = () => {
         <div className={styles.chartGrad}></div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default BlockchainProvingTimeChart
+export default BlockchainProvingTimeChart;

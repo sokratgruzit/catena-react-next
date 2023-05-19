@@ -60,6 +60,6 @@ function TermsItem() {
         </div>
       </div>
     </div>
-  )
+  );
 }
-export default TermsItem
+export default TermsItem;

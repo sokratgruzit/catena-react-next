@@ -1,9 +1,9 @@
-import Image from 'next/image'
-import React from 'react'
+import Image from 'next/image';
+import React from 'react';
 
-import { PriceUp, PriceDown } from '../../../svg'
+import { PriceUp, PriceDown } from '../../../svg';
 
-import styles from './TopMoversSingleItem.module.css'
+import styles from './TopMoversSingleItem.module.css';
 
 const TopMoversSingleItem = ({ data }) => {
   return (
@@ -24,7 +24,7 @@ const TopMoversSingleItem = ({ data }) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default TopMoversSingleItem
+export default TopMoversSingleItem;

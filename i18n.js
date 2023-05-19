@@ -4,4 +4,4 @@ module.exports = {
   pages: {
     '*': ['header'],
   },
-}
+};

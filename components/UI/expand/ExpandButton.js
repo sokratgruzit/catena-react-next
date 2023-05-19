@@ -1,9 +1,9 @@
-import React from 'react'
+import React from 'react';
 
-import { VectorSvg } from '../../svg'
-import Button from '../button/Button'
+import { VectorSvg } from '../../svg';
+import Button from '../button/Button';
 
-import styles from './Expand.module.css'
+import styles from './Expand.module.css';
 
 const ExpandButton = ({ expandRow, toggleExpand, className, vectorClassName, onlyVector }) => {
   return (
@@ -17,7 +17,7 @@ const ExpandButton = ({ expandRow, toggleExpand, className, vectorClassName, onl
 
       <VectorSvg className={`${styles.vectorSvg} ${expandRow && styles.rotate} ${vectorClassName} `} />
     </div>
-  )
-}
+  );
+};
 
-export default ExpandButton
+export default ExpandButton;

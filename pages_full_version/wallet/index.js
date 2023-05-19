@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 const index = () => {
-  return <div>Wallet Page</div>
-}
+  return <div>Wallet Page</div>;
+};
 
-export default index
+export default index;

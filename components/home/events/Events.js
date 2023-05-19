@@ -1,5 +1,5 @@
-import JoinCommunity from '../components/JoinCommunity'
-import Title from '../components/Title'
+import JoinCommunity from '../components/JoinCommunity';
+import Title from '../components/Title';
 
 const Events = () => {
   return (
@@ -7,7 +7,7 @@ const Events = () => {
       <Title spanOne='core' spanTwo='events' />
       <JoinCommunity />
     </div>
-  )
-}
+  );
+};
 
-export default Events
+export default Events;

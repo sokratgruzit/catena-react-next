@@ -8,6 +8,6 @@ const PaginationButtonSvg = ({ className, disabled, pageCountTokens }) => (
       strokeLinejoin='round'
     />
   </svg>
-)
+);
 
-export default PaginationButtonSvg
+export default PaginationButtonSvg;

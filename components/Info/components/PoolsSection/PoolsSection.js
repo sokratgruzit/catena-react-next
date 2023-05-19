@@ -1,21 +1,21 @@
-import Image from 'next/image'
-import { useRouter } from 'next/router'
-import React from 'react'
+import Image from 'next/image';
+import { useRouter } from 'next/router';
+import React from 'react';
 
-import ChartBlock from './ChartBlock/ChartBlock'
-import FirstBlock from './FirstBlock/FirstBlock'
-import SecondBlock from './SecondBlock/SecondBlock'
-import { OpenSvg, StarSvg, SmlArrowSvg } from '../../../svg'
-import Button from '../../../UI/button/Button'
-import InfoRoutes from '../InfoRoutes/InfoRoutes'
-import TokensTable from '../InfoTables/TokensTable'
-import TransactionTable from '../InfoTables/TransactionTable'
-import SearchBar from '../SearchBar/SearchBar'
+import ChartBlock from './ChartBlock/ChartBlock';
+import FirstBlock from './FirstBlock/FirstBlock';
+import SecondBlock from './SecondBlock/SecondBlock';
+import { OpenSvg, StarSvg, SmlArrowSvg } from '../../../svg';
+import Button from '../../../UI/button/Button';
+import InfoRoutes from '../InfoRoutes/InfoRoutes';
+import TokensTable from '../InfoTables/TokensTable';
+import TransactionTable from '../InfoTables/TransactionTable';
+import SearchBar from '../SearchBar/SearchBar';
 
-import styles from './PoolsSection.module.css'
+import styles from './PoolsSection.module.css';
 
 const PoolsSection = ({ data }) => {
-  const router = useRouter()
+  const router = useRouter();
   return (
     <div className={styles.section}>
       <div className={styles.topSectionWrapper}>
@@ -96,7 +96,7 @@ const PoolsSection = ({ data }) => {
         <TransactionTable />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default PoolsSection
+export default PoolsSection;

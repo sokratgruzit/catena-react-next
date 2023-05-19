@@ -1,17 +1,17 @@
-import { useRouter } from 'next/router'
-import React from 'react'
-import { useSelector } from 'react-redux'
+import { useRouter } from 'next/router';
+import React from 'react';
+import { useSelector } from 'react-redux';
 
-import { StarSvg } from '../../svg'
-import InfoRoutes from '../components/InfoRoutes/InfoRoutes'
-import TokensTable from '../components/InfoTables/TokensTable'
-import TopMovers from '../components/TopMovers/TopMovers'
+import { StarSvg } from '../../svg';
+import InfoRoutes from '../components/InfoRoutes/InfoRoutes';
+import TokensTable from '../components/InfoTables/TokensTable';
+import TopMovers from '../components/TopMovers/TopMovers';
 
-import styles from '../InfoPages.module.css'
+import styles from '../InfoPages.module.css';
 
 const InfoTokens = () => {
-  const router = useRouter()
-  const favTokens = useSelector(state => state.favorites.tokens)
+  const router = useRouter();
+  const favTokens = useSelector(state => state.favorites.tokens);
   return (
     <div className={styles.section}>
       <div className={styles.routesWrapper}>
@@ -26,7 +26,7 @@ const InfoTokens = () => {
       <h2>All Tokens</h2>
       <TokensTable />
     </div>
-  )
-}
+  );
+};
 
-export default InfoTokens
+export default InfoTokens;

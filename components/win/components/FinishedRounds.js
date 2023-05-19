@@ -1,13 +1,13 @@
-import Image from 'next/image'
-import React, { useState } from 'react'
+import Image from 'next/image';
+import React, { useState } from 'react';
 
-import { VectorSvg } from '../../svg'
-import Button from '../../UI/button/Button'
-import CornerDecor from '../../UI/cornerDecor/CornerDecor'
-import TabFilter from '../../UI/filters/TabFilter'
+import { VectorSvg } from '../../svg';
+import Button from '../../UI/button/Button';
+import CornerDecor from '../../UI/cornerDecor/CornerDecor';
+import TabFilter from '../../UI/filters/TabFilter';
 
-import styles from './FinishedRounds.module.css'
-import filterStyles from '../../UI/filters/TabFilter.module.css'
+import styles from './FinishedRounds.module.css';
+import filterStyles from '../../UI/filters/TabFilter.module.css';
 
 let tabsData = [
   {
@@ -18,7 +18,7 @@ let tabsData = [
     id: 1,
     label: 'Your History',
   },
-]
+];
 let finishedRoulesData = [
   {
     id: 0,
@@ -144,31 +144,31 @@ let finishedRoulesData = [
     id: 29,
     img: 'zero.png',
   },
-]
+];
 
 const FinishedRounds = () => {
-  const [activeMenuItem, setActiveMenuItem] = useState('All History')
-  const [pageNumber, setPageNumber] = useState(0)
+  const [activeMenuItem, setActiveMenuItem] = useState('All History');
+  const [pageNumber, setPageNumber] = useState(0);
 
-  let latest = false
+  let latest = false;
   const changeTabHendler = status => {
-    setActiveMenuItem(status)
-  }
+    setActiveMenuItem(status);
+  };
   const next = () => {
     if (pageNumber < finishedRoulesData.length - 7) {
-      setPageNumber(pageNumber + 6)
+      setPageNumber(pageNumber + 6);
     } else {
-      latest = true
-      return false
+      latest = true;
+      return false;
     }
-  }
+  };
   const previous = () => {
     if (pageNumber > 0) {
-      setPageNumber(pageNumber - 6)
+      setPageNumber(pageNumber - 6);
     } else if (pageNumber === 0) {
-      return false
+      return false;
     }
-  }
+  };
   return (
     <div className={styles.marginTop}>
       <div className={styles.title}>
@@ -205,7 +205,7 @@ const FinishedRounds = () => {
                 <div>
                   <svg
                     onClick={() => {
-                      previous()
+                      previous();
                     }}
                     width='13'
                     height='10'
@@ -232,7 +232,7 @@ const FinishedRounds = () => {
                   </svg>
                   <svg
                     onClick={() => {
-                      next()
+                      next();
                     }}
                     width='13'
                     height='10'
@@ -302,7 +302,7 @@ const FinishedRounds = () => {
                         <Image layout='fill' objectFit='contain' src={`/images/win/${item.img}`} alt='' />
                       </div>
                     </div>
-                  )
+                  );
                 })}
               </div>
               <div className={styles.details}>
@@ -333,7 +333,7 @@ const FinishedRounds = () => {
         </div>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default FinishedRounds
+export default FinishedRounds;

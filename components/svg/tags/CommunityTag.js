@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const CommunityTag = props => (
   <svg width='89' height='21' viewBox='0 0 89 21' fill='none' xmlns='http://www.w3.org/2000/svg' {...props}>
@@ -24,6 +24,6 @@ const CommunityTag = props => (
       fill='#E91E63'
     />
   </svg>
-)
+);
 
-export default CommunityTag
+export default CommunityTag;

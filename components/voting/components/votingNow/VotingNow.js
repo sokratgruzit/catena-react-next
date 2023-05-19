@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState } from 'react';
 
 import {
   CloseTag,
@@ -9,13 +9,13 @@ import {
   SmlArrowSvg,
   SoonTag,
   VoteNowTag,
-} from '../../../svg'
-import CornerDecor from '../../../UI/cornerDecor/CornerDecor'
-import TabFilter from '../../../UI/filters/TabFilter'
-import RunningText from '../runningText/RunningText'
-import VotingNowTable from '../votingNowTable/VotingNowTable'
+} from '../../../svg';
+import CornerDecor from '../../../UI/cornerDecor/CornerDecor';
+import TabFilter from '../../../UI/filters/TabFilter';
+import RunningText from '../runningText/RunningText';
+import VotingNowTable from '../votingNowTable/VotingNowTable';
 
-import styles from './VotingNow.module.css'
+import styles from './VotingNow.module.css';
 
 const votingData = [
   {
@@ -117,24 +117,24 @@ const votingData = [
     activeStatus: 'Vote Now',
     announcement: 'Dear cock holders, we’re proud of u',
   },
-]
+];
 
 const votingData2 = votingData.map((item, index) => {
-  let firstIcon
-  let secondIcon
+  let firstIcon;
+  let secondIcon;
 
   if (item.activeStatus === 'Close') {
-    firstIcon = <CloseTag />
+    firstIcon = <CloseTag />;
   } else if (item.activeStatus === 'Soon') {
-    firstIcon = <SoonTag />
+    firstIcon = <SoonTag />;
   } else if (item.activeStatus === 'Vote Now') {
-    firstIcon = <VoteNowTag />
+    firstIcon = <VoteNowTag />;
   }
 
   if (item.location === 'Community') {
-    secondIcon = <CommunityTag />
+    secondIcon = <CommunityTag />;
   } else if (item.location === 'Core') {
-    secondIcon = <CoreTagLight />
+    secondIcon = <CoreTagLight />;
   }
   return {
     id: index,
@@ -156,8 +156,8 @@ const votingData2 = votingData.map((item, index) => {
         activeStatus: item.activeStatus,
       },
     ],
-  }
-})
+  };
+});
 
 const dataDisplayOptions = [
   {
@@ -174,7 +174,7 @@ const dataDisplayOptions = [
     id: 2,
     label: 'All',
   },
-]
+];
 
 const dataTimeframeOptions = [
   {
@@ -189,16 +189,16 @@ const dataTimeframeOptions = [
     id: 2,
     label: 'Close',
   },
-]
+];
 
-const VOTING_COUNT_STEP = 3
+const VOTING_COUNT_STEP = 3;
 
 const VotingNow = props => {
-  const [votingCount, setVoutingCount] = useState(2)
-  const [filteredData, setFilteredData] = useState(votingData2)
+  const [votingCount, setVoutingCount] = useState(2);
+  const [filteredData, setFilteredData] = useState(votingData2);
 
-  const [activeTab, setActiveTab] = useState('Core')
-  const [activeTimeframe, setActiveTimeframe] = useState('Vote Now')
+  const [activeTab, setActiveTab] = useState('Core');
+  const [activeTimeframe, setActiveTimeframe] = useState('Vote Now');
 
   return (
     <>
@@ -240,7 +240,7 @@ const VotingNow = props => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default VotingNow
+export default VotingNow;

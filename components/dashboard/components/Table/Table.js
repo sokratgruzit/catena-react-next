@@ -1,12 +1,12 @@
-import { Table as TableUI, TableElement as TableElementUI } from '@catena-network/catena-ui-module'
-import React, { useState } from 'react'
+import { Table as TableUI, TableElement as TableElementUI } from '@catena-network/catena-ui-module';
+import React, { useState } from 'react';
 
 // hooks
-import { useMobileWidth } from '../../../../hooks/useMobileWidth'
-import { CatenaLogo, NoData } from '../../../svg'
+import { useMobileWidth } from '../../../../hooks/useMobileWidth';
+import { CatenaLogo, NoData } from '../../../svg';
 
 // css
-import styles from './Table.module.css'
+import styles from './Table.module.css';
 
 const Table = ({
   delegatorsTd,
@@ -22,18 +22,18 @@ const Table = ({
   validatedBlocksOnPageChange,
   validatedBlocksLoading,
 }) => {
-  const [mobileExpand, setMobileExpand] = useState(null)
-  const { width } = useMobileWidth()
+  const [mobileExpand, setMobileExpand] = useState(null);
+  const { width } = useMobileWidth();
 
-  let mobile = width < 1300
+  let mobile = width < 1300;
 
   let mobileExpandFunc = id => {
     if (id !== mobileExpand) {
-      setMobileExpand(id)
+      setMobileExpand(id);
     } else {
-      setMobileExpand(null)
+      setMobileExpand(null);
     }
-  }
+  };
 
   let delegatorsTh = [
     {
@@ -57,7 +57,7 @@ const Table = ({
       height: '88px',
       mobileWidth: width <= 700 ? false : 25,
     },
-  ]
+  ];
 
   let delegatorsTableMoreTh = [
     {
@@ -100,7 +100,7 @@ const Table = ({
       width: 10,
       id: 7,
     },
-  ]
+  ];
 
   let validatedBlocksTh = [
     {
@@ -135,15 +135,15 @@ const Table = ({
       id: 2,
       height: '88px',
     },
-  ]
+  ];
 
   function formatWalletAddress(walletAddress) {
-    const firstThree = walletAddress.slice(0, 4)
-    const lastThree = walletAddress.slice(-4)
-    return `${firstThree}...${lastThree}`
+    const firstThree = walletAddress.slice(0, 4);
+    const lastThree = walletAddress.slice(-4);
+    return `${firstThree}...${lastThree}`;
   }
 
-  let tableData
+  let tableData;
   tableData = delegatorsTd?.map((item, index) => {
     return (
       <div
@@ -159,7 +159,7 @@ const Table = ({
             width: 'calc(100% - 75px)',
           }}
           onClick={() => {
-            mobileExpandFunc(item._id)
+            mobileExpandFunc(item._id);
           }}
         >
           <div
@@ -174,7 +174,7 @@ const Table = ({
                 <img
                   src={`http://localhost:3001/images/${item._id}.png`}
                   onError={e => {
-                    e.target.src = '/images/headerDefaultImg.png'
+                    e.target.src = '/images/headerDefaultImg.png';
                   }}
                   style={{
                     width: '40px',
@@ -361,17 +361,17 @@ const Table = ({
           </div>
         </div>
       </div>
-    )
-  })
+    );
+  });
 
-  let validatedBlocksTableData
+  let validatedBlocksTableData;
   validatedBlocksTableData = validatedBlocksTd?.map((item, index) => {
     return (
       <div
         className={`table-parent ${mobileExpand == item._id ? 'active' : ''} ${styles.tableMoreActive}`}
         key={index}
         onClick={() => {
-          mobileExpandFunc(item._id)
+          mobileExpandFunc(item._id);
         }}
       >
         <div className='table'>
@@ -469,15 +469,15 @@ const Table = ({
           </div>
         </div>
       </div>
-    )
-  })
+    );
+  });
 
   const tableEmptyData = {
     icon: <NoData />,
     label: 'No Data',
-  }
+  };
 
-  let element = null
+  let element = null;
 
   if (sortBy === 'Delegators') {
     return (element = (
@@ -516,7 +516,7 @@ const Table = ({
           onPageChange={delegatorsOnPageChange}
         />
       </div>
-    ))
+    ));
   }
 
   if (sortBy === 'Validated Blocks') {
@@ -554,10 +554,10 @@ const Table = ({
           onPageChange={validatedBlocksOnPageChange}
         />
       </div>
-    ))
+    ));
   }
 
-  return element
-}
+  return element;
+};
 
-export default Table
+export default Table;

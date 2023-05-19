@@ -1,10 +1,10 @@
-import { useRouter } from 'next/router'
-import React, { useState } from 'react'
+import { useRouter } from 'next/router';
+import React, { useState } from 'react';
 
-import CornerDecor from '../../../UI/cornerDecor/CornerDecor'
-import TabFilter from '../../../UI/filters/TabFilter'
+import CornerDecor from '../../../UI/cornerDecor/CornerDecor';
+import TabFilter from '../../../UI/filters/TabFilter';
 
-import styles from './EarnRoutes.module.css'
+import styles from './EarnRoutes.module.css';
 
 const tabsData = [
   {
@@ -15,25 +15,25 @@ const tabsData = [
     id: 1,
     label: 'Pools',
   },
-]
+];
 function capitalizeFirstLetter(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1)
+  return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
 const EarnRoutes = () => {
-  const router = useRouter()
+  const router = useRouter();
   const getCurrentLocation = loc => {
-    let returnStatement = ''
-    if (loc === '/earn/farms') returnStatement = 'Farms'
-    if (loc === '/earn/pools') returnStatement = 'Pools'
-    return returnStatement
-  }
-  const [activeRoute, setActiveRoute] = useState(getCurrentLocation(router.pathname))
+    let returnStatement = '';
+    if (loc === '/earn/farms') returnStatement = 'Farms';
+    if (loc === '/earn/pools') returnStatement = 'Pools';
+    return returnStatement;
+  };
+  const [activeRoute, setActiveRoute] = useState(getCurrentLocation(router.pathname));
 
   const navigationHandler = activeItem => {
-    setActiveRoute(capitalizeFirstLetter(activeItem.toLowerCase()))
-    router.push(`/earn/${activeItem.toLowerCase()}`)
-  }
+    setActiveRoute(capitalizeFirstLetter(activeItem.toLowerCase()));
+    router.push(`/earn/${activeItem.toLowerCase()}`);
+  };
 
   return (
     <div className={styles.wrapper}>
@@ -50,7 +50,7 @@ const EarnRoutes = () => {
         }}
       />
     </div>
-  )
-}
+  );
+};
 
-export default EarnRoutes
+export default EarnRoutes;

@@ -1,8 +1,8 @@
-import React from 'react'
+import React from 'react';
 
-import TopMoversSingleItem from './TopMoversSingleItem'
+import TopMoversSingleItem from './TopMoversSingleItem';
 
-import styles from './TopMovers.module.css'
+import styles from './TopMovers.module.css';
 
 const TopMovers_Data = [
   {
@@ -54,7 +54,7 @@ const TopMovers_Data = [
     price_change: 4.06,
     price: 5.03,
   },
-]
+];
 
 const TopMovers = () => {
   return (
@@ -80,7 +80,7 @@ const TopMovers = () => {
         </div> */}
       </div>
     </>
-  )
-}
+  );
+};
 
-export default TopMovers
+export default TopMovers;

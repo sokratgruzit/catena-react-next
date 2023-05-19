@@ -1,12 +1,12 @@
-import Image from 'next/image'
-import { useRouter } from 'next/router'
-import React from 'react'
+import Image from 'next/image';
+import { useRouter } from 'next/router';
+import React from 'react';
 // import { MongoClient } from 'mongodb';
 
-import TokenSection from '../../../../components/Info/components/TokensSection/TokenSection'
-import BackgroundImg from '../../../../public/images/Info/background/background.png'
+import TokenSection from '../../../../components/Info/components/TokensSection/TokenSection';
+import BackgroundImg from '../../../../public/images/Info/background/background.png';
 
-import styles from '../../../../components/Info/InfoPages.module.css'
+import styles from '../../../../components/Info/InfoPages.module.css';
 
 const InfoTokensInngerPage_Data = {
   id: 1,
@@ -20,11 +20,11 @@ const InfoTokensInngerPage_Data = {
   liquidity: 1.66,
   liquidity_change: 26.28,
   transactions_24h: 2.02,
-}
+};
 
 const InfoTokensInnerPage = props => {
-  const router = useRouter()
-  const { tokenId } = router.query
+  const router = useRouter();
+  const { tokenId } = router.query;
   // fetch data by ID
 
   return (
@@ -38,13 +38,13 @@ const InfoTokensInnerPage = props => {
       </div>
     </div>
     // </DynamicNamespaces>
-  )
-}
+  );
+};
 
-export default InfoTokensInnerPage
+export default InfoTokensInnerPage;
 
 export async function getStaticPaths(context) {
-  console.log(context)
+  console.log(context);
   return {
     fallback: true,
     paths: [
@@ -77,11 +77,11 @@ export async function getStaticPaths(context) {
         },
       },
     ],
-  }
+  };
 }
 
 export async function getStaticProps(context) {
-  const { tokenId } = context.params
+  const { tokenId } = context.params;
 
   // const client = await MongoClient.connect(
   //   'mongodb+srv://sokrat:sokrat12345@cluster0.x2cvw.mongodb.net/cmcx?retryWrites=true&w=majority',
@@ -96,9 +96,9 @@ export async function getStaticProps(context) {
   // client.close();
 
   // console.log(tokensData);
-  const res = await fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${tokenId}`)
+  const res = await fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${tokenId}`);
 
-  const tokensData = await res.json()
+  const tokensData = await res.json();
 
   return {
     props: {
@@ -106,5 +106,5 @@ export async function getStaticProps(context) {
         ...tokensData[0],
       },
     },
-  }
+  };
 }

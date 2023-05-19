@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const ProposalsText = props => (
   <svg width='428' height='52' viewBox='0 0 428 52' fill='none' xmlns='http://www.w3.org/2000/svg' {...props}>
@@ -70,6 +70,6 @@ const ProposalsText = props => (
       />
     </g>
   </svg>
-)
+);
 
-export default ProposalsText
+export default ProposalsText;

@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const CoreLogoBorder = props => (
   <svg width='41' height='41' viewBox='0 0 41 41' fill='none' xmlns='http://www.w3.org/2000/svg'>
@@ -14,6 +14,6 @@ const CoreLogoBorder = props => (
       fill='#FF7152'
     />
   </svg>
-)
+);
 
-export default CoreLogoBorder
+export default CoreLogoBorder;

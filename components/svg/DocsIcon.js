@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const DocsIcon = ({ className, ...props }) => {
   return (
@@ -25,7 +25,7 @@ const DocsIcon = ({ className, ...props }) => {
         </clipPath>
       </defs>
     </svg>
-  )
-}
+  );
+};
 
-export default DocsIcon
+export default DocsIcon;

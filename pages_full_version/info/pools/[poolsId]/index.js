@@ -1,12 +1,12 @@
-import { MongoClient } from 'mongodb'
-import Image from 'next/image'
-import { useRouter } from 'next/router'
-import React from 'react'
+import { MongoClient } from 'mongodb';
+import Image from 'next/image';
+import { useRouter } from 'next/router';
+import React from 'react';
 
-import PoolsSection from '../../../../components/Info/components/PoolsSection/PoolsSection'
-import BackgroundImg from '../../../../public/images/Info/background/background.png'
+import PoolsSection from '../../../../components/Info/components/PoolsSection/PoolsSection';
+import BackgroundImg from '../../../../public/images/Info/background/background.png';
 
-import styles from '../../../../components/Info/InfoPages.module.css'
+import styles from '../../../../components/Info/InfoPages.module.css';
 
 const InfoTPoolsInngerPage_Data = {
   id: 1,
@@ -30,11 +30,11 @@ const InfoTPoolsInngerPage_Data = {
   lp_reward_apr: 367.17,
   lp_reward_fee_7d: 1015.73,
   lp_reward_fee_total_7d: 1319.23,
-}
+};
 
 const InfoPoolsInnerPage = props => {
-  const router = useRouter()
-  const { id } = router.query
+  const router = useRouter();
+  const { id } = router.query;
   // fetch data by ID
   return (
     <div>
@@ -43,10 +43,10 @@ const InfoPoolsInnerPage = props => {
       </div>
       <div className={styles.section}>{props.infoPoolsDetails && <PoolsSection data={props.infoPoolsDetails} />}</div>
     </div>
-  )
-}
+  );
+};
 
-export default InfoPoolsInnerPage
+export default InfoPoolsInnerPage;
 
 export async function getStaticPaths(context) {
   return {
@@ -63,21 +63,21 @@ export async function getStaticPaths(context) {
         },
       },
     ],
-  }
+  };
 }
 
 export async function getStaticProps(context) {
   const client = await MongoClient.connect(
     'mongodb+srv://sokrat:lalala12345@cluster0.x2cvw.mongodb.net/cmcx?retryWrites=true&w=majority',
-  )
-  const db = client.db()
+  );
+  const db = client.db();
 
-  const poolsId = context.params.poolsId.replace('-', '/')
+  const poolsId = context.params.poolsId.replace('-', '/');
 
-  const InfoPoolsDetails = db.collection('InfoPoolsDetails')
-  const poolsData = await InfoPoolsDetails.findOne({ name: 'USDC/WBNB' })
+  const InfoPoolsDetails = db.collection('InfoPoolsDetails');
+  const poolsData = await InfoPoolsDetails.findOne({ name: 'USDC/WBNB' });
 
-  client.close()
+  client.close();
   return {
     props: {
       infoPoolsDetails: {
@@ -102,7 +102,7 @@ export async function getStaticProps(context) {
         volume_7d_change: poolsData.volume_7d_change,
       },
     },
-  }
+  };
 }
 
 // "_imgSrc1":"/images/Info/TopTokens/4.png",

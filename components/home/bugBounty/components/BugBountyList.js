@@ -30,7 +30,7 @@ let data = [
       'Disrupt of services',
     ],
   },
-]
+];
 
 function BugBountyList({ data }) {
   return (
@@ -48,15 +48,15 @@ function BugBountyList({ data }) {
                     <li key={i} className='ineligibility__list-item'>
                       {item}
                     </li>
-                  )
+                  );
                 })}
               </ul>
             </div>
           </div>
-        )
+        );
       })}
     </>
-  )
+  );
 }
 
-export default BugBountyList
+export default BugBountyList;

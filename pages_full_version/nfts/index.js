@@ -1,4 +1,4 @@
-import Overview from '../../components/nfts/Overview'
+import Overview from '../../components/nfts/Overview';
 
 let nftArrivalsData = [
   {
@@ -91,18 +91,18 @@ let nftArrivalsData = [
     price: '10.24',
     priceUSD: '$10,314',
   },
-]
+];
 
 const NftsPage = props => {
-  return <Overview {...props} />
-}
+  return <Overview {...props} />;
+};
 
 export async function getStaticProps() {
   return {
     props: {
       arrivals: nftArrivalsData,
     },
-  }
+  };
 }
 
-export default NftsPage
+export default NftsPage;

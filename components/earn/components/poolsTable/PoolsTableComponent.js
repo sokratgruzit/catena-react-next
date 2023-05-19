@@ -1,15 +1,15 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
-import { AutoTag, ExclamationSvg, ManualTag, MathSignSvg, QuestionMarkIcon, VectorSvg } from '../../../svg'
-import Button from '../../../UI/button/Button'
-import StakeCalculator from '../StakeCalculator/StakeCalculator'
+import { AutoTag, ExclamationSvg, ManualTag, MathSignSvg, QuestionMarkIcon, VectorSvg } from '../../../svg';
+import Button from '../../../UI/button/Button';
+import StakeCalculator from '../StakeCalculator/StakeCalculator';
 
-import styles from './PoolsTableComponent.module.css'
+import styles from './PoolsTableComponent.module.css';
 
 const PoolsTableComponent = ({ item, toggleExpand, expandRow }) => {
-  const [itemType, setItemType] = useState(item?.data[6]?.tag)
-  const [openCalculator, setOpenCalculator] = useState(false)
-  const [openCalculatorManual, setOpenCalculatorManual] = useState(false)
+  const [itemType, setItemType] = useState(item?.data[6]?.tag);
+  const [openCalculator, setOpenCalculator] = useState(false);
+  const [openCalculatorManual, setOpenCalculatorManual] = useState(false);
 
   return (
     <main className={styles.itemWrapper}>
@@ -88,7 +88,7 @@ const PoolsTableComponent = ({ item, toggleExpand, expandRow }) => {
         </div>
       </section>
     </main>
-  )
-}
+  );
+};
 
-export default PoolsTableComponent
+export default PoolsTableComponent;

@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
-import CornerDecor from '../../../../UI/cornerDecor/CornerDecor'
-import TabFilter from '../../../../UI/filters/TabFilter'
+import CornerDecor from '../../../../UI/cornerDecor/CornerDecor';
+import TabFilter from '../../../../UI/filters/TabFilter';
 
-import styles from './SecondBlock.module.css'
+import styles from './SecondBlock.module.css';
 
 let tabsData = [
   {
@@ -14,14 +14,14 @@ let tabsData = [
     id: 1,
     label: '7D',
   },
-]
+];
 
 const SecondBlock = ({ data }) => {
-  const [activeMenuItem, setactiveMenuItem] = useState('24H')
+  const [activeMenuItem, setactiveMenuItem] = useState('24H');
 
   const navigationHandler = item => {
-    setactiveMenuItem(item)
-  }
+    setactiveMenuItem(item);
+  };
 
   return (
     <div className={styles.secondBlock}>
@@ -60,7 +60,7 @@ const SecondBlock = ({ data }) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default SecondBlock
+export default SecondBlock;

@@ -1,7 +1,7 @@
-import Link from 'next/link'
-import React, { useState } from 'react'
+import Link from 'next/link';
+import React, { useState } from 'react';
 
-import styles from './Footer.module.css'
+import styles from './Footer.module.css';
 
 const FOOTER_DATA = [
   {
@@ -74,18 +74,18 @@ const FOOTER_DATA = [
       },
     ],
   },
-]
+];
 
 const Copyright = () => {
-  const [activeMenu, setActiveMenu] = useState(null)
+  const [activeMenu, setActiveMenu] = useState(null);
 
   let openMenu = id => {
     if (activeMenu == id) {
-      setActiveMenu(null)
+      setActiveMenu(null);
     } else {
-      setActiveMenu(id)
+      setActiveMenu(id);
     }
-  }
+  };
 
   return (
     <footer className={styles.footer}>
@@ -211,7 +211,7 @@ const Copyright = () => {
                 <div
                   className={styles.footerRightColTtl}
                   onClick={() => {
-                    openMenu(item.id)
+                    openMenu(item.id);
                   }}
                 >
                   {item.title}
@@ -230,11 +230,11 @@ const Copyright = () => {
                       <Link href='/' key={index} className={styles.footerRightColLink}>
                         {link.title}
                       </Link>
-                    )
+                    );
                   })}
                 </div>
               </div>
-            )
+            );
           })}
         </div>
       </div>
@@ -243,14 +243,14 @@ const Copyright = () => {
         <div
           className={styles.upBtn}
           onClick={() => {
-            window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
+            window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
           }}
         >
           Up
         </div>
       </div>
     </footer>
-  )
-}
+  );
+};
 
-export default Copyright
+export default Copyright;

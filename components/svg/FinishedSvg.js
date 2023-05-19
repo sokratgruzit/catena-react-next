@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const FinishedSvg = props => (
   <svg width='104' height='104' viewBox='0 0 104 104' fill='none' xmlns='http://www.w3.org/2000/svg' {...props}>
@@ -8,6 +8,6 @@ const FinishedSvg = props => (
       fill='white'
     />
   </svg>
-)
+);
 
-export default FinishedSvg
+export default FinishedSvg;

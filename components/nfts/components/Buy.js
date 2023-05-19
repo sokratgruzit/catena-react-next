@@ -1,15 +1,15 @@
-import Link from 'next/link'
-import React, { useState, useEffect } from 'react'
-import { useSelector } from 'react-redux'
-import { Swiper, SwiperSlide } from 'swiper/react'
+import Link from 'next/link';
+import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
-import useConnect from '../../../hooks/use-connect'
-import ArrowBtn from '../../UI/button/ArrowBtn'
-import Button from '../../UI/button/Button'
-import CornerDecor from '../../UI/cornerDecor/CornerDecor'
-import ListItemRow from '../../UI/listItem/ListItemRow'
+import useConnect from '../../../hooks/use-connect';
+import ArrowBtn from '../../UI/button/ArrowBtn';
+import Button from '../../UI/button/Button';
+import CornerDecor from '../../UI/cornerDecor/CornerDecor';
+import ListItemRow from '../../UI/listItem/ListItemRow';
 
-import styles from './Buy.module.css'
+import styles from './Buy.module.css';
 
 const nftItemData = {
   imgSrc: '../../../images/nft/nft_owner_page/item1.png',
@@ -18,7 +18,7 @@ const nftItemData = {
   blockQuote: '10,000 unique, randomly-generated PancakeSwap NFTs from the mind of Chef Cecy Meade. Join the squad.',
   cmcx: '0.0024',
   usd: '($1,314)',
-}
+};
 const ownerItemData = [
   {
     id: 0,
@@ -29,7 +29,7 @@ const ownerItemData = [
     ownerAddress: '0xC7...061b',
     tokenId: '312',
   },
-]
+];
 const detailsTableData = [
   {
     id: 0,
@@ -159,7 +159,7 @@ const detailsTableData = [
       },
     ],
   },
-]
+];
 const collectionItems = [
   {
     id: 0,
@@ -225,7 +225,7 @@ const collectionItems = [
     priceCmcx: '1.024',
     priceUsd: '($10,314)',
   },
-]
+];
 const manageTable = [
   {
     id: 0,
@@ -275,21 +275,21 @@ const manageTable = [
     title: 'Pink',
     subTitle: '(14.66%)',
   },
-]
+];
 
 const Buy = props => {
-  const [screeWidth, setScreenWidth] = useState(window.innerWidth)
-  const [step, setStep] = useState(false)
-  const { connect, disconnect, account, isActive, library, handleWalletModal } = useConnect()
-  const isConnected = useSelector(state => state.connect.isConnected)
-  const [balance, setBalance] = useState(0)
-  const [connected, setConnected] = useState(false)
-  const [isManageOpen, setIsManageOpen] = useState(false)
-  const [isPropertiesOpen, setIsPropertiesOpen] = useState(false)
-  const [isDetailsOpen, setIsDetailsOpen] = useState(false)
-  const [isInfoOpen, setIsInfoOpen] = useState(false)
+  const [screeWidth, setScreenWidth] = useState(window.innerWidth);
+  const [step, setStep] = useState(false);
+  const { connect, disconnect, account, isActive, library, handleWalletModal } = useConnect();
+  const isConnected = useSelector(state => state.connect.isConnected);
+  const [balance, setBalance] = useState(0);
+  const [connected, setConnected] = useState(false);
+  const [isManageOpen, setIsManageOpen] = useState(false);
+  const [isPropertiesOpen, setIsPropertiesOpen] = useState(false);
+  const [isDetailsOpen, setIsDetailsOpen] = useState(false);
+  const [isInfoOpen, setIsInfoOpen] = useState(false);
 
-  let web3Obj = library
+  let web3Obj = library;
 
   //   const getBalance = async () => {
   //     if (web3Obj !== undefined) {
@@ -308,19 +308,19 @@ const Buy = props => {
   //   }, [isActive, account]);
 
   useEffect(() => {
-    setScreenWidth(window.innerWidth)
-  }, [])
+    setScreenWidth(window.innerWidth);
+  }, []);
 
-  let connectButton = <p className={styles.item}>You don’t have any of this item.</p>
+  let connectButton = <p className={styles.item}>You don’t have any of this item.</p>;
   let variableButton = (
     <Button
       title={'Buy'}
       type={'blue'}
       onClick={() => {
         if (!isInfoOpen) {
-          setIsInfoOpen(true)
+          setIsInfoOpen(true);
         } else {
-          setIsInfoOpen(false)
+          setIsInfoOpen(false);
         }
         // content changes function
       }}
@@ -331,7 +331,7 @@ const Buy = props => {
         transition: '.5s',
       }}
     />
-  )
+  );
   let variableStep = (
     <div className={styles.buy__item__details}>
       <div className={styles.details__teaser}>
@@ -350,7 +350,7 @@ const Buy = props => {
         title={'Buy'}
         type={'blue'}
         onClick={() => {
-          setStep(true)
+          setStep(true);
         }}
         customStyles={{
           padding: '10px 160px',
@@ -360,7 +360,7 @@ const Buy = props => {
         }}
       />
     </div>
-  )
+  );
   let detailTable = (
     <div className={styles.NftBuy__infoTable}>
       <CornerDecor />
@@ -372,20 +372,20 @@ const Buy = props => {
         <p>Date</p>
       </div>
       {detailsTableData.map(item => {
-        return <ListItemRow type={'nft_buy'} data={item} key={item.id} />
+        return <ListItemRow type={'nft_buy'} data={item} key={item.id} />;
       })}
     </div>
-  )
+  );
 
   if (screeWidth < 1200) {
     detailTable = (
       <div className={styles.buy__mobile__table}>
         <CornerDecor />
         {detailsTableData.map(item => {
-          return <ListItemRow key={item.id + 'mobile'} data={item} type={'nft_buy_mobile'} />
+          return <ListItemRow key={item.id + 'mobile'} data={item} type={'nft_buy_mobile'} />;
         })}
       </div>
-    )
+    );
   }
   if (isInfoOpen) {
     variableButton = (
@@ -394,9 +394,9 @@ const Buy = props => {
         type={'blue'}
         onClick={() => {
           if (!isInfoOpen) {
-            setIsInfoOpen(true)
+            setIsInfoOpen(true);
           } else {
-            setIsInfoOpen(false)
+            setIsInfoOpen(false);
           }
           // content changes function
         }}
@@ -407,7 +407,7 @@ const Buy = props => {
           transition: '.5s',
         }}
       />
-    )
+    );
   }
   if (isConnected === false && isActive === false) {
     connectButton = (
@@ -416,13 +416,13 @@ const Buy = props => {
           title={'Connect Wallet'}
           type={'blue'}
           onClick={() => {
-            handleWalletModal(true)
-            setConnected(true)
+            handleWalletModal(true);
+            setConnected(true);
             window.scrollTo({
               top: 0,
               left: 0,
               behavior: 'smooth',
-            })
+            });
           }}
           customStyles={{
             padding: '2% 0',
@@ -430,7 +430,7 @@ const Buy = props => {
           }}
         />
       </div>
-    )
+    );
   }
   if (step === true) {
     variableStep = (
@@ -460,13 +460,13 @@ const Buy = props => {
               title={'Connect Wallet'}
               type={'blue'}
               onClick={() => {
-                handleWalletModal(true)
-                setConnected(true)
+                handleWalletModal(true);
+                setConnected(true);
                 window.scrollTo({
                   top: 0,
                   left: 0,
                   behavior: 'smooth',
-                })
+                });
               }}
               customStyles={{
                 padding: '2% 0',
@@ -488,7 +488,7 @@ const Buy = props => {
           <p className={styles.getBtn}>Get BNB or WBNB</p>
         </div>
       </div>
-    )
+    );
   }
 
   return (
@@ -508,9 +508,9 @@ const Buy = props => {
           <div
             onClick={() => {
               if (!isManageOpen) {
-                setIsManageOpen(true)
+                setIsManageOpen(true);
               } else {
-                setIsManageOpen(false)
+                setIsManageOpen(false);
               }
             }}
             className={`${styles.NftBuy__walletConnect} ${isManageOpen ? styles.opend : ''}`}
@@ -540,9 +540,9 @@ const Buy = props => {
           <div
             onClick={() => {
               if (!isPropertiesOpen) {
-                setIsPropertiesOpen(true)
+                setIsPropertiesOpen(true);
               } else {
-                setIsPropertiesOpen(false)
+                setIsPropertiesOpen(false);
               }
             }}
             className={`${styles.NftBuy__properties} ${isPropertiesOpen ? styles.opendP : ''}`}
@@ -577,16 +577,16 @@ const Buy = props => {
                       {item.subTitle}
                     </p>
                   </div>
-                )
+                );
               })}
             </div>
           </div>
           <div
             onClick={() => {
               if (!isDetailsOpen) {
-                setIsDetailsOpen(true)
+                setIsDetailsOpen(true);
               } else {
-                setIsDetailsOpen(false)
+                setIsDetailsOpen(false);
               }
             }}
             className={`${styles.NftBuy__details} ${isDetailsOpen ? styles.opendD : ''}`}
@@ -729,13 +729,13 @@ const Buy = props => {
                           title={'Connect Wallet'}
                           type={'blue'}
                           onClick={() => {
-                            handleWalletModal(true)
-                            setConnected(true)
+                            handleWalletModal(true);
+                            setConnected(true);
                             window.scrollTo({
                               top: 0,
                               left: 0,
                               behavior: 'smooth',
-                            })
+                            });
                           }}
                           customStyles={{
                             padding: '2% 0',
@@ -756,7 +756,7 @@ const Buy = props => {
                     <p className={styles.getBtn}>Get BNB or WBNB</p>
                   </div>
                 </div>
-              )
+              );
             })}
           </div>
           {detailTable}
@@ -797,13 +797,13 @@ const Buy = props => {
                     </div>
                   </Link>
                 </SwiperSlide>
-              )
+              );
             })}
           </Swiper>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Buy
+export default Buy;

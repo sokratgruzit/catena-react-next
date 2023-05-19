@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const ChoiceItemResult = ({ choice }) => {
   return (
@@ -16,7 +16,7 @@ const ChoiceItemResult = ({ choice }) => {
         <p>{choice.percentage}%</p>
       </div> */}
     </div>
-  )
-}
+  );
+};
 
-export default ChoiceItemResult
+export default ChoiceItemResult;

@@ -1,13 +1,13 @@
-import { Button, Popup, PopupElement } from '@catena-network/catena-ui-module'
-import Image from 'next/image'
-import { useState } from 'react'
+import { Button, Popup, PopupElement } from '@catena-network/catena-ui-module';
+import Image from 'next/image';
+import { useState } from 'react';
 
-import styles from './MainContainer.module.css'
+import styles from './MainContainer.module.css';
 
 const MainContainer = ({ active, setActive }) => {
   const [createCodeObject, setCreateCodeObject] = useState({
     emails: [],
-  })
+  });
 
   let defaultData = [
     {
@@ -26,24 +26,24 @@ const MainContainer = ({ active, setActive }) => {
       name: 'email4',
       value: 'email4',
     },
-  ]
+  ];
 
   let handleChange = e => {
     if (!createCodeObject.emails.includes(e.target.value)) {
       return setCreateCodeObject(prev => ({
         ...prev,
         [e.target.name]: [...prev[e.target.name], e.target.value],
-      }))
+      }));
     }
-    console.log('email is added already')
-  }
+    console.log('email is added already');
+  };
 
   const handleItemRemove = item => {
     setCreateCodeObject(prevState => {
-      const updatedEmails = prevState.emails.filter(email => email !== item)
-      return { ...prevState, emails: updatedEmails }
-    })
-  }
+      const updatedEmails = prevState.emails.filter(email => email !== item);
+      return { ...prevState, emails: updatedEmails };
+    });
+  };
 
   const inputs = [
     {
@@ -79,7 +79,7 @@ const MainContainer = ({ active, setActive }) => {
           [e.target.name]: e.target.value,
         }),
     },
-  ]
+  ];
   return (
     <div className='container'>
       <div className={styles.mainContainerBg}>
@@ -139,7 +139,7 @@ const MainContainer = ({ active, setActive }) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default MainContainer
+export default MainContainer;

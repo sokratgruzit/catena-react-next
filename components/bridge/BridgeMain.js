@@ -1,80 +1,80 @@
-import axios from 'axios'
-import BigNumber from 'bignumber.js'
-import React, { useEffect, useState } from 'react'
-import { HalfMalf } from 'react-spinner-animated'
-import 'react-spinner-animated/dist/index.css'
-import { toast } from 'react-toastify'
+import axios from 'axios';
+import BigNumber from 'bignumber.js';
+import React, { useEffect, useState } from 'react';
+import { HalfMalf } from 'react-spinner-animated';
+import 'react-spinner-animated/dist/index.css';
+import { toast } from 'react-toastify';
 
-import * as helper from '../../helper'
-import useMetaMask from '../../hooks/use-connect'
-import BRIDGE from '../abi/BRIDGE.json'
-import config from '../abi/config.json'
-import TOKEN from '../abi/TOKEN_ABI.json'
+import * as helper from '../../helper';
+import useMetaMask from '../../hooks/use-connect';
+import BRIDGE from '../abi/BRIDGE.json';
+import config from '../abi/config.json';
+import TOKEN from '../abi/TOKEN_ABI.json';
 
 function BridgeMain() {
-  const { isActive, account, library, handleWalletModal, chainId, providerType } = useMetaMask()
+  const { isActive, account, library, handleWalletModal, chainId, providerType } = useMetaMask();
 
-  const network = [config.ETH.CMCX, config.BNB.CMCX]
-  var API_URL = process.env.REACT_APP_API_URL
+  const network = [config.ETH.CMCX, config.BNB.CMCX];
+  var API_URL = process.env.REACT_APP_API_URL;
 
-  const [step, setStep] = useState(0)
+  const [step, setStep] = useState(0);
 
-  const [prov, setProv] = useState(providerType)
+  const [prov, setProv] = useState(providerType);
 
   useEffect(() => {
-    setProv(providerType)
-    console.log(chainId, 'chainid')
-  }, [])
+    setProv(providerType);
+    console.log(chainId, 'chainid');
+  }, []);
 
-  const [swapAmount, setSwapAmount] = useState('')
-  const [outputAmount, setOutputAmount] = useState('')
+  const [swapAmount, setSwapAmount] = useState('');
+  const [outputAmount, setOutputAmount] = useState('');
 
-  const [loading, setLoading] = useState(false)
-  const [swapLoading, setSwapLoading] = useState(false)
-  const [allowance, setAllowance] = useState(false)
+  const [loading, setLoading] = useState(false);
+  const [swapLoading, setSwapLoading] = useState(false);
+  const [allowance, setAllowance] = useState(false);
 
-  const [activeNetwork1, setActiveNetwork1] = useState({})
-  const [activeNetwork2, setActiveNetwork2] = useState({})
+  const [activeNetwork1, setActiveNetwork1] = useState({});
+  const [activeNetwork2, setActiveNetwork2] = useState({});
 
   const notify = (isError, msg) => {
     if (isError) {
       toast.error(msg, {
         position: toast.POSITION.TOP_RIGHT,
-      })
+      });
     } else {
       toast.success(msg, {
         position: toast.POSITION.TOP_RIGHT,
-      })
+      });
     }
-  }
+  };
 
   const approve = async () => {
-    setLoading(true)
+    setLoading(true);
     try {
-      var contract = new library.eth.Contract(TOKEN, activeNetwork1?.tokenAddress)
-      var Router = activeNetwork1?.bridgeAddress
+      var contract = new library.eth.Contract(TOKEN, activeNetwork1?.tokenAddress);
+      var Router = activeNetwork1?.bridgeAddress;
 
-      var amountIn = 10 ** 64
-      amountIn = amountIn.toLocaleString('fullwide', { useGrouping: false })
+      var amountIn = 10 ** 64;
+      amountIn = amountIn.toLocaleString('fullwide', { useGrouping: false });
 
       await contract.methods
         .approve(Router, amountIn.toString())
         .send({ from: account })
         .then(async () => {
-          await loadUserData()
-          notify(false, 'enable token successfully')
-          setAllowance(false)
-          setLoading(false)
-        })
+          await loadUserData();
+          notify(false, 'enable token successfully');
+          setAllowance(false);
+          setLoading(false);
+        });
     } catch (err) {
-      setLoading(false)
-      notify(true, err.message)
+      setLoading(false);
+      notify(true, err.message);
     }
-  }
+  };
 
   const swapBalance = async () => {
-    setLoading(true)
-    setSwapLoading(true)
+    setLoading(true);
+    setSwapLoading(true);
 
     // if (swapAmount < 100) {
     //   notify(true, `Amount should be 100 or more then 100`);
@@ -83,13 +83,13 @@ function BridgeMain() {
     //   return;
     // }
 
-    var amount = swapAmount * Math.pow(10, 18)
-    amount = amount.toLocaleString('fullwide', { useGrouping: false })
-    var BN = library.utils.BN
-    var amountIn = new BN(amount.toString())
+    var amount = swapAmount * Math.pow(10, 18);
+    amount = amount.toLocaleString('fullwide', { useGrouping: false });
+    var BN = library.utils.BN;
+    var amountIn = new BN(amount.toString());
 
     try {
-      var bridgeContract = new library.eth.Contract(BRIDGE, activeNetwork1?.bridgeAddress)
+      var bridgeContract = new library.eth.Contract(BRIDGE, activeNetwork1?.bridgeAddress);
 
       await bridgeContract.methods
         .swap(amountIn.toString())
@@ -104,79 +104,79 @@ function BridgeMain() {
             })
             .then(function (response) {
               if (response.status === false) {
-                notify(true, response.error)
+                notify(true, response.error);
               } else {
-                notify(false, `Transaction successful, Please check your wallet.`)
+                notify(false, `Transaction successful, Please check your wallet.`);
               }
-              setSwapAmount('')
-              setOutputAmount('')
-              loadUserData()
+              setSwapAmount('');
+              setOutputAmount('');
+              loadUserData();
             })
             .catch(function (err) {
-              notify(true, err.message)
-              setStep(2)
-            })
-        })
+              notify(true, err.message);
+              setStep(2);
+            });
+        });
 
-      setLoading(false)
-      setSwapLoading(false)
+      setLoading(false);
+      setSwapLoading(false);
     } catch (err) {
-      notify(true, err.message)
-      setSwapLoading(false)
-      setLoading(false)
+      notify(true, err.message);
+      setSwapLoading(false);
+      setLoading(false);
     }
-  }
+  };
 
   const loadUserData = async (checkAmt = false, amt = 0) => {
     try {
-      setLoading(true)
-      var token = new library.eth.Contract(TOKEN, activeNetwork1?.tokenAddress)
-      var getAllowance = await token.methods.allowance(account, activeNetwork1?.bridgeAddress).call()
+      setLoading(true);
+      var token = new library.eth.Contract(TOKEN, activeNetwork1?.tokenAddress);
+      var getAllowance = await token.methods.allowance(account, activeNetwork1?.bridgeAddress).call();
       if (checkAmt) {
-        var amtval = new BigNumber(amt * Math.pow(10, network[0].decimals))
+        var amtval = new BigNumber(amt * Math.pow(10, network[0].decimals));
         if (amtval.comparedTo(new BigNumber(getAllowance)) === 1) {
-          setAllowance(true)
+          setAllowance(true);
         } else {
-          setAllowance(false)
+          setAllowance(false);
         }
       } else {
         if (getAllowance <= 2) {
-          setAllowance(true)
+          setAllowance(true);
         } else {
-          setAllowance(false)
+          setAllowance(false);
         }
       }
-      setLoading(false)
+      setLoading(false);
     } catch (err) {
-      console.log(err)
+      console.log(err);
     }
-  }
+  };
 
   const setActiveNetwork = async () => {
-    setLoading(true)
+    setLoading(true);
     if (chainId === 4) {
-      setActiveNetwork1(network[0])
-      setActiveNetwork2(network[1])
+      setActiveNetwork1(network[0]);
+      setActiveNetwork2(network[1]);
     } else {
-      setActiveNetwork1(network[1])
-      setActiveNetwork2(network[0])
+      setActiveNetwork1(network[1]);
+      setActiveNetwork2(network[0]);
     }
-    setLoading(false)
-  }
+    setLoading(false);
+  };
 
   const switchNetwork = async () => {
-    setLoading(true)
+    setLoading(true);
 
-    var network1 = activeNetwork1
-    var network2 = activeNetwork2
+    var network1 = activeNetwork1;
+    var network2 = activeNetwork2;
     if (providerType === 'metaMask') {
       await window.ethereum.request({
         method: 'wallet_switchEthereumChain',
         params: [{ chainId: activeNetwork2.chainId }], // chainId must be in hexadecimal numbers
-      })
-      setActiveNetwork2(network1)
-      setActiveNetwork1(network2)
-      window.location.reload()
+      });
+      setActiveNetwork2(network1);
+      setActiveNetwork1(network2);
+      window.location.reload();
     } else {
       // if (network[0].name === "BSC" && chainId === 32520) {
       //   net = network.reverse();
@@ -184,21 +184,21 @@ function BridgeMain() {
       // setNetwork(net);
     }
     if (isActive) {
-      loadUserData()
+      loadUserData();
     }
-  }
+  };
 
   useEffect(() => {
     if (isActive && activeNetwork1?.name) {
-      loadUserData()
+      loadUserData();
     }
-  }, [isActive, account, activeNetwork1, activeNetwork2, chainId])
+  }, [isActive, account, activeNetwork1, activeNetwork2, chainId]);
 
   useEffect(() => {
-    setActiveNetwork()
-  }, [isActive, account, chainId])
+    setActiveNetwork();
+  }, [isActive, account, chainId]);
 
-  let stepHtml
+  let stepHtml;
   if (step === 0) {
     stepHtml = (
       <div className='bridge__box'>
@@ -380,28 +380,28 @@ function BridgeMain() {
                 value={swapAmount}
                 disabled={swapLoading}
                 onChange={async e => {
-                  setSwapAmount(parseFloat(e.target.value))
+                  setSwapAmount(parseFloat(e.target.value));
 
-                  var percentage = activeNetwork1?.percentage
+                  var percentage = activeNetwork1?.percentage;
                   if (percentage === 0) {
-                    var amt = parseFloat(e.target.value)
+                    var amt = parseFloat(e.target.value);
                   } else {
-                    var amtPer = parseFloat(e.target.value) * (percentage / 100)
-                    var amt = parseFloat(e.target.value) - amtPer
-                    console.log(amt)
+                    var amtPer = parseFloat(e.target.value) * (percentage / 100);
+                    var amt = parseFloat(e.target.value) - amtPer;
+                    console.log(amt);
                   }
-                  let total_usd, totalAmt
+                  let total_usd, totalAmt;
                   if (activeNetwork1.network === 'BSC') {
-                    total_usd = amt * (await helper.CMCX_BSC_PRICE())
-                    totalAmt = total_usd / (await helper.CMCX_ETH_PRICE())
+                    total_usd = amt * (await helper.CMCX_BSC_PRICE());
+                    totalAmt = total_usd / (await helper.CMCX_ETH_PRICE());
                   } else {
-                    total_usd = amt * (await helper.CMCX_ETH_PRICE())
-                    totalAmt = total_usd / (await helper.CMCX_BSC_PRICE())
+                    total_usd = amt * (await helper.CMCX_ETH_PRICE());
+                    totalAmt = total_usd / (await helper.CMCX_BSC_PRICE());
                   }
-                  var final_amt = parseFloat(totalAmt.toFixed(2))
-                  console.log(final_amt)
-                  setOutputAmount(final_amt)
-                  await loadUserData(true, e.target.value)
+                  var final_amt = parseFloat(totalAmt.toFixed(2));
+                  console.log(final_amt);
+                  setOutputAmount(final_amt);
+                  await loadUserData(true, e.target.value);
                 }}
               ></input>
               <div className='bridge__box-amount-max font-13'>Max</div>
@@ -425,7 +425,7 @@ function BridgeMain() {
                 <div
                   className='bridge__box-connect-btn'
                   onClick={() => {
-                    setStep(1)
+                    setStep(1);
                   }}
                 >
                   {loading ? 'Please wait, Loading..' : 'Next'}
@@ -445,7 +445,7 @@ function BridgeMain() {
           )}
         </div>
       </div>
-    )
+    );
   }
   if (step === 1) {
     stepHtml = (
@@ -522,13 +522,13 @@ function BridgeMain() {
         <div
           className='bridge__box-connect-btn'
           onClick={() => {
-            swapBalance()
+            swapBalance();
           }}
         >
           Confirm
         </div>
       </div>
-    )
+    );
   }
   if (step === 2) {
     stepHtml = (
@@ -581,13 +581,13 @@ function BridgeMain() {
         <div
           className='bridge__box-connect-btn'
           onClick={() => {
-            setStep(0)
+            setStep(0);
           }}
         >
           Close
         </div>
       </div>
-    )
+    );
   }
   return (
     <div className='bridge__body'>
@@ -656,28 +656,28 @@ function BridgeMain() {
                     value={swapAmount}
                     disabled={swapLoading}
                     onChange={async e => {
-                      setSwapAmount(parseFloat(e.target.value))
+                      setSwapAmount(parseFloat(e.target.value));
 
-                      var percentage = activeNetwork1?.percentage
+                      var percentage = activeNetwork1?.percentage;
                       if (percentage === 0) {
-                        var amt = parseFloat(e.target.value)
+                        var amt = parseFloat(e.target.value);
                       } else {
-                        var amtPer = parseFloat(e.target.value) * (percentage / 100)
-                        var amt = parseFloat(e.target.value) - amtPer
-                        console.log(amt)
+                        var amtPer = parseFloat(e.target.value) * (percentage / 100);
+                        var amt = parseFloat(e.target.value) - amtPer;
+                        console.log(amt);
                       }
-                      let total_usd, totalAmt
+                      let total_usd, totalAmt;
                       if (activeNetwork1.network === 'BSC') {
-                        total_usd = amt * (await helper.CMCX_BSC_PRICE())
-                        totalAmt = total_usd / (await helper.CMCX_ETH_PRICE())
+                        total_usd = amt * (await helper.CMCX_BSC_PRICE());
+                        totalAmt = total_usd / (await helper.CMCX_ETH_PRICE());
                       } else {
-                        total_usd = amt * (await helper.CMCX_ETH_PRICE())
-                        totalAmt = total_usd / (await helper.CMCX_BSC_PRICE())
+                        total_usd = amt * (await helper.CMCX_ETH_PRICE());
+                        totalAmt = total_usd / (await helper.CMCX_BSC_PRICE());
                       }
-                      var final_amt = parseFloat(totalAmt.toFixed(2))
-                      console.log(final_amt)
-                      setOutputAmount(final_amt)
-                      await loadUserData(true, e.target.value)
+                      var final_amt = parseFloat(totalAmt.toFixed(2));
+                      console.log(final_amt);
+                      setOutputAmount(final_amt);
+                      await loadUserData(true, e.target.value);
                     }}
                   ></input>
                   <div className='icon'>
@@ -770,7 +770,7 @@ function BridgeMain() {
       </div>
       {/*Old End*/}
     </div>
-  )
+  );
 }
 
-export default BridgeMain
+export default BridgeMain;

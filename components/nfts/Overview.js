@@ -1,6 +1,6 @@
-import Arrivals from './components/Arrivals'
-import CollectionsPromo from './components/CollectionsPromo'
-import Market from './components/Market'
+import Arrivals from './components/Arrivals';
+import CollectionsPromo from './components/CollectionsPromo';
+import Market from './components/Market';
 
 const Overview = props => {
   return (
@@ -9,7 +9,7 @@ const Overview = props => {
       <CollectionsPromo />
       <Arrivals {...props} />
     </div>
-  )
-}
+  );
+};
 
-export default Overview
+export default Overview;

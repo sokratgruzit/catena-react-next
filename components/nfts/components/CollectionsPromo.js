@@ -1,7 +1,7 @@
-import Image from 'next/image'
-import Link from 'next/link'
+import Image from 'next/image';
+import Link from 'next/link';
 
-import styles from './CollectionsPromo.module.css'
+import styles from './CollectionsPromo.module.css';
 
 const CollectionsPromo = () => {
   return (
@@ -160,7 +160,7 @@ const CollectionsPromo = () => {
         </Link>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default CollectionsPromo
+export default CollectionsPromo;

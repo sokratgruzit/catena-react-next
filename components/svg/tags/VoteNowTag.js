@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const VoteNowTag = props => (
   <svg width='62' height='21' viewBox='0 0 62 21' fill='none' xmlns='http://www.w3.org/2000/svg' {...props}>
@@ -8,6 +8,6 @@ const VoteNowTag = props => (
       fill='#FF7152'
     />
   </svg>
-)
+);
 
-export default VoteNowTag
+export default VoteNowTag;

@@ -47,7 +47,7 @@ let faq = [
     answer:
       'There are many ways that you can support the CORE project such as join our Ambassador program, host CORE-related events in your community, or become a part of our online community. Join us on all social media platforms!',
   },
-]
+];
 
 function FaqItem() {
   return (
@@ -68,11 +68,11 @@ function FaqItem() {
               <div className='faq__item-title'>{item.question}</div>
               <div className='faq__item-tease'>{item.answer}</div>
             </div>
-          )
+          );
         })}
       </div>
     </>
-  )
+  );
 }
 
-export default FaqItem
+export default FaqItem;

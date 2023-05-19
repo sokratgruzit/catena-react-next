@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const RewardsCalcIcon = ({ className, ...props }) => {
   return (
@@ -59,7 +59,7 @@ const RewardsCalcIcon = ({ className, ...props }) => {
         />
       </g>
     </svg>
-  )
-}
+  );
+};
 
-export default RewardsCalcIcon
+export default RewardsCalcIcon;

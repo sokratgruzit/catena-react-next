@@ -1,7 +1,7 @@
-import Lottery from '../../../components/win/Lottery'
+import Lottery from '../../../components/win/Lottery';
 
 const index = () => {
-  return <Lottery />
-}
+  return <Lottery />;
+};
 
-export default index
+export default index;

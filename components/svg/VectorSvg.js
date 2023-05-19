@@ -8,5 +8,5 @@ const VectorSvg = props => (
       strokeLinejoin='round'
     />
   </svg>
-)
-export default VectorSvg
+);
+export default VectorSvg;

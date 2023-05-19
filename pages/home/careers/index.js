@@ -1,4 +1,4 @@
-import { Button } from '@catena-network/catena-ui-module'
+import { Button } from '@catena-network/catena-ui-module';
 
 const Careers = () => {
   return (
@@ -14,7 +14,7 @@ const Careers = () => {
         onClick={() => console.log('hi')}
       />
     </div>
-  )
-}
+  );
+};
 
-export default Careers
+export default Careers;

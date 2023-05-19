@@ -1,28 +1,28 @@
-import { Table, Button } from '@catena-network/catena-ui-module'
-import { useState } from 'react'
+import { Table, Button } from '@catena-network/catena-ui-module';
+import { useState } from 'react';
 
-import { useMobileWidth } from '../../../../hooks/useMobileWidth'
-import { ArrowSvg } from '../../../svg'
+import { useMobileWidth } from '../../../../hooks/useMobileWidth';
+import { ArrowSvg } from '../../../svg';
 
 const VotingNowTable = () => {
-  const [mobileExpand, setMobileExpand] = useState(null)
-  const { width, mobile } = useMobileWidth()
-  const [loading, setLoading] = useState(false)
-  const [createStakingPopUpActive, setCreateStakingPopUpActive] = useState(false)
+  const [mobileExpand, setMobileExpand] = useState(null);
+  const { width, mobile } = useMobileWidth();
+  const [loading, setLoading] = useState(false);
+  const [createStakingPopUpActive, setCreateStakingPopUpActive] = useState(false);
 
   const handlePopUpOpen = () => {
-    setCreateStakingPopUpActive(true)
-  }
+    setCreateStakingPopUpActive(true);
+  };
 
   let mobileExpandFunc = id => {
     if (mobile) {
       if (id !== mobileExpand) {
-        setMobileExpand(id)
+        setMobileExpand(id);
       } else {
-        setMobileExpand(null)
+        setMobileExpand(null);
       }
     }
-  }
+  };
 
   const tableHead = [
     {
@@ -70,7 +70,7 @@ const VotingNowTable = () => {
       className: 'buttons-th',
       onClick: index => console.log(index),
     },
-  ]
+  ];
 
   const stakersRecord = [
     {
@@ -97,14 +97,14 @@ const VotingNowTable = () => {
       CML: 'CML',
       realtimeRewardPerBlock: '1,132,000.1',
     },
-  ]
+  ];
 
   const tableEmptyData = {
     label: 'Stake to earn Complend reward',
     button: (
       <Button element={'referral-button'} label={'Create Staking'} icon={<ArrowSvg />} onClick={handlePopUpOpen} />
     ),
-  }
+  };
 
   let tableData =
     stakersRecord?.length > 0 &&
@@ -113,7 +113,7 @@ const VotingNowTable = () => {
         className={`table-parent ${mobileExpand === index ? 'active' : ''}`}
         key={index}
         onClick={() => {
-          mobileExpandFunc(index)
+          mobileExpandFunc(index);
         }}
       >
         <div className={'table'}>
@@ -201,7 +201,7 @@ const VotingNowTable = () => {
           </div>
         </div>
       </div>
-    ))
+    ));
 
   return (
     <Table
@@ -213,7 +213,7 @@ const VotingNowTable = () => {
       tableEmptyData={tableEmptyData}
       loading={loading}
     />
-  )
-}
+  );
+};
 
-export default VotingNowTable
+export default VotingNowTable;

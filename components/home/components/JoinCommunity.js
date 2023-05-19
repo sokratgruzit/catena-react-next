@@ -11,7 +11,7 @@ const JoinCommunity = () => {
         <input type='text' placeholder='myname@example.com' name='message' />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default JoinCommunity
+export default JoinCommunity;

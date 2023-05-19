@@ -1,14 +1,14 @@
-import { useRouter } from 'next/router'
-import React from 'react'
+import { useRouter } from 'next/router';
+import React from 'react';
 
-import { StarSvg } from '../../svg/index'
-import InfoRoutes from '../components/InfoRoutes/InfoRoutes'
-import PoolsTable from '../components/InfoTables/PoolsTable'
+import { StarSvg } from '../../svg/index';
+import InfoRoutes from '../components/InfoRoutes/InfoRoutes';
+import PoolsTable from '../components/InfoTables/PoolsTable';
 
-import styles from '../InfoPages.module.css'
+import styles from '../InfoPages.module.css';
 
 const InfoPools = () => {
-  const router = useRouter()
+  const router = useRouter();
   return (
     <div className={styles.section}>
       <div className={styles.routesWrapper}>
@@ -22,7 +22,7 @@ const InfoPools = () => {
       <h2 className={`${styles.tokensTitle} font_30`}>All Pools</h2>
       <PoolsTable />
     </div>
-  )
-}
+  );
+};
 
-export default InfoPools
+export default InfoPools;

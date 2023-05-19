@@ -1,12 +1,12 @@
-import Image from 'next/image'
-import { useState } from 'react'
+import Image from 'next/image';
+import { useState } from 'react';
 
-import PrizesTable from './prizesTable/PrizesTable'
-import CornerDecor from '../../UI/cornerDecor/CornerDecor'
-import TabFilter from '../../UI/filters/TabFilter'
+import PrizesTable from './prizesTable/PrizesTable';
+import CornerDecor from '../../UI/cornerDecor/CornerDecor';
+import TabFilter from '../../UI/filters/TabFilter';
 
-import styles from './Prizes.module.css'
-import filterStyles from '../../UI/filters/TabFilter.module.css'
+import styles from './Prizes.module.css';
+import filterStyles from '../../UI/filters/TabFilter.module.css';
 
 let tabsData = [
   {
@@ -21,14 +21,14 @@ let tabsData = [
     id: 2,
     label: '#3 team',
   },
-]
+];
 
 const Prizes = () => {
-  const [activeMenuItem, setActiveMenuItem] = useState('#1 team')
+  const [activeMenuItem, setActiveMenuItem] = useState('#1 team');
 
   const changeTabHendler = status => {
-    setActiveMenuItem(status)
-  }
+    setActiveMenuItem(status);
+  };
 
   return (
     <>
@@ -219,7 +219,7 @@ const Prizes = () => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Prizes
+export default Prizes;

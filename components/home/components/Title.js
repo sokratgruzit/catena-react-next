@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const Title = props => {
   return (
@@ -8,7 +8,7 @@ const Title = props => {
         <span>{props.spanTwo}</span>
       </h1>
     </div>
-  )
-}
+  );
+};
 
-export default Title
+export default Title;
