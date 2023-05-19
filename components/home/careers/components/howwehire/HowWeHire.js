@@ -14,6 +14,7 @@ const HowWeHire = (props) => {
                 <div>
                     <div className="hire__steps-ttl font-51">{item.number}</div>
                     <div className="hire__steps-desc">{item.title}</div>
+                    <div>{item.value}</div>
                 </div>
             )
         })}

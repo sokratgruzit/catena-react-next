@@ -25,14 +25,14 @@ const Feature = (props) => {
                 })}
             </div>
             <Button
-        label={"Button"}
-        size={"btn-lg"}
-        type={"btn-primary"}
-        arrow={"arrow-right"}
-        element={"button"}
-        disabled={true}
-        onClick={() => setToggle((prevState) => !prevState)}
-      />
+                label={"Button"}
+                size={"btn-lg"}
+                type={"btn-primary"}
+                arrow={"arrow-right"}
+                element={"button"}
+                disabled={true}
+                onClick={() => setToggle((prevState) => !prevState)}
+            />
         </div>
     )
 }

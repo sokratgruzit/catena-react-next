@@ -1,11 +1,13 @@
-import styles from "./HowWeWork.module.css"
+import styles from "./CompanyInfo.module.css"
 
-const HowWeWork = (props) => { 
-    const { workflow, title } = props
+const CompanyInfo = (props) => { 
+    const { workflow, title, description, name } = props
 
   return (
     <div className={`${styles.careerHow} ${styles.mt100}`}>
         <h2 className="font-51">{title}</h2>
+        <h3>{name}</h3>
+        <h1>{description}</h1>
       {workflow.map((item) => {
         return (
             <p key={item.title}>{item.title}</p>
@@ -15,4 +17,4 @@ const HowWeWork = (props) => {
   )
 }
 
-export default HowWeWork
+export default CompanyInfo
