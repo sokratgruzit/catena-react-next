@@ -1,28 +1,27 @@
-import React from "react";
-import Marquee from "../UI/marquee/Marquee";
-import Tickets from "./components/Tickets";
-import ConnectWallet from "./components/ConnectWallet";
-import FinishedRounds from "./components/FinishedRounds";
-import HowToPay from "./components/HowToPay";
-import WinningCriteria from "./components/WinningCriteria";
-import PrizeFunds from "./components/PrizeFunds";
-import LotteryPrizes from "./components/LotteryPrizes";
+import React from 'react'
+
+import ConnectWallet from './components/ConnectWallet'
+import FinishedRounds from './components/FinishedRounds'
+import HowToPay from './components/HowToPay'
+import LotteryPrizes from './components/LotteryPrizes'
+import PrizeFunds from './components/PrizeFunds'
+import Tickets from './components/Tickets'
+import WinningCriteria from './components/WinningCriteria'
 
 const Lottery = () => {
-
   return (
     <>
       <LotteryPrizes />
       {/* <Marquee label="lottery" direction={"forward"} />
       <Marquee label="lottery" direction={"reverce"} /> */}
-      <Tickets /> 
+      <Tickets />
       <ConnectWallet />
       <FinishedRounds />
       <HowToPay />
       <WinningCriteria />
       <PrizeFunds />
     </>
-);
-};
+  )
+}
 
-export default Lottery;
+export default Lottery

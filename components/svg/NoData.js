@@ -7,7 +7,8 @@ const NoData = ({ className, ...props }) => {
       fill='none'
       className={className}
       {...props}
-      xmlns='http://www.w3.org/2000/svg'>
+      xmlns='http://www.w3.org/2000/svg'
+    >
       <g clipPath='url(#clip0_713_116)' filter='url(#filter0_b_713_116)'>
         <g mask='url(#mask0_713_116)'>
           <path
@@ -24,28 +25,14 @@ const NoData = ({ className, ...props }) => {
           width='40'
           height='40'
           filterUnits='userSpaceOnUse'
-          colorInterpolationFilters='sRGB'>
+          colorInterpolationFilters='sRGB'
+        >
           <feFlood floodOpacity='0' result='BackgroundImageFix' />
           <feGaussianBlur in='BackgroundImageFix' stdDeviation='2.5' />
-          <feComposite
-            in2='SourceAlpha'
-            operator='in'
-            result='effect1_backgroundBlur_713_116'
-          />
-          <feBlend
-            mode='normal'
-            in='SourceGraphic'
-            in2='effect1_backgroundBlur_713_116'
-            result='shape'
-          />
+          <feComposite in2='SourceAlpha' operator='in' result='effect1_backgroundBlur_713_116' />
+          <feBlend mode='normal' in='SourceGraphic' in2='effect1_backgroundBlur_713_116' result='shape' />
         </filter>
-        <linearGradient
-          id='paint0_linear_713_116'
-          x1='22'
-          y1='3.5'
-          x2='15'
-          y2='30'
-          gradientUnits='userSpaceOnUse'>
+        <linearGradient id='paint0_linear_713_116' x1='22' y1='3.5' x2='15' y2='30' gradientUnits='userSpaceOnUse'>
           <stop stopColor='#475D6F' stopOpacity='0.8' />
           <stop offset='1' stopColor='#27343F' stopOpacity='0.3' />
         </linearGradient>
@@ -54,7 +41,7 @@ const NoData = ({ className, ...props }) => {
         </clipPath>
       </defs>
     </svg>
-  );
-};
+  )
+}
 
-export default NoData;
+export default NoData

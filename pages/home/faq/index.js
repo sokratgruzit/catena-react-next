@@ -1,7 +1,7 @@
-import Faq from "../../../components/home/faq/Faq";
+import Faq from '../../../components/home/faq/Faq'
 
 function index() {
-  return <Faq />;
+  return <Faq />
 }
 
-export default index;
+export default index

@@ -1,6 +1,6 @@
-import BugBounty from "../../../components/home/bugBounty/BugBounty";
+import BugBounty from '../../../components/home/bugBounty/BugBounty'
 
 function index() {
-  return <BugBounty />;
+  return <BugBounty />
 }
-export default index;
+export default index

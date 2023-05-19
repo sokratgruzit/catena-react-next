@@ -1,16 +1,16 @@
 const initialState = {
-    slippage: 0.5,
-    txDeadlines: 5,
-};
+  slippage: 0.5,
+  txDeadlines: 5,
+}
 
 const settingsReducer = (state = initialState, action) => {
-    if (action.type === 'SET_SLIPPAGE') {
-        return {
-            ...state,
-            slippage: action.slippage
-        };
+  if (action.type === 'SET_SLIPPAGE') {
+    return {
+      ...state,
+      slippage: action.slippage,
     }
-    return state;
-};
+  }
+  return state
+}
 
-export default settingsReducer;
+export default settingsReducer

@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import Image from 'next/image';
+import Image from 'next/image'
+import React, { useState, useEffect } from 'react'
 
-import styles from './CompetitionTable.module.css';
+import styles from './CompetitionTable.module.css'
 
 const tradersDataTotal = [
   {
@@ -109,7 +109,7 @@ const tradersDataTotal = [
     img: '/images/win/iconetab.png',
     numbering: '#16',
   },
-];
+]
 const tradersDataStorm = [
   {
     id: 0,
@@ -146,7 +146,7 @@ const tradersDataStorm = [
     img: '/images/win/iconestorme.png',
     numbering: '#5',
   },
-];
+]
 const tradersDataFlippers = [
   {
     id: 0,
@@ -183,7 +183,7 @@ const tradersDataFlippers = [
     img: '/images/win/iconestorme.png',
     numbering: '#5',
   },
-];
+]
 const tradersDataCakers = [
   {
     id: 0,
@@ -220,17 +220,17 @@ const tradersDataCakers = [
     img: '/images/win/iconestorme.png',
     numbering: '#5',
   },
-];
+]
 
 const CompetitionTable = ({ activeMenuItem }) => {
-  const [tableData, setTableData] = useState(tradersDataTotal);
+  const [tableData, setTableData] = useState(tradersDataTotal)
   useEffect(() => {
     //fetch data by state
-    if (activeMenuItem === 'total') setTableData(tradersDataTotal);
-    if (activeMenuItem === 'storm') setTableData(tradersDataStorm);
-    if (activeMenuItem === 'flippers') setTableData(tradersDataFlippers);
-    if (activeMenuItem === 'cakers') setTableData(tradersDataCakers);
-  }, [activeMenuItem]);
+    if (activeMenuItem === 'total') setTableData(tradersDataTotal)
+    if (activeMenuItem === 'storm') setTableData(tradersDataStorm)
+    if (activeMenuItem === 'flippers') setTableData(tradersDataFlippers)
+    if (activeMenuItem === 'cakers') setTableData(tradersDataCakers)
+  }, [activeMenuItem])
 
   return (
     <div>
@@ -246,17 +246,12 @@ const CompetitionTable = ({ activeMenuItem }) => {
             <p className={styles.nickName}>{item.nickName}</p>
           </div>
           <div className={styles.icone}>
-            <Image
-              layout='fill'
-              src={item.img}
-              alt='HomeScreen'
-              objectFit={'contain'}
-            />
+            <Image layout='fill' src={item.img} alt='HomeScreen' objectFit={'contain'} />
           </div>
         </div>
       ))}
     </div>
-  );
-};
+  )
+}
 
-export default CompetitionTable;
+export default CompetitionTable

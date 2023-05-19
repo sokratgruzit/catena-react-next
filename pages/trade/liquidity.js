@@ -1,7 +1,7 @@
-import React from 'react';
+import React from 'react'
 
 const Liquidity = () => {
-  return <div>Liquidity</div>;
-};
+  return <div>Liquidity</div>
+}
 
-export default Liquidity;
+export default Liquidity

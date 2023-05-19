@@ -1,5 +1,4 @@
-import styles from './MultiTextItem.module.css';
-import listStyles from '../../ListItemRow.module.css';
+import listStyles from '../../ListItemRow.module.css'
 
 const MultiTextItem = props => {
   let item = (
@@ -8,9 +7,9 @@ const MultiTextItem = props => {
       {props.data.text2 && <p>{props.data.text2}</p>}
       {props.data.text3 && <p>{props.data.text3}</p>}
     </div>
-  );
+  )
 
-  return item;
-};
+  return item
+}
 
-export default MultiTextItem;
+export default MultiTextItem

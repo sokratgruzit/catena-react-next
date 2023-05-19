@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 
-import { formatCurrency } from '../../../utils/formatCurrency';
-import Table from '../../../UI/table/Table';
-import Button from '../../../UI/button/Button';
-import CornerDecor from '../../../UI/cornerDecor/CornerDecor';
-import PageNumber from './PageNumber';
-import { PaginationButtonSvg } from '../../../svg';
+import PageNumber from './PageNumber'
+import { PaginationButtonSvg } from '../../../svg'
+import Button from '../../../UI/button/Button'
+import CornerDecor from '../../../UI/cornerDecor/CornerDecor'
+import Table from '../../../UI/table/Table'
+import { formatCurrency } from '../../../utils/formatCurrency'
 
-import styles from './InfoTables.module.css';
+import styles from './InfoTables.module.css'
 
 const TransactionTable_DATA = [
   {
@@ -160,7 +160,7 @@ const TransactionTable_DATA = [
     account: '0x20...139b',
     time: '3 hours',
   },
-];
+]
 
 const Table__Types = [
   {
@@ -175,11 +175,11 @@ const Table__Types = [
   {
     type: 'Removes',
   },
-];
+]
 
 const TransactionTable = () => {
-  const [pageCountTransactions, setPageCountTransactions] = useState(1);
-  const [dataType, setDataType] = useState('All');
+  const [pageCountTransactions, setPageCountTransactions] = useState(1)
+  const [dataType, setDataType] = useState('All')
 
   const TransactionTable_DATA = [
     {
@@ -492,54 +492,31 @@ const TransactionTable = () => {
         },
       ],
     },
-  ];
+  ]
 
   return (
     <div className={styles.Table__wrapper}>
       <CornerDecor />
       <div className={styles.radioWrapper}>
         {Table__Types.map(({ type }, index) => (
-          <label
-            onClick={e => setDataType(type)}
-            className={styles.radioContainer}
-            key={type}
-          >
+          <label onClick={e => setDataType(type)} className={styles.radioContainer} key={type}>
             {type}
-            <input
-              type='radio'
-              name={'transaction'}
-              defaultChecked={index === 0}
-              onChange={() => setDataType(type)}
-            />
+            <input type='radio' name={'transaction'} defaultChecked={index === 0} onChange={() => setDataType(type)} />
             <span className={styles.radioCheckmark}></span>
           </label>
         ))}
       </div>
       <Table
-        tableLabels={[
-          'Action',
-          'Total Value',
-          'Token Amount',
-          'Token Amoun',
-          'Account',
-          'Time',
-        ]}
+        tableLabels={['Action', 'Total Value', 'Token Amount', 'Token Amoun', 'Account', 'Time']}
         tableData={TransactionTable_DATA}
         type={'info_table_transactions'}
       />
       <div className={styles.Table__buttons}>
         <Button
           customStyles={{ marginRight: '10px' }}
-          title={
-            <PaginationButtonSvg
-              className={styles.back}
-              pageCountTokens={pageCountTransactions}
-              disabled={1}
-            />
-          }
+          title={<PaginationButtonSvg className={styles.back} pageCountTokens={pageCountTransactions} disabled={1} />}
           onClick={() => {
-            if (pageCountTransactions > 1)
-              setPageCountTransactions(prevValue => prevValue - 1);
+            if (pageCountTransactions > 1) setPageCountTransactions(prevValue => prevValue - 1)
           }}
         />
         <PageNumber
@@ -568,20 +545,15 @@ const TransactionTable = () => {
             marginLeft: '10px',
           }}
           title={
-            <PaginationButtonSvg
-              className={styles.forward}
-              pageCountTokens={pageCountTransactions}
-              disabled={3}
-            />
+            <PaginationButtonSvg className={styles.forward} pageCountTokens={pageCountTransactions} disabled={3} />
           }
           onClick={() => {
-            if (pageCountTransactions < 3)
-              setPageCountTransactions(prevValue => prevValue + 1);
+            if (pageCountTransactions < 3) setPageCountTransactions(prevValue => prevValue + 1)
           }}
         />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default TransactionTable;
+export default TransactionTable

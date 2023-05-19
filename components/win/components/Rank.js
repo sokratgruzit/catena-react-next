@@ -1,13 +1,13 @@
-import { useState } from 'react';
-import Image from 'next/image';
+import Image from 'next/image'
+import { useState } from 'react'
 
-import CornerDecor from '../../UI/cornerDecor/CornerDecor';
-import TabFilter from '../../UI/filters/TabFilter';
-import filterStyles from '../../UI/filters/TabFilter.module.css';
-import CompetitionTable from './competitionTable/CompetitionTable';
-import { VectorSvg } from '../../svg/index';
+import CompetitionTable from './competitionTable/CompetitionTable'
+import { VectorSvg } from '../../svg/index'
+import CornerDecor from '../../UI/cornerDecor/CornerDecor'
+import TabFilter from '../../UI/filters/TabFilter'
 
-import styles from './Rank.module.css';
+import styles from './Rank.module.css'
+import filterStyles from '../../UI/filters/TabFilter.module.css'
 
 let tabsData = [
   {
@@ -26,18 +26,18 @@ let tabsData = [
     id: 3,
     label: 'cakers',
   },
-];
+]
 
 const Rank = () => {
-  const [activeMenuItem, setActiveMenuItem] = useState('total');
-  const [details, setDetails] = useState(false);
+  const [activeMenuItem, setActiveMenuItem] = useState('total')
+  const [details, setDetails] = useState(false)
 
   const DetailsHendler = () => {
-    setDetails(!details);
-  };
+    setDetails(!details)
+  }
   const changeTabHendler = status => {
-    setActiveMenuItem(status);
-  };
+    setActiveMenuItem(status)
+  }
   return (
     <>
       <div className={styles.rankBkPosition}>
@@ -108,32 +108,16 @@ const Rank = () => {
                 </g>
                 <defs>
                   <clipPath id='clip0_605_19420'>
-                    <rect
-                      width='26'
-                      height='30'
-                      fill='white'
-                      transform='matrix(-1 0 0 1 26.791 0.649414)'
-                    />
+                    <rect width='26' height='30' fill='white' transform='matrix(-1 0 0 1 26.791 0.649414)' />
                   </clipPath>
                 </defs>
               </svg>
             </div>
             <div className={styles.cup}>
-              <Image
-                layout='fill'
-                objectFit='contain'
-                src={'/images/win/cup.png'}
-                alt='cup'
-              />
+              <Image layout='fill' objectFit='contain' src={'/images/win/cup.png'} alt='cup' />
             </div>
             <div>
-              <svg
-                width='27'
-                height='31'
-                viewBox='0 0 27 31'
-                fill='none'
-                xmlns='http://www.w3.org/2000/svg'
-              >
+              <svg width='27' height='31' viewBox='0 0 27 31' fill='none' xmlns='http://www.w3.org/2000/svg'>
                 <g clipPath='url(#clip0_605_19432)'>
                   <path
                     d='M21.4189 13.7429C22.1701 13.7968 22.9243 13.6911 23.6305 13.4328C24.3368 13.1745 24.9786 12.7696 25.5127 12.2456C27.2562 10.4673 26.7112 7.96777 26.7112 7.96777C25.1841 8.06053 23.7477 8.71468 22.6854 9.80114C22.1691 10.3096 21.7845 10.9332 21.564 11.6193C21.3435 12.3054 21.2938 13.0338 21.4189 13.7429Z'
@@ -182,12 +166,7 @@ const Rank = () => {
                 </g>
                 <defs>
                   <clipPath id='clip0_605_19432'>
-                    <rect
-                      width='26'
-                      height='30'
-                      fill='white'
-                      transform='translate(0.791016 0.649414)'
-                    />
+                    <rect width='26' height='30' fill='white' transform='translate(0.791016 0.649414)' />
                   </clipPath>
                 </defs>
               </svg>
@@ -198,12 +177,7 @@ const Rank = () => {
           </div>
         </div>
         <div className={styles.rankPosition}>
-          <Image
-            layout='fill'
-            src={'/images/win/rankPosition.png'}
-            objectFit={'contain'}
-            alt='rankPosition'
-          />
+          <Image layout='fill' src={'/images/win/rankPosition.png'} objectFit={'contain'} alt='rankPosition' />
         </div>
         <div className={styles.rankVolume}>
           <div>
@@ -239,28 +213,22 @@ const Rank = () => {
             }}
           />
         </div>
-        <div
-          className={`${styles.contentActve} ${
-            details === false ? styles.content : ''
-          }`}
-        >
+        <div className={`${styles.contentActve} ${details === false ? styles.content : ''}`}>
           <CompetitionTable activeMenuItem={activeMenuItem} />
         </div>
         <div className={styles.buttonShowMore}>
           <button
             onClick={() => {
-              DetailsHendler();
+              DetailsHendler()
             }}
           >
             {details === false ? 'Show More' : 'Hidden'}
           </button>
-          <VectorSvg
-            className={`${styles.vectorSvg} ${details ? styles.rotate : ''}`}
-          />
+          <VectorSvg className={`${styles.vectorSvg} ${details ? styles.rotate : ''}`} />
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Rank;
+export default Rank

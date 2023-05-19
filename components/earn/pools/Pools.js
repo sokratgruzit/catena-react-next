@@ -1,13 +1,8 @@
-import React, { useState, useRef, useEffect } from 'react';
-import Image from 'next/image';
+import Image from 'next/image'
+import React, { useState, useRef } from 'react'
 
-import Button from '../../UI/button/Button';
-import CornerDecor from '../../UI/cornerDecor/CornerDecor';
-import ListItemRow from '../../UI/listItem/ListItemRow';
-import Expand from '../../UI/expand/Expand';
-import EarnRoutes from '../components/earnRoutes/EarnRoutes';
-import TableFilter from '../components/tableFilter/TableFilter';
-import PoolsTableRowExpand from '../components/poolsTable/PoolsTableRowExpand';
+import { useWindowDimension } from '../../../hooks/useWindowDimension'
+import background from '../../../public/images/earn/background.png'
 import {
   ClockSvg,
   ComponentViewSvg,
@@ -18,14 +13,18 @@ import {
   OpenSvg,
   TableViewSvg,
   VectorSvg,
-} from '../../svg';
+} from '../../svg'
+import Button from '../../UI/button/Button'
+import CornerDecor from '../../UI/cornerDecor/CornerDecor'
+import Expand from '../../UI/expand/Expand'
+import ListItemRow from '../../UI/listItem/ListItemRow'
+import EarnRoutes from '../components/earnRoutes/EarnRoutes'
+import PoolsTableComponent from '../components/poolsTable/PoolsTableComponent'
+import PoolsTableComponentExpand from '../components/poolsTable/PoolsTableComponentExpand'
+import PoolsTableRowExpand from '../components/poolsTable/PoolsTableRowExpand'
+import TableFilter from '../components/tableFilter/TableFilter'
 
-import background from '../../../public/images/earn/background.png';
-import { useWindowDimension } from '../../../hooks/useWindowDimension';
-
-import styles from './Pools.module.css';
-import PoolsTableComponent from '../components/poolsTable/PoolsTableComponent';
-import PoolsTableComponentExpand from '../components/poolsTable/PoolsTableComponentExpand';
+import styles from './Pools.module.css'
 
 const poolsData2 = [
   {
@@ -294,19 +293,19 @@ const poolsData2 = [
       },
     ],
   },
-];
+]
 
-const FilterData = ['hot', 'apr', 'multiplier', 'earned', 'liquidity'];
+const FilterData = ['hot', 'apr', 'multiplier', 'earned', 'liquidity']
 
 const Pools = () => {
-  const [width] = useWindowDimension();
-  const [dataViewType, setDataViewType] = useState('table');
-  const [search, setSearch] = useState('');
+  const [width] = useWindowDimension()
+  const [dataViewType, setDataViewType] = useState('table')
+  const [search, setSearch] = useState('')
   const [filter, setFilter] = useState({
     open: false,
     selected: FilterData[0],
-  });
-  const selectRef = useRef();
+  })
+  const selectRef = useRef()
 
   return (
     <>
@@ -332,11 +331,7 @@ const Pools = () => {
               <p className='font_13'>~$0,07</p>
             </div>
             <div className={styles.pools__claim}>
-              <Button
-                title={'Claim'}
-                type={'blue__border'}
-                className={styles.claimButton}
-              />
+              <Button title={'Claim'} type={'blue__border'} className={styles.claimButton} />
               <p className='font_13'>Help</p>
               <InfoIcon />
             </div>
@@ -348,15 +343,11 @@ const Pools = () => {
             <div className={styles.Farms__filterLeftPanel}>
               <TableViewSvg
                 onClick={() => setDataViewType('table')}
-                className={`${
-                  dataViewType === 'components' && styles.tableView
-                }`}
+                className={`${dataViewType === 'components' && styles.tableView}`}
               />
               <ComponentViewSvg
                 onClick={() => setDataViewType('components')}
-                className={`${
-                  dataViewType === 'components' && styles.componentsView
-                }`}
+                className={`${dataViewType === 'components' && styles.componentsView}`}
               />
               <div className={styles.farms__radioBtn}>
                 <div className='radio-btn'>
@@ -373,9 +364,7 @@ const Pools = () => {
               <div className={styles.filterWrapper}>
                 <div
                   ref={selectRef}
-                  className={`${styles.filters} ${
-                    filter.open && styles.filterOpen
-                  }`}
+                  className={`${styles.filters} ${filter.open && styles.filterOpen}`}
                   onClick={() =>
                     setFilter(prevState => ({
                       ...prevState,
@@ -384,17 +373,12 @@ const Pools = () => {
                   }
                 >
                   <p className={styles.filterName}>
-                    {filter.selected}{' '}
-                    <VectorSvg
-                      className={`${styles.vectorSvg} ${
-                        filter.open && styles.rotate
-                      }`}
-                    />
+                    {filter.selected} <VectorSvg className={`${styles.vectorSvg} ${filter.open && styles.rotate}`} />
                   </p>
                   {filter.open && (
                     <>
                       {FilterData.map((FilterName, index) => {
-                        if (FilterName === filter.selected) return false;
+                        if (FilterName === filter.selected) return false
                         return (
                           <p
                             key={FilterName}
@@ -403,12 +387,12 @@ const Pools = () => {
                               setFilter({
                                 open: 'false',
                                 selected: FilterName,
-                              });
+                              })
                             }}
                           >
                             {FilterName}
                           </p>
-                        );
+                        )
                       })}
                     </>
                   )}
@@ -428,14 +412,10 @@ const Pools = () => {
             <CornerDecor />
             {poolsData2.map((item, index) => {
               return (
-                <Expand
-                  expandContent={<PoolsTableRowExpand item={item} />}
-                  className={styles.borderBottom}
-                  key={index}
-                >
+                <Expand expandContent={<PoolsTableRowExpand item={item} />} className={styles.borderBottom} key={index}>
                   <ListItemRow data={item} type={'earn_pools'} />
                 </Expand>
-              );
+              )
             })}
           </div>
         )}
@@ -444,9 +424,7 @@ const Pools = () => {
             {poolsData2.map((item, index) => (
               <div className={`${styles.itemWrapper}`} key={index}>
                 <CornerDecor />
-                <Expand
-                  expandContent={<PoolsTableComponentExpand item={item} />}
-                >
+                <Expand expandContent={<PoolsTableComponentExpand item={item} />}>
                   <PoolsTableComponent item={item} />
                 </Expand>
               </div>
@@ -455,7 +433,7 @@ const Pools = () => {
         )}
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Pools;
+export default Pools

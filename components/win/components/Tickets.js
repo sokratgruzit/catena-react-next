@@ -1,13 +1,12 @@
-import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import Image from 'next/image';
+import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
-import CornerDecor from '../../UI/cornerDecor/CornerDecor';
+import BuyTickets from './BuyTickets'
+import { VectorSvg } from '../../svg'
+import Button from '../../UI/button/Button'
+import CornerDecor from '../../UI/cornerDecor/CornerDecor'
 
-import BuyTickets from './BuyTickets';
-import styles from './Tickets.module.css';
-import { VectorSvg } from '../../svg';
-import Button from '../../UI/button/Button';
+import styles from './Tickets.module.css'
 
 let ticketsData = [
   {
@@ -58,16 +57,16 @@ let ticketsData = [
     priceCore: '156 CORE',
     price: '~$3.215',
   },
-];
+]
 
 const Tickets = () => {
-  const [details, setDetails] = useState(false);
-  const activebtns = useSelector(state => state.activeBuyTicketsBtn);
-  const dispatch = useDispatch();
+  const [details, setDetails] = useState(false)
+  const activebtns = useSelector(state => state.activeBuyTicketsBtn)
+  const dispatch = useDispatch()
 
   const handleClick = () => {
-    setDetails(!details);
-  };
+    setDetails(!details)
+  }
 
   const ticketBtns = () => {
     dispatch({
@@ -75,16 +74,12 @@ const Tickets = () => {
       payload: {
         activeBuyTicketsBtn: !activebtns,
       },
-    });
-  };
+    })
+  }
   return (
     <div className={styles.alignteItems}>
       <picture>
-        <img
-          className={styles.imgBlur}
-          src={'/images/win/Rectangle.png'}
-          alt=''
-        />
+        <img className={styles.imgBlur} src={'/images/win/Rectangle.png'} alt='' />
       </picture>
       <h1 className={styles.title}>Get your tickets now!</h1>
       <div className={styles.time}>
@@ -111,25 +106,18 @@ const Tickets = () => {
               title={'Buy Tickets'}
               type={'transparent'}
               onClick={() => {
-                ticketBtns();
+                ticketBtns()
               }}
               customStyles={{
                 padding: '10px 80px',
               }}
             />
           </div>
-          <div
-            className={`${styles.tabBorder} ${
-              activebtns === true ? styles.containerOpacity : ''
-            }`}
-          >
+          <div className={`${styles.tabBorder} ${activebtns === true ? styles.containerOpacity : ''}`}>
             <BuyTickets />
           </div>
           <div className={styles.paragraph}>
-            <p>
-              Match the winning number in the same order to share prizes.
-              Current prizes up for grabs:
-            </p>
+            <p>Match the winning number in the same order to share prizes. Current prizes up for grabs:</p>
           </div>
           <div className={styles.list}>
             {details &&
@@ -142,24 +130,20 @@ const Tickets = () => {
                       <p className={styles.priceCore}>{item.price}</p>
                     </div>
                   </>
-                );
+                )
               })}
           </div>
           <div className={styles.details}>
             <p onClick={handleClick}>
               {details === true ? 'Hide' : 'Details'}
 
-              <VectorSvg
-                className={`${styles.vectorSvg} ${
-                  details ? styles.rotate : ''
-                }`}
-              />
+              <VectorSvg className={`${styles.vectorSvg} ${details ? styles.rotate : ''}`} />
             </p>
           </div>
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Tickets;
+export default Tickets

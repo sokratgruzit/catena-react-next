@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import DatePicker from 'react-datepicker';
+import React from 'react'
+import DatePicker from 'react-datepicker'
 
-import 'react-datepicker/dist/react-datepicker.css';
+import 'react-datepicker/dist/react-datepicker.css'
 
 const FormSelectTime = props => {
   return (
@@ -14,7 +14,7 @@ const FormSelectTime = props => {
       name='endTime'
       {...props}
     />
-  );
-};
+  )
+}
 
-export default FormSelectTime;
+export default FormSelectTime

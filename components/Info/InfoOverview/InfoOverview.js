@@ -1,13 +1,13 @@
-import React from 'react';
+import React from 'react'
 
-import InfoRoutes from '../components/InfoRoutes/InfoRoutes';
-import SearchBar from '../components/SearchBar/SearchBar';
-import TokensTable from '../components/InfoTables/TokensTable';
-import PoolsTable from '../components/InfoTables/PoolsTable';
-import TransactionTable from '../components/InfoTables/TransactionTable';
-import InfoCharts from '../components/InfoCharts/InfoCharts';
+import InfoCharts from '../components/InfoCharts/InfoCharts'
+import InfoRoutes from '../components/InfoRoutes/InfoRoutes'
+import PoolsTable from '../components/InfoTables/PoolsTable'
+import TokensTable from '../components/InfoTables/TokensTable'
+import TransactionTable from '../components/InfoTables/TransactionTable'
+import SearchBar from '../components/SearchBar/SearchBar'
 
-import styles from '../InfoPages.module.css';
+import styles from '../InfoPages.module.css'
 
 const InfoOverview = () => {
   return (
@@ -27,7 +27,7 @@ const InfoOverview = () => {
         <TransactionTable />
       </div>
     </>
-  );
-};
+  )
+}
 
-export default InfoOverview;
+export default InfoOverview

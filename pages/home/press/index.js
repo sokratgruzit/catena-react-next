@@ -1,7 +1,7 @@
-import Press from "../../../components/home/press/Press";
+import Press from '../../../components/home/press/Press'
 
 const index = () => {
-  return <Press />;
-};
+  return <Press />
+}
 
-export default index;
+export default index

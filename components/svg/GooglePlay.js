@@ -1,14 +1,7 @@
-import React from 'react';
+import React from 'react'
 
 const GooglePlay = props => (
-  <svg
-    width='139'
-    height='35'
-    viewBox='0 0 139 35'
-    fill='none'
-    xmlns='http://www.w3.org/2000/svg'
-    {...props}
-  >
+  <svg width='139' height='35' viewBox='0 0 139 35' fill='none' xmlns='http://www.w3.org/2000/svg' {...props}>
     <path
       fillRule='evenodd'
       clipRule='evenodd'
@@ -120,6 +113,6 @@ const GooglePlay = props => (
       </linearGradient>
     </defs>
   </svg>
-);
+)
 
-export default GooglePlay;
+export default GooglePlay

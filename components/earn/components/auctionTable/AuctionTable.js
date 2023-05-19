@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 
-import TabFilter from '../../../UI/filters/TabFilter';
-import CornerDecor from '../../../UI/cornerDecor/CornerDecor';
+import { ArrowToLast, FinishedSvg, SmlArrowSvg } from '../../../svg'
+import CornerDecor from '../../../UI/cornerDecor/CornerDecor'
+import TabFilter from '../../../UI/filters/TabFilter'
 
-import styles from './AuctionTable.module.css';
-import { ArrowToLast, FinishedSvg, SmlArrowSvg } from '../../../svg';
+import styles from './AuctionTable.module.css'
 
 const auctionData = [
   {
@@ -15,13 +15,7 @@ const auctionData = [
     coreBid: '11,700',
     subCoreBid: '~$38,038',
     dotMenu: (
-      <svg
-        width='20'
-        height='20'
-        viewBox='0 0 20 20'
-        fill='none'
-        xmlns='http://www.w3.org/2000/svg'
-      >
+      <svg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'>
         <path
           d='M4.16667 8.33325C3.25 8.33325 2.5 9.08325 2.5 9.99992C2.5 10.9166 3.25 11.6666 4.16667 11.6666C5.08333 11.6666 5.83333 10.9166 5.83333 9.99992C5.83333 9.08325 5.08333 8.33325 4.16667 8.33325Z'
           stroke='white'
@@ -48,13 +42,7 @@ const auctionData = [
     coreBid: '111,410',
     subCoreBid: '~$36,887',
     dotMenu: (
-      <svg
-        width='20'
-        height='20'
-        viewBox='0 0 20 20'
-        fill='none'
-        xmlns='http://www.w3.org/2000/svg'
-      >
+      <svg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'>
         <path
           d='M4.16667 8.33325C3.25 8.33325 2.5 9.08325 2.5 9.99992C2.5 10.9166 3.25 11.6666 4.16667 11.6666C5.08333 11.6666 5.83333 10.9166 5.83333 9.99992C5.83333 9.08325 5.08333 8.33325 4.16667 8.33325Z'
           stroke='white'
@@ -81,13 +69,7 @@ const auctionData = [
     coreBid: '111,410',
     subCoreBid: '~$36,887',
     dotMenu: (
-      <svg
-        width='20'
-        height='20'
-        viewBox='0 0 20 20'
-        fill='none'
-        xmlns='http://www.w3.org/2000/svg'
-      >
+      <svg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'>
         <path
           d='M4.16667 8.33325C3.25 8.33325 2.5 9.08325 2.5 9.99992C2.5 10.9166 3.25 11.6666 4.16667 11.6666C5.08333 11.6666 5.83333 10.9166 5.83333 9.99992C5.83333 9.08325 5.08333 8.33325 4.16667 8.33325Z'
           stroke='white'
@@ -114,13 +96,7 @@ const auctionData = [
     coreBid: '111,410',
     subCoreBid: '~$36,887',
     dotMenu: (
-      <svg
-        width='20'
-        height='20'
-        viewBox='0 0 20 20'
-        fill='none'
-        xmlns='http://www.w3.org/2000/svg'
-      >
+      <svg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'>
         <path
           d='M4.16667 8.33325C3.25 8.33325 2.5 9.08325 2.5 9.99992C2.5 10.9166 3.25 11.6666 4.16667 11.6666C5.08333 11.6666 5.83333 10.9166 5.83333 9.99992C5.83333 9.08325 5.08333 8.33325 4.16667 8.33325Z'
           stroke='white'
@@ -147,13 +123,7 @@ const auctionData = [
     coreBid: '111,410',
     subCoreBid: '~$36,887',
     dotMenu: (
-      <svg
-        width='20'
-        height='20'
-        viewBox='0 0 20 20'
-        fill='none'
-        xmlns='http://www.w3.org/2000/svg'
-      >
+      <svg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'>
         <path
           d='M4.16667 8.33325C3.25 8.33325 2.5 9.08325 2.5 9.99992C2.5 10.9166 3.25 11.6666 4.16667 11.6666C5.08333 11.6666 5.83333 10.9166 5.83333 9.99992C5.83333 9.08325 5.08333 8.33325 4.16667 8.33325Z'
           stroke='white'
@@ -172,7 +142,7 @@ const auctionData = [
       </svg>
     ),
   },
-];
+]
 
 const tabsData = [
   {
@@ -183,14 +153,14 @@ const tabsData = [
     id: 1,
     label: 'Archieve',
   },
-];
+]
 
 const AuctionTable = () => {
-  const [active, setActive] = useState('Latest');
+  const [active, setActive] = useState('Latest')
 
   const navigationHandler = activeItem => {
-    setActive(activeItem);
-  };
+    setActive(activeItem)
+  }
 
   return (
     <div className={styles.auction__table}>
@@ -219,9 +189,7 @@ const AuctionTable = () => {
               <SmlArrowSvg className={styles.prevBtn} />
               <SmlArrowSvg className={styles.nextBtn} />
               <ArrowToLast className={styles.lastBtn} />
-              <p className={styles.archieveDate}>
-                Ended Jun 07, 2022, 06:00 PM
-              </p>
+              <p className={styles.archieveDate}>Ended Jun 07, 2022, 06:00 PM</p>
             </>
           )}
         </div>
@@ -237,24 +205,20 @@ const AuctionTable = () => {
                 <div>{item.position}</div>
                 <div>
                   <div>{item.farm}</div>
-                  <div className={`font_10 ${styles.auction__tableSubText}`}>
-                    {item.subFarm}
-                  </div>
+                  <div className={`font_10 ${styles.auction__tableSubText}`}>{item.subFarm}</div>
                 </div>
                 <div>
                   <div>{item.coreBid}</div>
-                  <div className={`font_10 ${styles.auction__tableSubText}`}>
-                    {item.subCoreBid}
-                  </div>
+                  <div className={`font_10 ${styles.auction__tableSubText}`}>{item.subCoreBid}</div>
                 </div>
                 <div className={styles.auction__dotMenu}>{item.dotMenu}</div>
               </div>
-            );
+            )
           })}
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default AuctionTable;
+export default AuctionTable

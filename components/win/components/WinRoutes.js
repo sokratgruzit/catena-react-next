@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import { useRouter } from 'next/router'
+import React, { useState } from 'react'
 
-import { useRouter } from 'next/router';
-import CornerDecor from '../../UI/cornerDecor/CornerDecor';
-import TabFilter from '../../UI/filters/TabFilter';
+import CornerDecor from '../../UI/cornerDecor/CornerDecor'
+import TabFilter from '../../UI/filters/TabFilter'
 
-import styles from './WinRoutes.module.css';
+import styles from './WinRoutes.module.css'
 
 let tabsData = [
   {
@@ -19,34 +19,32 @@ let tabsData = [
     id: 2,
     label: 'Lottery',
   },
-];
+]
 
 const WinRoutes = () => {
-  const router = useRouter();
+  const router = useRouter()
   // const [activeMenuItem, setActiveMenuItem] = useState('Trading Compatition');
   const getCurrentLocation = loc => {
-    let returnStatement = '';
-    if (loc === '/win/competition') returnStatement = 'Trading Compatition';
-    if (loc === '/win/prediction') returnStatement = 'Prediction';
-    if (loc === '/win/lottery') returnStatement = 'Lottery';
-    return returnStatement;
-  };
-  const [activeMenuItem, setActiveMenuItem] = useState(
-    getCurrentLocation(router.pathname),
-  );
+    let returnStatement = ''
+    if (loc === '/win/competition') returnStatement = 'Trading Compatition'
+    if (loc === '/win/prediction') returnStatement = 'Prediction'
+    if (loc === '/win/lottery') returnStatement = 'Lottery'
+    return returnStatement
+  }
+  const [activeMenuItem, setActiveMenuItem] = useState(getCurrentLocation(router.pathname))
 
   const changeTabHendler = status => {
-    let route = '/win/competition';
+    let route = '/win/competition'
 
     if (status === 'Prediction') {
-      route = '/win/prediction';
+      route = '/win/prediction'
     } else if (status === 'Lottery') {
-      route = '/win/lottery';
+      route = '/win/lottery'
     }
-    router.push(route);
+    router.push(route)
 
-    setActiveMenuItem(status);
-  };
+    setActiveMenuItem(status)
+  }
   return (
     <div className={styles.tab}>
       <CornerDecor />
@@ -62,7 +60,7 @@ const WinRoutes = () => {
         }}
       />
     </div>
-  );
-};
+  )
+}
 
-export default WinRoutes;
+export default WinRoutes

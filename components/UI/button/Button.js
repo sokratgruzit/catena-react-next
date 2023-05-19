@@ -1,8 +1,9 @@
-import React from 'react';
-import styles from './Button.module.css';
+import React from 'react'
+
+import styles from './Button.module.css'
 
 const Button = props => {
-  let color = styles[props.type];
+  let color = styles[props.type]
 
   return (
     <div
@@ -12,7 +13,7 @@ const Button = props => {
     >
       {props.title}
     </div>
-  );
-};
+  )
+}
 
-export default Button;
+export default Button

@@ -1,19 +1,16 @@
-import React from 'react';
+import { useRouter } from 'next/router'
+import React from 'react'
 
-import { useRouter } from 'next/router';
-import { SmlArrowSvg } from '../../../svg';
+import { SmlArrowSvg } from '../../../svg'
 
-import styles from './Watchlist.module.css';
+import styles from './Watchlist.module.css'
 
 const Watchlist = () => {
-  const router = useRouter();
+  const router = useRouter()
   return (
     <div className={styles.container}>
       <div className={styles.goBackWrapper}>
-        <div
-          onClick={() => router.push(`/info/tokens`)}
-          className={styles.goBackText}
-        >
+        <div onClick={() => router.push(`/info/tokens`)} className={styles.goBackText}>
           <SmlArrowSvg />
           <p>Back To Tokens</p>
         </div>
@@ -34,7 +31,7 @@ const Watchlist = () => {
             type={'info_table_tokens_watchlist'}
           /> */}
     </div>
-  );
-};
+  )
+}
 
-export default Watchlist;
+export default Watchlist

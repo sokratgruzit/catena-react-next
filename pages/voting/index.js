@@ -1,8 +1,9 @@
-import React from 'react';
-import Voting from '../../components/voting/voting/Voting';
+import React from 'react'
+
+import Voting from '../../components/voting/voting/Voting'
 
 const VotingPage = () => {
-  return <Voting />;
-};
+  return <Voting />
+}
 
-export default VotingPage;
+export default VotingPage

@@ -1,21 +1,17 @@
-import React from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
+import Image from 'next/image'
+import Link from 'next/link'
+import React from 'react'
 
-import CornerDecor from '../../UI/cornerDecor/CornerDecor';
+import CornerDecor from '../../UI/cornerDecor/CornerDecor'
 
-import styles from './ListItemCard.module.css';
+import styles from './ListItemCard.module.css'
 
 const ListItemCard = props => {
-  let data = props.data;
-  let type = props.type;
-  let obj = null;
+  let data = props.data
+  let type = props.type
+  let obj = null
 
-  if (
-    type === 'nft_arrivals' ||
-    type === 'nft_activity' ||
-    type === 'nft_creator'
-  ) {
+  if (type === 'nft_arrivals' || type === 'nft_activity' || type === 'nft_creator') {
     obj = (
       <div key={data.id} className={styles.Arrivals__listItemWrap}>
         <CornerDecor />
@@ -25,12 +21,8 @@ const ListItemCard = props => {
               <div className={styles.imgWrap}>
                 <img src={data.imgSrc} />
               </div>
-              <p className={`${styles.nftArrivals__imgBlockTitle} font_13`}>
-                {data.title}
-              </p>
-              <p className={`${styles.nftArrivals__imgBlockTeaser} font_13`}>
-                {data.subTitle}
-              </p>
+              <p className={`${styles.nftArrivals__imgBlockTitle} font_13`}>{data.title}</p>
+              <p className={`${styles.nftArrivals__imgBlockTeaser} font_13`}>{data.subTitle}</p>
             </div>
             <div className={styles.nftArrivals__content}>
               <p className={styles.Arrivals__contentTitle}>Asking Price:</p>
@@ -39,15 +31,13 @@ const ListItemCard = props => {
                   <span className={styles.colored}>{data.value}</span>
                   {data.price}
                 </p>
-                <p className={`${styles.Arrivals__contentTeaser} font_13`}>
-                  ({data.priceUSD})
-                </p>
+                <p className={`${styles.Arrivals__contentTeaser} font_13`}>({data.priceUSD})</p>
               </div>
             </div>
           </a>
         </Link>
       </div>
-    );
+    )
   }
 
   if (type === 'nft_activity_mobile') {
@@ -59,13 +49,7 @@ const ListItemCard = props => {
             <p>
               {data.itemTitle}
               <Link href={`/sometransaction`}>
-                <svg
-                  width='15'
-                  height='15'
-                  viewBox='0 0 15 15'
-                  fill='none'
-                  xmlns='http://www.w3.org/2000/svg'
-                >
+                <svg width='15' height='15' viewBox='0 0 15 15' fill='none' xmlns='http://www.w3.org/2000/svg'>
                   <path
                     fillRule='evenodd'
                     clipRule='evenodd'
@@ -129,7 +113,7 @@ const ListItemCard = props => {
           </div>
         </div>
       </div>
-    );
+    )
   }
 
   if (type === 'nft_collections') {
@@ -140,12 +124,12 @@ const ListItemCard = props => {
             <div className={styles.Product__content}>
               <div className={styles.Product__images}>
                 {/* <Image src={data.toReciverImg} layout='fill' alt='nft' /> */}
-                <Image src='/images/nft/nft_collection_items/fig1.png' width={30} height={30} alt="img" />
-                <Image src='/images/nft/nft_collection_items/fig2.png' width={30} height={30} alt="img" />
-                <Image src='/images/nft/nft_collection_items/fig3.png' width={30} height={30} alt="img" />
+                <Image src='/images/nft/nft_collection_items/fig1.png' width={30} height={30} alt='img' />
+                <Image src='/images/nft/nft_collection_items/fig2.png' width={30} height={30} alt='img' />
+                <Image src='/images/nft/nft_collection_items/fig3.png' width={30} height={30} alt='img' />
               </div>
               <div className={styles.Product__logo}>
-                <Image src='/images/nft/nft_collection_items/logo1.png' width={30} height={30} alt="img" />
+                <Image src='/images/nft/nft_collection_items/logo1.png' width={30} height={30} alt='img' />
               </div>
               <div className={styles.Product__titles}>
                 <p>Created By</p>
@@ -168,10 +152,10 @@ const ListItemCard = props => {
           </div>
         </Link>
       </div>
-    );
+    )
   }
 
-  return obj;
-};
+  return obj
+}
 
-export default ListItemCard;
+export default ListItemCard

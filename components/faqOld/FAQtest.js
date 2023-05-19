@@ -1,8 +1,9 @@
-import React from 'react';
-import Expand from '../UI/expand/Expand';
+import React from 'react'
 
-import styles from './FAQ.module.css';
-import FAQRow from './FAQRow';
+import FAQRow from './FAQRow'
+import Expand from '../UI/expand/Expand'
+
+import styles from './FAQ.module.css'
 
 const FAQtest = ({ data }) => {
   return (
@@ -13,7 +14,7 @@ const FAQtest = ({ data }) => {
         </Expand>
       ))}
     </div>
-  );
-};
+  )
+}
 
-export default FAQtest;
+export default FAQtest

@@ -1,12 +1,11 @@
-import { useState } from 'react';
-import Link from 'next/link';
+import Link from 'next/link'
+import { useState } from 'react'
 
-import ListItemCard from '../UI/listItem/ListItemCard';
-import Table from '../UI/table/Table';
-import TabFilter from '../UI/filters/TabFilter';
+import TabFilter from '../UI/filters/TabFilter'
+import Table from '../UI/table/Table'
 
-import styles from './Activity.module.css';
-import filterStyles from '../UI/filters/TabFilter.module.css';
+import styles from './Activity.module.css'
+import filterStyles from '../UI/filters/TabFilter.module.css'
 
 const tabsData = [
   {
@@ -33,38 +32,36 @@ const tabsData = [
     id: 5,
     label: 'Sold',
   },
-];
+]
 
 const Activity = props => {
-  const [activeMenuItem, setActiveMenuItem] = useState('All');
-  const [pageNumber, setPageNumber] = useState(0);
+  const [activeMenuItem, setActiveMenuItem] = useState('All')
+  const [pageNumber, setPageNumber] = useState(0)
 
-  const ITEMS_PER_PAGE = 5;
-  const ITEMS_SHOWN = pageNumber * ITEMS_PER_PAGE;
-  const PAGE_COUNT = Math.ceil(props.activityData.length / ITEMS_PER_PAGE);
+  const ITEMS_PER_PAGE = 5
+  const ITEMS_SHOWN = pageNumber * ITEMS_PER_PAGE
+  const PAGE_COUNT = Math.ceil(props.activityData.length / ITEMS_PER_PAGE)
 
-  const showItems = props.activityData
-    .slice(ITEMS_SHOWN, ITEMS_SHOWN + ITEMS_PER_PAGE)
-    .map(item => {
-      return item;
-    });
+  const showItems = props.activityData.slice(ITEMS_SHOWN, ITEMS_SHOWN + ITEMS_PER_PAGE).map(item => {
+    return item
+  })
 
   const filterTableHandler = status => {
     const filtered = props.activityData.filter(item => {
       if (status == 'All') {
-        return item;
+        return item
       }
       if (status == item.event) {
-        return item;
+        return item
       }
-    });
+    })
     // setTableData(filtered);
-    setActiveMenuItem(status);
-  };
+    setActiveMenuItem(status)
+  }
 
   const onPageChangeHandler = ({ selected }) => {
-    setPageNumber(selected);
-  };
+    setPageNumber(selected)
+  }
 
   let content = (
     <div className={styles.Activity__listItems}>
@@ -74,7 +71,7 @@ const Activity = props => {
         type={'nft_activity'}
       />
     </div>
-  );
+  )
 
   /*if (props.screeWidth < 1200) {
         content = <div className={styles.Activity__wrap}>
@@ -88,13 +85,7 @@ const Activity = props => {
     <div className={`${styles.Activity} container`}>
       <Link href={`/nfts`}>
         <a className={styles.Activity__backBtn}>
-          <svg
-            width='14'
-            height='11'
-            viewBox='0 0 14 11'
-            fill='none'
-            xmlns='http://www.w3.org/2000/svg'
-          >
+          <svg width='14' height='11' viewBox='0 0 14 11' fill='none' xmlns='http://www.w3.org/2000/svg'>
             <path
               fillRule='evenodd'
               clipRule='evenodd'
@@ -134,7 +125,7 @@ const Activity = props => {
         pagination
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Activity;
+export default Activity

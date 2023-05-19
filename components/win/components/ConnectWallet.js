@@ -1,27 +1,19 @@
-import React from 'react';
-import Image from 'next/image';
-import Button from '../../UI/button/Button';
-import styles from './ConnectWallet.module.css';
+import Image from 'next/image'
+import React from 'react'
+
+import Button from '../../UI/button/Button'
+
+import styles from './ConnectWallet.module.css'
 
 const ConnectWallet = () => {
   return (
     <div className={styles.mainContent}>
       <div>
         <div className={styles.star}>
-          <Image
-            layout='fill'
-            src={'/images/win/pawawuna.png'}
-            alt=''
-            objectFit={'contain'}
-          />
+          <Image layout='fill' src={'/images/win/pawawuna.png'} alt='' objectFit={'contain'} />
         </div>
         <div className={styles.starSmal}>
-          <Image
-            layout='fill'
-            src={'/images/win/starSmal.png'}
-            alt=''
-            objectFit={'contain'}
-          />
+          <Image layout='fill' src={'/images/win/starSmal.png'} alt='' objectFit={'contain'} />
         </div>
         {/* <div className={styles.ConnectWalletBg}>
           <Image
@@ -32,27 +24,13 @@ const ConnectWallet = () => {
           />
         </div> */}
         <picture>
-          <img
-            className={styles.ConnectWalletBg}
-            src={'../images/win/background/ConnectWalletBg.png'}
-            alt=''
-          />
+          <img className={styles.ConnectWalletBg} src={'../images/win/background/ConnectWalletBg.png'} alt='' />
         </picture>
         <div className={styles.tickets}>
-          <Image
-            layout='fill'
-            src={'/images/win/tickets.png'}
-            alt=''
-            objectFit={'contain'}
-          />
+          <Image layout='fill' src={'/images/win/tickets.png'} alt='' objectFit={'contain'} />
         </div>
         <div className={styles.ticket}>
-          <Image
-            layout='fill'
-            src={'/images/win/ticket.png'}
-            alt=''
-            objectFit={'contain'}
-          />
+          <Image layout='fill' src={'/images/win/ticket.png'} alt='' objectFit={'contain'} />
         </div>
       </div>
       <div className={styles.text}>
@@ -73,7 +51,7 @@ const ConnectWallet = () => {
         />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ConnectWallet;
+export default ConnectWallet

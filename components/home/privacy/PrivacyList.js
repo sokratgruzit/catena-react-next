@@ -5,7 +5,7 @@ export default function PrivacyList({ privacyList }) {
         <div key={index}>
           <h2>{item.title}</h2>
           <p>{item.text}</p>
-          <a href="mailto:info@coremultichain.com">{item.link}</a>
+          <a href='mailto:info@coremultichain.com'>{item.link}</a>
           {item.bullets && (
             <ul>
               {item.bullets.map((bullet, index) => (
@@ -30,5 +30,5 @@ export default function PrivacyList({ privacyList }) {
         </div>
       ))}
     </div>
-  );
+  )
 }

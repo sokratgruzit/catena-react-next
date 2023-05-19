@@ -1,37 +1,23 @@
-import React from 'react';
-import { VectorSvg } from '../../svg';
-import Button from '../button/Button';
+import React from 'react'
 
-import styles from './Expand.module.css';
+import { VectorSvg } from '../../svg'
+import Button from '../button/Button'
 
-const ExpandButton = ({
-  expandRow,
-  toggleExpand,
-  className,
-  vectorClassName,
-  onlyVector,
-}) => {
+import styles from './Expand.module.css'
+
+const ExpandButton = ({ expandRow, toggleExpand, className, vectorClassName, onlyVector }) => {
   return (
-    <div
-      className={`${styles.buttonWrapper} ${className}`}
-      onClick={toggleExpand}
-    >
+    <div className={`${styles.buttonWrapper} ${className}`} onClick={toggleExpand}>
       {!onlyVector && (
         <Button
           title={expandRow ? 'Hide' : 'Details'}
-          className={`${styles.expandButton} ${
-            expandRow && styles.buttonActive
-          } `}
+          className={`${styles.expandButton} ${expandRow && styles.buttonActive} `}
         />
       )}
 
-      <VectorSvg
-        className={`${styles.vectorSvg} ${
-          expandRow && styles.rotate
-        } ${vectorClassName} `}
-      />
+      <VectorSvg className={`${styles.vectorSvg} ${expandRow && styles.rotate} ${vectorClassName} `} />
     </div>
-  );
-};
+  )
+}
 
-export default ExpandButton;
+export default ExpandButton

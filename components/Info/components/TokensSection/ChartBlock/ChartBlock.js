@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 
-import TabFilter from '../../../../UI/filters/TabFilter';
-import CornerDecor from '../../../../UI/cornerDecor/CornerDecor';
+import CornerDecor from '../../../../UI/cornerDecor/CornerDecor'
+import TabFilter from '../../../../UI/filters/TabFilter'
 
-import styles from './ChartBlock.module.css';
+import styles from './ChartBlock.module.css'
 
 let tabsData = [
   {
@@ -18,14 +18,14 @@ let tabsData = [
     id: 2,
     label: 'Price',
   },
-];
+]
 
 const ChartBlock = () => {
-  const [activeMenuItem, setactiveMenuItem] = useState('Volume');
+  const [activeMenuItem, setactiveMenuItem] = useState('Volume')
 
   const navigationHandler = activeItem => {
-    setactiveMenuItem(activeItem);
-  };
+    setactiveMenuItem(activeItem)
+  }
 
   return (
     <div className={styles.wrapper}>
@@ -42,7 +42,7 @@ const ChartBlock = () => {
         }}
       />
     </div>
-  );
-};
+  )
+}
 
-export default ChartBlock;
+export default ChartBlock

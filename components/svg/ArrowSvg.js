@@ -23,6 +23,6 @@ const ArrowSvg = props => (
       strokeLinejoin='round'
     />
   </svg>
-);
+)
 
-export default ArrowSvg;
+export default ArrowSvg

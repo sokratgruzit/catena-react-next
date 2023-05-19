@@ -1,13 +1,7 @@
-import React from 'react';
+import React from 'react'
 
 const CoreLogoBorder = props => (
-  <svg
-    width='41'
-    height='41'
-    viewBox='0 0 41 41'
-    fill='none'
-    xmlns='http://www.w3.org/2000/svg'
-  >
+  <svg width='41' height='41' viewBox='0 0 41 41' fill='none' xmlns='http://www.w3.org/2000/svg'>
     <path
       d='M39.8164 20.2122C39.8164 30.9817 31.086 39.7122 20.3164 39.7122C9.54685 39.7122 0.816406 30.9817 0.816406 20.2122C0.816406 9.44261 9.54685 0.712158 20.3164 0.712158C31.086 0.712158 39.8164 9.44261 39.8164 20.2122Z'
       fill='#131313'
@@ -20,6 +14,6 @@ const CoreLogoBorder = props => (
       fill='#FF7152'
     />
   </svg>
-);
+)
 
-export default CoreLogoBorder;
+export default CoreLogoBorder

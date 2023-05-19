@@ -1,16 +1,14 @@
-import React from 'react';
+import React from 'react'
 
 const PageNumber = props => {
   return (
     <div
-      className={`${props.mainStyle} ${
-        props.state === props.title ? props.activeStyle : ''
-      }`}
+      className={`${props.mainStyle} ${props.state === props.title ? props.activeStyle : ''}`}
       onClick={() => props.setState(props.title)}
     >
       {props.title}
     </div>
-  );
-};
+  )
+}
 
-export default PageNumber;
+export default PageNumber
