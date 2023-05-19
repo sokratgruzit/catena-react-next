@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prepare": "husky install",
+    "pre-commit": "lint-staged"
   },
   "dependencies": {
     "@catena-network/catena-ui-module": "^0.0.3",
@@ -42,10 +44,17 @@
     "redux-persist": "^6.0.0",
     "swiper": "^8.2.2",
     "web-vitals": "^1.0.1",
-    "web3": "^1.6.1"
+    "web3": "^1.6.1",
+    "husky": "^8.0.3"
   },
   "devDependencies": {
-    "eslint": "8.18.0",
-    "eslint-config-next": "12.2.0"
+    "eslint": "^8.18.0",
+    "eslint-config-next": "12.2.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-next": "^0.0.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-unused-imports": "^2.0.0"
   }
 }
