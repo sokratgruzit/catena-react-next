@@ -1,9 +1,9 @@
-import React from 'react';
+import React from 'react'
 
-import Proposal from '../../../components/voting/proposal/Proposal';
+import Proposal from '../../../components/voting/proposal/Proposal'
 
 const index = () => {
-  return <Proposal />;
-};
+  return <Proposal />
+}
 
-export default index;
+export default index

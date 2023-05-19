@@ -1,53 +1,53 @@
-import { useState, useEffect, useMemo, useCallback } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { injected, walletConnect } from './connector';
-import { useWeb3React } from '@web3-react/core';
+import { useWeb3React } from '@web3-react/core'
+import { useState, useEffect, useMemo, useCallback } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+
+import { injected, walletConnect } from './connector'
 
 const useConnect = () => {
-  const { activate, account, library, connector, active, deactivate, chainId } =
-    useWeb3React();
+  const { activate, account, library, connector, active, deactivate, chainId } = useWeb3React()
 
-  const [isActive, setIsActive] = useState(false);
-  const [walletModal, setWalletModal] = useState(false);
-  const [shouldDisable, setShouldDisable] = useState(false); // Should disable connect button while connecting to MetaMask
-  const [isLoading, setIsLoading] = useState(true);
-  const dispatch = useDispatch();
+  const [isActive, setIsActive] = useState(false)
+  const [walletModal, setWalletModal] = useState(false)
+  const [shouldDisable, setShouldDisable] = useState(false) // Should disable connect button while connecting to MetaMask
+  const [isLoading, setIsLoading] = useState(true)
+  const dispatch = useDispatch()
 
-  const isConnected = useSelector(state => state.connect.isConnected);
+  const isConnected = useSelector(state => state.connect.isConnected)
 
-  const providerType = useSelector(state => state.connect.providerType);
+  const providerType = useSelector(state => state.connect.providerType)
 
   // Init Loading
   useEffect(() => {
     async function fetchData() {
       if (isConnected) {
         connect(providerType).then(val => {
-          setIsLoading(false);
-        });
+          setIsLoading(false)
+        })
       }
     }
-    fetchData();
-  }, []);
+    fetchData()
+  }, [])
 
   const handleWalletModal = async state => {
-    console.log('state ===>' + state);
-    setWalletModal(state);
+    console.log('state ===>' + state)
+    setWalletModal(state)
     dispatch({
       type: 'TOGGLE_WALLET_CONNECT_MODAL',
       payload: {
         walletModal: state,
       },
-    });
-  };
+    })
+  }
 
   // Check when App is Connected or Disconnected to MetaMask
   const handleIsActive = useCallback(() => {
-    setIsActive(active);
-  }, [active]);
+    setIsActive(active)
+  }, [active])
 
   useEffect(() => {
-    handleIsActive();
-  }, [handleIsActive]);
+    handleIsActive()
+  }, [handleIsActive])
 
   //when disconnected from Metamask update state
   useEffect(() => {
@@ -58,59 +58,59 @@ const useConnect = () => {
           isConnected: false,
           providerType: '',
         },
-      });
+      })
     }
-  }, [isActive]);
+  }, [isActive])
 
   // Connect to wallet
   const connect = async providerType => {
-    setShouldDisable(true);
+    setShouldDisable(true)
     try {
       if (providerType === 'metaMask') {
         await activate(injected).then(ts => {
-          setShouldDisable(false);
+          setShouldDisable(false)
           dispatch({
             type: 'CONNECT',
             payload: {
               isConnected: true,
               providerType: 'metaMask',
             },
-          });
-        });
+          })
+        })
       } else if (providerType === 'walletConnect') {
         await activate(walletConnect).then(() => {
-          setShouldDisable(false);
+          setShouldDisable(false)
           dispatch({
             type: 'CONNECT',
             payload: {
               isConnected: true,
               providerType: 'walletConnect',
             },
-          });
-        });
+          })
+        })
       }
 
-      setWalletModal(false);
+      setWalletModal(false)
     } catch (error) {
-      console.log('Error on connecting: ', error);
+      console.log('Error on connecting: ', error)
     }
-  };
+  }
 
   // Disconnect from Metamask wallet
   const disconnect = async () => {
     try {
-      await deactivate();
+      await deactivate()
       dispatch({
         type: 'CONNECT',
         payload: {
           isConnected: false,
           providerType: '',
         },
-      });
+      })
     } catch (error) {
-      console.log('Error on disconnnect: ', error);
+      console.log('Error on disconnnect: ', error)
     }
-  };
+  }
 
   const values = useMemo(
     () => ({
@@ -124,12 +124,12 @@ const useConnect = () => {
       library,
       shouldDisable,
       providerType,
-      chainId
+      chainId,
     }),
     [isActive, isLoading, shouldDisable, account, walletModal, providerType, chainId],
-  );
+  )
 
-  return values;
-};
+  return values
+}
 
-export default useConnect;
+export default useConnect

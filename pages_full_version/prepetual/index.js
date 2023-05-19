@@ -1,7 +1,7 @@
-import React from 'react';
+import React from 'react'
 
 const Prepetual = () => {
-  return <div>Prepetual</div>;
-};
+  return <div>Prepetual</div>
+}
 
-export default Prepetual;
+export default Prepetual

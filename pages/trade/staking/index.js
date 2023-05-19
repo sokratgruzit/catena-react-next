@@ -1,8 +1,9 @@
-import React from 'react';
-import Stack from '../../../components/trade/Stack/Stack';
+import React from 'react'
+
+import Stack from '../../../components/trade/Stack/Stack'
 
 const index = () => {
-  return <Stack />;
-};
+  return <Stack />
+}
 
-export default index;
+export default index

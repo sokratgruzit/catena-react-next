@@ -1,89 +1,89 @@
-import { useState, useEffect, useCallback } from "react";
-import Image from "next/image";
-import Link from "next/link";
-import useTranslation from "next-translate/useTranslation";
-import { useSelector, useDispatch } from "react-redux";
-import useConnect from "../../hooks/use-connect";
+import Image from 'next/image'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+import useTranslation from 'next-translate/useTranslation'
+import { useState, useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 
-import Button from "../UI/button/Button";
-import Tooltip from "../UI/tooltip/Tooltip";
-import { useRouter } from "next/router";
-import styles from "./Header.module.css";
+import useConnect from '../../hooks/use-connect'
+import Button from '../UI/button/Button'
+import Tooltip from '../UI/tooltip/Tooltip'
+
+import styles from './Header.module.css'
 
 const LANG_DATA = [
   {
     id: 1,
-    title: "GE",
-    fullName: "Georgian",
+    title: 'GE',
+    fullName: 'Georgian',
   },
   {
     id: 2,
-    title: "EN",
-    fullName: "English",
+    title: 'EN',
+    fullName: 'English',
   },
   {
     id: 3,
-    title: "FR",
-    fullName: "Français",
+    title: 'FR',
+    fullName: 'Français',
   },
-];
+]
 
 const WALLETS_DATA = [
   {
     id: 1,
-    title: "Metamask",
-    img: "meta.png",
-    type: "metaMask",
+    title: 'Metamask',
+    img: 'meta.png',
+    type: 'metaMask',
   },
   {
     id: 2,
-    title: "Wallet Connect",
-    img: "walletconnect.png",
-    type: "walletConnect",
+    title: 'Wallet Connect',
+    img: 'walletconnect.png',
+    type: 'walletConnect',
   },
-];
+]
 
 const Header = () => {
-  const { connect, disconnect, account, isActive, library, handleWalletModal } =
-    useConnect();
-  const [activeMenu, setActiveMenu] = useState(null);
-  const [activeLangs, setActiveLangs] = useState(false);
-  const [activeSettings, setActiveSettings] = useState(false);
-  const [settingRightOffset, setSettingRightOffset] = useState(0);
-  const [activeBurger, setActiveBurger] = useState(false);
-  const [profileModal, setProfileModal] = useState(false);
-  const [connectBtnColor, setConnectBtnColor] = useState("red");
-  const [device, setDevice] = useState(null);
-  const walletModal = useSelector((state) => state.connect.walletModal);
-  const isConnected = useSelector((state) => state.connect.isConnected);
-  const slippage = useSelector((state) => state.settings.slippage);
-  const [balance, setBalance] = useState(0);
-  const [stickHead, setStickHead] = useState(false);
-  const { t } = useTranslation("header");
-  const [routerLocale, setRouterLocale] = useState(null);
+  const { connect, disconnect, account, isActive, library, handleWalletModal } = useConnect()
+  const [activeMenu, setActiveMenu] = useState(null)
+  const [activeLangs, setActiveLangs] = useState(false)
+  const [activeSettings, setActiveSettings] = useState(false)
+  const [settingRightOffset, setSettingRightOffset] = useState(0)
+  const [activeBurger, setActiveBurger] = useState(false)
+  const [profileModal, setProfileModal] = useState(false)
+  const [connectBtnColor, setConnectBtnColor] = useState('red')
+  const [device, setDevice] = useState(null)
+  const walletModal = useSelector(state => state.connect.walletModal)
+  const isConnected = useSelector(state => state.connect.isConnected)
+  const slippage = useSelector(state => state.settings.slippage)
+  const [balance, setBalance] = useState(0)
+  const [stickHead, setStickHead] = useState(false)
+  const { t } = useTranslation('header')
+  const [routerLocale, setRouterLocale] = useState(null)
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
   const NAV_DATA = [
     {
       id: 1,
-      title: t("top_menu.trade"),
-      route: "/trade/swap",
+      title: t('top_menu.trade'),
+      route: '/trade/swap',
       subNav: [
         {
           id: 1,
-          title: "Swap",
-          route: "/trade/swap",
+          title: 'Swap',
+          route: '/trade/swap',
         },
         {
           id: 2,
-          title: "Bridge",
-          route: "/trade/bridge",
+          title: 'Bridge',
+          route: '/trade/bridge',
         },
         {
           id: 3,
-          title: "Staking",
-          route: "/trade/staking",
+          title: 'Staking',
+          route: '/trade/staking',
         },
         /*{
           id: 4,
@@ -155,8 +155,8 @@ const Header = () => {
     },*/
     {
       id: 5,
-      title: "More",
-      route: "/voting",
+      title: 'More',
+      route: '/voting',
       subNav: [
         /*{
           id: 13,
@@ -165,13 +165,13 @@ const Header = () => {
         },*/
         {
           id: 14,
-          title: "Voting",
-          route: "/voting",
+          title: 'Voting',
+          route: '/voting',
         },
         {
           id: 456,
-          title: "Wallet",
-          route: "https://wallet-landing-next-six.vercel.app",
+          title: 'Wallet',
+          route: 'https://wallet-landing-next-six.vercel.app',
         },
         /*{
           id: 15,
@@ -180,146 +180,136 @@ const Header = () => {
         },*/
       ],
     },
-  ];
+  ]
 
-  const router = useRouter();
+  const router = useRouter()
 
-  const { locale, pathname, asPath, query } = useRouter();
-  const changeLanguage = (loc) => {
+  const { locale, pathname, asPath, query } = useRouter()
+  const changeLanguage = loc => {
     // i18n.changeLanguage(locale.toLowerCase());
-    router.push("", "", { locale: loc.toLowerCase() });
-    setRouterLocale(loc);
-  };
+    router.push('', '', { locale: loc.toLowerCase() })
+    setRouterLocale(loc)
+  }
 
-  let web3Obj = library;
+  let web3Obj = library
 
   const getBalance = async () => {
     if (web3Obj !== undefined) {
-      web3Obj.eth.getBalance(account).then((res) => {
-        setBalance(res);
-      });
+      web3Obj.eth.getBalance(account).then(res => {
+        setBalance(res)
+      })
     }
-  };
+  }
 
-  const openMenu = (id) => {
+  const openMenu = id => {
     if (window.innerWidth >= 1024) {
-      closeAll();
+      closeAll()
     }
     if (activeMenu !== id) {
-      setActiveMenu(id);
+      setActiveMenu(id)
     } else {
-      setActiveMenu(null);
+      setActiveMenu(null)
     }
-  };
+  }
 
-  const openLangs = (state) => {
-    closeAll();
-    setActiveLangs(state);
-    if (device === "mobile") {
+  const openLangs = state => {
+    closeAll()
+    setActiveLangs(state)
+    if (device === 'mobile') {
       if (state === true) {
-        setConnectBtnColor("white");
+        setConnectBtnColor('white')
       } else {
-        setConnectBtnColor("red");
+        setConnectBtnColor('red')
       }
     }
-  };
+  }
 
-  const openSettings = (state) => {
-    closeAll();
-    setActiveSettings(state);
-    if (device === "mobile") {
+  const openSettings = state => {
+    closeAll()
+    setActiveSettings(state)
+    if (device === 'mobile') {
       if (state === true) {
-        setConnectBtnColor("white");
+        setConnectBtnColor('white')
       } else {
-        setConnectBtnColor("red");
+        setConnectBtnColor('red')
       }
     }
-  };
+  }
 
   const openBurger = () => {
-    closeAll();
+    closeAll()
     if (activeBurger) {
-      setActiveBurger(false);
+      setActiveBurger(false)
     } else {
-      setActiveBurger(true);
-      setConnectBtnColor("white");
+      setActiveBurger(true)
+      setConnectBtnColor('white')
     }
-  };
+  }
 
   const openProfile = () => {
-    closeAll();
+    closeAll()
     if (profileModal) {
-      setProfileModal(false);
+      setProfileModal(false)
     } else {
-      setProfileModal(true);
+      setProfileModal(true)
     }
-  };
+  }
 
   const closeAll = () => {
-    setActiveLangs(false);
-    setActiveSettings(false);
-    handleWalletModal(false);
-    setProfileModal(false);
-    setActiveLangs(false);
-    setActiveBurger(false);
-    setConnectBtnColor("red");
-  };
+    setActiveLangs(false)
+    setActiveSettings(false)
+    handleWalletModal(false)
+    setProfileModal(false)
+    setActiveLangs(false)
+    setActiveBurger(false)
+    setConnectBtnColor('red')
+  }
 
   useEffect(() => {
     if (isConnected) {
-      getBalance();
+      getBalance()
     } else {
-      setBalance(0);
+      setBalance(0)
     }
     // console.log(isConnected);
-  }, [account, isConnected]);
+  }, [account, isConnected])
 
   useEffect(() => {
     if (window.innerWidth >= 1024) {
-      setDevice("desktop");
+      setDevice('desktop')
     }
     if (window.innerWidth <= 767) {
     }
-    setRouterLocale(router.locale);
-  }, []);
+    setRouterLocale(router.locale)
+  }, [])
 
   useEffect(() => {
-    window.addEventListener("scroll", isSticky);
+    window.addEventListener('scroll', isSticky)
     return () => {
-      window.removeEventListener("scroll", isSticky);
-    };
-  });
-  const isSticky = (e) => {
-    const scrollTop = window.scrollY;
-    if (scrollTop >= 10) {
-      setStickHead(true);
-    } else {
-      setStickHead(false);
+      window.removeEventListener('scroll', isSticky)
     }
-  };
+  })
+  const isSticky = e => {
+    const scrollTop = window.scrollY
+    if (scrollTop >= 10) {
+      setStickHead(true)
+    } else {
+      setStickHead(false)
+    }
+  }
 
   return (
     <div>
-      <header
-        className={`${styles.header} ${stickHead ? styles.stickHeader : ""}`}>
+      <header className={`${styles.header} ${stickHead ? styles.stickHeader : ''}`}>
         <div className={`${styles.headerInner} container`}>
           <Link href='/'>
             <div>
               <div
                 className={`${styles.headerLogo} ${styles.headerLogoMobile} ${
-                  activeBurger !== false ||
-                  activeLangs ||
-                  activeSettings ||
-                  profileModal
-                    ? styles.whiteLogo
-                    : ""
-                }`}>
-                <svg
-                  width='33'
-                  height='37'
-                  viewBox='0 0 33 37'
-                  fill='none'
-                  xmlns='http://www.w3.org/2000/svg'>
+                  activeBurger !== false || activeLangs || activeSettings || profileModal ? styles.whiteLogo : ''
+                }`}
+              >
+                <svg width='33' height='37' viewBox='0 0 33 37' fill='none' xmlns='http://www.w3.org/2000/svg'>
                   <path
                     fillRule='evenodd'
                     clipRule='evenodd'
@@ -328,14 +318,8 @@ const Header = () => {
                   />
                 </svg>
               </div>
-              <div
-                className={`${styles.headerLogo} ${styles.headerLogoDesktop}`}>
-                <svg
-                  width='113'
-                  height='46'
-                  viewBox='0 0 113 46'
-                  fill='none'
-                  xmlns='http://www.w3.org/2000/svg'>
+              <div className={`${styles.headerLogo} ${styles.headerLogoDesktop}`}>
+                <svg width='113' height='46' viewBox='0 0 113 46' fill='none' xmlns='http://www.w3.org/2000/svg'>
                   <path
                     fillRule='evenodd'
                     clipRule='evenodd'
@@ -360,14 +344,10 @@ const Header = () => {
                   />
                 </svg>
                 <div
-                  className={`${styles.headerLogoLine} ${
-                    activeMenu !== null ? styles.headerLogoLineActive : ""
-                  }`}></div>
+                  className={`${styles.headerLogoLine} ${activeMenu !== null ? styles.headerLogoLineActive : ''}`}
+                ></div>
                 <div className={styles.headerLogoTxtOuter}>
-                  <span
-                    className={`${styles.headerLogoTxt} ${
-                      activeMenu !== null ? styles.headerLogoTxtHidden : ""
-                    }`}>
+                  <span className={`${styles.headerLogoTxt} ${activeMenu !== null ? styles.headerLogoTxtHidden : ''}`}>
                     Dashboard
                   </span>
                 </div>
@@ -375,39 +355,33 @@ const Header = () => {
             </div>
           </Link>
           <nav
-            className={`${styles.headerNav} ${
-              activeBurger ? styles.activeHeaderNav : ""
-            } ${activeMenu !== null ? styles.headerNavOpacity : ""}`}>
+            className={`${styles.headerNav} ${activeBurger ? styles.activeHeaderNav : ''} ${
+              activeMenu !== null ? styles.headerNavOpacity : ''
+            }`}
+          >
             <i></i>
-            {NAV_DATA.map((item) => {
+            {NAV_DATA.map(item => {
               return (
                 <div
-                  className={`${styles.headerNavLink} ${
-                    activeMenu === item.id ? styles.activeMenu : ""
-                  }`}
+                  className={`${styles.headerNavLink} ${activeMenu === item.id ? styles.activeMenu : ''}`}
                   key={item.id}
                   onMouseLeave={() => {
-                    openMenu(null);
-                  }}>
+                    openMenu(null)
+                  }}
+                >
                   <i></i>
                   <Link href={item.route}>
                     <a
-                      className={`${styles.headerNavLinkTtl} ${
-                        activeMenu === item.id ? styles.activeTtl : ""
-                      }`}
+                      className={`${styles.headerNavLinkTtl} ${activeMenu === item.id ? styles.activeTtl : ''}`}
                       onMouseEnter={() => {
-                        openMenu(item.id);
+                        openMenu(item.id)
                       }}
                       onClick={() => {
-                        openMenu(item.id);
-                      }}>
+                        openMenu(item.id)
+                      }}
+                    >
                       {item.title}
-                      <svg
-                        width='15'
-                        height='8'
-                        viewBox='0 0 15 8'
-                        fill='none'
-                        xmlns='http://www.w3.org/2000/svg'>
+                      <svg width='15' height='8' viewBox='0 0 15 8' fill='none' xmlns='http://www.w3.org/2000/svg'>
                         <path
                           opacity='0.7'
                           fillRule='evenodd'
@@ -419,13 +393,9 @@ const Header = () => {
                     </a>
                   </Link>
                   <div
-                    className={`${styles.headerNavLinkSubTtl} ${
-                      activeMenu === item.id ? styles.activeMenuSub : ""
-                    }`}>
-                    <i
-                      className={
-                        activeMenu === item.id ? styles.activeBg : ""
-                      }></i>
+                    className={`${styles.headerNavLinkSubTtl} ${activeMenu === item.id ? styles.activeMenuSub : ''}`}
+                  >
+                    <i className={activeMenu === item.id ? styles.activeBg : ''}></i>
                     {item.subNav.map((sub, index) => {
                       return (
                         <Link href={sub.route} key={sub.id}>
@@ -433,34 +403,24 @@ const Header = () => {
                             <div
                               style={{
                                 transitionDelay:
-                                  activeMenu === item.id
-                                    ? `${
-                                        (index +
-                                          (device === "desktop" ? 9 : 0)) /
-                                        10
-                                      }s`
-                                    : "0s",
-                              }}>
+                                  activeMenu === item.id ? `${(index + (device === 'desktop' ? 9 : 0)) / 10}s` : '0s',
+                              }}
+                            >
                               <span>{sub.title}</span>
                             </div>
                           </a>
                         </Link>
-                      );
+                      )
                     })}
                   </div>
                 </div>
-              );
+              )
             })}
             <div className={styles.headerMobileFooterOuter}>
               <div className={styles.headerMobileFooter}>
                 <div className={styles.headerMobileFooterFirst}>
                   <div>
-                    <svg
-                      width='31'
-                      height='30'
-                      viewBox='0 0 31 30'
-                      fill='none'
-                      xmlns='http://www.w3.org/2000/svg'>
+                    <svg width='31' height='30' viewBox='0 0 31 30' fill='none' xmlns='http://www.w3.org/2000/svg'>
                       <circle cx='15.7871' cy='15' r='15' fill='#131313' />
                       <path
                         fillRule='evenodd'
@@ -473,14 +433,10 @@ const Header = () => {
                   </div>
                   <div
                     onClick={() => {
-                      openLangs(true);
-                    }}>
-                    <svg
-                      width='21'
-                      height='20'
-                      viewBox='0 0 21 20'
-                      fill='none'
-                      xmlns='http://www.w3.org/2000/svg'>
+                      openLangs(true)
+                    }}
+                  >
+                    <svg width='21' height='20' viewBox='0 0 21 20' fill='none' xmlns='http://www.w3.org/2000/svg'>
                       <path
                         d='M10.7871 20C5.27083 20 0.787109 15.5163 0.787109 10C0.787109 4.48372 5.27083 0 10.7871 0C16.3034 0 20.7871 4.48372 20.7871 10C20.7871 15.5163 16.3034 20 10.7871 20ZM10.7871 1.39535C6.04292 1.39535 2.18246 5.25581 2.18246 10C2.18246 14.7442 6.04292 18.6047 10.7871 18.6047C15.5313 18.6047 19.3918 14.7442 19.3918 10C19.3918 5.25581 15.5313 1.39535 10.7871 1.39535Z'
                         fill='white'
@@ -510,12 +466,7 @@ const Header = () => {
                   <div className={styles.headerMobileFooterSocs}>
                     <Link href='##'>
                       <a href='##'>
-                        <svg
-                          width='11'
-                          height='20'
-                          viewBox='0 0 11 20'
-                          fill='none'
-                          xmlns='http://www.w3.org/2000/svg'>
+                        <svg width='11' height='20' viewBox='0 0 11 20' fill='none' xmlns='http://www.w3.org/2000/svg'>
                           <path
                             d='M7.33532 20V10.8777H10.3961L10.8553 7.32156H7.33532V5.05147C7.33532 4.0222 7.61996 3.32076 9.09761 3.32076L10.9791 3.31999V0.13923C10.6538 0.0969453 9.53683 0 8.23683 0C5.52223 0 3.66377 1.65697 3.66377 4.69927V7.32156H0.59375V10.8777H3.66377V20H7.33532Z'
                             fill='white'
@@ -525,12 +476,7 @@ const Header = () => {
                     </Link>
                     <Link href='##'>
                       <a href='##'>
-                        <svg
-                          width='21'
-                          height='18'
-                          viewBox='0 0 21 18'
-                          fill='none'
-                          xmlns='http://www.w3.org/2000/svg'>
+                        <svg width='21' height='18' viewBox='0 0 21 18' fill='none' xmlns='http://www.w3.org/2000/svg'>
                           <path
                             d='M20.7871 2.79875C20.0434 3.125 19.2509 3.34125 18.4246 3.44625C19.2746 2.93875 19.9234 2.14125 20.2284 1.18C19.4359 1.6525 18.5609 1.98625 17.6284 2.1725C16.8759 1.37125 15.8034 0.875 14.6334 0.875C12.3634 0.875 10.5359 2.7175 10.5359 4.97625C10.5359 5.30125 10.5634 5.61375 10.6309 5.91125C7.22211 5.745 4.20586 4.11125 2.17961 1.6225C1.82586 2.23625 1.61836 2.93875 1.61836 3.695C1.61836 5.115 2.34961 6.37375 3.43961 7.1025C2.78086 7.09 2.13461 6.89875 1.58711 6.5975C1.58711 6.61 1.58711 6.62625 1.58711 6.6425C1.58711 8.635 3.00836 10.29 4.87211 10.6712C4.53836 10.7625 4.17461 10.8062 3.79711 10.8062C3.53461 10.8062 3.26961 10.7913 3.02086 10.7362C3.55211 12.36 5.05961 13.5538 6.85211 13.5925C5.45711 14.6838 3.68586 15.3412 1.76836 15.3412C1.43211 15.3412 1.10961 15.3263 0.787109 15.285C2.60336 16.4563 4.75586 17.125 7.07711 17.125C14.6221 17.125 18.7471 10.875 18.7471 5.4575C18.7471 5.27625 18.7409 5.10125 18.7321 4.9275C19.5459 4.35 20.2296 3.62875 20.7871 2.79875Z'
                             fill='white'
@@ -540,21 +486,13 @@ const Header = () => {
                     </Link>
                     <Link href='##'>
                       <a href='##'>
-                        <svg
-                          width='21'
-                          height='20'
-                          viewBox='0 0 21 20'
-                          fill='none'
-                          xmlns='http://www.w3.org/2000/svg'>
+                        <svg width='21' height='20' viewBox='0 0 21 20' fill='none' xmlns='http://www.w3.org/2000/svg'>
                           <g>
                             <path
                               d='M20.7822 19.9999V19.999H20.7872V12.664C20.7872 9.07569 20.0147 6.31152 15.8197 6.31152C13.803 6.31152 12.4497 7.41819 11.8972 8.46736H11.8388V6.64652H7.86133V19.999H12.003V13.3874C12.003 11.6465 12.333 9.9632 14.4888 9.9632C16.613 9.9632 16.6447 11.9499 16.6447 13.499V19.9999H20.7822Z'
                               fill='white'
                             />
-                            <path
-                              d='M1.11719 6.64746H5.26385V20H1.11719V6.64746Z'
-                              fill='white'
-                            />
+                            <path d='M1.11719 6.64746H5.26385V20H1.11719V6.64746Z' fill='white' />
                             <path
                               d='M3.18878 0C1.86294 0 0.787109 1.07583 0.787109 2.40167C0.787109 3.7275 1.86294 4.82583 3.18878 4.82583C4.51461 4.82583 5.59044 3.7275 5.59044 2.40167C5.58961 1.07583 4.51378 0 3.18878 0V0Z'
                               fill='white'
@@ -562,12 +500,7 @@ const Header = () => {
                           </g>
                           <defs>
                             <clipPath id='clip0_1092_116'>
-                              <rect
-                                width='20'
-                                height='20'
-                                fill='white'
-                                transform='translate(0.787109)'
-                              />
+                              <rect width='20' height='20' fill='white' transform='translate(0.787109)' />
                             </clipPath>
                           </defs>
                         </svg>
@@ -575,12 +508,7 @@ const Header = () => {
                     </Link>
                     <Link href='##'>
                       <a href='##'>
-                        <svg
-                          width='21'
-                          height='20'
-                          viewBox='0 0 21 20'
-                          fill='none'
-                          xmlns='http://www.w3.org/2000/svg'>
+                        <svg width='21' height='20' viewBox='0 0 21 20' fill='none' xmlns='http://www.w3.org/2000/svg'>
                           <path
                             d='M10.7859 0C5.26461 0 0.787109 4.59056 0.787109 10.2534C0.787109 14.7827 3.65211 18.6252 7.62711 19.9822C8.12711 20.0767 8.30961 19.7601 8.30961 19.4882C8.30961 19.2444 8.30086 18.5997 8.29586 17.7444C5.51461 18.3635 4.92711 16.3695 4.92711 16.3695C4.47336 15.1849 3.81711 14.8695 3.81711 14.8695C2.90836 14.2338 3.88461 14.2466 3.88461 14.2466C4.88836 14.3193 5.41586 15.3036 5.41586 15.3036C6.30836 16.8699 7.75711 16.418 8.32711 16.155C8.41711 15.4925 8.67586 15.0406 8.96211 14.784C6.74211 14.5249 4.40711 13.6453 4.40711 9.71728C4.40711 8.59773 4.79711 7.68242 5.43711 6.96499C5.33336 6.70584 4.99086 5.66288 5.53461 4.25227C5.53461 4.25227 6.37461 3.97653 8.28461 5.30289C9.08211 5.07566 9.93711 4.96204 10.7884 4.95821C11.6371 4.96332 12.4934 5.07566 13.2921 5.30417C15.2009 3.97781 16.0396 4.25355 16.0396 4.25355C16.5846 5.66544 16.2421 6.70712 16.1396 6.96627C16.7809 7.6837 17.1671 8.599 17.1671 9.71856C17.1671 13.6568 14.8296 14.5236 12.6021 14.7776C12.9609 15.0942 13.2809 15.7197 13.2809 16.6759C13.2809 18.0469 13.2684 19.1524 13.2684 19.4882C13.2684 19.7626 13.4484 20.0818 13.9559 19.9809C17.9246 18.6227 20.7871 14.7815 20.7871 10.2534C20.7871 4.59056 16.3096 0 10.7859 0Z'
                             fill='white'
@@ -597,17 +525,11 @@ const Header = () => {
           <div className={styles.headerRightOuter}>
             <div
               className={`${styles.headerRight} ${
-                activeMenu !== null && device === "desktop"
-                  ? styles.headerRightHideToRight
-                  : ""
-              } ${walletModal ? styles.headerRightHideToLeft : ""}`}>
+                activeMenu !== null && device === 'desktop' ? styles.headerRightHideToRight : ''
+              } ${walletModal ? styles.headerRightHideToLeft : ''}`}
+            >
               <div className={`${styles.headerBalance}`}>
-                <svg
-                  width='31'
-                  height='31'
-                  viewBox='0 0 31 31'
-                  fill='none'
-                  xmlns='http://www.w3.org/2000/svg'>
+                <svg width='31' height='31' viewBox='0 0 31 31' fill='none' xmlns='http://www.w3.org/2000/svg'>
                   <circle cx='15.7539' cy='15.0439' r='15' fill='#131313' />
                   <path
                     fillRule='evenodd'
@@ -619,23 +541,16 @@ const Header = () => {
                 ${isConnected && isActive ? balance : 0}
               </div>
               <div className={`${styles.headerLangs}`}>
-                <div
-                  className={`${styles.headerLangNow} ${
-                    activeLangs ? styles.headerLangNowActive : ""
-                  }`}>
+                <div className={`${styles.headerLangNow} ${activeLangs ? styles.headerLangNowActive : ''}`}>
                   <i></i>
                   <div className={styles.headerLangNowSvg}>
                     <div
                       className={styles.headerLangNowMainTtl}
                       onClick={() => {
-                        openLangs(true);
-                      }}>
-                      <svg
-                        width='21'
-                        height='21'
-                        viewBox='0 0 21 21'
-                        fill='none'
-                        xmlns='http://www.w3.org/2000/svg'>
+                        openLangs(true)
+                      }}
+                    >
+                      <svg width='21' height='21' viewBox='0 0 21 21' fill='none' xmlns='http://www.w3.org/2000/svg'>
                         <path
                           d='M10.7539 20.0439C5.23763 20.0439 0.753906 15.5602 0.753906 10.0439C0.753906 4.52767 5.23763 0.0439453 10.7539 0.0439453C16.2702 0.0439453 20.7539 4.52767 20.7539 10.0439C20.7539 15.5602 16.2702 20.0439 10.7539 20.0439ZM10.7539 1.43929C6.00972 1.43929 2.14926 5.29976 2.14926 10.0439C2.14926 14.7881 6.00972 18.6486 10.7539 18.6486C15.4981 18.6486 19.3586 14.7881 19.3586 10.0439C19.3586 5.29976 15.4981 1.43929 10.7539 1.43929Z'
                           fill='white'
@@ -664,19 +579,18 @@ const Header = () => {
                   </div>
                   <div className={styles.headerLangsModal}>
                     <i></i>
-                    <div className={styles.headerLangsModalTtl}>
-                      Change Language
-                    </div>
+                    <div className={styles.headerLangsModalTtl}>Change Language</div>
                     <div className={styles.modalsMobileTitle}>
                       <svg
                         onClick={() => {
-                          closeAll();
+                          closeAll()
                         }}
                         width='14'
                         height='10'
                         viewBox='0 0 14 10'
                         fill='none'
-                        xmlns='http://www.w3.org/2000/svg'>
+                        xmlns='http://www.w3.org/2000/svg'
+                      >
                         <path
                           fillRule='evenodd'
                           clipRule='evenodd'
@@ -693,33 +607,29 @@ const Header = () => {
                       <span>Change Language</span>
                     </div>
                     <div className={styles.headerLangsModalInner}>
-                      {LANG_DATA.map((item) => {
+                      {LANG_DATA.map(item => {
                         return (
                           <div
                             className={`${styles.headerLangsModalLink} ${
-                              "en" === item.title
-                                ? styles.headerLangsModalLinkActive
-                                : ""
+                              'en' === item.title ? styles.headerLangsModalLinkActive : ''
                             }`}
                             key={item.id}
                             onClick={() => {
-                              openLangs(false);
-                              changeLanguage(item.title);
-                            }}>
+                              openLangs(false)
+                              changeLanguage(item.title)
+                            }}
+                          >
                             {item.fullName}
                             <div>-</div>
                             {item.title}
                           </div>
-                        );
+                        )
                       })}
                     </div>
                   </div>
                 </div>
               </div>
-              <div
-                className={`${styles.headerSettingsBtn} ${
-                  activeSettings ? styles.headerSettingsBtnActive : ""
-                }`}>
+              <div className={`${styles.headerSettingsBtn} ${activeSettings ? styles.headerSettingsBtnActive : ''}`}>
                 <i></i>
                 <div className={styles.headerSettingsBtnSvg}>
                   <svg
@@ -730,11 +640,12 @@ const Header = () => {
                     xmlns='http://www.w3.org/2000/svg'
                     onClick={() => {
                       if (!activeSettings) {
-                        openSettings(true);
+                        openSettings(true)
                       } else {
-                        openSettings(false);
+                        openSettings(false)
                       }
-                    }}>
+                    }}
+                  >
                     <path
                       d='M11.3047 13.7208C9.27352 13.7208 7.625 12.0723 7.625 10.0411C7.625 8.00985 9.27352 6.36133 11.3047 6.36133C13.336 6.36133 14.9845 8.00985 14.9845 10.0411C14.9845 12.0723 13.336 13.7208 11.3047 13.7208ZM11.3047 7.83322C10.088 7.83322 9.0969 8.8243 9.0969 10.0411C9.0969 11.2578 10.088 12.2489 11.3047 12.2489C12.5215 12.2489 13.5126 11.2578 13.5126 10.0411C13.5126 8.8243 12.5215 7.83322 11.3047 7.83322Z'
                       fill='white'
@@ -750,13 +661,14 @@ const Header = () => {
                   <div className={styles.modalsMobileTitle}>
                     <svg
                       onClick={() => {
-                        closeAll();
+                        closeAll()
                       }}
                       width='14'
                       height='10'
                       viewBox='0 0 14 10'
                       fill='none'
-                      xmlns='http://www.w3.org/2000/svg'>
+                      xmlns='http://www.w3.org/2000/svg'
+                    >
                       <path
                         fillRule='evenodd'
                         clipRule='evenodd'
@@ -777,11 +689,7 @@ const Header = () => {
                     <div className={styles.settingsModalFloor}>
                       <div>Dark Mode</div>
                       <div className={styles.settingsCheckboxContainer}>
-                        <input
-                          type='checkbox'
-                          defaultValue={false}
-                          onChange={() => {}}
-                        />
+                        <input type='checkbox' defaultValue={false} onChange={() => {}} />
                         <div className={styles.settingsCheckbox}>
                           <i></i>
                         </div>
@@ -790,76 +698,69 @@ const Header = () => {
                     <div className={styles.settingsModalBtnslFloor}>
                       <div className={styles.settingsModalBtnslFloorTtl}>
                         <Tooltip
-                          title={"Default Transaction Speed (GWEI)"}
-                          type={"settings"}
+                          title={'Default Transaction Speed (GWEI)'}
+                          type={'settings'}
                           text={
-                            "Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi"
+                            'Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi'
                           }
                         />
                       </div>
                       <div className={styles.settingsModalBtns}>
-                        <div className={styles.settingsModalBtn}>
-                          Standard (5)
-                        </div>
+                        <div className={styles.settingsModalBtn}>Standard (5)</div>
                         <div className={styles.settingsModalBtn}>Fast (6)</div>
-                        <div className={styles.settingsModalBtn}>
-                          Instant (7)
-                        </div>
+                        <div className={styles.settingsModalBtn}>Instant (7)</div>
                       </div>
                     </div>
                     <div className={styles.settingsModalLine}></div>
-                    <div className={styles.settingsModalTtl}>
-                      Core & Liquidity
-                    </div>
+                    <div className={styles.settingsModalTtl}>Core & Liquidity</div>
                     <div className={styles.settingsModalBtnslFloor}>
                       <div className={styles.settingsModalTitle}>
                         <Tooltip
-                          title={"Slippage Tolerance"}
-                          type={"settings"}
+                          title={'Slippage Tolerance'}
+                          type={'settings'}
                           text={
-                            "Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi"
+                            'Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi'
                           }
                         />
                       </div>
                       <div className={styles.settingsModalBtns}>
                         <div
                           className={`${styles.settingsModalBtn} ${
-                            slippage === 0.1
-                              ? styles.settingsModalBtnActive
-                              : ""
+                            slippage === 0.1 ? styles.settingsModalBtnActive : ''
                           }`}
-                          onClick={(e) =>
+                          onClick={e =>
                             dispatch({
-                              type: "SET_SLIPPAGE",
+                              type: 'SET_SLIPPAGE',
                               slippage: parseFloat(0.1),
                             })
-                          }>
+                          }
+                        >
                           0.1%
                         </div>
                         <div
                           className={`${styles.settingsModalBtn} ${
-                            slippage === 0.5
-                              ? styles.settingsModalBtnActive
-                              : ""
+                            slippage === 0.5 ? styles.settingsModalBtnActive : ''
                           }`}
-                          onClick={(e) =>
+                          onClick={e =>
                             dispatch({
-                              type: "SET_SLIPPAGE",
+                              type: 'SET_SLIPPAGE',
                               slippage: parseFloat(0.5),
                             })
-                          }>
+                          }
+                        >
                           0.5%
                         </div>
                         <div
                           className={`${styles.settingsModalBtn} ${
-                            slippage === 1 ? styles.settingsModalBtnActive : ""
+                            slippage === 1 ? styles.settingsModalBtnActive : ''
                           }`}
-                          onClick={(e) =>
+                          onClick={e =>
                             dispatch({
-                              type: "SET_SLIPPAGE",
+                              type: 'SET_SLIPPAGE',
                               slippage: parseFloat(1),
                             })
-                          }>
+                          }
+                        >
                           1.0%
                         </div>
                         <div className={styles.settingsModalInputOuter}>
@@ -869,9 +770,9 @@ const Header = () => {
                             value={slippage}
                             min={1}
                             max={49}
-                            onChange={(e) =>
+                            onChange={e =>
                               dispatch({
-                                type: "SET_SLIPPAGE",
+                                type: 'SET_SLIPPAGE',
                                 slippage: parseFloat(e.target.value),
                               })
                             }
@@ -883,10 +784,10 @@ const Header = () => {
                     <div className={styles.settingsModalFloor}>
                       <div>
                         <Tooltip
-                          title={"Tx deadlines (mins)"}
-                          type={"settings"}
+                          title={'Tx deadlines (mins)'}
+                          type={'settings'}
                           text={
-                            "Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi"
+                            'Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi'
                           }
                         />
                       </div>
@@ -900,19 +801,15 @@ const Header = () => {
                     <div className={styles.settingsModalFloor}>
                       <div>
                         <Tooltip
-                          title={"Expert Mode"}
-                          type={"settings"}
+                          title={'Expert Mode'}
+                          type={'settings'}
                           text={
-                            "Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi"
+                            'Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi'
                           }
                         />
                       </div>
                       <div className={styles.settingsCheckboxContainer}>
-                        <input
-                          type='checkbox'
-                          defaultValue={false}
-                          onChange={() => {}}
-                        />
+                        <input type='checkbox' defaultValue={false} onChange={() => {}} />
                         <div className={styles.settingsCheckbox}>
                           <i></i>
                         </div>
@@ -921,19 +818,15 @@ const Header = () => {
                     <div className={styles.settingsModalFloor}>
                       <div>
                         <Tooltip
-                          title={"Disable Multihops"}
-                          type={"settings"}
+                          title={'Disable Multihops'}
+                          type={'settings'}
                           text={
-                            "Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi"
+                            'Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi'
                           }
                         />
                       </div>
                       <div className={styles.settingsCheckboxContainer}>
-                        <input
-                          type='checkbox'
-                          defaultValue={false}
-                          onChange={() => {}}
-                        />
+                        <input type='checkbox' defaultValue={false} onChange={() => {}} />
                         <div className={styles.settingsCheckbox}>
                           <i></i>
                         </div>
@@ -942,19 +835,15 @@ const Header = () => {
                     <div className={styles.settingsModalFloor}>
                       <div>
                         <Tooltip
-                          title={"Subgraph Health Indicator"}
-                          type={"settings"}
+                          title={'Subgraph Health Indicator'}
+                          type={'settings'}
                           text={
-                            "Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi"
+                            'Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi'
                           }
                         />
                       </div>
                       <div className={styles.settingsCheckboxContainer}>
-                        <input
-                          type='checkbox'
-                          defaultValue={false}
-                          onChange={() => {}}
-                        />
+                        <input type='checkbox' defaultValue={false} onChange={() => {}} />
                         <div className={styles.settingsCheckbox}>
                           <i></i>
                         </div>
@@ -963,19 +852,15 @@ const Header = () => {
                     <div className={styles.settingsModalFloor}>
                       <div>
                         <Tooltip
-                          title={"Flippy sounds"}
-                          type={"settings"}
+                          title={'Flippy sounds'}
+                          type={'settings'}
                           text={
-                            "Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi"
+                            'Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi'
                           }
                         />
                       </div>
                       <div className={styles.settingsCheckboxContainer}>
-                        <input
-                          type='checkbox'
-                          defaultValue={false}
-                          onChange={() => {}}
-                        />
+                        <input type='checkbox' defaultValue={false} onChange={() => {}} />
                         <div className={styles.settingsCheckbox}>
                           <i></i>
                         </div>
@@ -985,52 +870,42 @@ const Header = () => {
                 </div>
               </div>
               <div
-                className={`${
-                  isConnected && isActive ? styles.headerNotConnected : ""
-                } ${styles.headerConnectBtnContainer} ${
-                  activeSettings ? styles.transformRight : ""
-                }`}>
+                className={`${isConnected && isActive ? styles.headerNotConnected : ''} ${
+                  styles.headerConnectBtnContainer
+                } ${activeSettings ? styles.transformRight : ''}`}
+              >
                 <Button
-                  title={"Connect Wallet"}
+                  title={'Connect Wallet'}
                   type={`${connectBtnColor}`}
                   onClick={() => {
-                    closeAll();
-                    handleWalletModal(true);
+                    closeAll()
+                    handleWalletModal(true)
                   }}
                   customStyles={{
-                    padding: "10px 20px",
+                    padding: '10px 20px',
                   }}
                 />
               </div>
               <div
-                className={`${styles.headerConnected} ${
-                  isConnected && isActive ? "" : styles.headerNotConnected
-                } ${activeSettings ? styles.transformRight : ""}`}>
+                className={`${styles.headerConnected} ${isConnected && isActive ? '' : styles.headerNotConnected} ${
+                  activeSettings ? styles.transformRight : ''
+                }`}
+              >
                 <div
-                  className={`${styles.headerConnectedBtn} ${
-                    profileModal ? styles.headerConnectedBtnActive : ""
-                  }`}
+                  className={`${styles.headerConnectedBtn} ${profileModal ? styles.headerConnectedBtnActive : ''}`}
                   onClick={() => {
-                    openProfile();
-                  }}>
+                    openProfile()
+                  }}
+                >
                   <div className={styles.headerConnectedBtnImg}>
-                    <Image
-                      src={`/images/meta.png`}
-                      alt='avatar'
-                      layout='fill'
-                    />
+                    <Image src={`/images/meta.png`} alt='avatar' layout='fill' />
                     <i></i>
                   </div>
-                  <span>{isConnected && isActive ? account : ""}</span>
+                  <span>{isConnected && isActive ? account : ''}</span>
                   <div className={styles.headerConnectedBtnArrow}>
                     <i></i>
                     <div className={styles.headerConnectedBtnArrowSvg}>
-                      <svg
-                        width='8'
-                        height='5'
-                        viewBox='0 0 8 5'
-                        fill='none'
-                        xmlns='http://www.w3.org/2000/svg'>
+                      <svg width='8' height='5' viewBox='0 0 8 5' fill='none' xmlns='http://www.w3.org/2000/svg'>
                         <path
                           fillRule='evenodd'
                           clipRule='evenodd'
@@ -1045,34 +920,25 @@ const Header = () => {
             </div>
           </div>
           <div
-            className={`${styles.burger} ${
-              activeBurger ? styles.activeBurger : ""
-            }`}
+            className={`${styles.burger} ${activeBurger ? styles.activeBurger : ''}`}
             onClick={() => {
-              openBurger();
-            }}>
+              openBurger()
+            }}
+          >
             <span></span>
             <span></span>
             <span></span>
           </div>
         </div>
-        <div
-          className={`${styles.headerConnectedModal} ${
-            profileModal ? styles.headerConnectedModalActive : ""
-          }`}>
+        <div className={`${styles.headerConnectedModal} ${profileModal ? styles.headerConnectedModalActive : ''}`}>
           <i></i>
           <div className={styles.headerConnectedModalInner}>
             <div className={styles.headerConnectedModalAddress}>
               <div>
-                <span>{isConnected && isActive ? account : ""}</span>
+                <span>{isConnected && isActive ? account : ''}</span>
                 <span>metamask</span>
               </div>
-              <svg
-                width='17'
-                height='17'
-                viewBox='0 0 17 17'
-                fill='none'
-                xmlns='http://www.w3.org/2000/svg'>
+              <svg width='17' height='17' viewBox='0 0 17 17' fill='none' xmlns='http://www.w3.org/2000/svg'>
                 <path
                   d='M8.20525 16.1023H5.07966C2.16989 16.1023 0.875 14.8074 0.875 11.8976V8.77204C0.875 5.86227 2.16989 4.56738 5.07966 4.56738H8.20525C11.115 4.56738 12.4099 5.86227 12.4099 8.77204V11.8976C12.4099 14.8074 11.115 16.1023 8.20525 16.1023ZM5.07966 5.68366C2.77268 5.68366 1.99128 6.46506 1.99128 8.77204V11.8976C1.99128 14.2046 2.77268 14.986 5.07966 14.986H8.20525C10.5122 14.986 11.2936 14.2046 11.2936 11.8976V8.77204C11.2936 6.46506 10.5122 5.68366 8.20525 5.68366H5.07966Z'
                   fill='white'
@@ -1086,12 +952,7 @@ const Header = () => {
             <Link href='/wallet'>
               <a className={styles.headerConnectedModalLink}>
                 <span>Wallet</span>
-                <svg
-                  width='5'
-                  height='9'
-                  viewBox='0 0 5 9'
-                  fill='none'
-                  xmlns='http://www.w3.org/2000/svg'>
+                <svg width='5' height='9' viewBox='0 0 5 9' fill='none' xmlns='http://www.w3.org/2000/svg'>
                   <path
                     fillRule='evenodd'
                     clipRule='evenodd'
@@ -1104,12 +965,7 @@ const Header = () => {
             <Link href='/recent-transactions'>
               <a className={styles.headerConnectedModalLink}>
                 <span>Recent Transactions</span>
-                <svg
-                  width='5'
-                  height='9'
-                  viewBox='0 0 5 9'
-                  fill='none'
-                  xmlns='http://www.w3.org/2000/svg'>
+                <svg width='5' height='9' viewBox='0 0 5 9' fill='none' xmlns='http://www.w3.org/2000/svg'>
                   <path
                     fillRule='evenodd'
                     clipRule='evenodd'
@@ -1123,12 +979,7 @@ const Header = () => {
             <Link href='/your-nfts'>
               <a className={styles.headerConnectedModalLink}>
                 <span>Your NFTs</span>
-                <svg
-                  width='5'
-                  height='9'
-                  viewBox='0 0 5 9'
-                  fill='none'
-                  xmlns='http://www.w3.org/2000/svg'>
+                <svg width='5' height='9' viewBox='0 0 5 9' fill='none' xmlns='http://www.w3.org/2000/svg'>
                   <path
                     fillRule='evenodd'
                     clipRule='evenodd'
@@ -1141,12 +992,7 @@ const Header = () => {
             <Link href='/make-profile'>
               <a className={styles.headerConnectedModalLink}>
                 <span>Make a Profile</span>
-                <svg
-                  width='5'
-                  height='9'
-                  viewBox='0 0 5 9'
-                  fill='none'
-                  xmlns='http://www.w3.org/2000/svg'>
+                <svg width='5' height='9' viewBox='0 0 5 9' fill='none' xmlns='http://www.w3.org/2000/svg'>
                   <path
                     fillRule='evenodd'
                     clipRule='evenodd'
@@ -1160,16 +1006,12 @@ const Header = () => {
             <div
               className={styles.headerConnectedModalLink}
               onClick={() => {
-                closeAll();
-                disconnect();
-              }}>
+                closeAll()
+                disconnect()
+              }}
+            >
               <span>Disconnect Wallet</span>
-              <svg
-                width='15'
-                height='15'
-                viewBox='0 0 15 15'
-                fill='none'
-                xmlns='http://www.w3.org/2000/svg'>
+              <svg width='15' height='15' viewBox='0 0 15 15' fill='none' xmlns='http://www.w3.org/2000/svg'>
                 <g>
                   <path
                     d='M12.231 9.79986C12.079 9.79986 11.927 9.74386 11.807 9.62386C11.6954 9.51095 11.6328 9.3586 11.6328 9.19986C11.6328 9.04111 11.6954 8.88877 11.807 8.77586L13.431 7.15186L11.807 5.52786C11.6954 5.41495 11.6328 5.2626 11.6328 5.10386C11.6328 4.94511 11.6954 4.79277 11.807 4.67986C12.039 4.44786 12.423 4.44786 12.655 4.67986L14.703 6.72786C14.935 6.95986 14.935 7.34386 14.703 7.57586L12.655 9.62386C12.535 9.74386 12.383 9.79986 12.231 9.79986Z'
@@ -1188,72 +1030,53 @@ const Header = () => {
             </div>
           </div>
         </div>
-        <div
-          className={`${styles.headerCornerModal} ${
-            walletModal ? styles.connectWalletActive : ""
-          }`}>
+        <div className={`${styles.headerCornerModal} ${walletModal ? styles.connectWalletActive : ''}`}>
           <i></i>
-          <div
-            className={`${styles.connectWalletItems} ${
-              walletModal ? styles.connectWalletItemsActive : ""
-            }`}>
+          <div className={`${styles.connectWalletItems} ${walletModal ? styles.connectWalletItemsActive : ''}`}>
             {WALLETS_DATA.map((item, index) => {
               return (
                 <div
                   className={styles.connectWalletItemOuter}
                   key={item.id}
                   style={{
-                    transitionDelay: walletModal
-                      ? `${(index + 2) / 10}s`
-                      : null,
+                    transitionDelay: walletModal ? `${(index + 2) / 10}s` : null,
                   }}
                   onClick={() => {
-                    closeAll();
-                    connect(item.type);
-                  }}>
+                    closeAll()
+                    connect(item.type)
+                  }}
+                >
                   <div className={styles.connectWalletItem}>
                     <div className={styles.connectWalletItemImg}>
-                      <Image
-                        src={`/images/${item.img}`}
-                        alt=''
-                        width={100}
-                        height={100}
-                      />
+                      <Image src={`/images/${item.img}`} alt='' width={100} height={100} />
                     </div>
                     <div>{item.title}</div>
                   </div>
                 </div>
-              );
+              )
             })}
           </div>
         </div>
         <div
           className={`${styles.headerLine} ${
-            activeMenu !== null ||
-            activeLangs ||
-            activeSettings ||
-            walletModal ||
-            profileModal ||
-            activeBurger
+            activeMenu !== null || activeLangs || activeSettings || walletModal || profileModal || activeBurger
               ? styles.headerLineActive
-              : ""
-          }`}></div>
+              : ''
+          }`}
+        ></div>
       </header>
       <div
         className={`${styles.headerBg} ${
-          activeMenu !== null ||
-          activeLangs ||
-          activeSettings ||
-          walletModal ||
-          profileModal
+          activeMenu !== null || activeLangs || activeSettings || walletModal || profileModal
             ? styles.headerBgActive
-            : ""
+            : ''
         }`}
         onClick={() => {
-          closeAll();
-        }}></div>
+          closeAll()
+        }}
+      ></div>
     </div>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

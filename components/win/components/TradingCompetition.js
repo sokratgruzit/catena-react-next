@@ -1,9 +1,10 @@
-import React from 'react';
-import Image from 'next/image';
-import ArrowBtn from '../../UI/button/ArrowBtn';
+import Image from 'next/image'
+import React from 'react'
 
-import styles from './TradingCompetition.module.css';
-import WinRoutes from './WinRoutes';
+import WinRoutes from './WinRoutes'
+import ArrowBtn from '../../UI/button/ArrowBtn'
+
+import styles from './TradingCompetition.module.css'
 
 let tabsData = [
   {
@@ -18,19 +19,14 @@ let tabsData = [
     id: 2,
     label: 'Lottery',
   },
-];
+]
 
 const TradingCompetition = () => {
   return (
     <>
       <div className={styles.competitionMargin}>
         <div className={styles.imagetest}>
-          <Image
-            layout='fill'
-            src={'/images/win/background/bggg.png'}
-            alt='HomeScreen'
-            objectFit={'contain'}
-          />
+          <Image layout='fill' src={'/images/win/background/bggg.png'} alt='HomeScreen' objectFit={'contain'} />
         </div>
         <div className={styles.borderTab}>
           <WinRoutes />
@@ -39,21 +35,13 @@ const TradingCompetition = () => {
           <div className={styles.leftSideContent}>
             <p className={styles.day}>MAY 14-20, 2022</p>
             <h1 className={styles.title}>
-              <span className={styles.titleSpan}>CORE</span> MultiChain Fan
-              Token Trading Competition
+              <span className={styles.titleSpan}>CORE</span> MultiChain Fan Token Trading Competition
             </h1>
             <h4 className={styles.prizes}>$300,000 in Prizes!</h4>
-            <p className={styles.trandingVolume}>
-              Compete with other teams for the highest trading volume!
-            </p>
+            <p className={styles.trandingVolume}>Compete with other teams for the highest trading volume!</p>
             <div className={styles.voutingBox}>
               <div className={styles.hourglass}>
-                <Image
-                  layout='fill'
-                  src={'/images/win/time.svg'}
-                  alt='time'
-                  objectFit={'contain'}
-                />
+                <Image layout='fill' src={'/images/win/time.svg'} alt='time' objectFit={'contain'} />
               </div>
               <div className={styles.competition}>
                 <div>
@@ -61,13 +49,7 @@ const TradingCompetition = () => {
                 </div>
                 <div className={styles.voutingCompetition}>
                   <div className={styles.voutingIcone}>
-                    <svg
-                      width='17'
-                      height='17'
-                      viewBox='0 0 17 17'
-                      fill='none'
-                      xmlns='http://www.w3.org/2000/svg'
-                    >
+                    <svg width='17' height='17' viewBox='0 0 17 17' fill='none' xmlns='http://www.w3.org/2000/svg'>
                       <g opacity='0.7'>
                         <path
                           d='M8.49805 16.4229C4.08502 16.4229 0.498047 12.8359 0.498047 8.42285C0.498047 4.00983 4.08502 0.422852 8.49805 0.422852C12.9111 0.422852 16.498 4.00983 16.498 8.42285C16.498 12.8359 12.9111 16.4229 8.49805 16.4229ZM8.49805 1.53913C4.7027 1.53913 1.61433 4.6275 1.61433 8.42285C1.61433 12.2182 4.7027 15.3066 8.49805 15.3066C12.2934 15.3066 15.3818 12.2182 15.3818 8.42285C15.3818 4.6275 12.2934 1.53913 8.49805 1.53913Z'
@@ -82,13 +64,7 @@ const TradingCompetition = () => {
                     <p>Entry</p>
                   </div>
                   <span>
-                    <svg
-                      width='61'
-                      height='2'
-                      viewBox='0 0 61 2'
-                      fill='none'
-                      xmlns='http://www.w3.org/2000/svg'
-                    >
+                    <svg width='61' height='2' viewBox='0 0 61 2' fill='none' xmlns='http://www.w3.org/2000/svg'>
                       <line
                         opacity='0.5'
                         x1='0.498047'
@@ -114,13 +90,7 @@ const TradingCompetition = () => {
                     </svg>
                   </span>
                   <div className={styles.voutingIcone}>
-                    <svg
-                      width='17'
-                      height='17'
-                      viewBox='0 0 17 17'
-                      fill='none'
-                      xmlns='http://www.w3.org/2000/svg'
-                    >
+                    <svg width='17' height='17' viewBox='0 0 17 17' fill='none' xmlns='http://www.w3.org/2000/svg'>
                       <g opacity='0.7'>
                         <path
                           d='M8.49805 16.4229C4.08502 16.4229 0.498047 12.8359 0.498047 8.42285C0.498047 4.00983 4.08502 0.422852 8.49805 0.422852C12.9111 0.422852 16.498 4.00983 16.498 8.42285C16.498 12.8359 12.9111 16.4229 8.49805 16.4229ZM8.49805 1.53913C4.7027 1.53913 1.61433 4.6275 1.61433 8.42285C1.61433 12.2182 4.7027 15.3066 8.49805 15.3066C12.2934 15.3066 15.3818 12.2182 15.3818 8.42285C15.3818 4.6275 12.2934 1.53913 8.49805 1.53913Z'
@@ -135,13 +105,7 @@ const TradingCompetition = () => {
                     <p>Live</p>
                   </div>
                   <span>
-                    <svg
-                      width='61'
-                      height='2'
-                      viewBox='0 0 61 2'
-                      fill='none'
-                      xmlns='http://www.w3.org/2000/svg'
-                    >
+                    <svg width='61' height='2' viewBox='0 0 61 2' fill='none' xmlns='http://www.w3.org/2000/svg'>
                       <line
                         opacity='0.5'
                         x1='0.498047'
@@ -167,13 +131,7 @@ const TradingCompetition = () => {
                     </svg>
                   </span>
                   <div className={styles.voutingIcone}>
-                    <svg
-                      width='16'
-                      height='17'
-                      viewBox='0 0 16 17'
-                      fill='none'
-                      xmlns='http://www.w3.org/2000/svg'
-                    >
+                    <svg width='16' height='17' viewBox='0 0 16 17' fill='none' xmlns='http://www.w3.org/2000/svg'>
                       <path
                         fillRule='evenodd'
                         clipRule='evenodd'
@@ -187,40 +145,24 @@ const TradingCompetition = () => {
               </div>
             </div>
             <div className={styles.allCompetition}>
-              <ArrowBtn
-                seeDirection={'trandingCompetition'}
-                direction={'forward'}
-              />
+              <ArrowBtn seeDirection={'trandingCompetition'} direction={'forward'} />
             </div>
           </div>
           <div className={styles.spaceBoy}>
-            <Image
-              layout='fill'
-              src={'/images/win/Astronaut.png'}
-              alt='time'
-              objectFit={'contain'}
-            />
+            <Image layout='fill' src={'/images/win/Astronaut.png'} alt='time' objectFit={'contain'} />
           </div>
         </div>
         <div className={styles.backgroundFinished}>
           <div>
-            <Image
-              layout='fill'
-              src={'/images/win/background/finishedBackground.png'}
-              alt=''
-            />
+            <Image layout='fill' src={'/images/win/background/finishedBackground.png'} alt='' />
           </div>
         </div>
         <div className={styles.backgroundFinished1}>
-          <Image
-            layout='fill'
-            src={'/images/win/background/runningLinerBg.png'}
-            alt=''
-          />
+          <Image layout='fill' src={'/images/win/background/runningLinerBg.png'} alt='' />
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default TradingCompetition;
+export default TradingCompetition

@@ -1,8 +1,8 @@
-import React from 'react';
+import React from 'react'
 
-import CornerDecor from '../../../UI/cornerDecor/CornerDecor';
+import CornerDecor from '../../../UI/cornerDecor/CornerDecor'
 
-import styles from './InfoCharts.module.css';
+import styles from './InfoCharts.module.css'
 
 const InfoCharts = () => {
   return (
@@ -14,7 +14,7 @@ const InfoCharts = () => {
         <CornerDecor />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default InfoCharts;
+export default InfoCharts

@@ -1,16 +1,9 @@
-import React, { useState } from 'react';
-import {
-  CoreTag,
-  InfoIcon,
-  MathSignSvg,
-  OpenSvg,
-  VectorSvg,
-} from '../../../svg';
-import CornerDecor from '../../../UI/cornerDecor/CornerDecor';
-import Expand from '../../../UI/expand/Expand';
-import Button from '../../../UI/button/Button';
+import React from 'react'
 
-import styles from './FarmsTableComponent.module.css';
+import { CoreTag, InfoIcon, MathSignSvg } from '../../../svg'
+import Button from '../../../UI/button/Button'
+
+import styles from './FarmsTableComponent.module.css'
 
 const FarmsTableComponent = ({ item }) => {
   return (
@@ -67,7 +60,7 @@ const FarmsTableComponent = ({ item }) => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default FarmsTableComponent;
+export default FarmsTableComponent

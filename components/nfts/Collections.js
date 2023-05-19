@@ -1,17 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import { Menu, MenuItem, MenuButton } from '@szhsin/react-menu';
-import '@szhsin/react-menu/dist/index.css';
-import '@szhsin/react-menu/dist/transitions/slide.css';
-import Link from 'next/link';
+import { Menu, MenuItem, MenuButton } from '@szhsin/react-menu'
+import Link from 'next/link'
+import React, { useState, useEffect } from 'react'
+import '@szhsin/react-menu/dist/index.css'
+import '@szhsin/react-menu/dist/transitions/slide.css'
 
-import ListItemCard from '../UI/listItem/ListItemCard';
-import Table from '../UI/table/Table';
-import TabFilter from '../UI/filters/TabFilter';
-import filterStyles from '../UI/filters/TabFilter.module.css';
-import ArrowBtn from '../UI/button/ArrowBtn';
-import ListItemRow from '../UI/listItem/ListItemRow';
+import ArrowBtn from '../UI/button/ArrowBtn'
+import TabFilter from '../UI/filters/TabFilter'
+import ListItemCard from '../UI/listItem/ListItemCard'
+import Table from '../UI/table/Table'
 
-import styles from './Collections.module.css';
+import styles from './Collections.module.css'
+import filterStyles from '../UI/filters/TabFilter.module.css'
 
 const nftCollectionsData = [
   {
@@ -444,7 +443,7 @@ const nftCollectionsData = [
     supply: 7777,
     event: 'Hot',
   },
-];
+]
 
 let tabsData = [
   {
@@ -459,20 +458,14 @@ let tabsData = [
     id: 2,
     label: 'Hot',
   },
-];
+]
 
 let tabsRightData = [
   {
     id: 0,
     label: 'Card',
     svg: (
-      <svg
-        width='18'
-        height='18'
-        viewBox='0 0 18 18'
-        fill='none'
-        xmlns='http://www.w3.org/2000/svg'
-      >
+      <svg width='18' height='18' viewBox='0 0 18 18' fill='none' xmlns='http://www.w3.org/2000/svg'>
         <path
           d='M10.1592 1.58002L10.1592 6.95202C10.1592 7.46202 10.6712 7.66602 11.9432 7.66602L15.1752 7.66602C16.4472 7.66602 16.9592 7.46202 16.9592 6.95202L16.9592 1.58002C16.9592 1.07002 16.4472 0.866018 15.1752 0.866018L11.9432 0.866018C10.6712 0.866018 10.1592 1.07002 10.1592 1.58002Z'
           stroke='white'
@@ -504,13 +497,7 @@ let tabsRightData = [
     id: 1,
     label: 'Row',
     svg: (
-      <svg
-        width='18'
-        height='18'
-        viewBox='0 0 18 18'
-        fill='none'
-        xmlns='http://www.w3.org/2000/svg'
-      >
+      <svg width='18' height='18' viewBox='0 0 18 18' fill='none' xmlns='http://www.w3.org/2000/svg'>
         <path
           d='M15.279 10.0664H2.63898C1.43898 10.0664 0.958984 10.5784 0.958984 11.8504V15.0824C0.958984 16.3544 1.43898 16.8664 2.63898 16.8664H15.279C16.479 16.8664 16.959 16.3544 16.959 15.0824V11.8504C16.959 10.5784 16.479 10.0664 15.279 10.0664Z'
           stroke='white'
@@ -526,55 +513,45 @@ let tabsRightData = [
       </svg>
     ),
   },
-];
+]
 
 const Collections = () => {
-  const [tableMode, setTableMode] = useState('Card');
-  const [activeMenuItem, setActiveMenuItem] = useState('All');
-  const [screeWidth, setScreenWidth] = useState(window.innerWidth);
-  const [tableData, setTableData] = useState(nftCollectionsData);
+  const [tableMode, setTableMode] = useState('Card')
+  const [activeMenuItem, setActiveMenuItem] = useState('All')
+  const [screeWidth, setScreenWidth] = useState(window.innerWidth)
+  const [tableData, setTableData] = useState(nftCollectionsData)
 
   let content = (
     <div className={styles.Collection__tableWrap}>
-      <img
-        className={styles.gradientBck}
-        src='../images/contribute/backgrounds/bck2.png'
-      />
+      <img className={styles.gradientBck} src='../images/contribute/backgrounds/bck2.png' />
       <Table
-        tableLabels={[
-          'Collection',
-          'Volume',
-          'Lowest',
-          'Highest',
-          'Items',
-          'Supply',
-        ]}
+        tableLabels={['Collection', 'Volume', 'Lowest', 'Highest', 'Items', 'Supply']}
         tableData={tableData}
         type={'nft_collections'}
       />
     </div>
-  );
+  )
 
   const filterTableHandler = status => {
     const filtered = nftCollectionsData.filter(item => {
       if (status == 'All') {
-        return item;
+        return item
       }
       if (status == item.event) {
-        return item;
+        return item
       }
-    });
-    setTableData(filtered);
-    setActiveMenuItem(status);
-  };
+    })
+    setTableData(filtered)
+    setActiveMenuItem(status)
+  }
 
   useEffect(() => {
-    setScreenWidth(window.innerWidth);
-  }, []);
+    setScreenWidth(window.innerWidth)
+  }, [])
 
   const switchTableModeHandler = status => {
-    setTableMode(status);
-  };
+    setTableMode(status)
+  }
 
   /*if (screeWidth < 1200) {
     content = (
@@ -594,10 +571,7 @@ const Collections = () => {
 
   return (
     <div className={`${styles.NftCollections} ${styles.container}`}>
-      <img
-        className={styles.Collections__bckground}
-        src='../images/nft/background/bckOfNftCollection.png'
-      />
+      <img className={styles.Collections__bckground} src='../images/nft/background/bckOfNftCollection.png' />
       <ArrowBtn route={'nfts'} direction={'back'} />
       <p className={`${styles.Collection__title} font-30`}>Collections</p>
       <div className={styles.Collection__filtres}>
@@ -663,20 +637,14 @@ const Collections = () => {
       {tableMode === 'Card' ? (
         <div className={styles.Collection__table}>
           {tableData.map(item => {
-            return (
-              <ListItemCard
-                key={item.id + 'card'}
-                data={item}
-                type={'nft_collections'}
-              />
-            );
+            return <ListItemCard key={item.id + 'card'} data={item} type={'nft_collections'} />
           })}
         </div>
       ) : (
         [content]
       )}
     </div>
-  );
-};
+  )
+}
 
-export default Collections;
+export default Collections

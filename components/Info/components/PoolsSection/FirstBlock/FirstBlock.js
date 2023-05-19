@@ -1,11 +1,10 @@
-import React from 'react';
-import Image from 'next/image';
+import Image from 'next/image'
+import React from 'react'
 
-import CornerDecor from '../../../../UI/cornerDecor/CornerDecor';
-import Tooltip from '../../../../UI/tooltip/Tooltip';
-import { InfoIcon } from '../../../../svg';
+import CornerDecor from '../../../../UI/cornerDecor/CornerDecor'
+import Tooltip from '../../../../UI/tooltip/Tooltip'
 
-import styles from './FirstBlock.module.css';
+import styles from './FirstBlock.module.css'
 
 const FirstBlock = ({ data }) => {
   return (
@@ -20,11 +19,7 @@ const FirstBlock = ({ data }) => {
         <div>
           <h4>LP REWARD APR</h4>
           <p className='font_20'>{data.lp_reward_apr}</p>
-          <Tooltip
-            title={'7 day performance'}
-            type={'dashboard'}
-            text={'dummy'}
-          />
+          <Tooltip title={'7 day performance'} type={'dashboard'} text={'dummy'} />
           {/* <div className={styles.info}>
             <InfoIcon className={styles.icon} />7 day performance
           </div> */}
@@ -51,7 +46,7 @@ const FirstBlock = ({ data }) => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default FirstBlock;
+export default FirstBlock

@@ -1,7 +1,7 @@
-import React from 'react';
+import React from 'react'
 
 const TeamsDetailPage = () => {
-  return <div>TeamsDetailPage</div>;
-};
+  return <div>TeamsDetailPage</div>
+}
 
-export default TeamsDetailPage;
+export default TeamsDetailPage

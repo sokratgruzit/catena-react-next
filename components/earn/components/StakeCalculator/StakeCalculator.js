@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 
-import { ExclamationSvg, QuestionMarkIcon, ReverseSvg } from '../../../svg';
-import TabFilter from '../../../UI/filters/TabFilter';
+import { ExclamationSvg, QuestionMarkIcon, ReverseSvg } from '../../../svg'
+import TabFilter from '../../../UI/filters/TabFilter'
 
-import styles from './StakeCalculator.module.css';
+import styles from './StakeCalculator.module.css'
 
 const stakeTypeData = [
   {
@@ -14,7 +14,7 @@ const stakeTypeData = [
     id: 1,
     label: 'Locked',
   },
-];
+]
 
 const stakeData = [
   {
@@ -29,7 +29,7 @@ const stakeData = [
     id: 2,
     label: 'My Balance',
   },
-];
+]
 
 const stakeDurationData = [
   {
@@ -52,7 +52,7 @@ const stakeDurationData = [
     id: 4,
     label: '5Y',
   },
-];
+]
 
 const stakeDurationDataLocked = [
   {
@@ -75,27 +75,27 @@ const stakeDurationDataLocked = [
     id: 4,
     label: 'MAX',
   },
-];
+]
 
 const StakeCalculator = ({ type }) => {
-  const [reverseStake, setReverseStake] = useState(false);
-  const [activeStakeType, setActiveStakeType] = useState('Flexible');
-  const [stakeAmount, setStakeAmount] = useState('$ 100');
-  const [stakeDuration, setStakeDuration] = useState('1D');
-  const [enableCompound, setEnableCompound] = useState(false);
-  const [compoundEvery, setCompoundEvery] = useState('1D');
-  const [stakeDurationLocked, setStakeDurationLocked] = useState(1);
+  const [reverseStake, setReverseStake] = useState(false)
+  const [activeStakeType, setActiveStakeType] = useState('Flexible')
+  const [stakeAmount, setStakeAmount] = useState('$ 100')
+  const [stakeDuration, setStakeDuration] = useState('1D')
+  const [enableCompound, setEnableCompound] = useState(false)
+  const [compoundEvery, setCompoundEvery] = useState('1D')
+  const [stakeDurationLocked, setStakeDurationLocked] = useState(1)
 
   const handleStakeDurationLocked = e => {
     if (!isNaN(e?.target?.value) && e?.target?.value.length < 4) {
-      setStakeDurationLocked(e.target.value);
+      setStakeDurationLocked(e.target.value)
     }
-    if (e === '1W') setStakeDurationLocked(1);
-    if (e === '5W') setStakeDurationLocked(5);
-    if (e === '10W') setStakeDurationLocked(10);
-    if (e === '25W') setStakeDurationLocked(25);
-    if (e === 'MAX') setStakeDurationLocked(52);
-  };
+    if (e === '1W') setStakeDurationLocked(1)
+    if (e === '5W') setStakeDurationLocked(5)
+    if (e === '10W') setStakeDurationLocked(10)
+    if (e === '25W') setStakeDurationLocked(25)
+    if (e === 'MAX') setStakeDurationLocked(52)
+  }
 
   return (
     <>
@@ -114,18 +114,11 @@ const StakeCalculator = ({ type }) => {
           />
           <h3 className={styles.stakedCMCX}>CMCX Staked</h3>
           <div className={styles.calculator}>
-            <div
-              className={`${styles.displayAmount}  ${
-                reverseStake && styles.reverseOrder
-              }`}
-            >
+            <div className={`${styles.displayAmount}  ${reverseStake && styles.reverseOrder}`}>
               <p className={styles.inUSD}>0.00 USD</p>
               <p className={styles.inCMCX}>0.00 CMCX</p>
             </div>
-            <ReverseSvg
-              className={styles.reverseSvg}
-              onClick={() => setReverseStake(prevState => !prevState)}
-            />
+            <ReverseSvg className={styles.reverseSvg} onClick={() => setReverseStake(prevState => !prevState)} />
           </div>
           <div className={styles.stakeAmountRow}>
             <TabFilter
@@ -141,10 +134,7 @@ const StakeCalculator = ({ type }) => {
             />
             <QuestionMarkIcon className={styles.QuestionMarkIcon} />
           </div>
-          <h3 className={styles.stakedTitle}>
-            {' '}
-            {activeStakeType === 'Flexible' ? 'Staked For' : 'Add Duration'}
-          </h3>
+          <h3 className={styles.stakedTitle}> {activeStakeType === 'Flexible' ? 'Staked For' : 'Add Duration'}</h3>
           {activeStakeType === 'Flexible' ? (
             <TabFilter
               onClick={e => setStakeDuration(e)}
@@ -162,9 +152,7 @@ const StakeCalculator = ({ type }) => {
               <TabFilter
                 onClick={handleStakeDurationLocked}
                 data={stakeDurationDataLocked}
-                activeMenu={
-                  stakeDurationLocked == 52 ? 'MAX' : stakeDurationLocked + 'W'
-                }
+                activeMenu={stakeDurationLocked == 52 ? 'MAX' : stakeDurationLocked + 'W'}
                 css={{
                   wrap: styles.stakeAmount__filterWrap,
                   filter: styles.stakeAmount__filter,
@@ -183,9 +171,7 @@ const StakeCalculator = ({ type }) => {
           <div className={styles.borderBottom}>
             <div className={styles.ROIWrapper}>
               <div className={styles.headerColumn}>
-                <p>
-                  {activeStakeType === 'Flexible' ? 'ROI at Current Rates' : ''}
-                </p>
+                <p>{activeStakeType === 'Flexible' ? 'ROI at Current Rates' : ''}</p>
                 <p className={styles.displayMain}>$0.00</p>
                 <p>~ 8.137 SFUND(0.30%)</p>
               </div>
@@ -198,18 +184,11 @@ const StakeCalculator = ({ type }) => {
         <section className={styles.calculatorSection}>
           <h3 className={styles.stakedCMCX}>CMCX Staked</h3>
           <div className={styles.calculator}>
-            <div
-              className={`${styles.displayAmount}  ${
-                reverseStake && styles.reverseOrder
-              }`}
-            >
+            <div className={`${styles.displayAmount}  ${reverseStake && styles.reverseOrder}`}>
               <p className={styles.inUSD}>0.00 USD</p>
               <p className={styles.inCMCX}>0.00 CMCX</p>
             </div>
-            <ReverseSvg
-              className={styles.reverseSvg}
-              onClick={() => setReverseStake(prevState => !prevState)}
-            />
+            <ReverseSvg className={styles.reverseSvg} onClick={() => setReverseStake(prevState => !prevState)} />
           </div>
           <div className={styles.stakeAmountRow}>
             <TabFilter
@@ -240,10 +219,7 @@ const StakeCalculator = ({ type }) => {
           <div className={styles.compoundWrapper}>
             <label className={styles.checkboxContainer}>
               <h3>Compounding Every</h3>
-              <input
-                onClick={() => setEnableCompound(prevState => !prevState)}
-                type='checkbox'
-              />
+              <input onClick={() => setEnableCompound(prevState => !prevState)} type='checkbox' />
               <span className={styles.checkmark}></span>
             </label>
           </div>
@@ -263,9 +239,7 @@ const StakeCalculator = ({ type }) => {
           <div className={styles.borderBottom}>
             <div className={styles.ROIWrapper}>
               <div className={styles.headerColumn}>
-                <p>
-                  {activeStakeType === 'Flexible' ? 'ROI at Current Rates' : ''}
-                </p>
+                <p>{activeStakeType === 'Flexible' ? 'ROI at Current Rates' : ''}</p>
                 <p className={styles.displayMain}>$0.00</p>
                 <p>~ 8.137 SFUND(0.30%)</p>
               </div>
@@ -275,7 +249,7 @@ const StakeCalculator = ({ type }) => {
         </section>
       )}
     </>
-  );
-};
+  )
+}
 
-export default StakeCalculator;
+export default StakeCalculator

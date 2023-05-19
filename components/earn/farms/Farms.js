@@ -1,29 +1,19 @@
-import { useState, useRef } from 'react';
-import { useRouter } from 'next/router';
-import Image from 'next/image';
+import Image from 'next/image'
+import { useRouter } from 'next/router'
+import { useState, useRef } from 'react'
 
-import CornerDecor from '../../UI/cornerDecor/CornerDecor';
-import EarnRoutes from '../components/earnRoutes/EarnRoutes';
-import TableFilter from '../components/tableFilter/TableFilter';
-import FarmsTableComponent from '../components/farmsTable/FarmsTableComponent';
-import background from '../../../public/images/earn/background.png';
+import background from '../../../public/images/earn/background.png'
+import { VectorSvg, ArrowSvg, TableViewSvg, ComponentViewSvg, InfoIcon, ETHCORE, MathSignSvg, OpenSvg } from '../../svg'
+import CornerDecor from '../../UI/cornerDecor/CornerDecor'
+import Expand from '../../UI/expand/Expand'
+import ExpandButton from '../../UI/expand/ExpandButton'
+import Table from '../../UI/table/Table'
+import EarnRoutes from '../components/earnRoutes/EarnRoutes'
+import FarmsTableComponent from '../components/farmsTable/FarmsTableComponent'
+import FarmsTableRowExpand from '../components/farmsTable/FarmsTableRowExpand'
+import TableFilter from '../components/tableFilter/TableFilter'
 
-import {
-  VectorSvg,
-  ArrowSvg,
-  TableViewSvg,
-  ComponentViewSvg,
-  InfoIcon,
-  ETHCORE,
-  MathSignSvg,
-  OpenSvg,
-} from '../../svg';
-
-import styles from './Farms.module.css';
-import Table from '../../UI/table/Table';
-import FarmsTableRowExpand from '../components/farmsTable/FarmsTableRowExpand';
-import Expand from '../../UI/expand/Expand';
-import ExpandButton from '../../UI/expand/ExpandButton';
+import styles from './Farms.module.css'
 
 const farmsData = [
   {
@@ -176,20 +166,20 @@ const farmsData = [
       },
     ],
   },
-];
+]
 
-const FilterData = ['hot', 'apr', 'multiplier', 'earned', 'liquidity'];
+const FilterData = ['hot', 'apr', 'multiplier', 'earned', 'liquidity']
 
 const Farms = () => {
   const [filter, setFilter] = useState({
     open: false,
     selected: FilterData[0],
-  });
-  const [search, setSearch] = useState('');
-  const [dataViewType, setDataViewType] = useState('table');
+  })
+  const [search, setSearch] = useState('')
+  const [dataViewType, setDataViewType] = useState('table')
 
-  const router = useRouter();
-  const selectRef = useRef();
+  const router = useRouter()
+  const selectRef = useRef()
 
   return (
     <>
@@ -201,10 +191,7 @@ const Farms = () => {
           <EarnRoutes />
         </div>
         <h1 className='font_30'>Stake LP tokens to earn.</h1>
-        <div
-          onClick={() => router.push('/earn/farms/auction')}
-          className={styles.communityAuctions}
-        >
+        <div onClick={() => router.push('/earn/farms/auction')} className={styles.communityAuctions}>
           <p className={`${styles.blueHover}`}>Community Auctions</p>
           <ArrowSvg className={styles.svgHoverBlue} />
         </div>
@@ -214,15 +201,11 @@ const Farms = () => {
             <div className={styles.Farms__filterLeftPanel}>
               <TableViewSvg
                 onClick={() => setDataViewType('table')}
-                className={`${
-                  dataViewType === 'components' && styles.tableView
-                }`}
+                className={`${dataViewType === 'components' && styles.tableView}`}
               />
               <ComponentViewSvg
                 onClick={() => setDataViewType('components')}
-                className={`${
-                  dataViewType === 'components' && styles.componentsView
-                }`}
+                className={`${dataViewType === 'components' && styles.componentsView}`}
               />
               <div className={styles.farms__radioBtn}>
                 <div className='radio-btn'>
@@ -239,9 +222,7 @@ const Farms = () => {
               <div className={styles.filterWrapper}>
                 <div
                   ref={selectRef}
-                  className={`${styles.filters} ${
-                    filter.open && styles.filterOpen
-                  }`}
+                  className={`${styles.filters} ${filter.open && styles.filterOpen}`}
                   onClick={() =>
                     setFilter(prevState => ({
                       ...prevState,
@@ -250,17 +231,12 @@ const Farms = () => {
                   }
                 >
                   <p className={styles.filterName}>
-                    {filter.selected}{' '}
-                    <VectorSvg
-                      className={`${styles.vectorSvg} ${
-                        filter.open && styles.rotate
-                      }`}
-                    />
+                    {filter.selected} <VectorSvg className={`${styles.vectorSvg} ${filter.open && styles.rotate}`} />
                   </p>
                   {filter.open && (
                     <>
                       {FilterData.map((FilterName, index) => {
-                        if (FilterName === filter.selected) return false;
+                        if (FilterName === filter.selected) return false
                         return (
                           <p
                             key={FilterName}
@@ -269,12 +245,12 @@ const Farms = () => {
                               setFilter({
                                 open: 'false',
                                 selected: FilterName,
-                              });
+                              })
                             }}
                           >
                             {FilterName}
                           </p>
-                        );
+                        )
                       })}
                     </>
                   )}
@@ -317,9 +293,7 @@ const Farms = () => {
           <div className={styles.componentsViewSection}>
             {farmsData
               .filter(item => {
-                return search.toLowerCase() === ''
-                  ? item
-                  : item.title.toLowerCase().includes(search);
+                return search.toLowerCase() === '' ? item : item.title.toLowerCase().includes(search)
               })
               .map((item, index) => {
                 return (
@@ -327,16 +301,12 @@ const Farms = () => {
                     <CornerDecor />
                     <Expand
                       expandButton={
-                        <ExpandButton
-                          className={styles.expandButton}
-                          vectorClassName={styles.expandVector}
-                        />
+                        <ExpandButton className={styles.expandButton} vectorClassName={styles.expandVector} />
                       }
                       expandContent={
                         <div className={styles.expandSection}>
                           <p>
-                            Get CMCX-BNB LP{' '}
-                            <OpenSvg className={styles.openSvg} />
+                            Get CMCX-BNB LP <OpenSvg className={styles.openSvg} />
                           </p>
                           <p>
                             View Contract <OpenSvg className={styles.openSvg} />
@@ -350,13 +320,13 @@ const Farms = () => {
                       <FarmsTableComponent item={item} />
                     </Expand>
                   </div>
-                );
+                )
               })}
           </div>
         )}
       </main>
     </>
-  );
-};
+  )
+}
 
-export default Farms;
+export default Farms

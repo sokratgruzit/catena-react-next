@@ -1,12 +1,13 @@
-import React from 'react';
-import { CoreTag, InfoIcon, OpenSvg } from '../../../svg';
-import Button from '../../../UI/button/Button';
-import { useWindowDimension } from '../../../../hooks/useWindowDimension';
+import React from 'react'
 
-import styles from './FarmsTableRowExpand.module.css';
+import { useWindowDimension } from '../../../../hooks/useWindowDimension'
+import { CoreTag, InfoIcon, OpenSvg } from '../../../svg'
+import Button from '../../../UI/button/Button'
+
+import styles from './FarmsTableRowExpand.module.css'
 
 const FarmsTableRowExpand = ({ item }) => {
-  const [width, height] = useWindowDimension();
+  const [width, height] = useWindowDimension()
 
   return (
     <>
@@ -39,11 +40,7 @@ const FarmsTableRowExpand = ({ item }) => {
         <div className={styles.section}>
           <div className={styles.startSection}>
             <p>Start Farming</p>
-            <Button
-              title={'Connect Wallet'}
-              type={'blue'}
-              className={styles.connectButton}
-            />
+            <Button title={'Connect Wallet'} type={'blue'} className={styles.connectButton} />
           </div>
           <div className={styles.middleSection}>
             <p className={styles.coreEarned}>
@@ -74,7 +71,7 @@ const FarmsTableRowExpand = ({ item }) => {
         </div>
       </main>
     </>
-  );
-};
+  )
+}
 
-export default FarmsTableRowExpand;
+export default FarmsTableRowExpand

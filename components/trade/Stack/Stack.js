@@ -1,11 +1,12 @@
 import { Button, AccountSummary, Visual, Table } from '@catena-network/catena-ui-module'
 import { React, useState } from 'react'
 
-import styles from './Stack.module.css'
 import { useMobileWidth } from '../../../hooks/useMobileWidth'
 import AddSquareIcon from '../../svg/AddSquareIcon'
 import ArrowSvg from '../../svg/ArrowSvg'
 import EarnIcon from '../../svg/EarnIcon'
+
+import styles from './Stack.module.css'
 
 function Stack() {
   // let closeHandler = () => {

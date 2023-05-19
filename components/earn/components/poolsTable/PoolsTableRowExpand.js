@@ -1,13 +1,13 @@
-import React from 'react';
+import React from 'react'
 
-import { useWindowDimension } from '../../../../hooks/useWindowDimension';
-import { CoreTag, OpenSvg } from '../../../svg';
-import Button from '../../../UI/button/Button';
+import { useWindowDimension } from '../../../../hooks/useWindowDimension'
+import { CoreTag, OpenSvg } from '../../../svg'
+import Button from '../../../UI/button/Button'
 
-import styles from './PoolsTableRowExpand.module.css';
+import styles from './PoolsTableRowExpand.module.css'
 
 const PoolsTableRowExpand = ({ item }) => {
-  const [width, height] = useWindowDimension();
+  const [width, height] = useWindowDimension()
   return (
     <>
       {width <= 1200 && (
@@ -22,17 +22,13 @@ const PoolsTableRowExpand = ({ item }) => {
               <div className={styles.secondSection}>
                 <p>{item.data[1].text}</p>
                 <p className={` font_12 ${styles.usd}`}>{item.data[1].text2}</p>
-                <p className={` font_12 ${styles.subText}`}>
-                  {item.data[1].text3}
-                </p>
+                <p className={` font_12 ${styles.subText}`}>{item.data[1].text3}</p>
               </div>
               <div className={styles.thirdSection}>
                 <p>
                   {item.data[3].title} {item.data[3].svg1}
                 </p>
-                <p className={` font_12 ${styles.subText}`}>
-                  {item.data[3].subTitle}
-                </p>
+                <p className={` font_12 ${styles.subText}`}>{item.data[3].subTitle}</p>
               </div>
             </>
           )}
@@ -58,11 +54,7 @@ const PoolsTableRowExpand = ({ item }) => {
         <div className={styles.section}>
           <div className={styles.startSection}>
             <p>Start Farming</p>
-            <Button
-              title={'Connect Wallet'}
-              type={'blue'}
-              className={styles.connectButton}
-            />
+            <Button title={'Connect Wallet'} type={'blue'} className={styles.connectButton} />
           </div>
           <div className={styles.middleSection}>
             <p className={styles.coreEarned}>
@@ -93,7 +85,7 @@ const PoolsTableRowExpand = ({ item }) => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default PoolsTableRowExpand;
+export default PoolsTableRowExpand

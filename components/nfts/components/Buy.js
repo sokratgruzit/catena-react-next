@@ -1,24 +1,24 @@
-import React, { useState, useEffect } from 'react';
-import Link from 'next/link';
-import { useSelector } from 'react-redux';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import ArrowBtn from '../../UI/button/ArrowBtn';
-import CornerDecor from '../../UI/cornerDecor/CornerDecor';
-import Button from '../../UI/button/Button';
-import useConnect from '../../../hooks/use-connect';
-import ListItemRow from '../../UI/listItem/ListItemRow';
+import Link from 'next/link'
+import React, { useState, useEffect } from 'react'
+import { useSelector } from 'react-redux'
+import { Swiper, SwiperSlide } from 'swiper/react'
 
-import styles from './Buy.module.css';
+import useConnect from '../../../hooks/use-connect'
+import ArrowBtn from '../../UI/button/ArrowBtn'
+import Button from '../../UI/button/Button'
+import CornerDecor from '../../UI/cornerDecor/CornerDecor'
+import ListItemRow from '../../UI/listItem/ListItemRow'
+
+import styles from './Buy.module.css'
 
 const nftItemData = {
   imgSrc: '../../../images/nft/nft_owner_page/item1.png',
   title: 'Mutant Ape Yacht Club',
   value: '#314',
-  blockQuote:
-    '10,000 unique, randomly-generated PancakeSwap NFTs from the mind of Chef Cecy Meade. Join the squad.',
+  blockQuote: '10,000 unique, randomly-generated PancakeSwap NFTs from the mind of Chef Cecy Meade. Join the squad.',
   cmcx: '0.0024',
   usd: '($1,314)',
-};
+}
 const ownerItemData = [
   {
     id: 0,
@@ -29,7 +29,7 @@ const ownerItemData = [
     ownerAddress: '0xC7...061b',
     tokenId: '312',
   },
-];
+]
 const detailsTableData = [
   {
     id: 0,
@@ -159,7 +159,7 @@ const detailsTableData = [
       },
     ],
   },
-];
+]
 const collectionItems = [
   {
     id: 0,
@@ -225,7 +225,7 @@ const collectionItems = [
     priceCmcx: '1.024',
     priceUsd: '($10,314)',
   },
-];
+]
 const manageTable = [
   {
     id: 0,
@@ -275,22 +275,21 @@ const manageTable = [
     title: 'Pink',
     subTitle: '(14.66%)',
   },
-];
+]
 
 const Buy = props => {
-  const [screeWidth, setScreenWidth] = useState(window.innerWidth);
-  const [step, setStep] = useState(false);
-  const { connect, disconnect, account, isActive, library, handleWalletModal } =
-    useConnect();
-  const isConnected = useSelector(state => state.connect.isConnected);
-  const [balance, setBalance] = useState(0);
-  const [connected, setConnected] = useState(false);
-  const [isManageOpen, setIsManageOpen] = useState(false);
-  const [isPropertiesOpen, setIsPropertiesOpen] = useState(false);
-  const [isDetailsOpen, setIsDetailsOpen] = useState(false);
-  const [isInfoOpen, setIsInfoOpen] = useState(false);
+  const [screeWidth, setScreenWidth] = useState(window.innerWidth)
+  const [step, setStep] = useState(false)
+  const { connect, disconnect, account, isActive, library, handleWalletModal } = useConnect()
+  const isConnected = useSelector(state => state.connect.isConnected)
+  const [balance, setBalance] = useState(0)
+  const [connected, setConnected] = useState(false)
+  const [isManageOpen, setIsManageOpen] = useState(false)
+  const [isPropertiesOpen, setIsPropertiesOpen] = useState(false)
+  const [isDetailsOpen, setIsDetailsOpen] = useState(false)
+  const [isInfoOpen, setIsInfoOpen] = useState(false)
 
-  let web3Obj = library;
+  let web3Obj = library
 
   //   const getBalance = async () => {
   //     if (web3Obj !== undefined) {
@@ -309,21 +308,19 @@ const Buy = props => {
   //   }, [isActive, account]);
 
   useEffect(() => {
-    setScreenWidth(window.innerWidth);
-  }, []);
+    setScreenWidth(window.innerWidth)
+  }, [])
 
-  let connectButton = (
-    <p className={styles.item}>You don’t have any of this item.</p>
-  );
+  let connectButton = <p className={styles.item}>You don’t have any of this item.</p>
   let variableButton = (
     <Button
       title={'Buy'}
       type={'blue'}
       onClick={() => {
         if (!isInfoOpen) {
-          setIsInfoOpen(true);
+          setIsInfoOpen(true)
         } else {
-          setIsInfoOpen(false);
+          setIsInfoOpen(false)
         }
         // content changes function
       }}
@@ -334,7 +331,7 @@ const Buy = props => {
         transition: '.5s',
       }}
     />
-  );
+  )
   let variableStep = (
     <div className={styles.buy__item__details}>
       <div className={styles.details__teaser}>
@@ -353,7 +350,7 @@ const Buy = props => {
         title={'Buy'}
         type={'blue'}
         onClick={() => {
-          setStep(true);
+          setStep(true)
         }}
         customStyles={{
           padding: '10px 160px',
@@ -363,7 +360,7 @@ const Buy = props => {
         }}
       />
     </div>
-  );
+  )
   let detailTable = (
     <div className={styles.NftBuy__infoTable}>
       <CornerDecor />
@@ -375,26 +372,20 @@ const Buy = props => {
         <p>Date</p>
       </div>
       {detailsTableData.map(item => {
-        return <ListItemRow type={'nft_buy'} data={item} key={item.id} />;
+        return <ListItemRow type={'nft_buy'} data={item} key={item.id} />
       })}
     </div>
-  );
+  )
 
   if (screeWidth < 1200) {
     detailTable = (
       <div className={styles.buy__mobile__table}>
         <CornerDecor />
         {detailsTableData.map(item => {
-          return (
-            <ListItemRow
-              key={item.id + 'mobile'}
-              data={item}
-              type={'nft_buy_mobile'}
-            />
-          );
+          return <ListItemRow key={item.id + 'mobile'} data={item} type={'nft_buy_mobile'} />
         })}
       </div>
-    );
+    )
   }
   if (isInfoOpen) {
     variableButton = (
@@ -403,9 +394,9 @@ const Buy = props => {
         type={'blue'}
         onClick={() => {
           if (!isInfoOpen) {
-            setIsInfoOpen(true);
+            setIsInfoOpen(true)
           } else {
-            setIsInfoOpen(false);
+            setIsInfoOpen(false)
           }
           // content changes function
         }}
@@ -416,7 +407,7 @@ const Buy = props => {
           transition: '.5s',
         }}
       />
-    );
+    )
   }
   if (isConnected === false && isActive === false) {
     connectButton = (
@@ -425,13 +416,13 @@ const Buy = props => {
           title={'Connect Wallet'}
           type={'blue'}
           onClick={() => {
-            handleWalletModal(true);
-            setConnected(true);
+            handleWalletModal(true)
+            setConnected(true)
             window.scrollTo({
               top: 0,
               left: 0,
               behavior: 'smooth',
-            });
+            })
           }}
           customStyles={{
             padding: '2% 0',
@@ -439,7 +430,7 @@ const Buy = props => {
           }}
         />
       </div>
-    );
+    )
   }
   if (step === true) {
     variableStep = (
@@ -462,23 +453,20 @@ const Buy = props => {
             <p className={`${styles.payBtn} ${styles.payBtn__active}`}>WBNB</p>
           </div>
         </div>
-        <div
-          className={styles.pay}
-          style={{ display: isConnected && isActive ? 'none' : 'block' }}
-        >
+        <div className={styles.pay} style={{ display: isConnected && isActive ? 'none' : 'block' }}>
           <p className={'font_13'}>WBNB in Wallet</p>
           <div className={styles.connect__wallet}>
             <Button
               title={'Connect Wallet'}
               type={'blue'}
               onClick={() => {
-                handleWalletModal(true);
-                setConnected(true);
+                handleWalletModal(true)
+                setConnected(true)
                 window.scrollTo({
                   top: 0,
                   left: 0,
                   behavior: 'smooth',
-                });
+                })
               }}
               customStyles={{
                 padding: '2% 0',
@@ -500,7 +488,7 @@ const Buy = props => {
           <p className={styles.getBtn}>Get BNB or WBNB</p>
         </div>
       </div>
-    );
+    )
   }
 
   return (
@@ -520,21 +508,17 @@ const Buy = props => {
           <div
             onClick={() => {
               if (!isManageOpen) {
-                setIsManageOpen(true);
+                setIsManageOpen(true)
               } else {
-                setIsManageOpen(false);
+                setIsManageOpen(false)
               }
             }}
-            className={`${styles.NftBuy__walletConnect} ${
-              isManageOpen ? styles.opend : ''
-            }`}
+            className={`${styles.NftBuy__walletConnect} ${isManageOpen ? styles.opend : ''}`}
           >
             <p className={styles.NftBuy__walletConnectTitle}>
               Manage Yours
               <svg
-                className={`${styles.svg} ${
-                  isManageOpen ? styles.rotated : ''
-                }`}
+                className={`${styles.svg} ${isManageOpen ? styles.rotated : ''}`}
                 width='15'
                 height='8'
                 viewBox='0 0 15 8'
@@ -556,21 +540,17 @@ const Buy = props => {
           <div
             onClick={() => {
               if (!isPropertiesOpen) {
-                setIsPropertiesOpen(true);
+                setIsPropertiesOpen(true)
               } else {
-                setIsPropertiesOpen(false);
+                setIsPropertiesOpen(false)
               }
             }}
-            className={`${styles.NftBuy__properties} ${
-              isPropertiesOpen ? styles.opendP : ''
-            }`}
+            className={`${styles.NftBuy__properties} ${isPropertiesOpen ? styles.opendP : ''}`}
           >
             <p className={styles.NftBuy__propertiesTitle}>
               Properties
               <svg
-                className={`${styles.svg} ${
-                  isPropertiesOpen ? styles.rotated : ''
-                }`}
+                className={`${styles.svg} ${isPropertiesOpen ? styles.rotated : ''}`}
                 width='15'
                 height='8'
                 viewBox='0 0 15 8'
@@ -590,40 +570,31 @@ const Buy = props => {
             <div className={styles.NftBuy__properties__inner}>
               {manageTable.map(item => {
                 return (
-                  <div
-                    key={item.id}
-                    className={styles.NftBuy__properties__item}
-                  >
+                  <div key={item.id} className={styles.NftBuy__properties__item}>
                     <p>{item.item}</p>
                     <p>
-                      <span className={styles.NftBuy__properties__itemTitle}>
-                        {item.title}
-                      </span>
+                      <span className={styles.NftBuy__properties__itemTitle}>{item.title}</span>
                       {item.subTitle}
                     </p>
                   </div>
-                );
+                )
               })}
             </div>
           </div>
           <div
             onClick={() => {
               if (!isDetailsOpen) {
-                setIsDetailsOpen(true);
+                setIsDetailsOpen(true)
               } else {
-                setIsDetailsOpen(false);
+                setIsDetailsOpen(false)
               }
             }}
-            className={`${styles.NftBuy__details} ${
-              isDetailsOpen ? styles.opendD : ''
-            }`}
+            className={`${styles.NftBuy__details} ${isDetailsOpen ? styles.opendD : ''}`}
           >
             <p className={styles.NftBuy__propertiesTitle}>
               Details
               <svg
-                className={`${styles.svg} ${
-                  isDetailsOpen ? styles.rotated : ''
-                }`}
+                className={`${styles.svg} ${isDetailsOpen ? styles.rotated : ''}`}
                 width='15'
                 height='8'
                 viewBox='0 0 15 8'
@@ -648,13 +619,7 @@ const Buy = props => {
                     <p className={styles.hover}>
                       <Link href={`/sometransaction`}>0xF5...301c</Link>
                     </p>
-                    <svg
-                      width='13'
-                      height='13'
-                      viewBox='0 0 13 13'
-                      fill='none'
-                      xmlns='http://www.w3.org/2000/svg'
-                    >
+                    <svg width='13' height='13' viewBox='0 0 13 13' fill='none' xmlns='http://www.w3.org/2000/svg'>
                       <path
                         fillRule='evenodd'
                         clipRule='evenodd'
@@ -682,13 +647,7 @@ const Buy = props => {
                     <a className={styles.hover} href='azuki.com'>
                       Azuki.com
                     </a>
-                    <svg
-                      width='13'
-                      height='13'
-                      viewBox='0 0 13 13'
-                      fill='none'
-                      xmlns='http://www.w3.org/2000/svg'
-                    >
+                    <svg width='13' height='13' viewBox='0 0 13 13' fill='none' xmlns='http://www.w3.org/2000/svg'>
                       <path
                         fillRule='evenodd'
                         clipRule='evenodd'
@@ -724,12 +683,7 @@ const Buy = props => {
             </div>
             {ownerItemData.map(item => {
               return (
-                <div
-                  key={item.id}
-                  className={`${styles.infoTable__buy} ${
-                    isInfoOpen ? styles.open_buy : ''
-                  }`}
-                >
+                <div key={item.id} className={`${styles.infoTable__buy} ${isInfoOpen ? styles.open_buy : ''}`}>
                   <div key={item.id} className={styles.NftBuy__ownerItem}>
                     <div className={styles.NftBuy__ownerItemPrices}>
                       <p>
@@ -747,9 +701,7 @@ const Buy = props => {
                         <p>{item.ownerAddress}</p>
                       </div>
                     </div>
-                    <div className={styles.connect__buttonWrap}>
-                      {variableButton}
-                    </div>
+                    <div className={styles.connect__buttonWrap}>{variableButton}</div>
                   </div>
                   <div className={styles.connectWallet__info}>
                     <div className={styles.tokenId__info}>
@@ -762,11 +714,7 @@ const Buy = props => {
                       <p className={'font_13'}>Pay With</p>
                       <div className={styles.payBtns}>
                         <p className={styles.payBtn}>BNB</p>
-                        <p
-                          className={`${styles.payBtn} ${styles.payBtn__active}`}
-                        >
-                          WBNB
-                        </p>
+                        <p className={`${styles.payBtn} ${styles.payBtn__active}`}>WBNB</p>
                       </div>
                     </div>
                     <div className={styles.connectWallet}>
@@ -781,13 +729,13 @@ const Buy = props => {
                           title={'Connect Wallet'}
                           type={'blue'}
                           onClick={() => {
-                            handleWalletModal(true);
-                            setConnected(true);
+                            handleWalletModal(true)
+                            setConnected(true)
                             window.scrollTo({
                               top: 0,
                               left: 0,
                               behavior: 'smooth',
-                            });
+                            })
                           }}
                           customStyles={{
                             padding: '2% 0',
@@ -808,7 +756,7 @@ const Buy = props => {
                     <p className={styles.getBtn}>Get BNB or WBNB</p>
                   </div>
                 </div>
-              );
+              )
             })}
           </div>
           {detailTable}
@@ -817,11 +765,7 @@ const Buy = props => {
       <div className={styles.Collections__section}>
         <div className={styles.Collections__titles}>
           <p className={'font_30'}>More From This Collection</p>
-          <ArrowBtn
-            route={'collections'}
-            direction={'forward'}
-            title={'viewAll'}
-          />
+          <ArrowBtn route={'collections'} direction={'forward'} title={'viewAll'} />
         </div>
         <div className={styles.Collections__products}>
           <Swiper spaceBetween={30} slidesPerView={4.6}>
@@ -838,46 +782,28 @@ const Buy = props => {
                               <img src={item.img} alt='collectionImg' />
                             </picture>
                           </div>
-                          <p
-                            className={`${'font_13'} ${
-                              styles.Collection__product__title
-                            }`}
-                          >
-                            {item.title}
-                          </p>
+                          <p className={`${'font_13'} ${styles.Collection__product__title}`}>{item.title}</p>
                           <p className={'font_13'}>{item.subTitle}</p>
                         </div>
-                        <p
-                          className={`${'font_13'} ${
-                            styles.Collection__product__askingPrice
-                          }`}
-                        >
-                          Asking Price:
-                        </p>
+                        <p className={`${'font_13'} ${styles.Collection__product__askingPrice}`}>Asking Price:</p>
                         <div className={styles.Collection__prices}>
                           <p>
                             <span>CMCX</span>
                             {item.priceCmcx}
                           </p>
-                          <p
-                            className={`${'font_13'} ${
-                              styles.Collection__price
-                            }`}
-                          >
-                            {item.priceUsd}
-                          </p>
+                          <p className={`${'font_13'} ${styles.Collection__price}`}>{item.priceUsd}</p>
                         </div>
                       </div>
                     </div>
                   </Link>
                 </SwiperSlide>
-              );
+              )
             })}
           </Swiper>
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Buy;
+export default Buy

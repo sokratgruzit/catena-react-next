@@ -93,8 +93,7 @@ const INIT_STATE = {
         {
           img: '../images/nft/nft_statistics/achviments/achv1.png',
           title: '1 Year',
-          subTitle:
-            'Joined CoreMultiChain during the first year of our journey!',
+          subTitle: 'Joined CoreMultiChain during the first year of our journey!',
           point: 100,
         },
         {
@@ -309,7 +308,7 @@ const INIT_STATE = {
     },
   },
   votingData: {
-    'QmbtMK57ksC7DEeqkqKSx7ehFg1ahYMCtiAAAiGaYjVbw4': {
+    QmbtMK57ksC7DEeqkqKSx7ehFg1ahYMCtiAAAiGaYjVbw41: {
       id: 0,
       title: 'test12345',
       subTitle: 'subTitle #2',
@@ -317,7 +316,7 @@ const INIT_STATE = {
       location: 'Community',
       activeStatus: true,
     },
-    'QmbtMK57ksC7DEeqkqKSx7ehFg1ahYMCtiAAAiGaYjVbw4': {
+    QmbtMK57ksC7DEeqkqKSx7ehFg1ahYMCtiAAAiGaYjVbw42: {
       id: 1,
       title: 'Stop Minting more CORE',
       subTitle: 'subTitle 1',
@@ -325,7 +324,7 @@ const INIT_STATE = {
       location: 'Core',
       activeStatus: true,
     },
-    'QmbtMK57ksC7DEeqkqKSx7ehFg1ahYMCtiAAAiGaYjVbw4': {
+    QmbtMK57ksC7DEeqkqKSx7ehFg1ahYMCtiAAAiGaYjVbw43: {
       id: 2,
       title: 'test#2',
       subTitle: 'test593059',
@@ -333,7 +332,7 @@ const INIT_STATE = {
       location: 'Community',
       activeStatus: false,
     },
-    'QmbtMK57ksC7DEeqkqKSx7ehFg1ahYMCtiAAAiGaYjVbw4': {
+    QmbtMK57ksC7DEeqkqKSx7ehFg1ahYMCtiAAAiGaYjVbw44: {
       id: 3,
       title: 'Stop Minting more CORE',
       subTitle: 'qwerty',
@@ -341,7 +340,7 @@ const INIT_STATE = {
       location: 'Core',
       activeStatus: false,
     },
-    'QmbtMK57ksC7DEeqkqKSx7ehFg1ahYMCtiAAAiGaYjVbw4': {
+    QmbtMK57ksC7DEeqkqKSx7ehFg1ahYMCtiAAAiGaYjVbw45: {
       id: 4,
       title: 'test#3',
       subTitle: 'qwerty123',
@@ -350,21 +349,21 @@ const INIT_STATE = {
       activeStatus: true,
     },
   },
-};
+}
 
 const connectReducer = (state = INIT_STATE, action) => {
   if (action.type === 'TOGGLE_WALLET_CONNECT_MODAL') {
     return {
       ...state,
       walletModal: action.payload.walletModal,
-    };
+    }
   }
 
   if (action.type === 'GET_BALANCE') {
     return {
       ...state,
       balance: action.payload.balance,
-    };
+    }
   }
 
   if (action.type === 'CONNECT') {
@@ -372,17 +371,17 @@ const connectReducer = (state = INIT_STATE, action) => {
       ...state,
       isConnected: action.payload.isConnected,
       providerType: action.payload.providerType,
-    };
+    }
   }
 
   if (action.type === 'BUY_TICKETS_ACTIVE') {
     return {
       ...state,
       activeBuyTicketsBtn: action.payload.activeBuyTicketsBtn,
-    };
+    }
   }
 
-  return state;
-};
+  return state
+}
 
-export default connectReducer;
+export default connectReducer

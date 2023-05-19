@@ -1,7 +1,7 @@
-import React from 'react';
+import React from 'react'
 
 const Limit = () => {
-  return <div>Limit</div>;
-};
+  return <div>Limit</div>
+}
 
-export default Limit;
+export default Limit

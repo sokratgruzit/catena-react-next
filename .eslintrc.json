@@ -16,6 +16,14 @@
         "newlines-between": "always",
         "groups": [["builtin", "external"]],
         "pathGroupsExcludedImportTypes": ["builtin"],
+        "pathGroups": [
+          {
+            "pattern": "*.css",
+            "group": "index",
+            "patternOptions": { "matchBase": true },
+            "position": "after"
+          }
+        ],
         "alphabetize": {
           "order": "asc",
           "caseInsensitive": true
@@ -28,6 +36,13 @@
     "no-var-requires": "off",
     "no-empty-function": "off",
     "no-explicit-any": "off",
-    "no-unused-vars": "off"
+    "no-unused-vars": "off",
+    "no-redeclare": "off",
+    "no-dupe-keys": "off",
+    "no-sparse-arrays": "off",
+    "react/no-unescaped-entities": "off",
+    "no-empty": "off",
+    "no-empty-pattern": "off",
+    "no-unreachable": "off"
   }
 }

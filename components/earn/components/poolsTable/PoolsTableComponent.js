@@ -1,22 +1,15 @@
-import React, { useState } from 'react';
-import {
-  AutoTag,
-  ExclamationSvg,
-  ManualTag,
-  MathSignSvg,
-  QuestionMarkIcon,
-  ReverseSvg,
-  VectorSvg,
-} from '../../../svg';
-import Button from '../../../UI/button/Button';
-import StakeCalculator from '../StakeCalculator/StakeCalculator';
+import React, { useState } from 'react'
 
-import styles from './PoolsTableComponent.module.css';
+import { AutoTag, ExclamationSvg, ManualTag, MathSignSvg, QuestionMarkIcon, VectorSvg } from '../../../svg'
+import Button from '../../../UI/button/Button'
+import StakeCalculator from '../StakeCalculator/StakeCalculator'
+
+import styles from './PoolsTableComponent.module.css'
 
 const PoolsTableComponent = ({ item, toggleExpand, expandRow }) => {
-  const [itemType, setItemType] = useState(item?.data[6]?.tag);
-  const [openCalculator, setOpenCalculator] = useState(false);
-  const [openCalculatorManual, setOpenCalculatorManual] = useState(false);
+  const [itemType, setItemType] = useState(item?.data[6]?.tag)
+  const [openCalculator, setOpenCalculator] = useState(false)
+  const [openCalculatorManual, setOpenCalculatorManual] = useState(false)
 
   return (
     <main className={styles.itemWrapper}>
@@ -86,24 +79,16 @@ const PoolsTableComponent = ({ item, toggleExpand, expandRow }) => {
         {openCalculatorManual && <StakeCalculator type='manual' />}
         <section className={styles.connectSection}>
           <h2>Start Earning</h2>
-          <Button
-            title={'Connect Wallet'}
-            type={'blue'}
-            className={styles.connectButton}
-          />
+          <Button title={'Connect Wallet'} type={'blue'} className={styles.connectButton} />
         </section>
 
         <div className={styles.expandButton} onClick={toggleExpand}>
           {expandRow ? 'Hide' : 'Details'}
-          <VectorSvg
-            className={`${styles.VectorSvg} ${
-              expandRow && styles.vectorActive
-            }`}
-          />
+          <VectorSvg className={`${styles.VectorSvg} ${expandRow && styles.vectorActive}`} />
         </div>
       </section>
     </main>
-  );
-};
+  )
+}
 
-export default PoolsTableComponent;
+export default PoolsTableComponent

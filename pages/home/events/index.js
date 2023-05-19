@@ -1,7 +1,7 @@
-import Events from "../../../components/home/events/Events";
+import Events from '../../../components/home/events/Events'
 
 const index = () => {
-  return <Events />;
-};
+  return <Events />
+}
 
-export default index;
+export default index

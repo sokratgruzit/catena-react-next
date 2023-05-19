@@ -1,20 +1,17 @@
-import Image from 'next/image';
-import CornerDecor from '../../UI/cornerDecor/CornerDecor';
-import styles from './Score.module.css';
-import Button from '../../UI/button/Button';
+import Image from 'next/image'
+
+import Button from '../../UI/button/Button'
+import CornerDecor from '../../UI/cornerDecor/CornerDecor'
+
+import styles from './Score.module.css'
+
 const Score = () => {
   return (
     <>
       <div className={styles.score}>
         <div className={styles.scoreContent}>
           <div>
-            <svg
-              width='44'
-              height='51'
-              viewBox='0 0 44 51'
-              fill='none'
-              xmlns='http://www.w3.org/2000/svg'
-            >
+            <svg width='44' height='51' viewBox='0 0 44 51' fill='none' xmlns='http://www.w3.org/2000/svg'>
               <g clipPath='url(#clip0_1528_5063)'>
                 <path
                   d='M9.29882 22.5012C8.05644 22.5911 6.80911 22.4148 5.64109 21.9843C4.47307 21.5538 3.41155 20.8791 2.52821 20.0057C-0.355185 17.0418 0.546199 12.876 0.546199 12.876C3.07174 13.0306 5.44729 14.1208 7.20413 15.9316C8.05804 16.779 8.6942 17.8184 9.05881 18.9619C9.42341 20.1054 9.50573 21.3193 9.29882 22.5012Z'
@@ -63,32 +60,16 @@ const Score = () => {
               </g>
               <defs>
                 <clipPath id='clip0_1528_5063'>
-                  <rect
-                    width='43'
-                    height='50'
-                    fill='white'
-                    transform='matrix(-1 0 0 1 43.4141 0.678711)'
-                  />
+                  <rect width='43' height='50' fill='white' transform='matrix(-1 0 0 1 43.4141 0.678711)' />
                 </clipPath>
               </defs>
             </svg>
           </div>
           <div>
-            <Image
-              layout='fill'
-              src={'/images/win/spaceBoy.png'}
-              alt='spaceBoy'
-              objectFit={'contain'}
-            />
+            <Image layout='fill' src={'/images/win/spaceBoy.png'} alt='spaceBoy' objectFit={'contain'} />
           </div>
           <div>
-            <svg
-              width='44'
-              height='51'
-              viewBox='0 0 44 51'
-              fill='none'
-              xmlns='http://www.w3.org/2000/svg'
-            >
+            <svg width='44' height='51' viewBox='0 0 44 51' fill='none' xmlns='http://www.w3.org/2000/svg'>
               <g clipPath='url(#clip0_1528_5075)'>
                 <path
                   d='M34.5293 22.5012C35.7717 22.5911 37.019 22.4148 38.187 21.9843C39.3551 21.5538 40.4166 20.8791 41.2999 20.0057C44.1833 17.0418 43.2819 12.876 43.2819 12.876C40.7564 13.0306 38.3808 14.1208 36.624 15.9316C35.7701 16.779 35.1339 17.8184 34.7693 18.9619C34.4047 20.1054 34.3224 21.3193 34.5293 22.5012Z'
@@ -137,12 +118,7 @@ const Score = () => {
               </g>
               <defs>
                 <clipPath id='clip0_1528_5075'>
-                  <rect
-                    width='43'
-                    height='50'
-                    fill='white'
-                    transform='translate(0.414062 0.678711)'
-                  />
+                  <rect width='43' height='50' fill='white' transform='translate(0.414062 0.678711)' />
                 </clipPath>
               </defs>
             </svg>
@@ -173,33 +149,18 @@ const Score = () => {
         </div>
         <div className={styles.spaceImgs}>
           <div className={styles.spaceShip}>
-            <Image
-              src={'/images/win/spaceShip.png'}
-              layout='fill'
-              objectFit={'contain'}
-              alt='spaceShip'
-            />
+            <Image src={'/images/win/spaceShip.png'} layout='fill' objectFit={'contain'} alt='spaceShip' />
           </div>
           <div className={styles.dimond}>
-            <Image
-              src={'/images/win/dimond.png'}
-              layout='fill'
-              objectFit={'contain'}
-              alt='dimond'
-            />
+            <Image src={'/images/win/dimond.png'} layout='fill' objectFit={'contain'} alt='dimond' />
           </div>
           <div className={styles.planet}>
-            <Image
-              src={'/images/win/planet.png'}
-              layout='fill'
-              objectFit={'contain'}
-              alt='palnet'
-            />
+            <Image src={'/images/win/planet.png'} layout='fill' objectFit={'contain'} alt='palnet' />
           </div>
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Score;
+export default Score

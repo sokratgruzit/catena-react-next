@@ -1,8 +1,8 @@
-import Image from 'next/image';
+import Image from 'next/image'
 
-import styles from './RunningLogos.module.css';
+import styles from './RunningLogos.module.css'
 
-const arr = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'];
+const arr = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
 
 const RunningLogos = () => {
   return (
@@ -11,32 +11,20 @@ const RunningLogos = () => {
         {arr.map(num => (
           <div key={num} className={styles.logoWrapper}>
             <div className={styles.logo}>
-              <Image
-                layout='fill'
-                objectFit='contain'
-                src={`/images/home/logos/coin${num}.png`}
-                quality={100}
-                alt=''
-              />
+              <Image layout='fill' objectFit='contain' src={`/images/home/logos/coin${num}.png`} quality={100} alt='' />
             </div>
           </div>
         ))}
         {arr.map(num => (
           <div key={num} className={styles.logoWrapper}>
             <div className={styles.logo}>
-              <Image
-                layout='fill'
-                objectFit='contain'
-                src={`/images/home/logos/coin${num}.png`}
-                quality={100}
-                alt=''
-              />
+              <Image layout='fill' objectFit='contain' src={`/images/home/logos/coin${num}.png`} quality={100} alt='' />
             </div>
           </div>
         ))}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default RunningLogos;
+export default RunningLogos

@@ -1,7 +1,7 @@
-import React from 'react';
+import React from 'react'
 
 const Traits = () => {
-  return <div>Traits</div>;
-};
+  return <div>Traits</div>
+}
 
-export default Traits;
+export default Traits

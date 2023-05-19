@@ -1,9 +1,9 @@
-import React from 'react';
+import React from 'react'
 
-import Farms from '../../../components/earn/farms/Farms';
+import Farms from '../../../components/earn/farms/Farms'
 
 const index = () => {
-  return <Farms />;
-};
+  return <Farms />
+}
 
-export default index;
+export default index

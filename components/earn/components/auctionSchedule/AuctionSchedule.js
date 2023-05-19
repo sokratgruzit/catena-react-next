@@ -1,7 +1,8 @@
-import React from 'react';
-import { QuestionMarkIcon } from '../../../svg';
+import React from 'react'
 
-import styles from './AuctionSchedule.module.css';
+import { QuestionMarkIcon } from '../../../svg'
+
+import styles from './AuctionSchedule.module.css'
 
 const AuctionSchedule = () => {
   return (
@@ -28,7 +29,7 @@ const AuctionSchedule = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default AuctionSchedule;
+export default AuctionSchedule

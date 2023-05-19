@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import Image from 'next/image';
+import Image from 'next/image'
+import React, { useState, useEffect } from 'react'
 
-import styles from './PrizesTable.module.css';
+import styles from './PrizesTable.module.css'
 
 let prizesData = [
   {
@@ -47,7 +47,7 @@ let prizesData = [
     achievment: '+850',
     nft: '/images/win/checkGrey.png',
   },
-];
+]
 let prizesData2 = [
   {
     id: 0,
@@ -92,7 +92,7 @@ let prizesData2 = [
     achievment: '+250',
     nft: '/images/win/checkGrey.png',
   },
-];
+]
 let prizesData3 = [
   {
     id: 0,
@@ -137,46 +137,34 @@ let prizesData3 = [
     achievment: '+100',
     nft: '/images/win/checkGrey.png',
   },
-];
+]
 
 const PrizesTable = ({ activeMenuItem }) => {
-  const [tableData, setTableData] = useState(prizesData);
+  const [tableData, setTableData] = useState(prizesData)
   useEffect(() => {
     //fetch data by state
-    if (activeMenuItem === '#1 team') setTableData(prizesData);
-    if (activeMenuItem === '#2 team') setTableData(prizesData2);
-    if (activeMenuItem === '#3 team') setTableData(prizesData3);
-  }, [activeMenuItem]);
+    if (activeMenuItem === '#1 team') setTableData(prizesData)
+    if (activeMenuItem === '#2 team') setTableData(prizesData2)
+    if (activeMenuItem === '#3 team') setTableData(prizesData3)
+  }, [activeMenuItem])
   return (
     <div>
       {tableData.map((item, index) => (
         <div key={index} className={styles.teamPrizesRank}>
           <div className={styles.tabListPosition}>{item.rankTeam}</div>
           <div className={styles.medal}>
-            <Image
-              layout='fill'
-              objectFit={'contain'}
-              src={item.tierImg}
-              alt='Medal'
-              className={styles.medal}
-            />
+            <Image layout='fill' objectFit={'contain'} src={item.tierImg} alt='Medal' className={styles.medal} />
           </div>
           <div>{item.tokenPrize}</div>
 
           <div>{item.achievment}</div>
           <div className={styles.check}>
-            <Image
-              layout='fill'
-              objectFit={'contain'}
-              src={item.nft}
-              alt='Medal'
-              className={styles.medal}
-            />
+            <Image layout='fill' objectFit={'contain'} src={item.nft} alt='Medal' className={styles.medal} />
           </div>
         </div>
       ))}
     </div>
-  );
-};
+  )
+}
 
-export default PrizesTable;
+export default PrizesTable

@@ -1,5 +1,6 @@
-import React from 'react';
-import styles from './CornerDecor.module.css';
+import React from 'react'
+
+import styles from './CornerDecor.module.css'
 
 const CornerDecor = () => {
   return (
@@ -22,7 +23,7 @@ const CornerDecor = () => {
         <div className={`${styles.decorBox__bottomLeft__left}`}></div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default CornerDecor;
+export default CornerDecor

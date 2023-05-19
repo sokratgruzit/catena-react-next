@@ -1,5 +1,4 @@
-import styles from './DropDownFilter.module.css';
-import mainStyles from '../../main.module.css';
+import styles from './DropDownFilter.module.css'
 
 const DropDownFilter = () => {
   return (
@@ -13,13 +12,7 @@ const DropDownFilter = () => {
           <div className={styles.Creator__categories__inner}>
             <div className={styles.Creator__categories__item}>
               <p>Background</p>
-              <svg
-                width='9'
-                height='5'
-                viewBox='0 0 9 5'
-                fill='none'
-                xmlns='http://www.w3.org/2000/svg'
-              >
+              <svg width='9' height='5' viewBox='0 0 9 5' fill='none' xmlns='http://www.w3.org/2000/svg'>
                 <path
                   opacity='0.7'
                   fillRule='evenodd'
@@ -31,13 +24,7 @@ const DropDownFilter = () => {
             </div>
             <div className={styles.Creator__categories__item}>
               <p>Base</p>
-              <svg
-                width='9'
-                height='5'
-                viewBox='0 0 9 5'
-                fill='none'
-                xmlns='http://www.w3.org/2000/svg'
-              >
+              <svg width='9' height='5' viewBox='0 0 9 5' fill='none' xmlns='http://www.w3.org/2000/svg'>
                 <path
                   opacity='0.7'
                   fillRule='evenodd'
@@ -49,13 +36,7 @@ const DropDownFilter = () => {
             </div>
             <div className={styles.Creator__categories__item}>
               <p>Clothing</p>
-              <svg
-                width='9'
-                height='5'
-                viewBox='0 0 9 5'
-                fill='none'
-                xmlns='http://www.w3.org/2000/svg'
-              >
+              <svg width='9' height='5' viewBox='0 0 9 5' fill='none' xmlns='http://www.w3.org/2000/svg'>
                 <path
                   opacity='0.7'
                   fillRule='evenodd'
@@ -67,13 +48,7 @@ const DropDownFilter = () => {
             </div>
             <div className={styles.Creator__categories__item}>
               <p>Eyes</p>
-              <svg
-                width='9'
-                height='5'
-                viewBox='0 0 9 5'
-                fill='none'
-                xmlns='http://www.w3.org/2000/svg'
-              >
+              <svg width='9' height='5' viewBox='0 0 9 5' fill='none' xmlns='http://www.w3.org/2000/svg'>
                 <path
                   opacity='0.7'
                   fillRule='evenodd'
@@ -85,13 +60,7 @@ const DropDownFilter = () => {
             </div>
             <div className={styles.Creator__categories__item}>
               <p>Hat</p>
-              <svg
-                width='9'
-                height='5'
-                viewBox='0 0 9 5'
-                fill='none'
-                xmlns='http://www.w3.org/2000/svg'
-              >
+              <svg width='9' height='5' viewBox='0 0 9 5' fill='none' xmlns='http://www.w3.org/2000/svg'>
                 <path
                   opacity='0.7'
                   fillRule='evenodd'
@@ -103,13 +72,7 @@ const DropDownFilter = () => {
             </div>
             <div className={styles.Creator__categories__item}>
               <p>Mouth</p>
-              <svg
-                width='9'
-                height='5'
-                viewBox='0 0 9 5'
-                fill='none'
-                xmlns='http://www.w3.org/2000/svg'
-              >
+              <svg width='9' height='5' viewBox='0 0 9 5' fill='none' xmlns='http://www.w3.org/2000/svg'>
                 <path
                   opacity='0.7'
                   fillRule='evenodd'
@@ -121,13 +84,7 @@ const DropDownFilter = () => {
             </div>
             <div className={styles.Creator__categories__item}>
               <p>Prop</p>
-              <svg
-                width='9'
-                height='5'
-                viewBox='0 0 9 5'
-                fill='none'
-                xmlns='http://www.w3.org/2000/svg'
-              >
+              <svg width='9' height='5' viewBox='0 0 9 5' fill='none' xmlns='http://www.w3.org/2000/svg'>
                 <path
                   opacity='0.7'
                   fillRule='evenodd'
@@ -140,13 +97,7 @@ const DropDownFilter = () => {
           </div>
           <div className={styles.Creator__categories__item}>
             <p>Lowest Price</p>
-            <svg
-              width='9'
-              height='5'
-              viewBox='0 0 9 5'
-              fill='none'
-              xmlns='http://www.w3.org/2000/svg'
-            >
+            <svg width='9' height='5' viewBox='0 0 9 5' fill='none' xmlns='http://www.w3.org/2000/svg'>
               <path
                 opacity='0.7'
                 fillRule='evenodd'
@@ -159,7 +110,7 @@ const DropDownFilter = () => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default DropDownFilter;
+export default DropDownFilter

@@ -1,25 +1,25 @@
-import React, { useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/router'
+import React, { useState, useEffect } from 'react'
 
-import { formatCurrency } from '../../../utils/formatCurrency';
-import Table from '../../../UI/table/Table';
-import Button from '../../../UI/button/Button';
-import PageNumber from './PageNumber';
-import { PaginationButtonSvg } from '../../../svg';
-import CornerDecor from '../../../UI/cornerDecor/CornerDecor';
+import PageNumber from './PageNumber'
+import { PaginationButtonSvg } from '../../../svg'
+import Button from '../../../UI/button/Button'
+import CornerDecor from '../../../UI/cornerDecor/CornerDecor'
+import Table from '../../../UI/table/Table'
+import { formatCurrency } from '../../../utils/formatCurrency'
 
-import styles from './InfoTables.module.css';
+import styles from './InfoTables.module.css'
 
 const TokensTable = props => {
-  const itemsPerPage = props.itemsPerPage || 10;
-  const totalPages = 100;
-  const [pageCountTokens, setPageCountTokens] = useState(1);
-  const [data, setData] = useState();
-  const router = useRouter();
+  const itemsPerPage = props.itemsPerPage || 10
+  const totalPages = 100
+  const [pageCountTokens, setPageCountTokens] = useState(1)
+  const [data, setData] = useState()
+  const router = useRouter()
   const [filteredColumn, setFilteredColumn] = useState({
     colName: '',
     order: 'ASC',
-  });
+  })
 
   useEffect(() => {
     fetch(
@@ -55,50 +55,47 @@ const TokensTable = props => {
               text: formatCurrency(item.total_volume),
               type: 'text',
             },
-          ];
+          ]
 
-          item.data = tData;
-        });
-      setData(data);
-    });
-  }, [itemsPerPage, pageCountTokens, router]);
+          item.data = tData
+        })
+        setData(data)
+      })
+  }, [itemsPerPage, pageCountTokens, router])
 
   const sorting = col => {
-    let sort;
-    if (col.startsWith('name')) sort = 'name';
-    if (col.startsWith('price')) sort = 'current_price';
-    if (col.startsWith('price_change')) sort = 'price_change_percentage_24h';
-    if (col.startsWith('volume_24h')) sort = 'market_cap_change_24h';
-    if (col.startsWith('liquidity')) sort = 'total_volume';
+    let sort
+    if (col.startsWith('name')) sort = 'name'
+    if (col.startsWith('price')) sort = 'current_price'
+    if (col.startsWith('price_change')) sort = 'price_change_percentage_24h'
+    if (col.startsWith('volume_24h')) sort = 'market_cap_change_24h'
+    if (col.startsWith('liquidity')) sort = 'total_volume'
 
     if (filteredColumn.order === 'ASC') {
-      const sorted = [...data].sort((a, b) => (a[sort] > b[sort] ? 1 : -1));
-      setData(sorted);
-      setFilteredColumn({ colName: col, order: 'DSC' });
+      const sorted = [...data].sort((a, b) => (a[sort] > b[sort] ? 1 : -1))
+      setData(sorted)
+      setFilteredColumn({ colName: col, order: 'DSC' })
     }
     if (filteredColumn.order === 'DSC') {
-      const sorted = [...data].sort((a, b) => (a[sort] < b[sort] ? 1 : -1));
-      setData(sorted);
-      setFilteredColumn({ colName: col, order: 'ASC' });
+      const sorted = [...data].sort((a, b) => (a[sort] < b[sort] ? 1 : -1))
+      setData(sorted)
+      setFilteredColumn({ colName: col, order: 'ASC' })
     }
-  };
+  }
 
   const filterArrows = col => {
-    let title = col;
-    title.trim();
-    if (
-      filteredColumn.colName.startsWith(col.replaceAll(' ', '_').toLowerCase())
-    ) {
+    let title = col
+    title.trim()
+    if (filteredColumn.colName.startsWith(col.replaceAll(' ', '_').toLowerCase())) {
       if (col.length >= filteredColumn.colName.length - 5) {
-        title += filteredColumn.order === 'ASC' ? '↓' : '↑';
+        title += filteredColumn.order === 'ASC' ? '↓' : '↑'
       }
-    } else {
     }
 
-    if (title.includes('↑') || title.includes('↓')) return title;
+    if (title.includes('↑') || title.includes('↓')) return title
 
-    return `${title}\u00A0\u00A0`;
-  };
+    return `${title}\u00A0\u00A0`
+  }
 
   return (
     <div className={styles.Table__wrapper}>
@@ -115,9 +112,7 @@ const TokensTable = props => {
               filterArrows('Liquidity'),
               '',
             ]}
-            onClick={e =>
-              sorting(e.target.textContent.toLowerCase().split(' ').join('_'))
-            }
+            onClick={e => sorting(e.target.textContent.toLowerCase().split(' ').join('_'))}
             tableData={data}
             type={'info_table_tokens'}
           />
@@ -126,16 +121,9 @@ const TokensTable = props => {
       <div className={styles.Table__buttons}>
         <Button
           customStyles={{ marginRight: '10px' }}
-          title={
-            <PaginationButtonSvg
-              className={styles.back}
-              pageCountTokens={pageCountTokens}
-              disabled={1}
-            />
-          }
+          title={<PaginationButtonSvg className={styles.back} pageCountTokens={pageCountTokens} disabled={1} />}
           onClick={() => {
-            if (pageCountTokens > 1)
-              setPageCountTokens(prevValue => prevValue - 1);
+            if (pageCountTokens > 1) setPageCountTokens(prevValue => prevValue - 1)
           }}
         />
         <PageNumber
@@ -199,20 +187,15 @@ const TokensTable = props => {
             marginLeft: '10px',
           }}
           title={
-            <PaginationButtonSvg
-              className={styles.forward}
-              pageCountTokens={pageCountTokens}
-              disabled={totalPages}
-            />
+            <PaginationButtonSvg className={styles.forward} pageCountTokens={pageCountTokens} disabled={totalPages} />
           }
           onClick={() => {
-            if (pageCountTokens < totalPages)
-              setPageCountTokens(prevValue => prevValue + 1);
+            if (pageCountTokens < totalPages) setPageCountTokens(prevValue => prevValue + 1)
           }}
         />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default TokensTable;
+export default TokensTable
