@@ -24,6 +24,10 @@
     ],
     "import/no-named-as-default": "off",
     "import/newline-after-import": ["error", { "count": 1 }],
-    "import/no-duplicates": "error"
+    "import/no-duplicates": "error",
+    "no-var-requires": "off",
+    "no-empty-function": "off",
+    "no-explicit-any": "off",
+    "no-unused-vars": "off"
   }
 }
