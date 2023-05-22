@@ -1,5 +1,5 @@
-import PrivacyHeader from "./PrivacyHeader";
-import PrivacyList from "../../../components/home/privacy/PrivacyList";
+import PrivacyHeader from "./components/PrivacyHeader";
+import PrivacyList from "./components/PrivacyList";
 
 export default function privacy() {
   const privacyList = [
