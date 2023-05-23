@@ -4,9 +4,9 @@ const CoreMultichainWork = props => {
   return (
     <div>
       <h3>{title}</h3>
-      {coreMultichain.map(item => {
+      {coreMultichain.map((item, index) => {
         return (
-          <ul key={item.title}>
+          <ul key={index}>
             <li>{item.title}</li>
           </ul>
         );

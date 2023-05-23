@@ -5,9 +5,9 @@ const JobResponsibilities = props => {
     <div>
       <h3>{title}</h3>
       <p>{description}</p>
-      {requirements.map(item => {
+      {requirements.map((item, index) => {
         return (
-          <ul key={item.title}>
+          <ul key={index}>
             <li>{item.title}</li>
           </ul>
         );

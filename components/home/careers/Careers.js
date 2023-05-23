@@ -12,7 +12,6 @@ import Feature from './components/feature/Feature';
 import HowWeHire from './components/howwehire/HowWeHire';
 import OurValues from './components/ourvalues/OurValues';
 import Recruitment from './components/recruitment/Recruitment';
-// import RecruitmentBenefits from './careersinercomponent/RecruitmentBenefits';
 
 const workflow = [
   {

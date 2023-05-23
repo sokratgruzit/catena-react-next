@@ -8,8 +8,8 @@ const CompanyInfo = props => {
       <h2 className='font-51'>{title}</h2>
       <h3>{name}</h3>
       <h1>{description}</h1>
-      {workflow.map(item => {
-        return <p key={item.title}>{item.title}</p>;
+      {workflow.map((item, index) => {
+        return <p key={index}>{item.title}</p>;
       })}
     </div>
   );

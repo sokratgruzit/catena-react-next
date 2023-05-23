@@ -4,9 +4,9 @@ const CoreTeam = props => {
   return (
     <div className='container career-qualities'>
       <h2 className='font-51'>{title}</h2>
-      {team.map(item => {
+      {team.map((item, index) => {
         return (
-          <div className='container career-qualities' key={item.title}>
+          <div className='container career-qualities' key={index}>
             <div className='career-qualities__subttl'>{item.title}</div>
             <div className='career-qualities__text'>{item.value}</div>
           </div>

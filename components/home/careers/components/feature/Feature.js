@@ -15,8 +15,8 @@ const Feature = props => {
             <Link key={index} href={item.link}>
               <div className='open-positions__list-item'>
                 <span>{item.title}</span>
-                {item.list.map(subitem => {
-                  return <span key={subitem}>{subitem}</span>;
+                {item.list.map((subitem, index) => {
+                  return <span key={index}>{subitem}</span>;
                 })}
               </div>
             </Link>
