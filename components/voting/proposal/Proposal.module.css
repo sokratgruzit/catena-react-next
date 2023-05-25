@@ -1,4 +1,4 @@
-.form button {
+/* .form button {
   width: 100%;
   justify-content: center;
 }
@@ -379,7 +379,7 @@
   .backBtn {
     margin-bottom: 30px;
   }
-}
+} */
 /*Mobile 320*/
 @media (max-width: 767px) {
   .ProposalInfo {
