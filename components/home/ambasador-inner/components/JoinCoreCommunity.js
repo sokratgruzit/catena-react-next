@@ -10,7 +10,7 @@ const JoinCoreCommunity = () => {
 
   return (
     <div>
-      <div className='footer__join-title'>Join the <span>CORE</span>  community </div>
+      <div className='footer__join-title'>Join the <span>CATENA</span>  community </div>
       <div className='footer__join-description'>Be one of innovators who subscribe to our updates.</div>
       <div className='footer__join-right'>
       <Input

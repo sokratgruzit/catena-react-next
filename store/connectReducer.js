@@ -93,25 +93,25 @@ const INIT_STATE = {
         {
           img: '../images/nft/nft_statistics/achviments/achv1.png',
           title: '1 Year',
-          subTitle: 'Joined CoreMultiChain during the first year of our journey!',
+          subTitle: 'Joined CATENA Network during the first year of our journey!',
           point: 100,
         },
         {
           img: '../images/nft/nft_statistics/achviments/achv2.png',
           title: 'Syrup Soaker',
-          subTitle: 'Took a dip in the early days of the Auto CORE Pool',
+          subTitle: 'Took a dip in the early days of the Auto CATENA Pool',
           point: 100,
         },
         {
           img: '../images/nft/nft_statistics/achviments/achv3.png',
           title: 'xaixui',
-          subTitle: 'Took a dip in the early days of the Auto CORE Pool',
+          subTitle: 'Took a dip in the early days of the Auto CATENA Pool',
           point: 100,
         },
         {
           img: '../images/nft/nft_statistics/achviments/achv4.png',
           title: 'Syrup Soaker',
-          subTitle: 'Took a dip in the early days of the Auto CORE Pool',
+          subTitle: 'Took a dip in the early days of the Auto CATENA Pool',
           point: 100,
         },
         {
@@ -318,10 +318,10 @@ const INIT_STATE = {
     },
     QmbtMK57ksC7DEeqkqKSx7ehFg1ahYMCtiAAAiGaYjVbw42: {
       id: 1,
-      title: 'Stop Minting more CORE',
+      title: 'Stop Minting more CATENA',
       subTitle: 'subTitle 1',
       date: 'Ends Mar 6th, 2022 11:15',
-      location: 'Core',
+      location: 'CATENA',
       activeStatus: true,
     },
     QmbtMK57ksC7DEeqkqKSx7ehFg1ahYMCtiAAAiGaYjVbw43: {
@@ -334,10 +334,10 @@ const INIT_STATE = {
     },
     QmbtMK57ksC7DEeqkqKSx7ehFg1ahYMCtiAAAiGaYjVbw44: {
       id: 3,
-      title: 'Stop Minting more CORE',
+      title: 'Stop Minting more CATENA',
       subTitle: 'qwerty',
       date: 'Ends Mar 6th, 2022 11:15',
-      location: 'Core',
+      location: 'CATENA',
       activeStatus: false,
     },
     QmbtMK57ksC7DEeqkqKSx7ehFg1ahYMCtiAAAiGaYjVbw45: {

@@ -48,12 +48,12 @@ const Community = () => {
     <div style={{ paddingTop: '300px' }}>
       <CommunityEvents 
       title="community" 
-      info="Our goal is to make a lasting contribution to the blockchain ecosystem by not only addressing the current limitations of blockchain technology through our hybrid software solution, but by also growing the global blockchain community. We here at CORE Project believe in a truly peer-to-peer community and are actively involved in our community through our hosted events, our grant programme, and our collaborations."
-      infoCont="We aim to build a truly community-centric platform by instilling a community-first behaviour within the core beliefs of our team."
+      info="Our goal is to make a lasting contribution to the blockchain ecosystem by not only addressing the current limitations of blockchain technology through our hybrid software solution, but by also growing the global blockchain community. We here at CATENA Project believe in a truly peer-to-peer community and are actively involved in our community through our hosted events, our grant programme, and our collaborations."
+      infoCont="We aim to build a truly community-centric platform by instilling a community-first behaviour within the CATENA beliefs of our team."
       description="vision"
       />
       <CommunityEvents 
-      info="CORE project is centred around our community — our management and developer teams are also chosen by our community through voting done using our native token on our platform, and funding for the project comes from contributions made by our community."
+      info="CATENA project is centred around our community — our management and developer teams are also chosen by our community through voting done using our native token on our platform, and funding for the project comes from contributions made by our community."
       infoCont="Apart from that, any changes proposed to our blockchain or platform will be voted for or against by our community, creating a truly community-driven blockchain."
       description="A truly community-driven blockchain"
       />
@@ -69,7 +69,7 @@ const Community = () => {
       />
       <AmbassadorExpectations
         ambassadorApplication={devCommunity}
-        description="To be involved in CORE developer community, a person or team must have the following qualifications:"
+        description="To be involved in CATENA developer community, a person or team must have the following qualifications:"
         name="Developer Community"
       />
       <AmbassadorExpectations

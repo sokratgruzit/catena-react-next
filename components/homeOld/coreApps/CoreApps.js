@@ -17,7 +17,7 @@ const CoreApps = () => {
           <div className={styles.coreLogo}>
             <Image layout='fill' objectFit='contain' src={'/images/home/logos/CoreLogo.png'} quality={100} alt='' />
           </div>
-          <span>CORE</span> Wallet App
+          <span>CATENA</span> Wallet App
         </h1>
         <div className={styles.buttonSection}>
           <Link href='/' scroll={false}>

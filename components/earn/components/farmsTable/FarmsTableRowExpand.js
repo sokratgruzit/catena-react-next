@@ -44,7 +44,7 @@ const FarmsTableRowExpand = ({ item }) => {
           </div>
           <div className={styles.middleSection}>
             <p className={styles.coreEarned}>
-              <span>CORE</span> Earned
+              <span>CATENA</span> Earned
             </p>
             <p className={styles.coreEarnedNum}>0</p>
           </div>
@@ -56,7 +56,7 @@ const FarmsTableRowExpand = ({ item }) => {
           <CoreTag />
           <div className={styles.farms__tableEndInner}>
             <div className={styles.pointer}>
-              <p className={` ${styles.margin0} font_12 `}>Get CORE-BNB LP</p>
+              <p className={` ${styles.margin0} font_12 `}>Get CATENA-BNB LP</p>
               <OpenSvg className={styles.openSvg} />
             </div>
             <div className={styles.pointer}>

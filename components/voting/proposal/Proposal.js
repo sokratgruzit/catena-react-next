@@ -26,7 +26,7 @@
 // const votingData = [
 //   {
 //     id: 0,
-//     title: 'Stop Minting more CORE',
+//     title: 'Stop Minting more CATENA',
 //     img: '/images/voting/proposalImg.png',
 //     date: 'Ends Mar 6th, 2022 11:15',
 //     location: 'Community',
@@ -47,7 +47,7 @@
 //     ],
 //     countdownTo: Date.now() + 100000000,
 //     mainText:
-//       '<h2>CoreMultiChain Welcomes Tiny World ($TINC) to Syrup Pool!</h2><p><br></p><p>Dear CAKE holders, we’re proud to announce a new Syrup Pool with Tiny World! Tiny World is the 1st idle-style GameFi project where everything is available to trade. Play enjoyable, idle-style games with a global community of gamers and earn a passive income in your spare time.</p><p><br></p><h2>The Syrup Pool:</h2><p>Stake CAKE tokens to earn TINC tokens!</p><ul><li>Total Tokens: 404,100 TINC</li><li>Distribution duration: 30 days</li><li>Start time: Approx. 11AM UTC on April 7th 2022</li><li>Finish time: Approx. 11AM UTC on May 7th 2022</li><li>Token rewards per block: 0.4677 TINC</li></ul><h2>Token rewards per block: 0.4677 TINC</h2><p><br></p><p>100 CORE for the first 57,600 blocks (approx. 48 hours) after the Syrup Pool is launched, then unlimited CORE staking after that.</p><p>The cap is to give everyone an equal opportunity to farm rewards at a high APY at the start of the farm.</p><p><br></p><p><br></p><h2>How do you stake CORE to earn $TINC rewards?</h2><p>Follow this guide to staking in Syrup Pools:</p><p><a href="https://docs.pancakeswap.finance/products/syrup-pool/syrup-pool-guide" rel="noopener noreferrer" target="_blank">https://docs.pancakeswap.finance/products/syrup-pool/syrup-pool-guide</a></p><p><br></p><p><br></p><h2><br></h2>',
+//       '<h2>CATENA Network Welcomes Tiny World ($TINC) to Syrup Pool!</h2><p><br></p><p>Dear CAKE holders, we’re proud to announce a new Syrup Pool with Tiny World! Tiny World is the 1st idle-style GameFi project where everything is available to trade. Play enjoyable, idle-style games with a global community of gamers and earn a passive income in your spare time.</p><p><br></p><h2>The Syrup Pool:</h2><p>Stake CAKE tokens to earn TINC tokens!</p><ul><li>Total Tokens: 404,100 TINC</li><li>Distribution duration: 30 days</li><li>Start time: Approx. 11AM UTC on April 7th 2022</li><li>Finish time: Approx. 11AM UTC on May 7th 2022</li><li>Token rewards per block: 0.4677 TINC</li></ul><h2>Token rewards per block: 0.4677 TINC</h2><p><br></p><p>100 CATENA for the first 57,600 blocks (approx. 48 hours) after the Syrup Pool is launched, then unlimited CATENA staking after that.</p><p>The cap is to give everyone an equal opportunity to farm rewards at a high APY at the start of the farm.</p><p><br></p><p><br></p><h2>How do you stake CATENA to earn $TINC rewards?</h2><p>Follow this guide to staking in Syrup Pools:</p><p><a href="https://docs.pancakeswap.finance/products/syrup-pool/syrup-pool-guide" rel="noopener noreferrer" target="_blank">https://docs.pancakeswap.finance/products/syrup-pool/syrup-pool-guide</a></p><p><br></p><p><br></p><h2><br></h2>',
 //   },
 // ];
 
@@ -99,7 +99,7 @@
 //                   {votingItem.activeStatus === 'Vote Now' && <VoteNowTag />}
 //                   {votingItem.activeStatus === 'Soon' && <SoonTag />}
 //                   {votingItem.location === 'Community' && <CommunityTag />}
-//                   {votingItem.location === 'Core' && <CoreTagLight />}
+//                   {votingItem.location === 'CATENA' && <CoreTagLight />}
 //                 </div>
 //               </div>
 //               <div className={styles.item}>

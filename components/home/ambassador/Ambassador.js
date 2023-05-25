@@ -16,8 +16,8 @@ const ambassadorInfo = [
         description: "Receive tokens by completing specific tasks. Take a look at some examples of rewards here. Additionally, every quarter, we'll announce the top 3 Ambassadors worldwide, and if you are one of them, you'll earn even more rewards!"
     },
     {
-        title: "Be Part of the CORE MultiChain Extended Team",
-        description: "Join a larger community of blockchain and privacy enthusiasts in the CORE MultiChain Foundation and Ecosystem."
+        title: "Be Part of the CATENA Network Extended Team",
+        description: "Join a larger community of blockchain and privacy enthusiasts in the CATENA Network Foundation and Ecosystem."
     },
     {
         title: "See It First",
@@ -37,7 +37,7 @@ const ambassadorApplication = [
         title: "You’re passionate about blockchain technology and believe that blockchain technology will play a impactful role in the future."
     },
     {
-        title: "You are already a community leader and have the ability to promote CORE MultiChain within your group."
+        title: "You are already a community leader and have the ability to promote CATENA Network within your group."
     },
     {
         title: "You are a content and marketing creator and love using out-of-the-box ideas to build content."
@@ -49,28 +49,28 @@ const ambassadorApplication = [
         title: "You are a student of blockchain and would love to gain real-world industry experience and hands-on knowledge of the crypto markets and space."
     },
     {
-        title: "You can still become a CORE MultiChain ambassador even if you aren’t a crypto guru. Apply and tell us more about why you believe in CORE MultiChain."
+        title: "You can still become a CATENA Network ambassador even if you aren’t a crypto guru. Apply and tell us more about why you believe in CATENA Network."
     }
 ]
 
 const coreExepted = [
     {
-        title: "Promote the CORE MultiChain Ecosystem through meetups that can be structured to be both technical and non-technical so that anyone can participate."
+        title: "Promote the CATENA Network Ecosystem through meetups that can be structured to be both technical and non-technical so that anyone can participate."
     },
     {
-        title: "As the CORE MultiChain community grows, we’ll need someone to create captivating content for our blog posts, documents and more. This content will also have to be translated into a number of languages such as Mandarin, German, Spanish, French, Russian, and a few other languages."
+        title: "As the CATENA Network community grows, we’ll need someone to create captivating content for our blog posts, documents and more. This content will also have to be translated into a number of languages such as Mandarin, German, Spanish, French, Russian, and a few other languages."
     },
     {
-        title: "Amplify CORE MultiChain Events and Announcements."
+        title: "Amplify CATENA Network Events and Announcements."
     },
     {
-        title: "Be a wallet tester on the CORE Network"
+        title: "Be a wallet tester on the CATENA Network"
     },
     {
         title: "Help us with our global community in multiple languages and on several channels such as Kakao, Telegram, WeChat, etc."
     },
     {
-        title: "Attract new people to the CORE MultiChain community by conducting regular meetups."
+        title: "Attract new people to the CATENA Network community by conducting regular meetups."
     },
     {
         title: "There are plenty of rewards to win! All you have to do is complete once-off tasks such as translating blog posts, create virtual stickers, and help build our online presence among other things."
@@ -95,18 +95,18 @@ const Ambassador = () => {
         <div>
             <JoinUsSection
                 title="Help build the future and earn rewards"
-                text="CORE MultiChain is a super-performant blockchain ecosystem that will help solve the blockchain trilemma of scalability, interoperability, and usability. The blockchain-powered ecosystem is built around user privacy and lets users take control of their data. We will use our hybrid ecosystem to enhance current technologies and create the technologies of the future, but we can’t do it alone. Join us in our quest to build a better future! Become a CORE MultiChain ambassador and start earning rewards today!"
+                text="CATENA Network is a super-performant blockchain ecosystem that will help solve the blockchain trilemma of scalability, interoperability, and usability. The blockchain-powered ecosystem is built around user privacy and lets users take control of their data. We will use our hybrid ecosystem to enhance current technologies and create the technologies of the future, but we can’t do it alone. Join us in our quest to build a better future! Become a CATENA Network ambassador and start earning rewards today!"
             />
             <AmbassadorBenefits
                 ambassadorInfo={ambassadorInfo}
                 title="Why Become an Ambassador" />
             <AmbassadorExpectations
                 ambassadorApplication={ambassadorApplication}
-                title="Are You Eligible to Become a CORE MultiChain Ambassador?" />
+                title="Are You Eligible to Become a CATENA Network Ambassador?" />
             <AmbassadorExpectations
                 ambassadorApplication={coreExepted}
                 title="What is Expected of You"
-                description="There isn’t really one standard way to be a CORE MultiChain ambassador, but here are some examples:" />
+                description="There isn’t really one standard way to be a CATENA Network ambassador, but here are some examples:" />
             <Button
                 label={'Button'}
                 size={'btn-lg'}
@@ -119,7 +119,7 @@ const Ambassador = () => {
             <JoinUsSection
                 title="Join our community"
                 description="Sign up to our newsletter to stay in the loop"
-                text="Stay up-to-date with the latest CORE MultiChain developments such as events, programs and news by joining our social media channels."
+                text="Stay up-to-date with the latest CATENA Network developments such as events, programs and news by joining our social media channels."
             />
 
             {/* child */}

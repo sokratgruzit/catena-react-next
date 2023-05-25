@@ -13,7 +13,7 @@ const CollectionsPromo = () => {
         <span className={`font_30`}>NFT </span>Collections
       </p>
       <p className={styles.CollectionsPromo__teaser}>
-        +10.000 amazing <span>NFT</span> Collection in our <span>CORE</span> Market lorem ipsum moments restrictions
+        +10.000 amazing <span>NFT</span> Collection in our <span>CATENA</span> Market lorem ipsum moments restrictions
       </p>
       <div className={styles.CollectionsPromo__cards}>
         <div className={styles.CollectionsPromo__card1}>

@@ -76,7 +76,7 @@ function BugBounty() {
         'The affected resource. e.g. URL, GitHub code snippet, transaction',
         'Ideally a proof-of-concept that demonstrates the issue',
         'Email submission to guard@coremultichain.com and include your CMCX UID',
-        'Provide adequate time for CORE to respond before disclosing Bug to others',
+        'Provide adequate time for CATENA to respond before disclosing Bug to others',
       ],
     },
   ];

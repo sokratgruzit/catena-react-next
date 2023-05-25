@@ -5,7 +5,7 @@ export default function privacy() {
   const privacyList = [
     {
       title: 'Your Data',
-      text: 'CORE strives to provide you with the best possible service. In order to provide this service we may need to collect information from you from time to time. At all times we try to only collect the information we need for the particular function or activity we are carrying out and use it in accordance with this privacy policy.',
+      text: 'CATENA strives to provide you with the best possible service. In order to provide this service we may need to collect information from you from time to time. At all times we try to only collect the information we need for the particular function or activity we are carrying out and use it in accordance with this privacy policy.',
       text: 'We collect two basic types of information from You from Your use of the Website: Personal Data and Non-Personal Data.',
     },
     {

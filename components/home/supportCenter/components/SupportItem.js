@@ -3,7 +3,7 @@ import React from 'react';
 const SUPPORT_ITEMS = [
   {
     title: 'Announcements',
-    description: 'CORE latest official announcements and notices.',
+    description: 'CATENA latest official announcements and notices.',
   },
   {
     title: 'CMCX Token',
