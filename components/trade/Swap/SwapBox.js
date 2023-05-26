@@ -540,7 +540,7 @@ const SwapBox = () => {
                     />
                   </svg>
                 </div>
-                {/*<span>Core Multichain</span>*/}
+                {/*<span>CATENA Network</span>*/}
               </div>
               <div className={styles.swapSelectBtnNums}>
                 <input type='number' placeholder={0.0} dir='rtl' value={parseFloat(toAmount).toFixed(9)} />

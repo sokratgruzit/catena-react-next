@@ -17,7 +17,7 @@ const InfoOverview = () => {
           <InfoRoutes />
         </div>
         <SearchBar />
-        <h2 className={styles.title}>CoreMultiChain Info & Analytics</h2>
+        <h2 className={styles.title}>CATENA Network Info & Analytics</h2>
         <InfoCharts />
         <h2 className={styles.title}>Top Tokens</h2>
         <TokensTable />

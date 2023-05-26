@@ -10,7 +10,7 @@ const GetSuggestion = ({ setActive }) => {
         <p>Community proposals are a great way to see how the community feels about your ideas.</p>
         <p>
           They won&#39;t necessarily be implemented if the community votes successful, but suggestions with a lot of
-          community support may be made into Core proposals.
+          community support may be made into CATENA proposals.
         </p>
         <Button
           label={'Make a Proposal'}

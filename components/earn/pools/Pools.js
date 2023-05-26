@@ -31,8 +31,8 @@ const poolsData2 = [
     id: 0,
     data: [
       {
-        title: 'IFO CORE',
-        subTitle: 'Stake CORE to participate in IFOs',
+        title: 'IFO CATENA',
+        subTitle: 'Stake CATENA to participate in IFOs',
         svg1: <CoreLogoBorder />,
         svg2: <IfoCoreBorder />,
         type: 'multi_svg',
@@ -40,7 +40,7 @@ const poolsData2 = [
       {
         text: '0.0',
         text2: '0 USD',
-        text3: 'Recent CORE profit',
+        text3: 'Recent CATENA profit',
         type: 'multi_text',
       },
       {
@@ -66,7 +66,7 @@ const poolsData2 = [
         type: 'expand_custom',
       },
       {
-        totalLocked: '179,974,407 CORE',
+        totalLocked: '179,974,407 CATENA',
         averageLockDuration: '39 weeks',
         performanceFee: '0~2%',
         tag: 'auto',
@@ -77,8 +77,8 @@ const poolsData2 = [
     id: 1,
     data: [
       {
-        title: 'IFO CORE',
-        subTitle: 'Stake CORE to participate in IFOs',
+        title: 'IFO CATENA',
+        subTitle: 'Stake CATENA to participate in IFOs',
         svg1: <CoreLogoBorder />,
         svg2: <IfoCoreBorder />,
         type: 'multi_svg',
@@ -86,7 +86,7 @@ const poolsData2 = [
       {
         text: '0.0',
         text2: '0 USD',
-        text3: 'Recent CORE profit',
+        text3: 'Recent CATENA profit',
         type: 'multi_text',
       },
       {
@@ -121,8 +121,8 @@ const poolsData2 = [
     id: 2,
     data: [
       {
-        title: 'IFO CORE',
-        subTitle: 'Stake CORE to participate in IFOs',
+        title: 'IFO CATENA',
+        subTitle: 'Stake CATENA to participate in IFOs',
         svg1: <CoreLogoBorder />,
         svg2: <IfoCoreBorder />,
         type: 'multi_svg',
@@ -130,7 +130,7 @@ const poolsData2 = [
       {
         text: '0.0',
         text2: '0 USD',
-        text3: 'Recent CORE profit',
+        text3: 'Recent CATENA profit',
         type: 'multi_text',
       },
       {
@@ -165,8 +165,8 @@ const poolsData2 = [
     id: 3,
     data: [
       {
-        title: 'IFO CORE',
-        subTitle: 'Stake CORE to participate in IFOs',
+        title: 'IFO CATENA',
+        subTitle: 'Stake CATENA to participate in IFOs',
         svg1: <CoreLogoBorder />,
         svg2: <IfoCoreBorder />,
         type: 'multi_svg',
@@ -174,7 +174,7 @@ const poolsData2 = [
       {
         text: '0.0',
         text2: '0 USD',
-        text3: 'Recent CORE profit',
+        text3: 'Recent CATENA profit',
         type: 'multi_text',
       },
       {
@@ -209,8 +209,8 @@ const poolsData2 = [
     id: 4,
     data: [
       {
-        title: 'IFO CORE',
-        subTitle: 'Stake CORE to participate in IFOs',
+        title: 'IFO CATENA',
+        subTitle: 'Stake CATENA to participate in IFOs',
         svg1: <CoreLogoBorder />,
         svg2: <IfoCoreBorder />,
         type: 'multi_svg',
@@ -218,7 +218,7 @@ const poolsData2 = [
       {
         text: '0.0',
         text2: '0 USD',
-        text3: 'Recent CORE profit',
+        text3: 'Recent CATENA profit',
         type: 'multi_text',
       },
       {
@@ -253,8 +253,8 @@ const poolsData2 = [
     id: 5,
     data: [
       {
-        title: 'IFO CORE',
-        subTitle: 'Stake CORE to participate in IFOs',
+        title: 'IFO CATENA',
+        subTitle: 'Stake CATENA to participate in IFOs',
         svg1: <CoreLogoBorder />,
         svg2: <IfoCoreBorder />,
         type: 'multi_svg',
@@ -262,7 +262,7 @@ const poolsData2 = [
       {
         text: '0.0',
         text2: '0 USD',
-        text3: 'Recent CORE profit',
+        text3: 'Recent CATENA profit',
         type: 'multi_text',
       },
       {

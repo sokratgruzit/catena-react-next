@@ -106,7 +106,7 @@ const CommunityAuctions = props => {
           <div className={styles.auction__title}>
             <h1 className='font_51'>Community Farm Auction</h1>
             <p className='font_20'>
-              Each week, qualifying projects can bid CAKE for the right to host a 7-day Farm on Core MultiChain
+              Each week, qualifying projects can bid CAKE for the right to host a 7-day Farm on CATENA Network
             </p>
             <p className='font_20'>This page is for projects to bid for farms. </p>
             <p className='font_20'>
@@ -173,7 +173,7 @@ const CommunityAuctions = props => {
         <div className={styles.auction__burnedInner}>
           <div>
             <h2 className='font_51'>
-              699,580 CORE <span className='font_51'>BURNED</span>
+              699,580 CATENA <span className='font_51'>BURNED</span>
             </h2>
             <p className='font_30'>through community auctions so far!</p>
             <p className='font_20'>~$2,227,764</p>

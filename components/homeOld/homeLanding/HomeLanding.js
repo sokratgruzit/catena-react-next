@@ -17,7 +17,7 @@ const HomeLanding = () => {
       </div>
       <h1 className={styles.title}>
         Space is Made
-        <br /> of <span>CORE</span>
+        <br /> of <span>CATENA</span>
       </h1>
       <p className={styles.subTitle}>
         Trade, Earn, and Win crypto on the most popular decentralized platform in the galaxy.

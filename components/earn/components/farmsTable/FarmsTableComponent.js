@@ -37,7 +37,7 @@ const FarmsTableComponent = ({ item }) => {
       </div>
       <div className={styles.actionSection}>
         <h2 className={styles.coreEarned}>
-          <span>CORE</span> Earned
+          <span>CATENA</span> Earned
         </h2>
         <div className={styles.harvestRow}>
           <p>0</p>

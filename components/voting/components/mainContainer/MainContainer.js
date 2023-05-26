@@ -89,7 +89,7 @@ const MainContainer = ({ active, setActive }) => {
         <div className={styles.leftContainer}>
           <h1>Voting</h1>
           <p>
-            Have your say in the future of the <a href='##'>Core</a> Ecosystem
+            Have your say in the future of the <a href='##'>CATENA</a> Ecosystem
           </p>
           <Button
             label={'Make a proposal'}

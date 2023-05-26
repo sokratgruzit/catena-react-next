@@ -12,20 +12,19 @@ import Feature from './components/feature/Feature';
 import HowWeHire from './components/howwehire/HowWeHire';
 import OurValues from './components/ourvalues/OurValues';
 import Recruitment from './components/recruitment/Recruitment';
-// import RecruitmentBenefits from './careersinercomponent/RecruitmentBenefits';
 
 const workflow = [
   {
     title:
-      'At CORE, our remote global team works together to accomplish a common objective. Our worldwide team enables the positive impact of our technology to infiltrate every corner of the world as we utilize the experience and feedback of our remote teams to improve and spread CORE.',
+      'At CATENA, our remote global team works together to accomplish a common objective. Our worldwide team enables the positive impact of our technology to infiltrate every corner of the world as we utilize the experience and feedback of our remote teams to improve and spread CATENA.',
   },
   {
     title:
-      'With team members located in over 40 different countries, CORE recruits internationally but allows team members to work locally. Whether you live in the middle of Shenzhen or on a Miami beach, work location is limited only by imagination.',
+      'With team members located in over 40 different countries, CATENA recruits internationally but allows team members to work locally. Whether you live in the middle of Shenzhen or on a Miami beach, work location is limited only by imagination.',
   },
   {
     title:
-      'On our relentless pursuit to revolutionise the blockchain and distributed ledger industry, CORE aims to transcend the current limitations of blockchain technology and enable it to reach its true, unrealised potential. CORE intends to drastically improve blockchain interoperability, transaction processing, sustainability, and more! To achieve this, we will destroy the boundaries of innovation and stand at the forefront of blockchain and distributed ledger technology. Our purpose is to create a better decentralised future to benefit all, without boundaries.',
+      'On our relentless pursuit to revolutionise the blockchain and distributed ledger industry, CATENA aims to transcend the current limitations of blockchain technology and enable it to reach its true, unrealised potential. CATENA intends to drastically improve blockchain interoperability, transaction processing, sustainability, and more! To achieve this, we will destroy the boundaries of innovation and stand at the forefront of blockchain and distributed ledger technology. Our purpose is to create a better decentralised future to benefit all, without boundaries.',
   },
 ];
 
@@ -42,7 +41,7 @@ const featureLinkList = [
   },
   {
     link: 'rustcoreprotocoldeveloper_te000040',
-    title: 'Rust Core Protocol Developer',
+    title: 'Rust CATENA Protocol Developer',
     list: ['Technology •', ' Full-Time •', ' Remote • '],
   },
   {
@@ -101,17 +100,17 @@ const team = [
   {
     title: 'Team Players',
     value:
-      "From developers to the leadership team, all CORE team members share the CORE Values and the common goal of benefiting mankind through our technology. Our team is a unit that builds together, shares ideas, and helps where needed. CORE believes in knowing the person behind the avatar. Whether it involves travelling, a phone call, or an online meeting, we don't want faceless players on our team.",
+      "From developers to the leadership team, all CATENA team members share the CATENA Values and the common goal of benefiting mankind through our technology. Our team is a unit that builds together, shares ideas, and helps where needed. CATENA believes in knowing the person behind the avatar. Whether it involves travelling, a phone call, or an online meeting, we don't want faceless players on our team.",
   },
   {
     title: 'Strong Team Member Relationships',
     value:
-      'A strong team leads to accelerated performance and efficiency. CORE instils a sense of unity by building strong working relationships between remote teams and every team member. Team members need dynamic agility as needs will evolve requiring a step beyond comfort zones. CORE equips all team members with the skills and experience needed to fill any organisation role providing intense and fast paced skills acquisition in this rapidly growing blockchain industry.',
+      'A strong team leads to accelerated performance and efficiency. CATENA instils a sense of unity by building strong working relationships between remote teams and every team member. Team members need dynamic agility as needs will evolve requiring a step beyond comfort zones. CATENA equips all team members with the skills and experience needed to fill any organisation role providing intense and fast paced skills acquisition in this rapidly growing blockchain industry.',
   },
   {
     title: 'Always Learning',
     value:
-      "Joining the CORE team will result in dramatic development on both a personal and professional level. CORE believes in building an empowered team that will stay for the long term. We work together and learn from each other's unique experience and knowledge base.",
+      "Joining the CATENA team will result in dramatic development on both a personal and professional level. CATENA believes in building an empowered team that will stay for the long term. We work together and learn from each other's unique experience and knowledge base.",
   },
 ];
 
@@ -240,7 +239,7 @@ const hiringProcess = [
 const senorUx = [
   {
     title:
-      'CORE Multichain is a blockchain ecosystem that will enable all blockchain projects and the blockchain space as a whole to thrive by addressing all of the most considerable limitations of blockchain technology, such as scalability and interoperability. ',
+      'CATENA Network is a blockchain ecosystem that will enable all blockchain projects and the blockchain space as a whole to thrive by addressing all of the most considerable limitations of blockchain technology, such as scalability and interoperability. ',
   },
   {
     title:
@@ -391,7 +390,7 @@ const coreMultichain = [
 const teamCountries = [
   {
     title:
-      'At CORE MultiChain, our team comprises remote teams from all over the world working together to accomplish a common objective. We believe that having a global team enables our technology to impact every part of the world positively. We can build our technology around the feedback and experiences of all of our remote teams.',
+      'At CATENA Network, our team comprises remote teams from all over the world working together to accomplish a common objective. We believe that having a global team enables our technology to impact every part of the world positively. We can build our technology around the feedback and experiences of all of our remote teams.',
   },
   {
     title:
@@ -402,7 +401,7 @@ const teamCountries = [
 const txt = [
   {
     title:
-      'A 3rd generation Proof of Stake blockchain ecosystem that enables true cross-chain communication for any cryptocurrency asset and will solve the blockchain trilemma of scalability, interoperability, and throughput. The CORE is easily accessible, allowing users to interact with the ecosystem through exchanges, wallets, games, and DeFi apps.',
+      'A 3rd generation Proof of Stake blockchain ecosystem that enables true cross-chain communication for any cryptocurrency asset and will solve the blockchain trilemma of scalability, interoperability, and throughput. The CATENA is easily accessible, allowing users to interact with the ecosystem through exchanges, wallets, games, and DeFi apps.',
   },
 ];
 
@@ -426,13 +425,13 @@ const Careers = () => {
     <div>
       <CompanyInfo workflow={workflow} title='how we work' />
       <Feature featureLinkList={featureLinkList} title='Featured Jobs' />
-      <CoreTeam team={team} title='Qualities of a CORE Team:' />
+      <CoreTeam team={team} title='Qualities of a CATENA Team:' />
       <Recruitment data={data} title='Recruitment Process:' />
       <OurValues
         iconImages={iconImages}
         title='Our Values'
         description='
-        Our core values establish the framework for our ability to create a lasting,
+        Our CATENA values establish the framework for our ability to create a lasting,
         positive impact for humanity:'
       />
       <CurrentOpenings currentOpeningsList={currentOpeningsList} title='Current Openings' />
@@ -460,9 +459,9 @@ const Careers = () => {
         title='Benefits'
         description="Here are some of the benefits that you'll receive on successful recruitment:"
       />
-      <CoreMultichainWork coreMultichain={coreMultichain} title='Working at CORE Multichain' />
+      <CoreMultichainWork coreMultichain={coreMultichain} title='Working at CATENA Network' />
       <CompanyInfo workflow={teamCountries} name='how we work' />
-      <CompanyInfo workflow={txt} name='About CORE MultiChain' />
+      <CompanyInfo workflow={txt} name='About CATENA Network' />
       <JobDetails jobType={jobType} />
       <Button
         label={'Button'}

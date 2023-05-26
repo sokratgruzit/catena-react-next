@@ -4,9 +4,9 @@ const Benefits = props => {
   return (
     <div className='container career-qualities'>
       <h2 className='font-51'>{title}</h2>
-      {benefitsArr.map(item => {
+      {benefitsArr.map((item, index) => {
         return (
-          <ul key={item.title}>
+          <ul key={index}>
             <li>{item.title}</li>
           </ul>
         );

@@ -40,7 +40,7 @@ const Market = () => {
                 <span className={`font_51`}>nft</span> Market
               </p>
               <p className={`${styles.Market__titleTeaser} font_30`}>
-                Buy and Sell NFTs on<span className={`font_30`}> Core </span>
+                Buy and Sell NFTs on<span className={`font_30`}> CATENA </span>
                 MultiChain
               </p>
               <Link href={`/nfts/activity`}>

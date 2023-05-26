@@ -198,8 +198,8 @@ const PoolsTable = props => {
         },
         {
           img: '../../../images/Info/TopTokens/6.png',
-          title: 'Core/WBNB',
-          onClick: () => router.push(`/info/pools/${'Core/WBNB'.replace('/', '-')}`),
+          title: 'CATENA/WBNB',
+          onClick: () => router.push(`/info/pools/${'CATENA/WBNB'.replace('/', '-')}`),
           type: 'img_text',
         },
         {

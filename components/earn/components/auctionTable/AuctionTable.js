@@ -197,7 +197,7 @@ const AuctionTable = () => {
           <div className={styles.auctions__tableHeader}>
             <div>POSITION</div>
             <div>FARM</div>
-            <div>CORE BID</div>
+            <div>CATENA BID</div>
           </div>
           {auctionData.map(item => {
             return (

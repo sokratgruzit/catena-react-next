@@ -5,9 +5,9 @@ const JobDetails = props => {
 
   return (
     <div>
-      {jobType.map(item => {
+      {jobType.map((item, index) => {
         return (
-          <div key={item.title}>
+          <div key={index}>
             <h3>{item.title}</h3>
             {item.value && <p className='ltl'>{item.value}</p>}
             {item.list && (

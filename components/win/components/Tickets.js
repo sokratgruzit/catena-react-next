@@ -12,49 +12,49 @@ let ticketsData = [
   {
     id: '0',
     title: 'Match first 1',
-    priceCore: '156 CORE',
+    priceCore: '156 CATENA',
     price: '~$3.215',
   },
   {
     id: '1',
     title: 'Match first 2',
-    priceCore: '156 CORE',
+    priceCore: '156 CATENA',
     price: '~$3.215',
   },
   {
     id: '2',
     title: 'Match first 3',
-    priceCore: '156 CORE',
+    priceCore: '156 CATENA',
     price: '~$3.215',
   },
   {
     id: '3',
     title: 'Match first 4',
-    priceCore: '156 CORE',
+    priceCore: '156 CATENA',
     price: '~$3.215',
   },
   {
     id: '4',
     title: 'Match first 5',
-    priceCore: '156 CORE',
+    priceCore: '156 CATENA',
     price: '~$3.215',
   },
   {
     id: '5',
     title: 'Match first 6',
-    priceCore: '156 CORE',
+    priceCore: '156 CATENA',
     price: '~$3.215',
   },
   {
     id: '6',
     title: 'Match first 7',
-    priceCore: '156 CORE',
+    priceCore: '156 CATENA',
     price: '~$3.215',
   },
   {
     id: '7',
     title: 'Burn',
-    priceCore: '156 CORE',
+    priceCore: '156 CATENA',
     price: '~$3.215',
   },
 ];
@@ -97,7 +97,7 @@ const Tickets = () => {
             <p>Prize Pot:</p>
             <div className={styles.pirceCore}>
               <h3>~$302,002</h3>
-              <p>23.035 CORE</p>
+              <p>23.035 CATENA</p>
             </div>
           </div>
           <div className={styles.buyTickets}>

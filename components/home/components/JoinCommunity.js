@@ -3,7 +3,7 @@ const JoinCommunity = () => {
     <div>
       <div className='footer__join-left'>
         <div className='footer__join-title'>
-          Join the <span>CORE</span> community
+          Join the <span>CATENA</span> community
         </div>
         <div className='footer__join-description'>Be one of innovators who subscribe to our updates.</div>
       </div>

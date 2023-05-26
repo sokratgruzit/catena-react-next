@@ -7,9 +7,9 @@ const OurValues = props => {
         <p>{description}</p>
       </div>
       <div>
-        {iconImages.map(item => {
+        {iconImages.map((item, index) => {
           return (
-            <div key={item.title} className='career_item'>
+            <div key={index} className='career_item'>
               <div className='item_ttl' key={item.title}>
                 {item.title}
               </div>

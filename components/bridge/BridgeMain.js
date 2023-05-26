@@ -203,10 +203,10 @@ function BridgeMain() {
     stepHtml = (
       <div className='bridge__box'>
         <div className='bridge__box-ttl'>
-          <h1>Core Bridge</h1>
+          <h1>CATENA Bridge</h1>
           <h2 className='font-13'>
             The fastest an most secure way to transfer assets to and from <br />
-            CORE
+            CATENA
           </h2>
         </div>
         <div className='bridge__box-main'>
@@ -451,10 +451,10 @@ function BridgeMain() {
     stepHtml = (
       <div className='bridge__box'>
         <div className='bridge__box-ttl'>
-          <h1>Core Bridge</h1>
+          <h1>CATENA Bridge</h1>
           <h2 className='font-13'>
             The fastest an most secure way to transfer assets to and from <br />
-            CORE
+            CATENA
           </h2>
         </div>
         <div className='bridge__box-sub-ttl'>
@@ -534,10 +534,10 @@ function BridgeMain() {
     stepHtml = (
       <div className='bridge__box'>
         <div className='bridge__box-ttl'>
-          <h1>Core Bridge</h1>
+          <h1>CATENA Bridge</h1>
           <h2 className='font-13'>
             The fastest an most secure way to transfer assets to and from <br />
-            CORE
+            CATENA
           </h2>
         </div>
         <div className='bridge__box-info-container'>

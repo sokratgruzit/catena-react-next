@@ -25,14 +25,14 @@ const CommunityAuctionsFAQ = () => {
       <Expand
         expandContent={
           <div>
-            <p>The CORE team will try to respond within a week.</p>
+            <p>The CATENA team will try to respond within a week.</p>
             <ol>
               <li>
                 {' '}
                 Community Farm qualifiers will be asked to provide the address of the wallet which you’ll use for
                 bidding CAKE in the auction.
               </li>
-              <li>Core Farm/Pool qualifiers will receive further directions separately.</li>
+              <li>CATENA Farm/Pool qualifiers will receive further directions separately.</li>
             </ol>
           </div>
         }

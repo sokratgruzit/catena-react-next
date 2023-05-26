@@ -35,7 +35,7 @@ const LotteryPrizes = () => {
         <div>
           <h1 className={styles.title}>
             {' '}
-            <span>CORE</span> MultiChain
+            <span>CATENA</span> Network
           </h1>
           <h2 className={styles.titleDesc}>Lottery in Prizes!</h2>
         </div>

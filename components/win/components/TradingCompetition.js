@@ -35,7 +35,7 @@ const TradingCompetition = () => {
           <div className={styles.leftSideContent}>
             <p className={styles.day}>MAY 14-20, 2022</p>
             <h1 className={styles.title}>
-              <span className={styles.titleSpan}>CORE</span> MultiChain Fan Token Trading Competition
+              <span className={styles.titleSpan}>CATENA</span> Network Fan Token Trading Competition
             </h1>
             <h4 className={styles.prizes}>$300,000 in Prizes!</h4>
             <p className={styles.trandingVolume}>Compete with other teams for the highest trading volume!</p>

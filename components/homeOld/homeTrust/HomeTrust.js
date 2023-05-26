@@ -23,7 +23,7 @@ const HomeTrust = () => {
         Trusted with <span>billions</span>.
       </h1>
       <p className={styles.coreInfo}>
-        Core has the most users of any decentralized platform, ever. And those users are now entrusting the platform
+        CATENA has the most users of any decentralized platform, ever. And those users are now entrusting the platform
         with over $4.4 billion in funds.
       </p>
       <h2 className={styles.subTitle}>Will You join them?</h2>
