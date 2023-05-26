@@ -2,10 +2,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import useTranslation from 'next-translate/useTranslation';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+// import useConnect from "../../hooks/use-connect";
 
+import { injected, walletConnect } from '../../connector';
 import useConnect from '../../hooks/use-connect';
+import createAxiosInstance from '../../pages/api/axios';
 import Button from '../UI/button/Button';
 import Tooltip from '../UI/tooltip/Tooltip';
 
@@ -45,7 +48,22 @@ const WALLETS_DATA = [
 ];
 
 const Header = () => {
-  const { connect, disconnect, account, isActive, library, handleWalletModal } = useConnect();
+  const { connect, disconnect, library, error, setError } = useConnect();
+  const axios = useMemo(() => createAxiosInstance(), []);
+
+  const account = useSelector(state => state.connect.account);
+  const triedReconnect = useSelector(state => state.appState.triedReconnect);
+
+  useEffect(() => {
+    if (account && triedReconnect) {
+      axios
+        .post('/auth/register-wallet-address', { address: account })
+        .then(res => console.log(res))
+        .catch(() => {});
+    }
+    // eslint-disable-next-line
+  }, [account]);
+
   const [activeMenu, setActiveMenu] = useState(null);
   const [activeLangs, setActiveLangs] = useState(false);
   const [activeSettings, setActiveSettings] = useState(false);
@@ -54,7 +72,7 @@ const Header = () => {
   const [profileModal, setProfileModal] = useState(false);
   const [connectBtnColor, setConnectBtnColor] = useState('red');
   const [device, setDevice] = useState(null);
-  const walletModal = useSelector(state => state.connect.walletModal);
+  const [walletModal, setWalletModal] = useState(false);
   const isConnected = useSelector(state => state.connect.isConnected);
   const slippage = useSelector(state => state.settings.slippage);
   const [balance, setBalance] = useState(0);
@@ -184,7 +202,6 @@ const Header = () => {
 
   const router = useRouter();
 
-  const { locale, pathname, asPath, query } = useRouter();
   const changeLanguage = loc => {
     // i18n.changeLanguage(locale.toLowerCase());
     router.push('', '', { locale: loc.toLowerCase() });
@@ -258,7 +275,8 @@ const Header = () => {
   const closeAll = () => {
     setActiveLangs(false);
     setActiveSettings(false);
-    handleWalletModal(false);
+    // handleWalletModal(false);
+    setWalletModal(false);
     setProfileModal(false);
     setActiveLangs(false);
     setActiveBurger(false);
@@ -538,7 +556,7 @@ const Header = () => {
                     fill='#FF7152'
                   />
                 </svg>
-                ${isConnected && isActive ? balance : 0}
+                ${account && triedReconnect ? balance : 0}
               </div>
               <div className={`${styles.headerLangs}`}>
                 <div className={`${styles.headerLangNow} ${activeLangs ? styles.headerLangNowActive : ''}`}>
@@ -700,9 +718,7 @@ const Header = () => {
                         <Tooltip
                           title={'Default Transaction Speed (GWEI)'}
                           type={'settings'}
-                          text={
-                            'Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi'
-                          }
+                          text={'Vigacas cudi ragacebi ewera aq. ar qnat es. ar sheidzleba. gtxovt nu.'}
                         />
                       </div>
                       <div className={styles.settingsModalBtns}>
@@ -718,9 +734,7 @@ const Header = () => {
                         <Tooltip
                           title={'Slippage Tolerance'}
                           type={'settings'}
-                          text={
-                            'Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi'
-                          }
+                          text={'Vigacas cudi ragacebi ewera aq. ar qnat es. ar sheidzleba. gtxovt nu.'}
                         />
                       </div>
                       <div className={styles.settingsModalBtns}>
@@ -786,9 +800,7 @@ const Header = () => {
                         <Tooltip
                           title={'Tx deadlines (mins)'}
                           type={'settings'}
-                          text={
-                            'Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi'
-                          }
+                          text={'Vigacas cudi ragacebi ewera aq. ar qnat es. ar sheidzleba. gtxovt nu.'}
                         />
                       </div>
                       <input
@@ -803,9 +815,7 @@ const Header = () => {
                         <Tooltip
                           title={'Expert Mode'}
                           type={'settings'}
-                          text={
-                            'Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi'
-                          }
+                          text={'Vigacas cudi ragacebi ewera aq. ar qnat es. ar sheidzleba. gtxovt nu.'}
                         />
                       </div>
                       <div className={styles.settingsCheckboxContainer}>
@@ -820,9 +830,7 @@ const Header = () => {
                         <Tooltip
                           title={'Disable Multihops'}
                           type={'settings'}
-                          text={
-                            'Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi'
-                          }
+                          text={'Vigacas cudi ragacebi ewera aq. ar qnat es. ar sheidzleba. gtxovt nu.'}
                         />
                       </div>
                       <div className={styles.settingsCheckboxContainer}>
@@ -837,9 +845,7 @@ const Header = () => {
                         <Tooltip
                           title={'Subgraph Health Indicator'}
                           type={'settings'}
-                          text={
-                            'Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi'
-                          }
+                          text={'Vigacas cudi ragacebi ewera aq. ar qnat es. ar sheidzleba. gtxovt nu.'}
                         />
                       </div>
                       <div className={styles.settingsCheckboxContainer}>
@@ -870,7 +876,7 @@ const Header = () => {
                 </div>
               </div>
               <div
-                className={`${isConnected && isActive ? styles.headerNotConnected : ''} ${
+                className={`${account && triedReconnect ? styles.headerNotConnected : ''} ${
                   styles.headerConnectBtnContainer
                 } ${activeSettings ? styles.transformRight : ''}`}
               >
@@ -879,7 +885,7 @@ const Header = () => {
                   type={`${connectBtnColor}`}
                   onClick={() => {
                     closeAll();
-                    handleWalletModal(true);
+                    setWalletModal(true);
                   }}
                   customStyles={{
                     padding: '10px 20px',
@@ -887,7 +893,7 @@ const Header = () => {
                 />
               </div>
               <div
-                className={`${styles.headerConnected} ${isConnected && isActive ? '' : styles.headerNotConnected} ${
+                className={`${styles.headerConnected} ${account && triedReconnect ? '' : styles.headerNotConnected} ${
                   activeSettings ? styles.transformRight : ''
                 }`}
               >
@@ -901,7 +907,7 @@ const Header = () => {
                     <Image src={`/images/meta.png`} alt='avatar' layout='fill' />
                     <i></i>
                   </div>
-                  <span>{isConnected && isActive ? account : ''}</span>
+                  <span>{account && triedReconnect ? account : ''}</span>
                   <div className={styles.headerConnectedBtnArrow}>
                     <i></i>
                     <div className={styles.headerConnectedBtnArrowSvg}>
@@ -935,7 +941,7 @@ const Header = () => {
           <div className={styles.headerConnectedModalInner}>
             <div className={styles.headerConnectedModalAddress}>
               <div>
-                <span>{isConnected && isActive ? account : ''}</span>
+                <span>{account && triedReconnect ? account : ''}</span>
                 <span>metamask</span>
               </div>
               <svg width='17' height='17' viewBox='0 0 17 17' fill='none' xmlns='http://www.w3.org/2000/svg'>
@@ -1043,7 +1049,11 @@ const Header = () => {
                   }}
                   onClick={() => {
                     closeAll();
-                    connect(item.type);
+                    if (item.type === 'walletConnect') {
+                      connect(item.type, walletConnect);
+                    } else {
+                      connect(item.type, injected);
+                    }
                   }}
                 >
                   <div className={styles.connectWalletItem}>
