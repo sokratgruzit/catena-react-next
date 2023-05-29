@@ -4,7 +4,7 @@ import React from "react";
 import AmbassadorBenefits from "./components/AmbassadorBenefits";
 import AmbassadorExpectations from "./components/AmbassadorExpectations";
 import JoinUsSection from "./components/JoinUsSection";
-import Community from "../ambasador-inner/Community";
+// import Community from "../ambasador-inner/Community";
 
 const ambassadorInfo = [
   {
@@ -128,7 +128,7 @@ const Ambassador = () => {
         type={"btn-primary"}
         arrow={"arrow-right"}
         element={"button"}
-        disabled={true}
+        disabled={false}
         onClick={() => console.log(prevState => !prevState)}
       />
       <JoinUsSection
@@ -139,7 +139,7 @@ const Ambassador = () => {
 
       {/* child */}
 
-      <Community />
+      {/* <Community /> */}
     </div>
   );
 };
