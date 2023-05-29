@@ -75,7 +75,7 @@ function BugBounty() {
         "Description of the issue’s potential security impact",
         "The affected resource. e.g. URL, GitHub code snippet, transaction",
         "Ideally a proof-of-concept that demonstrates the issue",
-        "Email submission to guard@coremultichain.com and include your CMCX UID",
+        "Email submission to guard@catenamultichain.com and include your CMCX UID",
         "Provide adequate time for CATENA to respond before disclosing Bug to others",
       ],
     },

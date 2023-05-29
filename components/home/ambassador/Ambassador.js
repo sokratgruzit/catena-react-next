@@ -61,7 +61,7 @@ const ambassadorApplication = [
   },
 ];
 
-const coreExepted = [
+const catenaExepted = [
   {
     title:
       "Promote the CATENA Network Ecosystem through meetups that can be structured to be both technical and non-technical so that anyone can participate.",
@@ -113,7 +113,7 @@ const Ambassador = () => {
         title="Are You Eligible to Become a CATENA Network Ambassador?"
       />
       <AmbassadorExpectations
-        ambassadorApplication={coreExepted}
+        ambassadorApplication={catenaExepted}
         title="What is Expected of You"
         description="There isn’t really one standard way to be a CATENA Network ambassador, but here are some examples:"
       />
@@ -123,7 +123,7 @@ const Ambassador = () => {
         type={"btn-primary"}
         arrow={"arrow-right"}
         element={"button"}
-        disabled={true}
+        disabled={false}
         onClick={() => console.log(prevState => !prevState)}
       />
       <JoinUsSection

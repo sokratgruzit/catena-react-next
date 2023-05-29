@@ -50,7 +50,7 @@ export default function Technology() {
       image: "Pivot-Chain.jpg",
       title: "Pivot Chain",
       description:
-        "  This is the foundation of the CORE platform. It controls the whole network and is responsible for its security, consensus, and monitoring.",
+        "  This is the foundation of the CATENA platform. It controls the whole network and is responsible for its security, consensus, and monitoring.",
     },
     {
       image: "PolyChains.jpg",
@@ -75,7 +75,7 @@ export default function Technology() {
     {
       title: "The CMCX Token",
       description:
-        "The CMCX token is native to the CORE platform and allows users to transact with other users on the blockchain, as well as pay for all of the utility fees in the ecosystem. It can be used for governance, staking, transactions, smart contracts and validator rewards on the platform.",
+        "The CMCX token is native to the CATENA platform and allows users to transact with other users on the blockchain, as well as pay for all of the utility fees in the ecosystem. It can be used for governance, staking, transactions, smart contracts and validator rewards on the platform.",
     },
   ];
   return (
@@ -83,11 +83,11 @@ export default function Technology() {
       <Promo />
       <Tabs tabs={tabs} />
       <Cart items={cartItems} />
-      <Layer title='Application' description='Aura' images={layer1Images} />
-      <Layer title='Blockchain' description='Catena' images={layer2Images} />
+      <Layer title="Application" description="Aura" images={layer1Images} />
+      <Layer title="Blockchain" description="Catena" images={layer2Images} />
       <hr />
-      <Layer title='Network' description='Origo' images={layer3Images} />
-      <Layer title='Hardware' description='Layer -1' images={layer4Images} />
+      <Layer title="Network" description="Origo" images={layer3Images} />
+      <Layer title="Hardware" description="Layer -1" images={layer4Images} />
       <Token content={tokentArray} />
       <ConsensusStrucure />
       <Features />

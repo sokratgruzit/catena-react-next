@@ -6,12 +6,8 @@ function Distribution() {
           <span>Token</span> <span>Distribution</span>
         </h3>
         <div className="about-financial__header-text-container">
-          <div className="about-financial__header-title">
-            Total Supply (Genesis)
-          </div>
-          <div className="about-financial__header-sub-title">
-            20,000,000,000 CMCX
-          </div>
+          <div className="about-financial__header-title">Total Supply (Genesis)</div>
+          <div className="about-financial__header-sub-title">20,000,000,000 CMCX</div>
         </div>
       </div>
       <div className="chart-container">
@@ -50,12 +46,7 @@ function Distribution() {
                 </g>
                 <defs data-v-055a1cab="">
                   <clipPath data-v-055a1cab="" id="clip0">
-                    <rect
-                      data-v-055a1cab=""
-                      width="12"
-                      height="12"
-                      fill="white"
-                    ></rect>
+                    <rect data-v-055a1cab="" width="12" height="12" fill="white"></rect>
                   </clipPath>
                 </defs>
               </svg>
@@ -87,12 +78,7 @@ function Distribution() {
                 </g>
                 <defs data-v-055a1cab="">
                   <clipPath data-v-055a1cab="" id="clip0">
-                    <rect
-                      data-v-055a1cab=""
-                      width="12"
-                      height="12"
-                      fill="white"
-                    ></rect>
+                    <rect data-v-055a1cab="" width="12" height="12" fill="white"></rect>
                   </clipPath>
                 </defs>
               </svg>
@@ -124,12 +110,7 @@ function Distribution() {
                 </g>
                 <defs data-v-055a1cab="">
                   <clipPath data-v-055a1cab="" id="clip0">
-                    <rect
-                      data-v-055a1cab=""
-                      width="12"
-                      height="12"
-                      fill="white"
-                    ></rect>
+                    <rect data-v-055a1cab="" width="12" height="12" fill="white"></rect>
                   </clipPath>
                 </defs>
               </svg>
@@ -161,12 +142,7 @@ function Distribution() {
                 </g>
                 <defs data-v-055a1cab="">
                   <clipPath data-v-055a1cab="" id="clip0">
-                    <rect
-                      data-v-055a1cab=""
-                      width="12"
-                      height="12"
-                      fill="white"
-                    ></rect>
+                    <rect data-v-055a1cab="" width="12" height="12" fill="white"></rect>
                   </clipPath>
                 </defs>
               </svg>
@@ -198,12 +174,7 @@ function Distribution() {
                 </g>
                 <defs data-v-055a1cab="">
                   <clipPath data-v-055a1cab="" id="clip0">
-                    <rect
-                      data-v-055a1cab=""
-                      width="12"
-                      height="12"
-                      fill="white"
-                    ></rect>
+                    <rect data-v-055a1cab="" width="12" height="12" fill="white"></rect>
                   </clipPath>
                 </defs>
               </svg>
@@ -235,23 +206,14 @@ function Distribution() {
                 </g>
                 <defs data-v-055a1cab="">
                   <clipPath data-v-055a1cab="" id="clip0">
-                    <rect
-                      data-v-055a1cab=""
-                      width="12"
-                      height="12"
-                      fill="white"
-                    ></rect>
+                    <rect data-v-055a1cab="" width="12" height="12" fill="white"></rect>
                   </clipPath>
                 </defs>
               </svg>
             </div>
             <div className="text descr">400,000,000 CMCX (2%)</div>
           </a>
-          <a
-            href="##"
-            target="_blank"
-            className="chart-container__description not"
-          >
+          <a href="##" target="_blank" className="chart-container__description not">
             <div className="color"></div>
             <div className="title descr">
               Seed Round
@@ -272,23 +234,14 @@ function Distribution() {
                 </g>
                 <defs data-v-055a1cab="">
                   <clipPath data-v-055a1cab="" id="clip0">
-                    <rect
-                      data-v-055a1cab=""
-                      width="12"
-                      height="12"
-                      fill="white"
-                    ></rect>
+                    <rect data-v-055a1cab="" width="12" height="12" fill="white"></rect>
                   </clipPath>
                 </defs>
               </svg>
             </div>
             <div className="text descr">4,000,000,000 CMCX (20%)</div>
           </a>
-          <a
-            href="##"
-            target="_blank"
-            className="chart-container__description not"
-          >
+          <a href="##" target="_blank" className="chart-container__description not">
             <div className="color"></div>
             <div className="title descr">
               IEO
@@ -309,12 +262,7 @@ function Distribution() {
                 </g>
                 <defs data-v-055a1cab="">
                   <clipPath data-v-055a1cab="" id="clip0">
-                    <rect
-                      data-v-055a1cab=""
-                      width="12"
-                      height="12"
-                      fill="white"
-                    ></rect>
+                    <rect data-v-055a1cab="" width="12" height="12" fill="white"></rect>
                   </clipPath>
                 </defs>
               </svg>

@@ -1,7 +1,5 @@
-import React from "react";
-
 import CommunityEvents from "./components/CommunityEvents";
-import JoinCoreCommunity from "./components/JoinCoreCommunity";
+import JoinCatenaCommunity from "./components/JoinCatenaCommunity";
 import AmbassadorExpectations from "../ambassador/components/AmbassadorExpectations";
 
 const devCommunity = [
@@ -78,7 +76,7 @@ const Community = () => {
         title="Grant Programme"
         proposals="Please submit your proposal on or before Monday 10 May 2021 at 18:00h GMT to"
       />
-      <JoinCoreCommunity />
+      <JoinCatenaCommunity />
     </div>
   );
 };
