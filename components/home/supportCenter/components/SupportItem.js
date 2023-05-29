@@ -1,5 +1,3 @@
-import React from "react";
-
 const SUPPORT_ITEMS = [
   {
     title: "Announcements",
@@ -29,7 +27,7 @@ const SupportItem = () => {
       <div className="support__items">
         {SUPPORT_ITEMS.map((item, index) => (
           <div key={index} className="support_item">
-            <img alt="megaphone" />
+            <img src="" alt="megaphone" />
             <a href="https://coremultichain.medium.com/" target="_blank" rel="noreferrer">
               {item.title}
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
