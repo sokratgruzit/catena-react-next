@@ -1,15 +1,18 @@
 import React from 'react'
+import { Link } from 'next/router'
 
 const CareersCore = () => {
   return (
     <div>
-      <span>Careers</span>
-      <div>
-        <span>at</span>
-        <span>CORE</span>
-      </div>
-      <div>
-        <a>Open positions</a>
+      <h1>
+        <span>Careers</span>
+        <div className='ttl_row'>
+          <span>at</span>
+          <span className='ttl_red'>CATENA</span>
+        </div>
+      </h1>
+      <div className='open-positions__btn-container'>
+        <Link className='open-positions__btn'>Open positions</Link>
       </div>
     </div>
   )

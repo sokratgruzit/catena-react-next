@@ -9,6 +9,7 @@ import Feature from './components/feature/Feature';
 import HowWeHire from './components/howwehire/HowWeHire';
 import OurValues from './components/ourvalues/OurValues';
 import Recruitment from './components/recruitment/Recruitment';
+import CareersCore from './components/CareersCore';
 
 
 // import JobResponsibilities from "../../../components/home/careersinercomponent/JobResponsibilities"
@@ -22,7 +23,7 @@ import Recruitment from './components/recruitment/Recruitment';
 
 
 
- {/* <JobResponsibilities requirements={designPresentations} title='Responsibilities' />
+{/* <JobResponsibilities requirements={designPresentations} title='Responsibilities' />
       <JobResponsibilities requirements={requirements} title='Requirements' />
       <JobResponsibilities
         requirements={benefitsList}
@@ -298,8 +299,9 @@ const jobInfo = [
 const Careers = () => {
   return (
     <div>
+      <CareersCore />
       <CompanyInfo workflow={workflow} title='how we work' />
-      <Feature  featureLinkList={featureLinkList} title='Featured Jobs' />
+      <Feature featureLinkList={featureLinkList} title='Featured Jobs' />
       <CoreTeam team={team} title='Qualities of a CATENA Team:' />
       <Recruitment data={data} title='Recruitment Process:' />
       <OurValues
