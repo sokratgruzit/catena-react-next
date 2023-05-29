@@ -5,8 +5,8 @@ const CommunityEvents = props => {
     <div>
       <h1>{title}</h1>
       <div>
-        <div className="community__vertical-ttl font-51">{description}</div>
-        <div className="community__vertical-ttl-text font-15">
+        <div className='community__vertical-ttl font-51'>{description}</div>
+        <div className='community__vertical-ttl-text font-15'>
           {info}
           <br></br>
           <br></br>

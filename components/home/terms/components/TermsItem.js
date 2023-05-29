@@ -1,8 +1,8 @@
 function TermsItem() {
   return (
-    <div className="body-container">
-      <div className="container">
-        <div className="terms">
+    <div className='body-container'>
+      <div className='container'>
+        <div className='terms'>
           <h1>
             <span>Terms</span>
             <span> of Use</span>

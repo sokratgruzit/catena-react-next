@@ -1,4 +1,4 @@
-import Tokenomics from "../../../components/home/tokenomics/Tokenomics";
+import Tokenomics from '../../../components/home/tokenomics/Tokenomics';
 
 function index() {
   return <Tokenomics />;

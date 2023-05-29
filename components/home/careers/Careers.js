@@ -1,7 +1,7 @@
 import { Button } from '@catena-network/catena-ui-module';
 import React from 'react';
 
-import CoreMultichainWork from './careersinercomponent/CoreMultichainWork';
+// import CoreMultichainWork from './careersinercomponent/CoreMultichainWork';
 import JobDetails from './careersinercomponent/JobDetails';
 import JobResponsibilities from './careersinercomponent/JobResponsibilities';
 import Benefits from './components/benefits/Benefits';
@@ -459,7 +459,7 @@ const Careers = () => {
         title='Benefits'
         description="Here are some of the benefits that you'll receive on successful recruitment:"
       />
-      <CoreMultichainWork coreMultichain={coreMultichain} title='Working at CATENA Network' />
+      {/* <CoreMultichainWork coreMultichain={coreMultichain} title='Working at CATENA Network' /> */}
       <CompanyInfo workflow={teamCountries} name='how we work' />
       <CompanyInfo workflow={txt} name='About CATENA Network' />
       <JobDetails jobType={jobType} />
