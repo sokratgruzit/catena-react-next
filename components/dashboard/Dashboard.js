@@ -1,22 +1,22 @@
-import { useRouter } from 'next/router';
-import React, { useState, useEffect } from 'react';
+import { useRouter } from "next/router";
+import React, { useState, useEffect } from "react";
 
-import BalanceCard from './components/BalanceCard/BalanceCard';
-import BlockchainProvingTimeChart from './components/BlockchainProvingTimeChart/BlockchainProvingTimeChart';
-import BlocksProducedChart from './components/BlocksProducedChart/BlocksProducedChart';
-import CurrentRanking from './components/CurrentStats/CurrentRanking';
-import CurrentVotes from './components/CurrentStats/CurrentVotes';
-import HardwareStatus from './components/HardwareStatus/HardwareStatus';
-import NodeDetails from './components/NodeDetails/NodeDetails';
-import SoftwareStatus from './components/SoftwareStatus/SoftwareStatus';
-import Table from './components/Table/Table';
-import { useMobileWidth } from '../../hooks/useMobileWidth';
-import { BlocksIcon, DashboardIcon, DocsIcon, ProfileIcon, RewardsCalcIcon, ValidatorsListIcon } from '../svg';
+import BalanceCard from "./components/BalanceCard/BalanceCard";
+import BlockchainProvingTimeChart from "./components/BlockchainProvingTimeChart/BlockchainProvingTimeChart";
+import BlocksProducedChart from "./components/BlocksProducedChart/BlocksProducedChart";
+import CurrentRanking from "./components/CurrentStats/CurrentRanking";
+import CurrentVotes from "./components/CurrentStats/CurrentVotes";
+import HardwareStatus from "./components/HardwareStatus/HardwareStatus";
+import NodeDetails from "./components/NodeDetails/NodeDetails";
+import SoftwareStatus from "./components/SoftwareStatus/SoftwareStatus";
+import Table from "./components/Table/Table";
+import { useMobileWidth } from "../../hooks/useMobileWidth";
+import { BlocksIcon, DashboardIcon, DocsIcon, ProfileIcon, RewardsCalcIcon, ValidatorsListIcon } from "../svg";
 
-import styles from './Dashboard.module.css';
+import styles from "./Dashboard.module.css";
 //
 const Dashboard = () => {
-  const [sortBy, setSortBy] = useState('Validated Blocks');
+  const [sortBy, setSortBy] = useState("Validated Blocks");
   const [animate, setAnimate] = useState(false);
   //   const [currentPage, setCurrentPage] = useState(1);
   //   const [totalPages, setTotalPages] = useState(1);
@@ -30,86 +30,86 @@ const Dashboard = () => {
 
   let td = [
     {
-      _id: '123132131a0dmsmdasd',
-      fullname: '',
-      stake: '-',
-      cumulativeStake: '',
+      _id: "123132131a0dmsmdasd",
+      fullname: "",
+      stake: "-",
+      cumulativeStake: "",
       totalStake: `-`,
     },
     {
-      _id: '123132139991admsmdasd',
-      fullname: '',
-      stake: '-',
-      cumulativeStake: '',
+      _id: "123132139991admsmdasd",
+      fullname: "",
+      stake: "-",
+      cumulativeStake: "",
       totalStake: `-`,
     },
     {
-      _id: '1231321123131admsmdasd',
-      fullname: '',
-      stake: '-',
-      cumulativeStake: '',
+      _id: "1231321123131admsmdasd",
+      fullname: "",
+      stake: "-",
+      cumulativeStake: "",
       totalStake: `-`,
     },
   ];
 
   let tableMoreTd = [
     {
-      _id: '1231321331a0dmsmdasd',
-      publicKey: '-',
-      name: '-',
-      shard: '-',
-      version: '-',
+      _id: "1231321331a0dmsmdasd",
+      publicKey: "-",
+      name: "-",
+      shard: "-",
+      version: "-",
       ignoredSignatures: `-`,
-      status: 'Inactive',
-      rating: '-',
-      nonce: '-',
+      status: "Inactive",
+      rating: "-",
+      nonce: "-",
     },
     {
-      _id: '1231322139991admsmdasd',
-      publicKey: '-',
-      name: '-',
-      shard: '-',
-      version: '-',
+      _id: "1231322139991admsmdasd",
+      publicKey: "-",
+      name: "-",
+      shard: "-",
+      version: "-",
       ignoredSignatures: `-`,
-      status: 'Inactive',
-      rating: '-',
-      nonce: '-',
+      status: "Inactive",
+      rating: "-",
+      nonce: "-",
     },
     {
-      _id: '12313121123131admsmdasd',
-      publicKey: '-',
-      name: '-',
-      shard: '-',
-      version: '-',
+      _id: "12313121123131admsmdasd",
+      publicKey: "-",
+      name: "-",
+      shard: "-",
+      version: "-",
       ignoredSignatures: `-`,
-      status: 'Inactive',
-      rating: '-',
-      nonce: '-',
+      status: "Inactive",
+      rating: "-",
+      nonce: "-",
     },
   ];
 
   let validatedBlocksTd = [
     {
-      _id: '12313210mdasd',
-      block: '-',
-      age: '-',
-      transaction: '-',
+      _id: "12313210mdasd",
+      block: "-",
+      age: "-",
+      transaction: "-",
       gas: `-`,
       rewards: `-`,
     },
     {
-      _id: '12139991admsmdasd',
-      block: '-',
-      age: '-',
-      transaction: '-',
+      _id: "12139991admsmdasd",
+      block: "-",
+      age: "-",
+      transaction: "-",
       gas: `-`,
       rewards: `-`,
     },
     {
-      _id: '123131admmdasd',
-      block: '-',
-      age: '-',
-      transaction: '-',
+      _id: "123131admmdasd",
+      block: "-",
+      age: "-",
+      transaction: "-",
       gas: `-`,
       rewards: `-`,
     },
@@ -117,24 +117,24 @@ const Dashboard = () => {
 
   const sortByButtons = [
     {
-      title: 'Validated Blocks',
+      title: "Validated Blocks",
     },
     {
-      title: 'Delegators',
+      title: "Delegators",
     },
   ];
 
   return (
-    <div className={`${styles.mainContainer} ${animate ? styles.animate : ''}`}>
+    <div className={`${styles.mainContainer} ${animate ? styles.animate : ""}`}>
       <div className={styles.sidebar}>
         <ul className={styles.unorderedList}>
           <li className={styles.chosen}>
             <DashboardIcon className={styles.dashboardListIcon} /> <p>Dashboard</p>
           </li>
-          <li onClick={() => router.push('/validators')}>
+          <li onClick={() => router.push("/validators")}>
             <ValidatorsListIcon className={styles.dashboardListIcon} /> <p>Validators List</p>
           </li>
-          <li onClick={() => router.push('/calculator')}>
+          <li onClick={() => router.push("/calculator")}>
             <RewardsCalcIcon className={styles.dashboardListIcon} />
             <p>Rewards Calculator</p>
           </li>
@@ -192,10 +192,10 @@ const Dashboard = () => {
         </div>
         <HardwareStatus />
         <div className={styles.tableWrapper}>
-          <div className={styles.sortByButtons} data-aos='fade-up' data-aos-delay='20'>
+          <div className={styles.sortByButtons} data-aos="fade-up" data-aos-delay="20">
             {sortByButtons.map((item, index) => (
               <button
-                className={`${styles.sortByButton} ${sortBy == item.title ? styles.sortByButtonActive : ''}`}
+                className={`${styles.sortByButton} ${sortBy == item.title ? styles.sortByButtonActive : ""}`}
                 key={index}
                 onClick={() => setSortBy(item.title)}
               >

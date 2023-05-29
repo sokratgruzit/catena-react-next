@@ -1,8 +1,8 @@
-import FaqItem from './components/FaqItem';
+import FaqItem from "./components/FaqItem";
 
 function Faq() {
   return (
-    <div className='container'>
+    <div className="container">
       <FaqItem />
     </div>
   );
