@@ -2,10 +2,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import useTranslation from 'next-translate/useTranslation';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+// import useConnect from "../../hooks/use-connect";
 
+import { injected, walletConnect } from '../../connector';
 import useConnect from '../../hooks/use-connect';
+import createAxiosInstance from '../../pages/api/axios';
 import Button from '../UI/button/Button';
 import Tooltip from '../UI/tooltip/Tooltip';
 
@@ -45,7 +48,22 @@ const WALLETS_DATA = [
 ];
 
 const Header = () => {
-  const { connect, disconnect, account, isActive, library, handleWalletModal } = useConnect();
+  const { connect, disconnect, library, error, setError } = useConnect();
+  const axios = useMemo(() => createAxiosInstance(), []);
+
+  const account = useSelector(state => state.connect.account);
+  const triedReconnect = useSelector(state => state.appState.triedReconnect);
+
+  useEffect(() => {
+    if (account && triedReconnect) {
+      axios
+        .post('/auth/register-wallet-address', { address: account })
+        .then(res => console.log(res))
+        .catch(() => {});
+    }
+    // eslint-disable-next-line
+  }, [account]);
+
   const [activeMenu, setActiveMenu] = useState(null);
   const [activeLangs, setActiveLangs] = useState(false);
   const [activeSettings, setActiveSettings] = useState(false);
@@ -54,7 +72,7 @@ const Header = () => {
   const [profileModal, setProfileModal] = useState(false);
   const [connectBtnColor, setConnectBtnColor] = useState('red');
   const [device, setDevice] = useState(null);
-  const walletModal = useSelector(state => state.connect.walletModal);
+  const [walletModal, setWalletModal] = useState(false);
   const isConnected = useSelector(state => state.connect.isConnected);
   const slippage = useSelector(state => state.settings.slippage);
   const [balance, setBalance] = useState(0);
@@ -184,7 +202,6 @@ const Header = () => {
 
   const router = useRouter();
 
-  const { locale, pathname, asPath, query } = useRouter();
   const changeLanguage = loc => {
     // i18n.changeLanguage(locale.toLowerCase());
     router.push('', '', { locale: loc.toLowerCase() });
@@ -258,7 +275,8 @@ const Header = () => {
   const closeAll = () => {
     setActiveLangs(false);
     setActiveSettings(false);
-    handleWalletModal(false);
+    // handleWalletModal(false);
+    setWalletModal(false);
     setProfileModal(false);
     setActiveLangs(false);
     setActiveBurger(false);
@@ -305,24 +323,63 @@ const Header = () => {
           <Link href='/'>
             <div>
               <div
-                className={`${styles.headerLogo} ${styles.headerLogoMobile} ${activeBurger !== false || activeLangs || activeSettings || profileModal ? styles.whiteLogo : ''
-                  }`}
+                className={`${styles.headerLogo} ${styles.headerLogoMobile} ${
+                  activeBurger !== false || activeLangs || activeSettings || profileModal ? styles.whiteLogo : ''
+                }`}
               >
-                <svg xmlns="http://www.w3.org/2000/svg" width="37" height="33" viewBox="0 0 70 70" fill="none">
-                  <path fill-rule="evenodd" clip-rule="evenodd" d="M46.118 57.0642C50.1498 57.0645 54.1045 55.9611 57.5524 53.874C61.0004 51.7868 63.8097 48.7957 65.675 45.2256C67.5404 41.6556 68.3905 37.6431 68.1329 33.6244C67.8752 29.6056 66.5198 25.7342 64.2139 22.4309C61.9079 19.1276 58.7397 16.5188 55.0534 14.8878C51.3671 13.2569 47.3038 12.6663 43.305 13.1801C39.3062 13.694 35.5249 15.2927 32.372 17.8026C29.2191 20.3124 26.8152 23.6373 25.4215 27.4161C26.699 27.7919 27.8606 28.4843 28.7983 29.4289C31.8483 31.1153 36.5323 32.3665 41.0528 29.7553C41.9349 28.7641 43.0515 28.0094 44.3006 27.5599C45.5497 27.1103 46.8916 26.9804 48.2039 27.1819C49.5162 27.3833 50.7572 27.9098 51.8135 28.7132C52.8698 29.5167 53.7079 30.5715 54.2513 31.7815C54.7947 32.9915 55.0261 34.3181 54.9244 35.6404C54.8227 36.9626 54.3912 38.2384 53.6691 39.3513C52.9471 40.4642 51.9575 41.3789 50.7908 42.0117C49.624 42.6446 48.3172 42.9756 46.9894 42.9745C45.2652 42.967 43.5875 42.4148 42.1966 41.3969C39.0921 39.8737 33.5367 38.4593 28.0903 41.2881C27.2978 41.9106 26.3912 42.3726 25.4215 42.6481C26.9811 46.8768 29.8015 50.526 33.5023 53.1038C37.203 55.6816 41.6062 57.0638 46.118 57.0642Z" fill="#FF6969" />
-                  <path fill-rule="evenodd" clip-rule="evenodd" d="M44.7564 27.4705C42.9663 22.6169 39.5236 18.5472 35.0313 15.9741C30.539 13.4009 25.2836 12.4885 20.1855 13.3966C15.0874 14.3047 10.4717 16.9755 7.14682 20.941C3.82198 24.9066 2 29.9141 2 35.0865C2 40.2589 3.82198 45.2665 7.14682 49.232C10.4717 53.1976 15.0874 55.8683 20.1855 56.7764C25.2836 57.6845 30.539 56.7721 35.0313 54.199C39.5236 51.6259 42.9663 47.5561 44.7564 42.7025C43.828 42.4334 42.9593 41.9903 42.1966 41.3969C39.0921 39.8737 33.5367 38.4593 28.0903 41.2881C26.6984 42.3952 24.9677 42.9907 23.1885 42.9745C22.1442 42.9745 21.1102 42.7691 20.1455 42.37C19.1807 41.9708 18.3041 41.3858 17.5657 40.6483C16.8273 39.9107 16.2416 39.0352 15.842 38.0715C15.4423 37.1079 15.2367 36.0751 15.2367 35.0321C15.2367 33.9891 15.4423 32.9563 15.842 31.9927C16.2416 31.0291 16.8273 30.1535 17.5657 29.416C18.3041 28.6784 19.1807 28.0934 20.1455 27.6943C21.1102 27.2951 22.1442 27.0897 23.1885 27.0897C24.2329 27.0831 25.268 27.2868 26.2319 27.6887C27.1957 28.0906 28.0686 28.6825 28.7983 29.4289C31.8483 31.1153 36.5323 32.3665 41.0528 29.7553C42.0528 28.6671 43.3346 27.8763 44.7564 27.4705Z" fill="#18FFFF" />
+                <svg xmlns='http://www.w3.org/2000/svg' width='37' height='33' viewBox='0 0 70 70' fill='none'>
+                  <path
+                    fillRule='evenodd'
+                    clipRule='evenodd'
+                    d='M46.118 57.0642C50.1498 57.0645 54.1045 55.9611 57.5524 53.874C61.0004 51.7868 63.8097 48.7957 65.675 45.2256C67.5404 41.6556 68.3905 37.6431 68.1329 33.6244C67.8752 29.6056 66.5198 25.7342 64.2139 22.4309C61.9079 19.1276 58.7397 16.5188 55.0534 14.8878C51.3671 13.2569 47.3038 12.6663 43.305 13.1801C39.3062 13.694 35.5249 15.2927 32.372 17.8026C29.2191 20.3124 26.8152 23.6373 25.4215 27.4161C26.699 27.7919 27.8606 28.4843 28.7983 29.4289C31.8483 31.1153 36.5323 32.3665 41.0528 29.7553C41.9349 28.7641 43.0515 28.0094 44.3006 27.5599C45.5497 27.1103 46.8916 26.9804 48.2039 27.1819C49.5162 27.3833 50.7572 27.9098 51.8135 28.7132C52.8698 29.5167 53.7079 30.5715 54.2513 31.7815C54.7947 32.9915 55.0261 34.3181 54.9244 35.6404C54.8227 36.9626 54.3912 38.2384 53.6691 39.3513C52.9471 40.4642 51.9575 41.3789 50.7908 42.0117C49.624 42.6446 48.3172 42.9756 46.9894 42.9745C45.2652 42.967 43.5875 42.4148 42.1966 41.3969C39.0921 39.8737 33.5367 38.4593 28.0903 41.2881C27.2978 41.9106 26.3912 42.3726 25.4215 42.6481C26.9811 46.8768 29.8015 50.526 33.5023 53.1038C37.203 55.6816 41.6062 57.0638 46.118 57.0642Z'
+                    fill='#FF6969'
+                  />
+                  <path
+                    fillRule='evenodd'
+                    clipRule='evenodd'
+                    d='M44.7564 27.4705C42.9663 22.6169 39.5236 18.5472 35.0313 15.9741C30.539 13.4009 25.2836 12.4885 20.1855 13.3966C15.0874 14.3047 10.4717 16.9755 7.14682 20.941C3.82198 24.9066 2 29.9141 2 35.0865C2 40.2589 3.82198 45.2665 7.14682 49.232C10.4717 53.1976 15.0874 55.8683 20.1855 56.7764C25.2836 57.6845 30.539 56.7721 35.0313 54.199C39.5236 51.6259 42.9663 47.5561 44.7564 42.7025C43.828 42.4334 42.9593 41.9903 42.1966 41.3969C39.0921 39.8737 33.5367 38.4593 28.0903 41.2881C26.6984 42.3952 24.9677 42.9907 23.1885 42.9745C22.1442 42.9745 21.1102 42.7691 20.1455 42.37C19.1807 41.9708 18.3041 41.3858 17.5657 40.6483C16.8273 39.9107 16.2416 39.0352 15.842 38.0715C15.4423 37.1079 15.2367 36.0751 15.2367 35.0321C15.2367 33.9891 15.4423 32.9563 15.842 31.9927C16.2416 31.0291 16.8273 30.1535 17.5657 29.416C18.3041 28.6784 19.1807 28.0934 20.1455 27.6943C21.1102 27.2951 22.1442 27.0897 23.1885 27.0897C24.2329 27.0831 25.268 27.2868 26.2319 27.6887C27.1957 28.0906 28.0686 28.6825 28.7983 29.4289C31.8483 31.1153 36.5323 32.3665 41.0528 29.7553C42.0528 28.6671 43.3346 27.8763 44.7564 27.4705Z'
+                    fill='#18FFFF'
+                  />
                 </svg>
               </div>
               <div className={`${styles.headerLogo} ${styles.headerLogoDesktop}`}>
-                <svg xmlns="http://www.w3.org/2000/svg" width="161" height="31" viewBox="0 0 161 31" fill="none">
-                  <path d="M71.4777 20.7317C71.0151 20.9253 70.5493 21.0996 70.0803 21.2545C69.6113 21.4094 69.1262 21.5417 68.6251 21.6515C68.1239 21.7676 67.5939 21.8548 67.0349 21.9129C66.4823 21.971 65.888 22 65.252 22C63.9027 22 62.6595 21.8548 61.5223 21.5643C60.3915 21.2739 59.4149 20.8382 58.5925 20.2573C57.7765 19.6699 57.1404 18.9405 56.6843 18.0692C56.2281 17.1913 56 16.1683 56 15C56 13.8317 56.2281 12.8119 56.6843 11.9405C57.1404 11.0627 57.7765 10.3333 58.5925 9.75242C59.4149 9.16505 60.3915 8.72614 61.5223 8.43568C62.6595 8.14523 63.9027 8 65.252 8C65.888 8 66.4823 8.02905 67.0349 8.08714C67.5939 8.14523 68.1239 8.23237 68.6251 8.34855C69.1262 8.45828 69.6113 8.59059 70.0803 8.7455C70.5493 8.90041 71.0151 9.07469 71.4777 9.26833V12.5021C71.1115 12.302 70.726 12.1051 70.3212 11.9115C69.9165 11.7114 69.4699 11.5339 68.9816 11.379C68.4933 11.2176 67.9569 11.0885 67.3722 10.9917C66.7875 10.8884 66.129 10.8368 65.3965 10.8368C64.2721 10.8368 63.3373 10.953 62.592 11.1853C61.8531 11.4177 61.262 11.7275 60.8187 12.1148C60.3754 12.5021 60.0638 12.9474 59.8839 13.4509C59.704 13.9479 59.614 14.4643 59.614 15C59.614 15.355 59.6526 15.7068 59.7297 16.0553C59.8068 16.3974 59.9353 16.7234 60.1152 17.0332C60.2951 17.3366 60.5296 17.6173 60.8187 17.8755C61.1078 18.1337 61.4676 18.3564 61.8981 18.5436C62.3286 18.7308 62.8297 18.8792 63.4016 18.9889C63.9798 19.0922 64.6448 19.1438 65.3965 19.1438C66.129 19.1438 66.7875 19.0987 67.3722 19.0083C67.9569 18.9115 68.4933 18.7856 68.9816 18.6307C69.4699 18.4758 69.9165 18.3015 70.3212 18.1079C70.726 17.9078 71.1115 17.7045 71.4777 17.4979V20.7317Z" fill="white" />
-                  <path d="M85.5484 19.1245H78.1661L76.9229 21.6418H72.933L79.8623 8.33887H83.8522L90.7816 21.6418H86.7916L85.5484 19.1245ZM79.4479 16.5297H84.2859L81.8765 11.6307L79.4479 16.5297Z" fill="white" />
-                  <path d="M99.5998 11.2337V21.6418H96.0243V11.2337H90.4057V8.33887H105.228V11.2337H99.5998Z" fill="white" />
-                  <path d="M107.599 21.6418V8.33887H121.005V11.1757H111.271V13.3734H120.503V16.2102H111.271V18.805H121.14V21.6418H107.599Z" fill="white" />
-                  <path d="M137.109 21.6418L128.175 12.5021V21.6418H124.599V8.33887H128.483L137.427 17.5173V8.33887H140.983V21.6418H137.109Z" fill="white" />
-                  <path d="M155.767 19.1245H148.385L147.141 21.6418H143.151L150.081 8.33887H154.071L161 21.6418H157.01L155.767 19.1245ZM149.666 16.5297H154.504L152.095 11.6307L149.666 16.5297Z" fill="white" />
-                  <path fill-rule="evenodd" clip-rule="evenodd" d="M30.666 30.6679C39.1347 30.6679 45.9999 23.8027 45.9999 15.334C45.9999 6.86524 39.1347 0 30.666 0C24.0598 0 18.4293 4.1776 16.2722 10.0351C17.1729 10.2986 17.9782 10.7855 18.6241 11.4318C20.7321 12.6201 23.9916 13.4834 27.1718 11.6489C28.1824 10.5225 29.6494 9.81381 31.2819 9.81381C34.3307 9.81381 36.8022 12.2853 36.8022 15.334C36.8022 18.3828 34.3307 20.8543 31.2819 20.8543C30.0357 20.8543 28.886 20.4413 27.9621 19.7448C25.8142 18.667 21.9267 17.6926 18.1358 19.6703C17.5888 20.1018 16.9582 20.4321 16.2722 20.6328C18.4293 26.4903 24.0598 30.6679 30.666 30.6679Z" fill="#E96B6B" />
-                  <path fill-rule="evenodd" clip-rule="evenodd" d="M29.7279 10.0356C27.5709 4.17782 21.9403 0 15.334 0C6.86524 0 0 6.86524 0 15.334C0 23.8027 6.86524 30.6679 15.334 30.6679C21.9403 30.6679 27.5709 26.4901 29.7278 20.6325C29.0824 20.4435 28.4859 20.1397 27.9621 19.7448C25.8142 18.667 21.9267 17.6926 18.1358 19.6703C17.196 20.4117 16.0094 20.8542 14.7194 20.8542C11.6707 20.8542 9.19922 18.3827 9.19922 15.3339C9.19922 12.2852 11.6707 9.81372 14.7194 9.81372C16.2444 9.81372 17.625 10.4321 18.6241 11.4318C20.7321 12.6201 23.9917 13.4834 27.1718 11.6489C27.8484 10.8948 28.7295 10.3279 29.7279 10.0356Z" fill="#00FFF0" />
+                <svg xmlns='http://www.w3.org/2000/svg' width='161' height='31' viewBox='0 0 161 31' fill='none'>
+                  <path
+                    d='M71.4777 20.7317C71.0151 20.9253 70.5493 21.0996 70.0803 21.2545C69.6113 21.4094 69.1262 21.5417 68.6251 21.6515C68.1239 21.7676 67.5939 21.8548 67.0349 21.9129C66.4823 21.971 65.888 22 65.252 22C63.9027 22 62.6595 21.8548 61.5223 21.5643C60.3915 21.2739 59.4149 20.8382 58.5925 20.2573C57.7765 19.6699 57.1404 18.9405 56.6843 18.0692C56.2281 17.1913 56 16.1683 56 15C56 13.8317 56.2281 12.8119 56.6843 11.9405C57.1404 11.0627 57.7765 10.3333 58.5925 9.75242C59.4149 9.16505 60.3915 8.72614 61.5223 8.43568C62.6595 8.14523 63.9027 8 65.252 8C65.888 8 66.4823 8.02905 67.0349 8.08714C67.5939 8.14523 68.1239 8.23237 68.6251 8.34855C69.1262 8.45828 69.6113 8.59059 70.0803 8.7455C70.5493 8.90041 71.0151 9.07469 71.4777 9.26833V12.5021C71.1115 12.302 70.726 12.1051 70.3212 11.9115C69.9165 11.7114 69.4699 11.5339 68.9816 11.379C68.4933 11.2176 67.9569 11.0885 67.3722 10.9917C66.7875 10.8884 66.129 10.8368 65.3965 10.8368C64.2721 10.8368 63.3373 10.953 62.592 11.1853C61.8531 11.4177 61.262 11.7275 60.8187 12.1148C60.3754 12.5021 60.0638 12.9474 59.8839 13.4509C59.704 13.9479 59.614 14.4643 59.614 15C59.614 15.355 59.6526 15.7068 59.7297 16.0553C59.8068 16.3974 59.9353 16.7234 60.1152 17.0332C60.2951 17.3366 60.5296 17.6173 60.8187 17.8755C61.1078 18.1337 61.4676 18.3564 61.8981 18.5436C62.3286 18.7308 62.8297 18.8792 63.4016 18.9889C63.9798 19.0922 64.6448 19.1438 65.3965 19.1438C66.129 19.1438 66.7875 19.0987 67.3722 19.0083C67.9569 18.9115 68.4933 18.7856 68.9816 18.6307C69.4699 18.4758 69.9165 18.3015 70.3212 18.1079C70.726 17.9078 71.1115 17.7045 71.4777 17.4979V20.7317Z'
+                    fill='white'
+                  />
+                  <path
+                    d='M85.5484 19.1245H78.1661L76.9229 21.6418H72.933L79.8623 8.33887H83.8522L90.7816 21.6418H86.7916L85.5484 19.1245ZM79.4479 16.5297H84.2859L81.8765 11.6307L79.4479 16.5297Z'
+                    fill='white'
+                  />
+                  <path
+                    d='M99.5998 11.2337V21.6418H96.0243V11.2337H90.4057V8.33887H105.228V11.2337H99.5998Z'
+                    fill='white'
+                  />
+                  <path
+                    d='M107.599 21.6418V8.33887H121.005V11.1757H111.271V13.3734H120.503V16.2102H111.271V18.805H121.14V21.6418H107.599Z'
+                    fill='white'
+                  />
+                  <path
+                    d='M137.109 21.6418L128.175 12.5021V21.6418H124.599V8.33887H128.483L137.427 17.5173V8.33887H140.983V21.6418H137.109Z'
+                    fill='white'
+                  />
+                  <path
+                    d='M155.767 19.1245H148.385L147.141 21.6418H143.151L150.081 8.33887H154.071L161 21.6418H157.01L155.767 19.1245ZM149.666 16.5297H154.504L152.095 11.6307L149.666 16.5297Z'
+                    fill='white'
+                  />
+                  <path
+                    fillRule='evenodd'
+                    clipRule='evenodd'
+                    d='M30.666 30.6679C39.1347 30.6679 45.9999 23.8027 45.9999 15.334C45.9999 6.86524 39.1347 0 30.666 0C24.0598 0 18.4293 4.1776 16.2722 10.0351C17.1729 10.2986 17.9782 10.7855 18.6241 11.4318C20.7321 12.6201 23.9916 13.4834 27.1718 11.6489C28.1824 10.5225 29.6494 9.81381 31.2819 9.81381C34.3307 9.81381 36.8022 12.2853 36.8022 15.334C36.8022 18.3828 34.3307 20.8543 31.2819 20.8543C30.0357 20.8543 28.886 20.4413 27.9621 19.7448C25.8142 18.667 21.9267 17.6926 18.1358 19.6703C17.5888 20.1018 16.9582 20.4321 16.2722 20.6328C18.4293 26.4903 24.0598 30.6679 30.666 30.6679Z'
+                    fill='#E96B6B'
+                  />
+                  <path
+                    fillRule='evenodd'
+                    clipRule='evenodd'
+                    d='M29.7279 10.0356C27.5709 4.17782 21.9403 0 15.334 0C6.86524 0 0 6.86524 0 15.334C0 23.8027 6.86524 30.6679 15.334 30.6679C21.9403 30.6679 27.5709 26.4901 29.7278 20.6325C29.0824 20.4435 28.4859 20.1397 27.9621 19.7448C25.8142 18.667 21.9267 17.6926 18.1358 19.6703C17.196 20.4117 16.0094 20.8542 14.7194 20.8542C11.6707 20.8542 9.19922 18.3827 9.19922 15.3339C9.19922 12.2852 11.6707 9.81372 14.7194 9.81372C16.2444 9.81372 17.625 10.4321 18.6241 11.4318C20.7321 12.6201 23.9917 13.4834 27.1718 11.6489C27.8484 10.8948 28.7295 10.3279 29.7279 10.0356Z'
+                    fill='#00FFF0'
+                  />
                 </svg>
                 <div
                   className={`${styles.headerLogoLine} ${activeMenu !== null ? styles.headerLogoLineActive : ''}`}
@@ -336,8 +393,9 @@ const Header = () => {
             </div>
           </Link>
           <nav
-            className={`${styles.headerNav} ${activeBurger ? styles.activeHeaderNav : ''} ${activeMenu !== null ? styles.headerNavOpacity : ''
-              }`}
+            className={`${styles.headerNav} ${activeBurger ? styles.activeHeaderNav : ''} ${
+              activeMenu !== null ? styles.headerNavOpacity : ''
+            }`}
           >
             <i></i>
             {NAV_DATA.map(item => {
@@ -400,9 +458,19 @@ const Header = () => {
               <div className={styles.headerMobileFooter}>
                 <div className={styles.headerMobileFooterFirst}>
                   <div>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 70 70" fill="none">
-                      <path fill-rule="evenodd" clip-rule="evenodd" d="M46.118 57.0642C50.1498 57.0645 54.1045 55.9611 57.5524 53.874C61.0004 51.7868 63.8097 48.7957 65.675 45.2256C67.5404 41.6556 68.3905 37.6431 68.1329 33.6244C67.8752 29.6056 66.5198 25.7342 64.2139 22.4309C61.9079 19.1276 58.7397 16.5188 55.0534 14.8878C51.3671 13.2569 47.3038 12.6663 43.305 13.1801C39.3062 13.694 35.5249 15.2927 32.372 17.8026C29.2191 20.3124 26.8152 23.6373 25.4215 27.4161C26.699 27.7919 27.8606 28.4843 28.7983 29.4289C31.8483 31.1153 36.5323 32.3665 41.0528 29.7553C41.9349 28.7641 43.0515 28.0094 44.3006 27.5599C45.5497 27.1103 46.8916 26.9804 48.2039 27.1819C49.5162 27.3833 50.7572 27.9098 51.8135 28.7132C52.8698 29.5167 53.7079 30.5715 54.2513 31.7815C54.7947 32.9915 55.0261 34.3181 54.9244 35.6404C54.8227 36.9626 54.3912 38.2384 53.6691 39.3513C52.9471 40.4642 51.9575 41.3789 50.7908 42.0117C49.624 42.6446 48.3172 42.9756 46.9894 42.9745C45.2652 42.967 43.5875 42.4148 42.1966 41.3969C39.0921 39.8737 33.5367 38.4593 28.0903 41.2881C27.2978 41.9106 26.3912 42.3726 25.4215 42.6481C26.9811 46.8768 29.8015 50.526 33.5023 53.1038C37.203 55.6816 41.6062 57.0638 46.118 57.0642Z" fill="#FF6969" />
-                      <path fill-rule="evenodd" clip-rule="evenodd" d="M44.7564 27.4705C42.9663 22.6169 39.5236 18.5472 35.0313 15.9741C30.539 13.4009 25.2836 12.4885 20.1855 13.3966C15.0874 14.3047 10.4717 16.9755 7.14682 20.941C3.82198 24.9066 2 29.9141 2 35.0865C2 40.2589 3.82198 45.2665 7.14682 49.232C10.4717 53.1976 15.0874 55.8683 20.1855 56.7764C25.2836 57.6845 30.539 56.7721 35.0313 54.199C39.5236 51.6259 42.9663 47.5561 44.7564 42.7025C43.828 42.4334 42.9593 41.9903 42.1966 41.3969C39.0921 39.8737 33.5367 38.4593 28.0903 41.2881C26.6984 42.3952 24.9677 42.9907 23.1885 42.9745C22.1442 42.9745 21.1102 42.7691 20.1455 42.37C19.1807 41.9708 18.3041 41.3858 17.5657 40.6483C16.8273 39.9107 16.2416 39.0352 15.842 38.0715C15.4423 37.1079 15.2367 36.0751 15.2367 35.0321C15.2367 33.9891 15.4423 32.9563 15.842 31.9927C16.2416 31.0291 16.8273 30.1535 17.5657 29.416C18.3041 28.6784 19.1807 28.0934 20.1455 27.6943C21.1102 27.2951 22.1442 27.0897 23.1885 27.0897C24.2329 27.0831 25.268 27.2868 26.2319 27.6887C27.1957 28.0906 28.0686 28.6825 28.7983 29.4289C31.8483 31.1153 36.5323 32.3665 41.0528 29.7553C42.0528 28.6671 43.3346 27.8763 44.7564 27.4705Z" fill="#18FFFF" />
+                    <svg xmlns='http://www.w3.org/2000/svg' width='70' height='70' viewBox='0 0 70 70' fill='none'>
+                      <path
+                        fillRule='evenodd'
+                        clipRule='evenodd'
+                        d='M46.118 57.0642C50.1498 57.0645 54.1045 55.9611 57.5524 53.874C61.0004 51.7868 63.8097 48.7957 65.675 45.2256C67.5404 41.6556 68.3905 37.6431 68.1329 33.6244C67.8752 29.6056 66.5198 25.7342 64.2139 22.4309C61.9079 19.1276 58.7397 16.5188 55.0534 14.8878C51.3671 13.2569 47.3038 12.6663 43.305 13.1801C39.3062 13.694 35.5249 15.2927 32.372 17.8026C29.2191 20.3124 26.8152 23.6373 25.4215 27.4161C26.699 27.7919 27.8606 28.4843 28.7983 29.4289C31.8483 31.1153 36.5323 32.3665 41.0528 29.7553C41.9349 28.7641 43.0515 28.0094 44.3006 27.5599C45.5497 27.1103 46.8916 26.9804 48.2039 27.1819C49.5162 27.3833 50.7572 27.9098 51.8135 28.7132C52.8698 29.5167 53.7079 30.5715 54.2513 31.7815C54.7947 32.9915 55.0261 34.3181 54.9244 35.6404C54.8227 36.9626 54.3912 38.2384 53.6691 39.3513C52.9471 40.4642 51.9575 41.3789 50.7908 42.0117C49.624 42.6446 48.3172 42.9756 46.9894 42.9745C45.2652 42.967 43.5875 42.4148 42.1966 41.3969C39.0921 39.8737 33.5367 38.4593 28.0903 41.2881C27.2978 41.9106 26.3912 42.3726 25.4215 42.6481C26.9811 46.8768 29.8015 50.526 33.5023 53.1038C37.203 55.6816 41.6062 57.0638 46.118 57.0642Z'
+                        fill='#FF6969'
+                      />
+                      <path
+                        fillRule='evenodd'
+                        clipRule='evenodd'
+                        d='M44.7564 27.4705C42.9663 22.6169 39.5236 18.5472 35.0313 15.9741C30.539 13.4009 25.2836 12.4885 20.1855 13.3966C15.0874 14.3047 10.4717 16.9755 7.14682 20.941C3.82198 24.9066 2 29.9141 2 35.0865C2 40.2589 3.82198 45.2665 7.14682 49.232C10.4717 53.1976 15.0874 55.8683 20.1855 56.7764C25.2836 57.6845 30.539 56.7721 35.0313 54.199C39.5236 51.6259 42.9663 47.5561 44.7564 42.7025C43.828 42.4334 42.9593 41.9903 42.1966 41.3969C39.0921 39.8737 33.5367 38.4593 28.0903 41.2881C26.6984 42.3952 24.9677 42.9907 23.1885 42.9745C22.1442 42.9745 21.1102 42.7691 20.1455 42.37C19.1807 41.9708 18.3041 41.3858 17.5657 40.6483C16.8273 39.9107 16.2416 39.0352 15.842 38.0715C15.4423 37.1079 15.2367 36.0751 15.2367 35.0321C15.2367 33.9891 15.4423 32.9563 15.842 31.9927C16.2416 31.0291 16.8273 30.1535 17.5657 29.416C18.3041 28.6784 19.1807 28.0934 20.1455 27.6943C21.1102 27.2951 22.1442 27.0897 23.1885 27.0897C24.2329 27.0831 25.268 27.2868 26.2319 27.6887C27.1957 28.0906 28.0686 28.6825 28.7983 29.4289C31.8483 31.1153 36.5323 32.3665 41.0528 29.7553C42.0528 28.6671 43.3346 27.8763 44.7564 27.4705Z'
+                        fill='#18FFFF'
+                      />
                     </svg>
                     ${balance}
                   </div>
@@ -499,17 +567,26 @@ const Header = () => {
           </nav>
           <div className={styles.headerRightOuter}>
             <div
-              className={`${styles.headerRight} ${activeMenu !== null && device === 'desktop' ? styles.headerRightHideToRight : ''
-                } ${walletModal ? styles.headerRightHideToLeft : ''}`}
+              className={`${styles.headerRight} ${
+                activeMenu !== null && device === 'desktop' ? styles.headerRightHideToRight : ''
+              } ${walletModal ? styles.headerRightHideToLeft : ''}`}
             >
               <div className={`${styles.headerBalance}`}>
-                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
-                  <circle cx="15" cy="15" r="15" fill="#151519" />
-                  <circle cx="15" cy="15" r="14.5" stroke="white" stroke-opacity="0.1" />
-                  <path fill-rule="evenodd" clip-rule="evenodd" d="M18.333 21.3338C22.015 21.3338 24.9999 18.3489 24.9999 14.6669C24.9999 10.9849 22.015 8 18.333 8C15.4609 8 13.0129 9.81617 12.075 12.3627C12.4667 12.477 12.817 12.6885 13.098 12.9693C14.0129 13.4857 15.4281 13.862 16.8097 13.0689C17.2493 12.5768 17.8886 12.267 18.6004 12.267C19.9259 12.267 21.0005 13.3415 21.0005 14.6671C21.0005 15.9926 19.9259 17.0671 18.6004 17.0671C18.0559 17.0671 17.5538 16.8859 17.1511 16.5804C16.2147 16.1132 14.5281 15.6948 12.884 16.5545C12.6464 16.7414 12.3727 16.8844 12.075 16.9713C13.013 19.5177 15.4609 21.3338 18.333 21.3338Z" fill="#E96B6B" />
-                  <path fill-rule="evenodd" clip-rule="evenodd" d="M17.9248 12.3624C16.9867 9.81602 14.5389 8 11.6669 8C7.98487 8 5 10.9849 5 14.6669C5 18.3489 7.98487 21.3338 11.6669 21.3338C14.5388 21.3338 16.9866 19.5179 17.9247 16.9717C17.6404 16.8889 17.3779 16.7549 17.1478 16.5803C16.2114 16.1132 14.5248 15.6948 12.8807 16.5545C12.4726 16.8756 11.9577 17.0671 11.3981 17.0671C10.0726 17.0671 8.99804 15.9925 8.99804 14.667C8.99804 13.3415 10.0726 12.2669 11.3981 12.2669C12.0606 12.2669 12.6604 12.5353 13.0947 12.9693C14.0096 13.4857 15.4248 13.862 16.8064 13.0689C17.1018 12.7382 17.4875 12.4897 17.9248 12.3624Z" fill="#00FFF0" />
+                <svg xmlns='http://www.w3.org/2000/svg' width='31' height='31' viewBox='0 0 70 70' fill='none'>
+                  <path
+                    fillRule='evenodd'
+                    clipRule='evenodd'
+                    d='M46.118 57.0642C50.1498 57.0645 54.1045 55.9611 57.5524 53.874C61.0004 51.7868 63.8097 48.7957 65.675 45.2256C67.5404 41.6556 68.3905 37.6431 68.1329 33.6244C67.8752 29.6056 66.5198 25.7342 64.2139 22.4309C61.9079 19.1276 58.7397 16.5188 55.0534 14.8878C51.3671 13.2569 47.3038 12.6663 43.305 13.1801C39.3062 13.694 35.5249 15.2927 32.372 17.8026C29.2191 20.3124 26.8152 23.6373 25.4215 27.4161C26.699 27.7919 27.8606 28.4843 28.7983 29.4289C31.8483 31.1153 36.5323 32.3665 41.0528 29.7553C41.9349 28.7641 43.0515 28.0094 44.3006 27.5599C45.5497 27.1103 46.8916 26.9804 48.2039 27.1819C49.5162 27.3833 50.7572 27.9098 51.8135 28.7132C52.8698 29.5167 53.7079 30.5715 54.2513 31.7815C54.7947 32.9915 55.0261 34.3181 54.9244 35.6404C54.8227 36.9626 54.3912 38.2384 53.6691 39.3513C52.9471 40.4642 51.9575 41.3789 50.7908 42.0117C49.624 42.6446 48.3172 42.9756 46.9894 42.9745C45.2652 42.967 43.5875 42.4148 42.1966 41.3969C39.0921 39.8737 33.5367 38.4593 28.0903 41.2881C27.2978 41.9106 26.3912 42.3726 25.4215 42.6481C26.9811 46.8768 29.8015 50.526 33.5023 53.1038C37.203 55.6816 41.6062 57.0638 46.118 57.0642Z'
+                    fill='#FF6969'
+                  />
+                  <path
+                    fillRule='evenodd'
+                    clipRule='evenodd'
+                    d='M44.7564 27.4705C42.9663 22.6169 39.5236 18.5472 35.0313 15.9741C30.539 13.4009 25.2836 12.4885 20.1855 13.3966C15.0874 14.3047 10.4717 16.9755 7.14682 20.941C3.82198 24.9066 2 29.9141 2 35.0865C2 40.2589 3.82198 45.2665 7.14682 49.232C10.4717 53.1976 15.0874 55.8683 20.1855 56.7764C25.2836 57.6845 30.539 56.7721 35.0313 54.199C39.5236 51.6259 42.9663 47.5561 44.7564 42.7025C43.828 42.4334 42.9593 41.9903 42.1966 41.3969C39.0921 39.8737 33.5367 38.4593 28.0903 41.2881C26.6984 42.3952 24.9677 42.9907 23.1885 42.9745C22.1442 42.9745 21.1102 42.7691 20.1455 42.37C19.1807 41.9708 18.3041 41.3858 17.5657 40.6483C16.8273 39.9107 16.2416 39.0352 15.842 38.0715C15.4423 37.1079 15.2367 36.0751 15.2367 35.0321C15.2367 33.9891 15.4423 32.9563 15.842 31.9927C16.2416 31.0291 16.8273 30.1535 17.5657 29.416C18.3041 28.6784 19.1807 28.0934 20.1455 27.6943C21.1102 27.2951 22.1442 27.0897 23.1885 27.0897C24.2329 27.0831 25.268 27.2868 26.2319 27.6887C27.1957 28.0906 28.0686 28.6825 28.7983 29.4289C31.8483 31.1153 36.5323 32.3665 41.0528 29.7553C42.0528 28.6671 43.3346 27.8763 44.7564 27.4705Z'
+                    fill='#18FFFF'
+                  />
                 </svg>
-                ${isConnected && isActive ? balance : 0}
+                ${account && triedReconnect ? balance : 0}
               </div>
               <div className={`${styles.headerLangs}`}>
                 <div className={`${styles.headerLangNow} ${activeLangs ? styles.headerLangNowActive : ''}`}>
@@ -581,8 +658,9 @@ const Header = () => {
                       {LANG_DATA.map(item => {
                         return (
                           <div
-                            className={`${styles.headerLangsModalLink} ${'en' === item.title ? styles.headerLangsModalLinkActive : ''
-                              }`}
+                            className={`${styles.headerLangsModalLink} ${
+                              'en' === item.title ? styles.headerLangsModalLinkActive : ''
+                            }`}
                             key={item.id}
                             onClick={() => {
                               openLangs(false);
@@ -659,7 +737,7 @@ const Header = () => {
                     <div className={styles.settingsModalFloor}>
                       <div>Dark Mode</div>
                       <div className={styles.settingsCheckboxContainer}>
-                        <input type='checkbox' defaultValue={false} onChange={() => { }} />
+                        <input type='checkbox' defaultValue={false} onChange={() => {}} />
                         <div className={styles.settingsCheckbox}>
                           <i></i>
                         </div>
@@ -670,9 +748,7 @@ const Header = () => {
                         <Tooltip
                           title={'Default Transaction Speed (GWEI)'}
                           type={'settings'}
-                          text={
-                            'Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi'
-                          }
+                          text={'Vigacas cudi ragacebi ewera aq. ar qnat es. ar sheidzleba. gtxovt nu.'}
                         />
                       </div>
                       <div className={styles.settingsModalBtns}>
@@ -688,15 +764,14 @@ const Header = () => {
                         <Tooltip
                           title={'Slippage Tolerance'}
                           type={'settings'}
-                          text={
-                            'Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi'
-                          }
+                          text={'Vigacas cudi ragacebi ewera aq. ar qnat es. ar sheidzleba. gtxovt nu.'}
                         />
                       </div>
                       <div className={styles.settingsModalBtns}>
                         <div
-                          className={`${styles.settingsModalBtn} ${slippage === 0.1 ? styles.settingsModalBtnActive : ''
-                            }`}
+                          className={`${styles.settingsModalBtn} ${
+                            slippage === 0.1 ? styles.settingsModalBtnActive : ''
+                          }`}
                           onClick={e =>
                             dispatch({
                               type: 'SET_SLIPPAGE',
@@ -707,8 +782,9 @@ const Header = () => {
                           0.1%
                         </div>
                         <div
-                          className={`${styles.settingsModalBtn} ${slippage === 0.5 ? styles.settingsModalBtnActive : ''
-                            }`}
+                          className={`${styles.settingsModalBtn} ${
+                            slippage === 0.5 ? styles.settingsModalBtnActive : ''
+                          }`}
                           onClick={e =>
                             dispatch({
                               type: 'SET_SLIPPAGE',
@@ -719,8 +795,9 @@ const Header = () => {
                           0.5%
                         </div>
                         <div
-                          className={`${styles.settingsModalBtn} ${slippage === 1 ? styles.settingsModalBtnActive : ''
-                            }`}
+                          className={`${styles.settingsModalBtn} ${
+                            slippage === 1 ? styles.settingsModalBtnActive : ''
+                          }`}
                           onClick={e =>
                             dispatch({
                               type: 'SET_SLIPPAGE',
@@ -753,16 +830,14 @@ const Header = () => {
                         <Tooltip
                           title={'Tx deadlines (mins)'}
                           type={'settings'}
-                          text={
-                            'Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi'
-                          }
+                          text={'Vigacas cudi ragacebi ewera aq. ar qnat es. ar sheidzleba. gtxovt nu.'}
                         />
                       </div>
                       <input
                         type='number'
                         className={styles.settingsModalLtlInput}
                         defaultValue={20}
-                        onChange={() => { }}
+                        onChange={() => {}}
                       />
                     </div>
                     <div className={styles.settingsModalFloor}>
@@ -770,13 +845,11 @@ const Header = () => {
                         <Tooltip
                           title={'Expert Mode'}
                           type={'settings'}
-                          text={
-                            'Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi'
-                          }
+                          text={'Vigacas cudi ragacebi ewera aq. ar qnat es. ar sheidzleba. gtxovt nu.'}
                         />
                       </div>
                       <div className={styles.settingsCheckboxContainer}>
-                        <input type='checkbox' defaultValue={false} onChange={() => { }} />
+                        <input type='checkbox' defaultValue={false} onChange={() => {}} />
                         <div className={styles.settingsCheckbox}>
                           <i></i>
                         </div>
@@ -787,13 +860,11 @@ const Header = () => {
                         <Tooltip
                           title={'Disable Multihops'}
                           type={'settings'}
-                          text={
-                            'Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi'
-                          }
+                          text={'Vigacas cudi ragacebi ewera aq. ar qnat es. ar sheidzleba. gtxovt nu.'}
                         />
                       </div>
                       <div className={styles.settingsCheckboxContainer}>
-                        <input type='checkbox' defaultValue={false} onChange={() => { }} />
+                        <input type='checkbox' defaultValue={false} onChange={() => {}} />
                         <div className={styles.settingsCheckbox}>
                           <i></i>
                         </div>
@@ -804,13 +875,11 @@ const Header = () => {
                         <Tooltip
                           title={'Subgraph Health Indicator'}
                           type={'settings'}
-                          text={
-                            'Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi Yle chame jonjoli mojvi'
-                          }
+                          text={'Vigacas cudi ragacebi ewera aq. ar qnat es. ar sheidzleba. gtxovt nu.'}
                         />
                       </div>
                       <div className={styles.settingsCheckboxContainer}>
-                        <input type='checkbox' defaultValue={false} onChange={() => { }} />
+                        <input type='checkbox' defaultValue={false} onChange={() => {}} />
                         <div className={styles.settingsCheckbox}>
                           <i></i>
                         </div>
@@ -827,7 +896,7 @@ const Header = () => {
                         />
                       </div>
                       <div className={styles.settingsCheckboxContainer}>
-                        <input type='checkbox' defaultValue={false} onChange={() => { }} />
+                        <input type='checkbox' defaultValue={false} onChange={() => {}} />
                         <div className={styles.settingsCheckbox}>
                           <i></i>
                         </div>
@@ -837,15 +906,16 @@ const Header = () => {
                 </div>
               </div>
               <div
-                className={`${isConnected && isActive ? styles.headerNotConnected : ''} ${styles.headerConnectBtnContainer
-                  } ${activeSettings ? styles.transformRight : ''}`}
+                className={`${account && triedReconnect ? styles.headerNotConnected : ''} ${
+                  styles.headerConnectBtnContainer
+                } ${activeSettings ? styles.transformRight : ''}`}
               >
                 <Button
                   title={'Connect Wallet'}
                   type={`${connectBtnColor}`}
                   onClick={() => {
                     closeAll();
-                    handleWalletModal(true);
+                    setWalletModal(true);
                   }}
                   customStyles={{
                     padding: '10px 20px',
@@ -853,8 +923,9 @@ const Header = () => {
                 />
               </div>
               <div
-                className={`${styles.headerConnected} ${isConnected && isActive ? '' : styles.headerNotConnected} ${activeSettings ? styles.transformRight : ''
-                  }`}
+                className={`${styles.headerConnected} ${account && triedReconnect ? '' : styles.headerNotConnected} ${
+                  activeSettings ? styles.transformRight : ''
+                }`}
               >
                 <div
                   className={`${styles.headerConnectedBtn} ${profileModal ? styles.headerConnectedBtnActive : ''}`}
@@ -866,7 +937,7 @@ const Header = () => {
                     <Image src={`/images/meta.png`} alt='avatar' layout='fill' />
                     <i></i>
                   </div>
-                  <span>{isConnected && isActive ? account : ''}</span>
+                  <span>{account && triedReconnect ? account : ''}</span>
                   <div className={styles.headerConnectedBtnArrow}>
                     <i></i>
                     <div className={styles.headerConnectedBtnArrowSvg}>
@@ -900,7 +971,7 @@ const Header = () => {
           <div className={styles.headerConnectedModalInner}>
             <div className={styles.headerConnectedModalAddress}>
               <div>
-                <span>{isConnected && isActive ? account : ''}</span>
+                <span>{account && triedReconnect ? account : ''}</span>
                 <span>metamask</span>
               </div>
               <svg width='17' height='17' viewBox='0 0 17 17' fill='none' xmlns='http://www.w3.org/2000/svg'>
@@ -1008,7 +1079,11 @@ const Header = () => {
                   }}
                   onClick={() => {
                     closeAll();
-                    connect(item.type);
+                    if (item.type === 'walletConnect') {
+                      connect(item.type, walletConnect);
+                    } else {
+                      connect(item.type, injected);
+                    }
                   }}
                 >
                   <div className={styles.connectWalletItem}>
@@ -1023,17 +1098,19 @@ const Header = () => {
           </div>
         </div>
         <div
-          className={`${styles.headerLine} ${activeMenu !== null || activeLangs || activeSettings || walletModal || profileModal || activeBurger
-            ? styles.headerLineActive
-            : ''
-            }`}
+          className={`${styles.headerLine} ${
+            activeMenu !== null || activeLangs || activeSettings || walletModal || profileModal || activeBurger
+              ? styles.headerLineActive
+              : ''
+          }`}
         ></div>
       </header>
       <div
-        className={`${styles.headerBg} ${activeMenu !== null || activeLangs || activeSettings || walletModal || profileModal
-          ? styles.headerBgActive
-          : ''
-          }`}
+        className={`${styles.headerBg} ${
+          activeMenu !== null || activeLangs || activeSettings || walletModal || profileModal
+            ? styles.headerBgActive
+            : ''
+        }`}
         onClick={() => {
           closeAll();
         }}

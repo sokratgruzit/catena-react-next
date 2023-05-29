@@ -91,7 +91,7 @@ const PrizeFunds = () => {
               An average total of 35,000 CAKE from the treasury is added to lottery rounds over the course of a week.
               This CAKE is of course also included in rollovers! Read more in our guide to{' '}
               <a className={styles.links} href='#'>
-              CATENA Tokenomics
+                CATENA Tokenomics
               </a>
             </p>
           </div>

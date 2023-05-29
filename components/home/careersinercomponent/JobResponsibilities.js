@@ -1,5 +1,4 @@
-const JobResponsibilities = props => {
-  const { requirements, title, description } = props;
+const JobResponsibilities =  ({ requirements, title, description }) => {
 
   return (
     <div>

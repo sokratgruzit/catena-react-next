@@ -3,15 +3,10 @@ import { persistReducer, persistStore } from 'redux-persist';
 import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2';
 import storage from 'redux-persist/lib/storage';
 
+import appStateReducer from './appStateReducer';
 import connectReducer from './connectReducer';
 import favoritesReducer from './favoritesReducer';
 import settingsReducer from './settingsReducer';
-
-const rootReducer = combineReducers({
-  connect: connectReducer,
-  favorites: favoritesReducer,
-  settings: settingsReducer,
-});
 
 const persistConfig = {
   key: 'root',
@@ -19,10 +14,15 @@ const persistConfig = {
   stateReconciler: autoMergeLevel2,
 };
 
-const persistedReducer = persistReducer(persistConfig, rootReducer);
+const rootReducer = combineReducers({
+  connect: persistReducer(persistConfig, connectReducer),
+  favorites: persistReducer(persistConfig, favoritesReducer),
+  settings: persistReducer(persistConfig, settingsReducer),
+  appState: appStateReducer,
+});
 
 const store = configureStore({
-  reducer: persistedReducer,
+  reducer: rootReducer,
   middleware: getDefaultMiddleware({
     serializableCheck: false,
   }),

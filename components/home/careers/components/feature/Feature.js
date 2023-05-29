@@ -3,25 +3,34 @@ import Link from 'next/link';
 
 import styles from './Feature.module.css';
 
-const Feature = props => {
-  const { featureLinkList, title, link } = props;
+export const getStaticProps = async () => {
+  const res = await fetch('https://jsonplaceholder.typicode.com/users');
+  const data = await res.json();
+
+  return {
+    props: {
+      featureLinkList: data,
+      title: "Feature Title"
+    }
+  };
+};
+
+const Feature = ({ featureLinkList, title }) => {
+  if (!featureLinkList) {
+    return null;
+  }
 
   return (
     <div className={`${styles.openPositionsContainer}`}>
       <h2 className='font-51'>{title}</h2>
       <div className={`${styles.openPositionsList}`}>
-        {featureLinkList.map((item, index) => {
-          return (
-            <Link key={index} href={item.link}>
-              <div className='open-positions__list-item'>
-                <span>{item.title}</span>
-                {item.list.map((subitem, index) => {
-                  return <span key={index}>{subitem}</span>;
-                })}
-              </div>
+        {featureLinkList.map((item) => (
+          <div className='open-positions__list-item' key={item.id}>
+            <Link href={`/home/careers/${item.id}`} key={item.id}>
+              <a>{item.title}</a>
             </Link>
-          );
-        })}
+          </div>
+        ))}
       </div>
       <Button
         label={'Button'}
@@ -37,3 +46,5 @@ const Feature = props => {
 };
 
 export default Feature;
+
+

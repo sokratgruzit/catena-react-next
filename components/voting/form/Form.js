@@ -11,10 +11,10 @@ import FormChoice from '../components/formChoice/FormChoice';
 import FormSelectDate from '../components/formDateInput/FormSelectDate';
 import FormSelectTime from '../components/formDateInput/FormSelectTime';
 
-const ReactQuill = typeof window === 'object' ? require('react-quill') : () => false;
-
 import 'react-quill/dist/quill.snow.css';
 import styles from './Form.module.css';
+
+const ReactQuill = typeof window === 'object' ? require('react-quill') : () => false;
 
 const Form = () => {
   const { isActive, handleWalletModal } = useConnect();
@@ -37,7 +37,7 @@ const Form = () => {
     const fullStartDate = mergeDateAndTime(formData.startDate, formData.startTime);
     const fullEndDate = mergeDateAndTime(formData.endDate, formData.endTime);
 
-    console.log(fullStartDate, fullEndDate);
+    console.log(fullStartDate, fullEndDate, formData);
 
     // try {
     //  send formData
@@ -172,20 +172,20 @@ const Form = () => {
                 <OpenSvg className={styles.openSvg} />
               </a>
             </div>
-            {isActive ? (
-              <button className={styles.publishButton} disabled={JSON.stringify(formErrors) !== '{}'}>
-                Publish
-              </button>
+            <button className={styles.publishButton} disabled={JSON.stringify(formErrors) !== '{}'}>
+              Publish
+            </button>
+            {/* {isActive ? (
             ) : (
               <Button
-                title={'Connect Wallet'}
+                title={"Connect Wallet"}
                 onClick={() => {
                   handleWalletModal(true);
                 }}
-                type={'blue'}
+                type={"blue"}
                 className={styles.connectWallet}
               />
-            )}
+            )} */}
           </form>
         </div>
       </div>

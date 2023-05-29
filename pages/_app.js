@@ -6,6 +6,7 @@ import Web3 from 'web3';
 
 import Footer from '../components/layout/Footer';
 import Header from '../components/layout/Header';
+import Wrapper from '../components/layout/Wrapper';
 import store, { persistor } from '../store/index';
 
 import '../styles/globals.css';
@@ -28,9 +29,11 @@ function MyApp({ Component, pageProps }) {
       <Web3ReactProvider getLibrary={getLibrary}>
         <Provider store={store}>
           <PersistGate loading={null} persistor={persistor}>
-            <Header />
-            <Component {...pageProps} />
-            <Footer />
+            <Wrapper>
+              <Header />
+              <Component {...pageProps} />
+              <Footer />
+            </Wrapper>
           </PersistGate>
         </Provider>
       </Web3ReactProvider>

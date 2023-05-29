@@ -1,9 +1,6 @@
 import { Button } from '@catena-network/catena-ui-module';
 import React from 'react';
 
-import CoreMultichainWork from './careersinercomponent/CoreMultichainWork';
-import JobDetails from './careersinercomponent/JobDetails';
-import JobResponsibilities from './careersinercomponent/JobResponsibilities';
 import Benefits from './components/benefits/Benefits';
 import CompanyInfo from './components/companyinfo/CompanyInfo';
 import CoreTeam from './components/coreteam/CoreTeam';
@@ -12,6 +9,41 @@ import Feature from './components/feature/Feature';
 import HowWeHire from './components/howwehire/HowWeHire';
 import OurValues from './components/ourvalues/OurValues';
 import Recruitment from './components/recruitment/Recruitment';
+
+
+// import JobResponsibilities from "../../../components/home/careersinercomponent/JobResponsibilities"
+// import CoreMultichainWork from "../../../components/home/careersinercomponent/CoreMultichainWork"
+// import JobDetails from "../../../components/home/careersinercomponent/JobDetails"
+// import CompanyInfo from "../../../components/home/careers/components/companyinfo/CompanyInfo"
+// import { Button } from "@catena-network/catena-ui-module"
+// import { id } from "date-fns/locale"
+
+// import Feature from "../../../components/home/careers/components/feature/Feature"
+
+
+
+ {/* <JobResponsibilities requirements={designPresentations} title='Responsibilities' />
+      <JobResponsibilities requirements={requirements} title='Requirements' />
+      <JobResponsibilities
+        requirements={benefitsList}
+        title='Benefits'
+        description="Here are some of the benefits that you'll receive on successful recruitment:"
+      />
+      <CoreMultichainWork coreMultichain={coreMultichain} title='Working at CATENA Network' />
+      <CompanyInfo workflow={teamCountries} name='how we work' />
+      <CompanyInfo workflow={txt} name='About CATENA Network' />
+      <JobDetails jobType={jobType} />
+      <Button
+        label={'Button'}
+        size={'btn-lg'}
+        type={'btn-primary'}
+        arrow={'arrow-right'}
+        element={'button'}
+        disabled={true}
+        onClick={() => console.log(prevState => !prevState)}
+      /> */}
+
+
 
 const workflow = [
   {
@@ -30,62 +62,62 @@ const workflow = [
 
 const featureLinkList = [
   {
-    link: 'senioruxdesigner_te000054',
+    id: 0,
     title: 'Senior UX Designer',
     list: ['Technology •', ' Full-Time •', ' Remote • '],
   },
   {
-    link: 'web3engineer_te000047',
+    id: 1,
     title: 'Web 3 Engineer',
     list: ['Technology •', ' Full-Time •', ' Remote • '],
   },
   {
-    link: 'rustcoreprotocoldeveloper_te000040',
+    id: 2,
     title: 'Rust CATENA Protocol Developer',
     list: ['Technology •', ' Full-Time •', ' Remote • '],
   },
   {
-    link: 'juniorgamedesigner_te000033',
+    id: 3,
     title: 'Junior Game Designer',
     list: ['Technology •', ' Full-Time •', ' Remote • '],
   },
   {
-    link: 'iosdevelopermidtosenior_te000032',
+    id: 4,
     title: 'iOS Developer (Mid to Senior)',
     list: ['Technology •', ' Full-Time •', ' Remote • '],
   },
   {
-    link: 'fullstackweb30developer_te000028',
+    id: 5,
     title: 'Full Stack Web 3.0 Developer',
     list: ['Technology •', ' Full-Time •', ' Remote • '],
   },
   {
-    link: 'directorofcommunications-english_sa000024',
+    id: 6,
     title: 'Director of Communications - English',
     list: ['Sales & Support •', ' Remote • '],
   },
   {
-    link: 'cryptoresearchanalyst_op000019',
+    id: 7,
     title: 'Crypto Research Analyst',
     list: ['Operations •', ' Full-Time •', ' Remote • '],
   },
   {
-    link: 'creativedirector_te000018',
+    id: 8,
     title: 'Creative Director',
     list: ['Technology •', ' Full-Time •', ' Remote • '],
   },
   {
-    link: 'backendarchitect-riskmanagement_te000011',
+    id: 9,
     title: 'Backend Architect - Risk Management',
     list: ['Technology •', ' Full-Time •', ' Remote • '],
   },
   {
-    link: 'apisolutionengineerpythonnodejsdeveloperclientsupport_te000010',
+    id: 10,
     title: 'API Solution Engineer (Python + Node.JS Developer / Client Support)',
     list: ['Technology •', ' Full-Time •', ' Remote • '],
   },
   {
-    link: 'affiliateinfluencermarketingcoordinator-latam_ma000008',
+    id: 11,
     title: 'Affiliate/Influencer Marketing Coordinator - LATAM',
     list: ['Marketing •', ' Full-Time •', ' Remote • '],
   },
@@ -262,169 +294,12 @@ const jobInfo = [
   },
 ];
 
-const designPresentations = [
-  {
-    title: 'Responsible and accountable for the UX/UI design for the ecosystem.',
-  },
-  {
-    title: 'Will have to present your designs to team members, stakeholders, and engineers.',
-  },
-  {
-    title:
-      'Create high-quality UX design solutions through sketches, wireframes, designs, flow diagrams, storyboards, and site maps by analyzing product requirements.',
-  },
-  {
-    title: 'Knowing how to prototype is a plus.',
-  },
-  {
-    title: 'Participate in user research as well as competitive product and data analysis.',
-  },
-  {
-    title:
-      'Ensure smooth implementation of discovered design optimization points and any identified methods to improve design systems.',
-  },
-  {
-    title: 'Share your work within the design team and participate in design reviews.',
-  },
-];
-
-const requirements = [
-  {
-    title: '5+ years experience in UX design at a product-driven company.',
-  },
-  {
-    title: 'Have experience designing for large customer-facing platforms.',
-  },
-  {
-    title: 'Experience in UI design is a plus.',
-  },
-  {
-    title: 'A good logical thinker that is straight to the point with analytics and problem-solving skills.',
-  },
-  {
-    title: 'Attention to detail.',
-  },
-  {
-    title: 'Understand how both the frontend and backend of the system works.',
-  },
-  {
-    title: 'Familiarity with related design methodologies, guidelines, and processes.',
-  },
-  {
-    title: 'Expertise in Figma and its capabilities.',
-  },
-  {
-    title: 'Understand agile workflow.',
-  },
-  {
-    title: 'Be teamwork-oriented and enjoy working with other designers to help each other grow and learn.',
-  },
-  {
-    title: "At least a Bachelor's degree in a design-related field.",
-  },
-  {
-    title: 'Good English writing, reading, and communication skills',
-  },
-  {
-    title: 'Preferably a background in the finance industry or related fields.',
-  },
-  {
-    title: 'Experience in the digital asset industry is a plus.',
-  },
-];
-
-const benefitsList = [
-  {
-    title: "We'll make you an offer you can't refuse",
-  },
-  {
-    title: 'Freedom to choose when and where you work',
-  },
-  {
-    title: '24 days of paid time off a year, plus your local holidays',
-  },
-  {
-    title: 'Between 2 and 8 in-person meetups per year for team-building (expenses covered)',
-  },
-  {
-    title: 'Laptop and a €2,000 budget to set up your home office',
-  },
-  {
-    title: 'Reimbursement for co-working space membership or internet service at home',
-  },
-  {
-    title: 'Opportunities to attend training, workshops, and conferences',
-  },
-  {
-    title: 'Monthly reimbursement for a gym membership, massage, and other wellness services',
-  },
-  {
-    title: 'Support for buying a phone, eyeglasses, or tools you need for doing your best work',
-  },
-];
-
-const coreMultichain = [
-  {
-    title: 'Be a part of a revolutionary blockchain ecosystem.',
-  },
-  {
-    title: 'Fast-paced work environment with daily business challenges.',
-  },
-  {
-    title: 'International work environment and flat organization.',
-  },
-  {
-    title: 'Amazing opportunity for career growth in a rapidly expanding company.',
-  },
-  {
-    title: 'Possibility of relocation and international transfers mid-career.',
-  },
-  {
-    title: 'Flexible working hours.',
-  },
-  {
-    title: 'Casual work attire.',
-  },
-];
-
-const teamCountries = [
-  {
-    title:
-      'At CATENA Network, our team comprises remote teams from all over the world working together to accomplish a common objective. We believe that having a global team enables our technology to impact every part of the world positively. We can build our technology around the feedback and experiences of all of our remote teams.',
-  },
-  {
-    title:
-      'Our team is made up of people from over 40 different countries. We recruit internationally, and you work locally - in the middle of Shenzhen, a Miami beach, or a Greek island, the choice is yours.',
-  },
-];
-
-const txt = [
-  {
-    title:
-      'A 3rd generation Proof of Stake blockchain ecosystem that enables true cross-chain communication for any cryptocurrency asset and will solve the blockchain trilemma of scalability, interoperability, and throughput. The CATENA is easily accessible, allowing users to interact with the ecosystem through exchanges, wallets, games, and DeFi apps.',
-  },
-];
-
-const jobType = [
-  {
-    title: 'Job Level',
-    value: 'Senior',
-  },
-  {
-    title: 'Languages',
-    list: ['Englis', 'Georgian', 'Germany'],
-  },
-  {
-    title: 'Featured',
-    value: 'Yes',
-  },
-];
 
 const Careers = () => {
   return (
     <div>
       <CompanyInfo workflow={workflow} title='how we work' />
-      <Feature featureLinkList={featureLinkList} title='Featured Jobs' />
+      <Feature  featureLinkList={featureLinkList} title='Featured Jobs' />
       <CoreTeam team={team} title='Qualities of a CATENA Team:' />
       <Recruitment data={data} title='Recruitment Process:' />
       <OurValues
@@ -443,26 +318,6 @@ const Careers = () => {
       />
       <CompanyInfo workflow={senorUx} description='Senior UX Designer' />
       <HowWeHire hiringProcess={jobInfo} />
-      <Button
-        label={'Button'}
-        size={'btn-lg'}
-        type={'btn-primary'}
-        arrow={'arrow-right'}
-        element={'button'}
-        disabled={true}
-        onClick={() => console.log(prevState => !prevState)}
-      />
-      <JobResponsibilities requirements={designPresentations} title='Responsibilities' />
-      <JobResponsibilities requirements={requirements} title='Requirements' />
-      <JobResponsibilities
-        requirements={benefitsList}
-        title='Benefits'
-        description="Here are some of the benefits that you'll receive on successful recruitment:"
-      />
-      <CoreMultichainWork coreMultichain={coreMultichain} title='Working at CATENA Network' />
-      <CompanyInfo workflow={teamCountries} name='how we work' />
-      <CompanyInfo workflow={txt} name='About CATENA Network' />
-      <JobDetails jobType={jobType} />
       <Button
         label={'Button'}
         size={'btn-lg'}
