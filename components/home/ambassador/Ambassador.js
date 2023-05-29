@@ -4,7 +4,6 @@ import React from "react";
 import AmbassadorBenefits from "./components/AmbassadorBenefits";
 import AmbassadorExpectations from "./components/AmbassadorExpectations";
 import JoinUsSection from "./components/JoinUsSection";
-// import Community from "../ambasador-inner/Community";
 
 const ambassadorInfo = [
   {
@@ -101,10 +100,6 @@ const coreExepted = [
   },
 ];
 
-{
-  /* child */
-}
-
 const Ambassador = () => {
   return (
     <div>
@@ -128,7 +123,7 @@ const Ambassador = () => {
         type={"btn-primary"}
         arrow={"arrow-right"}
         element={"button"}
-        disabled={false}
+        disabled={true}
         onClick={() => console.log(prevState => !prevState)}
       />
       <JoinUsSection
@@ -136,10 +131,6 @@ const Ambassador = () => {
         description="Sign up to our newsletter to stay in the loop"
         text="Stay up-to-date with the latest CATENA Network developments such as events, programs and news by joining our social media channels."
       />
-
-      {/* child */}
-
-      {/* <Community /> */}
     </div>
   );
 };
