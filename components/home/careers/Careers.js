@@ -2,6 +2,7 @@ import { Button } from "@catena-network/catena-ui-module";
 import React from "react";
 
 import Benefits from "./components/benefits/Benefits";
+import CareersCatena from "./components/careerscatena/CareersCatena";
 import CompanyInfo from "./components/companyinfo/CompanyInfo";
 import CoreTeam from "./components/coreteam/CoreTeam";
 import CurrentOpenings from "./components/currentopenings/CurrentOpenings";
@@ -9,38 +10,6 @@ import Feature from "./components/feature/Feature";
 import HowWeHire from "./components/howwehire/HowWeHire";
 import OurValues from "./components/ourvalues/OurValues";
 import Recruitment from "./components/recruitment/Recruitment";
-
-// import JobResponsibilities from "../../../components/home/careersinercomponent/JobResponsibilities"
-// import CoreMultichainWork from "../../../components/home/careersinercomponent/CoreMultichainWork"
-// import JobDetails from "../../../components/home/careersinercomponent/JobDetails"
-// import CompanyInfo from "../../../components/home/careers/components/companyinfo/CompanyInfo"
-// import { Button } from "@catena-network/catena-ui-module"
-// import { id } from "date-fns/locale"
-
-// import Feature from "../../../components/home/careers/components/feature/Feature"
-
-{
-  /* <JobResponsibilities requirements={designPresentations} title='Responsibilities' />
-      <JobResponsibilities requirements={requirements} title='Requirements' />
-      <JobResponsibilities
-        requirements={benefitsList}
-        title='Benefits'
-        description="Here are some of the benefits that you'll receive on successful recruitment:"
-      />
-      <CoreMultichainWork coreMultichain={coreMultichain} title='Working at CATENA Network' />
-      <CompanyInfo workflow={teamCountries} name='how we work' />
-      <CompanyInfo workflow={txt} name='About CATENA Network' />
-      <JobDetails jobType={jobType} />
-      <Button
-        label={'Button'}
-        size={'btn-lg'}
-        type={'btn-primary'}
-        arrow={'arrow-right'}
-        element={'button'}
-        disabled={true}
-        onClick={() => console.log(prevState => !prevState)}
-      /> */
-}
 
 const workflow = [
   {
@@ -294,6 +263,7 @@ const jobInfo = [
 const Careers = () => {
   return (
     <div>
+      <CareersCatena />
       <CompanyInfo workflow={workflow} title="how we work" />
       <Feature featureLinkList={featureLinkList} title="Featured Jobs" />
       <CoreTeam team={team} title="Qualities of a CATENA Team:" />
