@@ -1,8 +1,8 @@
 import { Input, HelpText } from '@catena-network/catena-ui-module';
 
 const JoinCatenaCommunity = () => {
-  const changeCountry = data => {
-    console.log(data);
+  const changeCountry = () => {
+    console.log('hi');
   };
 
   return (
