@@ -12,7 +12,7 @@ const CareersCatena = () => {
         </div>
       </h1>
       <div className="open-positions__btn-container">
-        <Link href={"open-positions"} className="open-positions__btn">
+        <Link href={"open-position"} className="open-positions__btn">
           Open positions
         </Link>
       </div>
