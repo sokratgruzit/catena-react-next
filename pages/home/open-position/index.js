@@ -66,11 +66,7 @@ const featureLinkList = [
 ];
 
 const index = () => {
-  return (
-    <div style={{ paddingTop: '300px' }}>
-      <OpenPosition featureLinkList={featureLinkList} />
-    </div>
-  );
+  return <OpenPosition featureLinkList={featureLinkList} />;
 };
 
 export default index;

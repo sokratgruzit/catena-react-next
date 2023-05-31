@@ -1906,11 +1906,7 @@ export const getStaticProps = async ({ params }) => {
 const CareersId = ({ object }) => {
   const router = useRouter();
 
-  return (
-    <div style={{ paddingTop: '300px' }}>
-      <CareersIneer data={object} />
-    </div>
-  );
+  return <CareersIneer data={object} />;
 };
 
 export default CareersId;

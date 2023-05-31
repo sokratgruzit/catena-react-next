@@ -5,7 +5,7 @@ import Feature from '../careers/components/feature/Feature';
 
 const OpenPosition = ({ featureLinkList }) => {
   return (
-    <div>
+    <div style={{ paddingTop: '300px' }}>
       <OpenSearch title='Open Positions' department='DEPARTMENT' location='LOCATION' />
       <Feature featureLinkList={featureLinkList} />
     </div>

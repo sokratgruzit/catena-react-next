@@ -82,7 +82,7 @@ function BugBounty() {
   ];
 
   return (
-    <div className='container'>
+    <div className='container' style={{ paddingTop: '300px' }}>
       <BugBountyTitle />
       <BugBountyItem data={data} />
       <BugBountyNumList data={listData} />

@@ -2,7 +2,7 @@ import React from 'react';
 
 const CareersInner = ({ data }) => {
   return (
-    <div>
+    <div style={{ paddingTop: '300px' }}>
       <span>{data.title}</span>
       <h2>Responsibilities</h2>
       <ul>

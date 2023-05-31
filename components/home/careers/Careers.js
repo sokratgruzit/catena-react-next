@@ -262,7 +262,7 @@ const jobInfo = [
 
 const Careers = () => {
   return (
-    <div>
+    <div style={{ paddingTop: '300px' }}>
       <CareersCatena />
       <CompanyInfo workflow={workflow} title='how we work' />
       <Feature featureLinkList={featureLinkList} title='Featured Jobs' />

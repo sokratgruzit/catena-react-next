@@ -2,11 +2,7 @@
 import Careers from '../../../components/home/careers/Careers';
 
 const Career = () => {
-  return (
-    <div style={{ paddingTop: '300px' }}>
-      <Careers />
-    </div>
-  );
+  return <Careers />;
 };
 
 export default Career;
