@@ -154,15 +154,15 @@ export default function ProductLogos() {
         ></path>{" "}
         <path
           data-v-7c95e0f0=""
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M76.9594 68.0819C90.2368 68.0819 101 57.3184 101 44.0411C101 30.7637 90.2368 20.0002 76.9594 20.0002C66.6021 20.0002 57.7746 26.5499 54.3927 35.7333C55.8035 36.1461 57.0651 36.9085 58.0772 37.9203C61.3801 39.7835 66.4887 41.1391 71.4741 38.2684C73.0587 36.4993 75.3607 35.3861 77.9226 35.3861C82.7025 35.3861 86.5773 39.2609 86.5773 44.0408C86.5773 48.8207 82.7025 52.6955 77.9226 52.6955C75.9651 52.6955 74.1595 52.0456 72.7095 50.9499C69.3386 49.2621 63.2491 47.7417 57.3116 50.8417C56.4546 51.5172 55.4669 52.0342 54.3926 52.3485C57.7744 61.5321 66.602 68.0819 76.9594 68.0819Z"
           fill="#E96B6B"
         ></path>{" "}
         <path
           data-v-7c95e0f0=""
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M75.4837 35.7339C72.102 26.5502 63.2743 20.0002 52.9168 20.0002C39.6394 20.0002 28.876 30.7637 28.876 44.0411C28.876 57.3184 39.6394 68.0819 52.9168 68.0819C63.2745 68.0819 72.1023 61.5317 75.4839 52.3477C74.4687 52.0503 73.5308 51.572 72.7076 50.9498C69.3364 49.2619 63.246 47.7414 57.3079 50.8425C55.8351 52.0031 53.9763 52.6955 51.9557 52.6955C47.1758 52.6955 43.301 48.8207 43.301 44.0408C43.301 39.261 47.1758 35.3861 51.9557 35.3861C54.3448 35.3861 56.5079 36.3542 58.0739 37.9195C61.3768 39.7831 66.4862 41.1395 71.4722 38.2683C72.5334 37.0836 73.9164 36.193 75.4837 35.7339Z"
           fill="#00FFF0"
         ></path>
@@ -178,31 +178,31 @@ export default function ProductLogos() {
         <path
           data-v-7c95e0f0=""
           opacity="0.3"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M96.2918 79.5071L54.9273 7.73462L13.7559 79.2175C19.4996 76.8524 32.5316 73.7634 54.9273 73.7634C78.2401 73.7151 91.1273 77.0938 96.2918 79.5071Z"
           fill="url(#paint0_linear)"
         ></path>{" "}
         <path
           data-v-7c95e0f0=""
           opacity="0.5"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M96.1473 79.4588L54.9276 23.8074L13.9492 79.1209C19.7895 76.7559 32.8215 73.7151 54.8793 73.7151C77.999 73.7151 90.8862 77.0455 96.1473 79.4588Z"
           fill="url(#paint1_linear)"
         ></path>{" "}
         <path
           data-v-7c95e0f0=""
           opacity="0.7"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M95.7595 79.2659L54.926 39.8804L14.4785 78.9281C20.5601 76.6113 33.4473 73.7153 54.926 73.7153C77.4665 73.7153 90.3054 76.9009 95.7595 79.2659Z"
           fill="url(#paint2_linear)"
         ></path>{" "}
         <path
           data-v-7c95e0f0=""
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M93.9261 78.5417L54.9267 55.9529L16.5547 78.1555C23.2637 75.9835 35.62 73.6667 54.9267 73.6667C75.2469 73.715 87.6997 76.3214 93.9261 78.5417Z"
           fill="url(#paint3_linear)"
         ></path>{" "}
@@ -261,17 +261,13 @@ export default function ProductLogos() {
             y2="79.5053"
             gradientUnits="userSpaceOnUse"
           >
-            <stop data-v-7c95e0f0="" stop-color="#6AF6FF"></stop>{" "}
-            <stop
-              data-v-7c95e0f0=""
-              offset="0.4844"
-              stop-color="#5200FF"
-            ></stop>{" "}
+            <stop data-v-7c95e0f0="" stopColor="#6AF6FF"></stop>{" "}
+            <stop data-v-7c95e0f0="" offset="0.4844" stopColor="#5200FF"></stop>{" "}
             <stop
               data-v-7c95e0f0=""
               offset="1"
-              stop-color="#220069"
-              stop-opacity="0"
+              stopColor="#220069"
+              stopOpacity="0"
             ></stop>
           </linearGradient>{" "}
           <linearGradient
@@ -283,17 +279,13 @@ export default function ProductLogos() {
             y2="79.4357"
             gradientUnits="userSpaceOnUse"
           >
-            <stop data-v-7c95e0f0="" stop-color="#6AF6FF"></stop>{" "}
-            <stop
-              data-v-7c95e0f0=""
-              offset="0.4844"
-              stop-color="#5200FF"
-            ></stop>{" "}
+            <stop data-v-7c95e0f0="" stopColor="#6AF6FF"></stop>{" "}
+            <stop data-v-7c95e0f0="" offset="0.4844" stopColor="#5200FF"></stop>{" "}
             <stop
               data-v-7c95e0f0=""
               offset="1"
-              stop-color="#220069"
-              stop-opacity="0"
+              stopColor="#220069"
+              stopOpacity="0"
             ></stop>
           </linearGradient>{" "}
           <linearGradient
@@ -305,17 +297,13 @@ export default function ProductLogos() {
             y2="79.2698"
             gradientUnits="userSpaceOnUse"
           >
-            <stop data-v-7c95e0f0="" stop-color="#6AF6FF"></stop>{" "}
-            <stop
-              data-v-7c95e0f0=""
-              offset="0.4844"
-              stop-color="#5200FF"
-            ></stop>{" "}
+            <stop data-v-7c95e0f0="" stopColor="#6AF6FF"></stop>{" "}
+            <stop data-v-7c95e0f0="" offset="0.4844" stopColor="#5200FF"></stop>{" "}
             <stop
               data-v-7c95e0f0=""
               offset="1"
-              stop-color="#220069"
-              stop-opacity="0"
+              stopColor="#220069"
+              stopOpacity="0"
             ></stop>
           </linearGradient>{" "}
           <linearGradient
@@ -327,17 +315,13 @@ export default function ProductLogos() {
             y2="78.5521"
             gradientUnits="userSpaceOnUse"
           >
-            <stop data-v-7c95e0f0="" stop-color="#6AF6FF"></stop>{" "}
-            <stop
-              data-v-7c95e0f0=""
-              offset="0.4844"
-              stop-color="#5200FF"
-            ></stop>{" "}
+            <stop data-v-7c95e0f0="" stopColor="#6AF6FF"></stop>{" "}
+            <stop data-v-7c95e0f0="" offset="0.4844" stopColor="#5200FF"></stop>{" "}
             <stop
               data-v-7c95e0f0=""
               offset="1"
-              stop-color="#220069"
-              stop-opacity="0"
+              stopColor="#220069"
+              stopOpacity="0"
             ></stop>
           </linearGradient>
         </defs>

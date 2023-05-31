@@ -3,8 +3,8 @@ import { Button } from "@catena-network/catena-ui-module";
 export default function LogoVariations() {
   const logosVariations = [
     {
-      image: "./images/Logo.png",
-      imageTwo: "./images/Logo.png",
+      image: "/images/guideLines/Logo.png",
+      imageTwo: "/images/guideLines/Logo.png",
       title: "Logo Variations",
       text: "Here is an acceptable alternative version of the logo.  Other alternatives will be added over time.",
     },
