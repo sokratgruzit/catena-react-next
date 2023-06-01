@@ -1,4 +1,4 @@
-import React from 'react';
+import styles from '../styles/Partniership.module.css';
 
 export default function Partniership() {
   const data = [
@@ -24,23 +24,23 @@ export default function Partniership() {
     <div>
       {data.map((item, index) => (
         <div key={index}>
-          <div data-aos='fade-up' className='guidline__flex'>
-            <div className='guidline__half'>
-              <div className='guidline__lrg-ttl font-51'>{item.partnerships}</div>
+          <div data-aos='fade-up' className={styles.guidlineFlex}>
+            <div className={styles.guidlineHalf}>
+              <div className={`${styles.guidlineLrgTtl} ${styles.font51}`}>{item.partnerships}</div>
             </div>
-            <div className='guidline__half'>
-              <div className='guidline__paragraph paragraphMt'>{item.partnershipsText}</div>
+            <div className={styles.guidlineHalf}>
+              <div className={`${styles.guidlineParagraph} ${styles.paragraphMt}`}>{item.partnershipsText}</div>
             </div>
           </div>
-          <div data-aos='fade-up' className='guidline__partners'>
-            <span className='line'></span>
-            <div className='guidline__partners-txt'>{item.partners}</div>
+          <div data-aos='fade-up' className={styles.guidlinePartners}>
+            <span className={styles.line}></span>
+            <div className={styles.guidlinePartnersTxt}>{item.partners}</div>
           </div>
-          <div data-aos='fade-up' className='guidline__flex'>
+          <div data-aos='fade-up' className='guidlineFlex'>
             {item.partnersItems.map((list, listIndex) => (
-              <div className='guidline__half wdth340' key={listIndex}>
-                <div className='guidline__half-ltl-ttl'>{list.title}</div>
-                <div className='guidline__half-ltl-dscr'>{list.text}</div>
+              <div className={`${styles.guidlineHalf} ${styles.wdth340}`} key={listIndex}>
+                <div className={styles.guidlineHalfLtlTtl}>{list.title}</div>
+                <div className={styles.guidlineHalfLtlDscr}>{list.text}</div>
               </div>
             ))}
           </div>

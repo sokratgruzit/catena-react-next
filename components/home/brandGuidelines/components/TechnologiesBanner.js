@@ -1,4 +1,4 @@
-import React from 'react';
+import styles from '../styles/TechnologiesBanner.module.css';
 
 export default function TechnologiesBanner() {
   const bannerData = [
@@ -13,17 +13,17 @@ export default function TechnologiesBanner() {
     <div>
       {bannerData.map((item, index) => (
         <div key={index}>
-          <div data-aos='fade-up' className='guidline__end-container'>
-            <router-link to='/about' className='guidline__end-half'>
-              <div className='guidline__end-half-descr'>
-                <div className='guidline__end-half-descr-title'>{item.aboutCore}</div>
-                <div className='guidline__end-half-descr-txt'>{item.aboutCoreText}</div>
+          <div data-aos='fade-up' className={styles.guidlineEndContainer}>
+            <router-link to='/about' className={styles.guidlineEndHalf}>
+              <div className={styles.guidlineEndHalfDescr}>
+                <div className={styles.guidlineEndHalfDescrTitle}>{item.aboutCore}</div>
+                <div className={styles.guidlineEndHalfDescrTxt}>{item.aboutCoreText}</div>
               </div>
             </router-link>
-            <router-link to='/technology' className='guidline__end-half'>
-              <div className='guidline__end-half-descr'>
-                <div className='guidline__end-half-descr-title'>{item.technologies}</div>
-                <div className='guidline__end-half-descr-txt'>{item.technologiesText}</div>
+            <router-link to='/technology' className={styles.guidlineEndHalf}>
+              <div className={styles.guidlineEndHalfDescr}>
+                <div className={styles.guidlineEndHalfDescrTitle}>{item.technologies}</div>
+                <div className={styles.guidlineEndHalfDescrTxt}>{item.technologiesText}</div>
               </div>
             </router-link>
           </div>

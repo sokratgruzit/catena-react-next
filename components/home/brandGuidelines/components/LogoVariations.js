@@ -1,3 +1,5 @@
+import styles from '../styles/LogoVariations.module.css';
+
 export default function LogoVariations() {
   const logosVariations = [
     {
@@ -18,9 +20,11 @@ export default function LogoVariations() {
       {logosVariations.map((item, index) => {
         return (
           <div key={index}>
-            {' '}
-            <div data-aos='fade-up' className='logo-variants__container guidline__flex pT-160'>
-              <div className='guidline__half logo-variants__inner'>
+            <div
+              data-aos='fade-up'
+              className={`${styles.logoVariantsContainer} ${styles.guidlineFlex} ${styles.pT160}`}
+            >
+              <div className={`${styles.guidlineHalf} ${styles.logoVariantsInner}`}>
                 <svg width='416' height='416' viewBox='0 0 416 416' fill='none' xmlns='http://www.w3.org/2000/svg'>
                   <g>
                     <path
@@ -53,15 +57,18 @@ export default function LogoVariations() {
                   </defs>
                 </svg>
               </div>
-              <div className='guidline__half d-center'>
-                <h3 className='guidline__half-ttl font-51'>{item.logo}</h3>
-                <div className='guidline__paragraph paragraphMt' v-html='item.logoText'>
+              <div className={`${styles.guidlineHalf} ${styles.dCenter}`}>
+                <h3 className={`${styles.guidlineHalfTtl} ${styles.font51}`}>{item.logo}</h3>
+                <div className={`${styles.guidlineParagraph} ${styles.paragraphMt}`} v-html='item.logoText'>
                   {item.logoText}
                 </div>
               </div>
             </div>
-            <div data-aos='fade-up' className='logo-variants__container guidline__flex pT-160'>
-              <div className='guidline__half logo-variants__inner'>
+            <div
+              data-aos='fade-up'
+              className={`${styles.logoVariantsContainer} ${styles.guidlineFlex} ${styles.pT160}`}
+            >
+              <div className={`${styles.guidlineHalf} ${styles.logoVariantsInner}`}>
                 <svg width='416' height='416' viewBox='0 0 416 416' fill='none' xmlns='http://www.w3.org/2000/svg'>
                   <path
                     fillRule='evenodd'
@@ -71,15 +78,18 @@ export default function LogoVariations() {
                   />
                 </svg>
               </div>
-              <div className='guidline__half d-center'>
-                <h3 className='guidline__half-ttl font-51'>{item.brandmark}</h3>
-                <div className='guidline__paragraph paragraphMt' v-html='item.brandmarkText'>
+              <div className={`${styles.guidlineHalf} ${styles.dCenter}`}>
+                <h3 className={`${styles.guidlineHalfTtl} ${styles.font51}`}>{item.brandmark}</h3>
+                <div className={`${styles.guidlineParagraph} ${styles.paragraphMt}`} v-html='item.brandmarkText'>
                   {item.brandmarkText}
                 </div>
               </div>
             </div>
-            <div data-aos='fade-up' className='logo-variants__container guidline__flex pT-160 pB-160 border_bottom'>
-              <div className='guidline__half logo-variants__inner'>
+            <div
+              data-aos='fade-up'
+              className={`${styles.logoVariantsContainer} ${styles.guidlineFlex} ${styles.pT160} ${styles.pB160} ${styles.borderBottom}`}
+            >
+              <div className={`${styles.guidlineHalf} ${styles.logoVariantsInner}`}>
                 <svg width='416' height='416' viewBox='0 0 416 416' fill='none' xmlns='http://www.w3.org/2000/svg'>
                   <g>
                     <path
@@ -139,12 +149,12 @@ export default function LogoVariations() {
                   </defs>
                 </svg>
               </div>
-              <div className='guidline__half d-center'>
-                <h3 className='guidline__half-ttl font-51'>{item.logoVariations}</h3>
-                <div className='guidline__paragraph paragraphMt' v-html='item.logoVariationsText'>
+              <div className={`${styles.guidlineHalf} ${styles.dCenter}`}>
+                <h3 className={`${styles.guidlineHalfTtl} ${styles.font51}`}>{item.logoVariations}</h3>
+                <div className={`${styles.guidlineParagraph} ${styles.paragraphMt}`} v-html='item.logoVariationsText'>
                   {item.logoVariationsText}
                 </div>
-                <a href='/resources/core-logo-pack.zip' className='logo-var'>
+                <a href='/resources/core-logo-pack.zip' className={styles.logoVar}>
                   {item.downloadAllVariations}
                 </a>
               </div>

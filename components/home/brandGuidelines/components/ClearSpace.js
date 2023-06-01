@@ -1,4 +1,4 @@
-import React from 'react';
+import styles from '../styles/ClearSpace.module.css';
 
 export default function ClearSpace() {
   const data = [
@@ -17,28 +17,27 @@ export default function ClearSpace() {
       {data.map((item, index) => (
         <div key={index}>
           <div>
-            {' '}
-            <div data-aos='fade-up' className='guidline__flex'>
-              <div className='guidline__half'>
-                <div className='guidline__lrg-ttl font-51'>
+            <div data-aos='fade-up' className={styles.guidlineFlex}>
+              <div className={styles.guidlineHalf}>
+                <div className={`${styles.guidlineLrgTtl} ${styles.font51}`}>
                   <span>{item.clearSpace}</span>
                   <span>{item.andPositioning}</span>
                 </div>
               </div>
-              <div className='guidline__half'>
-                <div className='guidline__paragraph paragraphMt'>{item.clearSpaceText}</div>
-                <div className='guidline__paragraph-half-img pB-160'></div>
+              <div className={styles.guidlineHalf}>
+                <div className={`${styles.guidlineParagraph} ${styles.paragraphMt}`}>{item.clearSpaceText}</div>
+                <div className={`${styles.guidlineParagraphHalfImg} ${styles.pB160}`}></div>
               </div>
             </div>
-            <div data-aos='fade-up' className='guidline__flex'>
-              <div className='guidline__half'>
-                <div className='guidline__lrg-ttl font-51'>
+            <div data-aos='fade-up' className={styles.guidlineFlex}>
+              <div className={styles.guidlineHalf}>
+                <div className={`${styles.guidlineLrgTtl} ${styles.font51}`}>
                   <span>{item.incorrect}</span>
                   <span>{item.usage}</span>
                 </div>
               </div>
-              <div className='guidline__half'>
-                <div className='guidline__paragraph paragraphMt' v-html='item.incorrectUsageText'>
+              <div className={styles.guidlineHalf}>
+                <div className={`${styles.guidlineParagraph} ${styles.paragraphMt}`} v-html='item.incorrectUsageText'>
                   {item.incorrectUsageText}
                 </div>
               </div>

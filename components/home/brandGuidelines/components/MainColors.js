@@ -10,7 +10,7 @@ export default function MainColors() {
     },
   ];
   return (
-    <div className='guidline__half-colors'>
+    <div className={styles.guidlineHalfColors}>
       {colors.map((item, index) => {
         return (
           <div key={index}>

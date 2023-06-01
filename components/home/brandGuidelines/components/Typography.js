@@ -1,4 +1,4 @@
-import React from 'react';
+import styles from '../styles/Typography.module.css';
 
 export default function Typography() {
   const data = [
@@ -13,16 +13,18 @@ export default function Typography() {
       {data.map((item, index) => {
         return (
           <div key={index}>
-            {' '}
-            <div data-aos='fade-up' className='guidline__flex'>
-              <div className='guidline__half'>
-                <div className='guidline__lrg-ttl font-51'>{item.typography}</div>
+            <div data-aos='fade-up' className={styles.guidlineFlex}>
+              <div className={styles.guidlineHalf}>
+                <div className={`${styles.guidlineLrgTtl} ${styles.font51}`}>{item.typography}</div>
               </div>
-              <div className='guidline__half'>
-                <div className='guidline__paragraph paragraphMt' v-html='translates.typographyText'></div>
+              <div className={styles.guidlineHalf}>
+                <div
+                  className={`${styles.guidlineParagraph} ${styles.paragraphMt}`}
+                  v-html='translates.typographyText'
+                ></div>
               </div>
             </div>
-            <div data-aos='fade-up' className='typography'>
+            <div data-aos='fade-up' className={styles.typography}>
               <svg width='1116' height='129' viewBox='0 0 1116 129' fill='none' xmlns='http://www.w3.org/2000/svg'>
                 <path
                   d='M0.78 126H23.64L35.34 97.02H94.2L105.9 126H128.76L74.4 3.78H55.14L0.78 126ZM42.72 78.66L64.86 26.64L86.82 78.66H42.72ZM182.878 128.7C197.998 128.7 207.898 122.76 214.018 116.46L213.838 126H233.458V32.94H214.198V41.94C207.718 35.46 196.378 30.24 182.878 30.24C154.438 30.24 134.278 52.38 134.278 79.56C134.278 106.74 154.438 128.7 182.878 128.7ZM184.318 111.42C166.858 111.42 153.718 97.02 153.718 79.38C153.718 61.74 166.858 47.52 184.318 47.52C201.598 47.52 215.278 59.22 215.278 79.38C215.278 99.72 201.598 111.42 184.318 111.42Z'
@@ -45,10 +47,10 @@ export default function Typography() {
                 />
               </svg>
             </div>
-            <div data-aos='fade-up' className='guidline__flex pB-160'>
-              <div className='guidline__half'></div>
-              <div className='guidline__half'>
-                <div className='guidline__paragraph-white'>
+            <div data-aos='fade-up' className={`${styles.guidlineFlex} ${styles.pB160}`}>
+              <div className={styles.guidlineHalf}></div>
+              <div className={styles.guidlineHalf}>
+                <div className={styles.guidlineParagraphWhite}>
                   1 2 3 4 5 6 7 8 9 0 <br />@ # $
                 </div>
               </div>

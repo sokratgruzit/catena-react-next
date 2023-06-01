@@ -1,4 +1,4 @@
-import React from 'react';
+import styles from '../styles/LogoUsages.module.css';
 
 export default function LogoUsages() {
   const incorrectUsageList = [
@@ -16,9 +16,9 @@ export default function LogoUsages() {
     <div>
       {incorrectUsageList.map((item, index) => (
         <div key={index}>
-          <div data-aos='fade-up' className='guidline__table pB-160'>
-            <div className='guidline__table-item'>
-              <div className='guidline__table-item-ttl'>{item}</div>
+          <div data-aos='fade-up' className={styles.guidlineTable}>
+            <div className={styles.guidlineTableItem}>
+              <div className={styles.guidlineTableItemTtl}>{item}</div>
             </div>
           </div>
         </div>

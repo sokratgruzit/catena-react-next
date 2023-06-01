@@ -1,4 +1,4 @@
-import React from 'react';
+import styles from '../styles/ProductLogos.module.css';
 
 export default function ProductLogos() {
   const data = [
@@ -13,13 +13,15 @@ export default function ProductLogos() {
       {data.map((item, index) => {
         return (
           <div key={index}>
-            {' '}
-            <div data-aos='fade-up' className='logo-variants__container guidline__flex pT-160 pB-160'>
-              <div className='logo-variants__products-container'>
-                <h3 className='font-51'>{item.productLogos}</h3>
-                <div className='logo-variants__products-description'>{item.productLogosText}</div>
-                <div className='logo-variants__products-logoes'>
-                  <div className='logo-variants__products-logo'>
+            <div
+              data-aos='fade-up'
+              className={`${styles.logoVariantsContainer} ${styles.guidlineFlex} ${styles.pT160} ${styles.pB160}`}
+            >
+              <div className={styles.logoVariantsProductsContainer}>
+                <h3 className={styles.font51}>{item.productLogos}</h3>
+                <div className={styles.logoVariantsProductDescription}>{item.productLogosText}</div>
+                <div className={styles.logoVariantsProductsLogoes}>
+                  <div className={styles.logoVariantsProductsLogo}>
                     <svg width='110' height='110' viewBox='0 0 110 110' fill='none' xmlns='http://www.w3.org/2000/svg'>
                       <path
                         d='M21.5542 101.341L19.2546 94.9095H8.22412L5.88551 101.341H0L10.2119 74.0569H17.2667L27.4787 101.341H21.5542ZM10.134 89.6087H17.3057L13.7199 79.7085L10.134 89.6087Z'
@@ -61,7 +63,7 @@ export default function ProductLogos() {
                       />
                     </svg>
                   </div>
-                  <div className='logo-variants__products-logo'>
+                  <div className={styles.logoVariantsProductsLogo}>
                     <svg width='128' height='128' viewBox='0 0 128 128' fill='none' xmlns='http://www.w3.org/2000/svg'>
                       <path
                         d='M3.99458 87.0065C6.68324 84.3435 10.0121 83.012 13.981 83.012C17.95 83.012 21.2788 84.3435 23.9675 87.0065C26.6561 89.6696 28.0005 92.9728 28.0005 96.9162C28.0005 100.86 26.6561 104.163 23.9675 106.826C21.2788 109.489 17.95 110.82 13.981 110.82C10.0121 110.82 6.68324 109.489 3.99458 106.826C1.33153 104.163 0 100.86 0 96.9162C0 92.9728 1.33153 89.6696 3.99458 87.0065ZM20.0113 90.6938C18.4237 89.055 16.4136 88.2356 13.981 88.2356C11.5484 88.2356 9.52554 89.055 7.91234 90.6938C6.32475 92.3326 5.53096 94.4068 5.53096 96.9162C5.53096 99.4256 6.32475 101.5 7.91234 103.138C9.52554 104.777 11.5484 105.597 13.981 105.597C16.4136 105.597 18.4237 104.777 20.0113 103.138C21.6245 101.5 22.4311 99.4256 22.4311 96.9162C22.4311 94.4068 21.6245 92.3326 20.0113 90.6938Z'
@@ -84,7 +86,7 @@ export default function ProductLogos() {
                       <ellipse cx='57.8105' cy='41.0063' rx='20.1649' ry='16.8041' fill='#010918' />
                     </svg>
                   </div>
-                  <div className='logo-variants__products-logo'>
+                  <div className={styles.logoVariantsProductsLogo}>
                     <svg width='128' height='128' viewBox='0 0 128 128' fill='none' xmlns='http://www.w3.org/2000/svg'>
                       <path
                         d='M18.8681 105.531C18.3042 105.766 17.7363 105.978 17.1646 106.165C16.5928 106.353 16.0015 106.514 15.3905 106.647C14.7796 106.788 14.1335 106.894 13.452 106.964C12.7785 107.035 12.054 107.07 11.2786 107.07C9.63378 107.07 8.11822 106.894 6.73189 106.541C5.3534 106.189 4.16289 105.66 3.16035 104.955C2.16564 104.243 1.39024 103.358 0.834144 102.3C0.278048 101.235 0 99.9936 0 98.576C0 97.1583 0.278048 95.9208 0.834144 94.8634C1.39024 93.7982 2.16564 92.9132 3.16035 92.2083C4.16289 91.4955 5.3534 90.9629 6.73189 90.6105C8.11822 90.258 9.63378 90.0818 11.2786 90.0818C12.054 90.0818 12.7785 90.117 13.452 90.1875C14.1335 90.258 14.7796 90.3638 15.3905 90.5047C16.0015 90.6379 16.5928 90.7984 17.1646 90.9864C17.7363 91.1744 18.3042 91.3859 18.8681 91.6208V95.5448C18.4217 95.302 17.9517 95.0632 17.4583 94.8282C16.9648 94.5854 16.4205 94.37 15.8252 94.182C15.23 93.9862 14.576 93.8296 13.8632 93.7121C13.1505 93.5868 12.3477 93.5241 11.4548 93.5241C10.0841 93.5241 8.94453 93.6651 8.03598 93.947C7.13526 94.229 6.41469 94.605 5.87425 95.0749C5.33382 95.5448 4.95395 96.0853 4.73465 96.6962C4.51534 97.2993 4.40569 97.9259 4.40569 98.576C4.40569 99.0067 4.45268 99.4336 4.54667 99.8565C4.64066 100.272 4.79731 100.667 5.01661 101.043C5.23592 101.411 5.5218 101.752 5.87425 102.065C6.22671 102.379 6.66532 102.649 7.19009 102.876C7.71485 103.103 8.32578 103.283 9.02285 103.416C9.72777 103.542 10.5384 103.604 11.4548 103.604C12.3477 103.604 13.1505 103.549 13.8632 103.44C14.576 103.322 15.23 103.17 15.8252 102.982C16.4205 102.794 16.9648 102.582 17.4583 102.347C17.9517 102.104 18.4217 101.858 18.8681 101.607V105.531Z'
@@ -124,7 +126,7 @@ export default function ProductLogos() {
                       />
                     </svg>
                   </div>
-                  <div className='logo-variants__products-logo'>
+                  <div className={styles.logoVariantsProductsLogo}>
                     <svg width='110' height='110' viewBox='0 0 110 110' fill='none' xmlns='http://www.w3.org/2000/svg'>
                       <path
                         opacity='0.3'

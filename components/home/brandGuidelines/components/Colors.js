@@ -1,52 +1,75 @@
-import React from 'react';
+import styles from '../styles/Colors.module.css';
 
 export default function Colors() {
-  const colorsList = ['CORE Red', 'Blue', 'White', 'Black'];
-  const displayedColors = [];
+  const colorsList = [{ name: 'White' }, { name: 'Blue' }, { name: 'Black' }, { name: 'CORE Red' }];
 
   return (
     <div>
-      {colorsList.map((item, index) => {
-        // Check if the color has already been displayed
-        if (!displayedColors.includes(item)) {
-          displayedColors.push(item); // Add the color to the displayed list
-
-          return (
-            <div key={index}>
-              <div data-aos='fade-up' className='pT-160 guidline__flex'>
-                <div className='guidline__bg-outer'></div>
-                <div className='guidline__half'>
-                  <div className='guidline__lrg-ttl font-51'>{item}</div>
-                </div>
-                <div className='guidline__half'>
-                  <div className='guidline__paragraph paragraphMt'>{/* Add your color description here */}</div>
-                </div>
+      {colorsList.map((item, index) => (
+        <div key={index}>
+          <div data-aos='fade-up' className={`${styles.pT160} ${styles.guidlineFlex}`}>
+            <div className={styles.guidlineBgOuter}></div>
+            <div className={styles.guidlineHalf}>
+              <div className={`${styles.guidlineLrgTtl} ${styles.font51}`}>{item.name}</div>
+            </div>
+          </div>
+          <div data-aos='fade-up' className={styles.guidlineColorScheme}>
+            <div
+              className={`${styles.guidlineColorSchemeItem} ${item.name === 'White' ? 'white' : ''} ${
+                item.name === 'Blue' ? 'blue' : ''
+              } ${item.name === 'Black' ? 'black' : ''} ${item.name === 'CORE Red' ? 'red' : ''}`}
+              style={{
+                background:
+                  item.name === 'White'
+                    ? '#FFFFFF'
+                    : item.name === 'Blue'
+                    ? '#0500FF'
+                    : item.name === 'Black'
+                    ? '#000000'
+                    : '#FF7152',
+              }}
+            >
+              <div className={styles.guidlineColorSchemeItemTtl}>{item.name}</div>
+              <div className={styles.guidlineColorsInnerDescriptionFloorDescr}>
+                <span className='wdth1'>
+                  {item.name === 'White'
+                    ? 'FFFFFF'
+                    : item.name === 'Blue'
+                    ? '0500FF'
+                    : item.name === 'Black'
+                    ? '000000'
+                    : 'FF7152'}
+                </span>
               </div>
-              <div data-aos='fade-up' className='guidline__color-scheme'>
-                <div className='guidline__color-scheme-item' style={{ background: '#FF7152' }}>
-                  <div className='guidline__color-scheme-item-ttl'>{item}</div>
-                  <div className='guidline__colors-inner-description-floor-descr'>
-                    <span className='wdth1'>FF7152</span>
-                  </div>
-                  <div className='guidline__colors-inner-description-floor-descr' style={{ marginRight: '30px' }}>
-                    <span className='wdth2'>R=255</span>
-                    <span className='wdth2'>G=113</span>
-                    <span className='wdth2'>B=82</span>
-                  </div>
-                  <div className='guidline__colors-inner-description-floor-descr'>
-                    <span className='wdth3'>C=1</span>
-                    <span className='wdth3'>M=69</span>
-                    <span className='wdth3'>Y=74</span>
-                    <span className='wdth3'>K=0</span>
-                  </div>
-                </div>
+              <div className={styles.guidlineColorsInnerDescriptionFloorDescr} style={{ marginRight: '30px' }}>
+                <span className={styles.wdth2}>
+                  R={item.name === 'White' ? '255' : item.name === 'Blue' ? '5' : item.name === 'Black' ? '0' : '255'}
+                </span>
+                <span className={styles.wdth2}>
+                  G={item.name === 'White' ? '255' : item.name === 'Blue' ? '0' : item.name === 'Black' ? '0' : '113'}
+                </span>
+                <span className={styles.wdth2}>
+                  B={item.name === 'White' ? '255' : item.name === 'Blue' ? '255' : item.name === 'Black' ? '0' : '82'}
+                </span>
+              </div>
+              <div className={styles.guidlineColorsInnerDescriptionFloorDescr}>
+                <span className={styles.wdth3}>
+                  C={item.name === 'White' ? '0' : item.name === 'Blue' ? '83' : item.name === 'Black' ? '58' : '1'}
+                </span>
+                <span className={styles.wdth3}>
+                  M={item.name === 'White' ? '0' : item.name === 'Blue' ? '74' : item.name === 'Black' ? '46' : '69'}
+                </span>
+                <span className={styles.wdth3}>
+                  Y={item.name === 'White' ? '0' : item.name === 'Blue' ? '0' : item.name === 'Black' ? '41' : '74'}
+                </span>
+                <span className={styles.wdth3}>
+                  K={item.name === 'White' ? '0' : item.name === 'Blue' ? '0' : item.name === 'Black' ? '95' : '0'}
+                </span>
               </div>
             </div>
-          );
-        } else {
-          return null;
-        }
-      })}
+          </div>
+        </div>
+      ))}
     </div>
   );
 }
