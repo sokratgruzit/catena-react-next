@@ -1,24 +1,23 @@
-import React from 'react';
+import ClearSpace from "./components/ClearSpace";
+import ColorBanner from "./components/ColorBanner";
+import ColorPalette from "./components/ColorPalette";
+import Colors from "./components/Colors";
+import IntroBanner from "./components/IntroBanner";
+import LogoUsages from "./components/LogoUsages";
+import LogoVariations from "./components/LogoVariations";
+import LogosBanner from "./components/LogosBanner";
+import MainColors from "./components/MainColors";
+import Partniership from "./components/Partniership";
+import ProductLogos from "./components/ProductLogos";
+import TechnologiesBanner from "./components/TechnologiesBanner";
+import Typography from "./components/Typography";
 
-import ClearSpace from './ClearSpace';
-import ColorBanner from './ColorBanner';
-import ColorPalette from './ColorPalette';
-import Colors from './Colors';
-import IntroBanner from './IntroBanner';
-import LogosBanner from './LogosBanner';
-import LogoUsages from './LogoUsages';
-import LogoVariations from './LogoVariations';
-import MAinColors from './MainColors';
-import Partniership from './Partniership';
-import ProductLogos from './ProductLogos';
-import TechnologiesBanner from './TechnologiesBanner';
-import Typography from './Typography';
 
 function BrandGuidelines() {
   return (
     <div>
       <IntroBanner />
-      <MAinColors />
+      <MainColors />
       <Typography />
       <LogosBanner />
       <LogoVariations />
