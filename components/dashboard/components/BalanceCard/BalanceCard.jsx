@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'react';
 
-import styles from './BalanceCard.module.css'
+import styles from './BalanceCard.module.css';
 
 const BalanceCard = () => {
   const cardData = [
@@ -20,7 +20,7 @@ const BalanceCard = () => {
       title: 'Staking apy',
       value: '-',
     },
-  ]
+  ];
   return (
     <div className={styles.cardWrapper}>
       <div className={styles.liner} />
@@ -74,7 +74,7 @@ const BalanceCard = () => {
         ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default BalanceCard
+export default BalanceCard;
