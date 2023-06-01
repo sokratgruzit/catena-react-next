@@ -1,9 +1,11 @@
+// import styles from "./bugBounty.module.css";
+
 function BugBountyTitle() {
   return (
     <div>
-      <div id='main' className='outer'>
-        <div className='main-container__description'>
-          <div className='left'>
+      <div id="main" className="outer">
+        <div className="main-container__description">
+          <div className="left">
             <h1>
               <span>Bug</span>
               <span>Bounty</span>

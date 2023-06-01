@@ -1,3 +1,5 @@
+// import styles from "./bugBounty.module.css";
+
 let data = [
   {
     text: [

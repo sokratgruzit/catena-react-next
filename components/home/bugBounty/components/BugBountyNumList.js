@@ -1,3 +1,5 @@
+// import styles from "./bugBounty.module.css";
+
 function BugBountyNumList({ data }) {
   return (
     <div>

@@ -1,3 +1,5 @@
+// import styles from "./terms.module.css";
+
 function TermsItem() {
   return (
     <div className="body-container">

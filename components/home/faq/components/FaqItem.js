@@ -1,3 +1,5 @@
+// import styles from "./faq.module.css";
+
 let faq = [
   {
     id: 1,

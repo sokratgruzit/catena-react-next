@@ -1,3 +1,5 @@
+// import styles from "./tolenomics.module.css";
+
 function Download() {
   return (
     <div className="download__container pB-160 pT-160">

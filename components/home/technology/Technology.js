@@ -79,7 +79,7 @@ export default function Technology() {
     },
   ];
   return (
-    <div>
+    <div className="container">
       <Promo />
       <Tabs tabs={tabs} />
       <Cart items={cartItems} />
