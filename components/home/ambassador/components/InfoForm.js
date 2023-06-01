@@ -58,9 +58,16 @@ const InfoForm = () => {
           </div>
         </div>
       ) : (
-        <div className='apply' onClick={handleClick}>
-          Apply Now
-        </div>
+        <Button
+          className='apply'
+          label='Apply now'
+          size='btn-lg'
+          type='btn-primary'
+          arrow='arrow-right'
+          element='button'
+          disabled={false}
+          onClick={handleClick}
+        />
       )}
     </div>
   );
