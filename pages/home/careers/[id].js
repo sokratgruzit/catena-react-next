@@ -1,11 +1,11 @@
+import { useRouter } from 'next/router';
 
-import { useRouter } from "next/router";
-import CareersIneer from "../../../components/home/careers-inner/CareersIneer";
+import CareersIneer from '../../../components/home/careers-inner/CareersIneer';
 
 const careersData = [
   {
     id: 0,
-    title: "Senior UX Designer",
+    title: 'Senior UX Designer',
     designPresentations: [
       {
         title: 'Responsible and accountable for the UX/UI design for the ecosystem.',
@@ -158,11 +158,11 @@ const careersData = [
         title: 'Featured',
         value: 'Yes',
       },
-    ]
+    ],
   },
   {
     id: 1,
-    title: "Web 3 Engineer",
+    title: 'Web 3 Engineer',
     designPresentations: [
       {
         title: 'Responsible and accountable for the UX/UI design for the ecosystem.',
@@ -315,11 +315,11 @@ const careersData = [
         title: 'Featured',
         value: 'Yes',
       },
-    ]
+    ],
   },
   {
     id: 2,
-    title: "Rust Core Protocol Developer",
+    title: 'Rust Core Protocol Developer',
     designPresentations: [
       {
         title: 'Responsible and accountable for the UX/UI design for the ecosystem.',
@@ -472,11 +472,11 @@ const careersData = [
         title: 'Featured',
         value: 'Yes',
       },
-    ]
+    ],
   },
   {
     id: 3,
-    title: "Junior Game Designer",
+    title: 'Junior Game Designer',
     designPresentations: [
       {
         title: 'Responsible and accountable for the UX/UI design for the ecosystem.',
@@ -629,7 +629,7 @@ const careersData = [
         title: 'Featured',
         value: 'Yes',
       },
-    ]
+    ],
   },
   {
     id: 4,
@@ -785,7 +785,7 @@ const careersData = [
         title: 'Featured',
         value: 'Yes',
       },
-    ]
+    ],
   },
   {
     id: 5,
@@ -941,7 +941,7 @@ const careersData = [
         title: 'Featured',
         value: 'Yes',
       },
-    ]
+    ],
   },
   {
     id: 6,
@@ -1097,7 +1097,7 @@ const careersData = [
         title: 'Featured',
         value: 'Yes',
       },
-    ]
+    ],
   },
   {
     id: 7,
@@ -1253,7 +1253,7 @@ const careersData = [
         title: 'Featured',
         value: 'Yes',
       },
-    ]
+    ],
   },
   {
     id: 8,
@@ -1409,7 +1409,7 @@ const careersData = [
         title: 'Featured',
         value: 'Yes',
       },
-    ]
+    ],
   },
   {
     id: 9,
@@ -1565,7 +1565,7 @@ const careersData = [
         title: 'Featured',
         value: 'Yes',
       },
-    ]
+    ],
   },
   {
     id: 10,
@@ -1721,7 +1721,7 @@ const careersData = [
         title: 'Featured',
         value: 'Yes',
       },
-    ]
+    ],
   },
   {
     id: 11,
@@ -1877,12 +1877,12 @@ const careersData = [
         title: 'Featured',
         value: 'Yes',
       },
-    ]
+    ],
   },
 ];
 
 export const getStaticPaths = async () => {
-  const paths = careersData.map((item) => ({
+  const paths = careersData.map(item => ({
     params: { id: item.id.toString() },
   }));
 
@@ -1894,9 +1894,7 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async ({ params }) => {
   const id = parseInt(params.id);
-  const object = careersData.find((item) => item.id === id);
-  console.log(object)
-
+  const object = careersData.find(item => item.id === id);
 
   return {
     props: {
@@ -1908,13 +1906,7 @@ export const getStaticProps = async ({ params }) => {
 const CareersId = ({ object }) => {
   const router = useRouter();
 
-
-  return (
-    <div style={{ paddingTop: '300px' }}>
-      <CareersIneer data={object} />
-    </div>
-  );
+  return <CareersIneer data={object} />;
 };
 
 export default CareersId;
-

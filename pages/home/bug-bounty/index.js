@@ -1,10 +1,6 @@
 import BugBounty from '../../../components/home/bugBounty/BugBounty';
 
 function index() {
-  return (
-    <div style={{ paddingTop: '300px' }}>
-      <BugBounty />
-    </div>
-  );
+  return <BugBounty />;
 }
 export default index;

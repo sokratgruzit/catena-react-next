@@ -1,12 +1,9 @@
-import React from 'react'
-import Community from '../../../components/home/community/Community'
+import React from 'react';
+
+import Community from '../../../components/home/community/Community';
 
 const index = () => {
-    return (
-        <div>
-            <Community />
-        </div>
-    )
-}
+  return <Community />;
+};
 
-export default index
+export default index;

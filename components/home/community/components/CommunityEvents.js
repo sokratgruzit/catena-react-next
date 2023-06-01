@@ -1,5 +1,3 @@
-import React from 'react';
-
 const CommunityEvents = props => {
   const { title, info, infoCont, description } = props;
 

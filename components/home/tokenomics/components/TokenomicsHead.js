@@ -64,7 +64,7 @@ function TokenomicsItem() {
             </div>
             <div className='bottom__description-item'>
               <div className='bottom__description-ttl'>Official Website</div>
-              <div className='bottom__description-text'>coremultichain.com</div>
+              <div className='bottom__description-text'>catenamultichain.com</div>
             </div>
           </div>
           <div className='bottom__description-floor'>

@@ -47,7 +47,11 @@ function Certik() {
               smart contracts and blockchains. Unlike traditional security audits, Formal Verification mathematically
               proves program correctness and hacker-resistance.
             </div>
-            <a href='https://www.certik.org/projects/coremultichain' target='_blank' className='about-list__item-link'>
+            <a
+              href='https://www.certik.org/projects/catenamultichain'
+              target='_blank'
+              className='about-list__item-link'
+            >
               CATENA on CertiK Platform
             </a>
           </div>

@@ -1,9 +1,8 @@
 import { Input, HelpText } from '@catena-network/catena-ui-module';
-import React from 'react';
 
-const JoinCoreCommunity = () => {
-  const changeCountry = data => {
-    console.log(data);
+const JoinCatenaCommunity = () => {
+  const changeCountry = () => {
+    console.log('hi');
   };
 
   return (
@@ -25,4 +24,4 @@ const JoinCoreCommunity = () => {
   );
 };
 
-export default JoinCoreCommunity;
+export default JoinCatenaCommunity;
