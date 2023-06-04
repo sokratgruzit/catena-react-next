@@ -1,4 +1,3 @@
-import { Button } from '@catena-network/catena-ui-module';
 import React from 'react';
 
 import Benefits from './components/benefits/Benefits';
@@ -234,32 +233,6 @@ const hiringProcess = [
   },
 ];
 
-const senorUx = [
-  {
-    title:
-      'CATENA Network is a blockchain ecosystem that will enable all blockchain projects and the blockchain space as a whole to thrive by addressing all of the most considerable limitations of blockchain technology, such as scalability and interoperability. ',
-  },
-  {
-    title:
-      "Are you looking to be a part of a revolutionary blockchain ecosystem that will unlock blockchain technology's unexplored potential and contribute to the cryptocurrency revolution that is busy changing the world? ",
-  },
-];
-
-const jobInfo = [
-  {
-    title: 'Reference',
-    value: 'TE000054',
-  },
-  {
-    title: 'Job Type',
-    value: 'Full-Time',
-  },
-  {
-    title: 'Remote',
-    value: 'Yes',
-  },
-];
-
 const Careers = () => {
   return (
     <div style={{ paddingTop: '300px' }}>
@@ -281,17 +254,6 @@ const Careers = () => {
         hiringProcess={hiringProcess}
         title='How We Hire'
         description='On average 2~4 week interview process with 4 interviews.'
-      />
-      <CompanyInfo workflow={senorUx} description='Senior UX Designer' />
-      <HowWeHire hiringProcess={jobInfo} />
-      <Button
-        label={'Button'}
-        size={'btn-lg'}
-        type={'btn-primary'}
-        arrow={'arrow-right'}
-        element={'button'}
-        disabled={true}
-        onClick={() => console.log('hi')}
       />
     </div>
   );

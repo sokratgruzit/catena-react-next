@@ -1,9 +1,35 @@
+import { Button } from '@catena-network/catena-ui-module';
 import React from 'react';
 
 const CareersInner = ({ data }) => {
+  console.log(data);
   return (
     <div>
       <span>{data.title}</span>
+      <div>
+        {data.senorUx.map((senor, index) => (
+          <p key={index}>{senor.title}</p>
+        ))}
+      </div>
+      <div>
+        {data.jobInfo.map((job, index) => (
+          <div key={index}>
+            <div>{job.title}</div>
+            <div>{job.value}</div>
+          </div>
+        ))}
+      </div>
+      <div>
+        <Button
+          label={'Button'}
+          size={'btn-lg'}
+          type={'btn-primary'}
+          arrow={'arrow-right'}
+          element={'button'}
+          disabled={true}
+          onClick={() => console.log('hi')}
+        />
+      </div>
       <h2>Responsibilities</h2>
       <ul>
         {data.designPresentations.map((presentation, index) => (

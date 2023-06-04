@@ -1,4 +1,4 @@
-import { Input, HelpText } from '@catena-network/catena-ui-module';
+import { Input } from '@catena-network/catena-ui-module';
 
 const JoinCatenaCommunity = () => {
   const changeCountry = () => {
@@ -14,9 +14,8 @@ const JoinCatenaCommunity = () => {
       <div className='footer__join-right'>
         <Input
           type={'label-input-phone-number'}
-          label={'your text'}
+          label={''}
           onChange={changeCountry}
-          statusCard={<HelpText status={'error'} title={'your text'} fontSize={'font-12'} icon={true} />}
           customStyles={{ width: '400px' }}
         />
       </div>
