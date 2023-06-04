@@ -1,17 +1,19 @@
+import styles from './CurrentOpenings.module.css';
+
 const CurrentOpenings = props => {
   const { currentOpeningsList, title } = props;
 
   return (
-    <div className='container career-qualities'>
-      <div className='font-51'>{title}</div>
+    <div className={`${styles.container} ${styles['careerQualities']}`}>
+      <h2 className={styles.font__51}>{title}</h2>
       {currentOpeningsList.map((item, index) => {
         return (
-          <div className='career-qualities__opening' key={index}>
-            <div className='career-qualities__opening-ttl'>{item.title}</div>
+          <div className={styles.careerQualities__opening} key={index}>
+            <div className={styles.careerQualities__openingTtl}>{item.title}</div>
             {item.list &&
-              item.list.map(subitem => {
+              item.list.map((subitem, subindex) => {
                 return (
-                  <div className='career-qualities__opening-txt' key={subitem}>
+                  <div className={styles.careerQualities__openingTxt} key={subindex}>
                     {subitem}
                   </div>
                 );

@@ -1,42 +1,31 @@
+import styles from './HowWeHire.module.css';
+
 const HowWeHire = props => {
   const { hiringProcess, title, description } = props;
 
   return (
     <div>
-      <section className='container'>
-        <div className='hire__steps-section'>
-          <div className='hire__steps-head'>
-            <h2 className='font-51'>{title}</h2>
+      <section className={styles.container}>
+        <div className={`${styles['hire__steps-section']}`}>
+          <div className={`${styles['hire__steps-head']}`}>
+            <h2 className={styles.font__51}>{title}</h2>
             <p>{description}</p>
           </div>
 
-          <div className='hire__steps'>
+          <div className={`${styles['hire__steps']}`}>
             {hiringProcess.map((item, index) => {
               return (
-                <div key={index} className='hire__step'>
-                  <div className='hire__steps-ttl font-51'>{item.number}</div>
-                  <div className='hire__steps-desc'>{item.title}</div>
-                  <div className='hire__steps-line'>{item.value}</div>
+                <div key={index} className={`${styles['hire__step']}`}>
+                  <div className={`${styles.hire__stepsTtl} ${styles['font__51']}`}>{item.number}</div>
+                  <div className={`${styles['hire__steps-desc']}`}>{item.title}</div>
+                  <div className={`${styles['hire__steps-line']}`}>{item.value}</div>
                 </div>
               );
             })}
           </div>
+          <div className={styles.hire__stepsLine}></div>
         </div>
       </section>
-
-      {/* <div>
-        <h2 className='font-51'>{title}</h2>
-        <p>{description}</p>
-      </div>
-      {hiringProcess.map((item, index) => {
-        return (
-          <div key={index}>
-            <div className='hire__steps-ttl font-51'>{item.number}</div>
-            <div className='hire__steps-desc'>{item.title}</div>
-            <div>{item.value}</div>
-          </div>
-        );
-      })} */}
     </div>
   );
 };

@@ -1,3 +1,5 @@
+// import styles from "./tolenomics.module.css";
+
 function Certik() {
   return (
     <div className='about-list'>

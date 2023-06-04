@@ -1,3 +1,5 @@
+// import styles from "./tolenomics.module.css";
+
 function TokenomicsItem() {
   return (
     <div className='bottom'>

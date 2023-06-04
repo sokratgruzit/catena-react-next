@@ -1,3 +1,5 @@
+// import styles from "./tolenomics.module.css";
+
 function Schedule() {
   return (
     <div className='tokenomics-list pT-160 pB-160'>
