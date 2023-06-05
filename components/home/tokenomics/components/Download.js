@@ -1,22 +1,22 @@
-// import styles from "./tolenomics.module.css";
+import styles from './Tokenomics.module.css';
 
 function Download() {
   return (
-    <div className='download__container pB-160 pT-160'>
-      <div className='donwnload-bg'>
-        <img src='' alt='tronlink-bg' className='donwnload-bg__img' />
+    <div className={`${styles.download__container} pB-160 pT-160 `}>
+      <div className={styles.donwnloadBg}>
+        <img src='' alt='tronlink-bg' className={`${styles.donwnloadBg} img `} />
       </div>
-      <div className='download__inner'>
-        <h2 className='download__title font-51'>
+      <div className={styles.download__inner}>
+        <h2 className={`${styles.download__title} font-51 `}>
           Download
-          <img src='' alt='tronlink' className='download__img' />
+          <img src='' alt='tronlink' className={styles.download__img} />
           tronlink Tronlink App
         </h2>
-        <div className='download__buttonsContainer'>
+        <div className={styles.download__buttonsContainer}>
           <a
             target='_blank'
             href='https://apps.apple.com/us/app/tronlink-trx-bttWallet/id1453530188'
-            className='download__button'
+            className={styles.download__button}
           >
             <svg width='183' height='60' viewBox='0 0 183 60' fill='none' xmlns='http://www.w3.org/2000/svg'>
               <path
@@ -117,7 +117,7 @@ function Download() {
           <a
             target='_blank'
             href='https://play.google.com/store/apps/details?id=com.tronlinkpro.wallet&hl=en&gl=US'
-            className='download__button'
+            className={styles.download__button}
           >
             <svg width='202' height='60' viewBox='0 0 202 60' fill='none' xmlns='http://www.w3.org/2000/svg'>
               <path
@@ -271,7 +271,7 @@ function Download() {
             </svg>
           </a>
         </div>
-        <div className='download__video-button'>
+        <div className={styles.download__videoButton}>
           <svg width='12' height='14' viewBox='0 0 12 14' fill='none' xmlns='http://www.w3.org/2000/svg'>
             <path d='M12 7L3.01142e-07 13.9282L9.06825e-07 0.0717964L12 7Z' fill='#FF7152' />
           </svg>

@@ -1,4 +1,4 @@
-// import styles from "./faq.module.css";
+import styles from './faq.module.css';
 
 let faq = [
   {
@@ -54,21 +54,21 @@ let faq = [
 function FaqItem() {
   return (
     <>
-      <div className='body-container'>
+      <div className={styles.bodyContainer}>
         <div className='container'>
-          <div className='blog'>
-            <h1>Faq</h1>
-            <p className='faq__teaser'>Answers to frequently asked questions about the CATENA Network.</p>
-            <div className='faq__list'></div>
+          <div className={styles.blog}>
+            <h1 className={styles.faqTitle}>Faq</h1>
+            <p className={styles.faq__teaser}>Answers to frequently asked questions about the CATENA Network.</p>
+            <div className={styles.faq__list}></div>
           </div>
         </div>
       </div>
       <div>
         {faq?.map(item => {
           return (
-            <div key={item.id} className='faq__item'>
-              <div className='faq__item-title'>{item.question}</div>
-              <div className='faq__item-tease'>{item.answer}</div>
+            <div key={item.id} className={styles.faq__item}>
+              <div className={styles.faq__itemTitle}>{item.question}</div>
+              <div className={styles.faq__itemTease}>{item.answer}</div>
             </div>
           );
         })}
