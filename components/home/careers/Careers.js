@@ -235,7 +235,7 @@ const hiringProcess = [
 
 const Careers = () => {
   return (
-    <div style={{ paddingTop: '300px' }}>
+    <div>
       <CareersCatena />
       <CompanyInfo workflow={workflow} title='how we work' />
       <Feature featureLinkList={featureLinkList} title='Featured Jobs' />
