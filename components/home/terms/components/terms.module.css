@@ -2,7 +2,7 @@
   flex-direction: column;
   position: relative;
 }
-.body-container {
+.bodyContainer {
   padding-left: 210px;
 }
 .terms h1 {
@@ -30,7 +30,7 @@
 }
 /*Ipad 768*/
 @media (max-width: 1023px) {
-  .body-container {
+  .bodyContainer {
     padding-left: 180px;
   }
   .terms h1 {
@@ -51,7 +51,7 @@
     margin-bottom: 30px;
     margin-top: 100px;
   }
-  .body-container {
+  .bodyContainer {
     padding-left: 0px;
   }
 }

@@ -1,11 +1,11 @@
-// import styles from "./tolenomics.module.css";
+import styles from "./Tokenomics.module.css";
 
 function Certik() {
   return (
-    <div className="about-list">
-      <div className="about-list__item pT-160 pB-160">
-        <div className="about-list__item-head">
-          <div className="about-list__title-container certik">
+    <div className={styles.aboutList}>
+      <div className={`${styles.aboutList__item} pT-160 pB-160 `}>
+        <div className={styles.aboutList__itemHead}>
+          <div className={`${styles.aboutList__titleContainer} certik `}>
             <svg width="420" height="100" viewBox="0 0 420 100" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
                 fillRule="evenodd"
@@ -43,8 +43,8 @@ function Certik() {
               />
             </svg>
           </div>
-          <div className="about-list__item-part">
-            <div className="about-list__item-sub-text">
+          <div className={styles.aboutList__itemPart}>
+            <div className={styles.aboutList__itemSubText}>
               CertiK leads blockchain security by pioneering the use of cutting-edge Formal Verification technology on
               smart contracts and blockchains. Unlike traditional security audits, Formal Verification mathematically
               proves program correctness and hacker-resistance.
@@ -52,7 +52,7 @@ function Certik() {
             <a
               href="https://www.certik.org/projects/catenamultichain"
               target="_blank"
-              className="about-list__item-link"
+              className={styles.aboutList__itemLink}
             >
               CATENA on CertiK Platform
             </a>
