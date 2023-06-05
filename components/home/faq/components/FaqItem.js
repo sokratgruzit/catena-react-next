@@ -1,4 +1,4 @@
-import styles from "./faq.module.css";
+import styles from "./Faq.module.css";
 
 let faq = [
   {
