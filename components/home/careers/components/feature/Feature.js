@@ -1,4 +1,4 @@
-import { Button } from '@catena-network/catena-ui-module';
+// import { Button } from '@catena-network/catena-ui-module';
 import Link from 'next/link';
 import { useState } from 'react';
 
@@ -59,15 +59,9 @@ const Feature = ({ featureLinkList, title }) => {
             </div>
           ))}
         </div>
-        <Button
-          label={'Button'}
-          size={'btn-lg'}
-          type={'btn-primary'}
-          arrow={'arrow-right'}
-          element={'button'}
-          disabled={true}
-          onClick={() => console.log(prevState => !prevState)}
-        />
+        <Link href={'open-position'}>
+          <div className={styles.featuredJobs__btnContainer}>View all open positions</div>
+        </Link>
       </div>
     </div>
   );

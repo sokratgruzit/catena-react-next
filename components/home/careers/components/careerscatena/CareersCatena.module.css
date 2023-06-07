@@ -46,6 +46,7 @@ transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
 margin-top: 215px;
 margin-bottom: 50px;
 }
+
 .mainContainer__description h1 .ttl_row {
 font-size: 100px;
 display: flex;
