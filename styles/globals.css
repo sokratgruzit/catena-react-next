@@ -12,7 +12,6 @@ body {
   -moz-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   text-size-adjust: 100%;
-  /*padding-bottom: 200vh;*/
   background: #00050f;
   /*dont use overflow hidden to body*/
 }
@@ -334,21 +333,13 @@ input[type="number"] {
 }
 .arrow-border {
   border: 1px solid transparent;
-  background-image: -webkit-gradient(
-      linear,
-      left bottom,
-      left top,
-      from(#00050f),
-      to(#00050f)
-    ),
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#00050f), to(#00050f)),
     -webkit-gradient(linear, left bottom, left top, from(#7464d7), to(rgba(116, 100, 215, 0.6))),
     -webkit-gradient(linear, left bottom, left top, from(#7464d7), to(rgba(116, 100, 215, 0.6))),
     -webkit-gradient(linear, left bottom, left top, from(#7464d7), to(rgba(116, 100, 215, 0.6))),
     -webkit-gradient(linear, left bottom, left top, from(#7464d7), to(rgba(116, 100, 215, 0.6)));
-  background-image: linear-gradient(0deg, #00050f, #00050f),
-    linear-gradient(0deg, #7464d7, rgba(116, 100, 215, 0.6)),
-    linear-gradient(0deg, #7464d7, rgba(116, 100, 215, 0.6)),
-    linear-gradient(0deg, #7464d7, rgba(116, 100, 215, 0.6)),
+  background-image: linear-gradient(0deg, #00050f, #00050f), linear-gradient(0deg, #7464d7, rgba(116, 100, 215, 0.6)),
+    linear-gradient(0deg, #7464d7, rgba(116, 100, 215, 0.6)), linear-gradient(0deg, #7464d7, rgba(116, 100, 215, 0.6)),
     linear-gradient(0deg, #7464d7, rgba(116, 100, 215, 0.6));
   background-origin: padding-box, border-box, border-box, border-box, border-box;
   background-repeat: no-repeat;
