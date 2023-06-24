@@ -88,8 +88,10 @@ function BugBounty() {
       <img className={styles.bg} src="/images/BG.png" alt="background-image" />
       <BugBountyTitle />
       <BugBountyItem data={data} />
-      <BugBountyNumList data={listData} />
-      <BugBountyList data={list} />
+      <div className={styles.listBg}>
+        <BugBountyNumList data={listData} />
+        <BugBountyList data={list} />
+      </div>
       <BugBountyRewards />
       <BugBountyItem data={reportData} />
       <BugBountyNumList data={numList} />
