@@ -39,18 +39,23 @@ function BugBountyList({ data }) {
     <>
       {data?.map((item, i) => {
         return (
-          <div key={i}>
-            <div className="ineligibility_head">
-              <h3 className="font-30">{item.title}</h3>
+          <>
+            <svg width="1130" height="1" viewBox="0 0 1130 1" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <line opacity="0.1" y1="0.5" x2="1130" y2="0.5" stroke="black" />
+            </svg>
+            <div key={i}>
+              <div className="ineligibility_head">
+                <h3 className={`${styles.h3} font-30 `}>{item.title}</h3>
+              </div>
+              <div className={styles.ineligibilityListFirst}>
+                <ul className={styles.eligibilityList}>
+                  {item.text?.map((item, i) => {
+                    return <li key={i}>{item}</li>;
+                  })}
+                </ul>
+              </div>
             </div>
-            <div className="ineligibility__list-first">
-              <ul className={styles.eligibilityList}>
-                {item.text?.map((item, i) => {
-                  return <li key={i}>{item}</li>;
-                })}
-              </ul>
-            </div>
-          </div>
+          </>
         );
       })}
     </>
