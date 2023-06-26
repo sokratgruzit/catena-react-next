@@ -85,7 +85,7 @@ function BugBounty() {
 
   return (
     <div className="container">
-      <img className={styles.bg} src="/images/BG.png" alt="background-image" />
+      {/* <img className={styles.bg} src="/images/BG.png" alt="background-image" /> */}
       <BugBountyTitle />
       <BugBountyItem data={data} />
       <div className={styles.listBg}>
