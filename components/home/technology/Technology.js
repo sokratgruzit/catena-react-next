@@ -46,7 +46,7 @@ export default function Technology() {
   ];
 
   return (
-    <div className='container' style={{ paddingTop: '100px' }}>
+    <div className='container'>
       <Promo />
       <Tabs tabs={tabs} />
       <Cart titpeSpanOne={'Network'} titpeSpanTwo={'Structure'} />

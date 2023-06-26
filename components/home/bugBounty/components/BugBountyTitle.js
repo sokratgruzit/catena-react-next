@@ -1,15 +1,14 @@
+import styles from './bugBounty.module.css';
+
 function BugBountyTitle() {
   return (
     <div>
       <div id='main' className='outer'>
         <div className='main-container__description'>
           <div className='left'>
-            <h1>
-              <span>Bug</span>
-              <span>Bounty</span>
-            </h1>
+            <h1 className={styles.h1}>Bug Bounty</h1>
           </div>
-          <h3>
+          <h3 className={styles.h3}>
             CATENA is calling all bug bounty hunters to identify bugs in the CATENA Framework. We invite our community
             and all professional bug hunters to investigate and responsibly report findings to us. The rewards will
             range from an equivalent of 10 – 1000 USDT, with an increase according to the submission quality and

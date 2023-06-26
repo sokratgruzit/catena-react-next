@@ -1,33 +1,35 @@
+import styles from './tokenomics.module.css';
+
 function Distribution() {
   return (
     <div>
-      <div className='about-financial__header'>
+      <div className={styles.aboutFinancial__header}>
         <h3 className='font-51'>
           <span>Token</span> <span>Distribution</span>
         </h3>
-        <div className='about-financial__header-text-container'>
-          <div className='about-financial__header-title'>Total Supply (Genesis)</div>
-          <div className='about-financial__header-sub-title'>20,000,000,000 CMCX</div>
+        <div className={styles.aboutFinancial__headerTextContainer}>
+          <div className={styles.aboutFinancial__headerTitle}>Total Supply (Genesis)</div>
+          <div className={styles.aboutFinancial__headerSubTitle}>20,000,000,000 CMCX</div>
         </div>
       </div>
-      <div className='chart-container'>
-        <div className='chart-container__left'>
-          <div className='chart-container__inner'>
-            <div className='chart__img'>
+      <div className={styles.chartContainer}>
+        <div className={styles.chartContainer__left}>
+          <div className={styles.chartContainer__inner}>
+            <div className={styles.chart__img}>
               <img src='' alt='' />
             </div>
             <img src='' alt='' />
-            <div id='chart'></div>
+            <div id={styles.chart}></div>
           </div>
         </div>
-        <div className='chart-container__right'>
+        <div className={styles.chartContainer__right}>
           <a
             href='https://etherscan.io/token/0x5b685863494c33f344081f75e5430c260c224a32?a=0xb29bb1d14fd445e623790fa4060ba1584f151448'
             target='_blank'
-            className='chart-container__description'
+            className={styles.chartContainer__description}
           >
             <div className='color'></div>
-            <div className='title descr'>
+            <div className={`${styles.title} descr `}>
               Reserve
               <svg
                 data-v-055a1cab=''
@@ -51,15 +53,15 @@ function Distribution() {
                 </defs>
               </svg>
             </div>
-            <div className='text descr'>6,000,000,000 CMCX (30%)</div>
+            <div className={`${styles.text} descr `}>6,000,000,000 CMCX (30%)</div>
           </a>
           <a
             href='https://etherscan.io/token/0x5b685863494c33f344081f75e5430c260c224a32?a=0xab2beb4f5c500d34c1f8e99f3b3a47cc027d8b1a'
             target='_blank'
-            className='chart-container__description'
+            className={styles.chartContainer__description}
           >
             <div className='color'></div>
-            <div className='title descr'>
+            <div className={`${styles.text} descr `}>
               Ecosystem Rewards
               <svg
                 data-v-055a1cab=''
@@ -83,15 +85,15 @@ function Distribution() {
                 </defs>
               </svg>
             </div>
-            <div className='text descr'>2,000,000,000 CMCX (10%)</div>
+            <div className={`${styles.text} descr `}>2,000,000,000 CMCX (10%)</div>
           </a>
           <a
             href='https://etherscan.io/token/0x5b685863494c33f344081f75e5430c260c224a32?a=0x8022faa24f5f7857f8deae490b033d3339ba2dbf'
             target='_blank'
-            className='chart-container__description'
+            className={styles.chartContainer__description}
           >
             <div className='color'></div>
-            <div className='title descr'>
+            <div className={`${styles.title} descr `}>
               Team
               <svg
                 data-v-055a1cab=''
@@ -115,15 +117,15 @@ function Distribution() {
                 </defs>
               </svg>
             </div>
-            <div className='text descr'>2,000,000,000 CMCX (10%)</div>
+            <div className={`${styles.text} descr `}>2,000,000,000 CMCX (10%)</div>
           </a>
           <a
             href='https://etherscan.io/token/0x5b685863494c33f344081f75e5430c260c224a32?a=0x0cdd6ae9083f025cd88fbb624891cbe161060ff6'
             target='_blank'
-            className='chart-container__description'
+            className={styles.chartContainer__description}
           >
             <div className='color'></div>
-            <div className='title descr'>
+            <div className={`${styles.title} descr `}>
               Marketing & Operations
               <svg
                 data-v-055a1cab=''
@@ -147,15 +149,15 @@ function Distribution() {
                 </defs>
               </svg>
             </div>
-            <div className='text descr'>1,000,000,000 CMCX (5%)</div>
+            <div className={`${styles.text} descr `}>1,000,000,000 CMCX (5%)</div>
           </a>
           <a
             href='https://etherscan.io/token/0x5b685863494c33f344081f75e5430c260c224a32?a=0xa6e0454e2e7b13a5978fe3a963831aa80753460e'
             target='_blank'
-            className='chart-container__description'
+            className={styles.chartContainer__description}
           >
             <div className='color'></div>
-            <div className='title descr'>
+            <div className={`${styles.title} descr `}>
               Advisory Board
               <svg
                 data-v-055a1cab=''
@@ -179,15 +181,15 @@ function Distribution() {
                 </defs>
               </svg>
             </div>
-            <div className='text descr'>600,000,000 CMCX (3%)</div>
+            <div className={`${styles.text} descr `}>600,000,000 CMCX (3%)</div>
           </a>
           <a
             href='https://etherscan.io/token/0x5b685863494c33f344081f75e5430c260c224a32?a=0x152e18f7b0fa1fb8182bf2a84d13ad03eb970300'
             target='_blank'
-            className='chart-container__description'
+            className={styles.chartContainer__description}
           >
             <div className='color'></div>
-            <div className='title descr'>
+            <div className={`${styles.title} descr `}>
               Strategic Acquisitions
               <svg
                 data-v-055a1cab=''
@@ -211,11 +213,11 @@ function Distribution() {
                 </defs>
               </svg>
             </div>
-            <div className='text descr'>400,000,000 CMCX (2%)</div>
+            <div className={`${styles.text} descr `}>400,000,000 CMCX (2%)</div>
           </a>
-          <a href='##' target='_blank' className='chart-container__description not'>
+          <a href='##' target='_blank' className={`${styles.chartContainer__description} not `}>
             <div className='color'></div>
-            <div className='title descr'>
+            <div className={`${styles.title} descr `}>
               Seed Round
               <svg
                 data-v-055a1cab=''
@@ -239,11 +241,11 @@ function Distribution() {
                 </defs>
               </svg>
             </div>
-            <div className='text descr'>4,000,000,000 CMCX (20%)</div>
+            <div className={`${styles.text} descr `}>4,000,000,000 CMCX (20%)</div>
           </a>
-          <a href='##' target='_blank' className='chart-container__description not'>
+          <a href='##' target='_blank' className={`${styles.chartContainer__description} not `}>
             <div className='color'></div>
-            <div className='title descr'>
+            <div className={`${styles.title} descr `}>
               IEO
               <svg
                 data-v-055a1cab=''
@@ -267,7 +269,7 @@ function Distribution() {
                 </defs>
               </svg>
             </div>
-            <div className='text descr'>4,000,000,000 CMCX (20%)</div>
+            <div className={`${styles.text} descr `}>4,000,000,000 CMCX (20%)</div>
           </a>
         </div>
       </div>

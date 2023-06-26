@@ -1,3 +1,5 @@
+import styles from '../styles/PrivacyHeader.module.css';
+
 export default function PrivacyHeader() {
   const privacyHeader = [
     {
@@ -18,19 +20,23 @@ export default function PrivacyHeader() {
     },
   ];
   return (
-    <div>
-      <h1>
+    <div className={styles.wrapper}>
+      <h1 className={styles.title}>
         <span>Privacy</span>
         <span>Policy</span>
       </h1>
-      {privacyHeader.map((item, index) => {
-        return (
-          <div key={index}>
-            <span>{item.span}</span>
-            <p>{item.text}</p>
-          </div>
-        );
-      })}
+      <div className={styles.intro}>
+        {privacyHeader?.map((item, index) => {
+          return (
+            <div key={index} className={styles.content}>
+              <p>
+                <span>{item.span}</span>
+                {item.text}
+              </p>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }

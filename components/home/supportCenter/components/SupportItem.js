@@ -1,3 +1,5 @@
+import styles from './supportItem.module.css';
+
 const SUPPORT_ITEMS = [
   {
     title: 'Announcements',
@@ -24,9 +26,9 @@ const SUPPORT_ITEMS = [
 const SupportItem = () => {
   return (
     <div className='container'>
-      <div className='support__items'>
+      <div className={styles.support__items}>
         {SUPPORT_ITEMS.map((item, index) => (
-          <div key={index} className='support_item'>
+          <div key={index} className={styles.support_item}>
             <img src='' alt='megaphone' />
             <a href='https://catenamultichain.medium.com/' target='_blank' rel='noreferrer'>
               {item.title}

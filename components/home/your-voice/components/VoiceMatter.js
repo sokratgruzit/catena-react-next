@@ -1,5 +1,7 @@
 import { Input, Button } from '@catena-network/catena-ui-module';
 
+import styles from './voiceMatters.module.css';
+
 const VoiceMatter = props => {
   const { title, description } = props;
   const changeHandler = (i, e) => {
@@ -10,7 +12,7 @@ const VoiceMatter = props => {
     <div>
       <form>
         <span>{title}</span>
-        <div className='content_description'>{description}</div>
+        <div className={styles.content_description}>{description}</div>
         <div>
           <Input
             type={'default'}
