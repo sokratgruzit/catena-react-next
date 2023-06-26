@@ -1,14 +1,14 @@
-// import styles from "./bugBounty.module.css";
+import styles from './bugBounty.module.css';
 
 function BugBountyItem({ data }) {
   return (
     <div>
       {data?.map((item, i) => {
         return (
-          <div key={i} className='eligibility__container'>
-            <div className='eligibility_head mb-100'>
-              <h2 className='font-51'>{item.title}</h2>
-              <div className='eligibility_description'>{item.text}</div>
+          <div key={i} className={styles.eligibilityContainer}>
+            <div className={styles.eligibilityHead}>
+              <h2 className={styles.h2}>{item.title}</h2>
+              <div className={styles.eligibilityDescription}>{item.text}</div>
             </div>
           </div>
         );

@@ -1,22 +1,24 @@
 @font-face {
-  font-family: "Lack-Regular";
-  src: url("../public/fonts/Lack-Regular.eot");
-  src: url("../public/fonts/Lack-Regular.eot?#iefix") format("embedded-opentype"),
+  font-family: "Noto-Sans";
+  src: url("../public/fonts/NotoSans-Regular.ttf") format("truetype");
+  /* src: url("../public/fonts/Lack-Regular.eot?#iefix") format("embedded-opentype"),
     url("../public/fonts/Lack-Regular.svg#Lack-Regular") format("svg"),
     url("../public/fonts/Lack-Regular.ttf") format("truetype"), url("../public/fonts/Lack-Regular.woff") format("woff"),
-    url("../public/fonts/Lack-Regular.woff2") format("woff2");
+    url("../public/fonts/Lack-Regular.woff2") format("woff2"); */
   font-weight: normal;
   font-style: normal;
 }
 
 * {
-  font-family: "Lack-Regular";
+  font-family: "Noto-Sans";
   font-size: 16px;
   /* line-height: 24px; */
   color: rgba(0, 0, 0, 1);
   text-decoration: none;
   outline-color: none;
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 html {
   overflow-x: hidden;
@@ -51,6 +53,7 @@ nav {
   list-style: none;
   font-weight: normal;
 }
+
 h3 {
   font-size: 20px;
 }
@@ -81,6 +84,16 @@ button {
 /* Handle */
 *::-webkit-scrollbar-thumb {
   background: #0500ff;
+}
+
+h1 {
+  font-size: 90px;
+}
+h2 {
+  font-size: 40px;
+}
+h3 {
+  font-weight: bold;
 }
 .circle_btn {
   display: flex;
@@ -134,6 +147,7 @@ button {
   line-height: 80px;
   color: #fff;
 }
+
 .container {
   width: 100%;
   max-width: 1920px;
@@ -147,8 +161,9 @@ button {
   line-height: 30px;
 }
 .font-51 {
-  font-size: 51px;
+  font-size: 40px;
   line-height: 66px;
+  font-weight: bold;
 }
 .pT-160 {
   padding-top: 160px;
@@ -324,6 +339,9 @@ input:focus:-ms-input-placeholder {
     height: 35px;
     padding: 0px 15px;
     font-size: 12px;
+    .h3 {
+      font-weight: bold;
+    }
   }
   .frameworks-container__frameworks-tab img {
     transform: scale(0.7);
@@ -331,12 +349,16 @@ input:focus:-ms-input-placeholder {
   .container {
     padding: 0px 25px;
   }
+
   .font-51 {
-    font-size: 38px;
+    font-size: 20px;
     line-height: 50px;
   }
   .pT-160 {
     padding-top: 100px;
+    .h3 {
+      font-weight: bold;
+    }
   }
   .pB-160 {
     padding-bottom: 100px;
@@ -356,7 +378,7 @@ input:focus:-ms-input-placeholder {
     padding-bottom: 50px;
   }
   .font-51 {
-    font-size: 28px;
+    font-size: 20px;
     line-height: 40px;
   }
   .container {
@@ -393,7 +415,12 @@ input:focus:-ms-input-placeholder {
   .container {
     padding: 0px 15px;
   }
+
   .feedback-form .el-form {
     width: 100%;
   }
+}
+
+h3 {
+  font-weight: bold;
 }
