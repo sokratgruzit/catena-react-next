@@ -1,6 +1,8 @@
+import styles from "./bugBounty.module.css";
+
 function BugBountyRewards() {
   return (
-    <section className="container">
+    <section className={styles.container}>
       <div className="rewards__container">
         <div className="rewards_head">
           <h2 className="font-51">Rewards</h2>
@@ -23,13 +25,8 @@ function BugBountyRewards() {
         </div>
 
         <div className="rewards__desc">
-          <span>
-            The minimum reward for eligible issues is the equivalent of 10 USDT.
-          </span>
-          <span>
-            In case of many hackers finding the same bug, the first who
-            submitted gets the rewards.
-          </span>
+          <span>The minimum reward for eligible issues is the equivalent of 10 USDT.</span>
+          <span>In case of many hackers finding the same bug, the first who submitted gets the rewards.</span>
         </div>
 
         <div className="rewards__range">

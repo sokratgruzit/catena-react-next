@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
-import TabFilter from '../../../../UI/filters/TabFilter';
 import CornerDecor from '../../../../UI/cornerDecor/CornerDecor';
+import TabFilter from '../../../../UI/filters/TabFilter';
 
 import styles from './ChartBlock.module.css';
 

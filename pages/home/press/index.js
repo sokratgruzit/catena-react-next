@@ -1,4 +1,4 @@
-import Press from "../../../components/home/press/Press";
+import Press from '../../../components/home/press/Press';
 
 const index = () => {
   return <Press />;

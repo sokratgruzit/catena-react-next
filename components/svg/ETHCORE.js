@@ -1,48 +1,19 @@
 import React from 'react';
 
 const ETHCORE = props => (
-  <svg
-    width='51'
-    height='31'
-    viewBox='0 0 51 31'
-    fill='none'
-    xmlns='http://www.w3.org/2000/svg'
-    {...props}
-  >
+  <svg width='51' height='31' viewBox='0 0 51 31' fill='none' xmlns='http://www.w3.org/2000/svg' {...props}>
     <g clipPath='url(#clip0_2_977)'>
       <path
         d='M29.5352 15.9958C29.5352 24.004 23.0433 30.4958 15.0352 30.4958C7.02703 30.4958 0.535156 24.004 0.535156 15.9958C0.535156 7.98772 7.02703 1.49585 15.0352 1.49585C23.0433 1.49585 29.5352 7.98772 29.5352 15.9958Z'
         fill='#627EEA'
         stroke='white'
       />
-      <path
-        d='M15.502 4.74585V13.0615L22.5304 16.2021L15.502 4.74585Z'
-        fill='white'
-        fillOpacity='0.602'
-      />
-      <path
-        d='M15.502 4.74585L8.47266 16.2021L15.502 13.0615V4.74585Z'
-        fill='white'
-      />
-      <path
-        d='M15.502 21.5907V27.2411L22.5351 17.5107L15.502 21.5907Z'
-        fill='white'
-        fillOpacity='0.602'
-      />
-      <path
-        d='M15.502 27.2411V21.5898L8.47266 17.5107L15.502 27.2411Z'
-        fill='white'
-      />
-      <path
-        d='M15.502 20.2832L22.5304 16.2022L15.502 13.0635V20.2832Z'
-        fill='white'
-        fillOpacity='0.2'
-      />
-      <path
-        d='M8.47266 16.2022L15.502 20.2832V13.0635L8.47266 16.2022Z'
-        fill='white'
-        fillOpacity='0.602'
-      />
+      <path d='M15.502 4.74585V13.0615L22.5304 16.2021L15.502 4.74585Z' fill='white' fillOpacity='0.602' />
+      <path d='M15.502 4.74585L8.47266 16.2021L15.502 13.0615V4.74585Z' fill='white' />
+      <path d='M15.502 21.5907V27.2411L22.5351 17.5107L15.502 21.5907Z' fill='white' fillOpacity='0.602' />
+      <path d='M15.502 27.2411V21.5898L8.47266 17.5107L15.502 27.2411Z' fill='white' />
+      <path d='M15.502 20.2832L22.5304 16.2022L15.502 13.0635V20.2832Z' fill='white' fillOpacity='0.2' />
+      <path d='M8.47266 16.2022L15.502 20.2832V13.0635L8.47266 16.2022Z' fill='white' fillOpacity='0.602' />
     </g>
     <path
       d='M49.5352 15.9958C49.5352 24.004 43.0433 30.4958 35.0352 30.4958C27.027 30.4958 20.5352 24.004 20.5352 15.9958C20.5352 7.98772 27.027 1.49585 35.0352 1.49585C43.0433 1.49585 49.5352 7.98772 49.5352 15.9958Z'
@@ -57,12 +28,7 @@ const ETHCORE = props => (
     />
     <defs>
       <clipPath id='clip0_2_977'>
-        <rect
-          width='30'
-          height='30'
-          fill='white'
-          transform='translate(0.0351562 0.99585)'
-        />
+        <rect width='30' height='30' fill='white' transform='translate(0.0351562 0.99585)' />
       </clipPath>
     </defs>
   </svg>

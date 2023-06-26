@@ -1,11 +1,10 @@
-import React from 'react';
-import { useRouter } from 'next/router';
-// import { MongoClient } from 'mongodb';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
+import React from 'react';
+// import { MongoClient } from 'mongodb';
 
 import TokenSection from '../../../../components/Info/components/TokensSection/TokenSection';
 import BackgroundImg from '../../../../public/images/Info/background/background.png';
-import DynamicNamespaces from 'next-translate/DynamicNamespaces';
 
 import styles from '../../../../components/Info/InfoPages.module.css';
 
@@ -32,13 +31,7 @@ const InfoTokensInnerPage = props => {
     // <DynamicNamespaces namespaces={['dynamic']} fallback='Loading...'>
     <div>
       <div className={styles.backgroundMain}>
-        <Image
-          layout='responsive'
-          objectFit='cover'
-          quality={100}
-          src={BackgroundImg}
-          alt='background'
-        />
+        <Image layout='responsive' objectFit='cover' quality={100} src={BackgroundImg} alt='background' />
       </div>
       <div className={styles.section}>
         <TokenSection data={props.infoTokensDetails} />
@@ -103,9 +96,7 @@ export async function getStaticProps(context) {
   // client.close();
 
   // console.log(tokensData);
-  const res = await fetch(
-    `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${tokenId}`,
-  );
+  const res = await fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${tokenId}`);
 
   const tokensData = await res.json();
 

@@ -1,10 +1,8 @@
-import React from 'react';
-import { useRouter } from 'next/router';
 import { MongoClient } from 'mongodb';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
+import React from 'react';
 
-import InfoRoutes from '../../../../components/Info/components/InfoRoutes/InfoRoutes';
-import SearchBar from '../../../../components/Info/components/SearchBar/SearchBar';
 import PoolsSection from '../../../../components/Info/components/PoolsSection/PoolsSection';
 import BackgroundImg from '../../../../public/images/Info/background/background.png';
 
@@ -41,19 +39,9 @@ const InfoPoolsInnerPage = props => {
   return (
     <div>
       <div className={styles.backgroundMain}>
-        <Image
-          layout='responsive'
-          objectFit='cover'
-          quality={100}
-          src={BackgroundImg}
-          alt='background'
-        />
+        <Image layout='responsive' objectFit='cover' quality={100} src={BackgroundImg} alt='background' />
       </div>
-      <div className={styles.section}>
-        {props.infoPoolsDetails && (
-          <PoolsSection data={props.infoPoolsDetails} />
-        )}
-      </div>
+      <div className={styles.section}>{props.infoPoolsDetails && <PoolsSection data={props.infoPoolsDetails} />}</div>
     </div>
   );
 };

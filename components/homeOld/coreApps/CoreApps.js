@@ -9,27 +9,15 @@ const CoreApps = () => {
   return (
     <section className={styles.container}>
       <div className={styles.mainBg}>
-        <Image
-          layout='fill'
-          objectFit='contain'
-          src={'/images/home/coreAppsBg.png'}
-          quality={100}
-          alt=''
-        />
+        <Image layout='fill' objectFit='contain' src={'/images/home/coreAppsBg.png'} quality={100} alt='' />
       </div>
       <div className={styles.main}>
         <h1 className={styles.title}>
           Download
           <div className={styles.coreLogo}>
-            <Image
-              layout='fill'
-              objectFit='contain'
-              src={'/images/home/logos/CoreLogo.png'}
-              quality={100}
-              alt=''
-            />
+            <Image layout='fill' objectFit='contain' src={'/images/home/logos/CoreLogo.png'} quality={100} alt='' />
           </div>
-          <span>CORE</span> Wallet App
+          <span>CATENA</span> Wallet App
         </h1>
         <div className={styles.buttonSection}>
           <Link href='/' scroll={false}>

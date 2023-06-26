@@ -1,7 +1,7 @@
-import React from 'react';
 import Image from 'next/image';
-import InfoOverview from '../../components/Info/InfoOverview/InfoOverview';
+import React from 'react';
 
+import InfoOverview from '../../components/Info/InfoOverview/InfoOverview';
 import BackgroundImg from '../../public/images/Info/background/background.png';
 import smokeBackground from '../../public/images/Info/background/smokeBackground.png';
 
@@ -11,23 +11,11 @@ const index = () => {
   return (
     <div>
       <div className={styles.backgroundMain}>
-        <Image
-          layout='responsive'
-          objectFit='cover'
-          quality={100}
-          src={BackgroundImg}
-          alt='background'
-        />
+        <Image layout='responsive' objectFit='cover' quality={100} src={BackgroundImg} alt='background' />
       </div>
       <InfoOverview />
       <div className={styles.gradient}>
-        <Image
-          src={smokeBackground}
-          layout='responsive'
-          objectFit='cover'
-          alt='shit'
-          quality={100}
-        />
+        <Image src={smokeBackground} layout='responsive' objectFit='cover' alt='shit' quality={100} />
       </div>
     </div>
   );

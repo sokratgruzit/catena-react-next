@@ -1,21 +1,16 @@
-import { useState } from 'react';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
-
-import Button from '../button/Button';
-
-import { formatCurrency } from '../../utils/formatCurrency';
+import { useState } from 'react';
 
 import ImgTextItem from './components/ImgTextItem/ImgTextItem';
-import TextItem from './components/TextItem/TextItem';
-import PriceItem from './components/PriceItem/PriceItem';
-import PriceChange from './components/priceChange/PriceChange';
-import TextSvg from './components/TextSvg/TextSvg';
 import MultiTextItem from './components/multiTextItem/MultiTextItem';
+import MultiTextSvg from './components/multiTextSvg/MultiTextSvg';
+import PriceChange from './components/priceChange/PriceChange';
+import PriceItem from './components/PriceItem/PriceItem';
+import TextItem from './components/TextItem/TextItem';
+import TextSvg from './components/TextSvg/TextSvg';
+import { VectorSvg } from '../../svg';
 
 import styles from './ListItemRow.module.css';
-import MultiTextSvg from './components/multiTextSvg/MultiTextSvg';
-import { VectorSvg } from '../../svg';
 
 const ListItemRow = props => {
   let data = props.data;
@@ -78,13 +73,7 @@ const ListItemRow = props => {
     <div className={`${cs} ${styles.rowItem}`} onClick={props?.toggleExpand}>
       {data.data.map((item, index) => {
         if (item.type === 'img_text') {
-          return (
-            <ImgTextItem
-              key={'img_text' + type + index}
-              data={item}
-              onClick={item.onClick}
-            />
-          );
+          return <ImgTextItem key={'img_text' + type + index} data={item} onClick={item.onClick} />;
         }
 
         if (item.type === 'text') {
@@ -92,9 +81,7 @@ const ListItemRow = props => {
         }
 
         if (item.type === 'multi_text') {
-          return (
-            <MultiTextItem key={'multi_text' + type + index} data={item} />
-          );
+          return <MultiTextItem key={'multi_text' + type + index} data={item} />;
         }
 
         if (item.type === 'price') {
@@ -106,22 +93,13 @@ const ListItemRow = props => {
         }
 
         if (item.type === 'price_change') {
-          return (
-            <PriceChange key={'price_change' + type + index} data={item} />
-          );
+          return <PriceChange key={'price_change' + type + index} data={item} />;
         }
         if (item.type === 'multi_svg') {
           return <MultiTextSvg key={'multi_svg' + type + index} data={item} />;
         }
         if (item.type === 'expand_custom') {
-          return (
-            <VectorSvg
-              key={index}
-              className={`${styles.vectorSvg} ${
-                props.expandRow && styles.vectorActive
-              }`}
-            />
-          );
+          return <VectorSvg key={index} className={`${styles.vectorSvg} ${props.expandRow && styles.vectorActive}`} />;
         }
       })}
     </div>

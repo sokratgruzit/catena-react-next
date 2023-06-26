@@ -1,13 +1,6 @@
 import React, { useState } from 'react';
-import {
-  AutoTag,
-  ExclamationSvg,
-  ManualTag,
-  MathSignSvg,
-  QuestionMarkIcon,
-  ReverseSvg,
-  VectorSvg,
-} from '../../../svg';
+
+import { AutoTag, ExclamationSvg, ManualTag, MathSignSvg, QuestionMarkIcon, VectorSvg } from '../../../svg';
 import Button from '../../../UI/button/Button';
 import StakeCalculator from '../StakeCalculator/StakeCalculator';
 
@@ -86,20 +79,12 @@ const PoolsTableComponent = ({ item, toggleExpand, expandRow }) => {
         {openCalculatorManual && <StakeCalculator type='manual' />}
         <section className={styles.connectSection}>
           <h2>Start Earning</h2>
-          <Button
-            title={'Connect Wallet'}
-            type={'blue'}
-            className={styles.connectButton}
-          />
+          <Button title={'Connect Wallet'} type={'blue'} className={styles.connectButton} />
         </section>
 
         <div className={styles.expandButton} onClick={toggleExpand}>
           {expandRow ? 'Hide' : 'Details'}
-          <VectorSvg
-            className={`${styles.VectorSvg} ${
-              expandRow && styles.vectorActive
-            }`}
-          />
+          <VectorSvg className={`${styles.VectorSvg} ${expandRow && styles.vectorActive}`} />
         </div>
       </section>
     </main>

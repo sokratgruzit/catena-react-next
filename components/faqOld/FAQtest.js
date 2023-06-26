@@ -1,8 +1,9 @@
 import React from 'react';
+
+import FAQRow from './FAQRow';
 import Expand from '../UI/expand/Expand';
 
 import styles from './FAQ.module.css';
-import FAQRow from './FAQRow';
 
 const FAQtest = ({ data }) => {
   return (

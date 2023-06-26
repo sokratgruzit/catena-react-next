@@ -1,4 +1,4 @@
-import Support from "../../../components/home/supportCenter/Support";
+import Support from '../../../components/home/supportCenter/Support';
 
 const index = () => {
   return <Support />;

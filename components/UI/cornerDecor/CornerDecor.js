@@ -1,4 +1,5 @@
 import React from 'react';
+
 import styles from './CornerDecor.module.css';
 
 const CornerDecor = () => {

@@ -1,6 +1,8 @@
 import React from 'react';
-import styles from './TopMovers.module.css';
+
 import TopMoversSingleItem from './TopMoversSingleItem';
+
+import styles from './TopMovers.module.css';
 
 const TopMovers_Data = [
   {

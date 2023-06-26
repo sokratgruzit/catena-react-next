@@ -1,18 +1,19 @@
-import { Circle3MoreDetails } from "../../../svg";
-import Reac, { useState } from "react";
-import styles from "./CurrentVotes.module.css";
-import { useMobileWidth } from "../../../../hooks/useMobileWidth";
+import dynamic from 'next/dynamic';
+import { useState } from 'react';
 
-import dynamic from "next/dynamic";
+import { useMobileWidth } from '../../../../hooks/useMobileWidth';
+import { Circle3MoreDetails } from '../../../svg';
 
-const ReactApexChart = dynamic(() => import("react-apexcharts"), {
+import styles from './CurrentVotes.module.css';
+
+const ReactApexChart = dynamic(() => import('react-apexcharts'), {
   loading: () => <p>Loading...</p>,
   ssr: false,
 });
 
 let isMorethan0 = false;
 
-const data = [0, 0, 0].map((i) => {
+const data = [0, 0, 0].map(i => {
   if (i > 0) isMorethan0 = true;
   return i + 10;
 });
@@ -21,8 +22,8 @@ const CurrentVotes = () => {
   const { width } = useMobileWidth();
   const options = {
     chart: {
-      height: "100%",
-      width: "100%",
+      height: '100%',
+      width: '100%',
       sparkline: {
         enabled: true,
       },
@@ -35,12 +36,12 @@ const CurrentVotes = () => {
     },
     stroke: {
       width: 2,
-      curve: "smooth",
-      colors: ["#0500FF"],
+      curve: 'smooth',
+      colors: ['#0500FF'],
     },
     fill: {
-      type: "solid",
-      colors: ["#050d59"],
+      type: 'solid',
+      colors: ['#050d59'],
       fillToZero: true,
     },
     grid: {
@@ -76,7 +77,7 @@ const CurrentVotes = () => {
   };
   const [chartSeries, setChartSeries] = useState([
     {
-      name: "Price",
+      name: 'Price',
       data: data,
     },
   ]);
@@ -104,30 +105,14 @@ const CurrentVotes = () => {
           />
         </div> */}
         {width < 1300 && (
-          <div
-            className={styles.chartWrap}
-            style={{ height: isMorethan0 ? "40px" : "20px" }}
-          >
-            <ReactApexChart
-              options={options}
-              series={chartSeries}
-              type="area"
-              height={"100%"}
-            />
+          <div className={styles.chartWrap} style={{ height: isMorethan0 ? '40px' : '20px' }}>
+            <ReactApexChart options={options} series={chartSeries} type='area' height={'100%'} />
           </div>
         )}
       </div>
       {width >= 1300 && (
-        <div
-          className={styles.chartWrap}
-          style={{ height: isMorethan0 ? "40px" : "20px" }}
-        >
-          <ReactApexChart
-            options={options}
-            series={chartSeries}
-            type="area"
-            height={"100%"}
-          />
+        <div className={styles.chartWrap} style={{ height: isMorethan0 ? '40px' : '20px' }}>
+          <ReactApexChart options={options} series={chartSeries} type='area' height={'100%'} />
         </div>
       )}
       <div className={styles.topCorner}></div>

@@ -9,40 +9,23 @@ const BuyCore = () => {
   return (
     <section className={styles.container}>
       <div className={styles.mainBg}>
-        <Image
-          layout='fill'
-          objectFit='contain'
-          src={'/images/home/buyCoreBg.png'}
-          quality={100}
-          alt=''
-        />
+        <Image layout='fill' objectFit='contain' src={'/images/home/buyCoreBg.png'} quality={100} alt='' />
       </div>
       <div className={styles.coreLogo}>
-        <Image
-          layout='fill'
-          objectFit='contain'
-          src={'/images/home/coreLogo.png'}
-          quality={100}
-          alt=''
-        />
+        <Image layout='fill' objectFit='contain' src={'/images/home/coreLogo.png'} quality={100} alt='' />
       </div>
       <div className={styles.gradient}></div>
       <div className={styles.mainContent}>
         <section className={styles.infoSection}>
           <h2 className={styles.title}>
-            <span>CORE</span> makes our world go round.
+            <span>CATENA</span> makes our world go round.
           </h2>
           <p className={styles.info}>
-            CORE token is at the heart of the CoreMultiChain ecosystem. Buy it,
-            win it, farm it, spend it, stake it... heck, you can even vote with
-            it!
+            CATENA token is at the heart of the CATENA Network ecosystem. Buy it, win it, farm it, spend it, stake it...
+            heck, you can even vote with it!
           </p>
           <div className={styles.buttonWrapper}>
-            <Button
-              title={<Link href='/trade/swap'>Buy CORE</Link>}
-              type={'red__border'}
-              className={styles.button}
-            />
+            <Button title={<Link href='/trade/swap'>Buy CATENA</Link>} type={'red__border'} className={styles.button} />
             <Link href={'/'}>Learn</Link>
           </div>
         </section>

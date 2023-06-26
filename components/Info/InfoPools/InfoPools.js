@@ -1,10 +1,9 @@
-import React from 'react';
 import { useRouter } from 'next/router';
+import React from 'react';
 
-import InfoRoutes from '../components/InfoRoutes/InfoRoutes';
-import Watchlist from '../components/Watchlist/Watchlist';
-import PoolsTable from '../components/InfoTables/PoolsTable';
 import { StarSvg } from '../../svg/index';
+import InfoRoutes from '../components/InfoRoutes/InfoRoutes';
+import PoolsTable from '../components/InfoTables/PoolsTable';
 
 import styles from '../InfoPages.module.css';
 
@@ -16,10 +15,7 @@ const InfoPools = () => {
         <div className={styles.space}></div>
         <InfoRoutes />
         <div className={styles.starWrapper}>
-          <StarSvg
-            className={styles.starSVG}
-            onClick={() => router.push(`/info/pools/watchlist`)}
-          />
+          <StarSvg className={styles.starSVG} onClick={() => router.push(`/info/pools/watchlist`)} />
           <div className={styles.favCount}>3</div>
         </div>
       </div>

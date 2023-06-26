@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
-import dynamic from "next/dynamic";
+import dynamic from 'next/dynamic';
+import React, { useState } from 'react';
 
-import styles from "./BlockchainProvingTimeChart.module.css";
+import styles from './BlockchainProvingTimeChart.module.css';
 
-const ReactApexChart = dynamic(() => import("react-apexcharts"), {
+const ReactApexChart = dynamic(() => import('react-apexcharts'), {
   loading: () => <p>Loading...</p>,
   ssr: false,
 });
@@ -11,8 +11,8 @@ const ReactApexChart = dynamic(() => import("react-apexcharts"), {
 const BlockchainProvingTimeChart = () => {
   const options = {
     chart: {
-      width: "100%",
-      height: "100%",
+      width: '100%',
+      height: '100%',
       sparkline: {
         enabled: true,
       },
@@ -31,23 +31,23 @@ const BlockchainProvingTimeChart = () => {
     },
     plotOptions: {
       bar: {
-        columnWidth: "50%",
+        columnWidth: '50%',
         borderRadius: 4,
-        borderRadiusApplication: "end",
+        borderRadiusApplication: 'end',
         fill: {
-          type: "gradient",
+          type: 'gradient',
           gradient: {
-            type: "vertical",
+            type: 'vertical',
             shadeIntensity: 0.5,
             colorStops: [
               {
                 offset: 0,
-                color: "#0500FF",
+                color: '#0500FF',
                 opacity: 1,
               },
               {
                 offset: 100,
-                color: "#0500FF",
+                color: '#0500FF',
                 opacity: 0.3,
               },
             ],
@@ -56,19 +56,19 @@ const BlockchainProvingTimeChart = () => {
       },
     },
     fill: {
-      type: "gradient",
+      type: 'gradient',
       gradient: {
-        type: "vertical",
+        type: 'vertical',
         shadeIntensity: 0.5,
         colorStops: [
           {
             offset: 0,
-            color: "#0500FF",
+            color: '#0500FF',
             opacity: 1,
           },
           {
             offset: 100,
-            color: "#0500FF",
+            color: '#0500FF',
             opacity: 0.3,
           },
         ],
@@ -76,8 +76,8 @@ const BlockchainProvingTimeChart = () => {
     },
     grid: {
       show: true,
-      borderColor: "rgba(255,255,255,0.05)",
-      position: "back",
+      borderColor: 'rgba(255,255,255,0.05)',
+      position: 'back',
     },
     markers: {
       show: false,
@@ -95,7 +95,7 @@ const BlockchainProvingTimeChart = () => {
       labels: {
         show: true,
       },
-      categories: ["Feb", "Mar", "Apr", "May", "Jun", "Jul"],
+      categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
       crosshairs: {
         show: false,
       },
@@ -103,15 +103,15 @@ const BlockchainProvingTimeChart = () => {
     yaxis: {
       labels: {
         show: true,
-        align: "left",
+        align: 'left',
         minWidth: 0,
         maxWidth: 160,
         style: {
           colors: [],
-          fontSize: "12px",
-          fontFamily: "Helvetica, Arial, sans-serif",
+          fontSize: '12px',
+          fontFamily: 'Helvetica, Arial, sans-serif',
           fontWeight: 400,
-          cssClass: "apexcharts-yaxis-label",
+          cssClass: 'apexcharts-yaxis-label',
         },
         offsetY: 0,
         rotate: 0,
@@ -124,17 +124,17 @@ const BlockchainProvingTimeChart = () => {
     stroke: {
       show: true,
       width: 5,
-      colors: ["transparent"],
+      colors: ['transparent'],
     },
   };
 
   const [chartSeries, setChartSeries] = useState([
     {
-      name: "Net Profit",
+      name: 'Net Profit',
       data: [44, 55, 57, 56, 61, 58],
     },
     {
-      name: "Revenue",
+      name: 'Revenue',
       data: [76, 85, 101, 98, 87, 105],
     },
   ]);
@@ -148,12 +148,7 @@ const BlockchainProvingTimeChart = () => {
         <span className={styles.chartDataType}>Last 24H</span>
       </header>
       <div className={`${styles.BlockchainProvingTimeChart} blocks-produced-chart`}>
-        <ReactApexChart
-          options={options}
-          series={chartSeries}
-          type="bar"
-          height={"100%"}
-        />
+        <ReactApexChart options={options} series={chartSeries} type='bar' height={'100%'} />
         <div className={styles.chartGrad}></div>
       </div>
     </div>

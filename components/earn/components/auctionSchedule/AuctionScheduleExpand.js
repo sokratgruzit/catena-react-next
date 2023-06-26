@@ -12,9 +12,7 @@ const AuctionScheduleExpand = ({ setShowWhiteListedWallets }) => {
       </div>
       <div>
         <p>Total whitelisted bidders</p>
-        <p onClick={() => setShowWhiteListedWallets(prevState => !prevState)}>
-          19
-        </p>
+        <p onClick={() => setShowWhiteListedWallets(prevState => !prevState)}>19</p>
       </div>
     </div>
   );

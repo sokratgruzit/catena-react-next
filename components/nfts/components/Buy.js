@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import ArrowBtn from '../../UI/button/ArrowBtn';
-import CornerDecor from '../../UI/cornerDecor/CornerDecor';
-import Button from '../../UI/button/Button';
+
 import useConnect from '../../../hooks/use-connect';
+import ArrowBtn from '../../UI/button/ArrowBtn';
+import Button from '../../UI/button/Button';
+import CornerDecor from '../../UI/cornerDecor/CornerDecor';
 import ListItemRow from '../../UI/listItem/ListItemRow';
 
 import styles from './Buy.module.css';
@@ -14,8 +15,7 @@ const nftItemData = {
   imgSrc: '../../../images/nft/nft_owner_page/item1.png',
   title: 'Mutant Ape Yacht Club',
   value: '#314',
-  blockQuote:
-    '10,000 unique, randomly-generated PancakeSwap NFTs from the mind of Chef Cecy Meade. Join the squad.',
+  blockQuote: '10,000 unique, randomly-generated PancakeSwap NFTs from the mind of Chef Cecy Meade. Join the squad.',
   cmcx: '0.0024',
   usd: '($1,314)',
 };
@@ -280,8 +280,7 @@ const manageTable = [
 const Buy = props => {
   const [screeWidth, setScreenWidth] = useState(window.innerWidth);
   const [step, setStep] = useState(false);
-  const { connect, disconnect, account, isActive, library, handleWalletModal } =
-    useConnect();
+  const { connect, disconnect, account, isActive, library, handleWalletModal } = useConnect();
   const isConnected = useSelector(state => state.connect.isConnected);
   const [balance, setBalance] = useState(0);
   const [connected, setConnected] = useState(false);
@@ -312,9 +311,7 @@ const Buy = props => {
     setScreenWidth(window.innerWidth);
   }, []);
 
-  let connectButton = (
-    <p className={styles.item}>You don’t have any of this item.</p>
-  );
+  let connectButton = <p className={styles.item}>You don’t have any of this item.</p>;
   let variableButton = (
     <Button
       title={'Buy'}
@@ -385,13 +382,7 @@ const Buy = props => {
       <div className={styles.buy__mobile__table}>
         <CornerDecor />
         {detailsTableData.map(item => {
-          return (
-            <ListItemRow
-              key={item.id + 'mobile'}
-              data={item}
-              type={'nft_buy_mobile'}
-            />
-          );
+          return <ListItemRow key={item.id + 'mobile'} data={item} type={'nft_buy_mobile'} />;
         })}
       </div>
     );
@@ -462,10 +453,7 @@ const Buy = props => {
             <p className={`${styles.payBtn} ${styles.payBtn__active}`}>WBNB</p>
           </div>
         </div>
-        <div
-          className={styles.pay}
-          style={{ display: isConnected && isActive ? 'none' : 'block' }}
-        >
+        <div className={styles.pay} style={{ display: isConnected && isActive ? 'none' : 'block' }}>
           <p className={'font_13'}>WBNB in Wallet</p>
           <div className={styles.connect__wallet}>
             <Button
@@ -525,16 +513,12 @@ const Buy = props => {
                 setIsManageOpen(false);
               }
             }}
-            className={`${styles.NftBuy__walletConnect} ${
-              isManageOpen ? styles.opend : ''
-            }`}
+            className={`${styles.NftBuy__walletConnect} ${isManageOpen ? styles.opend : ''}`}
           >
             <p className={styles.NftBuy__walletConnectTitle}>
               Manage Yours
               <svg
-                className={`${styles.svg} ${
-                  isManageOpen ? styles.rotated : ''
-                }`}
+                className={`${styles.svg} ${isManageOpen ? styles.rotated : ''}`}
                 width='15'
                 height='8'
                 viewBox='0 0 15 8'
@@ -561,16 +545,12 @@ const Buy = props => {
                 setIsPropertiesOpen(false);
               }
             }}
-            className={`${styles.NftBuy__properties} ${
-              isPropertiesOpen ? styles.opendP : ''
-            }`}
+            className={`${styles.NftBuy__properties} ${isPropertiesOpen ? styles.opendP : ''}`}
           >
             <p className={styles.NftBuy__propertiesTitle}>
               Properties
               <svg
-                className={`${styles.svg} ${
-                  isPropertiesOpen ? styles.rotated : ''
-                }`}
+                className={`${styles.svg} ${isPropertiesOpen ? styles.rotated : ''}`}
                 width='15'
                 height='8'
                 viewBox='0 0 15 8'
@@ -590,15 +570,10 @@ const Buy = props => {
             <div className={styles.NftBuy__properties__inner}>
               {manageTable.map(item => {
                 return (
-                  <div
-                    key={item.id}
-                    className={styles.NftBuy__properties__item}
-                  >
+                  <div key={item.id} className={styles.NftBuy__properties__item}>
                     <p>{item.item}</p>
                     <p>
-                      <span className={styles.NftBuy__properties__itemTitle}>
-                        {item.title}
-                      </span>
+                      <span className={styles.NftBuy__properties__itemTitle}>{item.title}</span>
                       {item.subTitle}
                     </p>
                   </div>
@@ -614,16 +589,12 @@ const Buy = props => {
                 setIsDetailsOpen(false);
               }
             }}
-            className={`${styles.NftBuy__details} ${
-              isDetailsOpen ? styles.opendD : ''
-            }`}
+            className={`${styles.NftBuy__details} ${isDetailsOpen ? styles.opendD : ''}`}
           >
             <p className={styles.NftBuy__propertiesTitle}>
               Details
               <svg
-                className={`${styles.svg} ${
-                  isDetailsOpen ? styles.rotated : ''
-                }`}
+                className={`${styles.svg} ${isDetailsOpen ? styles.rotated : ''}`}
                 width='15'
                 height='8'
                 viewBox='0 0 15 8'
@@ -648,13 +619,7 @@ const Buy = props => {
                     <p className={styles.hover}>
                       <Link href={`/sometransaction`}>0xF5...301c</Link>
                     </p>
-                    <svg
-                      width='13'
-                      height='13'
-                      viewBox='0 0 13 13'
-                      fill='none'
-                      xmlns='http://www.w3.org/2000/svg'
-                    >
+                    <svg width='13' height='13' viewBox='0 0 13 13' fill='none' xmlns='http://www.w3.org/2000/svg'>
                       <path
                         fillRule='evenodd'
                         clipRule='evenodd'
@@ -682,13 +647,7 @@ const Buy = props => {
                     <a className={styles.hover} href='azuki.com'>
                       Azuki.com
                     </a>
-                    <svg
-                      width='13'
-                      height='13'
-                      viewBox='0 0 13 13'
-                      fill='none'
-                      xmlns='http://www.w3.org/2000/svg'
-                    >
+                    <svg width='13' height='13' viewBox='0 0 13 13' fill='none' xmlns='http://www.w3.org/2000/svg'>
                       <path
                         fillRule='evenodd'
                         clipRule='evenodd'
@@ -724,12 +683,7 @@ const Buy = props => {
             </div>
             {ownerItemData.map(item => {
               return (
-                <div
-                  key={item.id}
-                  className={`${styles.infoTable__buy} ${
-                    isInfoOpen ? styles.open_buy : ''
-                  }`}
-                >
+                <div key={item.id} className={`${styles.infoTable__buy} ${isInfoOpen ? styles.open_buy : ''}`}>
                   <div key={item.id} className={styles.NftBuy__ownerItem}>
                     <div className={styles.NftBuy__ownerItemPrices}>
                       <p>
@@ -747,9 +701,7 @@ const Buy = props => {
                         <p>{item.ownerAddress}</p>
                       </div>
                     </div>
-                    <div className={styles.connect__buttonWrap}>
-                      {variableButton}
-                    </div>
+                    <div className={styles.connect__buttonWrap}>{variableButton}</div>
                   </div>
                   <div className={styles.connectWallet__info}>
                     <div className={styles.tokenId__info}>
@@ -762,11 +714,7 @@ const Buy = props => {
                       <p className={'font_13'}>Pay With</p>
                       <div className={styles.payBtns}>
                         <p className={styles.payBtn}>BNB</p>
-                        <p
-                          className={`${styles.payBtn} ${styles.payBtn__active}`}
-                        >
-                          WBNB
-                        </p>
+                        <p className={`${styles.payBtn} ${styles.payBtn__active}`}>WBNB</p>
                       </div>
                     </div>
                     <div className={styles.connectWallet}>
@@ -817,11 +765,7 @@ const Buy = props => {
       <div className={styles.Collections__section}>
         <div className={styles.Collections__titles}>
           <p className={'font_30'}>More From This Collection</p>
-          <ArrowBtn
-            route={'collections'}
-            direction={'forward'}
-            title={'viewAll'}
-          />
+          <ArrowBtn route={'collections'} direction={'forward'} title={'viewAll'} />
         </div>
         <div className={styles.Collections__products}>
           <Swiper spaceBetween={30} slidesPerView={4.6}>
@@ -838,34 +782,16 @@ const Buy = props => {
                               <img src={item.img} alt='collectionImg' />
                             </picture>
                           </div>
-                          <p
-                            className={`${'font_13'} ${
-                              styles.Collection__product__title
-                            }`}
-                          >
-                            {item.title}
-                          </p>
+                          <p className={`${'font_13'} ${styles.Collection__product__title}`}>{item.title}</p>
                           <p className={'font_13'}>{item.subTitle}</p>
                         </div>
-                        <p
-                          className={`${'font_13'} ${
-                            styles.Collection__product__askingPrice
-                          }`}
-                        >
-                          Asking Price:
-                        </p>
+                        <p className={`${'font_13'} ${styles.Collection__product__askingPrice}`}>Asking Price:</p>
                         <div className={styles.Collection__prices}>
                           <p>
                             <span>CMCX</span>
                             {item.priceCmcx}
                           </p>
-                          <p
-                            className={`${'font_13'} ${
-                              styles.Collection__price
-                            }`}
-                          >
-                            {item.priceUsd}
-                          </p>
+                          <p className={`${'font_13'} ${styles.Collection__price}`}>{item.priceUsd}</p>
                         </div>
                       </div>
                     </div>

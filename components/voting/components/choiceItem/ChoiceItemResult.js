@@ -1,7 +1,5 @@
 import React from 'react';
 
-import styles from './ChoiceItemResult.module.css';
-
 const ChoiceItemResult = ({ choice }) => {
   return (
     <div>

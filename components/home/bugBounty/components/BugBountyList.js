@@ -1,3 +1,5 @@
+import styles from "./bugBounty.module.css";
+
 let data = [
   {
     text: [
@@ -42,13 +44,9 @@ function BugBountyList({ data }) {
               <h3 className="font-30">{item.title}</h3>
             </div>
             <div className="ineligibility__list-first">
-              <ul className="ineligibility_list mb-100">
+              <ul className={styles.eligibilityList}>
                 {item.text?.map((item, i) => {
-                  return (
-                    <li key={i} className="ineligibility__list-item">
-                      {item}
-                    </li>
-                  );
+                  return <li key={i}>{item}</li>;
                 })}
               </ul>
             </div>

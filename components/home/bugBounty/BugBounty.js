@@ -1,8 +1,10 @@
 import BugBountyItem from "./components/BugBountyItem";
-import BugBountyNumList from "./components/BugBountyNumList";
-import BugBountyTitle from "./components/BugBountyTitle";
 import BugBountyList from "./components/BugBountyList";
+import BugBountyNumList from "./components/BugBountyNumList";
 import BugBountyRewards from "./components/BugBountyRewards";
+import BugBountyTitle from "./components/BugBountyTitle";
+
+import styles from "./components/bugBounty.module.css";
 
 function BugBounty() {
   let data = [
@@ -75,18 +77,21 @@ function BugBounty() {
         "Description of the issue’s potential security impact",
         "The affected resource. e.g. URL, GitHub code snippet, transaction",
         "Ideally a proof-of-concept that demonstrates the issue",
-        "Email submission to guard@coremultichain.com and include your CMCX UID",
-        "Provide adequate time for CORE to respond before disclosing Bug to others",
+        "Email submission to guard@catenamultichain.com and include your CMCX UID",
+        "Provide adequate time for CATENA to respond before disclosing Bug to others",
       ],
     },
   ];
 
   return (
     <div className="container">
+      <img className={styles.bg} src="/images/BG.png" alt="background-image" />
       <BugBountyTitle />
       <BugBountyItem data={data} />
-      <BugBountyNumList data={listData} />
-      <BugBountyList data={list} />
+      <div className={styles.listBg}>
+        <BugBountyNumList data={listData} />
+        <BugBountyList data={list} />
+      </div>
       <BugBountyRewards />
       <BugBountyItem data={reportData} />
       <BugBountyNumList data={numList} />

@@ -11,26 +11,14 @@ const RunningLogos = () => {
         {arr.map(num => (
           <div key={num} className={styles.logoWrapper}>
             <div className={styles.logo}>
-              <Image
-                layout='fill'
-                objectFit='contain'
-                src={`/images/home/logos/coin${num}.png`}
-                quality={100}
-                alt=''
-              />
+              <Image layout='fill' objectFit='contain' src={`/images/home/logos/coin${num}.png`} quality={100} alt='' />
             </div>
           </div>
         ))}
         {arr.map(num => (
           <div key={num} className={styles.logoWrapper}>
             <div className={styles.logo}>
-              <Image
-                layout='fill'
-                objectFit='contain'
-                src={`/images/home/logos/coin${num}.png`}
-                quality={100}
-                alt=''
-              />
+              <Image layout='fill' objectFit='contain' src={`/images/home/logos/coin${num}.png`} quality={100} alt='' />
             </div>
           </div>
         ))}

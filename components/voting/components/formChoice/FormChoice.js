@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { CloseSvg } from '../../../svg';
 
 import styles from './FormChoice.module.css';
@@ -8,9 +7,7 @@ const FormChoice = ({ choice, index, setFormData, setEditedField }) => {
     setFormData(prevState => ({
       ...prevState,
       choices: prevState.choices.map((item, id) =>
-        id === index
-          ? { ...prevState.choices[id], value: e.target.value }
-          : item,
+        id === index ? { ...prevState.choices[id], value: e.target.value } : item,
       ),
     }));
     setEditedField(prevState => ({ ...prevState, choices: true }));

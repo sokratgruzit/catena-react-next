@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
+import React, { useState, useEffect } from 'react';
 
 import styles from './CompetitionTable.module.css';
 
@@ -246,12 +246,7 @@ const CompetitionTable = ({ activeMenuItem }) => {
             <p className={styles.nickName}>{item.nickName}</p>
           </div>
           <div className={styles.icone}>
-            <Image
-              layout='fill'
-              src={item.img}
-              alt='HomeScreen'
-              objectFit={'contain'}
-            />
+            <Image layout='fill' src={item.img} alt='HomeScreen' objectFit={'contain'} />
           </div>
         </div>
       ))}

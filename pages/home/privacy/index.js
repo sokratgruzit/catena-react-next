@@ -1,4 +1,4 @@
-import Privacy from "../../../components/home/privacy/Privacy";
+import Privacy from '../../../components/home/privacy/Privacy';
 
 function index() {
   return (

@@ -11,27 +11,14 @@ export const mergeDateAndTime = (date, time) => {
 };
 
 export const getFormErrors = formData => {
-  const {
-    title,
-    body,
-    choices,
-    startDate,
-    startTime,
-    endDate,
-    endTime,
-    snapshot,
-  } = formData;
+  const { title, body, choices, startDate, startTime, endDate, endTime, snapshot } = formData;
   const errors = {};
 
   if (!title) {
     errors.title = 'Title is required';
   }
 
-  if (
-    body === '<p><br></p>' ||
-    body === '<h1><br></h1>' ||
-    body === '<h2><br></h2>'
-  ) {
+  if (body === '<p><br></p>' || body === '<h1><br></h1>' || body === '<h2><br></h2>') {
     errors.body = 'Body is required';
   }
 
@@ -48,8 +35,7 @@ export const getFormErrors = formData => {
       : (errors.endDate = 'End date must be after the start date');
   }
   if (isValid(startDateTimestamp) && isValid(endDateTimestamp)) {
-    if (endDateTimestamp === startDateTimestamp)
-      errors.endDate = 'End date must be after the start date';
+    if (endDateTimestamp === startDateTimestamp) errors.endDate = 'End date must be after the start date';
   }
 
   return errors;

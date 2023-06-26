@@ -1,12 +1,5 @@
 const PriceDown = props => (
-  <svg
-    width='10'
-    height='7'
-    viewBox='0 0 10 7'
-    fill='#E94A4A'
-    xmlns='http://www.w3.org/2000/svg'
-    {...props}
-  >
+  <svg width='10' height='7' viewBox='0 0 10 7' fill='#E94A4A' xmlns='http://www.w3.org/2000/svg' {...props}>
     <path
       fillRule='evenodd'
       clipRule='evenodd'

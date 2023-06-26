@@ -1,33 +1,19 @@
-import React, { useState, useEffect } from "react";
-import Link from "next/link";
 import { useRouter } from "next/router";
+import React, { useState, useEffect } from "react";
 
-// api
-import axios from "axios";
-
-// hooks
-import { useMobileWidth } from "../../hooks/useMobileWidth";
-
-// styles
-import styles from "./Dashboard.module.css";
-import BlocksProducedChart from "./components/BlocksProducedChart/BlocksProducedChart";
 import BalanceCard from "./components/BalanceCard/BalanceCard";
-import CPUstats from "./components/CPUstats/CPUstats";
-import {
-  BlocksIcon,
-  DashboardIcon,
-  DocsIcon,
-  ProfileIcon,
-  RewardsCalcIcon,
-  ValidatorsListIcon,
-} from "../svg";
+import BlockchainProvingTimeChart from "./components/BlockchainProvingTimeChart/BlockchainProvingTimeChart";
+import BlocksProducedChart from "./components/BlocksProducedChart/BlocksProducedChart";
 import CurrentRanking from "./components/CurrentStats/CurrentRanking";
 import CurrentVotes from "./components/CurrentStats/CurrentVotes";
+import HardwareStatus from "./components/HardwareStatus/HardwareStatus";
 import NodeDetails from "./components/NodeDetails/NodeDetails";
 import SoftwareStatus from "./components/SoftwareStatus/SoftwareStatus";
-import HardwareStatus from "./components/HardwareStatus/HardwareStatus";
 import Table from "./components/Table/Table";
-import BlockchainProvingTimeChart from "./components/BlockchainProvingTimeChart/BlockchainProvingTimeChart";
+import { useMobileWidth } from "../../hooks/useMobileWidth";
+import { BlocksIcon, DashboardIcon, DocsIcon, ProfileIcon, RewardsCalcIcon, ValidatorsListIcon } from "../svg";
+
+import styles from "./Dashboard.module.css";
 //
 const Dashboard = () => {
   const [sortBy, setSortBy] = useState("Validated Blocks");
@@ -143,12 +129,10 @@ const Dashboard = () => {
       <div className={styles.sidebar}>
         <ul className={styles.unorderedList}>
           <li className={styles.chosen}>
-            <DashboardIcon className={styles.dashboardListIcon} />{" "}
-            <p>Dashboard</p>
+            <DashboardIcon className={styles.dashboardListIcon} /> <p>Dashboard</p>
           </li>
           <li onClick={() => router.push("/validators")}>
-            <ValidatorsListIcon className={styles.dashboardListIcon} />{" "}
-            <p>Validators List</p>
+            <ValidatorsListIcon className={styles.dashboardListIcon} /> <p>Validators List</p>
           </li>
           <li onClick={() => router.push("/calculator")}>
             <RewardsCalcIcon className={styles.dashboardListIcon} />
@@ -208,17 +192,13 @@ const Dashboard = () => {
         </div>
         <HardwareStatus />
         <div className={styles.tableWrapper}>
-          <div
-            className={styles.sortByButtons}
-            data-aos='fade-up'
-            data-aos-delay='20'>
+          <div className={styles.sortByButtons} data-aos='fade-up' data-aos-delay='20'>
             {sortByButtons.map((item, index) => (
               <button
-                className={`${styles.sortByButton} ${
-                  sortBy == item.title ? styles.sortByButtonActive : ""
-                }`}
+                className={`${styles.sortByButton} ${sortBy == item.title ? styles.sortByButtonActive : ""}`}
                 key={index}
-                onClick={() => setSortBy(item.title)}>
+                onClick={() => setSortBy(item.title)}
+              >
                 {item.title}
               </button>
             ))}
@@ -230,10 +210,10 @@ const Dashboard = () => {
             sortBy={sortBy}
             validatedBlocksCurrentPage={1}
             validatedBlocksTotalCount={5}
-            validatedBlocksOnPageChange={(page) => console.log(page)}
+            validatedBlocksOnPageChange={page => console.log(page)}
             delegatorsCurrentPage={1}
             delegatorsTotalCount={4}
-            delegatorsOnPageChange={(page) => console.log(page)}
+            delegatorsOnPageChange={page => console.log(page)}
             validatedBlocksLoading={false}
             delegatorsLoading={false}
           />

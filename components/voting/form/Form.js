@@ -1,22 +1,20 @@
-import Link from 'next/link';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useState } from 'react';
+
+import FormErrorsText from './FormErrorsText';
+import { getFormErrors, mergeDateAndTime } from './helpers';
+import useConnect from '../../../hooks/use-connect';
 import { OpenSvg, SmlArrowSvg } from '../../svg';
 import Button from '../../UI/button/Button';
-
-const ReactQuill =
-  typeof window === 'object' ? require('react-quill') : () => false;
-
-import 'react-quill/dist/quill.snow.css';
-
-import styles from './Form.module.css';
 import FormChoice from '../components/formChoice/FormChoice';
 import FormSelectDate from '../components/formDateInput/FormSelectDate';
 import FormSelectTime from '../components/formDateInput/FormSelectTime';
 
-import useConnect from '../../../hooks/use-connect';
-import { getFormErrors, mergeDateAndTime } from './helpers';
-import FormErrorsText from './FormErrorsText';
+import 'react-quill/dist/quill.snow.css';
+import styles from './Form.module.css';
+
+const ReactQuill = typeof window === 'object' ? require('react-quill') : () => false;
 
 const Form = () => {
   const { isActive, handleWalletModal } = useConnect();
@@ -36,13 +34,10 @@ const Form = () => {
   const handleOnFormSubmit = e => {
     e.preventDefault();
 
-    const fullStartDate = mergeDateAndTime(
-      formData.startDate,
-      formData.startTime,
-    );
+    const fullStartDate = mergeDateAndTime(formData.startDate, formData.startTime);
     const fullEndDate = mergeDateAndTime(formData.endDate, formData.endTime);
 
-    console.log(fullStartDate, fullEndDate);
+    console.log(fullStartDate, fullEndDate, formData);
 
     // try {
     //  send formData
@@ -72,22 +67,10 @@ const Form = () => {
   return (
     <div className={`container ${styles.wrapper}`}>
       <div className={styles.galaxy}>
-        <Image
-          layout='fill'
-          objectFit='contain'
-          src={'/images/voting/form/galaxy.png'}
-          quality={100}
-          alt=''
-        />
+        <Image layout='fill' objectFit='contain' src={'/images/voting/form/galaxy.png'} quality={100} alt='' />
       </div>
       <div className={styles.roundGalaxy}>
-        <Image
-          layout='fill'
-          objectFit='contain'
-          src={'/images/voting/form/roundGalaxy.png'}
-          quality={100}
-          alt=''
-        />
+        <Image layout='fill' objectFit='contain' src={'/images/voting/form/roundGalaxy.png'} quality={100} alt='' />
       </div>
       <div className={styles.gradient}></div>
       <div className={styles.ProposalForm}>
@@ -110,20 +93,13 @@ const Form = () => {
                 type='text'
                 name='title'
               />
-              {editedField?.title && formErrors.title && (
-                <FormErrorsText text={formErrors.title} />
-              )}
+              {editedField?.title && formErrors.title && <FormErrorsText text={formErrors.title} />}
             </div>
             <div className={styles.content}>
               <h3>CONTENT</h3>
               <p className={styles.tip}>Tip: write in Markdown!</p>
-              <ReactQuill
-                modules={Form.modules}
-                onChange={e => handleUpdateValue('body', e)}
-              />
-              {editedField?.body && formErrors.body && (
-                <FormErrorsText text={formErrors.body} />
-              )}
+              <ReactQuill modules={Form.modules} onChange={e => handleUpdateValue('body', e)} />
+              {editedField?.body && formErrors.body && <FormErrorsText text={formErrors.body} />}
               <span className={styles.bottomBorder}></span>
             </div>
             <div className={styles.choices}>
@@ -139,9 +115,7 @@ const Form = () => {
                   />
                 );
               })}
-              {editedField?.choices && formErrors.choices && (
-                <FormErrorsText text={formErrors.choices} />
-              )}
+              {editedField?.choices && formErrors.choices && <FormErrorsText text={formErrors.choices} />}
 
               <Button
                 title={'+ Add Choice'}
@@ -189,9 +163,7 @@ const Form = () => {
                   />
                 </div>
               </div>
-              {formErrors?.endDate && (
-                <FormErrorsText text={formErrors?.endDate} />
-              )}
+              {formErrors?.endDate && <FormErrorsText text={formErrors?.endDate} />}
             </div>
             <div className={styles.snapShot}>
               <p>Snapshot</p>
@@ -200,23 +172,20 @@ const Form = () => {
                 <OpenSvg className={styles.openSvg} />
               </a>
             </div>
-            {isActive ? (
-              <button
-                className={styles.publishButton}
-                disabled={JSON.stringify(formErrors) !== '{}'}
-              >
-                Publish
-              </button>
+            <button className={styles.publishButton} disabled={JSON.stringify(formErrors) !== '{}'}>
+              Publish
+            </button>
+            {/* {isActive ? (
             ) : (
               <Button
-                title={'Connect Wallet'}
+                title={"Connect Wallet"}
                 onClick={() => {
                   handleWalletModal(true);
                 }}
-                type={'blue'}
+                type={"blue"}
                 className={styles.connectWallet}
               />
-            )}
+            )} */}
           </form>
         </div>
       </div>
