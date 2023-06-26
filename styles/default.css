@@ -85,11 +85,15 @@ button {
 *::-webkit-scrollbar-thumb {
   background: #0500ff;
 }
+
 h1 {
   font-size: 90px;
 }
 h2 {
   font-size: 40px;
+}
+h3 {
+  font-weight: bold;
 }
 .circle_btn {
   display: flex;
@@ -157,8 +161,9 @@ h2 {
   line-height: 30px;
 }
 .font-51 {
-  font-size: 51px;
+  font-size: 40px;
   line-height: 66px;
+  font-weight: bold;
 }
 .pT-160 {
   padding-top: 160px;
@@ -334,6 +339,9 @@ input:focus:-ms-input-placeholder {
     height: 35px;
     padding: 0px 15px;
     font-size: 12px;
+    .h3 {
+      font-weight: bold;
+    }
   }
   .frameworks-container__frameworks-tab img {
     transform: scale(0.7);
@@ -341,12 +349,16 @@ input:focus:-ms-input-placeholder {
   .container {
     padding: 0px 25px;
   }
+
   .font-51 {
-    font-size: 38px;
+    font-size: 20px;
     line-height: 50px;
   }
   .pT-160 {
     padding-top: 100px;
+    .h3 {
+      font-weight: bold;
+    }
   }
   .pB-160 {
     padding-bottom: 100px;
@@ -366,7 +378,7 @@ input:focus:-ms-input-placeholder {
     padding-bottom: 50px;
   }
   .font-51 {
-    font-size: 28px;
+    font-size: 20px;
     line-height: 40px;
   }
   .container {
@@ -403,7 +415,12 @@ input:focus:-ms-input-placeholder {
   .container {
     padding: 0px 15px;
   }
+
   .feedback-form .el-form {
     width: 100%;
   }
+}
+
+h3 {
+  font-weight: bold;
 }
