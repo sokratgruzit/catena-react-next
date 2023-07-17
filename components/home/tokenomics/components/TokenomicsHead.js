@@ -1,4 +1,4 @@
-import styles from "./Tokenomics.module.css";
+import styles from './tokenomics.module.css';
 
 function TokenomicsItem() {
   return (

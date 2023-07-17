@@ -1,8 +1,8 @@
-import TermsItem from "../../../components/home/terms/components/TermsItem";
+import TermsItem from '../../../components/home/terms/components/TermsItem';
 
 function Terms() {
   return (
-    <div className="container">
+    <div className='container'>
       <TermsItem />
     </div>
   );

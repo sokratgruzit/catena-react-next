@@ -1,11 +1,11 @@
-import styles from "./bugBounty.module.css";
+import styles from './bugBounty.module.css';
 
 function BugBountyRewards() {
   return (
     <section className={`${styles.container} containerX`}>
       <div className={styles.rewardsContainer}>
         <div className={styles.rewardsHead}>
-          <h2 className="font-51">Rewards</h2>
+          <h2 className='font-51'>Rewards</h2>
         </div>
 
         <div className={styles.rewardsSteps}>

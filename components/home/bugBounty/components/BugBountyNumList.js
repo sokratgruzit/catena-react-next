@@ -1,4 +1,4 @@
-import styles from "./bugBounty.module.css";
+import styles from './bugBounty.module.css';
 
 function BugBountyNumList({ data }) {
   return (

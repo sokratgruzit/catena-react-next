@@ -1,9 +1,9 @@
-import styles from "./Tokenomics.module.css";
+import styles from './tokenomics.module.css';
 
 function Schedule() {
   return (
     <div className={`${styles.tokenomicsList} pT-160 pB-160 `}>
-      <h3 className="font-51">Token Release Schedule</h3>
+      <h3 className='font-51'>Token Release Schedule</h3>
       <div className={styles.tokenomicsList__inner}>
         <div className={styles.tokenomicsCist__part}>
           <div className={styles.tokenomicsList__item}>

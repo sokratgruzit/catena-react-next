@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
 export default function Tabs({ tabs }) {
   const [activeTab, setActiveTab] = useState(0);
@@ -11,7 +11,7 @@ export default function Tabs({ tabs }) {
     <div>
       <ul className='tab-list'>
         {tabs.map((tab, index) => (
-          <li key={index} className={index === activeTab ? "active" : ""} onClick={() => handleTabClick(index)}>
+          <li key={index} className={index === activeTab ? 'active' : ''} onClick={() => handleTabClick(index)}>
             {tab.title}
           </li>
         ))}
