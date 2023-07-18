@@ -110,24 +110,19 @@ const Header = () => {
         },*/
       ],
     },
-    /*{
+    {
       id: 2,
-      title: 'Earn',
-      route: '/earn/farms',
+      title: 'About',
+      route: '/about',
       subNav: [
         {
           id: 5,
-          title: 'Farms',
-          route: '/earn/farms',
-        },
-        {
-          id: 6,
-          title: 'Pools',
-          route: '/earn/pools',
+          title: 'Press',
+          route: '/about/press',
         },
       ],
     },
-    {
+    /*{
       id: 3,
       title: 'Win',
       route: '/win/competition',
