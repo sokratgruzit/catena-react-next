@@ -1,0 +1,58 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.cardinfo {
+    font-family: Lack;
+    font-size: 51px;
+    font-weight: 400;
+    line-height: 66px;
+    letter-spacing: 0em;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.card {
+    width: 360px;
+    height: 464px;
+    top: 656px;
+    left: 155px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.title {
+    font-family: Lack;
+    font-size: 51px;
+    font-weight: 400;
+    line-height: 60px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #FFFFFF;
+}
+
+.description {
+    font-family: Noto Sans;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #FFFFFF;
+}
+
+.buttonsContainer {
+    display: flex;
+    gap: 4px;
+}
+
+.button {
+    width: fit-content;
+    padding: 4px 10px 4px 10px;
+    background-color: #FFF3E5;
+}
