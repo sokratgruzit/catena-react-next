@@ -1,63 +1,25 @@
-import Link from 'next/link';
-import Image from 'next/image';
-import { ProposalSvg } from '../../../svg';
-import Button from '../../../UI/button/Button';
+import { Button } from '@catena-network/catena-ui-module';
 
 import styles from './GetSuggestion.module.css';
 
-const GetSuggestion = () => {
+const GetSuggestion = ({ setActive }) => {
   return (
     <div className={`container ${styles.getSuggestContainer}`}>
       <div className={styles.getSuggestInner}>
         <h1 className={styles.title}>Got a Suggetion?</h1>
+        <p>Community proposals are a great way to see how the community feels about your ideas.</p>
         <p>
-          Community proposals are a great way to see how the community feels
-          about your ideas.
+          They won&#39;t necessarily be implemented if the community votes successful, but suggestions with a lot of
+          community support may be made into CATENA proposals.
         </p>
-        <p>
-          They won&#39;t necessarily be implemented if the community votes
-          successful, but suggestions with a lot of community support may be
-          made into Core proposals.
-        </p>
-        <Link href={'/voting/proposal/create'}>
-          <a>
-            <Button
-              title={
-                <>
-                  <ProposalSvg /> Make a Proposal
-                </>
-              }
-              type={'blue'}
-              className={styles.makeProposalButton}
-            />
-          </a>
-        </Link>
-        <div className={styles.chatCloud}>
-          <Image
-            layout='fill'
-            objectFit='contain'
-            src={'/images/voting/chatCloud.png'}
-            quality={100}
-            alt=''
-          />
-        </div>
-        <div className={styles.stars}>
-          <Image
-            layout='fill'
-            objectFit='contain'
-            src={'/images/voting/stars.png'}
-            quality={100}
-            alt=''
-          />
-        </div>
-      </div>
-      <div className={styles.footerBG}>
-        <Image
-          layout='fill'
-          objectFit='contain'
-          src={'/images/voting/footer-bg.png'}
-          quality={100}
-          alt=''
+        <Button
+          label={'Make a Proposal'}
+          size={'btn-lg'}
+          type={'btn-primary'}
+          arrow={'arrow-right'}
+          element={'button'}
+          disabled={false}
+          onClick={() => setActive()}
         />
       </div>
     </div>

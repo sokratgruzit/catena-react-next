@@ -12,7 +12,6 @@ body {
   -moz-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   text-size-adjust: 100%;
-  /*padding-bottom: 200vh;*/
   background: #00050f;
   /*dont use overflow hidden to body*/
 }
@@ -102,6 +101,10 @@ input[type="number"] {
 *::-webkit-scrollbar-thumb {
   background: #0500ff;
 }
+#imageUploader {
+  display: none;
+}
+
 .btn {
   display: flex;
   align-items: center;
@@ -146,18 +149,18 @@ input[type="number"] {
   color: #fff;
   position: relative;
 }
-.quill{
+.quill {
   border-radius: 4px;
-  border:1px solid rgba(255, 255, 255, 0.1);
-  transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
 }
 /* .quill:focus-within{
   border: 1px solid #0500ff;
 } */
-.ql-toolbar.ql-snow{
+.ql-toolbar.ql-snow {
   border: none !important;
 }
-.ql-toolbar.ql-snow::after{
+.ql-toolbar.ql-snow::after {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
   content: "";
   width: 97%;
@@ -166,45 +169,44 @@ input[type="number"] {
   margin-top: 10px;
 }
 
-.ql-container.ql-snow{
+.ql-container.ql-snow {
   border: none !important;
 }
-.ql-editor{
+.ql-editor {
   min-height: 200px;
 }
 
-.ql-editor h1{
-  font-size: 30px !important;  
+.ql-editor h1 {
+  font-size: 30px !important;
 }
 
 .ql-editor strong {
   font-size: inherit !important;
   line-height: inherit !important;
 }
-.ql-editor em{
+.ql-editor em {
   font-size: inherit !important;
   line-height: inherit !important;
 }
-.ql-tooltip{
+.ql-tooltip {
   background-color: #0e1a36 !important;
   box-shadow: none !important;
-  border:1px solid rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
 
 .ql-tooltip input {
   background-color: #0e1a36 !important;
-  color:rgba(255, 255, 255, 0.5) !important;
+  color: rgba(255, 255, 255, 0.5) !important;
 }
-.ql-tooltip input::placeholder{
-  color:transparent;
+.ql-tooltip input::placeholder {
+  color: transparent;
 }
-.ql-formats:first-child{
+.ql-formats:first-child {
   margin-right: 0 !important;
 }
 
-
-.react-datepicker{
-  background: #0A0F18 !important;
+.react-datepicker {
+  background: #0a0f18 !important;
   border: 1px solid rgba(255, 255, 255, 0.1) !important;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3) !important;
   border-radius: 4px;
@@ -213,16 +215,15 @@ input[type="number"] {
   justify-content: flex-start;
 }
 
-.react-datepicker div{
-  color:white
+.react-datepicker div {
+  color: white;
 }
-.react-datepicker__header{
-  background: #0A0F18 !important;
+.react-datepicker__header {
+  background: #0a0f18 !important;
   border-bottom: none !important;
   padding-bottom: 0px !important;
   width: 252px !important;
-
-} 
+}
 
 .react-datepicker__header:after {
   content: "";
@@ -233,34 +234,34 @@ input[type="number"] {
   margin: 0 auto;
 }
 
-.react-datepicker__day{
+.react-datepicker__day {
   border-radius: 3px;
   border: 0.5px solid rgba(255, 255, 255, 0.05);
   margin-left: 0.3rem !important;
   margin-right: 0.3rem !important;
 }
 
-.react-datepicker__day--disabled{
-  color: #4D5057 !important;
+.react-datepicker__day--disabled {
+  color: #4d5057 !important;
 }
 
-.react-datepicker__day--selected{
+.react-datepicker__day--selected {
   background: #0500ff !important;
 }
 
-.react-datepicker__day--keyboard-selected{
+.react-datepicker__day--keyboard-selected {
   background-color: #0500ff !important;
 }
 
-.react-datepicker__day:hover{
+.react-datepicker__day:hover {
   background-color: rgba(255, 255, 255, 0.1) !important;
 }
 
-.react-datepicker__navigation-icon::before{
+.react-datepicker__navigation-icon::before {
   border-width: 1px 1px 0 0 !important;
   width: 6px !important;
   height: 6px !important;
-  top:50%;
+  top: 50%;
   transform: translateY(-50%);
   top: 11px !important;
 }
@@ -269,19 +270,19 @@ input[type="number"] {
   width: 100% !important;
 }
 
-.react-datepicker__day-name{
+.react-datepicker__day-name {
   margin: 0.3rem !important;
 }
-.react-datepicker__time-container{
+.react-datepicker__time-container {
   float: none;
-  width: 252px!important;
-}
-
-.react-datepicker__time{
   width: 252px !important;
 }
 
-.react-datepicker__time-box{
+.react-datepicker__time {
+  width: 252px !important;
+}
+
+.react-datepicker__time-box {
   width: 252px !important;
   margin-left: 1 !important;
   margin-right: 1 !important;
@@ -293,19 +294,18 @@ input[type="number"] {
 }
 /* 1px solid rgba(255, 255, 255, 0.1) */
 
-
-.react-datepicker__time{
-  background: #0A0F18 !important;
+.react-datepicker__time {
+  background: #0a0f18 !important;
 }
-.react-datepicker__time-list-item--selected{
+.react-datepicker__time-list-item--selected {
   background-color: #0500ff !important;
 }
 
-.react-datepicker__time-list-item:hover{
-  background-color: rgba(255, 255, 255, 0.1)!important;
+.react-datepicker__time-list-item:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
 }
 
-.react-datepicker__triangle{
+.react-datepicker__triangle {
   display: none;
 }
 
@@ -333,21 +333,13 @@ input[type="number"] {
 }
 .arrow-border {
   border: 1px solid transparent;
-  background-image: -webkit-gradient(
-      linear,
-      left bottom,
-      left top,
-      from(#00050f),
-      to(#00050f)
-    ),
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#00050f), to(#00050f)),
     -webkit-gradient(linear, left bottom, left top, from(#7464d7), to(rgba(116, 100, 215, 0.6))),
     -webkit-gradient(linear, left bottom, left top, from(#7464d7), to(rgba(116, 100, 215, 0.6))),
     -webkit-gradient(linear, left bottom, left top, from(#7464d7), to(rgba(116, 100, 215, 0.6))),
     -webkit-gradient(linear, left bottom, left top, from(#7464d7), to(rgba(116, 100, 215, 0.6)));
-  background-image: linear-gradient(0deg, #00050f, #00050f),
-    linear-gradient(0deg, #7464d7, rgba(116, 100, 215, 0.6)),
-    linear-gradient(0deg, #7464d7, rgba(116, 100, 215, 0.6)),
-    linear-gradient(0deg, #7464d7, rgba(116, 100, 215, 0.6)),
+  background-image: linear-gradient(0deg, #00050f, #00050f), linear-gradient(0deg, #7464d7, rgba(116, 100, 215, 0.6)),
+    linear-gradient(0deg, #7464d7, rgba(116, 100, 215, 0.6)), linear-gradient(0deg, #7464d7, rgba(116, 100, 215, 0.6)),
     linear-gradient(0deg, #7464d7, rgba(116, 100, 215, 0.6));
   background-origin: padding-box, border-box, border-box, border-box, border-box;
   background-repeat: no-repeat;
@@ -390,7 +382,6 @@ input[type="number"] {
   transform: translateX(10px);
 }
 
-
 /*Laptop 1440*/
 @media (max-width: 1900px) {
 }
@@ -415,6 +406,3 @@ input[type="number"] {
     padding: 0px 16px;
   }
 }
-
-
-

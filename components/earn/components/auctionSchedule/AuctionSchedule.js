@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { QuestionMarkIcon } from '../../../svg';
 
 import styles from './AuctionSchedule.module.css';

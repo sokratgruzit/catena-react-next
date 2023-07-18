@@ -1,4 +1,5 @@
-import Competition from '../../../components/win/Competition'
+import Competition from '../../../components/win/Competition';
+
 const index = () => {
   return <Competition />;
 };

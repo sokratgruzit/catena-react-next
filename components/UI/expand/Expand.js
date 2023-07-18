@@ -30,16 +30,8 @@ const Expand = props => {
 
   return (
     <div className={props.className}>
-      <div onClick={props.onChildClick && toggleExpand}>
-        {props.passingjSX ? props.children : childrenWithProps}
-      </div>
-      <div
-        className={`${styles.expandContent} ${
-          expandRow && styles.expandTableRow
-        }`}
-      >
-        {props.expandContent}
-      </div>
+      <div onClick={props.onChildClick && toggleExpand}>{props.passingjSX ? props.children : childrenWithProps}</div>
+      <div className={`${styles.expandContent} ${expandRow && styles.expandTableRow}`}>{props.expandContent}</div>
       {buttonWithProps}
     </div>
   );

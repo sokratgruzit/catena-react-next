@@ -1,23 +1,8 @@
 import React from 'react';
 
 const ComponentViewSvg = props => (
-  <svg
-    width='31'
-    height='31'
-    viewBox='0 0 31 31'
-    fill='none'
-    xmlns='http://www.w3.org/2000/svg'
-    {...props}
-  >
-    <rect
-      opacity='0.1'
-      x='0.535156'
-      y='1.49561'
-      width='29'
-      height='29'
-      rx='3.5'
-      stroke='white'
-    />
+  <svg width='31' height='31' viewBox='0 0 31 31' fill='none' xmlns='http://www.w3.org/2000/svg' {...props}>
+    <rect opacity='0.1' x='0.535156' y='1.49561' width='29' height='29' rx='3.5' stroke='white' />
     <g opacity='0.7'>
       <path
         d='M16.2344 8.70965L16.2344 14.0817C16.2344 14.5917 16.7464 14.7957 18.0184 14.7957L21.2504 14.7957C22.5224 14.7957 23.0344 14.5917 23.0344 14.0817L23.0344 8.70965C23.0344 8.19965 22.5224 7.99565 21.2504 7.99565L18.0184 7.99565C16.7464 7.99565 16.2344 8.19965 16.2344 8.70965Z'

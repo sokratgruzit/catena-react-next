@@ -1,5 +1,5 @@
-import React from 'react';
 import Image from 'next/image';
+import React from 'react';
 
 import CornerDecor from '../../UI/cornerDecor/CornerDecor';
 
@@ -55,28 +55,13 @@ const PrizeFunds = () => {
     <>
       <div className={styles.mainContainer}>
         <div className={styles.blackHole}>
-          <Image
-            layout='fill'
-            objectFit='contain'
-            src={'/images/win/blackHoule.png'}
-            alt=''
-          />
+          <Image layout='fill' objectFit='contain' src={'/images/win/blackHoule.png'} alt='' />
         </div>
         <div className={styles.star}>
-          <Image
-            layout='fill'
-            objectFit='contain'
-            src={'/images/win/star.png'}
-            alt=''
-          />
+          <Image layout='fill' objectFit='contain' src={'/images/win/star.png'} alt='' />
         </div>
         <div className={styles.littleStar}>
-          <Image
-            layout='fill'
-            objectFit='contain'
-            src={'/images/win/namceca.png'}
-            alt=''
-          />
+          <Image layout='fill' objectFit='contain' src={'/images/win/namceca.png'} alt='' />
         </div>
 
         <div className={styles.content}>
@@ -88,28 +73,25 @@ const PrizeFunds = () => {
             <p className={styles.desTitle}>Ticket Purchases</p>
             <p className={styles.description}>
               <span className={styles.circle}></span>
-              100% of the CAKE paid by people buying tickets that round goes
-              back into the prize pools.
+              100% of the CAKE paid by people buying tickets that round goes back into the prize pools.
             </p>
           </div>
           <div>
             <p className={styles.desTitle}>Rollover Prizes</p>
             <p className={styles.description}>
               <span className={styles.circle}></span>
-              After every round, if nobody wins in one of the prize brackets,
-              the unclaimed CAKE for that bracket rolls over into the next round
-              and are redistributed among the prize pools.
+              After every round, if nobody wins in one of the prize brackets, the unclaimed CAKE for that bracket rolls
+              over into the next round and are redistributed among the prize pools.
             </p>
           </div>
           <div>
             <p className={styles.desTitle}>CAKE Injections</p>
             <p className={styles.description}>
               <span className={styles.circle}></span>
-              An average total of 35,000 CAKE from the treasury is added to
-              lottery rounds over the course of a week. This CAKE is of course
-              also included in rollovers! Read more in our guide to{' '}
+              An average total of 35,000 CAKE from the treasury is added to lottery rounds over the course of a week.
+              This CAKE is of course also included in rollovers! Read more in our guide to{' '}
               <a className={styles.links} href='#'>
-                CORE Tokenomics
+                CATENA Tokenomics
               </a>
             </p>
           </div>
@@ -127,10 +109,7 @@ const PrizeFunds = () => {
                 return (
                   <div key={item.id} className={styles.bollStatistics}>
                     <div className={styles.percentStatistics}>
-                      <div
-                        className={styles.smallSvg}
-                        style={{ background: item.color }}
-                      ></div>
+                      <div className={styles.smallSvg} style={{ background: item.color }}></div>
                       <p>{item.title}</p>
                     </div>
                     <p>{item.percent}</p>
@@ -144,10 +123,7 @@ const PrizeFunds = () => {
       <div className={styles.question}>
         <h2>Still got questions?</h2>
         <p>
-          Check our in-depth guide on{' '}
-          <span className={styles.links}>
-            how to play the PancakeSwap lottery!
-          </span>
+          Check our in-depth guide on <span className={styles.links}>how to play the PancakeSwap lottery!</span>
         </p>
       </div>
     </>

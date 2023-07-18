@@ -1,0 +1,86 @@
+.flDirCol {
+  flex-direction: column;
+  width: 950px;
+  margin-right: auto;
+  margin-left: 0px;
+}
+.guidlineColorsContainer {
+  display: flex;
+  flex-direction: column;
+  margin-top: 100px;
+}
+.guidlineColorsInner {
+  display: flex;
+  padding: 15px;
+}
+.guidlineColorsInnerWhite .guidlineColorsInnerDescriptionFloorDescr {
+  color: rgba(0, 5, 15, 0.7);
+}
+.guidlineColorsInnerDescriptionFloor {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.guidlineColorsInnerDescriptionTitle {
+  margin-bottom: 25px;
+}
+.guidlineColorsInnerDescriptionFloorDescr span {
+  color: inherit;
+  display: flex;
+  font-size: inherit;
+}
+.guidlineColorsInnerDescriptionFloorDescr {
+  color: rgba(255, 255, 255, 0.7);
+  display: flex;
+  font-size: 15px;
+  line-height: 24px;
+}
+.guidlineColorsInnerWhite .guidlineColorsInnerDescriptionFloorDescr {
+  color: rgba(0, 5, 15, 0.7);
+}
+.guidlineColorsInnerDescription {
+  padding-left: 50px;
+}
+.guidlineColorsInner {
+  display: flex;
+  padding: 35px 25px;
+}
+.guidlineColorsInnerDescription {
+  padding-left: 30px;
+}
+.guidlineColorsInnerImg img {
+  height: 70px;
+}
+@media (max-width: 1300px) {
+  .flDirCol {
+    width: 100%;
+  }
+}
+@media (max-width: 1023px) {
+  .guidlineColorsInnerImg {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  .guidlineColorsInnerDescriptionFloorDescr {
+    margin-left: 0px !important;
+    margin-right: 20px !important;
+  }
+  .guidlineColorsInnerDescription {
+    padding-left: 0px;
+  }
+  .guidlineColorsInner {
+    flex-direction: column;
+  }
+}
+@media (max-width: 767px) {
+  .guidlineColorsInnerDescriptionFloorDescr {
+    margin-left: 0px !important;
+    margin-right: 10px !important;
+  }
+  .guidlineColorsInnerDescriptionFloorDescr {
+    font-size: 11px;
+    line-height: 20px;
+  }
+}

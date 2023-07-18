@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
 import Image from 'next/image';
-import TabFilter from '../../UI/filters/TabFilter';
-import CornerDecor from '../../UI/cornerDecor/CornerDecor';
-import filterStyles from '../../UI/filters/TabFilter.module.css';
-import styles from './FinishedRounds.module.css';
+import React, { useState } from 'react';
+
+import { VectorSvg } from '../../svg';
 import Button from '../../UI/button/Button';
-import { SmlArrowSvg, VectorSvg } from '../../svg';
+import CornerDecor from '../../UI/cornerDecor/CornerDecor';
+import TabFilter from '../../UI/filters/TabFilter';
+
+import styles from './FinishedRounds.module.css';
+import filterStyles from '../../UI/filters/TabFilter.module.css';
 
 let tabsData = [
   {
@@ -175,11 +177,7 @@ const FinishedRounds = () => {
       <div className={styles.border}>
         <div className={styles.tab}>
           <picture>
-            <img
-              className={styles.background}
-              src={'../../images/win/background/finishdRoundBg.png'}
-              alt=''
-            />
+            <img className={styles.background} src={'../../images/win/background/finishdRoundBg.png'} alt='' />
           </picture>
           <TabFilter
             onClick={changeTabHendler}
@@ -286,46 +284,26 @@ const FinishedRounds = () => {
                         strokeLinecap='round'
                         strokeLinejoin='round'
                       />
-                      <line
-                        x1='14.9141'
-                        y1='0.75'
-                        x2='14.9141'
-                        y2='8.75'
-                        stroke='white'
-                        strokeLinecap='round'
-                      />
+                      <line x1='14.9141' y1='0.75' x2='14.9141' y2='8.75' stroke='white' strokeLinecap='round' />
                     </g>
                   </svg>
                 </div>
               </div>
               <div className={styles.winNumber}>
                 <p>Winning Number</p>
-                <p
-                  className={`${styles.latest} ${
-                    latest ? styles.latestActive : ''
-                  }`}
-                >
-                  Latest
-                </p>
+                <p className={`${styles.latest} ${latest ? styles.latestActive : ''}`}>Latest</p>
               </div>
 
               <div className={styles.ball}>
-                {finishedRoulesData
-                  .slice(pageNumber, pageNumber + 6)
-                  .map(item => {
-                    return (
-                      <div key={item.id}>
-                        <div className={styles.ballItem}>
-                          <Image
-                            layout='fill'
-                            objectFit='contain'
-                            src={`/images/win/${item.img}`}
-                            alt=''
-                          />
-                        </div>
+                {finishedRoulesData.slice(pageNumber, pageNumber + 6).map(item => {
+                  return (
+                    <div key={item.id}>
+                      <div className={styles.ballItem}>
+                        <Image layout='fill' objectFit='contain' src={`/images/win/${item.img}`} alt='' />
                       </div>
-                    );
-                  })}
+                    </div>
+                  );
+                })}
               </div>
               <div className={styles.details}>
                 <button>Details</button>

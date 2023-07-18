@@ -1,0 +1,112 @@
+.guidlineFlex {
+  display: flex;
+  width: 100%;
+  position: relative;
+}
+.guidlineBgOuter {
+  position: absolute;
+  top: 0px;
+  right: -80px;
+  padding-top: 1080px;
+  z-index: 1;
+  width: calc(100% + 370px);
+}
+.guidlineBgOuter img {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  height: 100%;
+  object-fit: cover;
+}
+
+.guidlineHalf {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 3;
+}
+.guidlineLrgTtl span:last-child {
+  margin-left: 100px;
+}
+.guidlineLrgTtl span {
+  font-size: inherit;
+}
+.guidlineLrgTtl {
+  display: flex;
+  flex-direction: column;
+}
+
+.guidlineColorSchemeItemTtl {
+  font-size: 15px;
+  line-height: 24px;
+  margin-bottom: 16px;
+}
+.guidlineColorSchemeItem {
+  display: flex;
+  width: 25%;
+  padding: 25px;
+  flex-direction: column;
+}
+.guidlineColorScheme {
+  display: flex;
+  margin-top: 90px;
+  margin-bottom: 60px;
+  padding-right: 120px;
+  position: relative;
+  z-index: 2;
+}
+.guidlineColorSchemeItem:nth-child(3) * {
+  color: rgba(0, 0, 0, 0.5);
+}
+.guidlineColorsInnerDescriptionFloorDescr span {
+  color: inherit;
+  display: flex;
+  font-size: inherit;
+}
+.guidlineColorsInnerDescriptionFloorDescr {
+  color: rgba(255, 255, 255, 0.7);
+  display: flex;
+  font-size: 15px;
+  line-height: 24px;
+}
+
+@media (max-width: 1300px) {
+  .guidlineColorScheme {
+    flex-wrap: wrap;
+    padding-right: 0px;
+  }
+  .guidlineColorSchemeItem {
+    width: 50%;
+  }
+}
+
+@media (max-width: 1023px) {
+  .guidlineColorsInnerDescriptionFloorDescr {
+    margin-left: 0px !important;
+    margin-right: 20px !important;
+  }
+  .guidlineLrgTtl span:last-child {
+    margin-left: 30px;
+  }
+}
+@media (max-width: 767px) {
+  .guidlineColorsInnerDescriptionFloorDescr {
+    margin-left: 0px !important;
+    margin-right: 10px !important;
+  }
+  .guidlineColorsInnerDescriptionFloorDescr {
+    font-size: 11px;
+    line-height: 20px;
+  }
+  .guidlineHalf {
+    width: 100%;
+  }
+  .guidlineFlex:not(.frst-contn) {
+    flex-direction: column;
+  }
+  .guidlineBgOuter img {
+    height: auto;
+    width: 55%;
+  }
+}

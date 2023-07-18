@@ -1,0 +1,55 @@
+.stakingMain {
+  padding: 70px 0 0 0;
+  background: #272c57;
+  width: 100%;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.stakingTablesContainer {
+  background: #2d3364;
+  border-bottom-right-radius: 100px;
+  border-bottom-left-radius: 100px;
+  padding: 70px 100px;
+}
+.stakingContent {
+  background-color: #2f3674;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 125px;
+  padding: 60px 100px;
+}
+
+.stakingContentMain {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.stakingContentMain > h2 {
+  font-weight: 700;
+  font-size: 60px;
+  line-height: 130%;
+}
+
+.stakinContentInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+
+.stakingContentInfoButtons {
+  display: flex;
+  padding-top: 30px;
+}
+
+@media only screen and (max-width: 1025px) {
+  .stakingContent {
+    display: flex;
+    flex-direction: column;
+    padding: 60px 20px;
+  }
+  .stakingTablesContainer {
+    padding: 70px 20px;
+  }
+}

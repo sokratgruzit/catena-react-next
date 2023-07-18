@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
-import TabFilter from '../../../../UI/filters/TabFilter';
 import CornerDecor from '../../../../UI/cornerDecor/CornerDecor';
+import TabFilter from '../../../../UI/filters/TabFilter';
 
 import styles from './SecondBlock.module.css';
 
@@ -42,17 +42,13 @@ const SecondBlock = ({ data }) => {
       <div className={styles.bottomRow}>
         <div>
           <h4>Volume {activeMenuItem}</h4>
-          <p className='font_20'>
-            $ {activeMenuItem === '24H' ? data.volume_24h : data.volume_7d} M
-          </p>
+          <p className='font_20'>$ {activeMenuItem === '24H' ? data.volume_24h : data.volume_7d} M</p>
           <p>up down</p>
         </div>
         <div>
           <h4>LP REWARD FEES {activeMenuItem}</h4>
           <p className='font_20'>
-            {activeMenuItem === '24H'
-              ? '$' + data.lp_reward_fee_24h + 'M'
-              : '$' + data.lp_reward_fee_7d + 'M'}
+            {activeMenuItem === '24H' ? '$' + data.lp_reward_fee_24h + 'M' : '$' + data.lp_reward_fee_7d + 'M'}
           </p>
           <p className={styles.lpRewardTotal}>
             Out of{' '}

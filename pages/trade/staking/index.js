@@ -1,5 +1,6 @@
 import React from 'react';
-import Stack from '../../../components/Trade/Stack/Stack';
+
+import Stack from '../../../components/trade/Stack/Stack';
 
 const index = () => {
   return <Stack />;

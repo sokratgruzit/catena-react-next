@@ -1,0 +1,84 @@
+.technoLayersContainer {
+  display: flex;
+  flex-direction: column;
+  margin-top: 100px;
+}
+.technoLayersIcons .line-svg {
+  position: absolute;
+  left: 0px;
+  bottom: -55px;
+  margin: 0px;
+}
+.technoLayersIcons .line {
+  height: 2px;
+  width: 70px;
+  background: rgb(155, 153, 255);
+  background: linear-gradient(
+    90deg,
+    rgba(155, 153, 255, 0) 0%,
+    rgba(155, 153, 255, 1) 50%,
+    rgba(155, 153, 255, 0) 100%
+  );
+}
+.technoLayersFloor {
+  display: flex;
+  align-items: center;
+  margin-bottom: 70px;
+}
+.technoLayersTitleContainer div {
+  line-height: 24px;
+}
+.technoLayersTitleContainer {
+  display: flex;
+  flex-direction: column;
+  width: 150px;
+}
+.technoLayersDescr {
+  color: rgba(255, 255, 255, 0.5);
+}
+.technoLayersIcons {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.technoLayersIcons svg {
+  margin: 0px 25px;
+}
+@media (max-width: 1300px) {
+  .technoLayersIcons .line-svg {
+    width: 98%;
+  }
+  .technoLayersIcons .line {
+    width: 50px;
+  }
+  .technoLayersTitleContainer {
+    width: 120px;
+  }
+}
+@media (max-width: 1023px) {
+  .technoLayersContainer {
+    margin-top: 50px;
+  }
+  .technoLayersFloor {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .technoLayersIcons svg {
+    margin: 0px 15px;
+  }
+  .technoLayersTitleContainer {
+    margin-bottom: 30px;
+  }
+}
+@media (max-width: 767px) {
+  .technoLayersFloor {
+    margin-bottom: 20px;
+  }
+  .technoLayersTitleContainer {
+    margin-bottom: 10px;
+  }
+  .technoLayersIcons {
+    transform: scale(0.6);
+    transform-origin: left;
+  }
+}

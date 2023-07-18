@@ -1,13 +1,8 @@
-import React, { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
+import React, { useState, useRef } from 'react';
 
-import Button from '../../UI/button/Button';
-import CornerDecor from '../../UI/cornerDecor/CornerDecor';
-import ListItemRow from '../../UI/listItem/ListItemRow';
-import Expand from '../../UI/expand/Expand';
-import EarnRoutes from '../components/earnRoutes/EarnRoutes';
-import TableFilter from '../components/tableFilter/TableFilter';
-import PoolsTableRowExpand from '../components/poolsTable/PoolsTableRowExpand';
+import { useWindowDimension } from '../../../hooks/useWindowDimension';
+import background from '../../../public/images/earn/background.png';
 import {
   ClockSvg,
   ComponentViewSvg,
@@ -19,21 +14,25 @@ import {
   TableViewSvg,
   VectorSvg,
 } from '../../svg';
-
-import background from '../../../public/images/earn/background.png';
-import { useWindowDimension } from '../../../hooks/useWindowDimension';
-
-import styles from './Pools.module.css';
+import Button from '../../UI/button/Button';
+import CornerDecor from '../../UI/cornerDecor/CornerDecor';
+import Expand from '../../UI/expand/Expand';
+import ListItemRow from '../../UI/listItem/ListItemRow';
+import EarnRoutes from '../components/earnRoutes/EarnRoutes';
 import PoolsTableComponent from '../components/poolsTable/PoolsTableComponent';
 import PoolsTableComponentExpand from '../components/poolsTable/PoolsTableComponentExpand';
+import PoolsTableRowExpand from '../components/poolsTable/PoolsTableRowExpand';
+import TableFilter from '../components/tableFilter/TableFilter';
+
+import styles from './Pools.module.css';
 
 const poolsData2 = [
   {
     id: 0,
     data: [
       {
-        title: 'IFO CORE',
-        subTitle: 'Stake CORE to participate in IFOs',
+        title: 'IFO CATENA',
+        subTitle: 'Stake CATENA to participate in IFOs',
         svg1: <CoreLogoBorder />,
         svg2: <IfoCoreBorder />,
         type: 'multi_svg',
@@ -41,7 +40,7 @@ const poolsData2 = [
       {
         text: '0.0',
         text2: '0 USD',
-        text3: 'Recent CORE profit',
+        text3: 'Recent CATENA profit',
         type: 'multi_text',
       },
       {
@@ -67,7 +66,7 @@ const poolsData2 = [
         type: 'expand_custom',
       },
       {
-        totalLocked: '179,974,407 CORE',
+        totalLocked: '179,974,407 CATENA',
         averageLockDuration: '39 weeks',
         performanceFee: '0~2%',
         tag: 'auto',
@@ -78,8 +77,8 @@ const poolsData2 = [
     id: 1,
     data: [
       {
-        title: 'IFO CORE',
-        subTitle: 'Stake CORE to participate in IFOs',
+        title: 'IFO CATENA',
+        subTitle: 'Stake CATENA to participate in IFOs',
         svg1: <CoreLogoBorder />,
         svg2: <IfoCoreBorder />,
         type: 'multi_svg',
@@ -87,7 +86,7 @@ const poolsData2 = [
       {
         text: '0.0',
         text2: '0 USD',
-        text3: 'Recent CORE profit',
+        text3: 'Recent CATENA profit',
         type: 'multi_text',
       },
       {
@@ -122,8 +121,8 @@ const poolsData2 = [
     id: 2,
     data: [
       {
-        title: 'IFO CORE',
-        subTitle: 'Stake CORE to participate in IFOs',
+        title: 'IFO CATENA',
+        subTitle: 'Stake CATENA to participate in IFOs',
         svg1: <CoreLogoBorder />,
         svg2: <IfoCoreBorder />,
         type: 'multi_svg',
@@ -131,7 +130,7 @@ const poolsData2 = [
       {
         text: '0.0',
         text2: '0 USD',
-        text3: 'Recent CORE profit',
+        text3: 'Recent CATENA profit',
         type: 'multi_text',
       },
       {
@@ -166,8 +165,8 @@ const poolsData2 = [
     id: 3,
     data: [
       {
-        title: 'IFO CORE',
-        subTitle: 'Stake CORE to participate in IFOs',
+        title: 'IFO CATENA',
+        subTitle: 'Stake CATENA to participate in IFOs',
         svg1: <CoreLogoBorder />,
         svg2: <IfoCoreBorder />,
         type: 'multi_svg',
@@ -175,7 +174,7 @@ const poolsData2 = [
       {
         text: '0.0',
         text2: '0 USD',
-        text3: 'Recent CORE profit',
+        text3: 'Recent CATENA profit',
         type: 'multi_text',
       },
       {
@@ -210,8 +209,8 @@ const poolsData2 = [
     id: 4,
     data: [
       {
-        title: 'IFO CORE',
-        subTitle: 'Stake CORE to participate in IFOs',
+        title: 'IFO CATENA',
+        subTitle: 'Stake CATENA to participate in IFOs',
         svg1: <CoreLogoBorder />,
         svg2: <IfoCoreBorder />,
         type: 'multi_svg',
@@ -219,7 +218,7 @@ const poolsData2 = [
       {
         text: '0.0',
         text2: '0 USD',
-        text3: 'Recent CORE profit',
+        text3: 'Recent CATENA profit',
         type: 'multi_text',
       },
       {
@@ -254,8 +253,8 @@ const poolsData2 = [
     id: 5,
     data: [
       {
-        title: 'IFO CORE',
-        subTitle: 'Stake CORE to participate in IFOs',
+        title: 'IFO CATENA',
+        subTitle: 'Stake CATENA to participate in IFOs',
         svg1: <CoreLogoBorder />,
         svg2: <IfoCoreBorder />,
         type: 'multi_svg',
@@ -263,7 +262,7 @@ const poolsData2 = [
       {
         text: '0.0',
         text2: '0 USD',
-        text3: 'Recent CORE profit',
+        text3: 'Recent CATENA profit',
         type: 'multi_text',
       },
       {
@@ -332,11 +331,7 @@ const Pools = () => {
               <p className='font_13'>~$0,07</p>
             </div>
             <div className={styles.pools__claim}>
-              <Button
-                title={'Claim'}
-                type={'blue__border'}
-                className={styles.claimButton}
-              />
+              <Button title={'Claim'} type={'blue__border'} className={styles.claimButton} />
               <p className='font_13'>Help</p>
               <InfoIcon />
             </div>
@@ -348,15 +343,11 @@ const Pools = () => {
             <div className={styles.Farms__filterLeftPanel}>
               <TableViewSvg
                 onClick={() => setDataViewType('table')}
-                className={`${
-                  dataViewType === 'components' && styles.tableView
-                }`}
+                className={`${dataViewType === 'components' && styles.tableView}`}
               />
               <ComponentViewSvg
                 onClick={() => setDataViewType('components')}
-                className={`${
-                  dataViewType === 'components' && styles.componentsView
-                }`}
+                className={`${dataViewType === 'components' && styles.componentsView}`}
               />
               <div className={styles.farms__radioBtn}>
                 <div className='radio-btn'>
@@ -373,9 +364,7 @@ const Pools = () => {
               <div className={styles.filterWrapper}>
                 <div
                   ref={selectRef}
-                  className={`${styles.filters} ${
-                    filter.open && styles.filterOpen
-                  }`}
+                  className={`${styles.filters} ${filter.open && styles.filterOpen}`}
                   onClick={() =>
                     setFilter(prevState => ({
                       ...prevState,
@@ -384,12 +373,7 @@ const Pools = () => {
                   }
                 >
                   <p className={styles.filterName}>
-                    {filter.selected}{' '}
-                    <VectorSvg
-                      className={`${styles.vectorSvg} ${
-                        filter.open && styles.rotate
-                      }`}
-                    />
+                    {filter.selected} <VectorSvg className={`${styles.vectorSvg} ${filter.open && styles.rotate}`} />
                   </p>
                   {filter.open && (
                     <>
@@ -428,11 +412,7 @@ const Pools = () => {
             <CornerDecor />
             {poolsData2.map((item, index) => {
               return (
-                <Expand
-                  expandContent={<PoolsTableRowExpand item={item} />}
-                  className={styles.borderBottom}
-                  key={index}
-                >
+                <Expand expandContent={<PoolsTableRowExpand item={item} />} className={styles.borderBottom} key={index}>
                   <ListItemRow data={item} type={'earn_pools'} />
                 </Expand>
               );
@@ -444,9 +424,7 @@ const Pools = () => {
             {poolsData2.map((item, index) => (
               <div className={`${styles.itemWrapper}`} key={index}>
                 <CornerDecor />
-                <Expand
-                  expandContent={<PoolsTableComponentExpand item={item} />}
-                >
+                <Expand expandContent={<PoolsTableComponentExpand item={item} />}>
                   <PoolsTableComponent item={item} />
                 </Expand>
               </div>

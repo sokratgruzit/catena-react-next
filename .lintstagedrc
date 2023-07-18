@@ -1,0 +1,11 @@
+{
+  "*.js": [
+    "prettier --write",
+    "eslint --fix"
+  ],
+  "*.jsx": [
+    "prettier --write",
+    "eslint --fix"
+  ]
+}
+

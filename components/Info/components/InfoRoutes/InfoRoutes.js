@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
 import { useRouter } from 'next/router';
+import React, { useState } from 'react';
 
 import TabFilter from '../../../UI/filters/TabFilter';
 
@@ -33,9 +33,7 @@ const InfoRoutes = () => {
     return returnStatement;
   };
 
-  const [activeMenuItem, setActiveMenuItem] = useState(
-    getCurrentLocation(router.pathname),
-  );
+  const [activeMenuItem, setActiveMenuItem] = useState(getCurrentLocation(router.pathname));
 
   const navigationHandler = route => {
     if (route === 'Overview') {

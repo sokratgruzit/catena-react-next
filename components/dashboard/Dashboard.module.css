@@ -1,0 +1,329 @@
+.mainContainer {
+  width: 100%;
+  display: flex;
+  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+  opacity: 0;
+  padding: 200px 40px 0 40px;
+}
+
+.animate.mainContainer {
+  opacity: 1;
+}
+
+.disableValidatedBlocks {
+  opacity: 0.3;
+}
+
+.sidebar {
+  width: 252px;
+  min-width: 252px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+  opacity: 0;
+}
+
+.animate .sidebar {
+  opacity: 1;
+  transition-delay: 0.75s;
+}
+
+.sidebar li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.6);
+  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+  cursor: pointer;
+}
+
+.dashboardListIcon {
+  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+  fill: rgba(255, 255, 255, 0.6);
+}
+
+.sidebar .chosen {
+  color: #fff;
+}
+
+.chosen .dashboardListIcon {
+  fill: #0500ff;
+}
+
+.chosen {
+  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+}
+
+.chosen:hover {
+  opacity: 0.7;
+}
+
+.sidebar li:hover {
+  color: #fff;
+}
+
+.sidebar li:hover .dashboardListIcon {
+  fill: #0500ff;
+  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+}
+
+.currentCardsWrapper {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.header {
+  width: 100%;
+}
+
+.chartsWrapper {
+  width: 100%;
+  display: flex;
+  gap: 20px;
+  padding-top: 20px;
+}
+
+.chartsWrapper img {
+  width: 100%;
+}
+
+.mainCards {
+  display: flex;
+  flex-direction: column;
+  width: calc(100% - 218px);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 20px;
+}
+
+.mainContentWrap {
+  display: flex;
+  flex-direction: column;
+  width: calc(100% - 292px);
+  position: relative;
+  z-index: 1;
+}
+
+.tableWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  width: 100%;
+}
+
+.sortByButtons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 56px;
+  padding: 6px 4px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(30px);
+  border-radius: 12px;
+  gap: 10px;
+}
+
+.sortByButton {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 140%;
+  color: rgb(255, 255, 255, 0.6);
+  display: flex;
+  justify-content: center;
+  padding: 11px 20px;
+  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+}
+
+.sortByButton:hover {
+  opacity: 0.7;
+}
+.sortByButtonActive {
+  background: #0500ff;
+  border-radius: 8px;
+  color: #fff;
+}
+
+.bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.catenaLogoSml {
+  width: 26px;
+  height: 26px;
+}
+
+.unorderedList {
+  display: flex;
+  flex-direction: column;
+  gap: 33px;
+}
+
+.balanceCardWrapper,
+.currentRankingWrapper,
+.currentVotesWrapper,
+.nodeDetailsWrapper,
+.softwareStatusWrapper,
+.chartsWrapper {
+  width: 100%;
+  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+  transform: translateY(10px);
+  opacity: 0;
+}
+
+.animate .balanceCardWrapper,
+.animate .currentRankingWrapper,
+.animate .nodeDetailsWrapper,
+.animate .currentVotesWrapper,
+.animate .softwareStatusWrapper,
+.animate .chartsWrapper {
+  transform: translateY(0px);
+  opacity: 1;
+  transition-delay: 0.4s;
+}
+
+.animate .currentVotesWrapper,
+.animate .nodeDetailsWrapper {
+  transition-delay: 0.5s;
+}
+
+.animate .softwareStatusWrapper {
+  transition-delay: 0.6s;
+}
+
+.animate .chartsWrapper {
+  transition-delay: 0.7s;
+}
+
+@media (max-width: 1330px) {
+  .chartsWrapper {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 1300px) {
+  .mainCards {
+    width: 100%;
+    gap: 20px;
+  }
+  .currentCardsWrapper {
+    display: flex;
+    position: unset;
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+@media (max-width: 896px) {
+  .sidebar li p {
+    display: none;
+  }
+  .sidebar {
+    min-width: 70px;
+  }
+
+  .dashboardListIcon {
+    width: 26px;
+    height: 26px;
+  }
+
+  .mainContentWrap {
+    width: calc(100% - 70px);
+  }
+}
+
+
+@media (max-width: 667px) {
+  .currentCardsWrapper {
+    flex-direction: column;
+  }
+}
+@media (max-width: 640px) {
+  .unorderedList {
+    display: flex;
+    flex-direction: column;
+    gap: 23px;
+  }
+  .sidebar li p {
+    display: none;
+  }
+  .sidebar {
+    min-width: 50px;
+  }
+
+  .dashboardListIcon {
+    width: 20px;
+    height: 20px;
+  }
+  .mainContentWrap {
+    width: calc(100% - 50px);
+  }
+  .mainContainer {
+    padding: 150px 30px 0 30px;
+  }
+}
+
+@media (max-width: 500px) {
+  .sidebar li p {
+    display: none;
+  }
+  .sidebar {
+    min-width: 40px;
+  }
+
+  .dashboardListIcon {
+    width: 18px;
+    height: 18px;
+  }
+  .mainContentWrap {
+    width: calc(100% - 40px);
+  }
+  .mainContainer {
+    padding: 150px 20px 0 20px;
+  }
+  .sortByButtons {
+    width: 100%;
+    height: 100%;
+    gap: 0;
+  }
+  .sortByButton {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+  }
+  .sortByButtonActive {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 300px) {
+  .sortByButton {
+    font-size: 12px;
+  }
+  .sortByButtonActive {
+    font-size: 12px;
+  }
+}

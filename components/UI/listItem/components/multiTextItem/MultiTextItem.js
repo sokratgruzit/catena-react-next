@@ -1,4 +1,3 @@
-import styles from './MultiTextItem.module.css';
 import listStyles from '../../ListItemRow.module.css';
 
 const MultiTextItem = props => {

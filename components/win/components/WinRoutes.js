@@ -1,6 +1,6 @@
+import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 
-import { useRouter } from 'next/router';
 import CornerDecor from '../../UI/cornerDecor/CornerDecor';
 import TabFilter from '../../UI/filters/TabFilter';
 
@@ -31,9 +31,7 @@ const WinRoutes = () => {
     if (loc === '/win/lottery') returnStatement = 'Lottery';
     return returnStatement;
   };
-  const [activeMenuItem, setActiveMenuItem] = useState(
-    getCurrentLocation(router.pathname),
-  );
+  const [activeMenuItem, setActiveMenuItem] = useState(getCurrentLocation(router.pathname));
 
   const changeTabHendler = status => {
     let route = '/win/competition';

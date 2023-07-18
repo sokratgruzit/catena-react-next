@@ -1,10 +1,12 @@
-import { useState } from 'react';
 import Image from 'next/image';
+import { useState } from 'react';
+
+import PrizesTable from './prizesTable/PrizesTable';
 import CornerDecor from '../../UI/cornerDecor/CornerDecor';
 import TabFilter from '../../UI/filters/TabFilter';
-import filterStyles from '../../UI/filters/TabFilter.module.css';
+
 import styles from './Prizes.module.css';
-import PrizesTable from './prizesTable/PrizesTable';
+import filterStyles from '../../UI/filters/TabFilter.module.css';
 
 let tabsData = [
   {
@@ -32,22 +34,11 @@ const Prizes = () => {
     <>
       <div className={styles.prizesBkPosition}>
         <div className={styles.sky}>
-          <Image
-            layout='fill'
-            objectFit={'contain'}
-            src={'/images/win/sky.png'}
-            alt='sky'
-          />
+          <Image layout='fill' objectFit={'contain'} src={'/images/win/sky.png'} alt='sky' />
         </div>
         <div className={styles.prizes}>
           <div>
-            <svg
-              width='27'
-              height='31'
-              viewBox='0 0 27 31'
-              fill='none'
-              xmlns='http://www.w3.org/2000/svg'
-            >
+            <svg width='27' height='31' viewBox='0 0 27 31' fill='none' xmlns='http://www.w3.org/2000/svg'>
               <g clipPath='url(#clip0_1528_4423)'>
                 <path
                   d='M5.42292 13.1374C4.67171 13.1914 3.91751 13.0856 3.21127 12.8273C2.50502 12.569 1.86317 12.1642 1.32906 11.6402C-0.414391 9.8618 0.130632 7.3623 0.130632 7.3623C1.65771 7.45507 3.09408 8.10921 4.15636 9.19567C4.67268 9.7041 5.05733 10.3277 5.27779 11.0138C5.49825 11.6999 5.54803 12.4283 5.42292 13.1374V13.1374Z'
@@ -96,32 +87,16 @@ const Prizes = () => {
               </g>
               <defs>
                 <clipPath id='clip0_1528_4423'>
-                  <rect
-                    width='26'
-                    height='30'
-                    fill='white'
-                    transform='matrix(-1 0 0 1 26.0508 0.0439453)'
-                  />
+                  <rect width='26' height='30' fill='white' transform='matrix(-1 0 0 1 26.0508 0.0439453)' />
                 </clipPath>
               </defs>
             </svg>
           </div>
           <div className={styles.prizesMedal}>
-            <Image
-              layout='fill'
-              objectFit={'contain'}
-              src={'/images/win/Frame.png'}
-              alt='frame'
-            />
+            <Image layout='fill' objectFit={'contain'} src={'/images/win/Frame.png'} alt='frame' />
           </div>
           <div>
-            <svg
-              width='27'
-              height='31'
-              viewBox='0 0 27 31'
-              fill='none'
-              xmlns='http://www.w3.org/2000/svg'
-            >
+            <svg width='27' height='31' viewBox='0 0 27 31' fill='none' xmlns='http://www.w3.org/2000/svg'>
               <g clipPath='url(#clip0_1528_4435)'>
                 <path
                   d='M20.6786 13.1374C21.4299 13.1914 22.1841 13.0856 22.8903 12.8273C23.5965 12.569 24.2384 12.1642 24.7725 11.6402C26.516 9.8618 25.9709 7.3623 25.9709 7.3623C24.4439 7.45507 23.0075 8.10921 21.9452 9.19567C21.4289 9.7041 21.0442 10.3277 20.8238 11.0138C20.6033 11.6999 20.5535 12.4283 20.6786 13.1374Z'
@@ -170,12 +145,7 @@ const Prizes = () => {
               </g>
               <defs>
                 <clipPath id='clip0_1528_4435'>
-                  <rect
-                    width='26'
-                    height='30'
-                    fill='white'
-                    transform='translate(0.0507812 0.0439453)'
-                  />
+                  <rect width='26' height='30' fill='white' transform='translate(0.0507812 0.0439453)' />
                 </clipPath>
               </defs>
             </svg>
@@ -187,36 +157,21 @@ const Prizes = () => {
       </div>
       <div className={styles.backgrounPrizes}>
         <div className={styles.Prizes__background}>
-          <Image
-            layout='fill'
-            src={'/images/win/background/prizesBackground.png'}
-            alt='time'
-            objectFit={'contain'}
-          />
+          <Image layout='fill' src={'/images/win/background/prizesBackground.png'} alt='time' objectFit={'contain'} />
         </div>
         <div className={styles.spaceBoySection}>
           <div>
             <div className={styles.prizesDescription}>
+              <p>Every eligible participant will win prizes at the end of the competition.</p>
+              <h5>The better your team performs, the better prizes you will get!</h5>
               <p>
-                Every eligible participant will win prizes at the end of the
-                competition.
-              </p>
-              <h5>
-                The better your team performs, the better prizes you will get!
-              </h5>
-              <p>
-                The final winning team will be the team with the highest total
-                volume score at the end of the competition period.
+                The final winning team will be the team with the highest total volume score at the end of the
+                competition period.
               </p>
             </div>
           </div>
           <div className={styles.cosmonavtPrizes}>
-            <Image
-              layout='fill'
-              objectFit={'contain'}
-              src={'/images/win/cosmonavtPrizes.png'}
-              alt='cosmonavtPrizes'
-            />
+            <Image layout='fill' objectFit={'contain'} src={'/images/win/cosmonavtPrizes.png'} alt='cosmonavtPrizes' />
           </div>
         </div>
         <div className={`${styles.prizesBorder}`}>
@@ -256,11 +211,9 @@ const Prizes = () => {
           </div>
           <div className={styles.descriptionP}>
             <p>
-              Prizes to be distributed in CAKE, LAZIO, PORTO and SANTOS in a
-              distribution of 3:1:1:1 and shared by all members of each
-              respective tier. The price of token prizes{' '}
-              {`(CAKE, LAZIO, PORTO and SANTOS)`} in USD will be determined as
-              per their BUSD pair price during the tally period.
+              Prizes to be distributed in CAKE, LAZIO, PORTO and SANTOS in a distribution of 3:1:1:1 and shared by all
+              members of each respective tier. The price of token prizes {`(CAKE, LAZIO, PORTO and SANTOS)`} in USD will
+              be determined as per their BUSD pair price during the tally period.
             </p>
           </div>
         </div>

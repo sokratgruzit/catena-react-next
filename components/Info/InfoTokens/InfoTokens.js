@@ -1,11 +1,11 @@
-import React from 'react';
 import { useRouter } from 'next/router';
+import React from 'react';
 import { useSelector } from 'react-redux';
 
-import InfoRoutes from '../components/InfoRoutes/InfoRoutes';
-import TopMovers from '../components/TopMovers/TopMovers';
-import TokensTable from '../components/InfoTables/TokensTable';
 import { StarSvg } from '../../svg';
+import InfoRoutes from '../components/InfoRoutes/InfoRoutes';
+import TokensTable from '../components/InfoTables/TokensTable';
+import TopMovers from '../components/TopMovers/TopMovers';
 
 import styles from '../InfoPages.module.css';
 
@@ -18,13 +18,8 @@ const InfoTokens = () => {
         <div className={styles.space}></div>
         <InfoRoutes />
         <div className={styles.starWrapper}>
-          <StarSvg
-            className={styles.starSVG}
-            onClick={() => router.push(`/info/tokens/watchlist`)}
-          />
-          {favTokens.length > 0 && (
-            <div className={styles.favCount}>{favTokens.length}</div>
-          )}
+          <StarSvg className={styles.starSVG} onClick={() => router.push(`/info/tokens/watchlist`)} />
+          {favTokens.length > 0 && <div className={styles.favCount}>{favTokens.length}</div>}
         </div>
       </div>
       <TopMovers />
