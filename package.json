@@ -58,5 +58,17 @@
     "husky": "^8.0.3",
     "lint-staged": "^13.2.2",
     "prettier": "^2.8.8"
-  }
+  },
+  "description": "This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).",
+  "main": "connector.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sokratgruzit/catena-react-next.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sokratgruzit/catena-react-next/issues"
+  },
+  "homepage": "https://github.com/sokratgruzit/catena-react-next#readme"
 }
