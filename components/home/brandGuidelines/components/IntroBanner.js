@@ -10,7 +10,9 @@ export default function IntroBanner() {
   ];
   return (
     <div className={styles.container}>
-      <div className={styles.mainContainerDescription}>
+      {/* <img src='/images/guidelines/bg.png' alt='' /> */}
+
+      <div className={`${styles.mainContainerDescription} `}>
         {data.map((item, index) => {
           return (
             <div key={index} className={styles.left}>
@@ -22,7 +24,7 @@ export default function IntroBanner() {
                 <a href='/resources/core-logo-pack.zip' target='_blank' className={styles.mainContainerDownloadBtn}>
                   {item.downloadAllLogos}
                 </a>
-                <div className={styles.mainContainerDownloadText}>{item.downloadAs}</div>
+                <div className={styles.mainContainerDownloadText}>{item.downloadAs}PDF, EPS & SVG</div>
               </div>
             </div>
           );

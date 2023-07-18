@@ -15,17 +15,20 @@ function BrandGuidelines() {
   return (
     <div>
       <IntroBanner />
-      <MainColors />
-      <Typography />
-      <LogoVariations />
-      <ProductLogos />
-      <ColorBanner />
-      <ClearSpace />
-      <LogoUsages />
-      <Partniership />
-      <Colors />
-      <ColorPalette />
-      <TechnologiesBanner />
+      <div className='container'>
+        <ClearSpace />
+        <LogoVariations />
+
+        <MainColors />
+        <Typography />
+        <ProductLogos />
+        <ColorBanner />
+        <LogoUsages />
+        <Partniership />
+        <Colors />
+        <ColorPalette />
+        <TechnologiesBanner />
+      </div>
     </div>
   );
 }

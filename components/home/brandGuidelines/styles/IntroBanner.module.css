@@ -1,71 +1,96 @@
-.mainContainerDescription div h1 span {
-    font-size: inherit;
-    font-family: inherit;
+.left h1 {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }
-.mainContainerDownloadBtn:hover{
-    background: #0500FF;
+.left h1 span {
+  font-size: 90px;
+  line-height: 108px;
+  color: #fff;
+  text-transform: capitalize;
 }
+
+.container {
+  position: relative;
+  width: 100%;
+}
+
+.container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  max-width: 1900px;
+}
+
+.mainContainerDescription {
+  padding: 160px 155px 250px 155px;
+  position: relative;
+  background-image: url('/images/guidelines/bg.png');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
 .left {
-    width: 100%;
-    position: relative;
-    z-index: 5;
-    margin-bottom: 100px;
-
-}
-.mainContainerDownloadBtn{
-    height: 52px;
-    background: #FF7152;
-    padding: 0px 25px;
-    cursor: pointer;
-    width: fit-content;
-    display: flex;
-    position: absolute;
-    flex-direction: column;
-    right: 0;
-    bottom: -5px;
-    justify-content: center;
-    align-items: center;
-    transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
-}
-.mainContainerDescription h1{
-    font-size: 100px;
-    transform: translateY(10px);
-    transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
-    margin-top: 215px;
-    flex-direction: column; 
-    display: flex;
-    transform: translateY(0px); 
-    opacity: 1;
-    transition-delay: .5s;
-    }
-.mainContainerDescription h1 span:nth-child(2) {
-    padding-left: 122px;
-    margin-top: 122px;
-
-}
-.mainContainerDescription{
-    width: 100%;
-    z-index: 5;
-    display: flex;
-    flex-direction: column;
-}
-     
-@media (max-width: 1300px){
-
-    .mainContainerDescription h1 span:nth-child(2) {
-        padding-left: 63px;
-    }
-    .mainContainerDescription{
-    padding-left: 25px;
-    }
-    .mainContainerDescription h1{
-    font-size: 50px;
-    }
+  display: inline-block;
 }
 
-@media(max-width: 767px) {
-    .mainContainerDescription{
-        flex-direction: column;
-        padding: 0px;
-    }
+.mainContainerDownload {
+  margin-top: 55px;
+}
+
+.mainContainerDownload:hover {
+  opacity: 0.6;
+}
+
+.mainContainerDownloadBtn {
+  display: inline-block;
+  padding: 18px 34px;
+  background-color: #ff6969;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 61px;
+  border: 1px solid #fff;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.mainContainerDownloadText {
+  line-height: 22px;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.3);
+  margin-top: 10px;
+  margin-left: 43px;
+}
+
+@media (max-width: 1023px) {
+  .left h1 span {
+    font-size: 70px;
+  }
+}
+
+@media (max-width: 767px) {
+  .left h1 span {
+    font-size: 60px;
+  }
+  .left h1 {
+    gap: 0px;
+    line-height: 60px;
+  }
+  .mainContainerDescription {
+    padding: 160px 55px 250px 55px;
+  }
+  .mainContainerDownloadBtn {
+    padding: 10px 26px;
+  }
+  .mainContainerDownload {
+    margin-top: 25px;
+  }
 }
