@@ -1,6 +1,6 @@
 import CommunityEvents from './components/CommunityEvents';
-import JoinCatenaCommunity from './components/JoinCatenaCommunity';
-import AmbassadorExpectations from '../ambassador/components/AmbassadorExpectations';
+import JoinCatenaCommunity from './components/joinCatenaCommunity/JoinCatenaCommunity';
+import AmbassadorExpectations from '../ambassador/components/ambassadorExpectation/AmbassadorExpectations';
 
 const devCommunity = [
   {

@@ -1,9 +1,9 @@
-import JoinCommunity from '../components/JoinCommunity';
-import Title from '../components/Title';
+import JoinCommunity from './components/joinCommunity/JoinCommunity';
+import Title from './components/title/Title';
 
 const Press = () => {
   return (
-    <div className='container' style={{ paddingTop: '100px' }}>
+    <div className='container'>
       <Title spanOne='CATENA' spanTwo='press' />
       <JoinCommunity />
     </div>
