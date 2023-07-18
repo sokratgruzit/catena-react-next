@@ -1,76 +1,78 @@
-.logoVariantsContainer {
-  background: #010918;
-  padding-top: 160px;
-}
-
-.guidlineFlex {
+.wrapper {
   display: flex;
-  width: 100%;
-  position: relative;
+  flex-wrap: wrap;
 }
-.guidlineHalf {
-  width: 50%;
+.variations {
+  padding-top: 144px;
+}
+.title {
+  font-size: 50px;
+  line-height: 55px;
+  color: rgba(22, 32, 41, 1);
+  text-align: center;
+}
+.logoVariantsContainer {
+  flex-basis: 50%;
   display: flex;
   flex-direction: column;
   position: relative;
-  z-index: 3;
+  height: 400px;
+  padding: 20px 30px;
+  align-items: center;
+  justify-content: center;
 }
 
 .guidlineHalf {
-  width: 100%;
+  flex-basis: 50%;
 }
 
 .logoVariantsInner {
-  align-items: center;
-}
-.dCenter {
+  display: flex;
   justify-content: center;
 }
-.guidlineParagraph {
-  font-size: 15px;
-  line-height: 24px;
-  color: rgba(255, 255, 255, 0.5);
-  padding-right: 100px;
+
+.guidlineHalfTtl {
+  font-size: 16px;
+  line-height: 19px;
+  color: rgba(22, 32, 41, 0.4);
+  padding-top: 13px;
+}
+.logoVariantsContainer:nth-child(1) {
+  border-right: 1px solid;
+  border-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
+  border-image-slice: 1;
+  border-image-repeat: stretch;
+}
+.logoVariantsContainer:nth-child(3) {
+  border-right: 1px solid;
+  border-image: linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
+  border-image-slice: 1;
+  border-image-repeat: stretch;
+}
+.logoVariantsContainer:nth-child(1) .image,
+.logoVariantsContainer:nth-child(3) .image {
+  max-width: 400px;
 }
 
-.guidlineParagraph {
-  padding-right: 0px;
+.logoVariantsContainer:nth-child(2) .image,
+.logoVariantsContainer:nth-child(4) .image {
+  max-width: 200px;
 }
-.paragraphMt {
-  margin-top: 30px;
+
+.image {
+  width: 100%;
+  height: auto;
 }
-.paragraphMt br,
-.guidlineParagraph br {
-  display: none !important;
-}
-.logoVar {
-  height: 52px;
-  display: flex;
-  align-items: center;
-  border: 2px solid #0500ff;
-  color: #fff;
-  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
-  margin-right: auto;
-  padding: 0px 32px;
-  margin-top: 60px;
-}
-.logoVar:hover {
-  background: #0500ff;
-}
-.borderBottom {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-.font51 {
-  font-size: 51px;
-  line-height: 66px;
-}
-@media (max-width: 1300px) {
-  .logoVariantsInner {
-    transform: scale(0.5);
+
+/* @media (max-width: 1365px) {
+  .image {
   }
-}
+} */
 @media (max-width: 1023px) {
-  .logoVariantsContainer .guidlineParagraph {
-    padding-right: 15px;
+  .logoVariantsContainer {
+    flex-basis: 100%;
+  }
+  .guidlineHalf {
+    flex-basis: 100%;
   }
 }

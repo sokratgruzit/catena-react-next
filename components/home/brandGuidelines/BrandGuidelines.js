@@ -17,11 +17,10 @@ function BrandGuidelines() {
       <IntroBanner />
       <div className='container'>
         <ClearSpace />
+        <ProductLogos />
         <LogoVariations />
-
         <MainColors />
         <Typography />
-        <ProductLogos />
         <ColorBanner />
         <LogoUsages />
         <Partniership />
