@@ -4,7 +4,6 @@ import { useRouter } from 'next/router';
 import useTranslation from 'next-translate/useTranslation';
 import { useState, useEffect, useMemo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-// import useConnect from "../../hooks/use-connect";
 
 import { injected, walletConnect } from '../../connector';
 import useConnect from '../../hooks/use-connect';
@@ -61,7 +60,6 @@ const Header = () => {
         .then(res => console.log(res))
         .catch(() => {});
     }
-    // eslint-disable-next-line
   }, [account]);
 
   const [activeMenu, setActiveMenu] = useState(null);
