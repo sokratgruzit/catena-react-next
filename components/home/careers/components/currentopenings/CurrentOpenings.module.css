@@ -43,23 +43,24 @@
 .careerQualities__openingTxt::after{
     height: 8px;
     width: 8px;
-    background: #7F8287;
+    background: #A6D0DD;
     border-radius: 50%;
     position: absolute;
-    left: 0px;
+    left: 0;
     content: '';
     top: 5px;
+    border: 1px solid rgb(87, 86, 86);
 }
 
 .careerQualities__openingTxt{
     margin-bottom: 8px;
     padding-left: 24px;
     position: relative;
-    color: rgba(255, 255, 255, .5);
+    color: #162029;
 }
 
 .careerQualities__openingTtl{
-    color: rgba(255, 113, 82, 1);
+    color: #FF6969;
     margin-bottom: 10px;
 }
 

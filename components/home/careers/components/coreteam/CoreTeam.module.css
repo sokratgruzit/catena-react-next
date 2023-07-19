@@ -65,7 +65,6 @@
         color: rgba(255, 255, 255, .5);
     }
     .careerQualities__opening-ttl{
-        color: rgba(255, 113, 82, 1);
         margin-bottom: 10px;
     }
     .careerQualities__opening{
@@ -88,7 +87,6 @@
     .careerQualities__subttl{
         font-size: 30px;
         line-height: 40px;
-        color: rgba(255, 113, 82, 1);
         margin-bottom: 15px;
     }
     .careerQualities__text{

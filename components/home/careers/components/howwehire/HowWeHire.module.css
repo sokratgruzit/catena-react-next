@@ -35,7 +35,7 @@
     line-height: 24px;
 }
 .hire__stepsTtl {
-    color: #ff7152;
+    color: #FF6969;
 }
 .hire__steps {
     display: flex;
@@ -51,7 +51,7 @@
     width: 16px;
     height: 16px;
     border-radius: 50%;
-    background: #0500ff;
+    background: #A6D0DD;
     position: absolute;
     bottom: -41px;
     left: 0;

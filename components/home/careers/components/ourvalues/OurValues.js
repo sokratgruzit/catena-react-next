@@ -17,7 +17,7 @@ const OurValues = props => {
           {iconImages.map((item, index) => {
             return (
               <div className={styles.career_item} key={index}>
-                {/*<img src='' alt='img' />*/}
+                <div>{item.svg}</div>
                 <div key={index} className={styles.item_ttl}>
                   {item.title}
                 </div>
