@@ -1,4 +1,4 @@
-import styles from "../css/JoinComuniti.module.css"
+import styles from "../css/JoinComuniti.module.css";
 
 const JoinComuniti = () => {
     return (
@@ -9,7 +9,7 @@ const JoinComuniti = () => {
                 <a className={styles.a}>Sign up to our newsletter to stay in the loop</a>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default JoinComuniti
+export default JoinComuniti;

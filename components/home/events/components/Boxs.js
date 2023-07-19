@@ -32,7 +32,6 @@ const Boxs = () => {
                     <img src="/images/event/grouptwo.png" />
                     <p className={styles.boxTitle}>SingularityNET’s Ben Goertzel has a grand vision for the future of AI</p>
                 </div>
-
                 <div>
                     <img className={styles.img} src="/images/event/img.png" />
                     <img src="/images/event/groupthree.png" />
@@ -40,7 +39,7 @@ const Boxs = () => {
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default Boxs
+export default Boxs;
