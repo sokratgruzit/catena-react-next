@@ -1,14 +1,10 @@
 import ClearSpace from './components/ClearSpace';
-import ColorBanner from './components/ColorBanner';
-import ColorPalette from './components/ColorPalette';
-import Colors from './components/Colors';
+import Fonts from './components/Fonts';
 import IntroBanner from './components/IntroBanner';
 import LogoUsages from './components/LogoUsages';
 import LogoVariations from './components/LogoVariations';
-import MainColors from './components/MainColors';
 import Partniership from './components/Partniership';
 import ProductLogos from './components/ProductLogos';
-import TechnologiesBanner from './components/TechnologiesBanner';
 import Typography from './components/Typography';
 
 function BrandGuidelines() {
@@ -18,16 +14,21 @@ function BrandGuidelines() {
       <div className='container'>
         <ClearSpace />
         <ProductLogos />
-        <LogoVariations />
-        <MainColors />
-        <Typography />
-        <ColorBanner />
-        <LogoUsages />
-        <Partniership />
-        <Colors />
-        <ColorPalette />
-        <TechnologiesBanner />
       </div>
+      <LogoVariations />
+      <div className='container'>
+        <LogoUsages />
+      </div>
+      <Partniership />
+      <div className='container'>
+        <Typography />
+        <Fonts />
+      </div>
+
+      {/* <Colors /> */}
+      {/*
+        <ColorPalette />
+        <TechnologiesBanner /> */}
     </div>
   );
 }

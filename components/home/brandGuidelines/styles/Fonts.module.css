@@ -1,0 +1,72 @@
+.fonts {
+  display: flex;
+  flex-direction: column;
+  gap: 69px;
+  padding-bottom: 200px;
+}
+
+.line {
+  font-size: 20px;
+  display: flex;
+  width: 100%;
+  line-height: 27px;
+  color: rgba(22, 32, 41, 1);
+  gap: 5px;
+  border-bottom: 1px solid rgba(0, 5, 15, 0.1);
+  padding-bottom: 6px;
+}
+.line span {
+  font-size: 20px;
+  line-height: 27px;
+  color: rgba(255, 105, 105, 1);
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-top: 55px;
+  align-items: center;
+  padding: 20px;
+}
+
+.definition {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.definition h3 {
+  font-size: 30px;
+  line-height: 33px;
+  margin-bottom: 3px;
+  max-width: 440px;
+  width: 100%;
+}
+.definition .font {
+  font-size: 20px;
+  letter-spacing: 10px;
+  line-height: 40px;
+  max-width: 440px;
+  width: 100%;
+}
+.definition .num {
+  font-size: 20px;
+  line-height: 40px;
+  max-width: 440px;
+  width: 100%;
+}
+.lackFont {
+  font-family: 'Lack-Regular', sans-serif;
+}
+
+.notoSansFont {
+  font-family: 'Noto Sans', sans-serif;
+}
+
+@media (max-width: 1023px) {
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+  }
+}

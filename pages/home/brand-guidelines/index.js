@@ -4,7 +4,7 @@ import BrandGuidelines from '../../../components/home/brandGuidelines/BrandGuide
 
 function index() {
   return (
-    <div style={{ marginTop: '100px' }}>
+    <div>
       <BrandGuidelines />
     </div>
   );

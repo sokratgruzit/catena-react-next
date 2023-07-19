@@ -19,11 +19,13 @@ export default function LogoVariations() {
       logoImg: '/images/guidelines/fourthVariation.png',
     },
   ];
+
   return (
     <div className={styles.variations}>
       <h3 className={styles.title}>Logo Variations</h3>
       <div className={styles.wrapper}>
         {logosVariations.map((item, index) => {
+          const shouldShowSVG = window.innerWidth <= 1023 || index < 2;
           return (
             <div
               key={index}
@@ -32,6 +34,20 @@ export default function LogoVariations() {
             >
               <img className={styles.image} src={item.logoImg} alt='' />
               <h5 className={`${styles.guidlineHalfTtl} ${styles.font51}`}>{item.logo}</h5>
+
+              {shouldShowSVG && (
+                <svg width='450' height='2' viewBox='0 0 450 2' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                  <line
+                    opacity='0.1'
+                    y1='1.25'
+                    x2='450'
+                    y2='1.25'
+                    stroke='black'
+                    strokeWidth='1.5'
+                    strokeDasharray='10 10'
+                  />
+                </svg>
+              )}
             </div>
           );
         })}
