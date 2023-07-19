@@ -1,0 +1,30 @@
+.mainContainer {
+    width: 100%;
+    display: flex;
+    position: relative;
+    margin-top: 105px;
+}
+
+.homeTitleContainer {
+    width: 550px;
+    height: 200px;
+    display: flex;
+    position: absolute;
+    left: 155px;
+    top: 90px;
+    justify-content: space-between;
+}
+
+.titlePartyOne {
+    color: #FF6969;
+    font-size: 90px;
+    font-family: 'Lack', sans-serif;
+    font-weight: 400;
+}
+
+.titlePartyTwo {
+    font-size: 90px;
+    color: #162029;
+    font-family: 'Lack', sans-serif;
+    font-weight: 400;
+}

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 
-import Press from '../../components/about/Press';
+import Press from '../../components/home/press/Press';
 
 const Index = () => {
   const router = useRouter();
