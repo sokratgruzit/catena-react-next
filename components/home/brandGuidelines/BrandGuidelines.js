@@ -37,8 +37,8 @@ function BrandGuidelines() {
             y2='309.306'
             gradientUnits='userSpaceOnUse'
           >
-            <stop stop-color='#00FFF0' />
-            <stop offset='1' stop-color='#E96B6B' stop-opacity='0' />
+            <stop stopColor='#00FFF0' />
+            <stop offset='1' stopColor='#E96B6B' stopOpacity='0' />
           </linearGradient>
         </defs>
       </svg>

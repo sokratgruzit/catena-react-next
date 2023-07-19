@@ -1,136 +1,134 @@
 .Activity__filter {
-    display: flex;
-    margin-left: auto;
-    margin-right: auto;
-    align-items: center;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
 }
 .Activity__filterWrap {
-    width: 100%;
-    display: flex;
-    margin-top: 41.5px;
-    padding: 20px;
-    border: 1px solid #111826;
-    overflow: hidden;
+  width: 100%;
+  display: flex;
+  margin-top: 41.5px;
+  padding: 20px;
+  border: 1px solid #111826;
+  overflow: hidden;
 }
 .Activity__filter__item {
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 4px;
-    padding: 4px 12px;
-    cursor: pointer;
-    margin: 0 5px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  padding: 4px 12px;
+  cursor: pointer;
+  margin: 0 5px;
 }
 .Activity__filterActive {
-    background-color: #0500FF!important;
+  background-color: #0500ff !important;
 }
 .Collections__filterWrap {
-    display: flex;
+  display: flex;
 }
 .Collections__filter {
-    display: flex;
+  display: flex;
 }
 .Collections__filterActive {
-    background-color: #111826;
+  background-color: #111826;
 }
 .Collections__filter__item {
-    border: 1px solid #111826;
-    border-radius: 4px;
-    padding: 7px;
-    margin-right: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  border: 1px solid #111826;
+  border-radius: 4px;
+  padding: 7px;
+  margin-right: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Prediction styles */
 .Prediction__filterWrap {
-    display: flex;
-    gap:50px;
+  display: flex;
+  gap: 50px;
 }
-.Prediction__filterActive{
-    background-color: #ffff;
+.Prediction__filterActive {
+  background-color: #ffff;
 }
-/* End Prediction styles */
-/* Competition styles */
+/* here */
 .Competition__filterWrap {
-    display: flex;
-    gap:50px;
-    margin-bottom: 0;
-    padding: 4px 0;
+  display: flex;
+  gap: 50px;
+  margin-bottom: 0;
+  padding: 4px 0;
 }
 .Competition__filterActive {
-    background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.1);
 }
 .Competition__filter__item {
-    border-radius: 4px;
-    padding: 4px 12px;
-    cursor: pointer;
-    margin: 0 5px;
+  border-radius: 4px;
+  padding: 4px 12px;
+  cursor: pointer;
+  margin: 0 5px;
 }
 @media (max-width: 767px) {
-    .Competition__filter__item {
-        font-size: 13px;
-    }
+  .Competition__filter__item {
+    font-size: 13px;
+  }
 }
 /* End Competition styles */
 
 /* Prediction styles */
 .Prediction__filterWrap {
-    display: flex;
-    gap:50px;
-    margin-bottom: 0;
-    padding: 4px 0;
+  display: flex;
+  gap: 50px;
+  margin-bottom: 0;
+  padding: 4px 0;
 }
 .Prediction__filterActive {
-    background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.1);
 }
 .Prediction__filter__item {
-    border-radius: 4px;
-    padding: 4px 12px;
-    cursor: pointer;
-    margin: 0 5px;
+  border-radius: 4px;
+  padding: 4px 12px;
+  cursor: pointer;
+  margin: 0 5px;
 }
 @media (max-width: 767px) {
-    .Prediction__filter__item {
-        font-size: 13px;
-    }
+  .Prediction__filter__item {
+    font-size: 13px;
+  }
 }
 /* Rank styles */
 .Rank__filterWrap {
-    padding: 4px 0;
-    margin: 20px 0;
+  padding: 4px 0;
+  margin: 20px 0;
 }
 .Rank__filterActive {
-    background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.1);
 }
 .Rank__filter__item {
-    border-radius: 4px;
-    padding: 4px 12px;
-    cursor: pointer;
-    margin: 0 5px;
+  border-radius: 4px;
+  padding: 4px 12px;
+  cursor: pointer;
+  margin: 0 5px;
 }
 @media (max-width: 1023px) {
-    .Rank__filterWrap {
-        display: flex;
-        padding: 4px 0;
-        text-align: left;
-        gap: 50px;
-        margin: 20px auto;
-    }
+  .Rank__filterWrap {
+    display: flex;
+    padding: 4px 0;
+    text-align: left;
+    gap: 50px;
+    margin: 20px auto;
+  }
 }
 /* End Rank styles */
 
 /* Prizes styles */
 .Prizes__filterWrap {
-    padding: 4px 0;
-    margin: 20px 0;
+  padding: 4px 0;
+  margin: 20px 0;
 }
 /* End Prizes styles */
 
 /* FinishedRounds styles */
 .FinishedRounds__filter__item {
-    border-radius: 4px;
-    padding: 4px 12px;
-    cursor: pointer;
-    margin: 0 5px;
-    font-size: 13px;
+  border-radius: 4px;
+  padding: 4px 12px;
+  cursor: pointer;
+  margin: 0 5px;
+  font-size: 13px;
 }
