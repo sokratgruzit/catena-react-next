@@ -56,11 +56,11 @@
   width: 100%;
 }
 .lackFont {
-  font-family: 'Lack-Regular', sans-serif;
+  font-family: Lack-Regular, sans-serif;
 }
 
 .notoSansFont {
-  font-family: 'Noto Sans', sans-serif;
+  font-family: Noto Sans, sans-serif;
 }
 
 @media (max-width: 1023px) {

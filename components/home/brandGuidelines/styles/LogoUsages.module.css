@@ -9,7 +9,8 @@
 .wrapper {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
+  margin: 0 auto;
   gap: 60px;
   align-items: center;
   justify-content: center;
@@ -22,6 +23,7 @@
   justify-content: center;
   flex-direction: column;
   gap: 20px;
+  max-width: 500px;
 }
 
 .guidlineTableItem img {

@@ -70,21 +70,23 @@ export default function Colors() {
           {colors.map((item, index) => {
             return (
               <div key={index} className={styles.content}>
-                <p>{item.color}</p>
-                <p>{item.hex}</p>
-                <p>{item.rgb}</p>
-                <p>{item.cmyk}</p>
+                <div className={styles.contentBox}>
+                  <p>{item.color}</p>
+                  <p>{item.hex}</p>
+                  <p>{item.rgb}</p>
+                  <p>{item.cmyk}</p>
+                </div>
                 <div className={styles.boxes}>
-                  {/* {item.list
+                  {item.list
                     ? item.list.map((nestedItem, nestedIndex) => (
-                        <div key={nestedIndex}>
+                        <div key={nestedIndex} className={styles.box}>
                           <p>{nestedItem.basicColor}</p>
                           <p>{nestedItem.basicHex}</p>
                           <p>{nestedItem.basicRgb}</p>
                           <p>{nestedItem.basicCmyk}</p>
                         </div>
                       ))
-                    : []} */}
+                    : []}
                 </div>
               </div>
             );
