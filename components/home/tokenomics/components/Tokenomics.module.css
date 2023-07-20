@@ -58,7 +58,7 @@
   margin-top: 20px;
 }
 .aboutList__itemLink:after {
-  content: "";
+  content: '';
   left: 0px;
   bottom: -2px;
   background: #0500ff;
@@ -334,7 +334,7 @@
   width: 100%;
   left: 0px;
   background: #0500ff;
-  content: "";
+  content: '';
   position: absolute;
   transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
 }
@@ -436,7 +436,7 @@
   top: 0px;
   right: 0px;
   width: 100%;
-  content: "";
+  content: '';
   z-index: 2;
   height: 50%;
   background: rgb(0, 5, 15);
@@ -447,7 +447,7 @@
   bottom: 0px;
   right: 0px;
   width: 100%;
-  content: "";
+  content: '';
   z-index: 2;
   height: 50%;
   background: rgb(0, 5, 15);
@@ -726,7 +726,7 @@
   margin-top: 20px;
 }
 .aboutList__itemLink:after {
-  content: "";
+  content: '';
   left: 0px;
   bottom: -2px;
   background: #0500ff;
