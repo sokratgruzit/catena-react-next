@@ -27,7 +27,6 @@
 
 // export default CareersCatena;
 
-import Link from 'next/link';
 import React from 'react';
 
 import styles from './CareersCatena.module.css';
@@ -38,17 +37,10 @@ const CareersCatena = () => {
       <div className={styles.mainContainer__description}>
         <div className={styles.left}>
           <h1>
-            <span>Careers</span>
-            <div className={styles.ttl_row}>
-              <span>at</span>
-              <span className={styles.ttl_red}>CATENA</span>
-            </div>
+            <span>
+              Careers at <span className={styles.ttl_red}>CATENA</span>
+            </span>
           </h1>
-          <div className={styles.openPositions__btnContainer}>
-            <Link href={'open-position'}>
-              <div className={styles.openPositions__btn}>Open positions</div>
-            </Link>
-          </div>
         </div>
       </div>
     </div>
