@@ -7,7 +7,7 @@ const Press = () => {
       id: 1,
       img: '/images/press/imgOne.png',
       imgPart: '/images/press/imgPart.png',
-      title: 'How the Blockchain Could Break Big Tech’s Hold on A.I.',
+      title: 'AI Is The Future Of Computing, And SingularityNET Is The Future Of A.I',
       description:
         'Ben Goertzel, have been among the big names arguing that the blockchain could be a crucial way to push back against some of the most worrying trends facing the field of artificial intelligence.',
     },
@@ -16,7 +16,7 @@ const Press = () => {
       id: 3,
       img: '/images/press/imgThree.png',
       imgPart: '/images/press/imgPartThree.png',
-      title: 'AI Is The Future Of Computing, And SingularityNET Is The Future Of AI',
+      title: 'AI Is The Future Of Computing, And SingularityNET Is The Future Of A.I',
       description:
         'Ben Goertzel, have been among the big names arguing that the blockchain could be a crucial way to push back against some of the most worrying trends facing the field of artificial intelligence.',
     },
@@ -24,8 +24,7 @@ const Press = () => {
       id: 5,
       img: '/images/press/pressImgSeven.png',
       imgPart: '/images/press/imgPartTwo.png',
-      title:
-        'Cisco, SingularityNET to This AI Powered Multi-Chain Network Is Building an Internet  of Blockchains Artificial Intelligence via Blockchain',
+      title: 'This AI Powered Multi-Chain Network Is Building an Internetof Blockchains',
       description:
         'The ever-evolving blockchain technology has been around for over a decade now, but there are still various obstacles need to be addressed, such as its lack of scalability, interoperability, security and usability.',
     },
@@ -36,7 +35,7 @@ const Press = () => {
       id: 2,
       img: '/images/press/imgTwo.png',
       imgPart: '/images/press/imgPartTwo.png',
-      title: 'SingularityNET’s Ben Goertzel has  a grand vision for the future of AI',
+      title: 'SingularityNET’s Ben Goertzel has  a grand vision for the future of A.I',
     },
     {
       id: 4,
@@ -59,7 +58,7 @@ const Press = () => {
   ];
 
   return (
-    <div className={`${styles.mainContainer} ${'container'}`}>
+    <div className={styles.mainContainer}>
       <div className={styles.headerContainer}>
         <div className={styles.titleContainer}>
           <p className={styles.titlePartyOne}>Catena</p>
@@ -90,37 +89,76 @@ const Press = () => {
       <div className={styles.sourcesContainer}>
         <p>Sources</p>
         <div className={styles.logoContainer}>
-          <img src='/images/press/sources.png' alt='sources' className={styles.imageLogo} />
+          <div className={styles.logoLine}>
+            <div className={styles.logCon}>
+              <img src='/images/press/nasdaq.png' alt='sources' className={styles.logo} />
+            </div>
+            <div className={styles.logCon}>
+              <img src='/images/press/CNBC.png' alt='sources' className={styles.logo} />
+            </div>
+            <div className={styles.logCon}>
+              <img src='/images/press/bloombergLogo.png' alt='sources' className={styles.logo} />
+            </div>
+            <div className={styles.logCon}>
+              <img src='/images/press/nasdaq.png' alt='sources' className={styles.logo} />
+            </div>
+            <div className={styles.logCon}>
+              <img src='/images/press/CNBC.png' alt='sources' className={styles.logo} />
+            </div>
+          </div>
+          <div className={styles.logoLine}>
+            <div className={styles.logCon}>
+              <img src='/images/press/Company.png' alt='sources' className={styles.logo} />
+            </div>
+            <div className={styles.logCon}>
+              <img src='/images/press/Frame1.png' alt='sources' className={styles.logo} />
+            </div>
+            <div className={styles.logCon}>
+              <img src='/images/press/nasdaq.png' alt='sources' className={styles.logo} />
+            </div>
+            <div className={styles.logCon}>
+              <img src='/images/press/CNBC.png' alt='sources' className={styles.logo} />
+            </div>
+            <div className={styles.logCon}>
+              <img src='/images/press/Frame 2.png' alt='sources' className={styles.logo} />
+            </div>
+          </div>
         </div>
       </div>
       <div className={styles.infoContainer}>
         <p>Publics by years</p>
         <div className={styles.yearsStats}>
-          <p>2021</p>
-          <p>2020</p>
-          <p>2019</p>
-          <p className={styles.itemOne}>2018</p>
+          <div className={styles.line}>2021 </div>
+          <div className={styles.line}>2020 </div>
+          <div className={styles.line}>2019 </div>
+          <div className={styles.active}>2018 </div>
         </div>
       </div>
       <div className={styles.statisticContainer}>
-        <div className={styles.iconsContainer}>
+        <div className={styles.icCont}>
           <img src='/images/press/imgPartThree.png' />
+          <p>AI Is The Future Of Computing, And SingularityNET Is The Future Of AI</p>
+        </div>
+        <div className={styles.icCont}>
           <img src='/images/press/imgPart.png' />
+          <p>Get Set For ‘a Wild Ride’: Dfinity’s Dom Williams on the Launch of The Internet Computer</p>
+        </div>
+        <div className={styles.icCont}>
           <img src='/images/press/imgPartThree.png' />
+          <p>AI Is The Future Of Computing, And SingularityNET Is The Future Of AI</p>
+        </div>
+        <div className={styles.icCont}>
           <img src='/images/press/imgPartTwo.png' />
+          <p>Get Set For ‘a Wild Ride’: Dfinity’s Dom Williams on the Launch of The Internet Computer</p>
+        </div>
+        <div className={styles.icContL}>
           <img src='/images/press/imgPartThree.png' />
-        </div>
-        <div className={styles.iconsTxt}>
-          <p>AI Is The Future Of Computing, And SingularityNET Is The Future Of AI</p>
-          <p>Get Set For ‘a Wild Ride’: Dfinity’s Dom Williams on the Launch of The Internet Computer</p>
-          <p>AI Is The Future Of Computing, And SingularityNET Is The Future Of AI</p>
-          <p>Get Set For ‘a Wild Ride’: Dfinity’s Dom Williams on the Launch of The Internet Computer</p>
           <p>AI Is The Future Of Computing, And SingularityNET Is The Future Of AI</p>
         </div>
+        <div className={styles.loadPub}>Load More Publics</div>
       </div>
-      <div className={styles.button}>Load More Publics</div>
       {/* <JoinCommunity /> */}
-    </div>
+    </div >
   );
 };
 export default Press;

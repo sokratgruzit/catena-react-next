@@ -2,6 +2,7 @@
     width: 100%;
     position: relative;
     margin-top: 145px;
+    padding: 50px 55px 50px 100px;
 }
 
 .titleContainer {
@@ -10,6 +11,7 @@
     position: relative;
     margin-left: 155px;
     justify-content: space-between;
+    top: 100px;
 }
 
 .titlePartyOne {
@@ -44,6 +46,12 @@
 
 .mapContainer h2 {
     font-size: 20px;
+    font-weight: 600;
+}
+
+.mapContainerTwo h3 {
+    font-size: 20px;
+    font-weight: 600;
 }
 
 .mapContainer p {
@@ -64,10 +72,11 @@
     width: calc(30% - 30px);
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    padding-top: 150px;
+    gap: 45px;
 }
 
-.item {
+.item  {
     position: relative;
     width: 100%;
     max-height: 500px;
@@ -85,7 +94,7 @@
     position: relative;
     width: 100%;
     max-height: 500px;
-    gap: 15px;
+    gap: 35px;
     display: flex;
     flex-direction: column;
 }
@@ -104,55 +113,51 @@
     height: 72px;
     z-index: 2;
     object-fit: cover;
+    top: -15px;
 }
 
 .sourcesContainer {
     width: 100%;
-    height: 400px;
-    position: relative;
-    display: flex;  
-    justify-content: center;
-    top: 60px;
     z-index: 6;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 .sourcesContainer p {
     font-size: 55px;
     font-weight: 400;
-    position: absolute;
-    left: 145px;
     color: #162029;
+    padding-left: 135px;
 }
 
 .logoContainer {
-    width: 1362px;
-    height: 70%;
+    width: 100%;
     display: flex;
-    /* position: relative; */
+    flex-direction: column;
     background-color: #F3E4D2;
-    border-radius: 10px;
-    top: 80px;
-    left: 50px;
-    border: 1px solid #F3E4D2;
-    position: absolute;
+    border-radius: 20px;
+    border: 1px solid rgb(192, 182, 182); 
+    position: relative;
+    top: 30px;
 }
 
-.imageLogo {
+.logoLine {
     width: 100%;
+    display: flex; 
+    gap: 50px;
+    align-items: center;
+    padding-left: 140px;
 }
 
 .infoContainer {
-    width: 80%;
+    width: 100%;
     height: 100px;
     display: flex;
-    align-items: end;
     justify-content: space-between;
     border-bottom: 1px solid #A6D0DD;
+    gap: 10px;
     position: relative;
-    left: 140px;
-    margin-top: 70px;
-
+    margin-top: 70px; 
+    margin-bottom: 40px;
 }
 
 .yearsStats {
@@ -162,58 +167,71 @@
     z-index: 10;
     flex-direction: row-reverse;
     justify-content: space-between;
-    align-items: end;
+    align-items: flex-end;
 }
 
 .infoContainer p {
     font-size: 30px;
     line-height: 42px;
+    position: relative;
+    margin-top: 60px;
 }
 
 .statisticContainer {
-    display: flex;
-    width: 80%;
-    justify-content: space-between;
-    position: relative;
-    margin-left: 140px;
-    padding: 20px;
+    border: 1px solid rgb(192, 182, 182);
     background-color: #F3E4D2;
-    margin-top: 20px;
+    border-radius: 20px;
+    padding: 20px 150px 100px 100px;
 }
 
-.iconsContainer {
-    width: 72px;
+.statisticCont {   
+    width: 100%;
+    border: 1px solid rgb(192, 182, 182);
+}
+
+.icCont{
+    width: 100%;
     display: flex;
-    flex-direction: column;
-    gap: 70px;
+    border-bottom: 1px solid #A6D0DD;
+    padding: 30px 0px;
+    gap: 25px;
+    align-items: center;
 }
 
-
-.iconsTxt {
-    width: 85%;
+.icContL {
+    border-bottom: non;
+    width: 100%;
     display: flex;
-    flex-direction: column;
-    justify-content: inherit;
-    padding: 20px;
+    padding: 30px 0px;
+    gap: 25px;
+    align-items: center;
 }
 
-.button {
+.loadPub {
     text-align: center;
     align-items: center;
-    padding: 2px;
-    width: 152px;
-    height: 34px;
+    z-index: 9999;
+    position: absolute;
+    bottom: 70px;
     background-color: #A6D0DD;
-    position: relative;
-    margin-left: 140px;
-    top: 40px;
-    z-index: 77;
+    border-radius: 2px;
+    padding: 7px 15px;
+    font-weight: 550;
+    color: #162029;
 }
 
-.iconsTxt p {
-    border-bottom: 1px solid #a3d1df;
+.active {
+    width: 400px;
+    font-weight: 500;
+    font-family: 'Lack', sans-serif;
+    font-size: 30px;
+    border-bottom: 2px solid #FF6969;
 }
 
-.itemOne {
-    border-bottom: 3px solid #FF6969;
+.line {
+    width: 400px;
+    font-weight: 500;
+    font-family: 'Lack', sans-serif;
+    font-size: 30px;
+    opacity: 0.5;
 }
