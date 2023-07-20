@@ -1,11 +1,9 @@
-import JoinCommunity from '../components/JoinCommunity';
-import Title from '../components/Title';
+import Title from './components/title/Title';
 
 const Events = () => {
   return (
-    <div className='container' style={{ paddingTop: '100px' }}>
-      <Title spanOne='CATENA' spanTwo='events' />
-      <JoinCommunity />
+    <div className='container' style={{ padding: '10%' }}>
+      <Title />
     </div>
   );
 };
