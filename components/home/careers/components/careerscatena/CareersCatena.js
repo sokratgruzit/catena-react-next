@@ -34,15 +34,12 @@ import styles from './CareersCatena.module.css';
 const CareersCatena = () => {
   return (
     <div className={styles.container}>
-      <div className={styles.mainContainer__description}>
-        <div className={styles.left}>
-          <h1>
-            <span>
-              Careers at <span className={styles.ttl_red}>CATENA</span>
-            </span>
-          </h1>
-        </div>
-      </div>
+      <h1>
+        <span className={styles.hdisplay} style={{ color: '#162029', marginLeft: '5px' }}>
+          Careers at
+          <span className={styles.ttl_red}>CATENA</span>
+        </span>
+      </h1>
     </div>
   );
 };

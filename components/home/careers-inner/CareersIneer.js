@@ -88,8 +88,9 @@
 
 import React from 'react';
 
-import AboutYou from './components/AboutYou';
-import SeniorDesigner from './components/SeniorDesigner';
+import AboutYou from './components/aboutYou/AboutYou';
+import SeniorDesigner from './components/seniorDesigner/SeniorDesigner';
+import SubmitAplication from './components/seniorDesigner/SubmitAplication';
 
 const teamResponsible = [
   {
@@ -142,6 +143,7 @@ const CareersIneer = () => {
         description='We are looking for an experienced front-end engineer to join as a member of the core engineering team. As a front-end engineer, you will have an extensive impact over the product, the UI/UX, and the technology.'
       />
       <AboutYou aboutSalary={aboutSalary} aboutRange={aboutRange} head='About You' title2='Salary Ranges' />
+      <SubmitAplication />
     </div>
   );
 };
