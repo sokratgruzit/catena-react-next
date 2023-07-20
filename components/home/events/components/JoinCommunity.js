@@ -1,6 +1,6 @@
-import styles from "../css/JoinComuniti.module.css";
+import styles from "../css/JoinCommunity.module.css";
 
-const JoinComuniti = () => {
+const JoinCommunity = () => {
     return (
         <div className={styles.boxTitle}>
             <div className={styles.aa}>
@@ -12,4 +12,4 @@ const JoinComuniti = () => {
     );
 };
 
-export default JoinComuniti;
+export default JoinCommunity;
