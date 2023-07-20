@@ -59,29 +59,41 @@ const Press = () => {
   ];
 
   return (
-    <div className={styles.mainContainer}>
-      <div className={styles.homeTitleContainer}>
-        <p className={styles.titlePartyOne}>Catena</p>
-        <p className={styles.titlePartyTwo}>Press</p>
+    <div className={`${styles.mainContainer} ${'container'}`}>
+      <div className={styles.headerContainer}>
+        <div className={styles.titleContainer}>
+          <p className={styles.titlePartyOne}>Catena</p>
+          <p className={styles.titlePartyTwo}>Press</p>
+        </div>
+      </div>
+      <div className={styles.bodyContainer}>
+        <div className={styles.mapContainer}>
+          {pressArr.map(item => (
+            <div key={item.id} className={styles.item}>
+              <img src={item.img} alt={`Image`} className={styles.pressImage} />
+              <img src={item.imgPart} alt={`ImagePart`} className={styles.icon} />
+              <h2>{item.title}</h2>
+              {item.description && <p>{item.description}</p>}
+            </div>
+          ))}
+        </div>
+        <div className={styles.mapContainerTwo}>
+          {arrPartTwo.map(item => (
+            <div key={item.id} className={styles.itemSmall}>
+              <img src={item.img} alt={`Image`} className={styles.pressImage} />
+              <img src={item.imgPart} alt={`ImagePart`} className={styles.icon} />
+              <h3>{item.title}</h3>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className={styles.sourcesContainer}>
+        <p>Sources</p>
+        <div className={styles.logoContainer}>
+          <img src='/images/press/sources.png' alt='sources' className={styles.imageLogo} />
+        </div>
       </div>
       {/* <JoinCommunity /> */}
-      <div className={styles.bodyContainer}>
-        {pressArr.map(item => (
-          <div key={item.id} className={styles.mapContainer}>
-            <img src={item.img} alt={`Image`} className={styles.imageOne} />
-            <img src={item.imgPart} alt={`ImagePart`} className={styles.imageOnePart} />
-            <h2>{item.title}</h2>
-            {item.description && <p>{item.description}</p>}
-          </div>
-        ))}
-        {arrPartTwo.map(item => (
-          <div key={item.id} className={styles.mapContainerTwo}>
-            <img src={item.img} alt={`Image`} className={styles.imgTwo} />
-            <img src={item.imgPart} alt={`ImagePart`} className={styles.imageTwoPart} />
-            <h3>{item.title}</h3>
-          </div>
-        ))}
-      </div>
     </div>
   );
 };
