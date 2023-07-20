@@ -1,4 +1,4 @@
-import JoinCommunity from './components/joinCommunity/JoinCommunity';
+import JoinCommunity from '../events/components/JoinCommunity';
 import styles from './Press.module.css';
 
 const Press = () => {
@@ -157,7 +157,9 @@ const Press = () => {
         </div>
         <div className={styles.loadPub}>Load More Publics</div>
       </div>
-      {/* <JoinCommunity /> */}
+      <div className={styles.joinComCont}>
+        <JoinCommunity />
+      </div>
     </div >
   );
 };

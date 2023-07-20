@@ -9,9 +9,9 @@
     width: 550px;
     display: flex;
     position: relative;
-    margin-left: 155px;
+    margin-left: 70px;
     justify-content: space-between;
-    top: 100px;
+    top: 50px;
 }
 
 .titlePartyOne {
@@ -34,7 +34,7 @@
     display: flex;
     align-items: center;
     gap: 60px;
-    margin: 40px 157px 26px 160px;
+    margin-left: 70px;
 }
 
 .mapContainer {
@@ -234,4 +234,12 @@
     font-family: 'Lack', sans-serif;
     font-size: 30px;
     opacity: 0.5;
+}
+
+.joinComCont {
+  position: absolute;
+  z-index: 999;
+  width: 100%;
+  left: 2px;
+  padding-top: 100px;
 }
