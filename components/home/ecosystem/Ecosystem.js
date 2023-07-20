@@ -399,8 +399,8 @@ const Ecosystem = () => {
       <div>
         <Title />
         <ExchangesCards data={EXCHANGESDATA} />
+        <Card />
       </div>
-      <Card title={explore} />
       <JoinCommunity />
     </div>
   );

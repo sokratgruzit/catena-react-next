@@ -1,16 +1,59 @@
-// import { Button } from '@catena-network/catena-ui-module';
+import { Button } from '@catena-network/catena-ui-module';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 
-import styles from './Feature.module.css';
+import styles from './Card.module.css';
 
 const Card = ({ title }) => {
 
   return (
     <div className={styles.container}>
-      <div className={`${styles.openPositionsContainer}`}>
-        rame
-        <div className={styles.featuredJobs__btnContainer}>View all open positions</div>
+      <div className={styles.card}>
+        <Image
+          src="/Mask Group.png"
+          width={606}
+          height={400}
+          alt="Picture of the author"
+        />
+        <div className={styles.title}>Join the CORE Ecosystem Now</div>
+        <div className={styles.button}>
+          <Button
+            label={"explore"}
+            size={"btn-lg"}
+            type={"btn-primary"}
+            element={"button"}
+            customStyles={{
+              margin: "0",
+              width: "100%",
+              backgroundColor: "#FF6969",
+            }}
+          // onClick={() => handleSubmitClick(inputs)}
+          />
+        </div>
+      </div>
+      <div className={styles.card}>
+        <Image
+          src="/Mask Group (2).png"
+          width={436}
+          height={400}
+          alt="Picture of the author"
+        />
+        <div className={styles.title}>Submit your project</div>
+        <div className={styles.button}>
+          <Button
+            label={"explore"}
+            size={"btn-lg"}
+            type={"btn-primary"}
+            element={"button"}
+            customStyles={{
+              margin: "0",
+              width: "100%",
+              backgroundColor: "#FF6969",
+            }}
+          // onClick={() => handleSubmitClick(inputs)}
+          />
+        </div>
       </div>
     </div>
   );
