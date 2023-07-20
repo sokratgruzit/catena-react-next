@@ -1,5 +1,7 @@
 import ExchangesCards from './components/exchangesCards/ExchangesCardes';
 import Title from './components/title/Title';
+import JoinCommunity from '../events/components/JoinCommunity';
+import Card from './components/cards/Card';
 
 const EXCHANGESDATA = [
   {
@@ -392,11 +394,14 @@ const EXCHANGESDATA = [
 
 const Ecosystem = () => {
   return (
-    <div className='container' style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+    <div className='container' style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', position: 'relative' }}>
+      <div style={{ width: '112px', color: '#969BA6', position: 'absolute', top: '350px', left: '75%' }} >CMCX massive listing</div>
       <div>
         <Title />
         <ExchangesCards data={EXCHANGESDATA} />
       </div>
+      <Card title={explore} />
+      <JoinCommunity />
     </div>
   );
 };

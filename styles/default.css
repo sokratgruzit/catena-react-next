@@ -1,6 +1,6 @@
 @font-face {
-  font-family: "Noto-Sans";
-  src: url("../public/fonts/NotoSans-Regular.ttf") format("truetype");
+  font-family: 'Noto-Sans';
+  src: url('../public/fonts/NotoSans-Regular.ttf') format('truetype');
   /* src: url("../public/fonts/Lack-Regular.eot?#iefix") format("embedded-opentype"),
     url("../public/fonts/Lack-Regular.svg#Lack-Regular") format("svg"),
     url("../public/fonts/Lack-Regular.ttf") format("truetype"), url("../public/fonts/Lack-Regular.woff") format("woff"),
@@ -10,7 +10,7 @@
 }
 
 * {
-  font-family: "Noto-Sans";
+  font-family: 'Noto-Sans';
   font-size: 16px;
   /* line-height: 24px; */
   color: rgba(0, 0, 0, 1);
@@ -32,8 +32,7 @@ body {
   -ms-text-size-adjust: 100%;
   text-size-adjust: 100%;
   /*padding-bottom: 200vh;*/
-  background: #00050f;
-  /*dont use overflow hidden to body*/
+  background: rgba(240, 224, 206, 1); /*dont use overflow hidden to body*/
 }
 ul,
 li,

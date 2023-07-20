@@ -1,4 +1,4 @@
-import Events from '../../../components/home/events/Events';
+import Events from '../../../components/home/events/Event';
 
 const index = () => {
   return <Events />;

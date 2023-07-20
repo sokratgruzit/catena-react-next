@@ -49,6 +49,7 @@
 }
 
 .positoningLogo {
+  padding-top: 63px;
   width: 100%;
   height: auto;
   transition: max-width 0.3s ease;
@@ -60,6 +61,7 @@
   }
   .positoningLogo {
     max-width: 100%;
+    padding-top: 0px;
   }
 }
 @media (max-width: 400px) {
