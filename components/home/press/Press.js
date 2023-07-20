@@ -22,7 +22,7 @@ const Press = () => {
     },
     {
       id: 5,
-      img: '/images/press/imgFive.png',
+      img: '/images/press/pressImgSeven.png',
       imgPart: '/images/press/imgPartTwo.png',
       title:
         'Cisco, SingularityNET to This AI Powered Multi-Chain Network Is Building an Internet  of Blockchains Artificial Intelligence via Blockchain',
@@ -46,13 +46,13 @@ const Press = () => {
     },
     {
       id: 6,
-      img: '/images/press/imgTwo.png',
+      img: '/images/press/imgFive.png',
       imgPart: '/images/press/imgPartTwo.png',
       title: 'Cisco, SingularityNET to Decentralize Artificial Intelligence via Blockchain',
     },
     {
-      id: 6,
-      img: '/images/press/imgFour.png',
+      id: 8,
+      img: '/images/press/imgTwo.png',
       imgPart: '/images/press/imgPartTwo.png',
       title: 'Cisco, SingularityNET to Decentralize Artificial Intelligence via Blockchain',
     },
@@ -99,16 +99,16 @@ const Press = () => {
           <p>2021</p>
           <p>2020</p>
           <p>2019</p>
-          <p>2018</p>
+          <p className={styles.itemOne}>2018</p>
         </div>
       </div>
       <div className={styles.statisticContainer}>
         <div className={styles.iconsContainer}>
+          <img src='/images/press/imgPartThree.png' />
           <img src='/images/press/imgPart.png' />
-          <img src='/images/press/imgPartTwo.png' />
           <img src='/images/press/imgPartThree.png' />
           <img src='/images/press/imgPartTwo.png' />
-          <img src='/images/press/imgPart.png' />
+          <img src='/images/press/imgPartThree.png' />
         </div>
         <div className={styles.iconsTxt}>
           <p>AI Is The Future Of Computing, And SingularityNET Is The Future Of AI</p>
@@ -118,6 +118,7 @@ const Press = () => {
           <p>AI Is The Future Of Computing, And SingularityNET Is The Future Of AI</p>
         </div>
       </div>
+      <div className={styles.button}>Load More Publics</div>
       {/* <JoinCommunity /> */}
     </div>
   );
