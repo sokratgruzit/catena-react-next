@@ -1,4 +1,4 @@
-import styles from './supportItem.module.css';
+import styles from './SupportItem.module.css';
 
 const SUPPORT_ITEMS = [
   {

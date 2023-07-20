@@ -24,7 +24,7 @@ const Boxs = () => {
                     <img className={styles.imgTxt} src="/images/event/txt.png" />
                 </div>
                 <img className={styles.mainImg} src="/images/event/group.png" />
-                <h3 className={styles.title}>"How the Blockchain Could Break Big Tech’s Hold on A.I.</h3>
+                <h3 className={styles.title}>How the Blockchain Could Break Big Tech’s Hold on A.I.</h3>
             </div>
             <div className={styles.boxtwo}>
                 <div>
