@@ -1,6 +1,6 @@
-import styles from "../css/Paragrap.module.css";
+import styles from "../css/Paragraph.module.css";
 
-const Paragrap = () => {
+const Paragraph = () => {
     return (
         <div className={styles.p}>
             Braced dissected sheep, kermani halts, boy note. Quis raucous fall gown, euismod creatures spent, uproar tidings.
@@ -8,4 +8,4 @@ const Paragrap = () => {
     );
 };
 
-export default Paragrap;
+export default Paragraph;
