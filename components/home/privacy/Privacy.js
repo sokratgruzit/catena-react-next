@@ -216,7 +216,7 @@ export default function privacy() {
     },
   ];
   return (
-    <div className='container' style={{ paddingTop: '100px' }}>
+    <div className='container'>
       <PrivacyHeader />
       <PrivacyList privacyList={privacyList} />
     </div>
