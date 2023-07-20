@@ -1,4 +1,4 @@
-// import JoinCommunity from './components/joinCommunity/JoinCommunity';
+import JoinCommunity from './components/joinCommunity/JoinCommunity';
 import styles from './Press.module.css';
 
 const Press = () => {
@@ -91,6 +91,31 @@ const Press = () => {
         <p>Sources</p>
         <div className={styles.logoContainer}>
           <img src='/images/press/sources.png' alt='sources' className={styles.imageLogo} />
+        </div>
+      </div>
+      <div className={styles.infoContainer}>
+        <p>Publics by years</p>
+        <div className={styles.yearsStats}>
+          <p>2021</p>
+          <p>2020</p>
+          <p>2019</p>
+          <p>2018</p>
+        </div>
+      </div>
+      <div className={styles.statisticContainer}>
+        <div className={styles.iconsContainer}>
+          <img src='/images/press/imgPart.png' />
+          <img src='/images/press/imgPartTwo.png' />
+          <img src='/images/press/imgPartThree.png' />
+          <img src='/images/press/imgPartTwo.png' />
+          <img src='/images/press/imgPart.png' />
+        </div>
+        <div className={styles.iconsTxt}>
+          <p>AI Is The Future Of Computing, And SingularityNET Is The Future Of AI</p>
+          <p>Get Set For ‘a Wild Ride’: Dfinity’s Dom Williams on the Launch of The Internet Computer</p>
+          <p>AI Is The Future Of Computing, And SingularityNET Is The Future Of AI</p>
+          <p>Get Set For ‘a Wild Ride’: Dfinity’s Dom Williams on the Launch of The Internet Computer</p>
+          <p>AI Is The Future Of Computing, And SingularityNET Is The Future Of AI</p>
         </div>
       </div>
       {/* <JoinCommunity /> */}
