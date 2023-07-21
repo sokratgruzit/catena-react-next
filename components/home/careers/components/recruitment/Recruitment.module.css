@@ -17,12 +17,8 @@
 .careerQualities__text {
   margin-bottom: 50px;
   color: #162029;
-}
-.careerQualities {
-  display: flex;
-  flex-direction: column;
-  padding-right: 450px;
-  padding-bottom: 50px;
+  width: 750px;
+  line-height: 30px;
 }
 
 /*Ipad Pro 1024*/

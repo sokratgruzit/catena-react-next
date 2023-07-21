@@ -100,12 +100,7 @@ input::-webkit-inner-spin-button {
 /* Firefox */
 /* input[type="number"] {
   -moz-appearance: textfield;
-<<<<<<< HEAD
-}
-
-=======
 } */
->>>>>>> 06ccd0d3354c11ce36db1553fc0af5026bda4e56
 /* width */
 *::-webkit-scrollbar {
   width: 8px;

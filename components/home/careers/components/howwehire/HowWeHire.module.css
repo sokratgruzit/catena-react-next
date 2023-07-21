@@ -8,6 +8,7 @@
 
 .hire__steps-desc {
   font-family: 'Lack-Regular' !important;
+  color: #162029;
 }
 
 .font__51 {
@@ -51,6 +52,7 @@
   bottom: -41px;
   left: 0;
   z-index: 9;
+  border: 1px solid #162029;
 }
 .hire__stepsLine {
   position: relative;
