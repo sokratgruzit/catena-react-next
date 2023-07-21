@@ -84,9 +84,9 @@ input::-webkit-inner-spin-button {
 }
 
 /* Firefox */
-input[type="number"] {
+/* input[type="number"] {
   -moz-appearance: textfield;
-}
+} */
 /* width */
 *::-webkit-scrollbar {
   width: 8px;
@@ -162,7 +162,7 @@ input[type="number"] {
 }
 .ql-toolbar.ql-snow::after {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
-  content: "";
+  content: '';
   width: 97%;
   display: block;
   margin: 0 auto;
@@ -226,7 +226,7 @@ input[type="number"] {
 }
 
 .react-datepicker__header:after {
-  content: "";
+  content: '';
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   padding-bottom: 8px;
   width: 90%;
@@ -311,7 +311,7 @@ input[type="number"] {
 
 .btnLink:after {
   transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
-  content: "";
+  content: '';
   height: 1px;
   background: #fff;
   width: 100%;

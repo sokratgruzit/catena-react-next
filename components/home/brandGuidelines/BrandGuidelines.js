@@ -14,9 +14,8 @@ function BrandGuidelines() {
     <div>
       <IntroBanner />
 
-      <div className='container'>
-        <ClearSpace />
-      </div>
+      <ClearSpace />
+
       <ProductLogos />
 
       <LogoVariations />
