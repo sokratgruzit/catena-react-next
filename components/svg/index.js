@@ -45,3 +45,13 @@ export { default as CoreTagLight } from './tags/CoreTagLight';
 
 export { default as CoreLogoBorder } from './temp/CoreLogoBorder';
 export { default as IfoCoreBorder } from './temp/IfoCoreBorder';
+export { default as BlocksIcon } from './BlocksIcon';
+export { default as DashboardIcon } from './DashboardIcon';
+export { default as DocsIcon } from './DocsIcon';
+export { default as ProfileIcon } from './ProfileIcon';
+export { default as RewardsCalcIcon } from './RewardsCalcIcon';
+export { default as ValidatorsListIcon } from './ValidatorsListIcon';
+export { default as Circle3MoreDetails } from './Circle3MoreDetails';
+export { default as CatenaLogoHallow } from './CatenaLogoHallow';
+export { default as CatenaLogo } from './CatenaLogo';
+export { default as NoData } from './NoData';

@@ -1,12 +1,12 @@
+import { Web3ReactProvider } from '@web3-react/core';
 import Head from 'next/head';
 import { Provider } from 'react-redux';
-import Header from '../components/layout/Header';
-import Footer from '../components/layout/Footer';
-import store, { persistor } from '../store/index';
-import Web3 from 'web3';
-import { Web3ReactProvider } from '@web3-react/core';
-
 import { PersistGate } from 'redux-persist/integration/react';
+import Web3 from 'web3';
+
+import Footer from '../components/layout/Footer';
+import Header from '../components/layout/Header';
+import store, { persistor } from '../store/index';
 
 import '../styles/globals.css';
 import '../styles/style.css';

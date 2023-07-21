@@ -1,61 +1,60 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import Image from 'next/image';
-
-import CornerDecor from '../../UI/cornerDecor/CornerDecor';
 
 import BuyTickets from './BuyTickets';
-import styles from './Tickets.module.css';
 import { VectorSvg } from '../../svg';
 import Button from '../../UI/button/Button';
+import CornerDecor from '../../UI/cornerDecor/CornerDecor';
+
+import styles from './Tickets.module.css';
 
 let ticketsData = [
   {
     id: '0',
     title: 'Match first 1',
-    priceCore: '156 CORE',
+    priceCore: '156 CATENA',
     price: '~$3.215',
   },
   {
     id: '1',
     title: 'Match first 2',
-    priceCore: '156 CORE',
+    priceCore: '156 CATENA',
     price: '~$3.215',
   },
   {
     id: '2',
     title: 'Match first 3',
-    priceCore: '156 CORE',
+    priceCore: '156 CATENA',
     price: '~$3.215',
   },
   {
     id: '3',
     title: 'Match first 4',
-    priceCore: '156 CORE',
+    priceCore: '156 CATENA',
     price: '~$3.215',
   },
   {
     id: '4',
     title: 'Match first 5',
-    priceCore: '156 CORE',
+    priceCore: '156 CATENA',
     price: '~$3.215',
   },
   {
     id: '5',
     title: 'Match first 6',
-    priceCore: '156 CORE',
+    priceCore: '156 CATENA',
     price: '~$3.215',
   },
   {
     id: '6',
     title: 'Match first 7',
-    priceCore: '156 CORE',
+    priceCore: '156 CATENA',
     price: '~$3.215',
   },
   {
     id: '7',
     title: 'Burn',
-    priceCore: '156 CORE',
+    priceCore: '156 CATENA',
     price: '~$3.215',
   },
 ];
@@ -80,11 +79,7 @@ const Tickets = () => {
   return (
     <div className={styles.alignteItems}>
       <picture>
-        <img
-          className={styles.imgBlur}
-          src={'/images/win/Rectangle.png'}
-          alt=''
-        />
+        <img className={styles.imgBlur} src={'/images/win/Rectangle.png'} alt='' />
       </picture>
       <h1 className={styles.title}>Get your tickets now!</h1>
       <div className={styles.time}>
@@ -102,7 +97,7 @@ const Tickets = () => {
             <p>Prize Pot:</p>
             <div className={styles.pirceCore}>
               <h3>~$302,002</h3>
-              <p>23.035 CORE</p>
+              <p>23.035 CATENA</p>
             </div>
           </div>
           <div className={styles.buyTickets}>
@@ -118,18 +113,11 @@ const Tickets = () => {
               }}
             />
           </div>
-          <div
-            className={`${styles.tabBorder} ${
-              activebtns === true ? styles.containerOpacity : ''
-            }`}
-          >
+          <div className={`${styles.tabBorder} ${activebtns === true ? styles.containerOpacity : ''}`}>
             <BuyTickets />
           </div>
           <div className={styles.paragraph}>
-            <p>
-              Match the winning number in the same order to share prizes.
-              Current prizes up for grabs:
-            </p>
+            <p>Match the winning number in the same order to share prizes. Current prizes up for grabs:</p>
           </div>
           <div className={styles.list}>
             {details &&
@@ -149,11 +137,7 @@ const Tickets = () => {
             <p onClick={handleClick}>
               {details === true ? 'Hide' : 'Details'}
 
-              <VectorSvg
-                className={`${styles.vectorSvg} ${
-                  details ? styles.rotate : ''
-                }`}
-              />
+              <VectorSvg className={`${styles.vectorSvg} ${details ? styles.rotate : ''}`} />
             </p>
           </div>
         </div>

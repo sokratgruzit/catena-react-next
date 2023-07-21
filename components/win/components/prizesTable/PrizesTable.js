@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
+import React, { useState, useEffect } from 'react';
 
 import styles from './PrizesTable.module.css';
 
@@ -153,25 +153,13 @@ const PrizesTable = ({ activeMenuItem }) => {
         <div key={index} className={styles.teamPrizesRank}>
           <div className={styles.tabListPosition}>{item.rankTeam}</div>
           <div className={styles.medal}>
-            <Image
-              layout='fill'
-              objectFit={'contain'}
-              src={item.tierImg}
-              alt='Medal'
-              className={styles.medal}
-            />
+            <Image layout='fill' objectFit={'contain'} src={item.tierImg} alt='Medal' className={styles.medal} />
           </div>
           <div>{item.tokenPrize}</div>
 
           <div>{item.achievment}</div>
           <div className={styles.check}>
-            <Image
-              layout='fill'
-              objectFit={'contain'}
-              src={item.nft}
-              alt='Medal'
-              className={styles.medal}
-            />
+            <Image layout='fill' objectFit={'contain'} src={item.nft} alt='Medal' className={styles.medal} />
           </div>
         </div>
       ))}

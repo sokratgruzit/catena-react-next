@@ -17,11 +17,7 @@ const TabFilter = props => {
               onClick={() => {
                 props.onClick(tab.label);
               }}
-              className={
-                props.activeMenu == tab.label
-                  ? `${props.css.active} ${props.css.item}`
-                  : props.css.item
-              }
+              className={props.activeMenu == tab.label ? `${props.css.active} ${props.css.item}` : props.css.item}
             >
               {tabContent}
             </div>

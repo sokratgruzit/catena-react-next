@@ -1,10 +1,10 @@
-import React from 'react';
 import Image from 'next/image';
+import React from 'react';
+import Countdown from 'react-countdown';
+
+import { HourGlass } from '../../../svg';
 
 import styles from './CountdownItem.module.css';
-
-import Countdown from 'react-countdown';
-import { HourGlass } from '../../../svg';
 
 const CountdownItem = ({ votingTo, ...props }) => {
   const renderer = ({ days, hours, minutes, seconds, completed }) => {
@@ -39,13 +39,7 @@ const CountdownItem = ({ votingTo, ...props }) => {
   return (
     <div className={styles.relative}>
       <div className={styles.CountdownBg}>
-        <Image
-          layout='fill'
-          objectFit='contain'
-          src={'/images/voting/countdownBg.png'}
-          quality={100}
-          alt=''
-        />
+        <Image layout='fill' objectFit='contain' src={'/images/voting/countdownBg.png'} quality={100} alt='' />
       </div>
       <Countdown date={votingTo} renderer={renderer} {...props} />
     </div>

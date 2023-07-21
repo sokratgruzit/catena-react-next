@@ -1,11 +1,10 @@
 import { useState } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
-import CornerDecor from '../UI/cornerDecor/CornerDecor';
 import SinglePredictionItem from './components/singlePredictionItem/SinglePredictionItem';
 import Timer from './components/Timer';
 import WinRoutes from './components/WinRoutes';
-
-import { Swiper, SwiperSlide } from 'swiper/react';
+import CornerDecor from '../UI/cornerDecor/CornerDecor';
 import 'swiper/css';
 
 import styles from './Prediction.module.css';
@@ -84,22 +83,10 @@ const Prediction = () => {
             <CornerDecor />
             <div className={styles.titleExpierd}>
               <div>
-                <svg
-                  width='15'
-                  height='15'
-                  viewBox='0 0 15 15'
-                  fill='none'
-                  xmlns='http://www.w3.org/2000/svg'
-                >
+                <svg width='15' height='15' viewBox='0 0 15 15' fill='none' xmlns='http://www.w3.org/2000/svg'>
                   <g opacity='0.3'>
                     <circle cx='7.86914' cy='7.14453' r='6.5' stroke='white' />
-                    <line
-                      x1='3.27462'
-                      y1='2.29415'
-                      x2='12.5295'
-                      y2='11.8193'
-                      stroke='white'
-                    />
+                    <line x1='3.27462' y1='2.29415' x2='12.5295' y2='11.8193' stroke='white' />
                   </g>
                 </svg>
                 <p>{item.action}</p>
@@ -109,13 +96,7 @@ const Prediction = () => {
             <div className={styles.upPriceExpierd}>
               <div>
                 <span>
-                  <svg
-                    width='10'
-                    height='13'
-                    viewBox='0 0 10 13'
-                    fill='none'
-                    xmlns='http://www.w3.org/2000/svg'
-                  >
+                  <svg width='10' height='13' viewBox='0 0 10 13' fill='none' xmlns='http://www.w3.org/2000/svg'>
                     <path
                       d='M8.31793 5.21512L4.74735 1.64453L1.17676 5.21512'
                       stroke='#66BB6A'
@@ -147,13 +128,7 @@ const Prediction = () => {
                 <div className={styles.mainPriceExpierd}>
                   <h2 className={styles.price}>{item.lastPrice}</h2>
                   <div className={styles.priceUpExpierd}>
-                    <svg
-                      width='12'
-                      height='15'
-                      viewBox='0 0 12 15'
-                      fill='none'
-                      xmlns='http://www.w3.org/2000/svg'
-                    >
+                    <svg width='12' height='15' viewBox='0 0 12 15' fill='none' xmlns='http://www.w3.org/2000/svg'>
                       <path
                         d='M10.6829 6.37206C10.5391 6.37206 10.3953 6.31908 10.2817 6.20555L6.08875 2.01255L1.89575 6.20555C1.67626 6.42504 1.31297 6.42504 1.09348 6.20555C0.987913 6.09873 0.928711 5.9546 0.928711 5.80442C0.928711 5.65423 0.987913 5.5101 1.09348 5.40328L5.68761 0.809148C5.9071 0.589659 6.2704 0.589659 6.48988 0.809148L11.084 5.40328C11.3035 5.62277 11.3035 5.98606 11.084 6.20555C10.9781 6.31908 10.8267 6.37206 10.6829 6.37206Z'
                         fill='white'
@@ -183,13 +158,7 @@ const Prediction = () => {
               <div className={styles.priceDownExpierd}>
                 <p className={styles.wtf}> DOWN</p>
                 <span>
-                  <svg
-                    width='10'
-                    height='13'
-                    viewBox='0 0 10 13'
-                    fill='none'
-                    xmlns='http://www.w3.org/2000/svg'
-                  >
+                  <svg width='10' height='13' viewBox='0 0 10 13' fill='none' xmlns='http://www.w3.org/2000/svg'>
                     <path
                       d='M8.81891 8.07394L5.24832 11.6445L1.67773 8.07394'
                       stroke='#E94A4A'
@@ -221,13 +190,7 @@ const Prediction = () => {
             <CornerDecor />
             <div className={styles.title}>
               <div>
-                <svg
-                  width='15'
-                  height='15'
-                  viewBox='0 0 15 15'
-                  fill='none'
-                  xmlns='http://www.w3.org/2000/svg'
-                >
+                <svg width='15' height='15' viewBox='0 0 15 15' fill='none' xmlns='http://www.w3.org/2000/svg'>
                   <circle cx='7.86914' cy='7.14453' r='6.5' stroke='#FF7152' />
                   <circle cx='7.86914' cy='7.14453' r='3' fill='#FF7152' />
                 </svg>
@@ -238,13 +201,7 @@ const Prediction = () => {
             <div className={styles.upPrice}>
               <div>
                 <span>
-                  <svg
-                    width='10'
-                    height='13'
-                    viewBox='0 0 10 13'
-                    fill='none'
-                    xmlns='http://www.w3.org/2000/svg'
-                  >
+                  <svg width='10' height='13' viewBox='0 0 10 13' fill='none' xmlns='http://www.w3.org/2000/svg'>
                     <path
                       d='M8.31793 5.21512L4.74735 1.64453L1.17676 5.21512'
                       stroke='#66BB6A'
@@ -274,13 +231,7 @@ const Prediction = () => {
                 <div className={styles.mainPrice}>
                   <h2>{item.lastPrice}</h2>
                   <div className={styles.priceUP}>
-                    <svg
-                      width='12'
-                      height='15'
-                      viewBox='0 0 12 15'
-                      fill='none'
-                      xmlns='http://www.w3.org/2000/svg'
-                    >
+                    <svg width='12' height='15' viewBox='0 0 12 15' fill='none' xmlns='http://www.w3.org/2000/svg'>
                       <path
                         d='M10.6829 6.37206C10.5391 6.37206 10.3953 6.31908 10.2817 6.20555L6.08875 2.01255L1.89575 6.20555C1.67626 6.42504 1.31297 6.42504 1.09348 6.20555C0.987913 6.09873 0.928711 5.9546 0.928711 5.80442C0.928711 5.65423 0.987913 5.5101 1.09348 5.40328L5.68761 0.809148C5.9071 0.589659 6.2704 0.589659 6.48988 0.809148L11.084 5.40328C11.3035 5.62277 11.3035 5.98606 11.084 6.20555C10.9781 6.31908 10.8267 6.37206 10.6829 6.37206Z'
                         fill='white'
@@ -310,13 +261,7 @@ const Prediction = () => {
               <div className={styles.priceDown}>
                 <p>DOWN</p>
                 <span>
-                  <svg
-                    width='10'
-                    height='13'
-                    viewBox='0 0 10 13'
-                    fill='none'
-                    xmlns='http://www.w3.org/2000/svg'
-                  >
+                  <svg width='10' height='13' viewBox='0 0 10 13' fill='none' xmlns='http://www.w3.org/2000/svg'>
                     <path
                       d='M8.81891 8.07394L5.24832 11.6445L1.67773 8.07394'
                       stroke='#E94A4A'
@@ -347,25 +292,14 @@ const Prediction = () => {
           <div className={styles.sliderMainConteiner}>
             <CornerDecor />
             <div
-              className={`${
-                activeBtns === item.id ? styles.containerOpacity : ''
-              } ${activeBtnsDwn === item.id ? styles.containerOpacity : ''} `}
+              className={`${activeBtns === item.id ? styles.containerOpacity : ''} ${
+                activeBtnsDwn === item.id ? styles.containerOpacity : ''
+              } `}
             >
               <div className={styles.titleNext}>
                 <div>
-                  <svg
-                    width='15'
-                    height='15'
-                    viewBox='0 0 15 15'
-                    fill='none'
-                    xmlns='http://www.w3.org/2000/svg'
-                  >
-                    <circle
-                      cx='7.85059'
-                      cy='7.14453'
-                      r='6.5'
-                      stroke='#0500FF'
-                    />
+                  <svg width='15' height='15' viewBox='0 0 15 15' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                    <circle cx='7.85059' cy='7.14453' r='6.5' stroke='#0500FF' />
                     <path
                       d='M5.35059 5.18904V9.10057C5.35059 9.90167 6.22118 10.4044 6.91601 10.0039L8.61224 9.027L10.3085 8.04605C11.0033 7.64549 11.0033 6.64411 10.3085 6.24356L8.61224 5.26261L6.91601 4.28575C6.22118 3.8852 5.35059 4.38384 5.35059 5.18904V5.18904Z'
                       fill='#0500FF'
@@ -378,13 +312,7 @@ const Prediction = () => {
               <div className={styles.upPriceNext}>
                 <div>
                   <span>
-                    <svg
-                      width='10'
-                      height='13'
-                      viewBox='0 0 10 13'
-                      fill='none'
-                      xmlns='http://www.w3.org/2000/svg'
-                    >
+                    <svg width='10' height='13' viewBox='0 0 10 13' fill='none' xmlns='http://www.w3.org/2000/svg'>
                       <path
                         d='M8.31793 5.21512L4.74735 1.64453L1.17676 5.21512'
                         stroke='#66BB6A'
@@ -436,13 +364,7 @@ const Prediction = () => {
                 <div className={styles.priceDown}>
                   <p>DOWN</p>
                   <span>
-                    <svg
-                      width='10'
-                      height='13'
-                      viewBox='0 0 10 13'
-                      fill='none'
-                      xmlns='http://www.w3.org/2000/svg'
-                    >
+                    <svg width='10' height='13' viewBox='0 0 10 13' fill='none' xmlns='http://www.w3.org/2000/svg'>
                       <path
                         d='M8.81891 8.07394L5.24832 11.6445L1.67773 8.07394'
                         stroke='#E94A4A'
@@ -465,11 +387,7 @@ const Prediction = () => {
               </div>
             </div>
             {/* button up */}
-            <div
-              className={`${styles.btnsAction} ${
-                activeBtns === item.id ? styles.btnsActionActive : ''
-              }`}
-            >
+            <div className={`${styles.btnsAction} ${activeBtns === item.id ? styles.btnsActionActive : ''}`}>
               <div>
                 <div className={styles.bottomBorder}>
                   <div className={styles.positionBt}>
@@ -478,19 +396,8 @@ const Prediction = () => {
                         activateBtns(null);
                       }}
                     >
-                      <svg
-                        width='12'
-                        height='11'
-                        viewBox='0 0 12 11'
-                        fill='none'
-                        xmlns='http://www.w3.org/2000/svg'
-                      >
-                        <path
-                          d='M10.0556 6.02637H1.45898'
-                          stroke='white'
-                          strokeWidth='2'
-                          strokeLinecap='round'
-                        />
+                      <svg width='12' height='11' viewBox='0 0 12 11' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                        <path d='M10.0556 6.02637H1.45898' stroke='white' strokeWidth='2' strokeLinecap='round' />
                         <path
                           d='M6.41602 1.36914C6.41602 1.36914 1.45898 3.94199 1.45898 5.95898C1.45898 7.97598 6.41602 9.63086 6.41602 9.63086'
                           stroke='white'
@@ -501,19 +408,8 @@ const Prediction = () => {
                     </p>
                     <p>Set Position</p>
                   </div>
-                  <button
-                    onClick={changeUpBtns}
-                    className={`${styles.upButton} ${
-                      upBtns ? styles.wtpakk : ''
-                    }`}
-                  >
-                    <svg
-                      width='10'
-                      height='11'
-                      viewBox='0 0 10 11'
-                      fill='none'
-                      xmlns='http://www.w3.org/2000/svg'
-                    >
+                  <button onClick={changeUpBtns} className={`${styles.upButton} ${upBtns ? styles.wtpakk : ''}`}>
+                    <svg width='10' height='11' viewBox='0 0 10 11' fill='none' xmlns='http://www.w3.org/2000/svg'>
                       <path
                         d='M8.60309 5.13895L5.0325 1.56836L1.46191 5.13895'
                         stroke='white'
@@ -540,12 +436,8 @@ const Prediction = () => {
                     <p>CMCX</p>
                   </div>
                   <div>
-                    <div className={styles.cmcxPrice}>
-                      {/* <input type="text" value="0.0" /> */}
-                    </div>
-                    <div className={styles.range}>
-                      {/* <input type="range"  min="0" max="100" /> */}
-                    </div>
+                    <div className={styles.cmcxPrice}>{/* <input type="text" value="0.0" /> */}</div>
+                    <div className={styles.range}>{/* <input type="range"  min="0" max="100" /> */}</div>
                     <div className={styles.bottomSection}>
                       <button>10%</button>
                       <button>25%</button>
@@ -555,21 +447,14 @@ const Prediction = () => {
                     </div>
                     <button className={styles.walet}>conect walet</button>
                     <div className={styles.text}>
-                      <p>
-                        You won’t be able to remove or change your position once
-                        you enter it.
-                      </p>
+                      <p>You won’t be able to remove or change your position once you enter it.</p>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
             {/* button down */}
-            <div
-              className={`${styles.btnsActionDwn} ${
-                activeBtnsDwn === item.id ? styles.btnsActionActiveDwn : ''
-              }`}
-            >
+            <div className={`${styles.btnsActionDwn} ${activeBtnsDwn === item.id ? styles.btnsActionActiveDwn : ''}`}>
               <div>
                 <div className={styles.bottomBorder}>
                   <div className={styles.positionBt}>
@@ -578,19 +463,8 @@ const Prediction = () => {
                         setActiveBtnsDwn(null);
                       }}
                     >
-                      <svg
-                        width='12'
-                        height='11'
-                        viewBox='0 0 12 11'
-                        fill='none'
-                        xmlns='http://www.w3.org/2000/svg'
-                      >
-                        <path
-                          d='M10.0556 6.02637H1.45898'
-                          stroke='white'
-                          strokeWidth='2'
-                          strokeLinecap='round'
-                        />
+                      <svg width='12' height='11' viewBox='0 0 12 11' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                        <path d='M10.0556 6.02637H1.45898' stroke='white' strokeWidth='2' strokeLinecap='round' />
                         <path
                           d='M6.41602 1.36914C6.41602 1.36914 1.45898 3.94199 1.45898 5.95898C1.45898 7.97598 6.41602 9.63086 6.41602 9.63086'
                           stroke='white'
@@ -601,19 +475,8 @@ const Prediction = () => {
                     </p>
                     <p>Set Position</p>
                   </div>
-                  <button
-                    onClick={changeDownBtns}
-                    className={`${styles.downButton} ${
-                      downBtns ? styles.wtpakk1 : ''
-                    }`}
-                  >
-                    <svg
-                      width='9'
-                      height='11'
-                      viewBox='0 0 9 11'
-                      fill='none'
-                      xmlns='http://www.w3.org/2000/svg'
-                    >
+                  <button onClick={changeDownBtns} className={`${styles.downButton} ${downBtns ? styles.wtpakk1 : ''}`}>
+                    <svg width='9' height='11' viewBox='0 0 9 11' fill='none' xmlns='http://www.w3.org/2000/svg'>
                       <path
                         d='M0.966245 5.86105L4.53683 9.43164L8.10742 5.86105'
                         stroke='white'
@@ -640,12 +503,8 @@ const Prediction = () => {
                     <p>CMCX</p>
                   </div>
                   <div>
-                    <div className={styles.cmcxPrice}>
-                      {/* <input type="text" value="0.0" /> */}
-                    </div>
-                    <div className={styles.range}>
-                      {/* <input type="range"  min="0" max="100" /> */}
-                    </div>
+                    <div className={styles.cmcxPrice}>{/* <input type="text" value="0.0" /> */}</div>
+                    <div className={styles.range}>{/* <input type="range"  min="0" max="100" /> */}</div>
                     <div className={styles.bottomSection}>
                       <button>10%</button>
                       <button>25%</button>
@@ -655,10 +514,7 @@ const Prediction = () => {
                     </div>
                     <button className={styles.walet}>conect walet</button>
                     <div className={styles.text}>
-                      <p>
-                        You won’t be able to remove or change your position once
-                        you enter it.
-                      </p>
+                      <p>You won’t be able to remove or change your position once you enter it.</p>
                     </div>
                   </div>
                 </div>
@@ -675,13 +531,7 @@ const Prediction = () => {
             <CornerDecor />
             <div className={styles.laterBorderContent}>
               <div className={styles.laterBorder}>
-                <svg
-                  width='14'
-                  height='14'
-                  viewBox='0 0 14 14'
-                  fill='none'
-                  xmlns='http://www.w3.org/2000/svg'
-                >
+                <svg width='14' height='14' viewBox='0 0 14 14' fill='none' xmlns='http://www.w3.org/2000/svg'>
                   <path
                     d='M12.6833 7.14388C12.6833 10.3639 10.0699 12.9772 6.84994 12.9772C3.62994 12.9772 1.0166 10.3639 1.0166 7.14388C1.0166 3.92388 3.62994 1.31055 6.84994 1.31055C10.0699 1.31055 12.6833 3.92388 12.6833 7.14388Z'
                     stroke='white'
@@ -702,13 +552,7 @@ const Prediction = () => {
               <p>{item.numHashTag}</p>
             </div>
             <div className={styles.upLater}>
-              <svg
-                width='10'
-                height='13'
-                viewBox='0 0 10 13'
-                fill='none'
-                xmlns='http://www.w3.org/2000/svg'
-              >
+              <svg width='10' height='13' viewBox='0 0 10 13' fill='none' xmlns='http://www.w3.org/2000/svg'>
                 <path
                   d='M8.31891 5.21512L4.74832 1.64453L1.17773 5.21512'
                   stroke='white'
@@ -737,13 +581,7 @@ const Prediction = () => {
             <div className={styles.downLater}>
               <p>
                 DOWN
-                <svg
-                  width='10'
-                  height='13'
-                  viewBox='0 0 10 13'
-                  fill='none'
-                  xmlns='http://www.w3.org/2000/svg'
-                >
+                <svg width='10' height='13' viewBox='0 0 10 13' fill='none' xmlns='http://www.w3.org/2000/svg'>
                   <path
                     d='M8.81891 8.07394L5.24832 11.6445L1.67773 8.07394'
                     stroke='white'
@@ -778,22 +616,8 @@ const Prediction = () => {
         <div className={styles.cmcxusdContainer}>
           <div>
             <div>
-              <svg
-                width='31'
-                height='31'
-                viewBox='0 0 31 31'
-                fill='none'
-                xmlns='http://www.w3.org/2000/svg'
-              >
-                <rect
-                  x='0.869141'
-                  y='0.640625'
-                  width='30'
-                  height='30'
-                  rx='4'
-                  fill='white'
-                  fillOpacity='0.1'
-                />
+              <svg width='31' height='31' viewBox='0 0 31 31' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                <rect x='0.869141' y='0.640625' width='30' height='30' rx='4' fill='white' fillOpacity='0.1' />
                 <path
                   d='M15.8691 23.6406C11.4561 23.6406 7.86914 20.0536 7.86914 15.6406C7.86914 11.2276 11.4561 7.64062 15.8691 7.64062C20.2822 7.64062 23.8691 11.2276 23.8691 15.6406C23.8691 20.0536 20.2822 23.6406 15.8691 23.6406ZM15.8691 8.7569C12.0738 8.7569 8.98542 11.8453 8.98542 15.6406C8.98542 19.436 12.0738 22.5243 15.8691 22.5243C19.6645 22.5243 22.7529 19.436 22.7529 15.6406C22.7529 11.8453 19.6645 8.7569 15.8691 8.7569Z'
                   fill='white'
@@ -809,22 +633,8 @@ const Prediction = () => {
               </svg>
             </div>
             <div>
-              <svg
-                width='31'
-                height='31'
-                viewBox='0 0 31 31'
-                fill='none'
-                xmlns='http://www.w3.org/2000/svg'
-              >
-                <rect
-                  x='0.869141'
-                  y='0.640625'
-                  width='30'
-                  height='30'
-                  rx='4'
-                  fill='white'
-                  fillOpacity='0.1'
-                />
+              <svg width='31' height='31' viewBox='0 0 31 31' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                <rect x='0.869141' y='0.640625' width='30' height='30' rx='4' fill='white' fillOpacity='0.1' />
                 <path
                   d='M15.98 21.1107C15.6749 21.1107 15.4219 20.8577 15.4219 20.5526V18.9898C15.4219 18.6847 15.6749 18.4316 15.98 18.4316C16.2851 18.4316 16.5382 18.6847 16.5382 18.9898V20.5526C16.5382 20.8577 16.2851 21.1107 15.98 21.1107Z'
                   fill='white'
@@ -852,22 +662,8 @@ const Prediction = () => {
               </svg>
             </div>
             <div>
-              <svg
-                width='31'
-                height='31'
-                viewBox='0 0 31 31'
-                fill='none'
-                xmlns='http://www.w3.org/2000/svg'
-              >
-                <rect
-                  x='0.869141'
-                  y='0.640625'
-                  width='30'
-                  height='30'
-                  rx='4'
-                  fill='white'
-                  fillOpacity='0.1'
-                />
+              <svg width='31' height='31' viewBox='0 0 31 31' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                <rect x='0.869141' y='0.640625' width='30' height='30' rx='4' fill='white' fillOpacity='0.1' />
                 <g opacity='0.3'>
                   <path
                     d='M17.7682 23.4097C17.5224 23.4097 17.2915 23.2458 17.2245 22.9926C17.1425 22.6946 17.3213 22.3892 17.6267 22.3073C19.098 21.9183 20.3992 21.0534 21.3275 19.8475C22.2559 18.6416 22.7592 17.1625 22.7589 15.6406C22.7589 11.8417 19.6677 8.75049 15.8688 8.75049C12.6435 8.75049 10.528 10.635 9.53731 11.7747H11.7273C11.8764 11.7747 12.0194 11.834 12.1249 11.9394C12.2304 12.0449 12.2896 12.1879 12.2896 12.3371C12.2896 12.4862 12.2304 12.6293 12.1249 12.7348C12.0194 12.8402 11.8764 12.8995 11.7273 12.8995H8.42744C8.39019 12.8995 8.32315 12.892 8.27101 12.8771C8.20729 12.8564 8.14702 12.8263 8.09224 12.7877C8.02716 12.7439 7.97352 12.6852 7.93582 12.6164C7.89557 12.5453 7.87022 12.4667 7.86133 12.3855V8.94416C7.86133 8.63876 8.11459 8.3855 8.41999 8.3855C8.72539 8.3855 8.97865 8.63876 8.97865 8.94416V10.7244C10.1928 9.42089 12.4796 7.64062 15.8688 7.64062C20.2859 7.64062 23.8762 11.2309 23.8762 15.6481C23.8762 19.2831 21.4256 22.4712 17.9097 23.3948C17.8651 23.4023 17.8129 23.4097 17.7682 23.4097Z'
@@ -887,15 +683,8 @@ const Prediction = () => {
           </div>
           <div>
             <div className={styles.PredictionBlur__background}>
-              <img
-                className={styles.cmcxCoin}
-                src={'../../images/win/prediction/cmcxCoin.png'}
-                alt='coin'
-              />
-              <img
-                src={'../../images/win/prediction/predictionBlur.png'}
-                alt='blur'
-              />
+              <img className={styles.cmcxCoin} src={'../../images/win/prediction/cmcxCoin.png'} alt='coin' />
+              <img src={'../../images/win/prediction/predictionBlur.png'} alt='blur' />
               <div className={styles.cmcxBlur}>
                 <h4>CMCXUSD</h4>
                 <p>$531.360</p>
@@ -905,16 +694,8 @@ const Prediction = () => {
         </div>
         <div>
           <div className={styles.timerBlur}>
-            <img
-              className={styles.time}
-              src={'../../images/win/prediction/time.png'}
-              alt='time'
-            />
-            <img
-              className={styles.blur}
-              src={'../../images/win/prediction/timerBlur.png'}
-              alt='timeBlur'
-            />
+            <img className={styles.time} src={'../../images/win/prediction/time.png'} alt='time' />
+            <img className={styles.blur} src={'../../images/win/prediction/timerBlur.png'} alt='timeBlur' />
             <div className={styles.timer}>
               <Timer />
               <span>5m</span>

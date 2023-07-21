@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import React, { useState, useEffect } from 'react';
 
-import { formatCurrency } from '../../../utils/formatCurrency';
-import Table from '../../../UI/table/Table';
-import Button from '../../../UI/button/Button';
 import PageNumber from './PageNumber';
 import { PaginationButtonSvg } from '../../../svg';
+import Button from '../../../UI/button/Button';
 import CornerDecor from '../../../UI/cornerDecor/CornerDecor';
+import Table from '../../../UI/table/Table';
+import { formatCurrency } from '../../../utils/formatCurrency';
 
 import styles from './InfoTables.module.css';
 
@@ -59,8 +59,8 @@ const TokensTable = props => {
 
           item.data = tData;
         });
-      setData(data);
-    });
+        setData(data);
+      });
   }, [itemsPerPage, pageCountTokens, router]);
 
   const sorting = col => {
@@ -86,13 +86,10 @@ const TokensTable = props => {
   const filterArrows = col => {
     let title = col;
     title.trim();
-    if (
-      filteredColumn.colName.startsWith(col.replaceAll(' ', '_').toLowerCase())
-    ) {
+    if (filteredColumn.colName.startsWith(col.replaceAll(' ', '_').toLowerCase())) {
       if (col.length >= filteredColumn.colName.length - 5) {
         title += filteredColumn.order === 'ASC' ? '↓' : '↑';
       }
-    } else {
     }
 
     if (title.includes('↑') || title.includes('↓')) return title;
@@ -115,9 +112,7 @@ const TokensTable = props => {
               filterArrows('Liquidity'),
               '',
             ]}
-            onClick={e =>
-              sorting(e.target.textContent.toLowerCase().split(' ').join('_'))
-            }
+            onClick={e => sorting(e.target.textContent.toLowerCase().split(' ').join('_'))}
             tableData={data}
             type={'info_table_tokens'}
           />
@@ -126,16 +121,9 @@ const TokensTable = props => {
       <div className={styles.Table__buttons}>
         <Button
           customStyles={{ marginRight: '10px' }}
-          title={
-            <PaginationButtonSvg
-              className={styles.back}
-              pageCountTokens={pageCountTokens}
-              disabled={1}
-            />
-          }
+          title={<PaginationButtonSvg className={styles.back} pageCountTokens={pageCountTokens} disabled={1} />}
           onClick={() => {
-            if (pageCountTokens > 1)
-              setPageCountTokens(prevValue => prevValue - 1);
+            if (pageCountTokens > 1) setPageCountTokens(prevValue => prevValue - 1);
           }}
         />
         <PageNumber
@@ -199,15 +187,10 @@ const TokensTable = props => {
             marginLeft: '10px',
           }}
           title={
-            <PaginationButtonSvg
-              className={styles.forward}
-              pageCountTokens={pageCountTokens}
-              disabled={totalPages}
-            />
+            <PaginationButtonSvg className={styles.forward} pageCountTokens={pageCountTokens} disabled={totalPages} />
           }
           onClick={() => {
-            if (pageCountTokens < totalPages)
-              setPageCountTokens(prevValue => prevValue + 1);
+            if (pageCountTokens < totalPages) setPageCountTokens(prevValue => prevValue + 1);
           }}
         />
       </div>

@@ -1,8 +1,10 @@
 import React from 'react';
+
+import Expand from '../expand/Expand';
+import ListItemRow from '../listItem/ListItemRow';
+
 import styles from './Table.module.css';
 import listStyles from '../listItem/ListItemRow.module.css';
-import ListItemRow from '../listItem/ListItemRow';
-import Expand from '../expand/Expand';
 
 const Table = props => {
   let custom_th = '';
@@ -40,11 +42,7 @@ const Table = props => {
       <div className={styles.Table__labels}>
         {props.tableLabels.map((label, index) => {
           return (
-            <div
-              key={'unique' + index}
-              className={`${custom_th}`}
-              onClick={IdentifyOnClick}
-            >
+            <div key={'unique' + index} className={`${custom_th}`} onClick={IdentifyOnClick}>
               <div className={`${styles.th} ${custom_th_text}`}>{label}</div>
             </div>
           );
@@ -53,23 +51,16 @@ const Table = props => {
       {props.expandContent && (
         <div className={styles.Table__content}>
           {props.tableData.map((item, index) => {
-            const childrenWithProps = React.Children.map(
-              props.expandContent,
-              child => {
-                if (React.isValidElement(child)) {
-                  return React.cloneElement(child, {
-                    item,
-                  });
-                }
-                return child;
-              },
-            );
+            const childrenWithProps = React.Children.map(props.expandContent, child => {
+              if (React.isValidElement(child)) {
+                return React.cloneElement(child, {
+                  item,
+                });
+              }
+              return child;
+            });
             return (
-              <Expand
-                className={props.expandClassName}
-                expandContent={childrenWithProps}
-                key={index}
-              >
+              <Expand className={props.expandClassName} expandContent={childrenWithProps} key={index}>
                 <ListItemRow data={item} type={props.type} />
               </Expand>
             );
@@ -79,13 +70,7 @@ const Table = props => {
       {!props.expandContent && (
         <div className={styles.Table__content}>
           {props.tableData.map(item => {
-            return (
-              <ListItemRow
-                key={item.id + 'hash' + props.type}
-                data={item}
-                type={props.type}
-              />
-            );
+            return <ListItemRow key={item.id + 'hash' + props.type} data={item} type={props.type} />;
           })}
         </div>
       )}

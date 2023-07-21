@@ -22,17 +22,13 @@ const PoolsTableRowExpand = ({ item }) => {
               <div className={styles.secondSection}>
                 <p>{item.data[1].text}</p>
                 <p className={` font_12 ${styles.usd}`}>{item.data[1].text2}</p>
-                <p className={` font_12 ${styles.subText}`}>
-                  {item.data[1].text3}
-                </p>
+                <p className={` font_12 ${styles.subText}`}>{item.data[1].text3}</p>
               </div>
               <div className={styles.thirdSection}>
                 <p>
                   {item.data[3].title} {item.data[3].svg1}
                 </p>
-                <p className={` font_12 ${styles.subText}`}>
-                  {item.data[3].subTitle}
-                </p>
+                <p className={` font_12 ${styles.subText}`}>{item.data[3].subTitle}</p>
               </div>
             </>
           )}
@@ -58,15 +54,11 @@ const PoolsTableRowExpand = ({ item }) => {
         <div className={styles.section}>
           <div className={styles.startSection}>
             <p>Start Farming</p>
-            <Button
-              title={'Connect Wallet'}
-              type={'blue'}
-              className={styles.connectButton}
-            />
+            <Button title={'Connect Wallet'} type={'blue'} className={styles.connectButton} />
           </div>
           <div className={styles.middleSection}>
             <p className={styles.coreEarned}>
-              <span>CORE</span> Earned
+              <span>CATENA</span> Earned
             </p>
             <p className={styles.coreEarnedNum}>0</p>
           </div>
@@ -78,7 +70,7 @@ const PoolsTableRowExpand = ({ item }) => {
           <CoreTag />
           <div className={styles.pools__tableEndInner}>
             <div className={styles.pointer}>
-              <p className={` ${styles.margin0} font_12 `}>Get CORE-BNB LP</p>
+              <p className={` ${styles.margin0} font_12 `}>Get CATENA-BNB LP</p>
               <OpenSvg className={styles.openSvg} />
             </div>
             <div className={styles.pointer}>

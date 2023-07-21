@@ -1,11 +1,11 @@
 import React from 'react';
 
-import InfoRoutes from '../components/InfoRoutes/InfoRoutes';
-import SearchBar from '../components/SearchBar/SearchBar';
-import TokensTable from '../components/InfoTables/TokensTable';
-import PoolsTable from '../components/InfoTables/PoolsTable';
-import TransactionTable from '../components/InfoTables/TransactionTable';
 import InfoCharts from '../components/InfoCharts/InfoCharts';
+import InfoRoutes from '../components/InfoRoutes/InfoRoutes';
+import PoolsTable from '../components/InfoTables/PoolsTable';
+import TokensTable from '../components/InfoTables/TokensTable';
+import TransactionTable from '../components/InfoTables/TransactionTable';
+import SearchBar from '../components/SearchBar/SearchBar';
 
 import styles from '../InfoPages.module.css';
 
@@ -17,7 +17,7 @@ const InfoOverview = () => {
           <InfoRoutes />
         </div>
         <SearchBar />
-        <h2 className={styles.title}>CoreMultiChain Info & Analytics</h2>
+        <h2 className={styles.title}>CATENA Network Info & Analytics</h2>
         <InfoCharts />
         <h2 className={styles.title}>Top Tokens</h2>
         <TokensTable />

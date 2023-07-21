@@ -1,10 +1,5 @@
-import { useState, useEffect } from 'react';
-import Image from 'next/image';
+import { useState } from 'react';
 
-import CornerDecor from '../../../UI/cornerDecor/CornerDecor';
-import TabFilter from '../../../UI/filters/TabFilter';
-
-import styles from './VotingNow.module.css';
 import {
   CloseTag,
   CommunitySign,
@@ -13,18 +8,19 @@ import {
   CoreTagLight,
   SmlArrowSvg,
   SoonTag,
-  VectorSvg,
   VoteNowTag,
 } from '../../../svg';
-
-import ListItemRow from '../../../UI/listItem/ListItemRow';
+import CornerDecor from '../../../UI/cornerDecor/CornerDecor';
+import TabFilter from '../../../UI/filters/TabFilter';
 import RunningText from '../runningText/RunningText';
 import VotingNowTable from '../votingNowTable/VotingNowTable';
+
+import styles from './VotingNow.module.css';
 
 const votingData = [
   {
     id: 0,
-    title: 'Stop Minting more CORE1',
+    title: 'Stop Minting more CATENA 1',
     subTitle: 'subTitle 1',
     date: 'Ends Mar 6th, 2022 11:15',
     location: 'Community',
@@ -36,13 +32,13 @@ const votingData = [
     title: 'test#16',
     subTitle: 'subTitle #2',
     date: 'Ends Mar 4th, 2022 01:15',
-    location: 'Core',
+    location: 'CATENA',
     activeStatus: 'Soon',
     announcement: 'Dear cock holders, we’re proud of u',
   },
   {
     id: 2,
-    title: 'Stop Minting more CORE2',
+    title: 'Stop Minting more CATENA2',
     subTitle: 'subTitle #2',
     date: 'Ends Mar 6th, 2022 11:15',
     location: 'Community',
@@ -54,13 +50,13 @@ const votingData = [
     title: 'blah#17',
     subTitle: 'testSubTitle',
     date: 'Ends Mar 6th, 2022 11:15',
-    location: 'Core',
+    location: 'CATENA',
     activeStatus: 'Vote Now',
     announcement: 'Dear cock holders, we’re proud of u',
   },
   {
     id: 4,
-    title: 'Stop Minting more CORE3',
+    title: 'Stop Minting more CATENA3',
     subTitle: 'testSubTitle',
     date: 'Ends Mar 6th, 2022 11:15',
     location: 'Community',
@@ -81,7 +77,7 @@ const votingData = [
     title: 'test#2',
     subTitle: 'test593059',
     date: 'Ends Mar 6th, 2022 11:15',
-    location: 'Core',
+    location: 'CATENA',
     activeStatus: 'Soon',
     announcement: 'Dear cock holders, we’re proud of u',
   },
@@ -96,7 +92,7 @@ const votingData = [
   },
   {
     id: 8,
-    title: 'Stop Minting more CORE4',
+    title: 'Stop Minting more CATENA4',
     subTitle: 'subTitle 1',
     date: 'Ends Mar 6th, 2022 11:15',
     location: 'Community',
@@ -105,7 +101,7 @@ const votingData = [
   },
   {
     id: 9,
-    title: 'Stop Minting more CORE5',
+    title: 'Stop Minting more CATENA5',
     subTitle: 'subTitle 1',
     date: 'Ends Mar 6th, 2022 11:15',
     location: 'Community',
@@ -114,7 +110,7 @@ const votingData = [
   },
   {
     id: 10,
-    title: 'Stop Minting more CORE6',
+    title: 'Stop Minting more CATENA6',
     subTitle: 'subTitle 1',
     date: 'Ends Mar 6th, 2022 11:15',
     location: 'Community',
@@ -137,7 +133,7 @@ const votingData2 = votingData.map((item, index) => {
 
   if (item.location === 'Community') {
     secondIcon = <CommunityTag />;
-  } else if (item.location === 'Core') {
+  } else if (item.location === 'CATENA') {
     secondIcon = <CoreTagLight />;
   }
   return {
@@ -166,7 +162,7 @@ const votingData2 = votingData.map((item, index) => {
 const dataDisplayOptions = [
   {
     id: 0,
-    label: 'Core',
+    label: 'CATENA',
     svg: <CoreCheck />,
   },
   {
@@ -201,7 +197,7 @@ const VotingNow = props => {
   const [votingCount, setVoutingCount] = useState(2);
   const [filteredData, setFilteredData] = useState(votingData2);
 
-  const [activeTab, setActiveTab] = useState('Core');
+  const [activeTab, setActiveTab] = useState('CATENA');
   const [activeTimeframe, setActiveTimeframe] = useState('Vote Now');
 
   return (

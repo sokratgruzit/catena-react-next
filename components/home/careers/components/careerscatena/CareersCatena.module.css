@@ -1,0 +1,11 @@
+.ttl_red {
+  color: #ff6969;
+  padding-left: 20px;
+  font-family: 'Lack-Regular' !important;
+}
+
+.hdisplay {
+  display: flex;
+  gap: 17px;
+  align-items: flex-start;
+}

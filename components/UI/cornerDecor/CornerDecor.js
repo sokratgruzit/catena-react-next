@@ -1,5 +1,6 @@
-import React from "react";
-import styles from "./CornerDecor.module.css";
+import React from 'react';
+
+import styles from './CornerDecor.module.css';
 
 const CornerDecor = () => {
   return (

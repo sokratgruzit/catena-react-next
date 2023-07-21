@@ -1,12 +1,6 @@
 import React from 'react';
-import {
-  ArrowSvg,
-  CancelSvg,
-  LaterSvg,
-  LiveSvg,
-  NextSvg,
-  SmlArrowSvg,
-} from '../../../svg';
+
+import { ArrowSvg, CancelSvg, LaterSvg, LiveSvg, NextSvg, SmlArrowSvg } from '../../../svg';
 import CornerDecor from '../../../UI/cornerDecor/CornerDecor';
 
 import styles from './SinglePredictionItem.module.css';
@@ -80,13 +74,7 @@ const SinglePredictionItem = ({ item }) => {
             <div className={styles.mainPrice}>
               <h2>{item.lastPrice}</h2>
               <div className={styles.priceUP}>
-                <svg
-                  width='12'
-                  height='15'
-                  viewBox='0 0 12 15'
-                  fill='none'
-                  xmlns='http://www.w3.org/2000/svg'
-                >
+                <svg width='12' height='15' viewBox='0 0 12 15' fill='none' xmlns='http://www.w3.org/2000/svg'>
                   <path
                     d='M10.6829 6.37206C10.5391 6.37206 10.3953 6.31908 10.2817 6.20555L6.08875 2.01255L1.89575 6.20555C1.67626 6.42504 1.31297 6.42504 1.09348 6.20555C0.987913 6.09873 0.928711 5.9546 0.928711 5.80442C0.928711 5.65423 0.987913 5.5101 1.09348 5.40328L5.68761 0.809148C5.9071 0.589659 6.2704 0.589659 6.48988 0.809148L11.084 5.40328C11.3035 5.62277 11.3035 5.98606 11.084 6.20555C10.9781 6.31908 10.8267 6.37206 10.6829 6.37206Z'
                     fill='white'

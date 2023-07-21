@@ -1,10 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
 
-import TabFilter from '../../../UI/filters/TabFilter';
 import { SearchIcon } from '../../../svg';
+import TabFilter from '../../../UI/filters/TabFilter';
 
 import styles from './SearchBar.module.css';
-import tableStyles from '../../components/InfoRoutes/InfoRoutes.module.css';
 
 let tabsData = [
   {
@@ -53,10 +52,7 @@ const SearchBar = () => {
     <>
       <div className={styles.section}>
         <div ref={wrapperRef} className={styles.SearchBar}>
-          <div
-            style={{ zIndex: openSearchResults ? 101 : 10 }}
-            className={styles.SearchBar__inputWrap}
-          >
+          <div style={{ zIndex: openSearchResults ? 101 : 10 }} className={styles.SearchBar__inputWrap}>
             <SearchIcon className={styles.SearchBar__icon} />
             <input
               className={styles.SearchBar__input}
@@ -93,9 +89,7 @@ const SearchBar = () => {
                       <p>Liquidity</p>
                     </div>
                   </div>
-                  <p className={styles.Search__beforeResult}>
-                    Search Pools or Tokens
-                  </p>
+                  <p className={styles.Search__beforeResult}>Search Pools or Tokens</p>
                 </div>
                 <div>
                   <div className={styles.Search__resultsRow}>
@@ -106,9 +100,7 @@ const SearchBar = () => {
                       <p>Liquidity</p>
                     </div>
                   </div>
-                  <p className={styles.Search__beforeResult}>
-                    Search Pools or Tokens
-                  </p>
+                  <p className={styles.Search__beforeResult}>Search Pools or Tokens</p>
                 </div>
                 {searchMode === 'Watchlist' && <div>haha</div>}
               </div>

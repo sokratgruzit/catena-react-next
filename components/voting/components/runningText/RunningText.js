@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { ProposalsText } from '../../../svg';
 
 import styles from './RunningText.module.css';
