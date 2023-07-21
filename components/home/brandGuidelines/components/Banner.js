@@ -16,7 +16,7 @@ export default function Banner() {
           {/* <a href='/resources/core-logo-pack.zip' target='_blank' className={styles.button}>
             Download
           </a> */}
-          <Download />
+          <Download buttonClass='bluebtn' buttonTitle='Download' />
         </div>
       </div>
     </div>

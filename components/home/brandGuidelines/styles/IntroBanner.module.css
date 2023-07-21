@@ -50,18 +50,6 @@
   opacity: 0.6;
 }
 
-.mainContainerDownloadBtn {
-  display: inline-block;
-  padding: 18px 34px;
-  background-color: #ff6969;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 61px;
-  border: 1px solid #fff;
-  font-size: 16px;
-  line-height: 24px;
-}
-
 .mainContainerDownloadText {
   line-height: 22px;
   font-size: 16px;
@@ -87,9 +75,7 @@
   .mainContainerDescription {
     padding: 160px 30px 250px 30px;
   }
-  .mainContainerDownloadBtn {
-    padding: 10px 26px;
-  }
+
   .mainContainerDownload {
     margin-top: 25px;
   }

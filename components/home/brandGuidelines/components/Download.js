@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import styles from '../styles/Download.module.css';
 
-const Download = () => {
+const Download = ({ buttonClass, buttonTitle }) => {
   const [firstAnimation, setFirstAnimation] = useState(false);
   const [active, setActive] = useState(false);
 
@@ -29,18 +29,24 @@ const Download = () => {
         console.error('Error fetching the file:', error);
       });
   };
+
   const itemData = [
     {
       links: [{ url: '/images/guidelines/firstUsage.png', text: 'Download image 1' }],
     },
   ];
+
   return (
     <div className='resources'>
       {itemData.map((item, index) => (
         <div className='item' key={index}>
           {item.links.map((link, linkIndex) => (
-            <button key={linkIndex} onClick={() => handleDownload(link.url, link.text)} className={styles.button}>
-              Download
+            <button
+              key={linkIndex}
+              onClick={() => handleDownload(link.url, link.text)}
+              className={`${styles.button} ${styles[buttonClass]}`}
+            >
+              {buttonTitle}
             </button>
           ))}
         </div>
