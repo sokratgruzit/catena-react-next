@@ -82,6 +82,7 @@ const Press = () => {
             </div>
             <div className={styles.logCon}>
               <img src='/images/press/CNBC.png' alt='sources' className={styles.logo} />
+
             </div>
             <div className={styles.logCon}>
               <img src='/images/press/bloombergLogo.png' alt='sources' className={styles.logo} />
