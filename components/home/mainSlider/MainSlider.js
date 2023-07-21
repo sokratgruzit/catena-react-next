@@ -12,6 +12,13 @@ const MainSlider = () => {
         <h1 className='font-90 ttl'>font-90 title</h1>
         <h2 className='font-40'>font-40</h2>
         <h3 className='font-20'>font-20</h3>
+        <div className='text'>
+          <ul>
+            <li>xai</li>
+            <li>xai2</li>
+            <li>xai3</li>
+          </ul>
+        </div>
       </div>
       <div className='container_bordered'>
         <div className='container_bordered-child'>

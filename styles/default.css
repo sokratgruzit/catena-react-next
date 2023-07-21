@@ -189,7 +189,23 @@ button {
 .pB-160 {
   padding-bottom: 160px;
 }
-
+.text ul li {
+  position: relative;
+  display: flex;
+  padding-left: 20px;
+  margin-top: 15px;
+}
+.text ul li:after {
+  content: '';
+  position: absolute;
+  top: 7px;
+  background-color: #a6d0dd;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  border: 1px solid #162029;
+  left: 0px;
+}
 form .form-control:focus {
   border-color: #ced4da;
   box-shadow: none;
