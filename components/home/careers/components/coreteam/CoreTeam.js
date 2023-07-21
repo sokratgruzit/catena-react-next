@@ -4,7 +4,7 @@ const CoreTeam = props => {
   const { team, title } = props;
 
   return (
-    <div className={`${styles.container} ${styles.careerQualities}`}>
+    <div className={`container ${styles.careerQualities}`}>
       <h2 className={styles.font__51}>{title}</h2>
       {team.map((item, index) => {
         return (

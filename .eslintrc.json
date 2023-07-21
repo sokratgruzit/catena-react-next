@@ -1,0 +1,48 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "next/core-web-vitals",
+    "plugin:prettier/recommended",
+    "plugin:import/recommended",
+    "prettier"
+  ],
+  "plugins": ["unused-imports"],
+  "rules": {
+    "unused-imports/no-unused-imports": "error",
+    "import/order": [
+      "error",
+      {
+        "newlines-between": "always",
+        "groups": [["builtin", "external"]],
+        "pathGroupsExcludedImportTypes": ["builtin"],
+        "pathGroups": [
+          {
+            "pattern": "*.css",
+            "group": "index",
+            "patternOptions": { "matchBase": true },
+            "position": "after"
+          }
+        ],
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        }
+      }
+    ],
+    "import/no-named-as-default": "off",
+    "import/newline-after-import": ["error", { "count": 1 }],
+    "import/no-duplicates": "error",
+    "no-var-requires": "off",
+    "no-empty-function": "off",
+    "no-explicit-any": "off",
+    "no-unused-vars": "off",
+    "no-redeclare": "off",
+    "no-dupe-keys": "off",
+    "no-sparse-arrays": "off",
+    "react/no-unescaped-entities": "off",
+    "no-empty": "off",
+    "no-empty-pattern": "off",
+    "no-unreachable": "off"
+  }
+}
