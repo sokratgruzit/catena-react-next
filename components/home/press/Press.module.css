@@ -1,3 +1,4 @@
+/* Base styles */
 .mainContainer {
     width: 100%;
     position: relative;
@@ -242,4 +243,148 @@
   width: 100%;
   left: 2px;
   padding-top: 100px;
+}
+
+/* Responsive for tablets */
+@media screen and (max-width: 1024px) {
+    .mainContainer {
+        padding: 30px 35px;
+    }
+
+    .titleContainer {
+        width: 100%;
+        margin-left: 0;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .titlePartyOne,
+    .titlePartyTwo {
+        font-size: 60px;
+    }
+
+    .bodyContainer {
+        flex-direction: column;
+        gap: 30px;
+        margin-left: 0;
+    }
+
+    .mapContainer {
+        width: 100%;
+        gap: 30px;
+    }
+
+    .mapContainerTwo {
+        width: 100%;
+        padding-top: 30px;
+        gap: 30px;
+    }
+
+    .yearsStats {
+        width: 100%;
+    }
+}
+
+/* Responsive for phones */
+@media screen and (max-width: 768px) {
+    .titlePartyOne,
+    .titlePartyTwo {
+        font-size: 40px;
+    }
+
+    .mapContainer h2,
+    .mapContainerTwo h3 {
+        font-size: 18px;
+    }
+
+    .mapContainer p {
+        font-size: 12px;
+    }
+
+    .pressImage {
+        height: 180px;
+    }
+
+    .sourcesContainer p {
+        font-size: 40px;
+        padding-left: 50px;
+    }
+
+    .infoContainer p {
+        font-size: 24px;
+        line-height: 32px;
+        margin-top: 40px;
+    }
+
+    .loadPub {
+        font-size: 14px;
+        bottom: 45px;
+        padding: 5px 10px;
+    }
+
+    .active,
+    .line {
+        width: 300px;
+        font-size: 24px;
+    }
+
+    .logoLine {
+        gap: 30px;
+    }
+
+    .logoContainer {
+        top: 20px;
+    }
+}
+
+/* Responsive for phones in landscape mode and smaller devices */
+@media screen and (max-width: 480px) {
+    .titlePartyOne,
+    .titlePartyTwo {
+        font-size: 30px;
+    }
+
+    .mapContainer h2,
+    .mapContainerTwo h3 {
+        font-size: 16px;
+    }
+
+    .mapContainer p {
+        font-size: 11px;
+    }
+
+    .pressImage {
+        height: 120px;
+    }
+
+    .sourcesContainer p {
+        font-size: 30px;
+        padding-left: 20px;
+    }
+
+    .infoContainer p {
+        font-size: 18px;
+        line-height: 24px;
+        margin-top: 30px;
+    }
+
+    .loadPub {
+        font-size: 12px;
+        bottom: 35px;
+        padding: 3px 8px;
+    }
+
+    .active,
+    .line {
+        width: 200px;
+        font-size: 20px;
+    }
+
+    .logoLine {
+        gap: 20px;
+    }
+
+    .logoContainer {
+        top: 10px;
+    }
 }
