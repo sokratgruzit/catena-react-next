@@ -7,6 +7,14 @@
   max-width: 1920px;
   width: 100%;
   margin: 0 auto;
+  position: relative;
+}
+
+.partniership svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-width: 100%;
 }
 
 .title {
@@ -52,6 +60,10 @@
   display: flex;
   gap: 21px;
   align-items: center;
+  max-width: 100%;
+}
+
+.imgWrapper img {
   max-width: 100%;
 }
 

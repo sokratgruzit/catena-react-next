@@ -1,14 +1,16 @@
+import styles from './CoreTeam.module.css';
+
 const CoreTeam = props => {
   const { team, title } = props;
 
   return (
-    <div className='container career-qualities'>
-      <h2 className='font-51'>{title}</h2>
+    <div className={`${styles.container} ${styles.careerQualities}`}>
+      <h2 className={styles.font__51}>{title}</h2>
       {team.map((item, index) => {
         return (
-          <div className='container career-qualities' key={index}>
-            <div className='career-qualities__subttl'>{item.title}</div>
-            <div className='career-qualities__text'>{item.value}</div>
+          <div key={index}>
+            <div className={styles.careerQualities__subttl}>{item.title}</div>
+            <div className={styles.careerQualities__text}>{item.value}</div>
           </div>
         );
       })}

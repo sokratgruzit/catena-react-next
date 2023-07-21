@@ -2,22 +2,8 @@
     display:flex;
 }
 
-.featuredJobs__btnContainer {
-    height: 58px;
-    width: fit-content;
-    display: flex;
-    align-items: center;
-    padding: 0px 57px;
-    transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
-    cursor: pointer;
-    background: #0500FF;
-    font-size: 18px;
-    color: #fff;
-    z-index: 77;
-}
-
-.featuredJobs__btnContainer:hover {
-    background-color: #FF7152;
+.openPositions__filter {
+    width: 30%;
 }
 
 .container{
@@ -29,80 +15,78 @@
     position: relative;
     z-index: 5;
 }
-
-.font__51{
-    font-size: 51px;
-    line-height: 66px;
-}
-
 .featured-jobs__btn-container .main-btn{
     margin-right: auto;
 }
-.openPositionsContainer{
-    padding: 100px 0px;
+.openPositions__container{
+    padding-top: 150px;
+    display: flex;
+    width: 100%;
+    gap: 20px;
 }
-.openPositionsContainer h2{
+
+.openPositions__filterClear {
+    display: flex;
+    align-items: flex-end;
+    border-bottom: 1px solid #0500FF;
+    transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+    font-size: 14px;
+    line-height: 20px;
+    margin-top: 25px;
+    cursor: pointer;
+    margin-bottom: 12px;
+}
+
+.openPositions__filterClear:hover {
+    border-bottom: 1px solid rgba(255,255,255,0);
+    color: #FF7152;
+}
+.openPositions__container h2{
     margin-bottom: 30px;
 }
-.container {
-    position: relative;
-    z-index: 20;
-    height: 100%;
-}
-.main-container__description h1 {
+
+.mainContainer__description h1 {
     display: flex;
     flex-direction: column;
     font-size: 100px;
     transform: translateY(10px);
-    opacity: 0;
+    /* opacity: 0; */
     transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
     margin-top: 215px;
 }
-.main-container__description h1 span:nth-child(2) {
+.mainContainer__description h1 span:nth-child(2) {
     padding-left: 122px;
 }
-.main-container__description h1 {
+.mainContainer__description h1 {
     font-size: 100px;
 }
-.main-container__description h1 span {
+.mainContainer__description h1 span {
     font-size: inherit;
 }
-.animHead h1 {
-    transform: translateY(0px);
-    opacity: 1;
-    transition-delay: 0.5s;
-}
-.main-container__header .left {
-    font-size: 20px;
-    line-height: 28px;
-}
-.openPositionsContainer{
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-}
-.open-positions__select-ttl span{
+
+
+.openPositions__selectTtl span{
     font-size: 13px;
     color: #969BA6;
     transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
 }
-.open-positions__select-ttl:hover span,.open-positions__select.active .open-positions__select-ttl span{
+.openPositions__selectTtl:hover span,.openPositions__select.active .openPositions__selectTtl span{
     color: #fff;
 }
-.open-positions__select-ttl svg{
+.openPositions__selectTtl svg{
     transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
 }
-.open-positions__select.active .open-positions__select-ttl svg{
+.openPositions__select.active .openPositions__selectTtl svg{
     transform: rotate(180deg);
 }
-.openPositionsList{
+.openPositions__list{
     display: flex;
     flex-direction: column;
     width: 100%;
     padding-right: 240px;
     padding-bottom: 100px;
 }
-.openPositionsListItem{
+.openPositions__listItem{
     display: flex;
     flex-direction: column;
     padding: 30px 0px;
@@ -110,48 +94,48 @@
     position: relative;
     z-index: 2;
 }
-.openPositionsListItem > div{
+.openPositions__listItem > div{
     display: flex;
     justify-content: space-between;
     margin-bottom: 16px;
     align-items: center;
 }
-.openPositionsListItem > p{
+.openPositions__listItem > p{
     opacity: .5;
     font-size: 15px;
     line-height: 24px;
 }
-.openPositionsListItem > div span{
+.openPositions__listItem > div span{
     font-size: 20px;
     line-height: 30px;
     border-bottom: 1px solid #0500FF;
     transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
 }
-.openPositionsListItem:hover > div span{
+.openPositions__list-item:hover > div span{
     border-bottom: 1px solid rgba(255,255,255,0);
     color: #FF7152;
 }
-.openPositionsListItem-out{
+.openPositions__listItemOut{
     position: relative;
 }
-.openPositionsListItemSvg{
+.openPositions__listItemOut i{
     position: absolute;
     top: 36px;
     right: 0px;
     cursor: pointer;
     z-index: 5;
 }
-.openPositionsListItemSvg path{
+.openPositions__listItemOut i path{
     transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
 }
-.openPositionsListItemSvg:hover path{
+.openPositions__listItemOut i:hover path{
     fill: #FF7152;
 }
 /*Laptop 1440*/
 
 /*Ipad Pro 1024*/
 @media (max-width: 1300px) {
-    .openPositionsList{
+    .openPositions__list{
         padding-right: 0px;
     }
 }
@@ -160,16 +144,16 @@
 }
 /*Mobile 320*/
 @media (max-width: 767px) {
-    .download-container__mobile-inner a {
+    .downloadContainer__mobile-inner a {
         margin: 0px 15px;
     }
-    .download-container__mobile .ttl {
+    .downloadContainer__mobile .ttl {
         font-size: 16px;
         color: #fff;
         opacity: 0.6;
         margin-bottom: 25px;
     }
-    .main-container__description h1 {
+    .mainContainer__description h1 {
         margin-top: 115px;
         margin-bottom: 50px;
         text-align: left;

@@ -29,6 +29,10 @@
   padding: 20px;
 }
 
+.content img {
+  max-width: 100%;
+}
+
 .definition {
   display: flex;
   flex-direction: column;

@@ -1,5 +1,6 @@
-import PrivacyHeader from './components/PrivacyHeader';
 import PrivacyList from './components/PrivacyList';
+
+import styles from './styles/Privacy.module.css';
 
 export default function privacy() {
   const privacyList = [
@@ -216,9 +217,14 @@ export default function privacy() {
     },
   ];
   return (
-    <div className='container'>
-      <PrivacyHeader />
-      <PrivacyList privacyList={privacyList} />
+    <div className={`container ${styles.wrapper}`}>
+      <h1 className={styles.title}>
+        <span>Privacy</span>
+        <span>Policy</span>
+      </h1>
+      <div className={styles.content}>
+        <PrivacyList privacyList={privacyList} />
+      </div>
     </div>
   );
 }
