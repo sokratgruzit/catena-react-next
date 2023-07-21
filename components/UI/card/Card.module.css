@@ -1,11 +1,12 @@
 .mapContainer {
-    width: calc(100% - 30px);
+    width: calc(100% - 100px);
     display: flex;
     flex-wrap: wrap;
+    /* justify-content: center; */
   }
   
 .arrContents {
-    width: calc(50% - 30px);
+    width: 50% ;
     padding: 35px;
 }
 

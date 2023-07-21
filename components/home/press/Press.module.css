@@ -8,9 +8,9 @@
     width: 550px;
     display: flex;
     position: relative;
-    margin-left: 115px;
+    margin-left: 150px;
     justify-content: space-between;
-    top: 50px;
+    padding-top: 100px;
     cursor: pointer;
 }
 
@@ -33,7 +33,7 @@
     position: relative;
     display: flex;
     align-items: center;
-    margin-top: 100px;
+    margin-top: 50px;
 }
 
 .sourcesContainer {
@@ -41,7 +41,7 @@
     border-radius: 20px;
     width: 100%;
     position: relative;
-    margin-top: 75px;
+    margin-top: 95px;
 }
 
 .sourcesContainer p {
@@ -49,6 +49,7 @@
     font-weight: 400;
     color: #162029;
     margin-left: 110px;
+    padding: 0px 0px 70px;
 }
 
 .logoContainer {
@@ -75,50 +76,69 @@
     width: 100%;
     height: 100px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     border-bottom: 1px solid #A6D0DD;
-    gap: 10px;
-    position: relative;
+    /* gap: 10px; */
     margin-top: 70px; 
-    margin-bottom: 40px;
+    margin-bottom: 40px;    
+}
+
+.infoContTitle {
+    width: 50%;
+    height: 100%;
+    padding: 40px 0px 40px 100px  ;
 }
 
 .yearsStats {
-    width: 330px;
-    height: 100%;
-    display: flex;
-    z-index: 10;
-    /* flex-direction: row-reverse;
-    justify-content: space-between; */
-    align-items: flex-end;
+  display: flex;
+  width: 50%;
+  height: 100%;
+  padding: 40px 70px 0px 70px;
 }
+
+.activeCont {
+    height: 100%;
+    width: 20%;
+    border-bottom: 1px solid #FF6969;
+    display: flex;
+    justify-content: center;
+}
+
+.pasCont {
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    opacity: 0.5;
+}
+
 
 .infoContainer p {
     font-size: 30px;
     line-height: 42px;
-    position: relative; 
-    margin-top: 55px; 
-    margin-left: 80px;
+    /* position: relative;  */
+    /* padding-top: 35px; */
+    /* border: 1px solid blue; */
+    /* margin-left: 100px; */
 }
 
-.active {
+/* .active {
     width: 400px;
     font-weight: 500;
     font-family: 'Lack', sans-serif;
     font-size: 30px;
     border-bottom: 2px solid #FF6969;
     cursor: pointer;
-}
+} */
 
 
-.bottomLine {
+/* .bottomLine {
     width: 400px;
     font-weight: 500;
     font-family: 'Lack', sans-serif;
     font-size: 30px;
     opacity: 0.5;
-    cursor: pointer;
-}
+    cursor: pointer;    
+} */
 
 .statisticContainer {
     border: 1px solid rgb(192, 182, 182);
@@ -172,7 +192,7 @@
     cursor: pointer;
 }
 
-.test {
+.pagCont {
     display: flex;
     justify-content: center;
     position: relative;

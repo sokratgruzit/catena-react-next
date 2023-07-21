@@ -1,11 +1,13 @@
 import JoinCommunity from '../events/components/JoinCommunity';
 import Card from '../../UI/card/Card';
 import styles from './Press.module.css';
+import { useState } from 'react';
 
 const Press = () => {
-
+  const [count, setCount] = useState(0);
 
   const pressArr = [
+
     {
       id: 1,
       img: '/images/press/imgOne.png',
@@ -106,12 +108,22 @@ const Press = () => {
         </div>
       </div>
       <div className={styles.infoContainer}>
-        <p>Publics by years</p>
+        <div className={styles.infoContTitle}>
+          <p>Publics by years</p>
+        </div>
         <div className={styles.yearsStats}>
-          <div className={styles.active}>2018 </div>
-          <div className={styles.bottomLine}>2019 </div>
-          <div className={styles.bottomLine}>2020 </div>
-          <div className={styles.bottomLine}>2021 </div>
+          <div className={styles.activeCont}>
+            <p className={styles.active}>2021 </p>
+          </div>
+          <div className={styles.pasCont}>
+            <p className={styles.bottomLine}>2020 </p>
+          </div>
+          <div className={styles.pasCont}>
+            <p className={styles.bottomLine}>2019 </p>
+          </div>
+          <div className={styles.pasCont}>
+            <p className={styles.bottomLine}>2018 </p>
+          </div>
         </div>
       </div>
       <div className={styles.statisticContainer}>
@@ -135,7 +147,7 @@ const Press = () => {
           <img src='/images/press/imgPartThree.png' />
           <p>AI Is The Future Of Computing, And SingularityNET Is The Future Of AI</p>
         </div>
-        <div className={styles.test}>
+        <div className={styles.pagCont}>
           <div className={styles.pagination}>pagination</div>
         </div>
       </div>
