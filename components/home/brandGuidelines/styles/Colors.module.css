@@ -1,7 +1,7 @@
 .colors {
   display: flex;
   flex-direction: column;
-  padding: 21px 40px 162px 40px;
+  padding: 21px 140px 162px 140px;
   max-width: 1920px;
   width: 100%;
   margin: 0 auto;
@@ -115,10 +115,18 @@
   padding-bottom: 7px;
 }
 
+@media (max-width: 1023px) {
+  .colors {
+    padding: 21px 80px 162px 80px;
+  }
+}
 @media (max-width: 767px) {
   .pallete .content:nth-child(4) .contentBox {
     padding-top: 10%;
     padding-bottom: 10%;
+  }
+  .colors {
+    padding: 21px 40px 162px 40px;
   }
   .pallete {
     display: grid;

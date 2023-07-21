@@ -15,7 +15,7 @@ export default function ClearSpace() {
         style={{
           position: 'absolute',
           top: '-84%',
-          right: '-2%',
+          right: '-10%',
           zIndex: '1',
           maxWidth: '100%',
         }}
