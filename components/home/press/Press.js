@@ -4,7 +4,12 @@ import styles from './Press.module.css';
 import { useState } from 'react';
 
 const Press = () => {
-  const [count, setCount] = useState(0);
+
+  const [activeYear, setActiveYear] = useState('2021');
+
+  const handleYearClick = (year) => {
+    setActiveYear(year);
+  };
 
   const pressArr = [
 
@@ -112,19 +117,32 @@ const Press = () => {
           <p>Publics by years</p>
         </div>
         <div className={styles.yearsStats}>
-          <div className={styles.activeCont}>
-            <p className={styles.active}>2021 </p>
+          <div
+            className={activeYear === '2021' ? styles.activeCont : styles.pasCont}
+            onClick={() => handleYearClick('2021')}
+          >
+            <p className={activeYear === '2021' ? styles.active : styles.bottomLine}>2021</p>
           </div>
-          <div className={styles.pasCont}>
-            <p className={styles.bottomLine}>2020 </p>
+          <div
+            className={activeYear === '2020' ? styles.activeCont : styles.pasCont}
+            onClick={() => handleYearClick('2020')}
+          >
+            <p className={activeYear === '2020' ? styles.active : styles.bottomLine}>2020</p>
           </div>
-          <div className={styles.pasCont}>
-            <p className={styles.bottomLine}>2019 </p>
+          <div
+            className={activeYear === '2019' ? styles.activeCont : styles.pasCont}
+            onClick={() => handleYearClick('2019')}
+          >
+            <p className={activeYear === '2019' ? styles.active : styles.bottomLine}>2019</p>
           </div>
-          <div className={styles.pasCont}>
-            <p className={styles.bottomLine}>2018 </p>
+          <div
+            className={activeYear === '2018' ? styles.activeCont : styles.pasCont}
+            onClick={() => handleYearClick('2018')}
+          >
+            <p className={activeYear === '2018' ? styles.active : styles.bottomLine}>2018</p>
           </div>
         </div>
+
       </div>
       <div className={styles.statisticContainer}>
         <div className={styles.icCont}>
@@ -148,7 +166,7 @@ const Press = () => {
           <p>AI Is The Future Of Computing, And SingularityNET Is The Future Of AI</p>
         </div>
         <div className={styles.pagCont}>
-          <div className={styles.pagination}>pagination</div>
+          <div className={styles.pagination}>L O A D I N G ... </div>
         </div>
       </div>
       <div className={styles.joinComCont}>
