@@ -6,6 +6,32 @@ const careersData = [
   {
     id: 0,
     title: 'Senior UX Designer',
+    senorUx: [
+      {
+        title:
+          'CATENA Network is a blockchain ecosystem that will enable all blockchain projects and the blockchain space as a whole to thrive by addressing all of the most considerable limitations of blockchain technology, such as scalability and interoperability. ',
+      },
+      {
+        title:
+          "Are you looking to be a part of a revolutionary blockchain ecosystem that will unlock blockchain technology's unexplored potential and contribute to the cryptocurrency revolution that is busy changing the world? ",
+      },
+    ],
+
+    jobInfo: [
+      {
+        title: 'Reference',
+        value: 'TE000054',
+      },
+      {
+        title: 'Job Type',
+        value: 'Full-Time',
+      },
+      {
+        title: 'Remote',
+        value: 'Yes',
+      },
+    ],
+
     designPresentations: [
       {
         title: 'Responsible and accountable for the UX/UI design for the ecosystem.',
@@ -163,6 +189,31 @@ const careersData = [
   {
     id: 1,
     title: 'Web 3 Engineer',
+    senorUx: [
+      {
+        title:
+          'CATENA Network is a blockchain ecosystem that will enable all blockchain projects and the blockchain space as a whole to thrive by addressing all of the most considerable limitations of blockchain technology, such as scalability and interoperability. ',
+      },
+      {
+        title:
+          "Are you looking to be a part of a revolutionary blockchain ecosystem that will unlock blockchain technology's unexplored potential and contribute to the cryptocurrency revolution that is busy changing the world? ",
+      },
+    ],
+
+    jobInfo: [
+      {
+        title: 'Reference',
+        value: 'TE000054',
+      },
+      {
+        title: 'Job Type',
+        value: 'Full-Time',
+      },
+      {
+        title: 'Remote',
+        value: 'Yes',
+      },
+    ],
     designPresentations: [
       {
         title: 'Responsible and accountable for the UX/UI design for the ecosystem.',
@@ -320,6 +371,31 @@ const careersData = [
   {
     id: 2,
     title: 'Rust Core Protocol Developer',
+    senorUx: [
+      {
+        title:
+          'CATENA Network is a blockchain ecosystem that will enable all blockchain projects and the blockchain space as a whole to thrive by addressing all of the most considerable limitations of blockchain technology, such as scalability and interoperability. ',
+      },
+      {
+        title:
+          "Are you looking to be a part of a revolutionary blockchain ecosystem that will unlock blockchain technology's unexplored potential and contribute to the cryptocurrency revolution that is busy changing the world? ",
+      },
+    ],
+
+    jobInfo: [
+      {
+        title: 'Reference',
+        value: 'TE000054',
+      },
+      {
+        title: 'Job Type',
+        value: 'Full-Time',
+      },
+      {
+        title: 'Remote',
+        value: 'Yes',
+      },
+    ],
     designPresentations: [
       {
         title: 'Responsible and accountable for the UX/UI design for the ecosystem.',
@@ -477,6 +553,31 @@ const careersData = [
   {
     id: 3,
     title: 'Junior Game Designer',
+    senorUx: [
+      {
+        title:
+          'CATENA Network is a blockchain ecosystem that will enable all blockchain projects and the blockchain space as a whole to thrive by addressing all of the most considerable limitations of blockchain technology, such as scalability and interoperability. ',
+      },
+      {
+        title:
+          "Are you looking to be a part of a revolutionary blockchain ecosystem that will unlock blockchain technology's unexplored potential and contribute to the cryptocurrency revolution that is busy changing the world? ",
+      },
+    ],
+
+    jobInfo: [
+      {
+        title: 'Reference',
+        value: 'TE000054',
+      },
+      {
+        title: 'Job Type',
+        value: 'Full-Time',
+      },
+      {
+        title: 'Remote',
+        value: 'Yes',
+      },
+    ],
     designPresentations: [
       {
         title: 'Responsible and accountable for the UX/UI design for the ecosystem.',
@@ -633,6 +734,32 @@ const careersData = [
   },
   {
     id: 4,
+    title: 'iOS Developer (Mid to Senior)',
+    senorUx: [
+      {
+        title:
+          'CATENA Network is a blockchain ecosystem that will enable all blockchain projects and the blockchain space as a whole to thrive by addressing all of the most considerable limitations of blockchain technology, such as scalability and interoperability. ',
+      },
+      {
+        title:
+          "Are you looking to be a part of a revolutionary blockchain ecosystem that will unlock blockchain technology's unexplored potential and contribute to the cryptocurrency revolution that is busy changing the world? ",
+      },
+    ],
+
+    jobInfo: [
+      {
+        title: 'Reference',
+        value: 'TE000054',
+      },
+      {
+        title: 'Job Type',
+        value: 'Full-Time',
+      },
+      {
+        title: 'Remote',
+        value: 'Yes',
+      },
+    ],
     designPresentations: [
       {
         title: 'Responsible and accountable for the UX/UI design for the ecosystem.',
@@ -789,6 +916,32 @@ const careersData = [
   },
   {
     id: 5,
+    title: 'Full Stack Web 3.0 Developer',
+    senorUx: [
+      {
+        title:
+          'CATENA Network is a blockchain ecosystem that will enable all blockchain projects and the blockchain space as a whole to thrive by addressing all of the most considerable limitations of blockchain technology, such as scalability and interoperability. ',
+      },
+      {
+        title:
+          "Are you looking to be a part of a revolutionary blockchain ecosystem that will unlock blockchain technology's unexplored potential and contribute to the cryptocurrency revolution that is busy changing the world? ",
+      },
+    ],
+
+    jobInfo: [
+      {
+        title: 'Reference',
+        value: 'TE000054',
+      },
+      {
+        title: 'Job Type',
+        value: 'Full-Time',
+      },
+      {
+        title: 'Remote',
+        value: 'Yes',
+      },
+    ],
     designPresentations: [
       {
         title: 'Responsible and accountable for the UX/UI design for the ecosystem.',
@@ -945,6 +1098,32 @@ const careersData = [
   },
   {
     id: 6,
+    title: 'Director of Communications - English',
+    senorUx: [
+      {
+        title:
+          'CATENA Network is a blockchain ecosystem that will enable all blockchain projects and the blockchain space as a whole to thrive by addressing all of the most considerable limitations of blockchain technology, such as scalability and interoperability. ',
+      },
+      {
+        title:
+          "Are you looking to be a part of a revolutionary blockchain ecosystem that will unlock blockchain technology's unexplored potential and contribute to the cryptocurrency revolution that is busy changing the world? ",
+      },
+    ],
+
+    jobInfo: [
+      {
+        title: 'Reference',
+        value: 'TE000054',
+      },
+      {
+        title: 'Job Type',
+        value: 'Full-Time',
+      },
+      {
+        title: 'Remote',
+        value: 'Yes',
+      },
+    ],
     designPresentations: [
       {
         title: 'Responsible and accountable for the UX/UI design for the ecosystem.',
@@ -1101,6 +1280,32 @@ const careersData = [
   },
   {
     id: 7,
+    title: 'Crypto Research Analyst',
+    senorUx: [
+      {
+        title:
+          'CATENA Network is a blockchain ecosystem that will enable all blockchain projects and the blockchain space as a whole to thrive by addressing all of the most considerable limitations of blockchain technology, such as scalability and interoperability. ',
+      },
+      {
+        title:
+          "Are you looking to be a part of a revolutionary blockchain ecosystem that will unlock blockchain technology's unexplored potential and contribute to the cryptocurrency revolution that is busy changing the world? ",
+      },
+    ],
+
+    jobInfo: [
+      {
+        title: 'Reference',
+        value: 'TE000054',
+      },
+      {
+        title: 'Job Type',
+        value: 'Full-Time',
+      },
+      {
+        title: 'Remote',
+        value: 'Yes',
+      },
+    ],
     designPresentations: [
       {
         title: 'Responsible and accountable for the UX/UI design for the ecosystem.',
@@ -1257,6 +1462,32 @@ const careersData = [
   },
   {
     id: 8,
+    title: 'Creative Director',
+    senorUx: [
+      {
+        title:
+          'CATENA Network is a blockchain ecosystem that will enable all blockchain projects and the blockchain space as a whole to thrive by addressing all of the most considerable limitations of blockchain technology, such as scalability and interoperability. ',
+      },
+      {
+        title:
+          "Are you looking to be a part of a revolutionary blockchain ecosystem that will unlock blockchain technology's unexplored potential and contribute to the cryptocurrency revolution that is busy changing the world? ",
+      },
+    ],
+
+    jobInfo: [
+      {
+        title: 'Reference',
+        value: 'TE000054',
+      },
+      {
+        title: 'Job Type',
+        value: 'Full-Time',
+      },
+      {
+        title: 'Remote',
+        value: 'Yes',
+      },
+    ],
     designPresentations: [
       {
         title: 'Responsible and accountable for the UX/UI design for the ecosystem.',
@@ -1413,6 +1644,32 @@ const careersData = [
   },
   {
     id: 9,
+    title: 'Backend Architect - Risk Management',
+    senorUx: [
+      {
+        title:
+          'CATENA Network is a blockchain ecosystem that will enable all blockchain projects and the blockchain space as a whole to thrive by addressing all of the most considerable limitations of blockchain technology, such as scalability and interoperability. ',
+      },
+      {
+        title:
+          "Are you looking to be a part of a revolutionary blockchain ecosystem that will unlock blockchain technology's unexplored potential and contribute to the cryptocurrency revolution that is busy changing the world? ",
+      },
+    ],
+
+    jobInfo: [
+      {
+        title: 'Reference',
+        value: 'TE000054',
+      },
+      {
+        title: 'Job Type',
+        value: 'Full-Time',
+      },
+      {
+        title: 'Remote',
+        value: 'Yes',
+      },
+    ],
     designPresentations: [
       {
         title: 'Responsible and accountable for the UX/UI design for the ecosystem.',
@@ -1569,6 +1826,32 @@ const careersData = [
   },
   {
     id: 10,
+    title: 'API Solution Engineer (Python + Node.JS Developer / Client Support)',
+    senorUx: [
+      {
+        title:
+          'CATENA Network is a blockchain ecosystem that will enable all blockchain projects and the blockchain space as a whole to thrive by addressing all of the most considerable limitations of blockchain technology, such as scalability and interoperability. ',
+      },
+      {
+        title:
+          "Are you looking to be a part of a revolutionary blockchain ecosystem that will unlock blockchain technology's unexplored potential and contribute to the cryptocurrency revolution that is busy changing the world? ",
+      },
+    ],
+
+    jobInfo: [
+      {
+        title: 'Reference',
+        value: 'TE000054',
+      },
+      {
+        title: 'Job Type',
+        value: 'Full-Time',
+      },
+      {
+        title: 'Remote',
+        value: 'Yes',
+      },
+    ],
     designPresentations: [
       {
         title: 'Responsible and accountable for the UX/UI design for the ecosystem.',
@@ -1725,6 +2008,32 @@ const careersData = [
   },
   {
     id: 11,
+    title: 'Affiliate/Influencer Marketing Coordinator - LATAM',
+    senorUx: [
+      {
+        title:
+          'CATENA Network is a blockchain ecosystem that will enable all blockchain projects and the blockchain space as a whole to thrive by addressing all of the most considerable limitations of blockchain technology, such as scalability and interoperability. ',
+      },
+      {
+        title:
+          "Are you looking to be a part of a revolutionary blockchain ecosystem that will unlock blockchain technology's unexplored potential and contribute to the cryptocurrency revolution that is busy changing the world? ",
+      },
+    ],
+
+    jobInfo: [
+      {
+        title: 'Reference',
+        value: 'TE000054',
+      },
+      {
+        title: 'Job Type',
+        value: 'Full-Time',
+      },
+      {
+        title: 'Remote',
+        value: 'Yes',
+      },
+    ],
     designPresentations: [
       {
         title: 'Responsible and accountable for the UX/UI design for the ecosystem.',

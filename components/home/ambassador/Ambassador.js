@@ -1,8 +1,8 @@
-import { Button } from '@catena-network/catena-ui-module';
 import React from 'react';
 
 import AmbassadorBenefits from './components/AmbassadorBenefits';
-import AmbassadorExpectations from './components/AmbassadorExpectations';
+// import AmbassadorExpectations from './components/ambassadorExpectation/AmbassadorExpectations';
+import InfoForm from './components/InfoForm';
 import JoinUsSection from './components/JoinUsSection';
 
 const ambassadorInfo = [
@@ -108,24 +108,16 @@ const Ambassador = () => {
         text='CATENA Network is a super-performant blockchain ecosystem that will help solve the blockchain trilemma of scalability, interoperability, and usability. The blockchain-powered ecosystem is built around user privacy and lets users take control of their data. We will use our hybrid ecosystem to enhance current technologies and create the technologies of the future, but we can’t do it alone. Join us in our quest to build a better future! Become a CATENA Network ambassador and start earning rewards today!'
       />
       <AmbassadorBenefits ambassadorInfo={ambassadorInfo} title='Why Become an Ambassador' />
-      <AmbassadorExpectations
-        ambassadorApplication={ambassadorApplication}
-        title='Are You Eligible to Become a CATENA Network Ambassador?'
-      />
-      <AmbassadorExpectations
-        ambassadorApplication={catenaExepted}
-        title='What is Expected of You'
-        description='There isn’t really one standard way to be a CATENA Network ambassador, but here are some examples:'
-      />
-      <Button
-        label={'Button'}
-        size={'btn-lg'}
-        type={'btn-primary'}
-        arrow={'arrow-right'}
-        element={'button'}
-        disabled={false}
-        onClick={() => console.log(prevState => !prevState)}
-      />
+      {/*<AmbassadorExpectations*/}
+      {/*  ambassadorApplication={ambassadorApplication}*/}
+      {/*  title='Are You Eligible to Become a CATENA Network Ambassador?'*/}
+      {/*/>*/}
+      {/*<AmbassadorExpectations*/}
+      {/*  ambassadorApplication={catenaExepted}*/}
+      {/*  title='What is Expected of You'*/}
+      {/*  description='There isn’t really one standard way to be a CATENA Network ambassador, but here are some examples:'*/}
+      {/*/>*/}
+      <InfoForm />
       <JoinUsSection
         title='Join our community'
         description='Sign up to our newsletter to stay in the loop'
