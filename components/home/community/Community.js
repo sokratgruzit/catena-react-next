@@ -1,6 +1,7 @@
 import RevercedTitle from './components/revercedTitle/RevercedTitle';
 import Plain from './components/plain/Plain';
 import Listed from './components/listed/Listed';
+import JoinCommunity from '../events/components/JoinCommunity';
 
 const devCommunity = [
   {
@@ -80,10 +81,11 @@ const Community = () => {
         <Plain data={blockchain} />
         <RevercedTitle data={events} />
         <RevercedTitle data={teams} />
-        <Listed titles={devCommunity} />
         <Plain data={community} />
-        <Listed titles={grantProgramme} />
+        <Listed titles={devCommunity} />
         <Plain data={grant} />
+        <Listed titles={grantProgramme} />
+        <JoinCommunity />
       </div>
     </>
   );
