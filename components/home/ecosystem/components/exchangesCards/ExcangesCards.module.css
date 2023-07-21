@@ -55,4 +55,10 @@
     width: fit-content;
     padding: 4px 10px 4px 10px;
     background-color: #FFF3E5;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #FF6969;
+    color: #FFF3E5;
 }
