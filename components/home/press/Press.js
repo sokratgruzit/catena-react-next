@@ -1,7 +1,10 @@
 import JoinCommunity from '../events/components/JoinCommunity';
+import Card from '../../UI/card/Card';
 import styles from './Press.module.css';
 
 const Press = () => {
+
+
   const pressArr = [
     {
       id: 1,
@@ -28,9 +31,6 @@ const Press = () => {
       description:
         'The ever-evolving blockchain technology has been around for over a decade now, but there are still various obstacles need to be addressed, such as its lack of scalability, interoperability, security and usability.',
     },
-  ];
-
-  const arrPartTwo = [
     {
       id: 2,
       img: '/images/press/imgTwo.png',
@@ -58,33 +58,13 @@ const Press = () => {
   ];
 
   return (
-    <div className={styles.mainContainer}>
-      <div className={styles.headerContainer}>
-        <div className={styles.titleContainer}>
-          <p className={styles.titlePartyOne}>Catena</p>
-          <p className={styles.titlePartyTwo}>Press</p>
-        </div>
+    <div className={`${styles.mainContainer} container`}>
+      <div className={styles.titleContainer}>
+        <p className={styles.titlePartyOne}>Catena</p>
+        <p className={styles.titlePartyTwo}>Press</p>
       </div>
-      <div className={styles.bodyContainer}>
-        <div className={styles.mapContainer}>
-          {pressArr.map(item => (
-            <div key={item.id} className={styles.item}>
-              <img src={item.img} alt={`Image`} className={styles.pressImage} />
-              <img src={item.imgPart} alt={`ImagePart`} className={styles.icon} />
-              <h2>{item.title}</h2>
-              {item.description && <p>{item.description}</p>}
-            </div>
-          ))}
-        </div>
-        <div className={styles.mapContainerTwo}>
-          {arrPartTwo.map(item => (
-            <div key={item.id} className={styles.itemSmall}>
-              <img src={item.img} alt={`Image`} className={styles.pressImage} />
-              <img src={item.imgPart} alt={`ImagePart`} className={styles.icon} />
-              <h3>{item.title}</h3>
-            </div>
-          ))}
-        </div>
+      <div className={`${styles.bodyContainer} container`}>
+        <Card dataArr={pressArr} />
       </div>
       <div className={styles.sourcesContainer}>
         <p>Sources</p>
@@ -128,10 +108,10 @@ const Press = () => {
       <div className={styles.infoContainer}>
         <p>Publics by years</p>
         <div className={styles.yearsStats}>
-          <div className={styles.line}>2021 </div>
-          <div className={styles.line}>2020 </div>
-          <div className={styles.line}>2019 </div>
           <div className={styles.active}>2018 </div>
+          <div className={styles.bottomLine}>2019 </div>
+          <div className={styles.bottomLine}>2020 </div>
+          <div className={styles.bottomLine}>2021 </div>
         </div>
       </div>
       <div className={styles.statisticContainer}>
@@ -155,11 +135,14 @@ const Press = () => {
           <img src='/images/press/imgPartThree.png' />
           <p>AI Is The Future Of Computing, And SingularityNET Is The Future Of AI</p>
         </div>
-        <div className={styles.loadPub}>Load More Publics</div>
+        <div className={styles.test}>
+          <div className={styles.pagination}>pagination</div>
+        </div>
       </div>
+      {/*
       <div className={styles.joinComCont}>
         <JoinCommunity />
-      </div>
+      </div> */}
     </div >
   );
 };
