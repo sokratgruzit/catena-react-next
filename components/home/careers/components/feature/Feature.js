@@ -26,47 +26,53 @@ const Feature = ({ featureLinkList, title, showButton }) => {
 
   return (
     <div>
-      <h2 className={styles.font__51}>{title}</h2>
-      <div className={styles.contmain}>
-        <div className={styles.container}>
-          <div className={`${styles.openPositionsContainer}`}>
-            <div className={`${styles.openPositionsList}`}>
-              {featureLinkList.map(item => (
-                <div className={styles.openPositionsListItem} key={item.id}>
-                  <Link href={`/home/careers/${item.id}`} key={item.id}>
-                    <div>
-                      <span>{item.title}</span>
-                    </div>
-                  </Link>
+      <div className='container_bordered'>
+        <h2 className={styles.font__51}>{title}</h2>
+        <div className='container_bordered-child'>
+          <div className={`${styles.openPositionsList}`}>
+            {featureLinkList.map(item => (
+              <div className={styles.openPositionsListItem} key={item.id}>
+                <Link href={`/home/careers/${item.id}`} key={item.id}>
+                  <div>
+                    <span className='ttl'>{item.title}</span>
+                  </div>
+                </Link>
 
-                  <svg
-                    className={styles.openPositionsListItemSvg}
-                    width='20'
-                    height='20'
-                    viewBox='0 0 20 20'
-                    fill='none'
-                    xmlns='http://www.w3.org/2000/svg'
-                    onClick={() => handleCopy(`http://localhost:3000/home/careers/${item.id}`)}
-                  >
-                    <path
-                      d='M17.3198 2.74025L17.2598 2.68025C15.6998 1.12025 13.1398 1.12025 11.5798 2.68025L7.95977 6.30025C6.39977 7.86025 6.39977 10.4203 7.95977 11.9803L8.01976 12.0403C8.15977 12.1803 8.27977 12.2803 8.43977 12.4003L9.75976 11.0803C9.59976 10.9803 9.45976 10.8803 9.31977 10.7403L9.25977 10.6803C8.41977 9.84025 8.41977 8.46025 9.25977 7.60025L12.8798 3.98025C13.7198 3.14025 15.0998 3.14025 15.9598 3.98025L16.0198 4.04025C16.8598 4.88025 16.8598 6.26025 16.0198 7.12025L14.3798 8.76025C14.6598 9.46025 14.7998 10.2203 14.7798 10.9603L17.3198 8.42025C18.8998 6.86025 18.8998 4.30025 17.3198 2.74025ZM11.9798 7.96025C11.8398 7.82025 11.7198 7.72025 11.5598 7.60025L10.2398 8.92025C10.3998 9.02025 10.5398 9.12025 10.6798 9.26025L10.7398 9.32025C11.5798 10.1603 11.5798 11.5403 10.7398 12.4003L7.11977 16.0203C6.27977 16.8603 4.89977 16.8603 4.03977 16.0203L3.97977 15.9603C3.13977 15.1203 3.13977 13.7403 3.97977 12.8803L5.61977 11.2403C5.33977 10.5403 5.19977 9.78026 5.21977 9.04026L2.67977 11.5803C1.11977 13.1403 1.11977 15.7003 2.67977 17.2603L2.73977 17.3203C4.29977 18.8803 6.85977 18.8803 8.41976 17.3203L12.0398 13.7003C13.5998 12.1403 13.5998 9.58025 12.0398 8.02025L11.9798 7.96025Z'
-                      fill='black'
-                    />
-                  </svg>
-                  <p>
-                    {item.list.map((item, index) => {
-                      return <span key={index}>{item}</span>;
-                    })}
-                  </p>
-                </div>
-              ))}
-            </div>
-            {showButton && (
-              <Link href={'open-position'}>
-                <div className={styles.featuredJobs__btnContainer}>View all open positions</div>
-              </Link>
-            )}
+                <svg
+                  className={styles.openPositionsListItemSvg}
+                  onClick={() => handleCopy(`http://localhost:3000/home/careers/${item.id}`)}
+                  xmlns='http://www.w3.org/2000/svg'
+                  width='24'
+                  height='24'
+                  viewBox='0 0 24 24'
+                  fill='none'
+                >
+                  <path
+                    d='M16.498 18.25H14.988C14.578 18.25 14.238 17.91 14.238 17.5C14.238 17.09 14.578 16.75 14.988 16.75H16.498C19.118 16.75 21.248 14.62 21.248 12C21.248 9.38 19.118 7.25 16.498 7.25H14.998C14.7991 7.25 14.6083 7.17098 14.4677 7.03033C14.327 6.88968 14.248 6.69891 14.248 6.5C14.248 6.30109 14.327 6.11032 14.4677 5.96967C14.6083 5.82902 14.7991 5.75 14.998 5.75H16.498C19.948 5.75 22.748 8.55 22.748 12C22.748 15.45 19.948 18.25 16.498 18.25ZM9 18.25H7.5C4.05 18.25 1.25 15.45 1.25 12C1.25 8.55 4.05 5.75 7.5 5.75H9C9.41 5.75 9.75 6.09 9.75 6.5C9.75 6.91 9.41 7.25 9 7.25H7.5C4.88 7.25 2.75 9.38 2.75 12C2.75 14.62 4.88 16.75 7.5 16.75H9C9.41 16.75 9.75 17.09 9.75 17.5C9.75 17.91 9.41 18.25 9 18.25Z'
+                    fill='#162029'
+                  />
+                  <path
+                    d='M16 12.75H8C7.59 12.75 7.25 12.41 7.25 12C7.25 11.59 7.59 11.25 8 11.25H16C16.41 11.25 16.75 11.59 16.75 12C16.75 12.41 16.41 12.75 16 12.75Z'
+                    fill='#162029'
+                  />
+                </svg>
+                <p>
+                  {item.list.map((item, index) => {
+                    return (
+                      <span className='ttl' key={index}>
+                        {item}
+                      </span>
+                    );
+                  })}
+                </p>
+              </div>
+            ))}
           </div>
+          {showButton && (
+            <Link href={'open-position'}>
+              <div className={styles.featuredJobs__btnContainer}>View all open positions</div>
+            </Link>
+          )}
         </div>
       </div>
     </div>

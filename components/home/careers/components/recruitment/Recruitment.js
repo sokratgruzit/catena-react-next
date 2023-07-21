@@ -3,7 +3,7 @@ import styles from './Recruitment.module.css';
 const Recruitment = props => {
   const { data, title } = props;
   return (
-    <div className={styles.container}>
+    <div className='container'>
       <div className={styles.careerQualities}>
         <h2 className={styles.font__51}>{title}</h2>
         {data.map((item, index) => {

@@ -1,12 +1,6 @@
-.container {
-  width: 100%;
-  max-width: 1920px;
-  padding: 150px 80px 0 140px;
-  z-index: 5;
-}
-
 .ttl_red {
   color: #ff6969;
+  padding-left: 20px;
 }
 
 .hdisplay {

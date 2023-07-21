@@ -37,9 +37,10 @@
 .font__51 {
   font-size: 51px;
   line-height: 66px;
-  padding-left: 155px;
+  padding-left: 115px;
   margin: 25px 0 50px 0;
   color: #162029;
+  font-family: 'Lack-Regular' !important;
 }
 
 .openPositionsContainer {
@@ -62,6 +63,7 @@
   padding: 30px 0 30px 0;
   border-bottom: 1px solid white;
   cursor: pointer;
+  position: relative;
 }
 
 .openPositionsListItem > div {
@@ -107,5 +109,11 @@
 @media (max-width: 1300px) {
   .openPositionsList {
     padding-right: 0px;
+  }
+}
+
+@media (max-width: 1700px) {
+  .font__51 {
+    padding-left: 0;
   }
 }

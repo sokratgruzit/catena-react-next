@@ -4,13 +4,17 @@ const CompanyInfo = props => {
   const { workflow, title, description, name } = props;
 
   return (
-    <div className={styles.container}>
+    <div className='container'>
       <div className={styles.careerHow}>
         <h2 className={styles.workStyle}>{title}</h2>
         <h3 style={{ color: '#162029' }}>{name}</h3>
         <h1>{description}</h1>
         {workflow.map((item, index) => {
-          return <p key={index}>{item.title}</p>;
+          return (
+            <p style={{ textAlign: 'start' }} key={index}>
+              {item.title}
+            </p>
+          );
         })}
       </div>
     </div>

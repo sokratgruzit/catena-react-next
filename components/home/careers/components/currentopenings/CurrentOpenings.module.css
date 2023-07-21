@@ -7,16 +7,9 @@
   font-size: 51px;
   line-height: 66px;
   color: #162029;
-}
-
-.container {
-  width: 100%;
-  max-width: 1920px;
-  padding: 0px 155px;
-  margin: 0px auto;
-  display: flex;
-  position: relative;
-  z-index: 5;
+  padding-left: 115px;
+  font-family: 'Lack-Regular' !important;
+  margin-bottom: 50px;
 }
 
 .careerQualities li::after {
@@ -59,6 +52,7 @@
 .careerQualities__openingTtl {
   color: #ff6969;
   margin-bottom: 10px;
+  font-family: 'Lack-Regular' !important;
 }
 
 .careerQualities__opening {
@@ -166,5 +160,11 @@
   .career_head h2,
   .career_description {
     width: 100%;
+  }
+}
+
+@media (max-width: 1700px) {
+  .font__51 {
+    padding-left: 0;
   }
 }
