@@ -2,12 +2,9 @@ import styles from './terms.module.css';
 
 function TermsItem() {
   return (
-    <div className={styles.bodyContainer}>
-      <div className={styles.terms}>
-        <h1>
-          <span>Terms</span>
-          <span> of Use</span>
-        </h1>
+    <div className={styles.terms}>
+      <h1 className={styles.title}>Terms of Use</h1>
+      <div className={styles.content}>
         <p>
           These Terms of Use apply to www.catenamultichain.com.com as well as any other affiliated sites, digital
           services, or applications on which a link to these Terms of Use appears (collectively, the \" Website\") and
@@ -54,7 +51,7 @@ function TermsItem() {
           some jurisdictions do not allow limitations on implied warranties, or limitations of liability for
           consequential or incidental damages, these limitations may not apply to you.
         </p>
-        <p>
+        <p className={styles.boldText}>
           www.catenamultichain.com.com shall not be liable to you or anybody else for any damages incurred in connection
           with any messages sent to www.catenamultichain.com.com using ordinary E-mail or any other electronic messaging
           system.

@@ -10,8 +10,8 @@
 }
 
 @font-face {
-  font-family: "Lack-Regular";
-  src: url("../public/fonts/Lack-Regular.ttf") format("truetype");
+  font-family: 'Lack-Regular';
+  src: url('../public/fonts/Lack-Regular.ttf') format('truetype');
   /* src: url("../public/fonts/Lack-Regular.eot?#iefix") format("embedded-opentype"),
     url("../public/fonts/Lack-Regular.svg#Lack-Regular") format("svg"),
     url("../public/fonts/Lack-Regular.ttf") format("truetype"), url("../public/fonts/Lack-Regular.woff") format("woff"),
@@ -34,6 +34,7 @@
 
 .ttl {
   font-family: "Lack-Regular" !important;
+  font-family: 'Lack-Regular' !important;
 }
 
 html {
@@ -189,8 +190,8 @@ button {
   width: 100%;
   padding: 55px 115px;
   border-radius: 20px;
-  border: 1px solid rgba(22, 32, 41, 0.20);
-  background: #F3E4D2;
+  border: 1px solid rgba(22, 32, 41, 0.2);
+  background: #f3e4d2;
 }
 
 .font-20 {
@@ -200,12 +201,12 @@ button {
 
 .font-40 {
   font-size: 40px;
-  line-height: 120%
+  line-height: 120%;
 }
 
 .font-90 {
   font-size: 90px;
-  line-height: 120%
+  line-height: 120%;
 }
 
 .pT-160 {

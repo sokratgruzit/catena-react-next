@@ -36,7 +36,7 @@
 .content {
   width: 100%;
   height: 100%;
-  padding: 30% 40% 5% 5%;
+  padding: 30% 15% 5% 5%;
 }
 
 .pallete .content:nth-child(1) {
@@ -90,7 +90,7 @@
 }
 
 .boxes .box {
-  padding: 10%;
+  padding: 7% 10% 5% 10%;
 }
 .pallete .content .contentBox p {
   font-size: 16px;
@@ -116,8 +116,17 @@
 }
 
 @media (max-width: 767px) {
+  .pallete .content:nth-child(4) .contentBox {
+    padding-top: 10%;
+    padding-bottom: 10%;
+  }
   .pallete {
     display: grid;
     grid-template-columns: 1fr;
+  }
+  .title {
+    font-size: 50px;
+    line-height: 55px;
+    padding-bottom: 50px;
   }
 }

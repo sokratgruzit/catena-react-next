@@ -1,18 +1,12 @@
 .wrapper {
   display: flex;
-  width: 100%;
   justify-content: space-between;
-  gap: 50px;
   padding-top: 130px;
 }
 
-.intro {
-  display: flex;
-  flex-direction: column;
+.content {
   width: 60%;
-  gap: 40px;
 }
-
 .title {
   display: flex;
   flex-direction: column;
@@ -23,38 +17,29 @@
   line-height: 108px;
 }
 
-.content {
-  display: flex;
-}
-.content p {
-  font-size: 16px;
-  line-height: 24px;
-}
-
-.content p span {
-  text-transform: uppercase;
-}
 @media (max-width: 1023px) {
+  .content {
+    width: 70%;
+  }
   .title span {
     font-size: 60px;
-  }
-  .intro {
-    width: 70%;
   }
 }
 @media (max-width: 767px) {
   .wrapper {
-    display: flex;
     flex-direction: column;
-    width: 100%;
-    justify-content: center;
   }
-  .intro {
+  .content {
+    margin-right: 0;
+    margin-left: auto;
     width: 100%;
   }
   .title {
     flex-direction: row;
     gap: 40px;
     flex-wrap: wrap;
+  }
+  .title {
+    font-size: 50px;
   }
 }
