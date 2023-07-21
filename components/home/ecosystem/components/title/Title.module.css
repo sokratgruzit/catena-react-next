@@ -3,6 +3,7 @@
     flex-direction: column;
     gap: 20px
 }
+
 .title:nth-child(n) {
     font-family: Lack;
     font-size: 90px;
@@ -23,4 +24,14 @@
     height: 120px;
     top: 358px;
     left: 155px
+}
+
+@font-face {
+    font-family: Noto Sans;
+    src: url(../../../../../public/fonts/NotoSans-Regular.ttf);
+}
+
+@font-face {
+    font-family: Lack;
+    src: url(../../../../../public/fonts/Lack-Regular.ttf);
 }

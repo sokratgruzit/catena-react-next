@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@catena-network/catena-ui-module": "^0.0.3",
+    "@next/font": "^13.4.10",
     "@reduxjs/toolkit": "^1.8.3",
     "@szhsin/react-menu": "^3.1.1",
     "@web3-react/core": "^6.1.9",

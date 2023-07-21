@@ -19,7 +19,7 @@
 .title {
     position: absolute;
     z-index: 100;
-    width: 300px;
+    width: 350px;
     top: 50px;
     font-family: Lack;
     font-size: 44px;
@@ -29,5 +29,4 @@
     text-align: left;
     color: #FFFFFF;
     left: 50px;
-
 }
