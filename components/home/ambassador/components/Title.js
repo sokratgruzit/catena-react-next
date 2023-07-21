@@ -2,9 +2,9 @@ import styles from "../css/Title.module.css"
 
 const Title = () => {
     return (
-        <div className={styles.ambasadorTitle}>
+        <div>
             <img src="/images/ambasador/ambassador.png" />
-        </div>
+        </div >
     );
 };
 

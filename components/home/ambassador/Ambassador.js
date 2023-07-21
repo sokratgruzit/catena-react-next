@@ -1,12 +1,14 @@
 import React from 'react';
-import Title from "./components/Title";
-import Introduction from "./components/Introduction"
+// import Title from "./components/Title";
+import Introduction from "./components/Introduction";
+import BecomeAmbassador from './components/BecomeAmbassador';
 
 const Ambassador = () => {
   return (
-    <div className='container'>
-      <Title />
+    <div>
+      {/* <Title /> */}
       <Introduction />
+      <BecomeAmbassador />
     </div>
   );
 };
