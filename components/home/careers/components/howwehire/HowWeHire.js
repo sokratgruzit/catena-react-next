@@ -5,7 +5,7 @@ const HowWeHire = props => {
 
   return (
     <div>
-      <section className={styles.container}>
+      <section className='container'>
         <div className={`${styles['hire__steps-section']}`}>
           <div className={`${styles['hire__steps-head']}`}>
             <h2 className={styles.font__51}>{title}</h2>

@@ -1,0 +1,25 @@
+.importButton {
+  height: 68px;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  padding: 0px 57px;
+  margin-left: 80px;
+  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+  cursor: pointer;
+  background-color: #ff6969;
+  font-size: 18px;
+  color: #162029;
+  z-index: 77;
+  border: 1px solid #162029;
+  border-radius: 30px;
+}
+
+.container {
+  width: 95%;
+  background-color: #f3e4d2;
+  margin: 30px 40px;
+  padding: 20px 0 20px 40px;
+  border-radius: 20px;
+  line-height: 40px;
+}

@@ -15,8 +15,6 @@ const OpenSearch = ({ title, department, location }) => {
         <div className={styles.openPositions__container}>
           <div className={styles.openPositions__filter}>
             <div className={styles.openPositions__filterTtl}>{department}</div>
-            {/* <div className={styles.openPositions__selectPlace}> */}
-            {/* <div className={styles.openPositions__selectTtl}> */}
             <Input
               type={'lable-input-select'}
               icon={false}
@@ -25,10 +23,8 @@ const OpenSearch = ({ title, department, location }) => {
               status={'warning'}
               title={'your text'}
               color={'#FFA726'}
-              customStylesstyless={{ width: '320px' }}
+              customStylesstyless={{ width: '320px', border: '1px solid red' }}
             />
-            {/* </div> */}
-            {/* </div> */}
           </div>
           <div className={styles.openPositions__filter}>
             <div className={styles.openPositions__filterTtl}>{location}</div>
@@ -41,6 +37,7 @@ const OpenSearch = ({ title, department, location }) => {
               title={'your text'}
               color={'#FFA726'}
               customStylesstyless={{ width: '320px' }}
+              className={styles.inputStyles}
             />
           </div>
           <div className={styles.openPositions__filterClear}>Clear filter</div>
