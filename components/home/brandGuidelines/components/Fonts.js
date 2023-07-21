@@ -32,15 +32,9 @@ export default function Fonts() {
             <div className={styles.content}>
               <img src={item.svg} alt='' />
               <div className={styles.definition}>
-                <h3 className={item.alignment === 'Header' ? styles.lackFont : styles.notoSansFont}>
-                  {item.alignment}
-                </h3>
-                <h4 className={`${item.alignment === 'Header' ? styles.lackFont : styles.notoSansFont} ${styles.font}`}>
-                  {item.fonts}
-                </h4>
-                <h4 className={`${item.alignment === 'Header' ? styles.lackFont : styles.notoSansFont} ${styles.num}`}>
-                  {item.num}
-                </h4>
+                <h3 className={item.alignment === 'Header' ? 'ttl' : ''}>{item.alignment}</h3>
+                <h4 className={`${item.alignment === 'Header' ? 'ttl' : ''} ${styles.font}`}>{item.fonts}</h4>
+                <h4 className={`${item.alignment === 'Header' ? 'ttl' : ''} ${styles.num}`}>{item.num}</h4>
               </div>
             </div>
           </div>
