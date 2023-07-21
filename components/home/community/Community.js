@@ -1,6 +1,7 @@
 import RevercedTitle from './components/revercedTitle/RevercedTitle';
 import Plain from './components/plain/Plain';
 import Listed from './components/listed/Listed';
+import JoinCommunity from '../events/components/JoinCommunity';
 
 const devCommunity = [
   {
@@ -74,17 +75,18 @@ const grant = {
 const Community = () => {
   return (
     <>
-      <div className='container' style={{ paddingTop: '200px', display: 'flex', flexDirection: 'column', alignItems: 'center', position: 'relative', gap: '32px' }}>
+      <div className='container' style={{ paddingTop: '200px', display: 'flex', flexDirection: 'column', alignItems: 'center', position: 'relative', gap: '32px', marginBottom: "50px" }}>
         <h1 className='font-90' style={{ marginRight: '50%' }} >Community</h1>
         <RevercedTitle data={vision} />
         <Plain data={blockchain} />
         <RevercedTitle data={events} />
         <RevercedTitle data={teams} />
-        <Listed titles={devCommunity} />
         <Plain data={community} />
-        <Listed titles={grantProgramme} />
+        <Listed titles={devCommunity} />
         <Plain data={grant} />
+        <Listed titles={grantProgramme} />
       </div>
+      <JoinCommunity />
     </>
   );
 };
