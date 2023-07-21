@@ -1,6 +1,6 @@
 @font-face {
-  font-family: "Noto-Sans";
-  src: url("../public/fonts/NotoSans-Regular.ttf") format("truetype");
+  font-family: 'Noto-Sans';
+  src: url('../public/fonts/NotoSans-Regular.ttf') format('truetype');
   /* src: url("../public/fonts/Lack-Regular.eot?#iefix") format("embedded-opentype"),
     url("../public/fonts/Lack-Regular.svg#Lack-Regular") format("svg"),
     url("../public/fonts/Lack-Regular.ttf") format("truetype"), url("../public/fonts/Lack-Regular.woff") format("woff"),
@@ -8,6 +8,7 @@
   font-weight: normal;
   font-style: normal;
 }
+
 @font-face {
   font-family: "Lack-Regular";
   src: url("../public/fonts/Lack-Regular.ttf") format("truetype");
@@ -18,8 +19,9 @@
   font-weight: normal;
   font-style: normal;
 }
+
 * {
-  font-family: "Noto-Sans";
+  font-family: 'Noto-Sans';
   font-size: 16px;
   line-height: 150%;
   color: rgba(0, 0, 0, 1);
@@ -29,14 +31,17 @@
   margin: 0;
   padding: 0;
 }
+
 .ttl {
-  font-family: "Lack-Regular"!important;
+  font-family: "Lack-Regular" !important;
 }
+
 html {
   overflow-x: hidden;
   -webkit-text-size-adjust: none;
   text-size-adjust: none;
 }
+
 body {
   margin: 0;
   -webkit-text-size-adjust: 100%;
@@ -47,6 +52,7 @@ body {
   background-color: #fff2e4;
   /*dont use overflow hidden to body*/
 }
+
 ul,
 li,
 p,
@@ -69,6 +75,7 @@ nav {
 h3 {
   font-size: 20px;
 }
+
 input,
 textarea {
   outline: none;
@@ -77,12 +84,14 @@ textarea {
   -moz-appearance: none;
   appearance: none;
 }
+
 button {
   border: none;
   background: none;
   cursor: pointer;
   outline: none;
 }
+
 /* width */
 *::-webkit-scrollbar {
   width: 8px;
@@ -97,6 +106,7 @@ button {
 *::-webkit-scrollbar-thumb {
   background: #0500ff;
 }
+
 .circle_btn {
   display: flex;
   height: 42px;
@@ -108,6 +118,7 @@ button {
   font-size: 16px;
   border-radius: 50%;
 }
+
 .main_btn {
   display: flex;
   height: 42px;
@@ -119,31 +130,39 @@ button {
   white-space: nowrap;
   padding: 0px 24px;
 }
+
 .main_btn:hover {
   background: #ff7152;
 }
+
 .main_btn.blue {
   border-color: #0500ff;
 }
+
 .main_btn.blue:hover,
 .circle_btn:hover {
   background: #0500ff;
 }
+
 .main_btn.blue.filled {
   background: #0500ff;
 }
+
 .main_btn.blue.filled:hover {
   background: transparent;
 }
+
 .main_btn.disabled {
   border-color: rgba(255, 255, 255, 0.2) !important;
   color: rgba(255, 255, 255, 0.2) !important;
   cursor: not-allowed;
   background: transparent !important;
 }
+
 .font-18 {
   font-size: 18px;
 }
+
 .font-72 {
   font-size: 72px;
   line-height: 80px;
@@ -157,6 +176,7 @@ button {
   margin: 0px auto;
   position: relative;
 }
+
 .container_bordered {
   width: 100%;
   max-width: 1920px;
@@ -164,6 +184,7 @@ button {
   margin: 0px auto;
   position: relative;
 }
+
 .container_bordered-child {
   width: 100%;
   padding: 55px 115px;
@@ -171,30 +192,37 @@ button {
   border: 1px solid rgba(22, 32, 41, 0.20);
   background: #F3E4D2;
 }
+
 .font-20 {
   font-size: 20px;
   line-height: 120%;
 }
+
 .font-40 {
   font-size: 40px;
   line-height: 120%
 }
+
 .font-90 {
   font-size: 90px;
   line-height: 120%
 }
+
 .pT-160 {
   padding-top: 160px;
 }
+
 .pB-160 {
   padding-bottom: 160px;
 }
+
 .text ul li {
   position: relative;
   display: flex;
   padding-left: 20px;
   margin-top: 15px;
 }
+
 .text ul li:after {
   content: '';
   position: absolute;
@@ -206,53 +234,69 @@ button {
   border: 1px solid #162029;
   left: 0px;
 }
+
 form .form-control:focus {
   border-color: #ced4da;
   box-shadow: none;
 }
+
 .col-xs-6 {
   width: 50%;
   float: left;
 }
+
 .col-xs-3 {
   width: 25%;
   float: left;
 }
+
 input:focus::-webkit-input-placeholder {
   color: transparent;
 }
+
 input:focus:-moz-placeholder {
   color: transparent;
-} /* FF 4-18 */
+}
+
+/* FF 4-18 */
 input:focus::-moz-placeholder {
   color: transparent;
-} /* FF 19+ */
+}
+
+/* FF 19+ */
 input:focus:-ms-input-placeholder {
   color: transparent;
-} /* IE 10+ */
+}
+
+/* IE 10+ */
 /*Laptop 1440*/
 @media (max-width: 1900px) {
   .font-72 {
     font-size: 56px;
     line-height: 64px;
   }
+
   .container {
     padding: 0px 40px;
   }
 }
+
 /*Ipad Pro 1024*/
 @media (max-width: 1300px) {
   .main_btn {
     height: 35px;
     padding: 0px 15px;
     font-size: 12px;
+
     .h3 {
       font-weight: bold;
     }
   }
+
   .frameworks-container__frameworks-tab img {
     transform: scale(0.7);
   }
+
   .container {
     padding: 0px 25px;
   }
@@ -261,16 +305,20 @@ input:focus:-ms-input-placeholder {
     font-size: 20px;
     line-height: 50px;
   }
+
   .pT-160 {
     padding-top: 100px;
+
     .h3 {
       font-weight: bold;
     }
   }
+
   .pB-160 {
     padding-bottom: 100px;
   }
 }
+
 /*Ipad 768*/
 @media (max-width: 1023px) {
   .techno-tabs__item h3 svg {
@@ -278,35 +326,44 @@ input:focus:-ms-input-placeholder {
     left: 0px;
     margin-right: 15px;
   }
+
   .pT-160 {
     padding-top: 50px;
   }
+
   .pB-160 {
     padding-bottom: 50px;
   }
+
   .font-51 {
     font-size: 20px;
     line-height: 40px;
   }
+
   .container {
     padding: 0px 25px;
   }
 }
+
 /*Mobile 320*/
 @media (max-width: 767px) {
+
   .text-editor h2,
   .text-editor h3,
   .text-editor h4 {
     font-size: 20px;
     line-height: 30px;
   }
+
   .text-editor p {
     font-size: 15px;
     line-height: 24px;
   }
+
   .frameworks-container__frameworks-tabs {
     align-items: center;
   }
+
   .frameworks-container__frameworks-tab {
     height: auto;
     width: 33.3333%;
@@ -314,19 +371,22 @@ input:focus:-ms-input-placeholder {
     text-align: center;
     padding: 15px;
   }
+
   .frameworks-container__frameworks-tab img {
     height: 40px;
     width: 100%;
     object-fit: contain;
   }
+
   .container {
     padding: 0px 15px;
   }
+
   .feedback-form .el-form {
     width: 100%;
   }
 }
 
 h3 {
-  font-weight: 400;
+  font-weight: bold;
 }

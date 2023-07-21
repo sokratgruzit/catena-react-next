@@ -78,14 +78,14 @@
 
 @media (max-width: 767px) {
   .left h1 span {
-    font-size: 60px;
+    font-size: 40px;
   }
   .left h1 {
     gap: 0px;
-    line-height: 60px;
+    line-height: 65px;
   }
   .mainContainerDescription {
-    padding: 160px 55px 250px 55px;
+    padding: 160px 30px 250px 30px;
   }
   .mainContainerDownloadBtn {
     padding: 10px 26px;
