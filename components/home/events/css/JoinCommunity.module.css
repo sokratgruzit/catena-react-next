@@ -1,11 +1,10 @@
 .boxTitle { 
-    width: 90%;
+    width: 100%;
     padding: 40px;
     height: auto;
     background-color: #A6D0DD;
     border-radius: 10px;
     border: 1px solid #162029;
-    margin-left: 100px;
     display: flex;
     flex-direction: column;
 }

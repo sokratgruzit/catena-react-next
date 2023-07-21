@@ -139,10 +139,9 @@ const Press = () => {
           <div className={styles.pagination}>pagination</div>
         </div>
       </div>
-      {/*
       <div className={styles.joinComCont}>
         <JoinCommunity />
-      </div> */}
+      </div>
     </div >
   );
 };
