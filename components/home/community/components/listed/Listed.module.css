@@ -1,0 +1,17 @@
+.main {
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: 32px;
+    background: #F3E4D2;
+    width: 100%;
+}
+
+@font-face {
+    font-family: Noto Sans;
+    src: url(../../../../../public/fonts/NotoSans-Regular.ttf);
+}
+
+@font-face {
+    font-family: Lack;
+    src: url(../../../../../public/fonts/Lack-Regular.ttf);
+}
