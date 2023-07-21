@@ -8,12 +8,12 @@ const Title = () => {
           Catena{' '}
         </span>
         <span className={styles.title} style={{ color: '#162029' }}>
-          Ecosystem
+          Events
         </span>
       </div>
       <div className={styles.text}>
-        A set of in-house or partner services united around one company. The ecosystem can be centered around one area
-        of the client's life or penetrate several of them at once.
+        Braced dissected sheep, kermani halts, boy note. Quis raucous fall gown, euismod creatures spent, uproar
+        tidings.
       </div>
     </div>
   );

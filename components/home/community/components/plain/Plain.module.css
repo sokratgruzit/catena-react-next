@@ -1,28 +1,28 @@
-.container {
-    display: flex;
-    flex-direction: column;
-    gap: 60px
+.main {
+    padding: 32px;
+    width: 100%;
+    padding-left: 10%;
 }
 
-.title:nth-child(n) {
+.title {
     font-family: Lack;
-    font-size: 90px;
+    font-size: 51px;
     font-weight: 400;
-    line-height: 108px;
+    line-height: 61px;
     letter-spacing: 0em;
     text-align: left;
+    max-width: 792px;
+    padding: 32px;
 }
 
 .text {
+    width: 640px;
     font-family: Noto Sans;
-    font-size: 20px;
+    font-size: 15px;
     font-weight: 400;
-    line-height: 30px;
+    line-height: 24px;
     letter-spacing: 0em;
     text-align: left;
-    width: 536px;
-    height: 120px;
-    margin-bottom: 60px;
 }
 
 @font-face {
