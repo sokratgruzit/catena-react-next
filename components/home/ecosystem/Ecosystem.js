@@ -474,7 +474,6 @@ const EXCHANGESDATA = [
 const Ecosystem = () => {
   return (
     <div className='container' style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', position: 'relative' }}>
-      <div style={{ width: '112px', color: '#969BA6', position: 'absolute', top: '350px', left: '75%' }} >CMCX massive listing</div>
       <div>
         <Title />
         <ExchangesCards data={EXCHANGESDATA} />
