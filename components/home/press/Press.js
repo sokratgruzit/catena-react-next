@@ -70,7 +70,7 @@ const Press = () => {
         <p className={styles.titlePartyOne}>Catena</p>
         <p className={styles.titlePartyTwo}>Press</p>
       </div>
-      <div className={`${styles.bodyContainer} container`}>
+      <div className={styles.bodyContainer}>
         <Card dataArr={pressArr} />
       </div>
       <div className={styles.sourcesContainer}>
