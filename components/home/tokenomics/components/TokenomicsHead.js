@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 import styles from './Tokenomics.module.css';
 
-function TokenomicsItem() {
+function TokenomicsHead() {
   let data = [
     {
       teaser: 'Name',
@@ -231,4 +231,4 @@ function TokenomicsItem() {
   );
 }
 
-export default TokenomicsItem;
+export default TokenomicsHead;
