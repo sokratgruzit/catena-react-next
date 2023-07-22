@@ -35,4 +35,8 @@
   .careerHow p {
     width: 100%;
   }
+
+  .workStyle {
+    line-height: 66px;
+  }
 }
