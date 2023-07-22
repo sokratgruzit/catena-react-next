@@ -1,42 +1,41 @@
-import styles from './tokenomics.module.css';
+import styles from './Tokenomics.module.css';
 
 function Schedule() {
+  let data = [
+    {
+      teaser: '(TGE Event) Pre-Seed Round',
+      text: '1,000,000,000',
+    },
+    {
+      teaser: '(TGE Event) Pre-Seed Round',
+      text: '1,000,000,000',
+    },
+    {
+      teaser: '(TGE Event) Pre-Seed Round',
+      text: '1,000,000,000',
+    },
+    {
+      teaser: '(TGE Event) Pre-Seed Round',
+      text: '1,000,000,000',
+    },
+    {
+      teaser: '(TGE Event) Pre-Seed Round',
+      text: '1,000,000,000',
+    },
+  ];
   return (
-    <div className={`${styles.tokenomicsList} pT-160 pB-160 `}>
-      <h3 className='font-51'>Token Release Schedule</h3>
-      <div className={styles.tokenomicsList__inner}>
-        <div className={styles.tokenomicsCist__part}>
-          <div className={styles.tokenomicsList__item}>
-            <div className={styles.tokenomicsList__itemTitle}>(TGE Event) Pre-Seed Round</div>
-            <div className={styles.tokenomicsList__itemText}>1,000,000,000</div>
-          </div>
-          <div className={styles.tokenomicsList__item}>
-            <div className={styles.tokenomicsList__itemTitle}>Founders Round</div>
-            <div className={styles.tokenomicsList__itemText}>1,000,000,000</div>
-          </div>
-          <div className={styles.tokenomicsList__item}>
-            <div className={styles.tokenomicsList__itemTitle}>
-              Seed Round
-              <div className={styles.tokenomicsList__itemText}>1,000,000,000</div>
-            </div>
-          </div>
-        </div>
-        <div className={styles.tokenomicsCist__part}>
-          <div className={styles.tokenomicsList__item}>
-            <div className={styles.tokenomicsList__itemTitle}>Pre-IEO</div>
-            <div className={styles.tokenomicsList__itemText}>1,000,000,000</div>
-          </div>
-          <div className={styles.tokenomicsList__item}>
-            <div className={styles.tokenomicsList__itemTitle}>IEO (Launch Pad Sale)</div>
-            <div className={styles.tokenomicsList__itemText}>4,000,000,000</div>
-          </div>
-        </div>
-        <div className={styles.tokenomicsList__text}>
-          <div className={styles.tokenomicsList__textTtl}>Notice</div>
-          <div className={styles.tokenomicsList__textTxt}>
-            Due to the regulatory complexities or restrictions, Restrictions apply for the sale of CATENA tokens to any
-            citizen or resident of the USA.
-          </div>
+    <div>
+      <h2 className={` ${styles.schedule_title} font_51 ttl `}>Token Release Schedule</h2>
+      <div className='container_bordered-child'>
+        <div className={`${styles.schedule_grid}`}>
+          {data?.map((item, i) => {
+            return (
+              <div key={i} className={styles.schedule_text_wrap}>
+                <p className={`${styles.schedule_teaser} ${styles.orange} ttl `}>{item.teaser}</p>
+                <p>{item.text}</p>
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>
