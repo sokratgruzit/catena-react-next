@@ -8,13 +8,11 @@
 .chnBox { 
     max-height: 0px;
     overflow: hidden; 
-    transition: margin-bottom 3s;
-    /* transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99); */
 }
 .active {
-    width: 600px;
-    /* transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99); */
-    transition: margin-bottom 3s;
+    max-height: 500px;
+    width: 500px;
+    transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
     max-height: fit-content;
     margin: 40px 0px 40px 0px;
 }
