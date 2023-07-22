@@ -226,7 +226,7 @@ input:focus:-ms-input-placeholder {
   }
   .container_bordered-child {
     width: 100%;
-    padding: 35px 15px;
+    padding: 35px 25px;
   }
   .font-72 {
     font-size: 56px;
@@ -256,7 +256,10 @@ input:focus:-ms-input-placeholder {
   .container {
     padding: 0px 25px;
   }
-
+  .container_bordered-child {
+    width: 100%;
+    padding: 35px 15px;
+  }
   .font-51 {
     font-size: 20px;
     line-height: 50px;

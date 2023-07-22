@@ -1,5 +1,9 @@
 import { React, useState } from 'react';
 
+import Microscheme from '../../UI/microscheme/Microscheme';
+
+import styles from './MainSlider.module.css';
+
 const MainSlider = () => {
   const [levels, setLevels] = useState([]);
   let setLvl = array => {
@@ -47,12 +51,15 @@ const MainSlider = () => {
           better, privacy-first world into a reality.
         </div>
       </div>
-      {/*<Microscheme*/}
-      {/*  lvl={levels}*/}
-      {/*/>*/}
-      {/*<div className={styles.testBtn} onClick={() => {*/}
-      {/*    setLvl([7,8,9,10])*/}
-      {/*}}>test</div>*/}
+      {false && <Microscheme lvl={levels} />}
+      <div
+        className={styles.testBtn}
+        onClick={() => {
+          setLvl([7, 8, 9, 10]);
+        }}
+      >
+        test
+      </div>
     </>
   );
 };

@@ -1313,7 +1313,11 @@ const Microscheme = props => {
           <g opacity='0.4'>
             <circle cx='767' cy='749' r='2.25' transform='rotate(-90 767 749)' stroke='#162029' strokeWidth='1.5' />
             <circle cx='784' cy='749' r='2.25' transform='rotate(-90 784 749)' stroke='#162029' strokeWidth='1.5' />
-            <path d='M770 749C779.6 749 782 749 782 749' stroke='#162029' />
+            <path
+              className={`${styles.delay1} ${styles.l_r} ${props.lvl.includes(10) ? styles.animate : ''}`}
+              d='M770 749C779.6 749 782 749 782 749'
+              stroke='#162029'
+            />
           </g>
           <g opacity='0.4'>
             <path d='M786.5 824.5L786.5 775L773 764L754 764' stroke='#162029' />
@@ -1367,9 +1371,29 @@ const Microscheme = props => {
             strokeWidth='1.5'
           />
           <g opacity='0.4'>
-            <circle cx='759' cy='580' r='2.25' transform='rotate(-90 759 580)' stroke='#162029' strokeWidth='1.5' />
-            <circle cx='800' cy='580' r='2.25' transform='rotate(-90 800 580)' stroke='#162029' strokeWidth='1.5' />
-            <path d='M762 580C790.8 580 798 580 798 580' stroke='#162029' />
+            <circle
+              className={`${styles.delay3} ${styles.opacity} ${props.lvl.includes(10) ? styles.animate : ''}`}
+              cx='759'
+              cy='580'
+              r='2.25'
+              transform='rotate(-90 759 580)'
+              stroke='#162029'
+              strokeWidth='1.5'
+            />
+            <circle
+              className={`${styles.delay4} ${styles.opacity} ${props.lvl.includes(10) ? styles.animate : ''}`}
+              cx='800'
+              cy='580'
+              r='2.25'
+              transform='rotate(-90 800 580)'
+              stroke='#162029'
+              strokeWidth='1.5'
+            />
+            <path
+              className={`${styles.delay5} ${styles.r_l} ${props.lvl.includes(10) ? styles.animate : ''}`}
+              d='M762 580C790.8 580 798 580 798 580'
+              stroke='#162029'
+            />
           </g>
           <g opacity='0.4'>
             <circle cx='457' cy='394' r='2.25' transform='rotate(180 457 394)' stroke='#162029' strokeWidth='1.5' />
@@ -2486,8 +2510,13 @@ const Microscheme = props => {
             />
           </g>
           <g opacity='0.4'>
-            <path d='M826.828 635.737C850.828 611.737 856.828 605.737 856.828 605.737' stroke='#162029' />
+            <path
+              className={`${styles.delay3} ${styles.t_b} ${props.lvl.includes(10) ? styles.animate : ''}`}
+              d='M826.828 635.737C850.828 611.737 856.828 605.737 856.828 605.737'
+              stroke='#162029'
+            />
             <circle
+              className={`${styles.delay2} ${styles.opacity} ${props.lvl.includes(10) ? styles.animate : ''}`}
               cx='825.243'
               cy='637.163'
               r='2.25'
@@ -2496,6 +2525,7 @@ const Microscheme = props => {
               strokeWidth='1.5'
             />
             <circle
+              className={`${styles.delay1} ${styles.opacity} ${props.lvl.includes(10) ? styles.animate : ''}`}
               cx='858.243'
               cy='604.323'
               r='2.25'
