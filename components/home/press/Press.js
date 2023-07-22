@@ -1,9 +1,14 @@
 import JoinCommunity from '../events/components/JoinCommunity';
 import Card from '../../UI/card/Card';
 import styles from './Press.module.css';
+import { useState } from 'react';
 
 const Press = () => {
+  const [activeYear, setActiveYear] = useState('2021');
 
+  const handleYearClick = (year) => {
+    setActiveYear(year);
+  };
 
   const pressArr = [
     {
@@ -59,15 +64,17 @@ const Press = () => {
 
   return (
     <div className={`${styles.mainContainer} container`}>
-      <div className={styles.titleContainer}>
+      <div className={`${styles.titleContainer} container_bordered`}>
         <p className={styles.titlePartyOne}>Catena</p>
         <p className={styles.titlePartyTwo}>Press</p>
       </div>
-      <div className={`${styles.bodyContainer} container`}>
+      <div className={styles.bodyContainer}>
         <Card dataArr={pressArr} />
       </div>
       <div className={styles.sourcesContainer}>
-        <p>Sources</p>
+        <div className={styles.sourcesTitle}>
+          <p>Sources</p>
+        </div>
         <div className={styles.logoContainer}>
           <div className={styles.logoLine}>
             <div className={styles.logCon}>
@@ -106,12 +113,34 @@ const Press = () => {
         </div>
       </div>
       <div className={styles.infoContainer}>
-        <p>Publics by years</p>
+        <div className={styles.infContTitle}>
+          <p>Publics by years</p>
+        </div>
         <div className={styles.yearsStats}>
-          <div className={styles.active}>2018 </div>
-          <div className={styles.bottomLine}>2019 </div>
-          <div className={styles.bottomLine}>2020 </div>
-          <div className={styles.bottomLine}>2021 </div>
+          <div
+            className={activeYear === '2021' ? styles.activeCont : styles.pasCont}
+            onClick={() => handleYearClick('2021')}
+          >
+            <p className={activeYear === '2021' ? styles.active : styles.bottomLine}>2021</p>
+          </div>
+          <div
+            className={activeYear === '2020' ? styles.activeCont : styles.pasCont}
+            onClick={() => handleYearClick('2020')}
+          >
+            <p className={activeYear === '2020' ? styles.active : styles.bottomLine}>2020</p>
+          </div>
+          <div
+            className={activeYear === '2019' ? styles.activeCont : styles.pasCont}
+            onClick={() => handleYearClick('2019')}
+          >
+            <p className={activeYear === '2019' ? styles.active : styles.bottomLine}>2019</p>
+          </div>
+          <div
+            className={activeYear === '2018' ? styles.activeCont : styles.pasCont}
+            onClick={() => handleYearClick('2018')}
+          >
+            <p className={activeYear === '2018' ? styles.active : styles.bottomLine}>2018</p>
+          </div>
         </div>
       </div>
       <div className={styles.statisticContainer}>

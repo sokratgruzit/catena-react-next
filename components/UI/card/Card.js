@@ -2,7 +2,7 @@ import styles from "./Card.module.css";
 
 const Card = ({ dataArr }) => {
     return (
-        <div className={`${styles.mapContainer} container`}>
+        <div className={styles.mapContainer}>
             {dataArr.map(item => (
                 <div key={item.id} className={styles.item}>
                     <img src={item.img} alt={`Image`} className={styles.pressImage} />

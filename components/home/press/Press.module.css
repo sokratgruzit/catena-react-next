@@ -8,8 +8,7 @@
     width: 550px;
     display: flex;
     position: relative;
-    margin-left: 115px;
-    justify-content: space-between;
+    gap: 50px;
     top: 50px;
 }
 
@@ -31,28 +30,31 @@
     width: 100%;
     position: relative;
     display: flex;
-    align-items: center;
     margin-top: 100px;
 }
 
 .sourcesContainer {
-    height: 460px;
+    height: 500px;
     border-radius: 20px;
     width: 100%;
     position: relative;
-    margin-top: 75px;
+    margin-top: 130px;
 }
 
-.sourcesContainer p {
+.sourcesTitle {
+   margin-left: 85px;
+   margin-bottom: 30px;
+}
+
+.sourcesTitle p {
     font-size: 51px;
     font-weight: 400;
     color: #162029;
-    margin-left: 110px;
 }
 
 .logoContainer {
     width: 100%;
-    height: 384px;
+    height: 380px;
     display: flex;
     flex-direction: column;
     background-color: #F3E4D2;
@@ -74,48 +76,61 @@
     width: 100%;
     height: 100px;
     display: flex;
-    justify-content: space-between;
-    border-bottom: 1px solid #A6D0DD;
-    gap: 10px;
+    border-bottom: 1px solid #A6D0DD; 
     position: relative;
-    margin-top: 70px; 
-    margin-bottom: 40px;
+    bottom: 30px;
 }
 
-.yearsStats {
-    width: 330px;
-    height: 100%;
+.infContTitle {
     display: flex;
-    z-index: 10;
-    /* flex-direction: row-reverse;
-    justify-content: space-between; */
+    width: 50%;
     align-items: flex-end;
 }
 
-.infoContainer p {
+.infContTitle p {
     font-size: 30px;
-    line-height: 42px;
-    position: relative; 
-    margin-top: 55px; 
-    margin-left: 80px;
+    padding: 10px;
 }
 
-.active {
-    width: 400px;
-    font-weight: 500;
-    font-family: 'Lack', sans-serif;
-    font-size: 30px;
-    border-bottom: 2px solid #FF6969;
+.yearsStats {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    z-index: 10;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 40px;
 }
 
+.activeCont {
+    width: 70px;  
+    border-bottom: 1px solid #FF6969;
+    display: flex;
+    align-items: center;
+    transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+}
+
+.pasCont {
+    width: 70px;
+    transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+}
 
 .bottomLine {
-    width: 400px;
-    font-weight: 500;
-    font-family: 'Lack', sans-serif;
     font-size: 30px;
     opacity: 0.5;
+    padding: 10px;
+    font-family: 'Lack', sans-serif;
 }
+
+
+.active {
+    font-size: 30px;
+    width: 70px;
+    padding: 10px 0 10px 0;
+    font-family: 'Lack', sans-serif;
+}
+
+
 
 .statisticContainer {
     border: 1px solid rgb(192, 182, 182);
@@ -182,147 +197,3 @@
   left: 2px;
   padding-top: 100px;
 } */
-
-/* Responsive for tablets */
-@media screen and (max-width: 1024px) {
-    .mainContainer {
-        padding: 30px 35px;
-    }
-
-    .titleContainer {
-        width: 100%;
-        margin-left: 0;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .titlePartyOne,
-    .titlePartyTwo {
-        font-size: 60px;
-    }
-
-    .bodyContainer {
-        flex-direction: column;
-        gap: 30px;
-        margin-left: 0;
-    }
-
-    .mapContainer {
-        width: 100%;
-        gap: 30px;
-    }
-
-    .mapContainerTwo {
-        width: 100%;
-        padding-top: 30px;
-        gap: 30px;
-    }
-
-    .yearsStats {
-        width: 100%;
-    }
-}
-
-/* Responsive for phones */
-@media screen and (max-width: 768px) {
-    .titlePartyOne,
-    .titlePartyTwo {
-        font-size: 40px;
-    }
-
-    .mapContainer h2,
-    .mapContainerTwo h3 {
-        font-size: 18px;
-    }
-
-    .mapContainer p {
-        font-size: 12px;
-    }
-
-    .pressImage {
-        height: 180px;
-    }
-
-    .sourcesContainer p {
-        font-size: 40px;
-        padding-left: 50px;
-    }
-
-    .infoContainer p {
-        font-size: 24px;
-        line-height: 32px;
-        margin-top: 40px;
-    }
-
-    .loadPub {
-        font-size: 14px;
-        bottom: 45px;
-        padding: 5px 10px;
-    }
-
-    .active,
-    .line {
-        width: 300px;
-        font-size: 24px;
-    }
-
-    .logoLine {
-        gap: 30px;
-    }
-
-    .logoContainer {
-        top: 20px;
-    }
-}
-
-/* Responsive for phones in landscape mode and smaller devices */
-@media screen and (max-width: 480px) {
-    .titlePartyOne,
-    .titlePartyTwo {
-        font-size: 30px;
-    }
-
-    .mapContainer h2,
-    .mapContainerTwo h3 {
-        font-size: 16px;
-    }
-
-    .mapContainer p {
-        font-size: 11px;
-    }
-
-    .pressImage {
-        height: 120px;
-    }
-
-    .sourcesContainer p {
-        font-size: 30px;
-        padding-left: 20px;
-    }
-
-    .infoContainer p {
-        font-size: 18px;
-        line-height: 24px;
-        margin-top: 30px;
-    }
-
-    .loadPub {
-        font-size: 12px;
-        bottom: 35px;
-        padding: 3px 8px;
-    }
-
-    .active,
-    .line {
-        width: 200px;
-        font-size: 20px;
-    }
-
-    .logoLine {
-        gap: 20px;
-    }
-
-    .logoContainer {
-        top: 10px;
-    }
-}
