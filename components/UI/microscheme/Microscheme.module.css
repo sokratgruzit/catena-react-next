@@ -1,0 +1,105 @@
+.mircroscheme {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    z-index: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.microtest {
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    opacity: .4;
+    pointer-events: none;
+}
+.microtest div{
+    width: calc(100% / 6);
+    height: 50%;
+    border: 1px solid #000;
+}
+.mircroscheme svg {
+    width: 100%;
+}
+.mircroscheme * {
+    transition: 1.2s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+}
+.delay1 {
+    transition-delay: .5s;
+}
+.animate.delay1 {
+    transition-delay: .1s;
+}
+.delay2 {
+    transition-delay: .4s;
+}
+.animate.delay2 {
+    transition-delay: .2s;
+}
+.delay3 {
+    transition-delay: .2s;
+}
+.animate.delay3 {
+    transition-delay: .3s;
+}
+.delay4 {
+    transition-delay: .1s;
+}
+.animate.delay4 {
+    transition-delay: .4s;
+}
+.delay5 {
+    transition-delay: 0s;
+}
+.animate.delay5 {
+    transition-delay: .5s;
+}
+/*position animation*/
+.opacity,.opacityH {
+    opacity: 0;
+}
+.animate.opacity {
+    opacity: 1;
+}
+.animate.opacityH {
+     opacity: .3;
+}
+.t_b {
+    transform: translateY(20px);
+    opacity: 0;
+}
+.animate.t_b {
+    transform: translateY(0px);
+    opacity: 1;
+}
+.b_t {
+    transform: translateY(-20px);
+    opacity: 0;
+}
+.animate.b_t {
+    transform: translateY(0px);
+    opacity: 1;
+}
+.l_r {
+    transform: translateX(20px);
+    opacity: 0;
+}
+.animate.l_r {
+    transform: translateX(0px);
+    opacity: 1;
+}
+.r_l {
+    transform: translateX(-20px);
+    opacity: 0;
+}
+.animate.r_l {
+    transform: translateX(0px);
+    opacity: 1;
+}
