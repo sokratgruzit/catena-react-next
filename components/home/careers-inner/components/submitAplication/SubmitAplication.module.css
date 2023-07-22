@@ -1,0 +1,16 @@
+.font__51 {
+    font-size: 51px;
+    line-height: 66px;
+    padding-left: 115px;
+    margin: 60px 0 30px 0;
+    color: #162029;
+    font-family: 'Lack-Regular' !important;
+    padding-top: 50px;
+    border-top: 1px solid #A6D0DD;
+}
+
+@media (max-width: 1700px) {
+    .font__51 {
+      padding-left: 0;
+    }
+  }

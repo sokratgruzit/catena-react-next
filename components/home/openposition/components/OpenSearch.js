@@ -1,5 +1,6 @@
-// import { Input } from '@catena-network/catena-ui-module'
 import React from 'react';
+// import { Input } from '@catena-network/catena-ui-module'
+
 
 import styles from './OpenSearch.module.css';
 
@@ -15,7 +16,7 @@ const OpenSearch = ({ title, department, location }) => {
         <div className={styles.openPositions__container}>
           <div className={styles.openPositions__filter}>
             <div className={styles.openPositions__filterTtl}>{department}</div>
-            {/* <Input
+            <Input
               type={'lable-input-select'}
               icon={false}
               selectType={'country'}
@@ -24,11 +25,11 @@ const OpenSearch = ({ title, department, location }) => {
               title={'your text'}
               color={'#FFA726'}
               customStylesstyless={{ width: '320px', border: '1px solid red' }}
-            /> */}
+            />
           </div>
           <div className={styles.openPositions__filter}>
             <div className={styles.openPositions__filterTtl}>{location}</div>
-            {/* <Input
+            <Input
               type={'lable-input-select'}
               icon={false}
               selectType={'country'}
@@ -38,7 +39,7 @@ const OpenSearch = ({ title, department, location }) => {
               color={'#FFA726'}
               customStylesstyless={{ width: '320px' }}
               className={styles.inputStyles}
-            /> */}
+            />
           </div>
           <div className={styles.openPositions__filterClear}>Clear filter</div>
         </div>

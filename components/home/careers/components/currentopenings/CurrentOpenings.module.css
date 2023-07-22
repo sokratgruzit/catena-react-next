@@ -45,6 +45,7 @@
 .careerQualities__openingTtl {
   color: #ff6969;
   margin-bottom: 10px;
+  width: 330px;
   font-family: 'Lack-Regular' !important;
 }
 
@@ -53,7 +54,7 @@
   flex-direction: column;
   margin-bottom: 30px;
   width: 50%;
-  justify-content: space-between;
+  /* justify-content: space-between; */
 }
 
 .careerQualities h2 {
