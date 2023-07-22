@@ -21,12 +21,13 @@ const AmbasdorBtn = () => {
 
     const handleSubmit = () => {
         console.log(formData);
+        setChng(false);
     }
 
     return (
-        <div className={`${styles.btn} container_bordered `}>
-            {chng && <div className={styles.chnBox}>
-                <form>
+        <div className={`${styles.btn} container `}>
+            <div className={`${styles.chnBox} ${chng ? styles.active : ""}`}>
+                <form className={`${styles.aaa} ${chng ? styles.bbb : ""}`}>
                     <div>
                         <Input
                             className={styles.llll}
@@ -81,7 +82,7 @@ const AmbasdorBtn = () => {
                         />
                     </div>
                 </form>
-            </div>}
+            </div>
             {!chng &&
                 <Button
                     label={'Apply Now'}

@@ -2,11 +2,11 @@ import styles from "../css/WhatExpected.module.css"
 
 const WhatExpected = () => {
     return (
-        <div className={`${styles.heder} container_bordered `}>
-            <h1 className={`${styles.mainTiTle} ttl  font_30`}>What is Expected of You</h1>
+        <div className={`${styles.heder} container`}>
+            <h1 className={`${styles.mainTiTle} ttl  font-40`}>What is Expected of You</h1>
 
             <div className={`${styles.ulTxt}  text`}>
-                <h4 className={`${styles.TiTle} .font_16 `}>There isn’t really one standard way to be a CATENA ambassador, but here are some examples:</h4>
+                <h4 className={`${styles.TiTle} `}>There isn’t really one standard way to be a CATENA ambassador, but here are some examples:</h4>
                 <ul>
                     <li>Promote the CATENA Ecosystem through meetups that can be structured to be both technical and non-technical so that anyone can participate.</li>
                 </ul>

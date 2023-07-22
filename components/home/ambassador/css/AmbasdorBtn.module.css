@@ -1,14 +1,24 @@
 .btn { 
-    margin: 40px 0px 40px 0px; 
+    margin: 50px 0px 50px 0px; 
     width: 200px;
     display: flex;
     flex-direction: column;
 }
 
 .chnBox { 
+    max-height: 0px;
+    overflow: hidden; 
+    transition: margin-bottom 3s;
+    /* transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99); */
+}
+.active {
     width: 600px;
-    padding: 20px;
-    margin: 40px 0px 40px 0px; 
-    border: 1px solid red;
+    /* transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99); */
+    transition: margin-bottom 3s;
+    max-height: fit-content;
+    margin: 40px 0px 40px 0px;
 }
 
+.btnBlu { 
+    text-align: center;
+}

@@ -2,7 +2,7 @@ import AQItem from './components/AQItem';
 
 function AQ() {
   return (
-    <div className='container'>
+    <div>
       <AQItem />
     </div >
   );

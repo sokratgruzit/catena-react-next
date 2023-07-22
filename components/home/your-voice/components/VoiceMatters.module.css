@@ -1,6 +1,7 @@
 .main { 
   display: flex;
   width: 100%;
+  margin: 50px 0px 100px 0px;
 }
 
 .box { 
@@ -16,12 +17,12 @@
 }
 
 .container { 
-  width: 15%;
+  width: 30%;
 } 
 
 .Title { 
-  margin: 5% 0px 5% 0px;
-  max-width: 65%;
+  margin: 10% 0px 10% 0px;
+  max-width: 70%;
 }
 
 .hederBox {

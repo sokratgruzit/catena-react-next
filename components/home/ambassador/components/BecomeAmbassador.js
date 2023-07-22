@@ -29,18 +29,21 @@ const BecomeAmbassador = () => {
     ];
 
     return (
-        <div className={`${styles.box} container_bordered-child`} >
-            <h1 className={`${styles.ttli} ttl font_30`}>Why Become an Ambassador</h1>
-            <div>
-                {titleArray.map((item, title) => {
-                    return (
-                        <div key={item} className={styles.becameTitle}>
-                            <a className={`${styles.a} `}>{item.a}</a>
-                            <p className={`${styles.p} p`}>{item.p}</p>
-                        </div>
-                    )
-                })}
+        <div className={`${styles.box} container_bordered`} >
+            <div className="container_bordered-child">
+                <h1 className={`${styles.ttli} ttl font-40`}>Why Become an Ambassador</h1>
+                <div>
+                    {titleArray.map((item, title) => {
+                        return (
+                            <div key={item} className={styles.becameTitle}>
+                                <a className={`${styles.a} `}>{item.a}</a>
+                                <p className={`${styles.p} p`}>{item.p}</p>
+                            </div>
+                        )
+                    })}
+                </div>
             </div>
+
         </div>
     );
 };
