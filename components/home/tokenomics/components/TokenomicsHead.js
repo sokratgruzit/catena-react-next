@@ -7,8 +7,8 @@ function TokenomicsHead() {
   let data = [
     {
       teaser: 'Name',
-      // text: ['CATENA Multi-Chain — ' + ' ' + 'Cryptographic Object Resources Engine'],
-      text: 'CATENA Multi-Chain — Cryptographic Object Resources Engine',
+      firstText: 'CATENA Multi-Chain — ',
+      text: 'Cryptographic Object Resources Engine',
     },
     {
       teaser: 'Decimal',
@@ -16,7 +16,7 @@ function TokenomicsHead() {
     },
     {
       teaser: 'Native Crypto Symbol',
-      text: [
+      svg: (
         <svg
           className={styles.tokenIcon}
           width='24'
@@ -27,14 +27,14 @@ function TokenomicsHead() {
         >
           <circle cx='12' cy='12' r='12' fill='#FF6969' />
           <path
-            fill-rule='evenodd'
-            clip-rule='evenodd'
+            fillRule='evenodd'
+            clipRule='evenodd'
             d='M7.42413 8.63933C7.98389 7.8985 8.71722 7.30665 9.55953 6.91592C10.4019 6.52519 11.3273 6.34756 12.2544 6.39867C13.1816 6.44977 14.0819 6.72805 14.8762 7.209C15.6704 7.68994 16.3343 8.3588 16.8092 9.15667L17.2194 8.92877L17.9031 8.52766C17.2898 7.49572 16.4186 6.64099 15.3752 6.04736C14.3318 5.45373 13.1519 5.1416 11.9514 5.1416C10.751 5.1416 9.57112 5.45373 8.52769 6.04736C7.48426 6.64099 6.61311 7.49572 5.99973 8.52766L5.66016 9.06095L6.20257 9.3823L8.30156 10.6289C7.95824 11.4924 7.93434 12.45 8.23416 13.3295C8.53399 14.209 9.13785 14.9526 9.9371 15.4266C10.7363 15.9005 11.6785 16.0737 12.594 15.9149C13.5096 15.756 14.3383 15.2757 14.9313 14.5603L16.4605 15.4719C15.9006 16.2134 15.1668 16.8057 14.3239 17.1965C13.4809 17.5873 12.5548 17.7646 11.6271 17.7128C10.6994 17.661 9.79871 17.3817 9.00451 16.8994C8.21032 16.4172 7.54702 15.7469 7.07316 14.9477L5.99062 15.5881C6.604 16.6201 7.47515 17.4748 8.51858 18.0684C9.562 18.662 10.7418 18.9742 11.9423 18.9742C13.1428 18.9742 14.3226 18.662 15.3661 18.0684C16.4095 17.4748 17.2806 16.6201 17.894 15.5881L18.2177 15.0457L17.6752 14.7244L15.9523 13.7011L14.4664 12.8442C14.2855 13.42 13.913 13.9166 13.4108 14.2514C12.9086 14.5863 12.307 14.7392 11.7059 14.6848C11.1048 14.6304 10.5404 14.3719 10.1065 13.9523C9.67257 13.5328 9.39531 12.9774 9.32076 12.3784C9.2462 11.7795 9.37884 11.173 9.69663 10.6599C10.0144 10.1468 10.4982 9.75781 11.0677 9.5577C11.6371 9.35758 12.2579 9.35834 12.8268 9.55985C13.3958 9.76136 13.8786 10.1515 14.1952 10.6654L15.2868 10.0364C14.9661 9.50448 14.5231 9.05682 13.9945 8.73063C13.4659 8.40445 12.8671 8.20916 12.2479 8.16102C11.6287 8.11287 11.0069 8.21325 10.4343 8.45381C9.86163 8.69438 9.35471 9.06817 8.95564 9.54411L7.42413 8.63933Z'
             fill='#162029'
           />
-        </svg>,
-        'CXRE',
-      ],
+        </svg>
+      ),
+      text: 'CXRE',
     },
     {
       teaser: 'Initial Price',
@@ -187,25 +187,19 @@ function TokenomicsHead() {
     },
   ];
 
-  const mappedData = data.map(item => {
-    return {
-      teaser: item.teaser,
-      text: Array.isArray(item.text) ? item.text : [item.text],
-    };
-  });
   return (
     <div className={styles.pt130}>
       <h1 className={`font-90 ttl ${styles.space}`}>Tokenomics</h1>
       <div className={`${styles.wrap}`}>
-        {mappedData.map((item, index) => (
+        {data.map((item, index) => (
           <div key={index} className={`${styles.inner}`}>
             <div className={` ${styles.teaser}`}>
               <p className={` ttl ${styles.orange} ${styles.textLeft}`}>{item.teaser}</p>
             </div>
+            {item.firstText}
             <div className={styles.text}>
-              {item.text.map((textItem, textIndex) => (
-                <p key={textIndex}>{textItem}</p>
-              ))}
+              {item.svg}
+              <p className={`${styles.customText}`}>{item.text}</p>
             </div>
           </div>
         ))}

@@ -14,7 +14,7 @@
   padding-top: 130px;
 }
 .wrap {
-  width: 62%;
+  width: 60%;
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
@@ -48,7 +48,6 @@
 }
 .text {
   display: flex;
-  width: 260px;
 }
 .tokenIcon {
   margin-right: 10px;
@@ -75,10 +74,31 @@
 .itemWrap {
   margin-bottom: 10px;
 }
+@media (max-width: 1920px) {
+  .wrap {
+    width: 52%;
+  }
+}
+@media (max-width: 1665px) {
+  .wrap {
+    width: 60%;
+  }
+}
+@media (max-width: 1365px) {
+  .wrap {
+    width: 70%;
+  }
+}
+@media (max-width: 1200px) {
+  .wrap {
+    width: 90%;
+  }
+}
 @media (max-width: 768px) {
   .wrap {
     display: flex;
     flex-direction: column;
+    width: 100%;
   }
   .responsive_flex {
     flex-direction: column;
@@ -139,9 +159,13 @@
 .schedule_grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  row-gap: 28px;
 }
-.schedule_text_wrap {
-  padding-bottom: 28px;
+@media (max-width: 768px) {
+  .svgContainer {
+    display: flex;
+    justify-content: center;
+  }
 }
 /* Schedule */
 
@@ -173,6 +197,18 @@
 @media (max-width: 1365px) {
   .left_bar {
     margin-right: 44px;
+  }
+}
+@media (max-width: 768px) {
+  .left_bar {
+    margin-right: 0px;
+  }
+  .schedule_grid {
+    display: flex;
+    flex-direction: column;
+  }
+  .muted_text {
+    margin-bottom: 18px;
   }
 }
 /* Event Details */
@@ -220,6 +256,19 @@
     width: 202px;
   }
 }
+@media (max-width: 768px) {
+  .certik_description {
+    text-align: center;
+  }
+  .certik_line {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .pt80 {
+    padding: 80px 0 48px 0;
+  }
+}
 /* Certik */
 
 /* Download */
@@ -232,6 +281,9 @@
 .downloadIcons {
   margin-top: 48px;
   gap: 20px;
+}
+.downloadIcons svg {
+  cursor: pointer;
 }
 .flexColumn {
   display: flex;
@@ -248,6 +300,9 @@
     margin: 8px 0;
     width: 50px;
     height: 50px;
+  }
+  .p280 {
+    padding: 60px 0;
   }
 }
 /* Download */

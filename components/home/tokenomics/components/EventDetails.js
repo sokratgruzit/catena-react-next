@@ -23,7 +23,9 @@ function EventDetails() {
   return (
     <div className={`${styles.pt64} ${styles.flex} ${styles.responsive_flex} ${styles.alignItemsCenter}`}>
       <div className={`${styles.left_bar}`}>
-        <h2 className={` font_51 ttl `}>Token Distribution Event Details</h2>
+        <h2 className={` font-40 ttl `}>
+          Token Distribution <br /> Event Details
+        </h2>
         <div>
           <div className={`${styles.flex} ${styles.icon_wrap} ${styles.alignItemsCenter}`}>
             <svg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'>
@@ -40,16 +42,18 @@ function EventDetails() {
           <p className={`${styles.muted_text}`}>(*or sooner if Seed Round total allocation claimed).</p>
         </div>
       </div>
-      <div className='container_bordered-child'>
-        <div className={`${styles.eventDetails_textWrap}`}>
-          {data?.map((item, i) => {
-            return (
-              <div key={i}>
-                <p className={`${styles.orange} ${styles.events_teaser} ttl `}>{item.teaser}</p>
-                <p>{item.text}</p>
-              </div>
-            );
-          })}
+      <div className='container_bordered'>
+        <div className='container_bordered-child'>
+          <div className={`${styles.eventDetails_textWrap}`}>
+            {data?.map((item, i) => {
+              return (
+                <div key={i}>
+                  <p className={`${styles.orange} ${styles.events_teaser} ttl `}>{item.teaser}</p>
+                  <p>{item.text}</p>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </div>

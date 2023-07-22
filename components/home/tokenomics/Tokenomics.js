@@ -11,16 +11,10 @@ function Tokenomics() {
       <div className='container'>
         <TokenomicsHead />
       </div>
-      <div className='container_bordered'>
-        <Distribution />
-      </div>
-      <div className='container_bordered'>
-        <Schedule />
-      </div>
-      <div className='container_bordered'>
-        <EventDetails />
-      </div>
+      <Distribution />
+      <Schedule />
       <div className='container'>
+        <EventDetails />
         <Certik />
         <Download />
       </div>
