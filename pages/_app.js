@@ -4,7 +4,6 @@ import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import Web3 from 'web3';
 
-import Footer from '../components/layout/Footer';
 import Header from '../components/layout/Header';
 import Wrapper from '../components/layout/Wrapper';
 import store, { persistor } from '../store/index';
@@ -32,7 +31,7 @@ function MyApp({ Component, pageProps }) {
             <Wrapper>
               <Header />
               <Component {...pageProps} />
-              <Footer />
+              {/*<Footer />*/}
             </Wrapper>
           </PersistGate>
         </Provider>
