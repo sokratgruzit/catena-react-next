@@ -3,7 +3,7 @@ import styles from '../styles/PrivacyList.module.css';
 function PrivacyList({ privacyList }) {
   const privacyHeader = [
     {
-      text: 'We are committed to protecting Your privacy. This Privacy Policy describes how We collect, use, store, share and protect the information collected through https://www.coremultichain.com/ (the “Website”).In this Privacy Policy, "We", "Us", and "Our" refer to CORE. For more information about Us, see “Our Details” at the end of this Policy.',
+      text: 'We are committed to protecting Your privacy. This Privacy Policy describes how We collect, use, store, share and protect the information collected through https://www.catena.com/ (the “Website”).In this Privacy Policy, "We", "Us", and "Our" refer to Catena. For more information about Us, see “Our Details” at the end of this Policy.',
     },
     {
       text: 'This Privacy Policy is incorporated into and subject to Our Terms and Conditions. Capitalized words used but not defined in this Privacy Policy have the meaning given to them in the Terms and Conditions.',
@@ -39,7 +39,7 @@ function PrivacyList({ privacyList }) {
             <p className='font-40 ttl'>{`${i + 1}`}</p> {item?.title}
           </h2>
           <p className={styles.text}>{item?.text}</p>
-          {item?.link && <a href='mailto:info@coremultichain.com'>{item?.link}</a>}
+          {item?.link && <a href='mailto:https://www.catenamultichain.com/'>{item?.link}</a>}
           {item?.bullets && (
             <ul>
               {item?.bullets.map((bullets, j) => (
