@@ -579,7 +579,7 @@ const Careers = () => {
   return (
     <div>
       <CareersCatena />
-      <CompanyInfo workflow={workflow} title='how we work' />
+      <CompanyInfo workflow={workflow} title='How we work' />
       <Feature featureLinkList={featureLinkList} title='Featured Jobs' showButton={true} />
       <OurValues
         iconImages={iconImages}
@@ -588,7 +588,7 @@ const Careers = () => {
         Our CATENA values establish the framework for our ability to create a lasting,
         positive impact for humanity:'
       />
-      <CoreTeam team={team} title='Qualities of' title2= 'a Hypercube Team' />
+      <CoreTeam team={team} title='Qualities of' title2='a Hypercube Team' />
       <Recruitment data={data} title='Recruitment Process:' />
       <CurrentOpenings currentOpeningsList={currentOpeningsList} title='Current Openings' />
       <Benefits benefitsArr={benefitsArr} title='Benefits Available Following Recruitment:' />

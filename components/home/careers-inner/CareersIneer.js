@@ -90,7 +90,9 @@ import React from 'react';
 
 import AboutYou from './components/aboutYou/AboutYou';
 import SeniorDesigner from './components/seniorDesigner/SeniorDesigner';
-import SubmitAplication from './components/seniorDesigner/SubmitAplication';
+import SubmitAplication from './components/submitAplication/SubmitAplication';
+
+import { useState } from 'react';
 
 const teamResponsible = [
   {
@@ -133,17 +135,24 @@ const aboutRange = [
 ];
 
 const CareersIneer = () => {
+  const [seniorVisible, setSeniorVisible] = useState(false);
+
+  const toggleSeniorVisibility = () => {
+    setSeniorVisible(!seniorVisible);
+  };
+
   return (
     <div style={{ paddingTop: '150px', backgroundColor: '#fff2e4' }}>
       <SeniorDesigner
         teamResponsible={teamResponsible}
         head='Senior UX Designer'
         title='Front-end Engineer role'
-        title2='As a member of the team, you will be responsible for'
+        title2='As a member of the team,'
+        title3='you will be responsible for'
         description='We are looking for an experienced front-end engineer to join as a member of the core engineering team. As a front-end engineer, you will have an extensive impact over the product, the UI/UX, and the technology.'
       />
-      <AboutYou aboutSalary={aboutSalary} aboutRange={aboutRange} head='About You' title2='Salary Ranges' />
-      <SubmitAplication />
+      <AboutYou toggleSeniorVisibility={toggleSeniorVisibility} aboutSalary={aboutSalary} aboutRange={aboutRange} head='About You' title2='Salary Ranges' />
+      {seniorVisible && <SubmitAplication title='Submit Your Application' />}
     </div>
   );
 };
