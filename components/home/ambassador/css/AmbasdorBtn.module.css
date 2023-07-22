@@ -1,0 +1,14 @@
+.btn { 
+    margin: 40px 0px 40px 0px; 
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+}
+
+.chnBox { 
+    width: 600px;
+    padding: 20px;
+    margin: 40px 0px 40px 0px; 
+    border: 1px solid red;
+}
+

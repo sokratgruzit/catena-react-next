@@ -1,6 +1,4 @@
-import { useEffect } from "react";
-
-
+import styles from "../css/BecomeAmbassador.module.css"
 
 const BecomeAmbassador = () => {
     const titleArray = [
@@ -31,9 +29,18 @@ const BecomeAmbassador = () => {
     ];
 
     return (
-        <div>
-            <h1>Why Become an Ambassador</h1>
-
+        <div className={`${styles.box} container_bordered-child`} >
+            <h1 className={`${styles.ttli} ttl font_30`}>Why Become an Ambassador</h1>
+            <div>
+                {titleArray.map((item, title) => {
+                    return (
+                        <div key={item} className={styles.becameTitle}>
+                            <a className={`${styles.a} `}>{item.a}</a>
+                            <p className={`${styles.p} p`}>{item.p}</p>
+                        </div>
+                    )
+                })}
+            </div>
         </div>
     );
 };

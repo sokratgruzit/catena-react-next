@@ -88,9 +88,8 @@ const FAQ = props => {
                   </svg>
                 </p>
                 <div
-                  className={`${styles.Faq__item__answersWrap} ${
-                    answers === item.id ? styles.Faq__item__answersWrapActive : ''
-                  }`}
+                  className={`${styles.Faq__item__answersWrap} ${answers === item.id ? styles.Faq__item__answersWrapActive : ''
+                    }`}
                 >
                   <p className={styles.Faq__item__answer}>- {item.answer}</p>
                 </div>
@@ -144,9 +143,8 @@ const FAQ = props => {
                 }}
               >
                 <p
-                  className={`${styles.Faq__item__question} ${styles.font_20} ${
-                    answers === item.id ? styles.Faq__item__question__active : ''
-                  }`}
+                  className={`${styles.Faq__item__question} ${styles.font_20} ${answers === item.id ? styles.Faq__item__question__active : ''
+                    }`}
                 >
                   {item.question}
                   <svg
@@ -168,9 +166,8 @@ const FAQ = props => {
                   </svg>
                 </p>
                 <div
-                  className={`${styles.Faq__item__answersWrap} ${
-                    answers === item.id ? styles.Faq__item__answersWrapActive : ''
-                  }`}
+                  className={`${styles.Faq__item__answersWrap} ${answers === item.id ? styles.Faq__item__answersWrapActive : ''
+                    }`}
                 >
                   <p className={styles.Faq__item__answer}>- {item.answer}</p>
                 </div>

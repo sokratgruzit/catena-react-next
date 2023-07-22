@@ -1,0 +1,59 @@
+.container { 
+  width: 100%;
+  display: flex;
+}
+
+.bodyContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+}
+
+.containerTwo { 
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+}
+
+.blog {
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+}
+.bodyContainer  {
+  width: 50%;
+}
+
+.numberBox { 
+  display: flex;
+}
+
+.maneBox { 
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 35px;
+}
+
+.number {
+  width:25px;
+  height: 25px;
+  margin: 10px 10px 10px 10px;
+}
+
+.itemTitle {
+  margin-bottom: 20px;
+}
+
+.itemTease {
+  margin-left: 10px;
+}
+
+.img { 
+  width: 30%;
+  margin: 40px 0px 60px 0px;
+}
+
+.Title { 
+  max-width: 50%;
+}
