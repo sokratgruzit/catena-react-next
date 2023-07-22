@@ -35,8 +35,8 @@ function PrivacyList({ privacyList }) {
       </div>
       {privacyList?.map((item, i) => (
         <div key={i} className='text'>
-          <h2 className={`${styles.title} font-40`}>
-            <p className='font-40'>{`${i + 1}`}</p> {item?.title}
+          <h2 className={`${styles.title} font-40 ttl`}>
+            <p className='font-40 ttl'>{`${i + 1}`}</p> {item?.title}
           </h2>
           <p className={styles.text}>{item?.text}</p>
           {item?.link && <a href='mailto:info@coremultichain.com'>{item?.link}</a>}
@@ -50,8 +50,8 @@ function PrivacyList({ privacyList }) {
           {item?.children &&
             item?.children?.map((child, j) => (
               <div key={j} className={styles.children}>
-                <h3 className={`${styles.secondaryTitle} font_20`}>
-                  <p className={`${styles.numbering} font_20`}>
+                <h3 className={`${styles.secondaryTitle}  font_20 ttl`}>
+                  <p className={`${styles.numbering} ttl font_20`}>
                     {`${j + 1} `}
                     <span className={styles.circle}></span>
                     {`${j + 1} `}
