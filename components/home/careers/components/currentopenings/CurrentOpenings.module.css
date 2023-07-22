@@ -54,7 +54,7 @@
   flex-direction: column;
   margin-bottom: 30px;
   width: 50%;
-  justify-content: space-between;
+  /* justify-content: space-between; */
 }
 
 .careerQualities h2 {
