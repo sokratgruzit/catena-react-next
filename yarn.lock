@@ -316,9 +316,14 @@
   dependencies:
     "glob" "7.1.7"
 
-"@next/swc-darwin-x64@12.2.0":
-  "integrity" "sha512-iwMNFsrAPjfedjKDv9AXPAV16PWIomP3qw/FfPaxkDVRbUls7BNdofBLzkQmqxqWh93WrawLwaqyXpJuAaiwJA=="
-  "resolved" "https://registry.npmjs.org/@next/swc-darwin-x64/-/swc-darwin-x64-12.2.0.tgz"
+"@next/swc-darwin-arm64@12.2.0":
+  "integrity" "sha512-OI14ozFLThEV3ey6jE47zrzSTV/6eIMsvbwozo+XfdWqOPwQ7X00YkRx4GVMKMC0rM44oGS2gmwMKYpe4EblnA=="
+  "resolved" "https://registry.npmjs.org/@next/swc-win32-x64-msvc/-/swc-win32-x64-msvc-12.2.0.tgz"
+  "version" "12.2.0"
+
+"@next/swc-win32-x64-msvc@12.2.0":
+  "integrity" "sha512-OI14ozFLThEV3ey6jE47zrzSTV/6eIMsvbwozo+XfdWqOPwQ7X00YkRx4GVMKMC0rM44oGS2gmwMKYpe4EblnA=="
+  "resolved" "https://registry.npmjs.org/@next/swc-win32-x64-msvc/-/swc-win32-x64-msvc-12.2.0.tgz"
   "version" "12.2.0"
 
 "@nodelib/fs.scandir@2.1.5":
@@ -374,10 +379,10 @@
     "redux-thunk" "^2.4.1"
     "reselect" "^4.1.5"
 
-"@remix-run/router@1.6.1":
-  "integrity" "sha512-YUkWj+xs0oOzBe74OgErsuR3wVn+efrFhXBWrit50kOiED+pvQe2r6MWY0iJMQU/mSVKxvNzL4ZaYvjdX+G7ZA=="
-  "resolved" "https://registry.npmjs.org/@remix-run/router/-/router-1.6.1.tgz"
-  "version" "1.6.1"
+"@remix-run/router@1.7.2":
+  "integrity" "sha512-7Lcn7IqGMV+vizMPoEl5F0XDshcdDYtMI6uJLQdQz5CfZAwy3vvGKYSUk789qndt5dEC4HfSjviSYlSoHGL2+A=="
+  "resolved" "https://registry.npmjs.org/@remix-run/router/-/router-1.7.2.tgz"
+  "version" "1.7.2"
 
 "@rollup/plugin-url@^8.0.1":
   "integrity" "sha512-8ajztphXb5e19dk3Iwjtm2eSYJR8jFQubZ8pJ1GG2MBMM7/qUedLnZAN+Vt4jqbcT/m27jfjIBocvrzV0giNRw=="
@@ -4733,20 +4738,20 @@
     "react-is" "^18.0.0"
     "use-sync-external-store" "^1.0.0"
 
-"react-router-dom@^6.11.1":
-  "integrity" "sha512-dPC2MhoPeTQ1YUOt5uIK376SMNWbwUxYRWk2ZmTT4fZfwlOvabF8uduRKKJIyfkCZvMgiF0GSCQckmkGGijIrg=="
-  "resolved" "https://registry.npmjs.org/react-router-dom/-/react-router-dom-6.11.1.tgz"
-  "version" "6.11.1"
+"react-router-dom@^6.14.2":
+  "integrity" "sha512-5pWX0jdKR48XFZBuJqHosX3AAHjRAzygouMTyimnBPOLdY3WjzUSKhus2FVMihUFWzeLebDgr4r8UeQFAct7Bg=="
+  "resolved" "https://registry.npmjs.org/react-router-dom/-/react-router-dom-6.14.2.tgz"
+  "version" "6.14.2"
   dependencies:
-    "@remix-run/router" "1.6.1"
-    "react-router" "6.11.1"
+    "@remix-run/router" "1.7.2"
+    "react-router" "6.14.2"
 
-"react-router@6.11.1":
-  "integrity" "sha512-OZINSdjJ2WgvAi7hgNLazrEV8SGn6xrKA+MkJe9wVDMZ3zQ6fdJocUjpCUCI0cNrelWjcvon0S/QK/j0NzL3KA=="
-  "resolved" "https://registry.npmjs.org/react-router/-/react-router-6.11.1.tgz"
-  "version" "6.11.1"
+"react-router@6.14.2":
+  "integrity" "sha512-09Zss2dE2z+T1D03IheqAFtK4UzQyX8nFPWx6jkwdYzGLXd5ie06A6ezS2fO6zJfEb/SpG6UocN2O1hfD+2urQ=="
+  "resolved" "https://registry.npmjs.org/react-router/-/react-router-6.14.2.tgz"
+  "version" "6.14.2"
   dependencies:
-    "@remix-run/router" "1.6.1"
+    "@remix-run/router" "1.7.2"
 
 "react-spinner-animated@^3.1.1":
   "integrity" "sha512-bv4YRVAKjAMahHmeQfLp9qD+Y4v/ZkV9L/kYzVeAOSvvjjVknqdTn9iNT0CBqsW4AU3oFZ/xTle/5C8qzOvvsg=="
