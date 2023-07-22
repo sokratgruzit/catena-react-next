@@ -173,7 +173,7 @@ const Press = () => {
       <div className={styles.joinComCont}>
         <JoinCommunity />
       </div>
-    </div >
+    </div>
   );
 };
 export default Press;
