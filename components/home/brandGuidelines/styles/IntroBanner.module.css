@@ -4,8 +4,6 @@
   gap: 30px;
 }
 .left h1 span {
-  font-size: 90px;
-  line-height: 108px;
   color: #fff;
   text-transform: capitalize;
 }
@@ -58,19 +56,9 @@
   margin-left: 43px;
 }
 
-@media (max-width: 1023px) {
-  .left h1 span {
-    font-size: 70px;
-  }
-}
-
 @media (max-width: 767px) {
-  .left h1 span {
-    font-size: 40px;
-  }
   .left h1 {
     gap: 0px;
-    line-height: 65px;
   }
   .mainContainerDescription {
     padding: 160px 30px 250px 30px;

@@ -3,7 +3,7 @@ import styles from './terms.module.css';
 function TermsItem() {
   return (
     <div className={styles.terms}>
-      <h1 className={styles.title}>Terms of Use</h1>
+      <h1 className={`${styles.title} font-90`}>Terms of Use</h1>
       <div className={styles.content}>
         <p>
           These Terms of Use apply to www.catenamultichain.com.com as well as any other affiliated sites, digital

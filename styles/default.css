@@ -21,7 +21,7 @@
 }
 
 * {
-  font-family: "Noto-Sans";
+  font-family: 'Noto-Sans';
   font-size: 18px;
   line-height: 150%;
   color: rgba(0, 0, 0, 1);
@@ -275,7 +275,6 @@ input:focus:-ms-input-placeholder {
   .container {
     padding: 0px 40px;
   }
-
 }
 
 /*Ipad Pro 1024*/

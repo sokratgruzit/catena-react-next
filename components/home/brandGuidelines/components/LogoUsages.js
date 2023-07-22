@@ -17,7 +17,7 @@ export default function LogoUsages() {
   ];
   return (
     <div>
-      <h3 className={styles.title}>Incorrect Usage</h3>
+      <h3 className={`${styles.title} font_51`}>Incorrect Usage</h3>
       <div className={styles.wrapper}>
         {incorrectUsageList.map((item, index) => (
           <div key={index} className={styles.guidlineTableItem}>

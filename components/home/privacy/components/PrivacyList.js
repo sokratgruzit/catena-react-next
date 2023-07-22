@@ -3,7 +3,7 @@ import styles from '../styles/PrivacyList.module.css';
 function PrivacyList({ privacyList }) {
   const privacyHeader = [
     {
-      text: 'We are committed to protecting Your privacy. This Privacy Policy describes how We collect, use, store, share and protect the information collected through https://www.coremultichain.com/ (the “Website”).In this Privacy Policy, "We", "Us", and "Our" refer to CORE. For more information about Us, see “Our Details” at the end of this Policy.',
+      text: 'We are committed to protecting Your privacy. This Privacy Policy describes how We collect, use, store, share and protect the information collected through https://www.catena.com/ (the “Website”).In this Privacy Policy, "We", "Us", and "Our" refer to Catena. For more information about Us, see “Our Details” at the end of this Policy.',
     },
     {
       text: 'This Privacy Policy is incorporated into and subject to Our Terms and Conditions. Capitalized words used but not defined in this Privacy Policy have the meaning given to them in the Terms and Conditions.',
@@ -34,12 +34,12 @@ function PrivacyList({ privacyList }) {
         })}
       </div>
       {privacyList?.map((item, i) => (
-        <div key={i}>
-          <h2 className={styles.title}>
-            <p>{`${i + 1}`}</p> {item?.title}
+        <div key={i} className='text'>
+          <h2 className={`${styles.title} font-40 ttl`}>
+            <p className='font-40 ttl'>{`${i + 1}`}</p> {item?.title}
           </h2>
           <p className={styles.text}>{item?.text}</p>
-          {item?.link && <a href='mailto:info@coremultichain.com'>{item?.link}</a>}
+          {item?.link && <a href='mailto:https://www.catenamultichain.com/'>{item?.link}</a>}
           {item?.bullets && (
             <ul>
               {item?.bullets.map((bullets, j) => (
@@ -50,8 +50,8 @@ function PrivacyList({ privacyList }) {
           {item?.children &&
             item?.children?.map((child, j) => (
               <div key={j} className={styles.children}>
-                <h3 className={styles.secondaryTitle}>
-                  <p className={styles.numbering}>
+                <h3 className={`${styles.secondaryTitle}  font_20 ttl`}>
+                  <p className={`${styles.numbering} ttl font_20`}>
                     {`${j + 1} `}
                     <span className={styles.circle}></span>
                     {`${j + 1} `}

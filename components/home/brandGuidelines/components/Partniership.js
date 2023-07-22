@@ -3,7 +3,7 @@ import styles from '../styles/Partniership.module.css';
 export default function Partniership() {
   return (
     <div className={styles.partniership}>
-      <h3 className={styles.title}>Partnership</h3>
+      <h3 className={`${styles.title} font_51`}>Partnership</h3>
       <div className={styles.wrapper}>
         <p className={styles.text}>
           When pairing the Blockstream corporate logo or any other Blockstream logo with another logo, a thin line is

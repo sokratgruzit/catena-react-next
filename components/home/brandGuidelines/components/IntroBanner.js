@@ -18,8 +18,8 @@ export default function IntroBanner() {
           return (
             <div key={index} className={styles.left}>
               <h1>
-                <span>{item.brand}</span>
-                <span>{item.guidelines}</span>
+                <span className='font-90'>{item.brand}</span>
+                <span className='font-90'>{item.guidelines}</span>
               </h1>
               <div className={styles.mainContainerDownload}>
                 {/* <a href='/resources/core-logo-pack.zip' target='_blank' className={styles.mainContainerDownloadBtn}>
