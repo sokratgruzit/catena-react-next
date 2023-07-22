@@ -12,17 +12,9 @@
   flex-direction: column;
 }
 
-.title span {
-  font-size: 90px;
-  line-height: 108px;
-}
-
 @media (max-width: 1023px) {
   .content {
     width: 70%;
-  }
-  .title span {
-    font-size: 60px;
   }
 }
 @media (max-width: 767px) {
@@ -38,8 +30,5 @@
     flex-direction: row;
     gap: 40px;
     flex-wrap: wrap;
-  }
-  .title {
-    font-size: 50px;
   }
 }

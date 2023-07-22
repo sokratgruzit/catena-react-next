@@ -36,8 +36,8 @@ export default function ClearSpace() {
         <div className={styles.wrapper} key={index}>
           <div className={styles.guidlineFlex}>
             <div className={`${styles.guidlineLrgTtl} ${styles.font51}`}>
-              <span>{item.clearSpace}</span>
-              <span>{item.andPositioning}</span>
+              <span className='font_51'>{item.clearSpace}</span>
+              <span className='font_51'>{item.andPositioning}</span>
             </div>
             <div className={`${styles.guidlineParagraph} ${styles.paragraphMt}`}>{item.clearSpaceText}</div>
           </div>

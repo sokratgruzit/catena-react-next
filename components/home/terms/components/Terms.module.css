@@ -13,8 +13,6 @@
 }
 
 .title {
-  font-size: 100px;
-  line-height: 110px;
   display: flex;
   flex-direction: column;
   margin-bottom: 100px;
@@ -39,8 +37,6 @@
   }
 
   .title {
-    font-size: 60px;
-    line-height: 70px;
     margin-bottom: 50px;
   }
 }
@@ -52,10 +48,5 @@
     margin-right: 0;
     margin-left: auto;
     width: 100%;
-  }
-
-  .title {
-    font-size: 50px;
-    line-height: 60px;
   }
 }

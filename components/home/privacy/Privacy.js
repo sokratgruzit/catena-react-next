@@ -219,8 +219,8 @@ export default function privacy() {
   return (
     <div className={`container ${styles.wrapper}`}>
       <h1 className={styles.title}>
-        <span>Privacy</span>
-        <span>Policy</span>
+        <span className='font-90'>Privacy</span>
+        <span className='font-90'>Policy</span>
       </h1>
       <div className={styles.content}>
         <PrivacyList privacyList={privacyList} />

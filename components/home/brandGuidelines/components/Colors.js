@@ -65,7 +65,7 @@ export default function Colors() {
         Color
       </div>
       <div className={styles.collorPallete}>
-        <h1 className={styles.title}>Color Palette</h1>
+        <h1 className={`${styles.title} font-90`}>Color Palette</h1>
         <div className={styles.pallete}>
           {colors.map((item, index) => {
             return (
