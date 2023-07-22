@@ -9,14 +9,14 @@ const VoiceMatter = props => {
   };
 
   return (
-    <div className={styles.main}>
+    <div className={`${styles.main} container`}>
 
-      <div className={`${styles.box} continer`}>
+      <div className={`${styles.box} `}>
         <div className={styles.container}>
           <img src="/images/VoiceMatter/YourVoiceMatter.png" className={styles.img} />
         </div>
         <div className={styles.Title}>
-          <h2 className='font-10'>
+          <h2>
             Community feedback helps CATENA improve and grow. Users who provide feedback on
             their experience help ensure the growth of CATENA and lead us in the direction that the
             community needs to be. Please use the following form to contribute your thoughts to CATENA:
@@ -25,7 +25,7 @@ const VoiceMatter = props => {
       </div>
 
       <div className={`${styles.bottomBox} `}>
-        <div className={`${styles.hederBox}`}>
+        <div className={`${styles.hederBox} `}>
           <form>
             <div className={styles.asdwa}>
               <Input

@@ -78,7 +78,7 @@ function FaqItem() {
                 <img src={item.image} className={styles.number} />
                 <div className={`${styles.itemTitle} ttl  font-40 `}>{item.question}</div>
               </div>
-              <div className={`${styles.itemTease} .font_10 `}>{item.answer}</div>
+              <div className={`${styles.itemTease} `}>{item.answer}`</div>
             </div>
           );
         })}

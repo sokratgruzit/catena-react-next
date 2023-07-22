@@ -2,7 +2,7 @@ import styles from "../css/Title.module.css"
 
 const Title = () => {
     return (
-        <div className={`${styles.container} container_bordered`}>
+        <div className={`${styles.container} container`}>x``
             <img
                 className={styles.bckImg}
                 src="/images/BecomeAmbassador/BecAmbBack.png"

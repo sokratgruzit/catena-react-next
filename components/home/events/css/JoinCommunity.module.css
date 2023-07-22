@@ -1,14 +1,13 @@
 .boxTitle { 
     height: auto;
-    background-color: #A6D0DD;
     border-radius: 10px;
     display: flex;
-    border: 1px solid #162029;
     flex-direction: column;
+    margin-bottom: 100px;
 }
 
 .box { 
-    padding: 40px;
+    background-color: #A6D0DD !important;
 }
 
 .Titile { 

@@ -2,7 +2,7 @@ import VoiceMatter from './components/VoiceMatter';
 
 const YourVoice = () => {
   return (
-    <div className='container'>
+    <div>
       <VoiceMatter />
     </div>
   );

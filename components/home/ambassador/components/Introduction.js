@@ -2,8 +2,8 @@ import styles from "../css/Introduction.module.css"
 
 const Introduction = () => {
     return (
-        <div className={`${styles.container} container_bordered `}>
-            <h3 className={`${styles.Ttl} ttl font_30`}>Help build the future and earn rewards</h3>
+        <div className={`${styles.container} container `}>
+            <h3 className={`${styles.Ttl} ttl font-40`}>Help build the future and earn rewards</h3>
             <p className={styles.texts}>
                 CORE MultiChain is a super-performant blockchain ecosystem that will help solve the blockchain trilemma of scalability, interoperability,
                 and usability. The blockchain-powered ecosystem is built around user privacy and lets users take control of their data. We will use our
