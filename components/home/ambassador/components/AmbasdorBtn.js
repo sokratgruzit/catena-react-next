@@ -27,7 +27,7 @@ const AmbasdorBtn = () => {
     return (
         <div className={`${styles.btn} container `}>
             <div className={`${styles.chnBox} ${chng ? styles.active : ""}`}>
-                <form className={`${styles.aaa} ${chng ? styles.bbb : ""}`}>
+                <form >
                     <div>
                         <Input
                             className={styles.llll}
