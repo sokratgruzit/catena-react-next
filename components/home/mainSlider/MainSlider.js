@@ -1,4 +1,15 @@
+import { React, useState } from 'react';
+
 const MainSlider = () => {
+  const [levels, setLevels] = useState([]);
+  let setLvl = array => {
+    console.log(levels);
+    if (levels.length > 0) {
+      setLevels([]);
+    } else {
+      setLevels(array);
+    }
+  };
   return (
     <>
       <div className='container'>
@@ -18,6 +29,11 @@ const MainSlider = () => {
             <li>xai2</li>
             <li>xai3</li>
           </ul>
+          <ol>
+            <li>xai</li>
+            <li>xai2</li>
+            <li>xai3</li>
+          </ol>
         </div>
       </div>
       <div className='container_bordered'>
@@ -31,6 +47,12 @@ const MainSlider = () => {
           better, privacy-first world into a reality.
         </div>
       </div>
+      {/*<Microscheme*/}
+      {/*  lvl={levels}*/}
+      {/*/>*/}
+      {/*<div className={styles.testBtn} onClick={() => {*/}
+      {/*    setLvl([7,8,9,10])*/}
+      {/*}}>test</div>*/}
     </>
   );
 };

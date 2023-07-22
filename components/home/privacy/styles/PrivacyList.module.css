@@ -103,13 +103,8 @@
   font-size: 16px;
   line-height: 24px;
 }
-/* .listWrapper .children .innerContent ul li:before {
-  content: '';
-  position: absolute;
-  top: 6px;
-  background-color: #a6d0dd;
-  border-radius: 50%;
-  width: 10px;
-  height: 10px;
-  border: 1px solid #162029;
-  left: -16px; /* Adjust the left position as needed */
+@media (max-width: 767px) {
+  .listWrapper {
+    padding-top: 30px;
+  }
+}

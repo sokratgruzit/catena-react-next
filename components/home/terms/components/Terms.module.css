@@ -44,6 +44,9 @@
   .terms {
     flex-direction: column;
   }
+  .title {
+    margin-bottom: 30px;
+  }
   .content {
     margin-right: 0;
     margin-left: auto;
