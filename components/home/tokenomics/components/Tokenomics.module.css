@@ -2,7 +2,7 @@
 .tokenomics_line::after {
   content: '';
   transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
-  width: 50px;
+  width: 56px;
   height: 1px;
   display: block;
   background-color: #a6d0dd;
@@ -74,6 +74,15 @@
 }
 .itemWrap {
   margin-bottom: 10px;
+}
+@media (max-width: 768px) {
+  .wrap {
+    display: flex;
+    flex-direction: column;
+  }
+  .responsive_flex {
+    flex-direction: column;
+  }
 }
 /* Tokenomics Head */
 
@@ -161,6 +170,11 @@
 .events_teaser {
   padding-bottom: 8px;
 }
+@media (max-width: 1365px) {
+  .left_bar {
+    margin-right: 44px;
+  }
+}
 /* Event Details */
 
 /* Certik */
@@ -183,13 +197,28 @@
 .certik_line::after {
   content: '';
   transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
-  width: 202px;
+  width: 228px;
   height: 1px;
   display: block;
   background-color: #a6d0dd;
 }
 .certik_line:hover::after {
   width: 0%;
+}
+@media (max-width: 1365px) {
+  .certik_grid {
+    display: flex;
+    flex-direction: column;
+  }
+  .certik {
+    margin-top: 24px;
+  }
+  .certik_logo {
+    width: 100%;
+  }
+  .certik_line::after {
+    width: 202px;
+  }
 }
 /* Certik */
 
@@ -209,5 +238,16 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
+}
+@media (max-width: 768px) {
+  .downloadIcons,
+  .download_responsive {
+    flex-direction: column;
+  }
+  .catena_logo {
+    margin: 8px 0;
+    width: 50px;
+    height: 50px;
+  }
 }
 /* Download */

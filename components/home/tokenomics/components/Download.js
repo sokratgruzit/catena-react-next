@@ -4,7 +4,7 @@ import styles from './Tokenomics.module.css';
 function Download() {
   return (
     <div className={`${styles.p280} ${styles.flexColumn}`}>
-      <h2 className={` ttl font-40 ${styles.flex} ${styles.alignItemsCenter}`}>
+      <h2 className={` ttl font-40 ${styles.flex} ${styles.alignItemsCenter} ${styles.download_responsive}`}>
         Download <img className={`${styles.catena_logo}`} src='/images/logo_dwn.svg' alt='logo' />
         <span className={`ttl font-40 ${styles.orange}`}>CATENA</span>&nbsp;Wallet App
       </h2>

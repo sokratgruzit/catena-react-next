@@ -22,7 +22,14 @@ function Certik() {
       </div>
       <div className={`${styles.certik_grid}`}>
         <div>
-          <svg width='420' height='100' viewBox='0 0 420 100' fill='none' xmlns='http://www.w3.org/2000/svg'>
+          <svg
+            className={`${styles.certik_logo}`}
+            width='420'
+            height='100'
+            viewBox='0 0 420 100'
+            fill='none'
+            xmlns='http://www.w3.org/2000/svg'
+          >
             <path
               fillRule='evenodd'
               clipRule='evenodd'

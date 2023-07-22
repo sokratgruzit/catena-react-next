@@ -21,7 +21,7 @@ function EventDetails() {
   ];
 
   return (
-    <div className={`${styles.pt64} ${styles.flex} ${styles.alignItemsCenter}`}>
+    <div className={`${styles.pt64} ${styles.flex} ${styles.responsive_flex} ${styles.alignItemsCenter}`}>
       <div className={`${styles.left_bar}`}>
         <h2 className={` font_51 ttl `}>Token Distribution Event Details</h2>
         <div>
