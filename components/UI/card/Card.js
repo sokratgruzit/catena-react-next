@@ -4,7 +4,7 @@ const Card = ({ dataArr }) => {
     return (
         <div className={`${styles.mapContainer} container`}>
             {dataArr.map(item => (
-                <div key={item.id} className={styles.item}>
+                <div key={item.id} className={styles.arrContents}>
                     <img src={item.img} alt={`Image`} className={styles.pressImage} />
                     <img src={item.imgPart} alt={`ImagePart`} className={styles.icon} />
                     <div className={styles.test}>
