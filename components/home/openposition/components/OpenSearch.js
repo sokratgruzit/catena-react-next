@@ -1,6 +1,5 @@
+import { Input } from '@catena-network/catena-ui-module';
 import React from 'react';
-// import { Input } from '@catena-network/catena-ui-module'
-
 
 import styles from './OpenSearch.module.css';
 
@@ -24,7 +23,7 @@ const OpenSearch = ({ title, department, location }) => {
               status={'warning'}
               title={'your text'}
               color={'#FFA726'}
-              customStylesstyless={{ width: '320px', border: '1px solid red' }}
+              customStylesstyless={{ width: '320px' }}
             />
           </div>
           <div className={styles.openPositions__filter}>

@@ -37,4 +37,7 @@
 }
 /*Mobile 320*/
 @media (max-width: 767px) {
+  .careerQualities__text {
+    width: 100%;
+  }
 }

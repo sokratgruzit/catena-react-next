@@ -60,4 +60,8 @@
   .career__benefit-col:not(:last-child) {
     margin-bottom: 30px;
   }
+
+  .font__51 {
+    width: 100%;
+  }
 }

@@ -130,8 +130,8 @@
   }
   .career_item {
     width: 100%;
-    align-items: center;
-    padding-right: 0px;
+    align-items: start;
+    padding-left: 60px;
   }
   .career_item p {
     text-align: left;
