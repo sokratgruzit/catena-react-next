@@ -1,86 +1,230 @@
-import styles from './tokenomics.module.css';
+/* eslint-disable react/jsx-key */
+import Link from 'next/link';
+
+import styles from './Tokenomics.module.css';
 
 function TokenomicsItem() {
+  let data = [
+    {
+      teaser: 'Name',
+      // text: ['CATENA Multi-Chain — ' + ' ' + 'Cryptographic Object Resources Engine'],
+      text: 'CATENA Multi-Chain — Cryptographic Object Resources Engine',
+    },
+    {
+      teaser: 'Decimal',
+      text: '18',
+    },
+    {
+      teaser: 'Native Crypto Symbol',
+      text: [
+        <svg
+          className={styles.tokenIcon}
+          width='24'
+          height='24'
+          viewBox='0 0 24 24'
+          fill='none'
+          xmlns='http://www.w3.org/2000/svg'
+        >
+          <circle cx='12' cy='12' r='12' fill='#FF6969' />
+          <path
+            fill-rule='evenodd'
+            clip-rule='evenodd'
+            d='M7.42413 8.63933C7.98389 7.8985 8.71722 7.30665 9.55953 6.91592C10.4019 6.52519 11.3273 6.34756 12.2544 6.39867C13.1816 6.44977 14.0819 6.72805 14.8762 7.209C15.6704 7.68994 16.3343 8.3588 16.8092 9.15667L17.2194 8.92877L17.9031 8.52766C17.2898 7.49572 16.4186 6.64099 15.3752 6.04736C14.3318 5.45373 13.1519 5.1416 11.9514 5.1416C10.751 5.1416 9.57112 5.45373 8.52769 6.04736C7.48426 6.64099 6.61311 7.49572 5.99973 8.52766L5.66016 9.06095L6.20257 9.3823L8.30156 10.6289C7.95824 11.4924 7.93434 12.45 8.23416 13.3295C8.53399 14.209 9.13785 14.9526 9.9371 15.4266C10.7363 15.9005 11.6785 16.0737 12.594 15.9149C13.5096 15.756 14.3383 15.2757 14.9313 14.5603L16.4605 15.4719C15.9006 16.2134 15.1668 16.8057 14.3239 17.1965C13.4809 17.5873 12.5548 17.7646 11.6271 17.7128C10.6994 17.661 9.79871 17.3817 9.00451 16.8994C8.21032 16.4172 7.54702 15.7469 7.07316 14.9477L5.99062 15.5881C6.604 16.6201 7.47515 17.4748 8.51858 18.0684C9.562 18.662 10.7418 18.9742 11.9423 18.9742C13.1428 18.9742 14.3226 18.662 15.3661 18.0684C16.4095 17.4748 17.2806 16.6201 17.894 15.5881L18.2177 15.0457L17.6752 14.7244L15.9523 13.7011L14.4664 12.8442C14.2855 13.42 13.913 13.9166 13.4108 14.2514C12.9086 14.5863 12.307 14.7392 11.7059 14.6848C11.1048 14.6304 10.5404 14.3719 10.1065 13.9523C9.67257 13.5328 9.39531 12.9774 9.32076 12.3784C9.2462 11.7795 9.37884 11.173 9.69663 10.6599C10.0144 10.1468 10.4982 9.75781 11.0677 9.5577C11.6371 9.35758 12.2579 9.35834 12.8268 9.55985C13.3958 9.76136 13.8786 10.1515 14.1952 10.6654L15.2868 10.0364C14.9661 9.50448 14.5231 9.05682 13.9945 8.73063C13.4659 8.40445 12.8671 8.20916 12.2479 8.16102C11.6287 8.11287 11.0069 8.21325 10.4343 8.45381C9.86163 8.69438 9.35471 9.06817 8.95564 9.54411L7.42413 8.63933Z'
+            fill='#162029'
+          />
+        </svg>,
+        'CXRE',
+      ],
+    },
+    {
+      teaser: 'Initial Price',
+      text: '0.005 USDT',
+    },
+    {
+      teaser: 'Consensus Protocol',
+      text: 'Practical Proof of Stake',
+    },
+    {
+      teaser: 'Current Price',
+      text: '0.005 USDT',
+    },
+    {
+      teaser: 'Total Supply (Genesis)',
+      text: '20,000,000,000 CXRE',
+    },
+    {
+      teaser: 'Role of Token',
+      text: 'Utility',
+    },
+    {
+      teaser: 'Pre-mined Reserve',
+      text: '8,000,000,000 CXRE',
+    },
+    {
+      teaser: 'Ofiicial Website',
+      text: 'catenamultichain.com',
+    },
+  ];
+
+  let protocolsData = [
+    {
+      tokenIcon0: (
+        <svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
+          <path
+            d='M12 24C18.6274 24 24 18.6274 24 12C24 5.37258 18.6274 0 12 0C5.37258 0 0 5.37258 0 12C0 18.6274 5.37258 24 12 24Z'
+            fill='#627EEA'
+          />
+          <path d='M12.373 3V9.6525L17.9958 12.165L12.373 3Z' fill='white' fillOpacity='0.602' />
+          <path d='M12.3735 3L6.75 12.165L12.3735 9.6525V3Z' fill='#162029' />
+          <path d='M12.373 16.476V20.9963L17.9995 13.212L12.373 16.476Z' fill='white' fillOpacity='0.602' />
+          <path d='M12.3735 20.9963V16.4753L6.75 13.212L12.3735 20.9963Z' fill='#162029' />
+          <path d='M12.373 15.4298L17.9958 12.165L12.373 9.65402V15.4298Z' fill='white' fillOpacity='0.2' />
+          <path d='M6.75 12.165L12.3735 15.4298V9.65402L6.75 12.165Z' fill='white' fillOpacity='0.602' />
+        </svg>
+      ),
+      tokenIcon1: (
+        <svg
+          className={styles.secToken}
+          width='24'
+          height='24'
+          viewBox='0 0 24 24'
+          fill='none'
+          xmlns='http://www.w3.org/2000/svg'
+        >
+          <path
+            d='M4.99665 11.4073C4.99668 11.2731 5.02321 11.1402 5.07473 11.0162C5.12625 10.8923 5.20174 10.7798 5.29687 10.6851C5.392 10.5905 5.50489 10.5155 5.62906 10.4646C5.75323 10.4137 5.88624 10.3878 6.02044 10.3884L7.71777 10.394C7.9884 10.394 8.24794 10.5015 8.43931 10.6928C8.63068 10.8842 8.73818 11.1438 8.73818 11.4144V17.8329C8.92935 17.7762 9.174 17.7158 9.44322 17.6524C9.62974 17.6085 9.79597 17.5029 9.91495 17.3527C10.0339 17.2025 10.0987 17.0165 10.0987 16.8249V8.86383C10.0987 8.59318 10.2062 8.33362 10.3976 8.14222C10.589 7.95082 10.8485 7.84327 11.1192 7.84322H12.8216C13.0923 7.84327 13.3518 7.95082 13.5432 8.14222C13.7346 8.33362 13.8421 8.59318 13.8421 8.86383V16.253C13.8421 16.253 14.268 16.0807 14.6826 15.9055C14.8367 15.8404 14.9681 15.7313 15.0606 15.5919C15.1531 15.4525 15.2025 15.2889 15.2026 15.1216V6.31269C15.2026 6.04209 15.3101 5.78258 15.5014 5.59122C15.6927 5.39986 15.9522 5.29233 16.2228 5.29227H17.9235C18.194 5.29254 18.4533 5.40016 18.6444 5.5915C18.8356 5.78284 18.943 6.04223 18.943 6.31269V13.5666C20.4174 12.498 21.9117 11.2127 23.0975 9.66733C23.2696 9.44301 23.3834 9.17959 23.4289 8.90057C23.4744 8.62155 23.4501 8.33561 23.3582 8.06826C22.8093 6.48903 21.9368 5.04177 20.7964 3.81911C19.6561 2.59644 18.273 1.62529 16.7358 0.967809C15.1986 0.310323 13.5411 -0.0190231 11.8693 0.00084856C10.1975 0.0207202 8.54824 0.389371 7.02709 1.08321C5.50595 1.77705 4.14639 2.7808 3.03543 4.03022C1.92447 5.27965 1.08656 6.74723 0.575331 8.33907C0.0641012 9.93091 -0.109193 11.6119 0.0665362 13.2746C0.242265 14.9373 0.763149 16.5449 1.59585 17.9947C1.74093 18.2448 1.95437 18.4483 2.2111 18.5813C2.46783 18.7143 2.75718 18.7713 3.04516 18.7455C3.36688 18.7172 3.76744 18.6772 4.24367 18.6213C4.45094 18.5977 4.64229 18.4987 4.78129 18.3432C4.92029 18.1876 4.99723 17.9864 4.99745 17.7778V11.4073'
+            fill='#162029'
+          />
+          <path
+            d='M4.95996 21.7008C6.75262 23.0049 8.8711 23.7877 11.081 23.9625C13.291 24.1374 15.5062 23.6975 17.4816 22.6915C19.4571 21.6855 21.1157 20.1526 22.274 18.2625C23.4323 16.3723 24.0452 14.1986 24.0448 11.9817C24.0448 11.7044 24.0319 11.4314 24.0135 11.1592C19.623 17.7074 11.5163 20.7687 4.95996 21.7008Z'
+            fill='#162029'
+          />
+        </svg>
+      ),
+      link: 'ERC-20',
+      arrow: (
+        <svg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'>
+          <g opacity='0.5'>
+            <path
+              d='M10.5 2C10.5 1.72386 10.2761 1.5 10 1.5L5.5 1.5C5.22386 1.5 5 1.72386 5 2C5 2.27614 5.22386 2.5 5.5 2.5L9.5 2.5L9.5 6.5C9.5 6.77614 9.72386 7 10 7C10.2761 7 10.5 6.77614 10.5 6.5L10.5 2ZM1.35355 11.3536L10.3536 2.35355L9.64645 1.64645L0.646447 10.6464L1.35355 11.3536Z'
+              fill='#162029'
+            />
+          </g>
+        </svg>
+      ),
+    },
+    {
+      tokenIcon0: (
+        <svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
+          <path
+            d='M12 24C18.6274 24 24 18.6274 24 12C24 5.37258 18.6274 0 12 0C5.37258 0 0 5.37258 0 12C0 18.6274 5.37258 24 12 24Z'
+            fill='#627EEA'
+          />
+          <path d='M12.373 3V9.6525L17.9958 12.165L12.373 3Z' fill='white' fillOpacity='0.602' />
+          <path d='M12.3735 3L6.75 12.165L12.3735 9.6525V3Z' fill='#162029' />
+          <path d='M12.373 16.476V20.9963L17.9995 13.212L12.373 16.476Z' fill='white' fillOpacity='0.602' />
+          <path d='M12.3735 20.9963V16.4753L6.75 13.212L12.3735 20.9963Z' fill='#162029' />
+          <path d='M12.373 15.4298L17.9958 12.165L12.373 9.65402V15.4298Z' fill='white' fillOpacity='0.2' />
+          <path d='M6.75 12.165L12.3735 15.4298V9.65402L6.75 12.165Z' fill='white' fillOpacity='0.602' />
+        </svg>
+      ),
+      tokenIcon1: <div className={styles.placeHolder}></div>,
+      link: 'TRC-20',
+      arrow: (
+        <svg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'>
+          <g opacity='0.5'>
+            <path
+              d='M10.5 2C10.5 1.72386 10.2761 1.5 10 1.5L5.5 1.5C5.22386 1.5 5 1.72386 5 2C5 2.27614 5.22386 2.5 5.5 2.5L9.5 2.5L9.5 6.5C9.5 6.77614 9.72386 7 10 7C10.2761 7 10.5 6.77614 10.5 6.5L10.5 2ZM1.35355 11.3536L10.3536 2.35355L9.64645 1.64645L0.646447 10.6464L1.35355 11.3536Z'
+              fill='#162029'
+            />
+          </g>
+        </svg>
+      ),
+    },
+    {
+      tokenIcon0: (
+        <svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
+          <path
+            d='M12 24C18.6274 24 24 18.6274 24 12C24 5.37258 18.6274 0 12 0C5.37258 0 0 5.37258 0 12C0 18.6274 5.37258 24 12 24Z'
+            fill='#F3BA2F'
+          />
+          <path
+            d='M9.087 10.803L12 7.89L14.9145 10.8045L16.6095 9.1095L12 4.5L7.392 9.108L9.087 10.803ZM4.5 12L6.195 10.305L7.89 12L6.195 13.695L4.5 12ZM9.087 13.197L12 16.11L14.9145 13.1955L16.6095 14.8898L12 19.5L7.392 14.892L7.38975 14.8898L9.087 13.197ZM16.11 12L17.805 10.305L19.5 12L17.805 13.695L16.11 12ZM13.719 11.9985H13.7205V12L12 13.7205L10.2817 12.003L10.2787 12L10.2817 11.9977L10.5825 11.6962L10.7288 11.55L12 10.2795L13.7197 11.9992L13.719 11.9985Z'
+            fill='#162029'
+          />
+        </svg>
+      ),
+      tokenIcon1: (
+        <svg
+          className={styles.secToken}
+          width='24'
+          height='24'
+          viewBox='0 0 24 24'
+          fill='none'
+          xmlns='http://www.w3.org/2000/svg'
+        >
+          <path
+            d='M4.99665 11.4073C4.99668 11.2731 5.02321 11.1402 5.07473 11.0162C5.12625 10.8923 5.20174 10.7798 5.29687 10.6851C5.392 10.5905 5.50489 10.5155 5.62906 10.4646C5.75323 10.4137 5.88624 10.3878 6.02044 10.3884L7.71777 10.394C7.9884 10.394 8.24794 10.5015 8.43931 10.6928C8.63068 10.8842 8.73818 11.1438 8.73818 11.4144V17.8329C8.92935 17.7762 9.174 17.7158 9.44322 17.6524C9.62974 17.6085 9.79597 17.5029 9.91495 17.3527C10.0339 17.2025 10.0987 17.0165 10.0987 16.8249V8.86383C10.0987 8.59318 10.2062 8.33362 10.3976 8.14222C10.589 7.95082 10.8485 7.84327 11.1192 7.84322H12.8216C13.0923 7.84327 13.3518 7.95082 13.5432 8.14222C13.7346 8.33362 13.8421 8.59318 13.8421 8.86383V16.253C13.8421 16.253 14.268 16.0807 14.6826 15.9055C14.8367 15.8404 14.9681 15.7313 15.0606 15.5919C15.1531 15.4525 15.2025 15.2889 15.2026 15.1216V6.31269C15.2026 6.04209 15.3101 5.78258 15.5014 5.59122C15.6927 5.39986 15.9522 5.29233 16.2228 5.29227H17.9235C18.194 5.29254 18.4533 5.40016 18.6444 5.5915C18.8356 5.78284 18.943 6.04223 18.943 6.31269V13.5666C20.4174 12.498 21.9117 11.2127 23.0975 9.66733C23.2696 9.44301 23.3834 9.17959 23.4289 8.90057C23.4744 8.62155 23.4501 8.33561 23.3582 8.06826C22.8093 6.48903 21.9368 5.04177 20.7964 3.81911C19.6561 2.59644 18.273 1.62529 16.7358 0.967809C15.1986 0.310323 13.5411 -0.0190231 11.8693 0.00084856C10.1975 0.0207202 8.54824 0.389371 7.02709 1.08321C5.50595 1.77705 4.14639 2.7808 3.03543 4.03022C1.92447 5.27965 1.08656 6.74723 0.575331 8.33907C0.0641012 9.93091 -0.109193 11.6119 0.0665362 13.2746C0.242265 14.9373 0.763149 16.5449 1.59585 17.9947C1.74093 18.2448 1.95437 18.4483 2.2111 18.5813C2.46783 18.7143 2.75718 18.7713 3.04516 18.7455C3.36688 18.7172 3.76744 18.6772 4.24367 18.6213C4.45094 18.5977 4.64229 18.4987 4.78129 18.3432C4.92029 18.1876 4.99723 17.9864 4.99745 17.7778V11.4073'
+            fill='#162029'
+          />
+          <path
+            d='M4.95996 21.7008C6.75262 23.0049 8.8711 23.7877 11.081 23.9625C13.291 24.1374 15.5062 23.6975 17.4816 22.6915C19.4571 21.6855 21.1157 20.1526 22.274 18.2625C23.4323 16.3723 24.0452 14.1986 24.0448 11.9817C24.0448 11.7044 24.0319 11.4314 24.0135 11.1592C19.623 17.7074 11.5163 20.7687 4.95996 21.7008Z'
+            fill='#162029'
+          />
+        </svg>
+      ),
+      link: 'BEP-20',
+      arrow: (
+        <svg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'>
+          <g opacity='0.5'>
+            <path
+              d='M10.5 2C10.5 1.72386 10.2761 1.5 10 1.5L5.5 1.5C5.22386 1.5 5 1.72386 5 2C5 2.27614 5.22386 2.5 5.5 2.5L9.5 2.5L9.5 6.5C9.5 6.77614 9.72386 7 10 7C10.2761 7 10.5 6.77614 10.5 6.5L10.5 2ZM1.35355 11.3536L10.3536 2.35355L9.64645 1.64645L0.646447 10.6464L1.35355 11.3536Z'
+              fill='#162029'
+            />
+          </g>
+        </svg>
+      ),
+    },
+  ];
+
+  const mappedData = data.map(item => {
+    return {
+      teaser: item.teaser,
+      text: Array.isArray(item.text) ? item.text : [item.text],
+    };
+  });
   return (
-    <div className={styles.bottom}>
-      <div className={styles.bottom__descriptionInner}>
-        <div className={styles.bottom__description}>
-          <div className={styles.bottom__descriptionFloor}>
-            <div className={styles.bottom__descriptionItem}>
-              <div className={styles.bottom__descriptionTtl}>Name</div>
-              <div>CATENA Multi-Chain — Cryptographic Object Resources Engine</div>
+    <div className={styles.pt130}>
+      <h1 className={`font-90 ttl ${styles.space}`}>Tokenomics</h1>
+      <div className={`${styles.wrap}`}>
+        {mappedData.map((item, index) => (
+          <div key={index} className={`${styles.inner}`}>
+            <div className={` ${styles.teaser}`}>
+              <p className={` ttl ${styles.orange} ${styles.textLeft}`}>{item.teaser}</p>
             </div>
-            <div className={styles.bottom__descriptionItem}>
-              <div className={styles.bottom__descriptionTtl}>Decimals</div>
-              <div className={styles.bottom__descriptionText}>18</div>
-            </div>
-          </div>
-          <div className={styles.bottom__descriptionFloor}>
-            <div className={styles.bottom__descriptionItem}>
-              <div className={styles.bottom__descriptionTtl}>Native Crypto Symbol</div>
-              <div className={styles.bottom__descriptionText}>Catena</div>
-            </div>
-            <div className={styles.bottom__descriptionItem}>
-              <div className={styles.bottom__descriptionTtl}>Initial Price</div>
-              <div className={styles.bottom__descriptionText}>0.005 USDT</div>
+            <div className={styles.text}>
+              {item.text.map((textItem, textIndex) => (
+                <p key={textIndex}>{textItem}</p>
+              ))}
             </div>
           </div>
-          <div className={styles.bottom__descriptionFloor}>
-            <div className={styles.bottom__descriptionItem}>
-              <div className={styles.bottom__descriptionTtl}>Consensus Protocol</div>
-              <div className={styles.bottom__descriptionText}>Practical Proof of Stake</div>
-            </div>
-            <div className={styles.bottom__descriptionItem}>
-              <div className={styles.bottom__descriptionTtl}>Current Price</div>
-              <div className={styles.bottom__descriptionText}>0.00144 USDT</div>
-            </div>
-          </div>
-          <div className={styles.bottom__descriptionFloor}>
-            <div className={styles.bottom__descriptionItem}>
-              <div className={styles.bottom__descriptionTtl}>Total Supply (Current)</div>
-              <div className={styles.bottom__descriptionText}>18,590,000,000 CMCX</div>
-            </div>
-            <div className={styles.bottom__descriptionItem}>
-              <div className={styles.bottom__descriptionTtl}>Total Supply (Current)</div>
-              <div className={styles.bottom__descriptionText}>18,590,000,000 CMCX</div>
-            </div>
-          </div>
-          <div className={styles.bottom__descriptionFloor}>
-            <div className={styles.bottom__descriptionItem}>
-              <div className={styles.bottom__descriptionTtl}>Total Supply (Genesis)</div>
-              <div className={styles.bottom__descriptionText}>20,000,000,000 CMCX</div>
-            </div>
-            <div className={styles.bottom__descriptionItem}>
-              <div className={styles.bottom__descriptionTtl}>Circulating Supply (Genesis)</div>
-              <div className={styles.bottom__descriptionText}>8,000,000,000 CMCX</div>
-            </div>
-            <div className={styles.bottom__descriptionItem}>
-              <div className={styles.bottom__descriptionTtl}>Circulating Supply (Current)</div>
-              <div className={styles.bottom__descriptionText}>8,000,000,000 CMCX</div>
-            </div>
-          </div>
-          <div className={styles.bottom__descriptionFloor}>
-            <div className={styles.bottom__descriptionItem}>
-              <div className={styles.bottom__descriptionTtl}>Role of Token</div>
-              <div className={styles.bottom__descriptionText}>Utility</div>
-            </div>
-            <div className={styles.bottom__descriptionItem}>
-              <div className={styles.bottom__descriptionTtl}>Official Website</div>
-              <div className={styles.bottom__descriptionText}>catenamultichain.com</div>
-            </div>
-          </div>
-          <div className={styles.bottom__descriptionFloor}>
-            <div className={styles.bottom__descriptionItem}>
-              <div className={styles.bottom__descriptionTtl}>Pre-mined Reserve</div>
-              <div className={styles.bottom__descriptionText}>6,000,000,000 CMCX</div>
-            </div>
-          </div>
-          <div className={styles.bottom__descriptionFloor}>
-            <div className={styles.bottom__descriptionItem}>
-              <div className={styles.bottom__descriptionTtl}>Protocols</div>
-              <div className={styles.bottom__descriptionText}>1,2,3</div>
-            </div>
-          </div>
+        ))}
+        <div>
+          <p className={`${styles.orange} ${styles.teaser}`}>Protocols</p>
+          {protocolsData?.map((item, i) => {
+            return (
+              <div key={i} className={`${styles.itemWrap} ${styles.flex} ${styles.alignItemsCenter}`}>
+                {item.tokenIcon0}
+                <span className={`${styles.flex} ${styles.overlay}`}>{item.tokenIcon1}</span>
+                <div className={styles.test}>
+                  <Link href='/'>
+                    <a className={`${styles.tokenomics_line} ${styles.link}`}>{item.link}</a>
+                  </Link>
+                </div>
+                <div className={styles.arrow}>{item.arrow}</div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>

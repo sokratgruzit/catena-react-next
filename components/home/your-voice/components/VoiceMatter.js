@@ -1,6 +1,6 @@
 import { Input, Button } from '@catena-network/catena-ui-module';
 
-import styles from './voiceMatters.module.css';
+import styles from './VoiceMatters.module.css';
 
 const VoiceMatter = props => {
   const { title, description } = props;
