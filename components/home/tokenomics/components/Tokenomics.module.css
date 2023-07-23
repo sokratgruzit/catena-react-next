@@ -7,139 +7,176 @@
   display: block;
   background-color: #a6d0dd;
 }
+
 .tokenomics_line:hover::after {
   width: 0%;
 }
+
 .pt130 {
   padding-top: 130px;
 }
+
 .wrap {
   width: 60%;
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
+
 .inner {
   width: 100%;
   padding-bottom: 32px;
 }
+
 .orange {
   color: #ff6969;
 }
+
 .flex {
   display: flex;
 }
+
 .alignItemsCenter {
   align-items: center;
 }
+
 .between {
   justify-content: space-between;
 }
+
 .textLeft {
   text-align: left;
 }
+
 .column {
   flex-direction: column;
 }
+
 .width {
   width: 270px;
 }
+
 .teaser {
   padding-bottom: 4px;
 }
+
 .text {
   display: flex;
 }
+
 .tokenIcon {
   margin-right: 10px;
 }
+
 .space {
   margin-bottom: 56px;
 }
+
 .link {
   padding-bottom: 4px;
 }
+
 .placeHolder {
   width: 24px;
 }
+
 .arrow {
   margin-left: 10px;
 }
+
 .overlay {
   z-index: -1;
   margin: 0 10px 0 -8px;
 }
+
 .overlay svg path {
   fill: #d0c9bf;
 }
+
 .itemWrap {
   margin-bottom: 10px;
 }
+
 @media (max-width: 1920px) {
   .wrap {
     width: 52%;
   }
 }
+
 @media (max-width: 1665px) {
   .wrap {
     width: 60%;
   }
 }
+
 @media (max-width: 1365px) {
   .wrap {
     width: 70%;
   }
 }
+
 @media (max-width: 1200px) {
   .wrap {
     width: 90%;
   }
 }
+
 @media (max-width: 768px) {
   .wrap {
     display: flex;
     flex-direction: column;
     width: 100%;
   }
+
   .responsive_flex {
     flex-direction: column;
   }
 }
+
 /* Tokenomics Head */
 
 /* Distribution */
 .pt128 {
   padding-top: 128px;
 }
+
 .pt128 h2 {
   margin-bottom: 32px;
 }
+
 .distribution_teaser {
   padding-bottom: 64px;
 }
+
 .textWrap {
   margin-left: 16px;
 }
+
 .textWrap p:nth-child(1) {
   margin-bottom: 8px;
 }
+
 .distribution_flex {
   display: flex;
   justify-content: flex-start;
   gap: 92px;
 }
+
 .distribution_grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   column-gap: 48px;
   row-gap: 24px;
 }
+
 @media (max-width: 768px) {
   .distribution_flex {
     flex-direction: column;
   }
+
   .distribution_grid {
     grid-template-columns: 1fr;
   }
+
   .distribution_container {
     display: flex;
     flex-direction: column;
@@ -147,89 +184,110 @@
     justify-content: center;
   }
 }
+
 /* Distribution */
 
 /* Schedule */
 .schedule_teaser {
   padding-bottom: 8px;
 }
+
 .schedule_title {
   margin: 64px 0 32px 0;
 }
+
 .schedule_grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   row-gap: 28px;
 }
+
 @media (max-width: 768px) {
   .svgContainer {
     display: flex;
     justify-content: center;
   }
 }
+
 /* Schedule */
 
 /* Event Details */
 .pt64 {
   padding-top: 64px;
 }
+
 .left_bar {
   margin-right: 172px;
   width: 100%;
 }
+
 .muted_text {
   color: #d0c9bf;
 }
+
 .icon_wrap {
   margin: 64px 0 16px 0;
 }
+
 .icon_wrap svg {
   margin-right: 16px;
 }
+
 .eventDetails_textWrap {
   display: flex;
   row-gap: 32px;
   flex-direction: column;
 }
+
 .events_teaser {
   padding-bottom: 8px;
 }
+
 @media (max-width: 1365px) {
   .left_bar {
     margin-right: 44px;
   }
 }
+
 @media (max-width: 768px) {
   .left_bar {
     margin-right: 0px;
   }
+
   .schedule_grid {
     display: flex;
     flex-direction: column;
   }
+
   .muted_text {
     margin-bottom: 18px;
   }
 }
+
 /* Event Details */
 
 /* Certik */
 .pt80 {
   padding: 80px 0 128px 0;
 }
+
 .certik_text {
   padding-top: 32px;
 }
+
 .certik_text p:nth-child(1) {
   padding-bottom: 8px;
 }
+
 .certik_description {
   padding-bottom: 32px;
 }
+
 .certik_grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
+
 .certik_line::after {
   content: '';
   transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
@@ -238,71 +296,118 @@
   display: block;
   background-color: #a6d0dd;
 }
+
 .certik_line:hover::after {
   width: 0%;
 }
+
 @media (max-width: 1365px) {
   .certik_grid {
     display: flex;
     flex-direction: column;
   }
+
   .certik {
     margin-top: 24px;
   }
+
   .certik_logo {
     width: 100%;
   }
+
   .certik_line::after {
     width: 202px;
   }
 }
+
 @media (max-width: 768px) {
   .certik_description {
     text-align: center;
   }
+
   .certik_line {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
+
   .pt80 {
     padding: 80px 0 48px 0;
   }
 }
+
 /* Certik */
 
 /* Download */
 .p280 {
   padding: 280px 0;
 }
+
 .catena_logo {
   margin: 0 18px;
 }
+
 .downloadIcons {
   margin-top: 48px;
   gap: 20px;
 }
+
 .downloadIcons svg {
   cursor: pointer;
+  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
 }
+
+.downloadIcons svg:hover {
+  opacity: 0.6;
+}
+
 .flexColumn {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
 }
+
+.soon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.notAllowed {
+  cursor: not-allowed !important;
+}
+.notAllowed:hover {
+  opacity: 1 !important;
+}
+.soonText {
+  background-color: #ff6969;
+  padding: 2px 0;
+  font-size: 15px;
+  border-radius: 6px;
+  text-align: center;
+  color: #fff;
+  width: 74%;
+}
+
 @media (max-width: 768px) {
+
   .downloadIcons,
   .download_responsive {
     flex-direction: column;
   }
+
   .catena_logo {
     margin: 8px 0;
     width: 50px;
     height: 50px;
   }
+
   .p280 {
     padding: 60px 0;
   }
 }
+
 /* Download */
