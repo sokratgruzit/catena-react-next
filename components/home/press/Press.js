@@ -162,7 +162,7 @@ const Press = () => {
       <div className={styles.statisticContainer}>
         {pressArr.map((item, index) => {
           return (
-            <div className={styles.icCont}>
+            <div key={index} className={styles.icCont}>
               <img src={item.imgPart} />
               <p>{item.title}</p>
             </div>
