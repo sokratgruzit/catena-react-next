@@ -1,13 +1,24 @@
-.mapContainer {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 50px;
+  .digital {
+    width: 72px;
+    height: 24px;
+    position: absolute;
+    font-size: 12px;
+    top: 15px;
+    right: 30px;
+    background-color: #FFF3E5;
+  }
+
+  .headtitle {
+    margin: 15px 0 25px 0;
   }
   
- .item {
+ .mapCont {
     width: 100% ; 
     position: relative;
+}
+
+.descP {
+    margin: 10px 0 10px 0;
 }
 
 .pressImage {
@@ -19,15 +30,19 @@
 }
 .icon {
     position: absolute;
-    width: 72px;
-    height: 72px;
     z-index: 22;
     object-fit: cover;
-    top: -26px;
-    left: 15px;
+    padding: 5px;
 }
 
-
-.mapContainer p {
-    font-size: 16px;
-} 
+.imgPartBack {
+    width: 72px;
+    height: 72px;
+    position: absolute;
+    z-index: 33;
+    top: -22px;
+    left: 15px;
+    background-color: #FF6969;
+    display: flex;
+    align-items: center;
+}
