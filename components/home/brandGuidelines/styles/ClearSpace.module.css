@@ -24,11 +24,6 @@
   border-bottom: 1px solid rgba(0, 5, 15, 0.1);
 }
 
-.logoLine .logoP {
-  font-size: 20px;
-  line-height: 24px;
-}
-
 .mainLogo {
   margin: 91px auto 135px auto;
   max-width: 652px;
@@ -60,8 +55,6 @@
 }
 
 .guidlineParagraph {
-  font-size: 16px;
-  line-height: 22px;
   max-width: 510px;
 }
 

@@ -34,18 +34,20 @@ function PrivacyList({ privacyList }) {
         })}
       </div>
       {privacyList?.map((item, i) => (
-        <div key={i} className='text'>
+        <div key={i}>
           <h2 className={`${styles.title} font-40 ttl`}>
             <p className='font-40 ttl'>{`${i + 1}`}</p> {item?.title}
           </h2>
           <p className={styles.text}>{item?.text}</p>
           {item?.link && <a href='mailto:https://www.catenamultichain.com/'>{item?.link}</a>}
           {item?.bullets && (
-            <ul>
-              {item?.bullets.map((bullets, j) => (
-                <li key={j}>{bullets}</li>
-              ))}
-            </ul>
+            <div className='text'>
+              <ul>
+                {item?.bullets.map((bullets, j) => (
+                  <li key={j}>{bullets}</li>
+                ))}
+              </ul>
+            </div>
           )}
           {item?.children &&
             item?.children?.map((child, j) => (
@@ -54,18 +56,19 @@ function PrivacyList({ privacyList }) {
                   <p className={`${styles.numbering} ttl font_20`}>
                     {`${i + 1}.${j + 1} `}
                     <span className={styles.circle}></span>
-                    {/* {`${j + 1} `} */}
                   </p>
                   {child?.title}
                 </h3>
                 <div className={styles.innerContent}>
                   <p className={styles.teaser}>{child?.text}</p>
                   {child?.bullets && (
-                    <ul>
-                      {child?.bullets.map((bullet, k) => (
-                        <li key={k}>{bullet}</li>
-                      ))}
-                    </ul>
+                    <div className='text'>
+                      <ul>
+                        {child?.bullets.map((bullet, k) => (
+                          <li key={k}>{bullet}</li>
+                        ))}
+                      </ul>
+                    </div>
                   )}
                 </div>
               </div>

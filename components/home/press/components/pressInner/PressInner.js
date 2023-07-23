@@ -1,6 +1,7 @@
 import React from 'react';
 
 import CoppyLink from './CoppyLink';
+import Slider from '../../../../UI/slider/Slider';
 
 export default function PressInner() {
   const data = [
@@ -14,12 +15,14 @@ export default function PressInner() {
   const getCurrentPageURL = () => {
     return window.location.href;
   };
-
+  const images = ['/images/pressInner/image.png', '/images/pressInner/secondImage.png'];
   return (
     <div className='text'>
       <h1>SingularityNET’s Ben Goertzel has a grand vision for the future of AI</h1>
-      <CoppyLink data={data} currentPageURL={getCurrentPageURL()} />
-      <img src='/images/pressInner/image.png' alt='image' />
+      <CoppyLink data={data} currentPageURL={getCurrentPageURL} showDetails={true} showCopyButton={true} />
+
+      {/* <img src='/images/pressInner/image.png' alt='image' /> */}
+      <Slider images={images} />
       <h4>
         SingularityNET — an ambitious project to create a decentralized marketplace for AI — has raised a lot of money
         in its token sale. In around 60 seconds after opening the sale to the public, it sold out of the whole amount of
@@ -43,8 +46,7 @@ export default function PressInner() {
         payment, but it would still need a distributed ledger.
       </p>
       <hr />
-      <CoppyLink data={data} currentPageURL={getCurrentPageURL()} />
-      {/* <img src='/images/pressInner/bannerImage.png' alt='image' /> */}
+      <CoppyLink data={data} currentPageURL={getCurrentPageURL} showDetails={true} showCopyButton={true} />
     </div>
   );
 }

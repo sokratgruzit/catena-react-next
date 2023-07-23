@@ -1,13 +1,34 @@
 import React from 'react';
+import Slider from '../../UI/slider/Slider';
+import CoppyLink from '../press/components/pressInner/CoppyLink';
 
 export default function EventsInner() {
+  const data = [
+    {
+      time: '0:13 PM GMT+3',
+      month: ' October 26',
+      year: 2021,
+    },
+  ];
+  const getCurrentPageURL = () => {
+    return window.location.href;
+  };
+  const images = [
+    '/images/eventsInner/image.png',
+    '/images/eventsInner/secondImage.png',
+    '/images/eventsInner/thirdImage.png',
+  ];
   return (
     <div className='text'>
       <h1>How the Blockchain Could Break Big Tech’s Hold on A.I.</h1>
 
-      <button>Digital</button>
+      <span>
+        <button>Digital</button>
+        <CoppyLink data={data} currentPageURL={getCurrentPageURL} showDetails={false} showCopyButton={true} />
+      </span>
 
-      <img src='/images/eventsInner/image.png' alt='image' />
+      <Slider images={images} />
+
       <h4>
         Blockchain and AI, two of the most common buzzwords that abound today in the industry, have their own scientific
         potentials that can be explored.
@@ -62,6 +83,11 @@ export default function EventsInner() {
         as an investment advice by EtherWorld.co. Readers are suggested to do their research before investing into any
         project.
       </p>
+      <hr />
+      <span>
+        <button>Digital</button>
+        <CoppyLink data={data} currentPageURL={getCurrentPageURL} showDetails={false} showCopyButton={true} />
+      </span>
     </div>
   );
 }

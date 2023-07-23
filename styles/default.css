@@ -33,7 +33,7 @@
 }
 
 .ttl {
-  font-family: "Lack-Regular" !important;
+  font-family: 'Lack-Regular' !important;
   font-family: 'Lack-Regular' !important;
 }
 
@@ -203,8 +203,11 @@ button {
   padding-bottom: 160px;
 }
 
+<<<<<<< HEAD
 /* text styles */
 
+=======
+>>>>>>> 0b0139f896dfd3272e35eee294922aad5b9f59c9
 .text ul li {
   position: relative;
   display: flex;
@@ -254,6 +257,10 @@ button {
   line-height: 34px;
   color: #162029;
   margin-bottom: 40px;
+}
+
+.text span {
+  display: flex;
 }
 
 .text img {
@@ -346,7 +353,6 @@ button {
 }
 .text .coppy-link .year {
   color: rgba(22, 32, 41, 0.5);
-  margin-right: 30px;
 }
 
 .text .coppy-link .dot {
@@ -362,6 +368,7 @@ button {
   color: rgba(22, 32, 41, 0.5);
   gap: 10px;
   background-color: transparent;
+  margin-left: 30px;
 }
 
 form .form-control:focus {
