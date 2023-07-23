@@ -4,7 +4,6 @@ import styles from './Press.module.css';
 import { useState } from 'react';
 
 const Press = () => {
-
   const [activeYear, setActiveYear] = useState('2021');
 
   const handleYearClick = (year) => {
@@ -66,7 +65,7 @@ const Press = () => {
 
   return (
     <div className={`${styles.mainContainer} container`}>
-      <div className={styles.titleContainer}>
+      <div className={`${styles.titleContainer} container_bordered`}>
         <p className={styles.titlePartyOne}>Catena</p>
         <p className={styles.titlePartyTwo}>Press</p>
       </div>
@@ -74,7 +73,9 @@ const Press = () => {
         <Card dataArr={pressArr} />
       </div>
       <div className={styles.sourcesContainer}>
-        <p>Sources</p>
+        <div className={styles.sourcesTitle}>
+          <p>Sources</p>
+        </div>
         <div className={styles.logoContainer}>
           <div className={styles.logoLine}>
             <div className={styles.logCon}>
@@ -114,7 +115,7 @@ const Press = () => {
         </div>
       </div>
       <div className={styles.infoContainer}>
-        <div className={styles.infoContTitle}>
+        <div className={styles.infContTitle}>
           <p>Publics by years</p>
         </div>
         <div className={styles.yearsStats}>
