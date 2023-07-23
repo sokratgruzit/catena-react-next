@@ -3,6 +3,8 @@
     margin-top: 70px;
     margin-bottom: 90px;
     gap: 20px;
+    width: 100%;
+    border: 1px solid black;
 }
 
 .card {
@@ -10,24 +12,34 @@
 }
 
 .button {
-    left: 50px;
+    left: 5%;
     position: absolute;
     z-index: 100;
-    bottom: 50px;
+    bottom: 10%;
     cursor: pointer;
 }
 
 .title {
     position: absolute;
     z-index: 100;
-    width: 350px;
-    top: 50px;
+    top: 15%;
     font-family: Lack;
-    font-size: 44px;
-    font-weight: 400;
+    color: #FFFFFF;
+    left: 5%;
+    /* font-size: 44px; */
+    /* font-weight: 400;
     line-height: 66px;
     letter-spacing: 0em;
-    text-align: left;
-    color: #FFFFFF;
-    left: 50px;
+    text-align: left; */
+}
+
+@media (max-width: 740px) {
+    .title {
+        position: absolute;
+        z-index: 100;
+        font-family: Lack;
+        color: #FFFFFF;
+        left: 5%;
+        font-size: 20px; 
+    }
 }
