@@ -67,7 +67,7 @@
   width: 13px;
   height: 13px;
   fill:#969BA6;
-  stroke-width: 0.1px;
+  strokeWidth: 0.1px;
 }
 
 .margin0 {
@@ -107,7 +107,7 @@
 
 .usd{
   line-height: 17px;
-  color: rgba(255, 255, 255, 0.7);  
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .connectButton{
