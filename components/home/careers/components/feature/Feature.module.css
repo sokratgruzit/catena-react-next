@@ -119,3 +119,9 @@
     padding-left: 0;
   }
 }
+
+@media (max-width: 767px) {
+  .font__51 {
+    font-size: 40px;
+  }
+}
