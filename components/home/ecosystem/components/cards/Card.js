@@ -9,7 +9,7 @@ const Card = ({ title }) => {
 
   return (
     <div className={styles.container}>
-      <div style={{ width: '112px', color: '#969BA6', position: 'absolute', top: '430px', left: '70%' }} >CMCX massive listing</div>
+      <div style={{ width: '112px', color: '#969BA6', position: 'absolute', top: '430px', left: '50%' }} >CMCX massive listing</div>
       <div className={styles.card}>
         <Image
           src="/Mask Group.png"
