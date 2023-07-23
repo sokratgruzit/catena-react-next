@@ -59,7 +59,7 @@ const Header = () => {
       axios
         .post('/auth/register-wallet-address', { address: account })
         .then(res => console.log(res))
-        .catch(() => {});
+        .catch(() => { });
     }
     // eslint-disable-next-line
   }, [account]);
@@ -110,24 +110,24 @@ const Header = () => {
         },*/
       ],
     },
-    /*{
+    {
       id: 2,
-      title: 'Earn',
-      route: '/earn/farms',
+      title: 'About',
+      route: '/about',
       subNav: [
         {
           id: 5,
-          title: 'Farms',
-          route: '/earn/farms',
+          title: 'Press',
+          route: '/about/press',
         },
         {
           id: 6,
-          title: 'Pools',
-          route: '/earn/pools',
-        },
+          title: 'Event',
+          route: '/about/event',
+        }
       ],
     },
-    {
+    /*{
       id: 3,
       title: 'Win',
       route: '/win/competition',
@@ -323,9 +323,8 @@ const Header = () => {
           <Link href='/'>
             <div>
               <div
-                className={`${styles.headerLogo} ${styles.headerLogoMobile} ${
-                  activeBurger !== false || activeLangs || activeSettings || profileModal ? styles.whiteLogo : ''
-                }`}
+                className={`${styles.headerLogo} ${styles.headerLogoMobile} ${activeBurger !== false || activeLangs || activeSettings || profileModal ? styles.whiteLogo : ''
+                  }`}
               >
                 <svg xmlns='http://www.w3.org/2000/svg' width='37' height='33' viewBox='0 0 70 70' fill='none'>
                   <path
@@ -346,27 +345,27 @@ const Header = () => {
                 <svg xmlns='http://www.w3.org/2000/svg' width='161' height='31' viewBox='0 0 161 31' fill='none'>
                   <path
                     d='M71.4777 20.7317C71.0151 20.9253 70.5493 21.0996 70.0803 21.2545C69.6113 21.4094 69.1262 21.5417 68.6251 21.6515C68.1239 21.7676 67.5939 21.8548 67.0349 21.9129C66.4823 21.971 65.888 22 65.252 22C63.9027 22 62.6595 21.8548 61.5223 21.5643C60.3915 21.2739 59.4149 20.8382 58.5925 20.2573C57.7765 19.6699 57.1404 18.9405 56.6843 18.0692C56.2281 17.1913 56 16.1683 56 15C56 13.8317 56.2281 12.8119 56.6843 11.9405C57.1404 11.0627 57.7765 10.3333 58.5925 9.75242C59.4149 9.16505 60.3915 8.72614 61.5223 8.43568C62.6595 8.14523 63.9027 8 65.252 8C65.888 8 66.4823 8.02905 67.0349 8.08714C67.5939 8.14523 68.1239 8.23237 68.6251 8.34855C69.1262 8.45828 69.6113 8.59059 70.0803 8.7455C70.5493 8.90041 71.0151 9.07469 71.4777 9.26833V12.5021C71.1115 12.302 70.726 12.1051 70.3212 11.9115C69.9165 11.7114 69.4699 11.5339 68.9816 11.379C68.4933 11.2176 67.9569 11.0885 67.3722 10.9917C66.7875 10.8884 66.129 10.8368 65.3965 10.8368C64.2721 10.8368 63.3373 10.953 62.592 11.1853C61.8531 11.4177 61.262 11.7275 60.8187 12.1148C60.3754 12.5021 60.0638 12.9474 59.8839 13.4509C59.704 13.9479 59.614 14.4643 59.614 15C59.614 15.355 59.6526 15.7068 59.7297 16.0553C59.8068 16.3974 59.9353 16.7234 60.1152 17.0332C60.2951 17.3366 60.5296 17.6173 60.8187 17.8755C61.1078 18.1337 61.4676 18.3564 61.8981 18.5436C62.3286 18.7308 62.8297 18.8792 63.4016 18.9889C63.9798 19.0922 64.6448 19.1438 65.3965 19.1438C66.129 19.1438 66.7875 19.0987 67.3722 19.0083C67.9569 18.9115 68.4933 18.7856 68.9816 18.6307C69.4699 18.4758 69.9165 18.3015 70.3212 18.1079C70.726 17.9078 71.1115 17.7045 71.4777 17.4979V20.7317Z'
-                    fill='white'
+                    fill='black'
                   />
                   <path
                     d='M85.5484 19.1245H78.1661L76.9229 21.6418H72.933L79.8623 8.33887H83.8522L90.7816 21.6418H86.7916L85.5484 19.1245ZM79.4479 16.5297H84.2859L81.8765 11.6307L79.4479 16.5297Z'
-                    fill='white'
+                    fill='black'
                   />
                   <path
                     d='M99.5998 11.2337V21.6418H96.0243V11.2337H90.4057V8.33887H105.228V11.2337H99.5998Z'
-                    fill='white'
+                    fill='black'
                   />
                   <path
                     d='M107.599 21.6418V8.33887H121.005V11.1757H111.271V13.3734H120.503V16.2102H111.271V18.805H121.14V21.6418H107.599Z'
-                    fill='white'
+                    fill='black'
                   />
                   <path
                     d='M137.109 21.6418L128.175 12.5021V21.6418H124.599V8.33887H128.483L137.427 17.5173V8.33887H140.983V21.6418H137.109Z'
-                    fill='white'
+                    fill='black'
                   />
                   <path
                     d='M155.767 19.1245H148.385L147.141 21.6418H143.151L150.081 8.33887H154.071L161 21.6418H157.01L155.767 19.1245ZM149.666 16.5297H154.504L152.095 11.6307L149.666 16.5297Z'
-                    fill='white'
+                    fill='black'
                   />
                   <path
                     fillRule='evenodd'
@@ -393,9 +392,8 @@ const Header = () => {
             </div>
           </Link>
           <nav
-            className={`${styles.headerNav} ${activeBurger ? styles.activeHeaderNav : ''} ${
-              activeMenu !== null ? styles.headerNavOpacity : ''
-            }`}
+            className={`${styles.headerNav} ${activeBurger ? styles.activeHeaderNav : ''} ${activeMenu !== null ? styles.headerNavOpacity : ''
+              }`}
           >
             <i></i>
             {NAV_DATA.map(item => {
@@ -567,9 +565,8 @@ const Header = () => {
           </nav>
           <div className={styles.headerRightOuter}>
             <div
-              className={`${styles.headerRight} ${
-                activeMenu !== null && device === 'desktop' ? styles.headerRightHideToRight : ''
-              } ${walletModal ? styles.headerRightHideToLeft : ''}`}
+              className={`${styles.headerRight} ${activeMenu !== null && device === 'desktop' ? styles.headerRightHideToRight : ''
+                } ${walletModal ? styles.headerRightHideToLeft : ''}`}
             >
               <div className={`${styles.headerBalance}`}>
                 <svg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30' fill='none'>
@@ -660,9 +657,8 @@ const Header = () => {
                       {LANG_DATA.map(item => {
                         return (
                           <div
-                            className={`${styles.headerLangsModalLink} ${
-                              'en' === item.title ? styles.headerLangsModalLinkActive : ''
-                            }`}
+                            className={`${styles.headerLangsModalLink} ${'en' === item.title ? styles.headerLangsModalLinkActive : ''
+                              }`}
                             key={item.id}
                             onClick={() => {
                               openLangs(false);
@@ -739,7 +735,7 @@ const Header = () => {
                     <div className={styles.settingsModalFloor}>
                       <div>Dark Mode</div>
                       <div className={styles.settingsCheckboxContainer}>
-                        <input type='checkbox' defaultValue={false} onChange={() => {}} />
+                        <input type='checkbox' defaultValue={false} onChange={() => { }} />
                         <div className={styles.settingsCheckbox}>
                           <i></i>
                         </div>
@@ -771,9 +767,8 @@ const Header = () => {
                       </div>
                       <div className={styles.settingsModalBtns}>
                         <div
-                          className={`${styles.settingsModalBtn} ${
-                            slippage === 0.1 ? styles.settingsModalBtnActive : ''
-                          }`}
+                          className={`${styles.settingsModalBtn} ${slippage === 0.1 ? styles.settingsModalBtnActive : ''
+                            }`}
                           onClick={e =>
                             dispatch({
                               type: 'SET_SLIPPAGE',
@@ -784,9 +779,8 @@ const Header = () => {
                           0.1%
                         </div>
                         <div
-                          className={`${styles.settingsModalBtn} ${
-                            slippage === 0.5 ? styles.settingsModalBtnActive : ''
-                          }`}
+                          className={`${styles.settingsModalBtn} ${slippage === 0.5 ? styles.settingsModalBtnActive : ''
+                            }`}
                           onClick={e =>
                             dispatch({
                               type: 'SET_SLIPPAGE',
@@ -797,9 +791,8 @@ const Header = () => {
                           0.5%
                         </div>
                         <div
-                          className={`${styles.settingsModalBtn} ${
-                            slippage === 1 ? styles.settingsModalBtnActive : ''
-                          }`}
+                          className={`${styles.settingsModalBtn} ${slippage === 1 ? styles.settingsModalBtnActive : ''
+                            }`}
                           onClick={e =>
                             dispatch({
                               type: 'SET_SLIPPAGE',
@@ -839,7 +832,7 @@ const Header = () => {
                         type='number'
                         className={styles.settingsModalLtlInput}
                         defaultValue={20}
-                        onChange={() => {}}
+                        onChange={() => { }}
                       />
                     </div>
                     <div className={styles.settingsModalFloor}>
@@ -851,7 +844,7 @@ const Header = () => {
                         />
                       </div>
                       <div className={styles.settingsCheckboxContainer}>
-                        <input type='checkbox' defaultValue={false} onChange={() => {}} />
+                        <input type='checkbox' defaultValue={false} onChange={() => { }} />
                         <div className={styles.settingsCheckbox}>
                           <i></i>
                         </div>
@@ -866,7 +859,7 @@ const Header = () => {
                         />
                       </div>
                       <div className={styles.settingsCheckboxContainer}>
-                        <input type='checkbox' defaultValue={false} onChange={() => {}} />
+                        <input type='checkbox' defaultValue={false} onChange={() => { }} />
                         <div className={styles.settingsCheckbox}>
                           <i></i>
                         </div>
@@ -881,7 +874,7 @@ const Header = () => {
                         />
                       </div>
                       <div className={styles.settingsCheckboxContainer}>
-                        <input type='checkbox' defaultValue={false} onChange={() => {}} />
+                        <input type='checkbox' defaultValue={false} onChange={() => { }} />
                         <div className={styles.settingsCheckbox}>
                           <i></i>
                         </div>
@@ -898,7 +891,7 @@ const Header = () => {
                         />
                       </div>
                       <div className={styles.settingsCheckboxContainer}>
-                        <input type='checkbox' defaultValue={false} onChange={() => {}} />
+                        <input type='checkbox' defaultValue={false} onChange={() => { }} />
                         <div className={styles.settingsCheckbox}>
                           <i></i>
                         </div>
@@ -908,9 +901,8 @@ const Header = () => {
                 </div>
               </div>
               <div
-                className={`${account && triedReconnect ? styles.headerNotConnected : ''} ${
-                  styles.headerConnectBtnContainer
-                } ${activeSettings ? styles.transformRight : ''}`}
+                className={`${account && triedReconnect ? styles.headerNotConnected : ''} ${styles.headerConnectBtnContainer
+                  } ${activeSettings ? styles.transformRight : ''}`}
               >
                 <Button
                   title={'Connect Wallet'}
@@ -925,9 +917,8 @@ const Header = () => {
                 />
               </div>
               <div
-                className={`${styles.headerConnected} ${account && triedReconnect ? '' : styles.headerNotConnected} ${
-                  activeSettings ? styles.transformRight : ''
-                }`}
+                className={`${styles.headerConnected} ${account && triedReconnect ? '' : styles.headerNotConnected} ${activeSettings ? styles.transformRight : ''
+                  }`}
               >
                 <div
                   className={`${styles.headerConnectedBtn} ${profileModal ? styles.headerConnectedBtnActive : ''}`}
@@ -1100,19 +1091,17 @@ const Header = () => {
           </div>
         </div>
         <div
-          className={`${styles.headerLine} ${
-            activeMenu !== null || activeLangs || activeSettings || walletModal || profileModal || activeBurger
-              ? styles.headerLineActive
-              : ''
-          }`}
+          className={`${styles.headerLine} ${activeMenu !== null || activeLangs || activeSettings || walletModal || profileModal || activeBurger
+            ? styles.headerLineActive
+            : ''
+            }`}
         ></div>
       </header>
       <div
-        className={`${styles.headerBg} ${
-          activeMenu !== null || activeLangs || activeSettings || walletModal || profileModal
-            ? styles.headerBgActive
-            : ''
-        }`}
+        className={`${styles.headerBg} ${activeMenu !== null || activeLangs || activeSettings || walletModal || profileModal
+          ? styles.headerBgActive
+          : ''
+          }`}
         onClick={() => {
           closeAll();
         }}

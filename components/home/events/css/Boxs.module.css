@@ -1,0 +1,87 @@
+.container { 
+    padding: 50px 100px 50px 100px;
+}
+
+.box { }
+
+.boxtwo { 
+    margin-top: 100px;
+    display: flex;
+    gap: 100px;
+}
+.addBox { 
+    width: 72px;
+    height: 72px;
+    background: #FF6969;
+    position: absolute;
+    margin-left: 20px;
+    margin-top: -15px;
+}
+
+.imgTxt { 
+    display: flex;
+    width: 49px;
+    margin: auto;
+    margin-top: 26px;
+}
+
+
+.mainImg { 
+    width: 67%;
+    height: auto;
+}
+
+.img { 
+    position: absolute;
+    margin-left: 20px;
+    margin-top: -15px;
+}
+
+.boxTitle { 
+    margin-top: 10px;
+    margin-left: 2px;
+    max-width: 300px;
+    color: #162029;  
+    font-weight: 400px;
+}
+
+.title { 
+    margin-top: 10px;
+    display: flex;
+}
+
+
+
+
+
+@media (max-width: 1900px) {
+
+}
+/*Ipad Pro 1024*/
+@media (max-width: 1200px) {
+    .container { 
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .box { 
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+    }
+
+    .boxtwo { 
+        display: flex;
+        flex-direction: column;
+    }
+
+    .addBox { 
+        margin-right: 500px !important;
+    }
+}
+/*Ipad 768*/
+@media (max-width: 1023px) {
+
+}

@@ -1,0 +1,49 @@
+.wrapper {
+  max-width: 1900px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.banner {
+  background: rgba(22, 32, 41, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 34px;
+  padding-top: 64px;
+  padding-bottom: 64px;
+  border-radius: 30px;
+  margin: 40px;
+}
+
+.banner h2 {
+  color: #fff;
+}
+
+.banner .button {
+  background: rgba(166, 208, 221, 1);
+  border: 1px solid #fff;
+  padding: 18px 84px;
+  font-size: 16px;
+  line-height: 24px;
+  border-radius: 61px;
+  transition: 0.4s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+
+.banner .button:hover {
+  opacity: 0.4;
+}
+
+@media (max-width: 767px) {
+  .banner {
+    margin: 16px;
+  }
+  .banner h2 {
+    text-align: center;
+  }
+
+  .banner .button {
+    padding: 10px 44px;
+  }
+}

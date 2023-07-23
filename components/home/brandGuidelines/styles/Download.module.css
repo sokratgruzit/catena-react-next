@@ -1,0 +1,34 @@
+.bluebtn {
+  background: rgba(166, 208, 221, 1);
+  border: 1px solid #fff;
+  padding: 18px 84px;
+  font-size: 16px;
+  line-height: 24px;
+  border-radius: 61px;
+  transition: 0.4s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+.orangebtn {
+  display: inline-block;
+  padding: 18px 34px;
+  background-color: #ff6969;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 61px;
+  border: 1px solid #fff;
+  font-size: 16px;
+  line-height: 24px;
+  cursor: pointer;
+}
+.bluebtn:hover,
+.orangebtn:hover {
+  opacity: 0.6;
+}
+
+@media (max-width: 767px) {
+  .bluebtn {
+    padding: 10px 44px;
+  }
+  .orangebtn {
+    padding: 10px 26px;
+  }
+}

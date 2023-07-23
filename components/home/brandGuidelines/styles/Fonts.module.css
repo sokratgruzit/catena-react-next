@@ -1,0 +1,71 @@
+.fonts {
+  display: flex;
+  flex-direction: column;
+  gap: 69px;
+  padding-bottom: 200px;
+}
+
+.line {
+  display: flex;
+  width: 100%;
+  color: rgba(22, 32, 41, 1);
+  gap: 5px;
+  border-bottom: 1px solid rgba(0, 5, 15, 0.1);
+  padding-bottom: 6px;
+}
+.line span {
+  color: rgba(255, 105, 105, 1);
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-top: 55px;
+  align-items: center;
+  padding: 20px;
+}
+
+.content img {
+  max-width: 100%;
+}
+
+.definition {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.definition h3 {
+ 
+  margin-bottom: 3px;
+  max-width: 440px;
+  width: 100%;
+}
+.definition .font {
+  font-size: 20px;
+  letter-spacing: 10px;
+  line-height: 40px;
+  /* max-width: 440px; */
+  width: 100%;
+}
+.definition .num {
+  font-size: 20px;
+  line-height: 40px;
+  max-width: 440px;
+  width: 100%;
+}
+.lackFont {
+  font-family: Lack-Regular, sans-serif;
+}
+
+.notoSansFont {
+  font-family: Noto Sans, sans-serif;
+}
+
+@media (max-width: 1023px) {
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+  }
+}
