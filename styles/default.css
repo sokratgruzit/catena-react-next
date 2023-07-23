@@ -22,7 +22,7 @@
 
 * {
   font-family: "Noto-Sans";
-  font-size: 16px;
+  font-size: 18px;
   line-height: 150%;
   color: rgba(0, 0, 0, 1);
   text-decoration: none;
@@ -71,10 +71,6 @@ nav {
   margin: 0;
   list-style: none;
   font-weight: normal;
-}
-
-h3 {
-  font-size: 20px;
 }
 
 input,
@@ -158,16 +154,6 @@ button {
   color: rgba(255, 255, 255, 0.2) !important;
   cursor: not-allowed;
   background: transparent !important;
-}
-
-.font-18 {
-  font-size: 18px;
-}
-
-.font-72 {
-  font-size: 72px;
-  line-height: 80px;
-  color: #fff;
 }
 
 .container {
@@ -510,6 +496,25 @@ input:focus:-ms-input-placeholder {
 
 /*Mobile 320*/
 @media (max-width: 767px) {
+  .text ul li:after {
+    top: 7px;
+  }
+
+  * {
+    font-size: 16px;
+  }
+
+  .font-20 {
+    font-size: 16px;
+  }
+
+  .font-90 {
+    font-size: 40px;
+  }
+
+  .font-40 {
+    font-size: 25px;
+  }
 
   .text-editor h2,
   .text-editor h3,
