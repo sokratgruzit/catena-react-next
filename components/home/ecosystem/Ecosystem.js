@@ -473,13 +473,13 @@ const EXCHANGESDATA = [
 
 const Ecosystem = () => {
   return (
-    <div className='container' style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', position: 'relative' }}>
+    <div className='container' style={{ position: 'relative' }}>
       <div>
         <Title />
         <ExchangesCards data={EXCHANGESDATA} />
         <Card />
       </div>
-      <JoinCommunity />
+      {/* <JoinCommunity /> */}
     </div>
   );
 };
