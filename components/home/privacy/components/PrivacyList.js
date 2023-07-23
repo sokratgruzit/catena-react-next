@@ -52,9 +52,9 @@ function PrivacyList({ privacyList }) {
               <div key={j} className={styles.children}>
                 <h3 className={`${styles.secondaryTitle}  font_20 ttl`}>
                   <p className={`${styles.numbering} ttl font_20`}>
-                    {`${j + 1} `}
+                    {`${i + 1}.${j + 1} `}
                     <span className={styles.circle}></span>
-                    {`${j + 1} `}
+                    {/* {`${j + 1} `} */}
                   </p>
                   {child?.title}
                 </h3>
