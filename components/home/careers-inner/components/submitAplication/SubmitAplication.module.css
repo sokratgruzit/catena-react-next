@@ -9,6 +9,12 @@
   border-top: 1px solid #a6d0dd;
 }
 
+.infoImport {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
 @media (max-width: 1700px) {
   .font__51 {
     padding-left: 0;

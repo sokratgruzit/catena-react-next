@@ -1,0 +1,36 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 60px
+}
+
+.title:nth-child(n) {
+    font-family: Lack;
+    font-size: 90px;
+    font-weight: 400;
+    line-height: 108px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.text {
+    font-family: Noto Sans;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 30px;
+    letter-spacing: 0em;
+    text-align: left;
+    width: 536px;
+    height: 120px;
+    margin-bottom: 60px;
+}
+
+@font-face {
+    font-family: Noto Sans;
+    src: url(../../../../../public/fonts/NotoSans-Regular.ttf);
+}
+
+@font-face {
+    font-family: Lack;
+    src: url(../../../../../public/fonts/Lack-Regular.ttf);
+}

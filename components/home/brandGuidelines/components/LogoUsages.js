@@ -2,27 +2,32 @@ import styles from '../styles/LogoUsages.module.css';
 
 export default function LogoUsages() {
   const incorrectUsageList = [
-    'Do not change the size relationship of the symbol and the wordmark.',
-    'Do not make the logo a single colour.',
-    'Do not alter the colour of the symbol or the wordmark.',
-    'Do not add effects such as drop shadows, gradients or glow.',
-    'Do not use as a mask or holding shape for imagery.',
-    'Do not place onto backgrounds with insufficient contrast to the logo.',
-    'Do not rotate, skew, or shear.',
-    'Do not distort proportions.',
-    'Do not add text closely to the logotype to create another logo.',
+    {
+      img: '/images/guidelines/firstUsage.png',
+      text: 'Do not change the size relationship of the symbol and the wordmark.',
+    },
+    { img: '/images/guidelines/secondUsage.png', text: 'Do not use the logomark colors on the wordmark' },
+    { img: '/images/guidelines/thirdUsage.png', text: 'Do not alter the colour of the symbol or the wordmark.' },
+    { img: '/images/guidelines/fourthUsage.png', text: 'Do not add effects such as drop shadows, gradients or glow.' },
+    {
+      img: '/images/guidelines/fifthUsage.png',
+      text: 'Do not place onto backgrounds with insufficient contrast to the logo.',
+    },
+    { img: '/images/guidelines/sixthUsage.png', text: 'Do not use a bordered logomark with a wordmark' },
   ];
   return (
     <div>
-      {incorrectUsageList.map((item, index) => (
-        <div key={index}>
-          <div data-aos='fade-up' className={styles.guidlineTable}>
-            <div className={styles.guidlineTableItem}>
-              <div className={styles.guidlineTableItemTtl}>{item}</div>
+      <h3 className={styles.title}>Incorrect Usage</h3>
+      <div className={styles.wrapper}>
+        {incorrectUsageList.map((item, index) => (
+          <div key={index} className={styles.guidlineTableItem}>
+            <div className={styles.imageWrapper}>
+              <img src={item.img} alt='' />
             </div>
+            <p className={styles.guidlineTableItemTtl}>{item.text}</p>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 }

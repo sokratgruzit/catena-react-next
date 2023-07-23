@@ -1,6 +1,7 @@
-import CommunityEvents from './components/CommunityEvents';
-import JoinCatenaCommunity from './components/joinCatenaCommunity/JoinCatenaCommunity';
-import AmbassadorExpectations from '../ambassador/components/ambassadorExpectation/AmbassadorExpectations';
+import Listed from './components/listed/Listed';
+import Plain from './components/plain/Plain';
+import RevercedTitle from './components/revercedTitle/RevercedTitle';
+import JoinCommunity from '../events/components/JoinCommunity';
 
 const devCommunity = [
   {
@@ -41,43 +42,65 @@ const grantProgramme = [
   },
 ];
 
+const vision = {
+  title: 'Vision',
+  text: 'Our goal is to make a lasting contribution to the blockchain ecosystem by not only addressing the current limitations of blockchain technology through our hybrid software solution, but by also growing the global blockchain community. We here at CORE Project believe in a truly peer-to-peer community and are actively involved in our community through our hosted events, our grant programme, and our collaborations. We aim to build a truly community-centric platform by instilling a community-first behaviour within the core beliefs of our team.',
+};
+
+const events = {
+  title: 'Events',
+  text: 'We are actively involved in our community through outreach and hosted events. We host several events throughout the year: most notably our Hackathon event that we run annually to attract the programming talent that our growing community has to offer. We also take it upon ourselves to educate the public on the benefits, risks, and uses of blockchain technology.',
+};
+
+const teams = {
+  title: 'Teams',
+  text: 'Our team also shares our passion for blockchain technology and is open to collaborate with other blockchain projects, where aside from sharing our technical knowledge, we will sponsor and organize webinars and conferences for these other projects, building a larger developer community. By integrating and collaborating with different Blockchain platforms and DeFI projects, Teams can tap into the support of the broader community of followers that we are looking to build.',
+};
+
+const blockchain = {
+  title: 'A truly community-driven blockchain',
+  text: 'CORE project is centred around our community — our management and developer teams are also chosen by our community through voting done using our native token on our platform, and funding for the project comes from contributions made by our community. Apart from that, any changes proposed to our blockchain or platform will be voted for or against by our community, creating a truly community-driven blockchain.',
+};
+
+const community = {
+  title: 'Developer Community',
+  text: 'To be involved in CORE developer community, a person or team must have the following qualifications:.',
+};
+
+const grant = {
+  title: 'Grant Programme',
+  text: 'We offer a grant programme which users can use to get funding for their projects. The funding for the grant comes from the contributions made by our community. We provide grant funding for the following:',
+};
+
 const Community = () => {
   return (
-    <div style={{ paddingTop: '300px' }}>
-      <CommunityEvents
-        title='community'
-        info='Our goal is to make a lasting contribution to the blockchain ecosystem by not only addressing the current limitations of blockchain technology through our hybrid software solution, but by also growing the global blockchain community. We here at CATENA Project believe in a truly peer-to-peer community and are actively involved in our community through our hosted events, our grant programme, and our collaborations.'
-        infoCont='We aim to build a truly community-centric platform by instilling a community-first behaviour within the CATENA beliefs of our team.'
-        description='vision'
-      />
-      <CommunityEvents
-        info='CATENA project is centred around our community — our management and developer teams are also chosen by our community through voting done using our native token on our platform, and funding for the project comes from contributions made by our community.'
-        infoCont='Apart from that, any changes proposed to our blockchain or platform will be voted for or against by our community, creating a truly community-driven blockchain.'
-        description='A truly community-driven blockchain'
-      />
-      <CommunityEvents
-        info='We are actively involved in our community through outreach and hosted events. We host several events throughout the year: most notably our Hackathon event that we run annually to attract the programming talent that our growing community has to offer.'
-        infoCont='We also take it upon ourselves to educate the public on the benefits, risks, and uses of blockchain technology'
-        description='events'
-      />
-      <CommunityEvents
-        info='Our team also shares our passion for blockchain technology and is open to collaborate with other blockchain projects, where aside from sharing our technical knowledge, we will sponsor and organize webinars and conferences for these other projects, building a larger developer community.'
-        infoCont='By integrating and collaborating with different Blockchain platforms and DeFI projects, Teams can tap into the support of the broader community of followers that we are looking to build.'
-        description='teams'
-      />
-      <AmbassadorExpectations
-        ambassadorApplication={devCommunity}
-        description='To be involved in CATENA developer community, a person or team must have the following qualifications:'
-        name='Developer Community'
-      />
-      <AmbassadorExpectations
-        ambassadorApplication={grantProgramme}
-        description='We offer a grant programme which users can use to get funding for their projects. The funding for the grant comes from the contributions made by our community. We provide grant funding for the following:'
-        title='Grant Programme'
-        proposals='Please submit your proposal on or before Monday 10 May 2021 at 18:00h GMT to'
-      />
-      <JoinCatenaCommunity />
-    </div>
+    <>
+      <div
+        className='container'
+        style={{
+          paddingTop: '200px',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          position: 'relative',
+          gap: '32px',
+          marginBottom: '50px',
+        }}
+      >
+        <h1 className='font-90' style={{ marginRight: '50%' }}>
+          Community
+        </h1>
+        <RevercedTitle data={vision} />
+        <Plain data={blockchain} />
+        <RevercedTitle data={events} />
+        <RevercedTitle data={teams} />
+        <Plain data={community} />
+        <Listed titles={devCommunity} />
+        <Plain data={grant} />
+        <Listed titles={grantProgramme} />
+      </div>
+      <JoinCommunity />
+    </>
   );
 };
 

@@ -86,13 +86,12 @@
 
 // export default CareersInner;
 
-import React from 'react';
+import { Button } from '@catena-network/catena-ui-module';
+import React, { useState } from 'react';
 
 import AboutYou from './components/aboutYou/AboutYou';
 import SeniorDesigner from './components/seniorDesigner/SeniorDesigner';
 import SubmitAplication from './components/submitAplication/SubmitAplication';
-
-import { useState } from 'react';
 
 const teamResponsible = [
   {
@@ -151,8 +150,24 @@ const CareersIneer = () => {
         title3='you will be responsible for'
         description='We are looking for an experienced front-end engineer to join as a member of the core engineering team. As a front-end engineer, you will have an extensive impact over the product, the UI/UX, and the technology.'
       />
-      <AboutYou toggleSeniorVisibility={toggleSeniorVisibility} aboutSalary={aboutSalary} aboutRange={aboutRange} head='About You' title2='Salary Ranges' />
+      <AboutYou
+        toggleSeniorVisibility={toggleSeniorVisibility}
+        aboutSalary={aboutSalary}
+        aboutRange={aboutRange}
+        head='About You'
+        title2='Salary Ranges'
+      />
       {seniorVisible && <SubmitAplication title='Submit Your Application' />}
+      <div className='container' style={{ margin: '50px 0 50px 0' }}>
+        <Button
+          onClick={toggleSeniorVisibility}
+          label={'Apply this job now'}
+          size={'btn-lg'}
+          type={'btn-primary'}
+          arrow={'arrow-right'}
+          element={'button'}
+        />
+      </div>
     </div>
   );
 };

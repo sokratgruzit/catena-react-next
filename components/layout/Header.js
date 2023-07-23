@@ -120,6 +120,11 @@ const Header = () => {
           title: 'Press',
           route: '/about/press',
         },
+        {
+          id: 6,
+          title: 'Event',
+          route: '/about/event',
+        },
       ],
     },
     /*{
