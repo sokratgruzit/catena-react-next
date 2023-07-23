@@ -1,13 +1,18 @@
 .boxTitle { 
-    width: 90%;
-    padding: 40px;
     height: auto;
-    background-color: #A6D0DD;
     border-radius: 10px;
-    border: 1px solid #162029;
-    margin-left: 100px;
     display: flex;
     flex-direction: column;
+    margin-bottom: 100px;
+}
+
+.box { 
+    background-color: #A6D0DD !important;
+}
+
+.Titile { 
+    cursor: pointer;
+    margin: 15px 0px 15px 0px;
 }
 
 .aa { 
@@ -17,18 +22,14 @@
     margin-left: 100px;
 }
 
-.h1 { 
-    font-size: 40px;
+.paragraph { 
     cursor: pointer;
+    max-width: 55%;
+    color: #162029;
+    margin-bottom: 15px;
 }
 
-.p { 
-    font-size: 20px;
-    max-width: 1000px;
-    cursor: pointer;
-}
-
-.a { 
+.ppp { 
     color: #FF6969;
     border-bottom: 1px solid #FF6969;
     max-width: 330px;

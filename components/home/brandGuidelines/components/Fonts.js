@@ -25,22 +25,16 @@ export default function Fonts() {
       {fonts.map((item, index) => {
         return (
           <div key={index}>
-            <div className={styles.line}>
-              <span>{item.span}</span>
+            <div className={`${styles.line} font_20`}>
+              <span className='font_20'>{item.span}</span>
               {item.teaser}
             </div>
             <div className={styles.content}>
               <img src={item.svg} alt='' />
               <div className={styles.definition}>
-                <h3 className={item.alignment === 'Header' ? styles.lackFont : styles.notoSansFont}>
-                  {item.alignment}
-                </h3>
-                <h4 className={`${item.alignment === 'Header' ? styles.lackFont : styles.notoSansFont} ${styles.font}`}>
-                  {item.fonts}
-                </h4>
-                <h4 className={`${item.alignment === 'Header' ? styles.lackFont : styles.notoSansFont} ${styles.num}`}>
-                  {item.num}
-                </h4>
+                <h3 className={` text  font_30${item.alignment === 'Header' ? 'ttl' : ''}`}>{item.alignment}</h3>
+                <h4 className={` text ${item.alignment === 'Header' ? 'ttl' : ''} ${styles.font}`}>{item.fonts}</h4>
+                <h4 className={`text ${item.alignment === 'Header' ? 'ttl' : ''} ${styles.num}`}>{item.num}</h4>
               </div>
             </div>
           </div>

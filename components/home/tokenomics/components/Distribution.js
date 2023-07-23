@@ -1,276 +1,160 @@
-import styles from './tokenomics.module.css';
+/* eslint-disable @next/next/no-img-element */
+import styles from './Tokenomics.module.css';
 
 function Distribution() {
+  let data = [
+    {
+      svg: (
+        <svg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'>
+          <circle cx='10' cy='10' r='8' stroke='#0500FF' strokeWidth='4' />
+        </svg>
+      ),
+      teaser: 'Reserve',
+      text: '6,000,000,000 CXRE (30%)',
+    },
+    {
+      svg: (
+        <svg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'>
+          <circle cx='10' cy='10' r='8' stroke='#FF8D4D' strokeWidth='4' />
+        </svg>
+      ),
+      teaser: 'Marketing & Operations',
+      text: '1,000,000,0000 CXRE (10%)',
+    },
+    {
+      svg: (
+        <svg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'>
+          <circle cx='10' cy='10' r='8' stroke='#817EFF' strokeWidth='4' />
+        </svg>
+      ),
+      teaser: 'Seed Round (Private Founders)',
+      text: '4,000,000,0000 CXRE (20%)',
+    },
+    {
+      svg: (
+        <svg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'>
+          <circle cx='10' cy='10' r='8' stroke='#E2DD5D' strokeWidth='4' />
+        </svg>
+      ),
+      teaser: 'Advisory Board',
+      text: '600,000,0000 CXRE (3%)',
+    },
+    {
+      svg: (
+        <svg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'>
+          <circle cx='10' cy='10' r='8' stroke='#D5D5FF' strokeWidth='4' />
+        </svg>
+      ),
+      teaser: 'IEO',
+      text: '4,000,000,0000 CXRE (20%)',
+    },
+    {
+      svg: (
+        <svg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'>
+          <circle cx='10' cy='10' r='8' stroke='#4ECB6A' strokeWidth='4' />
+        </svg>
+      ),
+      teaser: 'Strategic Acquisitions',
+      text: '400,000,0000 CXRE (2%)',
+    },
+    {
+      svg: (
+        <svg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'>
+          <circle cx='10' cy='10' r='8' stroke='#FFBB95' strokeWidth='4' />
+        </svg>
+      ),
+      teaser: 'Ecosystem Rewards',
+      text: '2,000,000,0000 CXRE (10%)',
+    },
+    {
+      svg: (
+        <svg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'>
+          <circle cx='10' cy='10' r='8' stroke='#99FFB0' strokeWidth='4' />
+        </svg>
+      ),
+      teaser: 'Team',
+      text: '2,000,000,0000 CXRE (10%)',
+    },
+  ];
+
   return (
-    <div>
-      <div className={styles.aboutFinancial__header}>
-        <h3 className='font-51'>
-          <span>Token</span> <span>Distribution</span>
-        </h3>
-        <div className={styles.aboutFinancial__headerTextContainer}>
-          <div className={styles.aboutFinancial__headerTitle}>Total Supply (Genesis)</div>
-          <div className={styles.aboutFinancial__headerSubTitle}>20,000,000,000 CMCX</div>
-        </div>
-      </div>
-      <div className={styles.chartContainer}>
-        <div className={styles.chartContainer__left}>
-          <div className={styles.chartContainer__inner}>
-            <div className={styles.chart__img}>
-              <img src='' alt='' />
+    <div className={`${styles.pt128}`}>
+      <h2 className='font-40 ttl container'>Token Distribution</h2>
+      <div className='container_bordered'>
+        <div className='container_bordered-child'>
+          <div className={styles.distribution_container}>
+            <div className={styles.distribution_teaser}>
+              <p className={` ttl ${styles.orange}`}>Total Supply</p>
+              <p>20,000,000,000 CXRE</p>
             </div>
-            <img src='' alt='' />
-            <div id={styles.chart}></div>
+            <div className={`${styles.distribution_flex}`}>
+              <div className={`${styles.svgContainer}`}>
+                <svg width='181' height='247' viewBox='0 0 181 247' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                  <path
+                    d='M4 4C99.1157 4 176.222 81.1065 176.222 176.222C176.222 199.859 171.461 222.383 162.844 242.889'
+                    stroke='#0500FF'
+                    strokeWidth='8'
+                    strokeLinecap='round'
+                  />
+                  <path
+                    d='M4 26.2222C74.1937 26.2222 133.126 74.4371 149.486 139.556'
+                    stroke='#817EFF'
+                    strokeWidth='8'
+                    strokeLinecap='round'
+                  />
+                  <path
+                    d='M4 48.4445C63.6393 48.4445 113.736 89.3033 127.823 144.556'
+                    stroke='#D5D5FF'
+                    strokeWidth='8'
+                    strokeLinecap='round'
+                  />
+                  <path
+                    d='M4 70.6667C29.0265 70.6667 52.0187 79.3762 70.1111 93.9296'
+                    stroke='#FFBB95'
+                    strokeWidth='8'
+                    strokeLinecap='round'
+                  />
+                  <path
+                    d='M4 92.8889C24.0284 92.8889 42.4065 99.9545 56.7778 111.729'
+                    stroke='#FF8D4D'
+                    strokeWidth='8'
+                    strokeLinecap='round'
+                  />
+                  <path
+                    d='M4 115.111C9.57634 115.111 14.9782 115.858 20.1111 117.257'
+                    stroke='#E2DD5D'
+                    strokeWidth='8'
+                    strokeLinecap='round'
+                  />
+                  <path
+                    d='M4 137.333C6.86041 137.333 9.6487 137.642 12.3333 138.228'
+                    stroke='#4ECB6A'
+                    strokeWidth='8'
+                    strokeLinecap='round'
+                  />
+                  <path
+                    d='M4 159.556C8.66232 159.556 12.8775 161.47 15.9024 164.556'
+                    stroke='#99FFB0'
+                    strokeWidth='8'
+                    strokeLinecap='round'
+                  />
+                </svg>
+              </div>
+              <div className={styles.distribution_grid}>
+                {data?.map((item, i) => {
+                  return (
+                    <div key={i} className={`${styles.alignItemsCenter} ${styles.flex}`}>
+                      {item.svg}
+                      <div className={styles.textWrap}>
+                        <p className={`${styles.orange} ttl `}>{item.teaser}</p>
+                        <p>{item.text}</p>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
           </div>
-        </div>
-        <div className={styles.chartContainer__right}>
-          <a
-            href='https://etherscan.io/token/0x5b685863494c33f344081f75e5430c260c224a32?a=0xb29bb1d14fd445e623790fa4060ba1584f151448'
-            target='_blank'
-            className={styles.chartContainer__description}
-          >
-            <div className='color'></div>
-            <div className={`${styles.title} descr `}>
-              Reserve
-              <svg
-                data-v-055a1cab=''
-                width='12'
-                height='12'
-                viewBox='0 0 12 12'
-                fill='none'
-                xmlns='http://www.w3.org/2000/svg'
-              >
-                <g data-v-055a1cab='' opacity='0.5'>
-                  <path
-                    data-v-055a1cab=''
-                    d='M10.5 2C10.5 1.72386 10.2761 1.5 10 1.5L5.5 1.5C5.22386 1.5 5 1.72386 5 2C5 2.27614 5.22386 2.5 5.5 2.5L9.5 2.5L9.5 6.5C9.5 6.77614 9.72386 7 10 7C10.2761 7 10.5 6.77614 10.5 6.5L10.5 2ZM1.35355 11.3536L10.3536 2.35355L9.64645 1.64645L0.646447 10.6464L1.35355 11.3536Z'
-                    fill='white'
-                  ></path>
-                </g>
-                <defs data-v-055a1cab=''>
-                  <clipPath data-v-055a1cab='' id='clip0'>
-                    <rect data-v-055a1cab='' width='12' height='12' fill='white'></rect>
-                  </clipPath>
-                </defs>
-              </svg>
-            </div>
-            <div className={`${styles.text} descr `}>6,000,000,000 CMCX (30%)</div>
-          </a>
-          <a
-            href='https://etherscan.io/token/0x5b685863494c33f344081f75e5430c260c224a32?a=0xab2beb4f5c500d34c1f8e99f3b3a47cc027d8b1a'
-            target='_blank'
-            className={styles.chartContainer__description}
-          >
-            <div className='color'></div>
-            <div className={`${styles.text} descr `}>
-              Ecosystem Rewards
-              <svg
-                data-v-055a1cab=''
-                width='12'
-                height='12'
-                viewBox='0 0 12 12'
-                fill='none'
-                xmlns='http://www.w3.org/2000/svg'
-              >
-                <g data-v-055a1cab='' opacity='0.5'>
-                  <path
-                    data-v-055a1cab=''
-                    d='M10.5 2C10.5 1.72386 10.2761 1.5 10 1.5L5.5 1.5C5.22386 1.5 5 1.72386 5 2C5 2.27614 5.22386 2.5 5.5 2.5L9.5 2.5L9.5 6.5C9.5 6.77614 9.72386 7 10 7C10.2761 7 10.5 6.77614 10.5 6.5L10.5 2ZM1.35355 11.3536L10.3536 2.35355L9.64645 1.64645L0.646447 10.6464L1.35355 11.3536Z'
-                    fill='white'
-                  ></path>
-                </g>
-                <defs data-v-055a1cab=''>
-                  <clipPath data-v-055a1cab='' id='clip0'>
-                    <rect data-v-055a1cab='' width='12' height='12' fill='white'></rect>
-                  </clipPath>
-                </defs>
-              </svg>
-            </div>
-            <div className={`${styles.text} descr `}>2,000,000,000 CMCX (10%)</div>
-          </a>
-          <a
-            href='https://etherscan.io/token/0x5b685863494c33f344081f75e5430c260c224a32?a=0x8022faa24f5f7857f8deae490b033d3339ba2dbf'
-            target='_blank'
-            className={styles.chartContainer__description}
-          >
-            <div className='color'></div>
-            <div className={`${styles.title} descr `}>
-              Team
-              <svg
-                data-v-055a1cab=''
-                width='12'
-                height='12'
-                viewBox='0 0 12 12'
-                fill='none'
-                xmlns='http://www.w3.org/2000/svg'
-              >
-                <g data-v-055a1cab='' opacity='0.5'>
-                  <path
-                    data-v-055a1cab=''
-                    d='M10.5 2C10.5 1.72386 10.2761 1.5 10 1.5L5.5 1.5C5.22386 1.5 5 1.72386 5 2C5 2.27614 5.22386 2.5 5.5 2.5L9.5 2.5L9.5 6.5C9.5 6.77614 9.72386 7 10 7C10.2761 7 10.5 6.77614 10.5 6.5L10.5 2ZM1.35355 11.3536L10.3536 2.35355L9.64645 1.64645L0.646447 10.6464L1.35355 11.3536Z'
-                    fill='white'
-                  ></path>
-                </g>
-                <defs data-v-055a1cab=''>
-                  <clipPath data-v-055a1cab='' id='clip0'>
-                    <rect data-v-055a1cab='' width='12' height='12' fill='white'></rect>
-                  </clipPath>
-                </defs>
-              </svg>
-            </div>
-            <div className={`${styles.text} descr `}>2,000,000,000 CMCX (10%)</div>
-          </a>
-          <a
-            href='https://etherscan.io/token/0x5b685863494c33f344081f75e5430c260c224a32?a=0x0cdd6ae9083f025cd88fbb624891cbe161060ff6'
-            target='_blank'
-            className={styles.chartContainer__description}
-          >
-            <div className='color'></div>
-            <div className={`${styles.title} descr `}>
-              Marketing & Operations
-              <svg
-                data-v-055a1cab=''
-                width='12'
-                height='12'
-                viewBox='0 0 12 12'
-                fill='none'
-                xmlns='http://www.w3.org/2000/svg'
-              >
-                <g data-v-055a1cab='' opacity='0.5'>
-                  <path
-                    data-v-055a1cab=''
-                    d='M10.5 2C10.5 1.72386 10.2761 1.5 10 1.5L5.5 1.5C5.22386 1.5 5 1.72386 5 2C5 2.27614 5.22386 2.5 5.5 2.5L9.5 2.5L9.5 6.5C9.5 6.77614 9.72386 7 10 7C10.2761 7 10.5 6.77614 10.5 6.5L10.5 2ZM1.35355 11.3536L10.3536 2.35355L9.64645 1.64645L0.646447 10.6464L1.35355 11.3536Z'
-                    fill='white'
-                  ></path>
-                </g>
-                <defs data-v-055a1cab=''>
-                  <clipPath data-v-055a1cab='' id='clip0'>
-                    <rect data-v-055a1cab='' width='12' height='12' fill='white'></rect>
-                  </clipPath>
-                </defs>
-              </svg>
-            </div>
-            <div className={`${styles.text} descr `}>1,000,000,000 CMCX (5%)</div>
-          </a>
-          <a
-            href='https://etherscan.io/token/0x5b685863494c33f344081f75e5430c260c224a32?a=0xa6e0454e2e7b13a5978fe3a963831aa80753460e'
-            target='_blank'
-            className={styles.chartContainer__description}
-          >
-            <div className='color'></div>
-            <div className={`${styles.title} descr `}>
-              Advisory Board
-              <svg
-                data-v-055a1cab=''
-                width='12'
-                height='12'
-                viewBox='0 0 12 12'
-                fill='none'
-                xmlns='http://www.w3.org/2000/svg'
-              >
-                <g data-v-055a1cab='' opacity='0.5'>
-                  <path
-                    data-v-055a1cab=''
-                    d='M10.5 2C10.5 1.72386 10.2761 1.5 10 1.5L5.5 1.5C5.22386 1.5 5 1.72386 5 2C5 2.27614 5.22386 2.5 5.5 2.5L9.5 2.5L9.5 6.5C9.5 6.77614 9.72386 7 10 7C10.2761 7 10.5 6.77614 10.5 6.5L10.5 2ZM1.35355 11.3536L10.3536 2.35355L9.64645 1.64645L0.646447 10.6464L1.35355 11.3536Z'
-                    fill='white'
-                  ></path>
-                </g>
-                <defs data-v-055a1cab=''>
-                  <clipPath data-v-055a1cab='' id='clip0'>
-                    <rect data-v-055a1cab='' width='12' height='12' fill='white'></rect>
-                  </clipPath>
-                </defs>
-              </svg>
-            </div>
-            <div className={`${styles.text} descr `}>600,000,000 CMCX (3%)</div>
-          </a>
-          <a
-            href='https://etherscan.io/token/0x5b685863494c33f344081f75e5430c260c224a32?a=0x152e18f7b0fa1fb8182bf2a84d13ad03eb970300'
-            target='_blank'
-            className={styles.chartContainer__description}
-          >
-            <div className='color'></div>
-            <div className={`${styles.title} descr `}>
-              Strategic Acquisitions
-              <svg
-                data-v-055a1cab=''
-                width='12'
-                height='12'
-                viewBox='0 0 12 12'
-                fill='none'
-                xmlns='http://www.w3.org/2000/svg'
-              >
-                <g data-v-055a1cab='' opacity='0.5'>
-                  <path
-                    data-v-055a1cab=''
-                    d='M10.5 2C10.5 1.72386 10.2761 1.5 10 1.5L5.5 1.5C5.22386 1.5 5 1.72386 5 2C5 2.27614 5.22386 2.5 5.5 2.5L9.5 2.5L9.5 6.5C9.5 6.77614 9.72386 7 10 7C10.2761 7 10.5 6.77614 10.5 6.5L10.5 2ZM1.35355 11.3536L10.3536 2.35355L9.64645 1.64645L0.646447 10.6464L1.35355 11.3536Z'
-                    fill='white'
-                  ></path>
-                </g>
-                <defs data-v-055a1cab=''>
-                  <clipPath data-v-055a1cab='' id='clip0'>
-                    <rect data-v-055a1cab='' width='12' height='12' fill='white'></rect>
-                  </clipPath>
-                </defs>
-              </svg>
-            </div>
-            <div className={`${styles.text} descr `}>400,000,000 CMCX (2%)</div>
-          </a>
-          <a href='##' target='_blank' className={`${styles.chartContainer__description} not `}>
-            <div className='color'></div>
-            <div className={`${styles.title} descr `}>
-              Seed Round
-              <svg
-                data-v-055a1cab=''
-                width='12'
-                height='12'
-                viewBox='0 0 12 12'
-                fill='none'
-                xmlns='http://www.w3.org/2000/svg'
-              >
-                <g data-v-055a1cab='' opacity='0.5'>
-                  <path
-                    data-v-055a1cab=''
-                    d='M10.5 2C10.5 1.72386 10.2761 1.5 10 1.5L5.5 1.5C5.22386 1.5 5 1.72386 5 2C5 2.27614 5.22386 2.5 5.5 2.5L9.5 2.5L9.5 6.5C9.5 6.77614 9.72386 7 10 7C10.2761 7 10.5 6.77614 10.5 6.5L10.5 2ZM1.35355 11.3536L10.3536 2.35355L9.64645 1.64645L0.646447 10.6464L1.35355 11.3536Z'
-                    fill='white'
-                  ></path>
-                </g>
-                <defs data-v-055a1cab=''>
-                  <clipPath data-v-055a1cab='' id='clip0'>
-                    <rect data-v-055a1cab='' width='12' height='12' fill='white'></rect>
-                  </clipPath>
-                </defs>
-              </svg>
-            </div>
-            <div className={`${styles.text} descr `}>4,000,000,000 CMCX (20%)</div>
-          </a>
-          <a href='##' target='_blank' className={`${styles.chartContainer__description} not `}>
-            <div className='color'></div>
-            <div className={`${styles.title} descr `}>
-              IEO
-              <svg
-                data-v-055a1cab=''
-                width='12'
-                height='12'
-                viewBox='0 0 12 12'
-                fill='none'
-                xmlns='http://www.w3.org/2000/svg'
-              >
-                <g data-v-055a1cab='' opacity='0.5'>
-                  <path
-                    data-v-055a1cab=''
-                    d='M10.5 2C10.5 1.72386 10.2761 1.5 10 1.5L5.5 1.5C5.22386 1.5 5 1.72386 5 2C5 2.27614 5.22386 2.5 5.5 2.5L9.5 2.5L9.5 6.5C9.5 6.77614 9.72386 7 10 7C10.2761 7 10.5 6.77614 10.5 6.5L10.5 2ZM1.35355 11.3536L10.3536 2.35355L9.64645 1.64645L0.646447 10.6464L1.35355 11.3536Z'
-                    fill='white'
-                  ></path>
-                </g>
-                <defs data-v-055a1cab=''>
-                  <clipPath data-v-055a1cab='' id='clip0'>
-                    <rect data-v-055a1cab='' width='12' height='12' fill='white'></rect>
-                  </clipPath>
-                </defs>
-              </svg>
-            </div>
-            <div className={`${styles.text} descr `}>4,000,000,000 CMCX (20%)</div>
-          </a>
         </div>
       </div>
     </div>

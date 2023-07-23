@@ -1,4 +1,4 @@
-import styles from './Listed.module.css'
+import styles from './Listed.module.css';
 
 const RevercedTitle = ({ titles }) => {
   return (

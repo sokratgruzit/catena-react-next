@@ -5,18 +5,14 @@ import styles from './OpenSearch.module.css';
 
 const OpenSearch = ({ title, department, location }) => {
   return (
-    <div>
-      <div className={styles.container}>
-        <div className={styles.mainContainer__description}>
-          <h1>{title}</h1>
-        </div>
-      </div>
-      <div className={styles.container}>
+    <div className='container'>
+      <h1 style={{ marginTop: '194px', color: '#162029' }} className='font-90 ttl'>
+        {title}
+      </h1>
+      <div>
         <div className={styles.openPositions__container}>
           <div className={styles.openPositions__filter}>
             <div className={styles.openPositions__filterTtl}>{department}</div>
-            {/* <div className={styles.openPositions__selectPlace}> */}
-            {/* <div className={styles.openPositions__selectTtl}> */}
             <Input
               type={'lable-input-select'}
               icon={false}
@@ -27,8 +23,6 @@ const OpenSearch = ({ title, department, location }) => {
               color={'#FFA726'}
               customStylesstyless={{ width: '320px' }}
             />
-            {/* </div> */}
-            {/* </div> */}
           </div>
           <div className={styles.openPositions__filter}>
             <div className={styles.openPositions__filterTtl}>{location}</div>

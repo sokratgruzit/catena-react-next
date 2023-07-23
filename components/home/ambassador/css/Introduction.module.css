@@ -1,0 +1,10 @@
+.Ttl { 
+    margin-bottom: 20px;
+}
+
+.texts { 
+    max-width: 45%;
+    overflow: hidden;
+    max-height: 200px;
+    gap: 10px;
+}

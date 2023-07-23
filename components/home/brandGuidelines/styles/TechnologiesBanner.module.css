@@ -1,0 +1,46 @@
+.guidlineEndHalfDescrTxt {
+  font-size: 15px;
+  line-height: 24px;
+  margin-top: 15px;
+  color: rgba(255, 255, 255, 0.5);
+}
+.guidlineEndHalfDescrTitle {
+  font-size: 30px;
+  line-height: 40px;
+}
+.guidlineEndHalf {
+  display: flex;
+  width: calc(50% - 16px);
+  padding: 40px 50px;
+  justify-content: space-between;
+  background: #010918;
+  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+}
+.guidlineEndHalf:hover {
+  background: #091325;
+}
+.guidlineEndHalf img {
+  height: fit-content;
+}
+.guidlineEndContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 100px;
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: 1300px) {
+  .guidlineEndHalf {
+    padding: 20px;
+  }
+}
+@media (max-width: 1023px) {
+  .guidlineEndContainer {
+    flex-direction: column;
+  }
+  .guidlineEndHalf {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+}

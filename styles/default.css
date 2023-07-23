@@ -10,8 +10,8 @@
 }
 
 @font-face {
-  font-family: "Lack-Regular";
-  src: url("../public/fonts/Lack-Regular.ttf") format("truetype");
+  font-family: 'Lack-Regular';
+  src: url('../public/fonts/Lack-Regular.ttf') format('truetype');
   /* src: url("../public/fonts/Lack-Regular.eot?#iefix") format("embedded-opentype"),
     url("../public/fonts/Lack-Regular.svg#Lack-Regular") format("svg"),
     url("../public/fonts/Lack-Regular.ttf") format("truetype"), url("../public/fonts/Lack-Regular.woff") format("woff"),
@@ -33,7 +33,8 @@
 }
 
 .ttl {
-  font-family: "Lack-Regular" !important;
+  font-family: 'Lack-Regular' !important;
+  font-family: 'Lack-Regular' !important;
 }
 
 html {
@@ -175,8 +176,8 @@ button {
   width: 100%;
   padding: 55px 115px;
   border-radius: 20px;
-  border: 1px solid rgba(22, 32, 41, 0.20);
-  background: #F3E4D2;
+  border: 1px solid rgba(22, 32, 41, 0.2);
+  background: #f3e4d2;
 }
 
 .font-20 {
@@ -186,12 +187,12 @@ button {
 
 .font-40 {
   font-size: 40px;
-  line-height: 120%
+  line-height: 120%;
 }
 
 .font-90 {
   font-size: 90px;
-  line-height: 120%
+  line-height: 120%;
 }
 
 .pT-160 {
@@ -219,6 +220,150 @@ button {
   height: 10px;
   border: 1px solid #162029;
   left: 0px;
+}
+.text h1,
+.text h2,
+.text h3,
+.text h4,
+.text h5,
+.text h6 {
+  font-family: 'Lack-Regular' !important;
+}
+.text h1 {
+  font-size: 100px;
+  line-height: 110px;
+  margin-bottom: 60px;
+}
+
+.text h2 {
+  font-size: 51px;
+  line-height: 66px;
+  margin-bottom: 40px;
+}
+
+.text h4 {
+  font-size: 30px;
+  line-height: 44px;
+  margin-bottom: 40px;
+}
+
+.text p {
+  font-size: 22px;
+  line-height: 34px;
+  color: #162029;
+  margin-bottom: 40px;
+}
+
+.text span {
+  display: flex;
+}
+
+.text img {
+  width: 100%;
+  max-width: 100%;
+  object-fit: cover;
+  margin: 60px 0;
+  display: block;
+  height: auto;
+}
+
+.text hr {
+  margin-bottom: 40px;
+}
+
+.text button {
+  background-color: #fff;
+  color: #00050f;
+  padding: 4px 10px;
+  text-align: center;
+}
+
+@media (max-width: 1300px) {
+  .text h1 {
+    font-size: 60px;
+    line-height: 90px;
+    margin-bottom: 40px;
+  }
+  .text h2 {
+    font-size: 40px;
+    line-height: 45px;
+    margin-bottom: 30px;
+  }
+  .text h4,
+  .text hr {
+    margin-bottom: 30px;
+  }
+  .text img {
+    margin: 40px 0;
+  }
+  .text p {
+    font-size: 18px;
+    line-height: 24px;
+    margin-bottom: 30px;
+  }
+}
+@media (max-width: 767px) {
+  .text h1 {
+    font-size: 40px;
+    line-height: 55px;
+    margin-bottom: 30px;
+  }
+  .text h2 {
+    font-size: 30px;
+    line-height: 35px;
+    margin-bottom: 20px;
+  }
+  .text h4 {
+    font-size: 20px;
+    line-height: 30px;
+    margin-bottom: 20px;
+  }
+  .text img {
+    margin: 30px 0;
+  }
+
+  .text p {
+    font-size: 16px;
+    line-height: 22px;
+    margin-bottom: 20px;
+  }
+  .text hr {
+    margin-bottom: 20px;
+  }
+}
+@media (max-width: 350px) {
+  .text h1 {
+    font-size: 30px;
+    line-height: 45px;
+    margin-bottom: 30px;
+  }
+}
+
+.text .coppy-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: rgba(22, 32, 41, 0.5);
+  flex-wrap: wrap;
+}
+.text .coppy-link .year {
+  color: rgba(22, 32, 41, 0.5);
+}
+
+.text .coppy-link .dot {
+  border-radius: 50%;
+  width: 3px;
+  height: 3px;
+  background-color: rgba(22, 32, 41, 0.5);
+}
+.text .coppy-link button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(22, 32, 41, 0.5);
+  gap: 10px;
+  background-color: transparent;
+  margin-left: 30px;
 }
 
 form .form-control:focus {
@@ -274,7 +419,6 @@ input:focus:-ms-input-placeholder {
   .container {
     padding: 0px 40px;
   }
-
 }
 
 /*Ipad Pro 1024*/
@@ -412,5 +556,6 @@ input:focus:-ms-input-placeholder {
 }
 
 h3 {
+  font-weight: 400;
   font-weight: bold;
 }

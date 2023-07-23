@@ -10,59 +10,59 @@ const featureLinkList = [
   },
   {
     id: 1,
-    title: 'Web 3 Engineer',
+    title: 'Senior UX Designer',
     list: ['Technology •', ' Full-Time •', ' Remote • '],
   },
   {
     id: 2,
-    title: 'Rust CATENA Protocol Developer',
+    title: 'Senior UX Designer',
     list: ['Technology •', ' Full-Time •', ' Remote • '],
   },
   {
     id: 3,
-    title: 'Junior Game Designer',
+    title: 'Senior UX Designer',
     list: ['Technology •', ' Full-Time •', ' Remote • '],
   },
   {
     id: 4,
-    title: 'iOS Developer (Mid to Senior)',
+    title: 'Senior UX Designer',
     list: ['Technology •', ' Full-Time •', ' Remote • '],
   },
   {
     id: 5,
-    title: 'Full Stack Web 3.0 Developer',
+    title: 'Senior UX Designer',
     list: ['Technology •', ' Full-Time •', ' Remote • '],
   },
   {
     id: 6,
-    title: 'Director of Communications - English',
+    title: 'Senior UX Designer',
     list: ['Sales & Support •', ' Remote • '],
   },
   {
     id: 7,
-    title: 'Crypto Research Analyst',
+    title: 'Senior UX Designer',
     list: ['Operations •', ' Full-Time •', ' Remote • '],
   },
   {
     id: 8,
-    title: 'Creative Director',
+    title: 'Senior UX Designer',
     list: ['Technology •', ' Full-Time •', ' Remote • '],
   },
   {
     id: 9,
-    title: 'Backend Architect - Risk Management',
+    title: 'Senior UX Designer',
     list: ['Technology •', ' Full-Time •', ' Remote • '],
   },
-  {
-    id: 10,
-    title: 'API Solution Engineer (Python + Node.JS Developer / Client Support)',
-    list: ['Technology •', ' Full-Time •', ' Remote • '],
-  },
-  {
-    id: 11,
-    title: 'Affiliate/Influencer Marketing Coordinator - LATAM',
-    list: ['Marketing •', ' Full-Time •', ' Remote • '],
-  },
+  // {
+  //   id: 10,
+  //   title: 'Senior UX Designer',
+  //   list: ['Technology •', ' Full-Time •', ' Remote • '],
+  // },
+  // {
+  //   id: 11,
+  //   title: 'Senior UX Designer',
+  //   list: ['Marketing •', ' Full-Time •', ' Remote • '],
+  // },
   // {
   //   id: 12,
   //   title: 'React.JS Developer',

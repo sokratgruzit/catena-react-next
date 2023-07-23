@@ -16,13 +16,9 @@
 
 .line h6 {
   color: rgba(0, 5, 15, 0.6);
-  font-size: 20px;
-  line-height: 24px;
 }
 
 .title {
-  font-size: 90px;
-  line-height: 108px;
   color: rgba(22, 32, 41, 1);
 }
 
@@ -39,26 +35,15 @@
 }
 
 .typefaces h4 {
-  font-size: 50px;
-  line-height: 54px;
   color: rgba(22, 32, 41, 1);
 }
 
 .typefaces p {
   color: rgba(22, 32, 41, 0.6);
-  font-size: 16px;
-  line-height: 24px;
   max-width: 580px;
 }
 
 @media (max-width: 767px) {
-  .title {
-    font-size: 50px;
-    line-height: 55px;
-  }
-  .typefaces h4 {
-    font-size: 30px;
-  }
   .content {
     gap: 70px;
   }
