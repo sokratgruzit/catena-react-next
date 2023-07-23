@@ -15,18 +15,12 @@ export default function PressInner() {
   const getCurrentPageURL = () => {
     return window.location.href;
   };
-  const images = [
-    // Replace these URLs with your image URLs
-    '/images/pressInner/image.png',
-    '/images/guidelines/FirstUsage.png',
-    '/images/guidelines/SecondUsage.png',
-    '/images/guidelines/Partnership.png',
-    '/images/guidelines/SixthUsage.png',
-  ];
+  const images = ['/images/pressInner/image.png', '/images/pressInner/secondImage.png'];
   return (
     <div className='text'>
       <h1>SingularityNET’s Ben Goertzel has a grand vision for the future of AI</h1>
-      <CoppyLink data={data} currentPageURL={getCurrentPageURL()} />
+      <CoppyLink data={data} currentPageURL={getCurrentPageURL} showDetails={true} showCopyButton={true} />
+
       {/* <img src='/images/pressInner/image.png' alt='image' /> */}
       <Slider images={images} />
       <h4>
@@ -52,8 +46,7 @@ export default function PressInner() {
         payment, but it would still need a distributed ledger.
       </p>
       <hr />
-      <CoppyLink data={data} currentPageURL={getCurrentPageURL()} />
-      {/* <img src='/images/pressInner/bannerImage.png' alt='image' /> */}
+      <CoppyLink data={data} currentPageURL={getCurrentPageURL} showDetails={true} showCopyButton={true} />
     </div>
   );
 }

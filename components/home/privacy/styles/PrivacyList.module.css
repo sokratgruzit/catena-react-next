@@ -16,10 +16,6 @@
 .content {
   display: flex;
 }
-.content p {
-  font-size: 16px;
-  line-height: 24px;
-}
 
 .content p span {
   text-transform: uppercase;
@@ -44,12 +40,9 @@
   width: 5px;
   height: 5px;
   border: 1px solid #162029;
-  /* counter-increment: item-counter; */
 }
 
 .listWrapper .text {
-  font-size: 16px;
-  line-height: 24px;
   color: #162029;
   padding-top: 21px;
 }
@@ -71,8 +64,6 @@
 }
 
 .children .teaser {
-  font-size: 16px;
-  line-height: 24px;
   padding: 21px 0;
 }
 
@@ -90,8 +81,6 @@
   display: flex;
   gap: 10px;
   padding-right: 10px;
-  font-size: 16px;
-  line-height: 24px;
 }
 @media (max-width: 767px) {
   .listWrapper {

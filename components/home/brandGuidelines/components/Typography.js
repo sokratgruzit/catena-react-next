@@ -13,7 +13,7 @@ export default function Typography() {
             fill='#00050F'
           />
         </svg>
-        <h6>Typography</h6>
+        <h6 className='font-20'>Typography</h6>
       </div>
       <div className={styles.content}>
         <h2 className={`${styles.title} font-90`}>Typography</h2>

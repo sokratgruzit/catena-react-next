@@ -1,0 +1,8 @@
+.p { 
+    max-width: 600px;
+    max-height: 90px;
+    overflow: hidden;
+    padding: 80px 50px;
+    margin-left: 55px;
+    font-size: 20px;
+}

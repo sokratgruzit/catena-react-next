@@ -1,0 +1,39 @@
+.mapContainer {
+    width: calc(100% - 100px);
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: center; */
+  }
+  
+.arrContents {
+    width: 50% ;
+    padding: 35px;
+}
+
+
+.pressImage {
+    width: 522px;
+    height: 222px;
+    position: relative;
+    cursor: pointer;
+}
+.icon {
+    position: relative;
+    margin-left: 25px;
+    width: 72px;
+    height: 72px;
+    z-index: 2;
+    object-fit: cover;
+    bottom: 245px;
+}
+
+
+.arrContents h2 {
+    cursor: pointer;
+} 
+
+
+.arrContents p {
+    font-size: 16px;
+    cursor: pointer;
+} 

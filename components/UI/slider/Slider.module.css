@@ -1,12 +1,12 @@
-/* ImageSlider.module.css */
 .sliderContainer {
   display: flex;
   align-items: center;
+  max-width: 100%;
+  width: 100%;
 }
 
 .image {
-  max-width: 400px; /* Set the desired width for the images */
-  margin: 0 10px; /* Adjust the margins as needed */
+  width: calc(100% - 128px) !important;
 }
 
 .arrowButton {
@@ -14,18 +14,48 @@
   border: none;
   cursor: pointer;
   font-size: 16px;
-  padding: 5px;
 }
 
 .sliderContainer button {
   background: transparent;
   transition: 0.4s;
+  padding: 0;
+}
+
+.arrowButton svg {
+  width: 40px;
+  height: 40px;
 }
 
 .arrowButton svg path {
   transition: 0.4s;
 }
 
-.sliderContainer button:hover svg path {
+.sliderContainer .button:hover svg path {
   fill: #ff6969;
+}
+
+.next {
+  margin-left: 24px;
+}
+
+.prev {
+  margin-right: 24px;
+}
+
+@media (max-width: 767px) {
+  .image {
+    width: calc(100% - 100px) !important;
+  }
+  .next {
+    margin-left: 20px;
+  }
+
+  .prev {
+    margin-right: 20px;
+  }
+  .arrowButton svg {
+    width: 30px;
+    height: 30px;
+  }
 }
