@@ -50,10 +50,7 @@
   padding-right: 180px;
   margin-bottom: 100px;
 }
-.career_item img {
-  max-width: 120px;
-  max-height: 120px;
-}
+
 .career_item .item_ttl {
   position: relative;
   font-size: 20px;
@@ -70,12 +67,6 @@
 
 /*Ipad Pro 1024*/
 @media (max-width: 1300px) {
-  .careerQualities__opening:first-child {
-    width: 50%;
-  }
-  .careerQualities__opening:last-child {
-    width: 50%;
-  }
   .careerQualities {
     padding-right: 30px;
     padding-top: 50px;
@@ -85,10 +76,7 @@
     padding-right: 100px;
     margin-bottom: 70px;
   }
-  .career_item img {
-    max-width: 100px;
-    max-height: 100px;
-  }
+
   .career_item .item_ttl {
     margin-top: 30px;
   }
@@ -102,28 +90,13 @@
     padding-right: 30px;
     margin-bottom: 70px;
   }
-  .career_item img {
-    max-width: 70px;
-    max-height: 70px;
-  }
-  .counter-container {
-    max-width: 500px;
-  }
 }
 /*Mobile 320*/
 @media (max-width: 767px) {
   .career__items {
     width: 100%;
   }
-  .careerQualities__openings {
-    flex-direction: column;
-  }
-  .careerQualities__opening:first-child {
-    width: 100%;
-  }
-  .careerQualities__opening:last-child {
-    width: 100%;
-  }
+
   .career__items {
     flex-direction: column;
     margin-top: 70px;
@@ -131,23 +104,13 @@
   .career_item {
     width: 100%;
     align-items: start;
-    padding-left: 60px;
+    padding-left: 50px;
   }
   .career_item p {
     text-align: left;
   }
-  .counter-num {
-    font-size: 22px;
-  }
   .career_head {
     margin-top: 50px;
-  }
-  .career__main-bg {
-    height: 100vh;
-    object-fit: cover;
-  }
-  .main-container__description {
-    padding: 0px;
   }
   .career_head {
     flex-direction: column;
@@ -155,5 +118,15 @@
   .career_head h2,
   .career_description {
     width: 100%;
+  }
+
+  .font__51 {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 374px) {
+  .career_item {
+    padding-left: 0;
   }
 }

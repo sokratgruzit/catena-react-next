@@ -34,9 +34,11 @@
 @media (max-width: 767px) {
   .careerHow p {
     width: 100%;
+    font-size: 16px;
   }
 
   .workStyle {
     line-height: 66px;
+    font-size: 40px;
   }
 }
