@@ -17,8 +17,12 @@
 }
 
 .container { 
-  width: 30%;
+  width: 45%;
 } 
+
+.img { 
+  width: 100%;
+}
 
 .Title { 
   margin: 10% 0px 10% 0px;
@@ -37,6 +41,16 @@
   width: 100% !important;
   border: 1px solid #162029 !important;
 }
+
+
+/*Ipad 768*/
+@media (max-width: 1023px) { 
+    .main { 
+      display: flex;
+      flex-direction: column;
+    }
+}
+
 
 
 

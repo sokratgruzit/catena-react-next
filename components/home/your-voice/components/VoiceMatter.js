@@ -10,7 +10,6 @@ const VoiceMatter = props => {
 
   return (
     <div className={`${styles.main} container`}>
-
       <div className={`${styles.box} `}>
         <div className={styles.container}>
           <img src="/images/VoiceMatter/YourVoiceMatter.png" className={styles.img} />
@@ -23,7 +22,6 @@ const VoiceMatter = props => {
           </h2>
         </div>
       </div>
-
       <div className={`${styles.bottomBox} `}>
         <div className={`${styles.hederBox} `}>
           <form>
@@ -85,8 +83,6 @@ const VoiceMatter = props => {
           </form>
         </div>
       </div>
-
-
     </div >
   );
 };
