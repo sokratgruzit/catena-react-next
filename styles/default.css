@@ -203,11 +203,8 @@ button {
   padding-bottom: 160px;
 }
 
-<<<<<<< HEAD
-=======
 /* text styles */
 
->>>>>>> d0970ccd88d7cb93645862a9687109d5f7a8a375
 .text ul li {
   position: relative;
   display: flex;
@@ -226,8 +223,6 @@ button {
   border: 1px solid #162029;
   left: 0px;
 }
-<<<<<<< HEAD
-=======
 .text h1,
 .text h2,
 .text h3,
@@ -368,7 +363,6 @@ button {
   gap: 10px;
   background-color: transparent;
 }
->>>>>>> d0970ccd88d7cb93645862a9687109d5f7a8a375
 
 form .form-control:focus {
   border-color: #ced4da;
