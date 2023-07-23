@@ -65,18 +65,18 @@ const Press = () => {
 
   return (
     <div className={`${styles.mainContainer} container`}>
-      <div className={`${styles.titleContainer} container_bordered`}>
+      <div className={`${styles.titleContainer}`}>
         <p className={styles.titlePartyOne}>Catena</p>
         <p className={styles.titlePartyTwo}>Press</p>
       </div>
       <div className={styles.bodyContainer}>
         <Card dataArr={pressArr} />
       </div>
-      <div className={styles.sourcesContainer}>
+      <div className={`${styles.sourcesContainer}container_bordered`}>
         <div className={styles.sourcesTitle}>
-          <p>Sources</p>
+          <h1 className='ttl font-40'>Sources</h1>
         </div>
-        <div className={styles.logoContainer}>
+        <div className={`${styles.logoContainer}`}>
           <div className={styles.logoLine}>
             <div className={styles.logCon}>
               <img src='/images/press/nasdaq.png' alt='sources' className={styles.logo} />
@@ -116,59 +116,47 @@ const Press = () => {
       </div>
       <div className={styles.infoContainer}>
         <div className={styles.infContTitle}>
-          <p>Publics by years</p>
+          <h2 className='ttl font-40'>Publics by years</h2>
         </div>
         <div className={styles.yearsStats}>
           <div
             className={activeYear === '2021' ? styles.activeCont : styles.pasCont}
             onClick={() => handleYearClick('2021')}
           >
-            <p className={activeYear === '2021' ? styles.active : styles.bottomLine}>2021</p>
+            2021
           </div>
           <div
             className={activeYear === '2020' ? styles.activeCont : styles.pasCont}
             onClick={() => handleYearClick('2020')}
           >
-            <p className={activeYear === '2020' ? styles.active : styles.bottomLine}>2020</p>
+            2020
           </div>
           <div
             className={activeYear === '2019' ? styles.activeCont : styles.pasCont}
             onClick={() => handleYearClick('2019')}
           >
-            <p className={activeYear === '2019' ? styles.active : styles.bottomLine}>2019</p>
+            2019
           </div>
           <div
             className={activeYear === '2018' ? styles.activeCont : styles.pasCont}
             onClick={() => handleYearClick('2018')}
           >
-            <p className={activeYear === '2018' ? styles.active : styles.bottomLine}>2018</p>
+            2018
           </div>
         </div>
 
       </div>
       <div className={styles.statisticContainer}>
-        <div className={styles.icCont}>
-          <img src='/images/press/imgPartThree.png' />
-          <p>AI Is The Future Of Computing, And SingularityNET Is The Future Of AI</p>
-        </div>
-        <div className={styles.icCont}>
-          <img src='/images/press/imgPart.png' />
-          <p>Get Set For ‘a Wild Ride’: Dfinity’s Dom Williams on the Launch of The Internet Computer</p>
-        </div>
-        <div className={styles.icCont}>
-          <img src='/images/press/imgPartThree.png' />
-          <p>AI Is The Future Of Computing, And SingularityNET Is The Future Of AI</p>
-        </div>
-        <div className={styles.icCont}>
-          <img src='/images/press/imgPartTwo.png' />
-          <p>Get Set For ‘a Wild Ride’: Dfinity’s Dom Williams on the Launch of The Internet Computer</p>
-        </div>
-        <div className={styles.icContL}>
-          <img src='/images/press/imgPartThree.png' />
-          <p>AI Is The Future Of Computing, And SingularityNET Is The Future Of AI</p>
-        </div>
+        {pressArr.map((item, index) => {
+          return (
+            <div className={styles.icCont}>
+              <img src={item.imgPart} />
+              <p>{item.title}</p>
+            </div>
+          )
+        })}
         <div className={styles.pagCont}>
-          <div className={styles.pagination}>L O A D I N G ... </div>
+          <div className={styles.pagination}>pagination</div>
         </div>
       </div>
       <div className={styles.joinComCont}>
