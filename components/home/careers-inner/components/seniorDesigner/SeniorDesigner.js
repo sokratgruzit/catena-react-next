@@ -2,16 +2,19 @@ import React from 'react';
 
 import styles from './SeniorDesigner.module.css';
 
-const SeniorDesigner = ({ teamResponsible, title2, head, title, description }) => {
+const SeniorDesigner = ({ teamResponsible, title2, head, title, description, title3 }) => {
   return (
-    <div className={styles.container}>
-      <h1>{head}</h1>
+    <div className='container'>
+      <h1 style={{ color: '#162029' }} className='font-90 ttl'>{head}</h1>
       <div className={styles.frontInfo}>
-        <h2>{title}</h2>
-        <p>{description}</p>
-        <h2>{title2}</h2>
+        <h2 className={styles.font__51}>{title}</h2>
+        <p className={styles.textDescription1}>{description}</p>
+        <div>
+          <h2 className={styles.font__51}>{title2}</h2>
+          <h2 className={styles.otherTitle}>{title3}</h2>
+        </div>
         {teamResponsible.map((item, index) => {
-          return <div key={index}>{item.title}</div>;
+          return <div className={styles.textDescription} key={index}>{item.title}</div>;
         })}
       </div>
     </div>

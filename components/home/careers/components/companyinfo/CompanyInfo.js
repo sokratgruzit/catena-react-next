@@ -11,7 +11,7 @@ const CompanyInfo = props => {
         <h1>{description}</h1>
         {workflow.map((item, index) => {
           return (
-            <p style={{ textAlign: 'start' }} key={index}>
+            <p className={styles.resText} style={{ textAlign: 'start' }} key={index}>
               {item.title}
             </p>
           );

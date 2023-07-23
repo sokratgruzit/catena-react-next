@@ -4,7 +4,6 @@ const Recruitment = props => {
   const { data, title } = props;
   return (
     <div className='container'>
-      <div className={styles.careerQualities}>
         <h2 className={styles.font__51}>{title}</h2>
         {data.map((item, index) => {
           return (
@@ -14,7 +13,6 @@ const Recruitment = props => {
             </div>
           );
         })}
-      </div>
     </div>
   );
 };

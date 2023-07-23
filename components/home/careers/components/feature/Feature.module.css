@@ -83,6 +83,8 @@
   font-size: 20px;
   line-height: 30px;
   border-bottom: 1px solid #a6d0dd;
+  width: 240px;
+  padding-bottom: 4px;
   transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
 }
 
@@ -115,5 +117,11 @@
 @media (max-width: 1700px) {
   .font__51 {
     padding-left: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .font__51 {
+    font-size: 40px;
   }
 }

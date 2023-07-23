@@ -1,5 +1,5 @@
-import React from 'react';
 import { useRouter } from 'next/router';
+import React from 'react';
 
 import Event from '../../components/home/events/Event';
 import Press from '../../components/home/press/Press';

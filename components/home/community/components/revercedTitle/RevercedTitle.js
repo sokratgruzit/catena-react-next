@@ -1,4 +1,4 @@
-import styles from './RevercedTitle.module.css'
+import styles from './RevercedTitle.module.css';
 
 const RevercedTitle = ({ data }) => {
   return (
