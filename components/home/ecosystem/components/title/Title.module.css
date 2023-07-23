@@ -14,6 +14,7 @@
 }
 
 .text {
+    max-width: 536px;
     font-family: Noto Sans;
     font-size: 20px;
     font-weight: 400;
