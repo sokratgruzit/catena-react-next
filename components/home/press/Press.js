@@ -127,9 +127,9 @@ const Press = () => {
         </div>
       </div>
       <div className={styles.infoContainer}>
-        <div className={styles.infContTitle}>
-          <h2 className='ttl font-40'>Publics by years</h2>
-        </div>
+        {/* <div className={styles.infContTitle}> */}
+        <h2 className='ttl font-40'>Publics by years</h2>
+        {/* </div> */}
         <div className={styles.yearsStats}>
           <div
             className={activeYear === '2021' ? styles.activeCont : styles.pasCont}
