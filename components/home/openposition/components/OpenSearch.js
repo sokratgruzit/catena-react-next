@@ -13,29 +13,31 @@ const OpenSearch = ({ title, department, location }) => {
         <div className={styles.openPositions__container}>
           <div className={styles.openPositions__filter}>
             <div className={styles.openPositions__filterTtl}>{department}</div>
-            <Input
-              type={'lable-input-select'}
-              icon={false}
-              selectType={'country'}
-              selectLabel={'All'}
-              status={'warning'}
-              title={'your text'}
-              color={'#FFA726'}
-              customStylesstyless={{ width: '320px' }}
-            />
+            <div className={styles.infoImport}>
+              <Input
+                type={'lable-input-select'}
+                icon={false}
+                selectType={'country'}
+                selectLabel={'All'}
+                status={'warning'}
+                title={'your text'}
+                color={'#FFA726'}
+              />
+            </div>
           </div>
           <div className={styles.openPositions__filter}>
             <div className={styles.openPositions__filterTtl}>{location}</div>
-            <Input
-              type={'lable-input-select'}
-              icon={false}
-              selectType={'country'}
-              selectLabel={'All'}
-              status={'warning'}
-              title={'your text'}
-              color={'#FFA726'}
-              customStylesstyless={{ width: '320px' }}
-            />
+            <div className={styles.infoImport}>
+              <Input
+                type={'lable-input-select'}
+                icon={false}
+                selectType={'country'}
+                selectLabel={'All'}
+                status={'warning'}
+                title={'your text'}
+                color={'#FFA726'}
+              />
+            </div>
           </div>
           <div className={styles.openPositions__filterClear}>Clear filter</div>
         </div>
