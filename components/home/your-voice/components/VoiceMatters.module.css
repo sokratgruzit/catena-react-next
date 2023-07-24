@@ -1,7 +1,7 @@
 .main { 
   display: flex;
   width: 100%;
-  margin: 50px 0px 100px 0px;
+  /* margin: 50px 0px 100px 0px; */
 }
 
 .box { 
@@ -48,8 +48,49 @@
     .main { 
       display: flex;
       flex-direction: column;
+      width: 100%;
+    }
+    .box { 
+      width: 100%;
+    }
+  
+    .container {
+      width: 100%;
+    }
+  
+    .Title { 
+      width: 100%;
+    }
+
+    .bottomBox { 
+      width: 100%;
+    }
+
+    .img { 
+      width: 80%;
     }
 }
+
+/*Mobile 320*/
+@media (max-width: 768px) { 
+  .main { 
+    width: 100% ;
+  }
+
+  .box { 
+    width: 100%;
+  }
+
+  .container {
+    width: 100%;
+  }
+
+  .Title { 
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
 
 
 
