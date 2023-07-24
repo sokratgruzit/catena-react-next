@@ -3,10 +3,10 @@ import styles from './bugBounty.module.css';
 function BugBountyTitle() {
   return (
     <div>
-      <div id='main' className='outer'>
-        <div className='main-container__description'>
-          <div className='left'>
-            <h1 className={styles.h1}>Bug Bounty</h1>
+      <div>
+        <div>
+          <div>
+            <h1 className={`ttl font-90`}>Bug Bounty</h1>
           </div>
           <p className={styles.text}>
             CATENA is calling all bug bounty hunters to identify bugs in the CATENA Framework. We invite our community
