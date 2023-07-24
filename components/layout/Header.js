@@ -191,6 +191,7 @@ const Header = () => {
 
   const changeLanguage = loc => {
     //i18n.changeLanguage(loc.toLowerCase());
+    //fixed in dummy way
 
     dispatch({
       type: "SET_ACTIVE_LANG",
