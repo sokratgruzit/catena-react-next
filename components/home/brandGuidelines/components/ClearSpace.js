@@ -10,7 +10,8 @@ export default function ClearSpace() {
     },
   ];
   return (
-    <div>
+    <div className={styles.container}>
+      <img className={styles.vector} src='/images/guidelines/Vector.png' alt='' />
       <div className={styles.logoLine}>
         <svg width='35' height='23' viewBox='0 0 35 23' fill='none' xmlns='http://www.w3.org/2000/svg'>
           <g opacity='0.3'>
@@ -35,8 +36,8 @@ export default function ClearSpace() {
         <div className={styles.wrapper} key={index}>
           <div className={styles.guidlineFlex}>
             <div className={`${styles.guidlineLrgTtl} ${styles.font51}`}>
-              <span>{item.clearSpace}</span>
-              <span>{item.andPositioning}</span>
+              <span className='font_51'>{item.clearSpace}</span>
+              <span className='font_51'>{item.andPositioning}</span>
             </div>
             <div className={`${styles.guidlineParagraph} ${styles.paragraphMt}`}>{item.clearSpaceText}</div>
           </div>

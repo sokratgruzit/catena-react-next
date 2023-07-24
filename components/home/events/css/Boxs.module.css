@@ -1,0 +1,55 @@
+.mainContainer {
+    width: 100%;
+    position: relative;
+}
+.titleContainer {
+    width: 570px;
+    display: flex;
+    gap: 50px;
+}
+
+.titlePartyOne {
+    color: #FF6969;
+    font-size: 90px;
+    font-family: 'Lack', sans-serif;
+    font-weight: 400;
+}
+
+.titlePartyTwo {
+    font-size: 90px;
+    color: #162029;
+    font-family: 'Lack', sans-serif;
+    font-weight: 400;
+}
+
+.titleDesc {
+    width: 590px;
+    height: 90px;
+    margin-top: 100px;
+    margin-bottom: 70px;
+}
+
+.titleDesc p {
+    font-size: 30px;
+}
+
+.imgBackgr {
+    background-color: #FF6969;
+    width: 72px;
+    height: 72px;
+}
+
+.mapContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px; 
+  }
+  
+  .mapContainer > div:nth-child(1) {
+    flex-basis: 100%; 
+  }
+  
+  .mapContainer > div:nth-child(n+2) {
+    flex-basis: calc(50% - 25px); 
+  }
+

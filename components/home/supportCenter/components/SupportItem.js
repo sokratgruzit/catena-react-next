@@ -1,46 +1,84 @@
-import styles from './supportItem.module.css';
+import Announcements from '../../../svg/Support/Announcements';
+import CmcxTkn from '../../../svg/Support/CmcxTkn';
+import Academy from '../../../svg/Support/Academy';
+import FAQ from '../../../svg/Support/Faq';
+import Request from '../../../svg/Support/Reqvest';
+import Api from '../../../svg/Support/Api';
+import Arrow from '../../../svg/Support/Arrow';
+import Link from 'next/link';
 
-const SUPPORT_ITEMS = [
+import styles from "./SupportItem.module.css";
+
+
+const SUPPORTITEMS = [
   {
-    title: 'Announcements',
+    svg: <Announcements />,
+    a: 'Announcements',
+    arrow: <Arrow />,
     description: 'CATENA latest official announcements and notices.',
+    subLink: "/"
   },
   {
-    title: 'CMCX Token',
+    svg: <CmcxTkn />,
+    a: 'CMCX Token',
+    arrow: <Arrow />,
     description: 'The Bridge Between Crypto and Global Finance.',
+    subLink: "/"
   },
   {
-    title: 'Academy',
+    svg: <Academy />,
+    a: 'Academy',
+    arrow: <Arrow />,
     description: 'Get a deeper understanding of the crypto industry and market.',
+    subLink: "/"
   },
   {
-    title: 'FAQ',
+    svg: <FAQ />,
+    a: 'FAQ',
+    arrow: <Arrow />,
     description: 'Any issues? Find answers to commonly asked questions.',
+    subLink: "/faq"
   },
   {
-    title: 'Submit a request',
+    svg: <Request />,
+    a: 'Submit a request',
+    arrow: <Arrow />,
     description: "Can't find the solution to your problem? Submit a request to support team.",
+    subLink: "/"
+  },
+  {
+    svg: <Api />,
+    a: 'API Documentation',
+    arrow: <Arrow />,
+    description: "All document you need when connecting to AAXby API.",
+    subLink: "/"
   },
 ];
 
 const SupportItem = () => {
   return (
-    <div className='container'>
-      <div className={styles.support__items}>
-        {SUPPORT_ITEMS.map((item, index) => (
-          <div key={index} className={styles.support_item}>
-            <img src='' alt='megaphone' />
-            <a href='https://catenamultichain.medium.com/' target='_blank' rel='noreferrer'>
-              {item.title}
-              <svg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'>
-                <g opacity='0.5'>
-                  <path d='M14 2V8.87H12.0005V5.42L3.4205 14L2 12.5795L10.58 3.9995H7.1495V2H14Z' fill='white' />
-                </g>
-              </svg>
-            </a>
-            <p>{item.description}</p>
-          </div>
-        ))}
+    <div className={`${styles.mane} container`}>
+      <h1 className={`${styles.TiTle} ttl font-90`}><span>Support</span>  <span className={styles.span} >Center</span></h1>
+      <div className={styles.container}>
+        {SUPPORTITEMS.map((item, index) => {
+          return (
+            <div key={index} className={styles.box}>
+              <div>{item.svg} </div>
+              <div className={`${styles.boxTwo}`}>
+                <div className={styles.boxHover}>
+                  <Link href={`/home/${item.subLink}`} key={item.id}>
+                    <a className={`${styles.BoxTitle} font-40`} >
+                      {item.a}
+                      <div className={styles.boder}></div>
+                    </a>
+                  </Link>
+                </div>
+                <div className={styles.arrowe}>{item.arrow}</div>
+              </div>
+              <p className={styles.paragrah}>{item.description}</p>
+            </div>
+          )
+        })}
       </div>
     </div>
   );

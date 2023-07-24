@@ -1,34 +1,34 @@
+import Banner from './components/Banner';
 import ClearSpace from './components/ClearSpace';
-import ColorBanner from './components/ColorBanner';
-import ColorPalette from './components/ColorPalette';
 import Colors from './components/Colors';
+import Fonts from './components/Fonts';
 import IntroBanner from './components/IntroBanner';
 import LogoUsages from './components/LogoUsages';
 import LogoVariations from './components/LogoVariations';
-import MainColors from './components/MainColors';
 import Partniership from './components/Partniership';
 import ProductLogos from './components/ProductLogos';
-import TechnologiesBanner from './components/TechnologiesBanner';
 import Typography from './components/Typography';
 
 function BrandGuidelines() {
   return (
     <div>
       <IntroBanner />
-      <div className='container'>
-        <ClearSpace />
-        <LogoVariations />
 
-        <MainColors />
-        <Typography />
-        <ProductLogos />
-        <ColorBanner />
+      <ClearSpace />
+
+      <ProductLogos />
+
+      <LogoVariations />
+      <div className='container '>
         <LogoUsages />
-        <Partniership />
-        <Colors />
-        <ColorPalette />
-        <TechnologiesBanner />
       </div>
+      <Partniership />
+      <div className='container'>
+        <Typography />
+        <Fonts />
+      </div>
+      <Colors />
+      <Banner />
     </div>
   );
 }
