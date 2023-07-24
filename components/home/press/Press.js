@@ -12,73 +12,15 @@ const Press = () => {
 
   const handleYearClick = (year) => {
     setActiveYear(year);
-    const data = pressArr.filter(item => item.year === year);
+    const data = allPress.filter(item => item.year === year);
     setfilterData(data);
   };
-
-  const pressArr = [
-    {
-      id: 1,
-      img: '/images/press/imgOne.png',
-      imgPart: '/images/press/imgPart.png',
-      title: 'AI Is The Future Of Computing, And SingularityNET Is The Future Of A.I',
-      year: "2018",
-      description:
-        'Ben Goertzel, have been among the big names arguing that the blockchain could be a crucial way to push back against some of the most worrying trends facing the field of artificial intelligence.',
-    },
-
-    {
-      id: 3,
-      img: '/images/press/imgThree.png',
-      imgPart: '/images/press/imgPartThree.png',
-      title: 'AI Is The Future Of Computing, And SingularityNET Is The Future Of A.I',
-      year: "2019",
-      description:
-        'Ben Goertzel, have been among the big names arguing that the blockchain could be a crucial way to push back against some of the most worrying trends facing the field of artificial intelligence.',
-    },
-    {
-      id: 5,
-      img: '/images/press/pressImgSeven.png',
-      imgPart: '/images/press/imgPartTwo.png',
-      title: 'This AI Powered Multi-Chain Network Is Building an Internetof Blockchains',
-      year: "2020",
-      description:
-        'The ever-evolving blockchain technology has been around for over a decade now, but there are still various obstacles need to be addressed, such as its lack of scalability, interoperability, security and usability.',
-    },
-    {
-      id: 2,
-      img: '/images/press/imgTwo.png',
-      imgPart: '/images/press/imgPartTwo.png',
-      year: "2021",
-      title: 'SingularityNET’s Ben Goertzel has  a grand vision for the future of A.I',
-    },
-    {
-      id: 4,
-      img: '/images/press/imgFour.png',
-      imgPart: '/images/press/imgPart.png',
-      year: "2018",
-      title: 'Cisco, SingularityNET to Decentralize Artificial Intelligence via Blockchain',
-    },
-    {
-      id: 6,
-      img: '/images/press/imgFive.png',
-      imgPart: '/images/press/imgPartTwo.png',
-      year: "2021",
-      title: 'Cisco, SingularityNET to Decentralize Artificial Intelligence via Blockchain',
-    },
-    {
-      id: 8,
-      img: '/images/press/imgTwo.png',
-      imgPart: '/images/press/imgPartTwo.png',
-      year: "2019",
-      title: 'Cisco, SingularityNET to Decentralize Artificial Intelligence via Blockchain',
-    },
-  ];
 
   useEffect(() => {
     axios.get(`http://localhost:4003/press/get-all-press`)
     .then(res => {
       setAllPress(res?.data);
+      console.log(allPress);
     })
     .catch(err => {
       console.log(err?.response);
@@ -88,13 +30,12 @@ const Press = () => {
 
   return (
     <div className={`${styles.mainContainer} container`}>
-      <img src={`http://localhost:4003/uploads/press/${allPress[0]?.logo_image}`} />
       <div className={`${styles.titleContainer}`}>
         <p className={styles.titlePartyOne}>Catena</p>
         <p className={styles.titlePartyTwo}>Press</p>
       </div>
       <div className={styles.bodyContainer}>
-        <Card dataArr={pressArr} />
+        <Card dataArr={allPress} />
       </div>
       <div className={`${styles.sourcesContainer} `}>
         <div className={styles.sourcesTitle}>
