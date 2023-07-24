@@ -12,10 +12,14 @@ const Press = () => {
 
   const handleYearClick = (year) => {
     setActiveYear(year);
-    const data = allPress.filter(item => item.year === year);
+    const data = allPress.filter(item => {
+      const itemYear = item.createdAt.substring(0, 4);
+      console.log(itemYear);
+      return itemYear === year;
+    });
     setfilterData(data);
   };
-
+  
   useEffect(() => {
     axios.get(`http://localhost:4003/press/get-all-press`)
     .then(res => {
