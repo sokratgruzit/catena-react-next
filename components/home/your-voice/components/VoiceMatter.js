@@ -35,7 +35,7 @@ const VoiceMatter = props => {
                 placeholder={'Enter'}
                 // value={""}
                 onChange={changeHandler}
-                customStyles={{ width: '500px' }}
+              // customStyles={{ width: '500px' }}
               />
             </div>
             <div>
@@ -47,7 +47,7 @@ const VoiceMatter = props => {
                 placeholder={'Enter'}
                 // value={""}
                 onChange={changeHandler}
-                customStyles={{ width: '500px' }}
+              // customStyles={{ width: '500px' }}
               />
             </div>
             <div>

@@ -67,13 +67,29 @@
     width: 100%;
   }
 
+  .containerTwo { 
+    width: 100%;
+  }
+
+  .maneBox { 
+    width: 100%;
+  }
+
   .Title { 
-    max-width: 80%;
+    /* max-width: 80%; */
     margin: 30px 0 30px 0;
   }
 
+  .bodyContainer { 
+    width: 100%;
+  }
+
   .img { 
-    width: 50%;
     margin: 40px 0px 30px 0px;
   }
+}
+
+/*Mobile 320*/
+@media (max-width: 768px)  { 
+
 }

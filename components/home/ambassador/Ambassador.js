@@ -10,7 +10,7 @@ import JoinCommunity from '../events/components/JoinCommunity';
 
 const Ambassador = () => {
   return (
-    <div>
+    <div style={{ width: "100%" }}>
       <Title />
       <Introduction />
       <BecomeAmbassador />
