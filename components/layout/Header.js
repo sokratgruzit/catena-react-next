@@ -52,15 +52,7 @@ const Header = () => {
 
   const account = useSelector(state => state.connect.account);
   const triedReconnect = useSelector(state => state.appState.triedReconnect);
-
-  useEffect(() => {
-    if (account && triedReconnect) {
-      axios
-        .post('/auth/register-wallet-address', { address: account })
-        .then(res => console.log(res))
-        .catch(() => {});
-    }
-  }, [account]);
+  const locales = useSelector(state => state.settings.locales);
 
   const [activeMenu, setActiveMenu] = useState(null);
   const [activeLangs, setActiveLangs] = useState(false);
@@ -79,6 +71,8 @@ const Header = () => {
   const [routerLocale, setRouterLocale] = useState(null);
 
   const dispatch = useDispatch();
+
+  console.log(locales)
 
   const NAV_DATA = [
     {
@@ -281,6 +275,15 @@ const Header = () => {
     setConnectBtnColor('red');
   };
 
+  const isSticky = e => {
+    const scrollTop = window.scrollY;
+    if (scrollTop >= 10) {
+      setStickHead(true);
+    } else {
+      setStickHead(false);
+    }
+  };
+
   useEffect(() => {
     if (isConnected) {
       getBalance();
@@ -297,7 +300,29 @@ const Header = () => {
     if (window.innerWidth <= 767) {
     }
     setRouterLocale(router.locale);
+
+    axios.get(`http://localhost:4003/langs/get-locales`)
+    .then(res => {
+      let locales = res?.data[0]?.list;
+      
+      dispatch({
+        type: "SET_LOCALES",
+        locales
+      });
+    })
+    .catch(err => {
+      console.log(err?.response);
+    });
   }, []);
+
+  useEffect(() => {
+    if (account && triedReconnect) {
+      axios
+        .post('/auth/register-wallet-address', { address: account })
+        .then(res => console.log(res))
+        .catch(() => {});
+    }
+  }, [account]);
 
   useEffect(() => {
     window.addEventListener('scroll', isSticky);
@@ -305,14 +330,6 @@ const Header = () => {
       window.removeEventListener('scroll', isSticky);
     };
   });
-  const isSticky = e => {
-    const scrollTop = window.scrollY;
-    if (scrollTop >= 10) {
-      setStickHead(true);
-    } else {
-      setStickHead(false);
-    }
-  };
 
   return (
     <div>

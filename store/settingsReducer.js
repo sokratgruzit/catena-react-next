@@ -1,6 +1,7 @@
 const initialState = {
   slippage: 0.5,
   txDeadlines: 5,
+  locales: []
 };
 
 const settingsReducer = (state = initialState, action) => {
@@ -10,6 +11,15 @@ const settingsReducer = (state = initialState, action) => {
       slippage: action.slippage,
     };
   }
+
+  if (action.type === 'SET_LOCALES') {
+    console.log(action)
+    return {
+      ...state,
+      locales: action.locales,
+    };
+  }
+
   return state;
 };
 
