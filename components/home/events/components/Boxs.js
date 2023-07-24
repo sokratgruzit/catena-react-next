@@ -40,6 +40,7 @@ const Boxs = () => {
         <div className={`${styles.mapContainer} `}>
           <Card dataArr={eventsArr} />
         </div>
+        
       </div>
     </div>
   );
