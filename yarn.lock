@@ -466,10 +466,10 @@
   dependencies:
     regenerator-runtime "^0.13.11"
 
-"@catena-network/catena-ui-module@^0.0.22":
-  version "0.0.22"
-  resolved "https://registry.npmjs.org/@catena-network/catena-ui-module/-/catena-ui-module-0.0.22.tgz"
-  integrity sha512-rwjMSrne+u53PgLMhDBRmjD0Y5dyd3G/0pu6r1pIucSV+Pt+OzcWjYP9BWAZ7kQUoQbrj6+pHQHmBAge8Hu7rQ==
+"@catena-network/catena-ui-module@^0.0.23":
+  version "0.0.23"
+  resolved "https://registry.npmjs.org/@catena-network/catena-ui-module/-/catena-ui-module-0.0.23.tgz"
+  integrity sha512-yIBP3j/Z4cPtOPR0rIhhnSTUOf+qgppzOKl3Gr58lz94pRrQSCfqNYl0GnacOZhlfXz8g73eg5XKwRwh7ER9yA==
   dependencies:
     "@catena-network/catena-ui-module" "^0.0.3"
     "@rollup/plugin-url" "^8.0.1"
