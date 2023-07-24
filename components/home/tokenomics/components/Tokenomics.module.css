@@ -336,6 +336,7 @@
   .pt80 {
     padding: 80px 0 48px 0;
   }
+
   .certik_line::after {
     width: 200px;
   }
