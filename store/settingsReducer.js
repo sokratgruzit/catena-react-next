@@ -1,7 +1,8 @@
 const initialState = {
   slippage: 0.5,
   txDeadlines: 5,
-  locales: []
+  locales: [],
+  activeLang: 'en'
 };
 
 const settingsReducer = (state = initialState, action) => {
@@ -13,10 +14,16 @@ const settingsReducer = (state = initialState, action) => {
   }
 
   if (action.type === 'SET_LOCALES') {
-    console.log(action)
     return {
       ...state,
       locales: action.locales,
+    };
+  }
+
+  if (action.type === 'SET_ACTIVE_LANG') {
+    return {
+      ...state,
+      activeLang: action.activeLang,
     };
   }
 
