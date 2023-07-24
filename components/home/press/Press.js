@@ -1,4 +1,4 @@
-import JoinCommunity from '../events/components/JoinCommunity';
+// import JoinCommunity from '../events/components/JoinCommunity';
 import Card from '../../UI/card/Card';
 import styles from './Press.module.css';
 import { useState, useMemo, useEffect } from 'react';
@@ -8,9 +8,12 @@ const Press = () => {
   const [activeYear, setActiveYear] = useState('2021');
   const axios = useMemo(() => createAxiosInstance(), []);
   const [allPress, setAllPress] = useState([]);
+  const [filterData, setfilterData] = useState();
 
   const handleYearClick = (year) => {
     setActiveYear(year);
+    const data = pressArr.filter(item => item.year === year);
+    setfilterData(data);
   };
 
   const pressArr = [
@@ -19,6 +22,7 @@ const Press = () => {
       img: '/images/press/imgOne.png',
       imgPart: '/images/press/imgPart.png',
       title: 'AI Is The Future Of Computing, And SingularityNET Is The Future Of A.I',
+      year: "2018",
       description:
         'Ben Goertzel, have been among the big names arguing that the blockchain could be a crucial way to push back against some of the most worrying trends facing the field of artificial intelligence.',
     },
@@ -28,6 +32,7 @@ const Press = () => {
       img: '/images/press/imgThree.png',
       imgPart: '/images/press/imgPartThree.png',
       title: 'AI Is The Future Of Computing, And SingularityNET Is The Future Of A.I',
+      year: "2019",
       description:
         'Ben Goertzel, have been among the big names arguing that the blockchain could be a crucial way to push back against some of the most worrying trends facing the field of artificial intelligence.',
     },
@@ -36,6 +41,7 @@ const Press = () => {
       img: '/images/press/pressImgSeven.png',
       imgPart: '/images/press/imgPartTwo.png',
       title: 'This AI Powered Multi-Chain Network Is Building an Internetof Blockchains',
+      year: "2020",
       description:
         'The ever-evolving blockchain technology has been around for over a decade now, but there are still various obstacles need to be addressed, such as its lack of scalability, interoperability, security and usability.',
     },
@@ -43,24 +49,28 @@ const Press = () => {
       id: 2,
       img: '/images/press/imgTwo.png',
       imgPart: '/images/press/imgPartTwo.png',
+      year: "2021",
       title: 'SingularityNET’s Ben Goertzel has  a grand vision for the future of A.I',
     },
     {
       id: 4,
       img: '/images/press/imgFour.png',
       imgPart: '/images/press/imgPart.png',
+      year: "2018",
       title: 'Cisco, SingularityNET to Decentralize Artificial Intelligence via Blockchain',
     },
     {
       id: 6,
       img: '/images/press/imgFive.png',
       imgPart: '/images/press/imgPartTwo.png',
+      year: "2021",
       title: 'Cisco, SingularityNET to Decentralize Artificial Intelligence via Blockchain',
     },
     {
       id: 8,
       img: '/images/press/imgTwo.png',
       imgPart: '/images/press/imgPartTwo.png',
+      year: "2019",
       title: 'Cisco, SingularityNET to Decentralize Artificial Intelligence via Blockchain',
     },
   ];
@@ -73,6 +83,7 @@ const Press = () => {
     .catch(err => {
       console.log(err?.response);
     });
+    handleYearClick(activeYear);
   }, []);
 
   return (
@@ -160,21 +171,23 @@ const Press = () => {
 
       </div>
       <div className={styles.statisticContainer}>
-        {pressArr.map((item, index) => {
+        {filterData ? filterData.map((item, index) => {
           return (
             <div key={index} className={styles.icCont}>
               <img src={item.imgPart} />
               <p>{item.title}</p>
             </div>
           )
-        })}
-        <div className={styles.pagCont}>
+        }) : (
+          <div className={styles.erLoadContainer}>Loading</div>
+        )}
+        < div className={styles.pagCont} >
           <div className={styles.pagination}>pagination</div>
         </div>
       </div>
-      <div className={styles.joinComCont}>
+      {/* <div className={styles.joinComCont}>
         <JoinCommunity />
-      </div>
+      </div> */}
     </div>
   );
 };
