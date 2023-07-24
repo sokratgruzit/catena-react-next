@@ -1,21 +1,23 @@
 h1 span {
   font-size: inherit;
 }
+
 html {
   overflow-x: hidden;
   -webkit-text-size-adjust: none;
   text-size-adjust: none;
 }
+
 body {
   margin: 0;
   -webkit-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   text-size-adjust: 100%;
-  /*padding-bottom: 200vh;*/
-  background: #00050f;
+  background: #fff2e4 !important;
   /*dont use overflow hidden to body*/
 }
+
 ul,
 li,
 p,
@@ -34,6 +36,7 @@ nav {
   list-style: none;
   font-weight: normal;
 }
+
 input,
 textarea {
   outline: none;
@@ -42,41 +45,51 @@ textarea {
   -moz-appearance: none;
   appearance: none;
 }
+
 button {
   border: none;
   background: none;
   cursor: pointer;
   outline: none;
 }
+
 .font_10 {
   font-size: 10px;
 }
+
 .font_12 {
   font-size: 12px;
 }
+
 .font_13 {
   font-size: 13px;
   line-height: 18px;
 }
+
 .font_16 {
   font-size: 16px;
 }
+
 .font_20 {
   font-size: 20px;
   line-height: 30px;
 }
+
 .font_30 {
   font-size: 30px;
   line-height: 42px;
 }
+
 .font_51 {
   font-size: 51px;
   line-height: 66px;
 }
+
 .font_100 {
   font-size: 100px;
   line-height: 110px;
 }
+
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -85,9 +98,9 @@ input::-webkit-inner-spin-button {
 }
 
 /* Firefox */
-input[type="number"] {
+/* input[type="number"] {
   -moz-appearance: textfield;
-}
+} */
 /* width */
 *::-webkit-scrollbar {
   width: 8px;
@@ -102,6 +115,12 @@ input[type="number"] {
 *::-webkit-scrollbar-thumb {
   background: #0500ff;
 }
+
+#imageUploader {
+  display: none;
+}
+
+
 .btn {
   display: flex;
   align-items: center;
@@ -111,100 +130,116 @@ input[type="number"] {
   transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
   cursor: pointer;
 }
+
 .btnOrange {
   background: #ff7152;
   border: 1px solid #ff7152;
   transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
 }
+
 .btnOrange:hover {
   background: transparent;
 }
+
 .btnOrangeBordered {
   background: transparent;
   border: 1px solid #ff7152;
   transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
 }
+
 .btnOrangeBordered:hover {
   background: #ff7152;
 }
+
 .btnBlue {
   background: #0500ff;
   border: 1px solid #0500ff;
   transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
 }
+
 .btnBlue:hover {
   background: transparent;
 }
+
 .btnBlueBordered {
   border: 1px solid #0500ff;
 }
+
 .btnBlueBordered:hover {
   background: #0500ff;
 }
+
 .btnLink {
   transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
   color: #fff;
   position: relative;
 }
-.quill{
+
+.quill {
   border-radius: 4px;
-  border:1px solid rgba(255, 255, 255, 0.1);
-  transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
 }
+
 /* .quill:focus-within{
   border: 1px solid #0500ff;
 } */
-.ql-toolbar.ql-snow{
+.ql-toolbar.ql-snow {
   border: none !important;
 }
-.ql-toolbar.ql-snow::after{
+
+.ql-toolbar.ql-snow::after {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
-  content: "";
+  content: '';
   width: 97%;
   display: block;
   margin: 0 auto;
   margin-top: 10px;
 }
 
-.ql-container.ql-snow{
+.ql-container.ql-snow {
   border: none !important;
 }
-.ql-editor{
+
+.ql-editor {
   min-height: 200px;
 }
 
-.ql-editor h1{
-  font-size: 30px !important;  
+.ql-editor h1 {
+  font-size: 30px !important;
 }
 
 .ql-editor strong {
   font-size: inherit !important;
   line-height: inherit !important;
 }
-.ql-editor em{
+
+.ql-editor em {
   font-size: inherit !important;
   line-height: inherit !important;
 }
-.ql-tooltip{
+
+.ql-tooltip {
   background-color: #0e1a36 !important;
   box-shadow: none !important;
-  border:1px solid rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
 
 .ql-tooltip input {
   background-color: #0e1a36 !important;
-  color:rgba(255, 255, 255, 0.5) !important;
+  color: rgba(255, 255, 255, 0.5) !important;
 }
-.ql-tooltip input::placeholder{
-  color:transparent;
+
+.ql-tooltip input::placeholder {
+  color: transparent;
 }
-.ql-formats:first-child{
+
+.ql-formats:first-child {
   margin-right: 0 !important;
 }
 
-
-.react-datepicker{
-  background: #0A0F18 !important;
+.react-datepicker {
+  background: #0a0f18 !important;
   border: 1px solid rgba(255, 255, 255, 0.1) !important;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3) !important;
   border-radius: 4px;
@@ -213,19 +248,19 @@ input[type="number"] {
   justify-content: flex-start;
 }
 
-.react-datepicker div{
-  color:white
+.react-datepicker div {
+  color: white;
 }
-.react-datepicker__header{
-  background: #0A0F18 !important;
+
+.react-datepicker__header {
+  background: #0a0f18 !important;
   border-bottom: none !important;
   padding-bottom: 0px !important;
   width: 252px !important;
-
-} 
+}
 
 .react-datepicker__header:after {
-  content: "";
+  content: '';
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   padding-bottom: 8px;
   width: 90%;
@@ -233,34 +268,34 @@ input[type="number"] {
   margin: 0 auto;
 }
 
-.react-datepicker__day{
+.react-datepicker__day {
   border-radius: 3px;
   border: 0.5px solid rgba(255, 255, 255, 0.05);
   margin-left: 0.3rem !important;
   margin-right: 0.3rem !important;
 }
 
-.react-datepicker__day--disabled{
-  color: #4D5057 !important;
+.react-datepicker__day--disabled {
+  color: #4d5057 !important;
 }
 
-.react-datepicker__day--selected{
+.react-datepicker__day--selected {
   background: #0500ff !important;
 }
 
-.react-datepicker__day--keyboard-selected{
+.react-datepicker__day--keyboard-selected {
   background-color: #0500ff !important;
 }
 
-.react-datepicker__day:hover{
+.react-datepicker__day:hover {
   background-color: rgba(255, 255, 255, 0.1) !important;
 }
 
-.react-datepicker__navigation-icon::before{
+.react-datepicker__navigation-icon::before {
   border-width: 1px 1px 0 0 !important;
   width: 6px !important;
   height: 6px !important;
-  top:50%;
+  top: 50%;
   transform: translateY(-50%);
   top: 11px !important;
 }
@@ -269,19 +304,20 @@ input[type="number"] {
   width: 100% !important;
 }
 
-.react-datepicker__day-name{
+.react-datepicker__day-name {
   margin: 0.3rem !important;
 }
-.react-datepicker__time-container{
-  float: none;
-  width: 252px!important;
-}
 
-.react-datepicker__time{
+.react-datepicker__time-container {
+  float: none;
   width: 252px !important;
 }
 
-.react-datepicker__time-box{
+.react-datepicker__time {
+  width: 252px !important;
+}
+
+.react-datepicker__time-box {
   width: 252px !important;
   margin-left: 1 !important;
   margin-right: 1 !important;
@@ -291,27 +327,28 @@ input[type="number"] {
 .react-datepicker__time-list-item {
   border-radius: 2px;
 }
+
 /* 1px solid rgba(255, 255, 255, 0.1) */
 
-
-.react-datepicker__time{
-  background: #0A0F18 !important;
+.react-datepicker__time {
+  background: #0a0f18 !important;
 }
-.react-datepicker__time-list-item--selected{
+
+.react-datepicker__time-list-item--selected {
   background-color: #0500ff !important;
 }
 
-.react-datepicker__time-list-item:hover{
-  background-color: rgba(255, 255, 255, 0.1)!important;
+.react-datepicker__time-list-item:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
 }
 
-.react-datepicker__triangle{
+.react-datepicker__triangle {
   display: none;
 }
 
 .btnLink:after {
   transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
-  content: "";
+  content: '';
   height: 1px;
   background: #fff;
   width: 100%;
@@ -319,47 +356,46 @@ input[type="number"] {
   left: 0px;
   position: absolute;
 }
+
 .btnLink:hover {
   color: #ff7152;
 }
+
 .btnLink:hover:after {
   transform: scaleX(0);
 }
+
 .swiper-container {
   width: calc(100% + 165px) !important;
 }
+
 .swiper-slide {
   width: 500px !important;
 }
+
 .arrow-border {
   border: 1px solid transparent;
-  background-image: -webkit-gradient(
-      linear,
-      left bottom,
-      left top,
-      from(#00050f),
-      to(#00050f)
-    ),
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#00050f), to(#00050f)),
     -webkit-gradient(linear, left bottom, left top, from(#7464d7), to(rgba(116, 100, 215, 0.6))),
     -webkit-gradient(linear, left bottom, left top, from(#7464d7), to(rgba(116, 100, 215, 0.6))),
     -webkit-gradient(linear, left bottom, left top, from(#7464d7), to(rgba(116, 100, 215, 0.6))),
     -webkit-gradient(linear, left bottom, left top, from(#7464d7), to(rgba(116, 100, 215, 0.6)));
-  background-image: linear-gradient(0deg, #00050f, #00050f),
-    linear-gradient(0deg, #7464d7, rgba(116, 100, 215, 0.6)),
-    linear-gradient(0deg, #7464d7, rgba(116, 100, 215, 0.6)),
-    linear-gradient(0deg, #7464d7, rgba(116, 100, 215, 0.6)),
+  background-image: linear-gradient(0deg, #00050f, #00050f), linear-gradient(0deg, #7464d7, rgba(116, 100, 215, 0.6)),
+    linear-gradient(0deg, #7464d7, rgba(116, 100, 215, 0.6)), linear-gradient(0deg, #7464d7, rgba(116, 100, 215, 0.6)),
     linear-gradient(0deg, #7464d7, rgba(116, 100, 215, 0.6));
   background-origin: padding-box, border-box, border-box, border-box, border-box;
   background-repeat: no-repeat;
   background-size: 100% 100%, 20px 20px, 20px 20px, 20px 20px, 20px 20px;
   background-position: 0 0, 0 0, 100% 0, 0 100%, 100% 100%;
 }
+
 .radio-btn {
   position: relative;
   display: flex;
   align-items: center;
   font-size: 13px;
 }
+
 .radio-btn input {
   opacity: 0;
   position: absolute;
@@ -368,6 +404,7 @@ input[type="number"] {
   z-index: 5;
   cursor: pointer;
 }
+
 .radio-btn__inner {
   width: 26px;
   height: 16px;
@@ -375,6 +412,7 @@ input[type="number"] {
   background: rgba(255, 255, 255, 0.1);
   margin-right: 6px;
 }
+
 .radio-btn__icon {
   background: #00050f;
   position: absolute;
@@ -385,36 +423,36 @@ input[type="number"] {
   border-radius: 50%;
   transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
 }
-.radio-btn input:checked ~ .radio-btn__inner .radio-btn__icon {
+
+.radio-btn input:checked~.radio-btn__inner .radio-btn__icon {
   background: rgba(5, 0, 255, 1);
   transform: translateX(10px);
 }
 
-
 /*Laptop 1440*/
-@media (max-width: 1900px) {
-}
+@media (max-width: 1900px) {}
+
 /*Ipad Pro 1024*/
 @media (max-width: 1300px) {
   .container {
     padding: 0px 32px;
   }
+
   .swiper-container {
     width: 100% !important;
   }
 }
+
 /*Ipad 768*/
-@media (max-width: 1023px) {
-}
+@media (max-width: 1023px) {}
+
 /*Mobile 320*/
 @media (max-width: 767px) {
   .szh-menu-button {
     display: none;
   }
+
   .container {
     padding: 0px 16px;
   }
 }
-
-
-

@@ -1,9 +1,8 @@
-import { useState } from 'react';
 import Link from 'next/link';
+import { useState } from 'react';
 
-import ListItemCard from '../UI/listItem/ListItemCard';
-import Table from '../UI/table/Table';
 import TabFilter from '../UI/filters/TabFilter';
+import Table from '../UI/table/Table';
 
 import styles from './Activity.module.css';
 import filterStyles from '../UI/filters/TabFilter.module.css';
@@ -43,11 +42,9 @@ const Activity = props => {
   const ITEMS_SHOWN = pageNumber * ITEMS_PER_PAGE;
   const PAGE_COUNT = Math.ceil(props.activityData.length / ITEMS_PER_PAGE);
 
-  const showItems = props.activityData
-    .slice(ITEMS_SHOWN, ITEMS_SHOWN + ITEMS_PER_PAGE)
-    .map(item => {
-      return item;
-    });
+  const showItems = props.activityData.slice(ITEMS_SHOWN, ITEMS_SHOWN + ITEMS_PER_PAGE).map(item => {
+    return item;
+  });
 
   const filterTableHandler = status => {
     const filtered = props.activityData.filter(item => {
@@ -88,13 +85,7 @@ const Activity = props => {
     <div className={`${styles.Activity} container`}>
       <Link href={`/nfts`}>
         <a className={styles.Activity__backBtn}>
-          <svg
-            width='14'
-            height='11'
-            viewBox='0 0 14 11'
-            fill='none'
-            xmlns='http://www.w3.org/2000/svg'
-          >
+          <svg width='14' height='11' viewBox='0 0 14 11' fill='none' xmlns='http://www.w3.org/2000/svg'>
             <path
               fillRule='evenodd'
               clipRule='evenodd'

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+
 import styles from './MarqueeTest.module.css';
 
 const MaruqeeTest = props => {
@@ -10,11 +11,7 @@ const MaruqeeTest = props => {
 
       for (let i = 0; i < props.lineElementsCount; i++) {
         lineItems.push(
-          <div
-            style={{ width: 100 / props.lineElementsCount + '%' }}
-            className={styles.marqueeItem}
-            key={i}
-          >
+          <div style={{ width: 100 / props.lineElementsCount + '%' }} className={styles.marqueeItem} key={i}>
             {i}
           </div>,
         );

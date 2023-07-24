@@ -1,96 +1,109 @@
-import { useState, useEffect, useMemo, useCallback } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { injected, walletConnect } from './connector';
 import { useWeb3React } from '@web3-react/core';
+import { useState, useEffect, useMemo, useRef } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
-const useConnect = () => {
-  const { activate, account, library, connector, active, deactivate, chainId } =
-    useWeb3React();
+const useConnect = props => {
+  let { activate, account, library, deactivate, chainId } = useWeb3React();
 
-  const [isActive, setIsActive] = useState(false);
-  const [walletModal, setWalletModal] = useState(false);
-  const [shouldDisable, setShouldDisable] = useState(false); // Should disable connect button while connecting to MetaMask
-  const [isLoading, setIsLoading] = useState(true);
+  const [connectionLoading, setConnectionLoading] = useState(false); // Should disable connect button while connecting to MetaMask
+  const [error, setError] = useState('');
+  const [tried, setTried] = useState(false);
+
   const dispatch = useDispatch();
-
   const isConnected = useSelector(state => state.connect.isConnected);
-
   const providerType = useSelector(state => state.connect.providerType);
 
-  // Init Loading
-  useEffect(() => {
-    async function fetchData() {
-      if (isConnected) {
-        connect(providerType).then(val => {
-          setIsLoading(false);
+  // function for metamask eagerly connect. needs access to injected
+  const MetaMaskEagerlyConnect = (injected, callback) => {
+    if (providerType === 'metaMask') {
+      injected
+        .isAuthorized()
+        .then(isAuthorized => {
+          if (isAuthorized && isConnected) {
+            connect(providerType, injected);
+          } else {
+            dispatch({
+              type: 'UPDATE_STATE',
+              account: '',
+              isConnected: false,
+            });
+          }
+        })
+        .finally(() => {
+          if (callback) {
+            callback();
+          }
         });
-      }
     }
-    fetchData();
-  }, []);
-
-  const handleWalletModal = async state => {
-    console.log('state ===>' + state);
-    setWalletModal(state);
-    dispatch({
-      type: 'TOGGLE_WALLET_CONNECT_MODAL',
-      payload: {
-        walletModal: state,
-      },
-    });
   };
 
-  // Check when App is Connected or Disconnected to MetaMask
-  const handleIsActive = useCallback(() => {
-    setIsActive(active);
-  }, [active]);
-
+  // try eagerly connect after refresh for wallet connect
   useEffect(() => {
-    handleIsActive();
-  }, [handleIsActive]);
-
-  //when disconnected from Metamask update state
-  useEffect(() => {
-    if (!isActive) {
-      dispatch({
-        type: 'CONNECT',
-        payload: {
+    if (providerType === 'walletConnect') {
+      if (isConnected) {
+        // brute force solution
+        setTimeout(() => {
+          connect(providerType);
+        }, 0);
+      } else {
+        dispatch({
+          type: 'UPDATE_STATE',
+          account: '',
           isConnected: false,
-          providerType: '',
-        },
-      });
-    }
-  }, [isActive]);
-
-  // Connect to wallet
-  const connect = async providerType => {
-    setShouldDisable(true);
-    try {
-      if (providerType === 'metaMask') {
-        await activate(injected).then(ts => {
-          setShouldDisable(false);
-          dispatch({
-            type: 'CONNECT',
-            payload: {
-              isConnected: true,
-              providerType: 'metaMask',
-            },
-          });
-        });
-      } else if (providerType === 'walletConnect') {
-        await activate(walletConnect).then(() => {
-          setShouldDisable(false);
-          dispatch({
-            type: 'CONNECT',
-            payload: {
-              isConnected: true,
-              providerType: 'walletConnect',
-            },
-          });
         });
       }
+    }
+    // eslint-disable-next-line
+  }, []);
 
-      setWalletModal(false);
+  // mirror account data values in redux
+  useEffect(() => {
+    dispatch({
+      type: 'UPDATE_STATE',
+      account: account ? account : '',
+      chainId: chainId ? chainId : '',
+    });
+  }, [account, chainId, dispatch]);
+
+  //handle wallet connect eagerly popup
+  const firstUpdate = useRef(true);
+  useEffect(() => {
+    if (firstUpdate.current) {
+      firstUpdate.current = false;
+      return;
+    }
+    if (tried && !account) {
+      dispatch({
+        type: 'UPDATE_STATE',
+        account: '',
+        isConnected: false,
+      });
+    }
+    // eslint-disable-next-line
+  }, [tried, account]);
+
+  // Connect to wallet
+  const connect = async (providerType, injected) => {
+    setConnectionLoading(true);
+    if (typeof window.ethereum === 'undefined' && providerType === 'metaMask') {
+      return setError('no metamask');
+    }
+    try {
+      await activate(injected, undefined, true)
+        .then(() => {
+          dispatch({
+            type: 'UPDATE_STATE',
+            isConnected: true,
+            providerType,
+          });
+          setTried(true);
+        })
+        .catch(e => {
+          dispatch({ type: 'UPDATE_STATE', account: '', isConnected: false });
+          if (e.toString().startsWith('UnsupportedChainIdError')) setError('Please switch your network in wallet');
+        });
+
+      setConnectionLoading(false);
     } catch (error) {
       console.log('Error on connecting: ', error);
     }
@@ -99,13 +112,11 @@ const useConnect = () => {
   // Disconnect from Metamask wallet
   const disconnect = async () => {
     try {
-      await deactivate();
+      deactivate();
       dispatch({
-        type: 'CONNECT',
-        payload: {
-          isConnected: false,
-          providerType: '',
-        },
+        type: 'UPDATE_STATE',
+        account: '',
+        providerType: '',
       });
     } catch (error) {
       console.log('Error on disconnnect: ', error);
@@ -114,19 +125,19 @@ const useConnect = () => {
 
   const values = useMemo(
     () => ({
-      isActive,
       account,
-      isLoading,
-      walletModal,
-      handleWalletModal,
       connect,
       disconnect,
       library,
-      shouldDisable,
+      connectionLoading,
       providerType,
-      chainId
+      chainId,
+      error,
+      setError,
+      MetaMaskEagerlyConnect,
     }),
-    [isActive, isLoading, shouldDisable, account, walletModal, providerType, chainId],
+    // eslint-disable-next-line
+    [account, connectionLoading, providerType, chainId, error],
   );
 
   return values;

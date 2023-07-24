@@ -1,0 +1,50 @@
+.typography {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+  padding-bottom: 100px;
+}
+
+.line {
+  display: flex;
+  gap: 7px;
+  align-items: center;
+  padding: 23px 0;
+  width: 100%;
+  border-bottom: 1px solid rgba(0, 5, 15, 0.1);
+}
+
+.line h6 {
+  color: rgba(0, 5, 15, 0.6);
+}
+
+.title {
+  color: rgba(22, 32, 41, 1);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 128px;
+}
+
+.typefaces {
+  display: flex;
+  flex-direction: column;
+  gap: 34px;
+}
+
+.typefaces h4 {
+  color: rgba(22, 32, 41, 1);
+}
+
+.typefaces p {
+  color: rgba(22, 32, 41, 0.6);
+  max-width: 580px;
+}
+
+@media (max-width: 767px) {
+  .content {
+    gap: 70px;
+  }
+}

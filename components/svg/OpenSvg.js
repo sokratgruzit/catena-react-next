@@ -1,12 +1,5 @@
 const OpenSvg = props => (
-  <svg
-    width='12'
-    height='12'
-    viewBox='0 0 12 12'
-    fill='#0500FF'
-    xmlns='http://www.w3.org/2000/svg'
-    {...props}
-  >
+  <svg width='12' height='12' viewBox='0 0 12 12' fill='#0500FF' xmlns='http://www.w3.org/2000/svg' {...props}>
     <path
       fillRule='evenodd'
       clipRule='evenodd'

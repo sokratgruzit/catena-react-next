@@ -1,13 +1,6 @@
-import React, { useState } from 'react';
-import {
-  CoreTag,
-  InfoIcon,
-  MathSignSvg,
-  OpenSvg,
-  VectorSvg,
-} from '../../../svg';
-import CornerDecor from '../../../UI/cornerDecor/CornerDecor';
-import Expand from '../../../UI/expand/Expand';
+import React from 'react';
+
+import { CoreTag, InfoIcon, MathSignSvg } from '../../../svg';
 import Button from '../../../UI/button/Button';
 
 import styles from './FarmsTableComponent.module.css';
@@ -44,7 +37,7 @@ const FarmsTableComponent = ({ item }) => {
       </div>
       <div className={styles.actionSection}>
         <h2 className={styles.coreEarned}>
-          <span>CORE</span> Earned
+          <span>CATENA</span> Earned
         </h2>
         <div className={styles.harvestRow}>
           <p>0</p>

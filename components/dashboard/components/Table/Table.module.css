@@ -1,0 +1,98 @@
+.tableMobileContent {
+  display: flex;
+  flex-direction: column;
+  backdrop-filter: blur(5px);
+  background-color: rgb(255, 255, 255, 0.06);
+  padding: 0 14px;
+  min-width: 1288px;
+}
+
+.table {
+  backdrop-filter: blur(5px);
+  background-color: rgb(255, 255, 255, 0.06);
+}
+
+.tableMoreHeader {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  text-transform: uppercase;
+  border-top: 1px solid rgb(255, 255, 255, 0.1);
+}
+
+.tableMoreTdWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: fit-content;
+  padding: 12px 0;
+  border-bottom: 1px solid rgb(255, 255, 255, 0.05);
+}
+
+.td {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  color: rgb(255, 255, 255, 0.7);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.tableParentActive {
+  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+  cursor: pointer;
+}
+
+.tableParentActive:hover {
+  backdrop-filter: blur(5px);
+  background-color: rgb(255, 255, 255, 0.06);
+}
+
+.tablePercentageChartWrap {
+  border-radius: 10px;
+  background-color: rgb(255, 255, 255, 0.1);
+  width: 104px;
+  height: 10px;
+  position: relative;
+}
+
+.tablePercentageChart {
+  background: #0500ff;
+  border-radius: 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 10px;
+}
+
+.tablePercentage {
+  color: #0500ff;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.tableMoreActive {
+  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+}
+
+.tableMoreActive:hover {
+  background: rgb(255, 255, 255, 0.06) !important;
+  backdrop-filter: blur(5px);
+}
+
+.catenaLogoSml {
+  width: 26px;
+  height: 26px;
+}
+
+.wrapper {
+  width: 100%;
+}

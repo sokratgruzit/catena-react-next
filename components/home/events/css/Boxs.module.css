@@ -1,0 +1,73 @@
+.mainContainer {
+    width: 100%;
+    position: relative;
+}
+.titleContainer {
+    width: 570px;
+    display: flex;
+    gap: 50px;
+}
+
+.titlePartyOne {
+    color: #FF6969;
+    font-size: 90px;
+    font-family: 'Lack', sans-serif;
+    font-weight: 400;
+}
+
+.titlePartyTwo {
+    font-size: 90px;
+    color: #162029;
+    font-family: 'Lack', sans-serif;
+    font-weight: 400;
+}
+
+.titleDesc {
+    width: 50%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imgBackgr {
+    background-color: #FF6969;
+    width: 72px;
+    height: 72px;
+}
+
+.mapContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px; 
+  }
+  
+  .mapContainer > div:nth-child(1) {
+    flex-basis: 100%; 
+  }
+  
+  .mapContainer > div:nth-child(n+2) {
+    flex-basis: calc(50% - 25px); 
+  }
+
+@media (max-width: 1270px) {
+    .titleContainer {
+        width: auto;
+        /* display: flex; */
+        gap: 20px;
+        font-size: 40px;
+    }
+
+    .titleContainer p {
+        width: auto;
+        /* display: flex; */
+        gap: 20px;
+        font-size: 40px;
+    }
+}
+
+@media (max-width: 500px) {
+    .titleDesc p{
+        font-size: 20px;
+    }
+}

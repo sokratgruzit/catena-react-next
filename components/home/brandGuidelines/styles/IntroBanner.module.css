@@ -1,0 +1,68 @@
+.left h1 {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.left h1 span {
+  color: #fff;
+  text-transform: capitalize;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+}
+
+.container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  max-width: 1900px;
+}
+
+.mainContainerDescription {
+  padding: 160px 155px 250px 155px;
+  position: relative;
+  background-image: url('/images/guidelines/bg.png');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+.left {
+  display: inline-block;
+}
+
+.mainContainerDownload {
+  margin-top: 55px;
+}
+
+.mainContainerDownload:hover {
+  opacity: 0.6;
+}
+
+.mainContainerDownloadText {
+  color: rgba(255, 255, 255, 0.3);
+  margin-top: 10px;
+  margin-left: 43px;
+}
+
+@media (max-width: 767px) {
+  .left h1 {
+    gap: 0px;
+  }
+  .mainContainerDescription {
+    padding: 160px 30px 250px 30px;
+  }
+
+  .mainContainerDownload {
+    margin-top: 25px;
+  }
+}

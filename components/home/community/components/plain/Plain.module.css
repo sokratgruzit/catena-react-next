@@ -1,0 +1,33 @@
+.main {
+    padding: 32px;
+    width: 90%;
+    padding-left: 10%;
+}
+
+.title {
+    font-family: Lack;
+    font-size: 51px;
+    font-weight: 400;
+    line-height: 61px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.text {
+    font-family: Noto Sans;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+@font-face {
+    font-family: Noto Sans;
+    src: url(../../../../../public/fonts/NotoSans-Regular.ttf);
+}
+
+@font-face {
+    font-family: Lack;
+    src: url(../../../../../public/fonts/Lack-Regular.ttf);
+}

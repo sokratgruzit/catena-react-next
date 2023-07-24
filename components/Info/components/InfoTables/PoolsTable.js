@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import React, { useState } from 'react';
 
-import { formatCurrency } from '../../../utils/formatCurrency';
-import Table from '../../../UI/table/Table';
-import Button from '../../../UI/button/Button';
-import CornerDecor from '../../../UI/cornerDecor/CornerDecor';
 import PageNumber from './PageNumber';
 import { PaginationButtonSvg } from '../../../svg';
+import Button from '../../../UI/button/Button';
+import CornerDecor from '../../../UI/cornerDecor/CornerDecor';
+import Table from '../../../UI/table/Table';
+import { formatCurrency } from '../../../utils/formatCurrency';
 
 import styles from './InfoTables.module.css';
 
@@ -24,8 +24,7 @@ const PoolsTable = props => {
         {
           img: '../../../images/Info/TopTokens/1.png',
           title: 'USDC/WBNB',
-          onClick: () =>
-            router.push(`/info/pools/${'USDC/WBNB'.replace('/', '-')}`),
+          onClick: () => router.push(`/info/pools/${'USDC/WBNB'.replace('/', '-')}`),
           type: 'img_text',
         },
         {
@@ -60,8 +59,7 @@ const PoolsTable = props => {
         {
           img: '../../../images/Info/TopTokens/2.png',
           title: 'WBNB/BUSD',
-          onClick: () =>
-            router.push(`/info/pools/${'WBNB/BUSD'.replace('/', '-')}`),
+          onClick: () => router.push(`/info/pools/${'WBNB/BUSD'.replace('/', '-')}`),
           type: 'img_text',
         },
         {
@@ -96,8 +94,7 @@ const PoolsTable = props => {
         {
           img: '../../../images/Info/TopTokens/3.png',
           title: 'USDT/WBNB',
-          onClick: () =>
-            router.push(`/info/pools/${'USDT/WBNB'.replace('/', '-')}`),
+          onClick: () => router.push(`/info/pools/${'USDT/WBNB'.replace('/', '-')}`),
           type: 'img_text',
         },
         {
@@ -132,8 +129,7 @@ const PoolsTable = props => {
         {
           img: '../../../images/Info/TopTokens/4.png',
           title: 'GSD/USDC',
-          onClick: () =>
-            router.push(`/info/pools/${'GSD/USDC'.replace('/', '-')}`),
+          onClick: () => router.push(`/info/pools/${'GSD/USDC'.replace('/', '-')}`),
           type: 'img_text',
         },
         {
@@ -168,8 +164,7 @@ const PoolsTable = props => {
         {
           img: '../../../images/Info/TopTokens/5.png',
           title: 'LUNA/BUSD',
-          onClick: () =>
-            router.push(`/info/pools/${'LUNA/BUSD'.replace('/', '-')}`),
+          onClick: () => router.push(`/info/pools/${'LUNA/BUSD'.replace('/', '-')}`),
           type: 'img_text',
         },
         {
@@ -203,9 +198,8 @@ const PoolsTable = props => {
         },
         {
           img: '../../../images/Info/TopTokens/6.png',
-          title: 'Core/WBNB',
-          onClick: () =>
-            router.push(`/info/pools/${'Core/WBNB'.replace('/', '-')}`),
+          title: 'CATENA/WBNB',
+          onClick: () => router.push(`/info/pools/${'CATENA/WBNB'.replace('/', '-')}`),
           type: 'img_text',
         },
         {
@@ -240,8 +234,7 @@ const PoolsTable = props => {
         {
           img: '../../../images/Info/TopTokens/7.png',
           title: 'LUNA/USDT',
-          onClick: () =>
-            router.push(`/info/pools/${'LUNA/USDT'.replace('/', '-')}`),
+          onClick: () => router.push(`/info/pools/${'LUNA/USDT'.replace('/', '-')}`),
           type: 'img_text',
         },
         {
@@ -276,8 +269,7 @@ const PoolsTable = props => {
         {
           img: '../../../images/Info/TopTokens/8.png',
           title: 'USDT/BUSD',
-          onClick: () =>
-            router.push(`/info/pools/${'USDT/BUSD'.replace('/', '-')}`),
+          onClick: () => router.push(`/info/pools/${'USDT/BUSD'.replace('/', '-')}`),
           type: 'img_text',
         },
         {
@@ -307,42 +299,23 @@ const PoolsTable = props => {
   const [pageCountPools, setPageCountPools] = useState(1);
   const itemsPerPage = props.itemsPerPage || 10;
   const [filteredData, setFilteredData] = useState(
-    InfoTablePool_Data.slice(
-      itemsPerPage * (pageCountPools - 1),
-      itemsPerPage - 1 + pageCountPools,
-    ),
+    InfoTablePool_Data.slice(itemsPerPage * (pageCountPools - 1), itemsPerPage - 1 + pageCountPools),
   );
 
   return (
     <div className={styles.Table__wrapper}>
       <CornerDecor />
       <Table
-        tableLabels={[
-          '#',
-          'Pool',
-          'Volume 24H',
-          'Volume 7D',
-          'LP Reward Fees - 24H',
-          'LP Reward APR',
-          'Liquidity',
-          '',
-        ]}
+        tableLabels={['#', 'Pool', 'Volume 24H', 'Volume 7D', 'LP Reward Fees - 24H', 'LP Reward APR', 'Liquidity', '']}
         tableData={filteredData}
         type={'info_table_pools'}
       />
       <div className={styles.Table__buttons}>
         <Button
           customStyles={{ marginRight: '10px' }}
-          title={
-            <PaginationButtonSvg
-              className={styles.back}
-              pageCountTokens={pageCountPools}
-              disabled={1}
-            />
-          }
+          title={<PaginationButtonSvg className={styles.back} pageCountTokens={pageCountPools} disabled={1} />}
           onClick={() => {
-            if (pageCountPools > 1)
-              setPageCountPools(prevValue => prevValue - 1);
+            if (pageCountPools > 1) setPageCountPools(prevValue => prevValue - 1);
           }}
         />
         <PageNumber
@@ -370,16 +343,9 @@ const PoolsTable = props => {
           customStyles={{
             marginLeft: '10px',
           }}
-          title={
-            <PaginationButtonSvg
-              className={styles.forward}
-              pageCountTokens={pageCountPools}
-              disabled={3}
-            />
-          }
+          title={<PaginationButtonSvg className={styles.forward} pageCountTokens={pageCountPools} disabled={3} />}
           onClick={() => {
-            if (pageCountPools < 3)
-              setPageCountPools(prevValue => prevValue + 1);
+            if (pageCountPools < 3) setPageCountPools(prevValue => prevValue + 1);
           }}
         />
       </div>

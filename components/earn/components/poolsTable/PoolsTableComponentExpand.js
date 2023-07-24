@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+
 import { ClockSvg, ExclamationSvg, MathSignSvg, OpenSvg } from '../../../svg';
 
 import styles from './PoolsTableComponentExpand.module.css';
@@ -14,8 +15,7 @@ const PoolsTableComponentExpand = ({ item }) => {
           <section className={styles.autoSection}>
             <div>
               <p>
-                {item.data[4].text2}{' '}
-                <ExclamationSvg className={styles.ExclamationSvg} />
+                {item.data[4].text2} <ExclamationSvg className={styles.ExclamationSvg} />
               </p>
               <p>{item.data[4].text}</p>
             </div>
@@ -25,15 +25,13 @@ const PoolsTableComponentExpand = ({ item }) => {
             </div>
             <div>
               <p>
-                Average Lock Duration{' '}
-                <ExclamationSvg className={styles.ExclamationSvg} />
+                Average Lock Duration <ExclamationSvg className={styles.ExclamationSvg} />
               </p>
               <p>{item?.data[6]?.averageLockDuration}</p>
             </div>
             <div>
               <p>
-                Performance Fee{' '}
-                <ExclamationSvg className={styles.ExclamationSvg} />
+                Performance Fee <ExclamationSvg className={styles.ExclamationSvg} />
               </p>
               <p>{item?.data[6]?.performanceFee}</p>
             </div>
@@ -50,8 +48,7 @@ const PoolsTableComponentExpand = ({ item }) => {
           <div>
             <p>Total Staked</p>
             <p>
-              {item?.data[6]?.totalStaked}{' '}
-              <span className={styles.cmcx}>CMCX</span>
+              {item?.data[6]?.totalStaked} <span className={styles.cmcx}>CMCX</span>
             </p>
           </div>
           <div>

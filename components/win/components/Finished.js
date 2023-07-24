@@ -1,8 +1,7 @@
 import Image from 'next/image';
 
-import Button from '../../UI/button/Button';
-
 import styles from './Finished.module.css';
+
 const Finished = () => {
   return (
     <>
@@ -19,13 +18,7 @@ const Finished = () => {
         <div className={styles.mainContent}>
           <div className={styles.blurContent}>
             <div>
-              <svg
-                width='43'
-                height='51'
-                viewBox='0 0 43 51'
-                fill='none'
-                xmlns='http://www.w3.org/2000/svg'
-              >
+              <svg width='43' height='51' viewBox='0 0 43 51' fill='none' xmlns='http://www.w3.org/2000/svg'>
                 <g clipPath='url(#clip0_1528_3829)'>
                   <path
                     d='M8.9811 21.9728C7.76761 22.0627 6.54929 21.8865 5.40844 21.456C4.26758 21.0255 3.23075 20.3508 2.36795 19.4774C-0.448393 16.5135 0.432028 12.3477 0.432028 12.3477C2.89884 12.5023 5.21914 13.5925 6.93512 15.4033C7.76917 16.2506 8.39054 17.29 8.74667 18.4335C9.10279 19.577 9.1832 20.791 8.9811 21.9728Z'
@@ -74,12 +67,7 @@ const Finished = () => {
                 </g>
                 <defs>
                   <clipPath id='clip0_1528_3829'>
-                    <rect
-                      width='42'
-                      height='50'
-                      fill='white'
-                      transform='matrix(-1 0 0 1 42.3027 0.150391)'
-                    />
+                    <rect width='42' height='50' fill='white' transform='matrix(-1 0 0 1 42.3027 0.150391)' />
                   </clipPath>
                 </defs>
               </svg>
@@ -88,13 +76,7 @@ const Finished = () => {
               <h3>Finished!</h3>
             </div>
             <div>
-              <svg
-                width='43'
-                height='51'
-                viewBox='0 0 43 51'
-                fill='none'
-                xmlns='http://www.w3.org/2000/svg'
-              >
+              <svg width='43' height='51' viewBox='0 0 43 51' fill='none' xmlns='http://www.w3.org/2000/svg'>
                 <g clipPath='url(#clip0_1528_3817)'>
                   <path
                     d='M34.1244 21.9728C35.3379 22.0627 36.5562 21.8865 37.697 21.456C38.8379 21.0255 39.8747 20.3508 40.7375 19.4774C43.5539 16.5135 42.6734 12.3477 42.6734 12.3477C40.2066 12.5023 37.8863 13.5925 36.1704 15.4033C35.3363 16.2506 34.7149 17.29 34.3588 18.4335C34.0027 19.577 33.9223 20.791 34.1244 21.9728V21.9728Z'
@@ -143,12 +125,7 @@ const Finished = () => {
                 </g>
                 <defs>
                   <clipPath id='clip0_1528_3817'>
-                    <rect
-                      width='42'
-                      height='50'
-                      fill='white'
-                      transform='translate(0.802734 0.150391)'
-                    />
+                    <rect width='42' height='50' fill='white' transform='translate(0.802734 0.150391)' />
                   </clipPath>
                 </defs>
               </svg>

@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
 import { useRouter } from 'next/router';
+import React, { useState } from 'react';
 
-import TabFilter from '../../../UI/filters/TabFilter';
 import CornerDecor from '../../../UI/cornerDecor/CornerDecor';
+import TabFilter from '../../../UI/filters/TabFilter';
 
 import styles from './EarnRoutes.module.css';
 
@@ -28,9 +28,7 @@ const EarnRoutes = () => {
     if (loc === '/earn/pools') returnStatement = 'Pools';
     return returnStatement;
   };
-  const [activeRoute, setActiveRoute] = useState(
-    getCurrentLocation(router.pathname),
-  );
+  const [activeRoute, setActiveRoute] = useState(getCurrentLocation(router.pathname));
 
   const navigationHandler = activeItem => {
     setActiveRoute(capitalizeFirstLetter(activeItem.toLowerCase()));

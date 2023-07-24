@@ -1,7 +1,5 @@
 import React from 'react';
 
-import styles from './ExpandItemRow.module.css';
-
 const ExpandItemRow = props => {
   const item = props.item;
   console.log(item);

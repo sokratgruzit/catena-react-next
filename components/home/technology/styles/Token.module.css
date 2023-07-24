@@ -1,0 +1,32 @@
+.technoDescriptionBottomText {
+  font-size: 15px;
+  line-height: 24px;
+  color: rgba(255, 255, 255, 0.5);
+  width: 640px;
+}
+.technoDescriptionBottomInner {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  padding-right: 105px;
+  margin-top: 15px;
+}
+.technoDescriptionBottom {
+  display: flex;
+  width: 100%;
+}
+.technoDescriptionBottom h2 {
+  width: 50%;
+}
+@media (max-width: 1023px) {
+  .technoDescriptionBottomInner {
+    padding-right: 0px;
+  }
+}
+
+/*Mobile 320*/
+@media (max-width: 767px) {
+  .technoDescriptionBottomInner {
+    padding-right: 0px;
+  }
+}
