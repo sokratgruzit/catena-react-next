@@ -8,17 +8,9 @@
   background-color: #FFF3E5;
 }
 
-.headtitle {
-  margin: 15px 0 25px 0;
-}
-
 .mapCont {
   width: 100% ; 
   position: relative;
-}
-
-.descP {
-  margin: 10px 0 10px 0;
 }
 
 .pressImage {
@@ -47,4 +39,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+@media (max-width:700px) {
+  .digital {
+    width: auto;
+  }
 }

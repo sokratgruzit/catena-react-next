@@ -53,15 +53,22 @@
 }
 
 .logCon {
-    margin-top: 15px;
+    width: 160px;
+    height: 160px;
+}
+
+.logo {
+    width: 100%;
+    height: 100%;
 }
 
 .logoLine {
     width: 100%;
     display: flex;
+    height: 100%;
     gap: 50px;
+    padding: 20px 70px 20px 105px;
     align-items: center;
-    margin-left: 100px;
 }
 
 .infoContainer {
@@ -76,7 +83,7 @@
 
 .infContTitle h2 {
     position: relative;
-    margin: 45px;
+    margin-top: 45px;
 }
 
 .yearsStats {
@@ -92,9 +99,15 @@
     width: 20%;
     display: flex;
     z-index: 10;
-    align-items: flex-end;
     justify-content: center;
     gap: 40px;  
+    border-bottom: 1px solid transparent;
+    display: flex;
+    align-items: center;
+    transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+    font-size: 30px;
+    opacity: 0.5;
+    cursor: pointer;
 }
 
 .activeCont {
@@ -120,10 +133,11 @@
 }
 
 .statisticContainer {
+    width: 100%;
     border: 1px solid rgb(192, 182, 182);
     background-color: #F3E4D2;
     border-radius: 20px;
-    padding: 20px 150px 100px 100px;
+    padding: 20px 70px 20px 105px;
 }
 
 .icCont{
@@ -153,16 +167,30 @@
     margin-top: 30px;
 }
 
-@media (max-width: 868px) {
+
+
+
+@media (max-width: 670px) {
+    .titleContainer {
+        gap: 20px;
+        font-size: 20px;
+    }
+    .titleContainer p {
+        font-size: 40px;
+    }
+}
+
+@media (max-width: 1168px) {
     .bodyContainer {
-        grid-template-columns: 1fr;
+        gap: 20px;
     }
 }
 
 
 @media (max-width: 1023px) {
     .bodyContainer {
-        gap: 20px;
+        grid-template-columns: 1fr;
+        gap: 50px;
     }
 }
 
@@ -170,22 +198,36 @@
 @media (max-width: 815px) {
     .infContTitle h2 {
         font-size: 12px;
-        padding: 60px;
+        padding: 37px;
     }
-}
-
-
-@media (max-width: 800px) {
     .activeCont {
         font-size: 12px;
     }
-}
-
-@media (max-width: 800px) {
     .pasCont  {
         font-size: 12px;
     }
 }
 
+@media (max-width: 1050px) {
+    .logoLine {
+        width: auto;
+        height: auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        padding: 20px;        
+        display: flex;
+        flex-direction: column;
+    }
+    .logCon {
+        margin: 5px;
+        width: auto;
+        height: auto;
+    }
 
+    .logo {
+        width: auto;
+        height: auto;
+    }
+}
 

@@ -96,17 +96,17 @@ const Press = () => {
       <div className={styles.bodyContainer}>
         <Card dataArr={pressArr} />
       </div>
-      <div className={`${styles.sourcesContainer} container_bordered`}>
+      <div className={`${styles.sourcesContainer} `}>
         <div className={styles.sourcesTitle}>
           <h1 className='ttl font-40'>Sources</h1>
         </div>
-        <div className={`${styles.logoContainer}`}>
+        <div className={`${styles.logoContainer} `}>
           <div className={styles.logoLine}>
             <div className={styles.logCon}>
               <img src='/images/press/nasdaq.png' alt='sources' className={styles.logo} />
             </div>
             <div className={styles.logCon}>
-              <img src='/images/press/CNBC.png' alt='sources' className={styles.logo} />
+              <img src='/images/press/CBNC.png' alt='sources' className={styles.logo} />
             </div>
             <div className={styles.logCon}>
               <img src='/images/press/bloombergLogo.png' alt='sources' className={styles.logo} />
@@ -115,7 +115,7 @@ const Press = () => {
               <img src='/images/press/nasdaq.png' alt='sources' className={styles.logo} />
             </div>
             <div className={styles.logCon}>
-              <img src='/images/press/CNBC.png' alt='sources' className={styles.logo} />
+              <img src='/images/press/CBNC.png' alt='sources' className={styles.logo} />
             </div>
           </div>
           <div className={`${styles.logoLine}`}>
@@ -129,7 +129,7 @@ const Press = () => {
               <img src='/images/press/nasdaq.png' alt='sources' className={styles.logo} />
             </div>
             <div className={styles.logCon}>
-              <img src='/images/press/CNBC.png' alt='sources' className={styles.logo} />
+              <img src='/images/press/CBNC.png' alt='sources' className={styles.logo} />
             </div>
             <div className={styles.logCon}>
               <img src='/images/press/Frame 2.png' alt='sources' className={styles.logo} />
@@ -141,7 +141,7 @@ const Press = () => {
         <div className={styles.infContTitle}>
           <h2 className='ttl font-40'>Publics by years</h2>
         </div>
-        <div className={styles.yearsStats}>
+        <div className={`${styles.yearsStats}`}>
           <div
             className={activeYear === '2021' ? styles.activeCont : styles.pasCont}
             onClick={() => handleYearClick('2021')}
