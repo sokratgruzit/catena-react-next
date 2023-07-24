@@ -88,7 +88,7 @@ const AmbasdorBtn = () => {
                     label={'Apply Now'}
                     size={'btn-lg'}
                     type={'btn-primary'}
-                    arrow={'arrow-right'}
+                    // arrow={'arrow-right'}
                     element={'button'}
                     disabled={false}
                     onClick={() => setChng(true)}
