@@ -1,16 +1,25 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 import styles from './Tokenomics.module.css';
+import { useState } from "react";
 
 function Download() {
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const play = () => {
+    setIsPlaying(!isPlaying);
+  };
+  const close = () => {
+    setIsPlaying(false);
+  };
+
   return (
     <div className={`${styles.p280} ${styles.flexColumn}`}>
       <h2 className={` ttl font-40 ${styles.flex} ${styles.alignItemsCenter} ${styles.download_responsive}`}>
-        Download <img className={`${styles.catena_logo}`} src='/images/logo_dwn.svg' alt='logo' />
-        <div className="ttl font-40"><span className={`ttl font-40 ${styles.orange}`}>CATENA</span>&nbsp;Wallet App</div>
+        Download <img className={`${styles.tronlink_logo}`} src='/images/tronlink.svg' alt='logo' /> Tronlink App
       </h2>
       <div className={`${styles.flex} ${styles.downloadIcons}`}>
-        <Link href="/download/CoreWallet.apk" download>
+        {/* <Link href="/download/CoreWallet.apk" download>
           <svg width='170' height='56' viewBox='0 0 170 56' fill='none' xmlns='http://www.w3.org/2000/svg'>
             <rect width='169.02' height='56' rx='7' fill='#162029' fillOpacity='0.05' />
             <rect x='0.5' y='0.5' width='168.02' height='55' rx='6.5' stroke='#162029' strokeOpacity='0.05' />
@@ -60,8 +69,8 @@ function Download() {
               fill='#162029'
             />
           </svg>
-        </Link>
-        <Link href="https://play.google.com/store/apps/details?id=com.corewallet" target="_blank">
+        </Link> */}
+        <Link href="https://play.google.com/store/apps/details?id=com.tronlinkpro.wallet&hl=en&gl=US" target="_blank">
           <svg width='170' height='56' viewBox='0 0 170 56' fill='none' xmlns='http://www.w3.org/2000/svg'>
             <rect x='0.0214844' width='169.91' height='56' rx='7' fill='#162029' fillOpacity='0.05' />
             <rect x='0.521484' y='0.5' width='168.91' height='55' rx='6.5' stroke='#162029' strokeOpacity='0.05' />
@@ -177,8 +186,8 @@ function Download() {
             </defs>
           </svg>
         </Link>
-        <div className={`${styles.soon}`}>
-          <svg className={`${styles.notAllowed}`} width='164' height='56' viewBox='0 0 164 56' fill='none' xmlns='http://www.w3.org/2000/svg'>
+        <Link href="https://apps.apple.com/us/app/tronlink-trx-btt-wallet/id1453530188">
+          <svg width='164' height='56' viewBox='0 0 164 56' fill='none' xmlns='http://www.w3.org/2000/svg'>
             <rect x='0.931641' width='162.56' height='56' rx='7' fill='#162029' fillOpacity='0.05' />
             <rect x='1.43164' y='0.5' width='161.56' height='55' rx='6.5' stroke='#162029' strokeOpacity='0.05' />
             <path
@@ -271,9 +280,32 @@ function Download() {
               fill='#162029'
             />
           </svg>
-          <p className={`${styles.soonText}`}>COMING SOON</p>
-        </div>
+        </Link>
       </div>
+      {!isPlaying ? (
+        <div onClick={play} className={`${styles.flex} ${styles.alignItemsCenter} ${styles.watchContainer}`}>
+          <svg className={styles.playIcon} width="12" height="14" viewBox="0 0 12 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 7L3.01142e-07 13.9282L9.06825e-07 0.0717964L12 7Z" fill="#FF7152" />
+          </svg>
+          <p>WATCH INSTRUCTIONS VIDEO</p>
+        </div>
+      ) : (
+        <div className={styles.videoContainer}>
+          <iframe className={styles.video} src="https://iframe.cloudflarestream.com/a6556f211b0e2f7905c243b0f58e5eec?muted=true&autoplay=true&controls=false" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+            allowFullScreen={true} autoPlay={true}>
+          </iframe>
+          <audio autoPlay>
+            <source src="/images/tronlink.mp3" type="audio/mpeg" />
+          </audio>
+          <svg
+            onClick={close}
+            className={styles.closeBtn}
+            width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M43.8925 6.11166L6.11462 43.8896" stroke="white" strokeWidth="4" />
+            <path d="M6.10758 6.11166L43.8854 43.8896" stroke="white" strokeWidth="4" />
+          </svg>
+        </div>
+      )}
     </div>
   );
 }
