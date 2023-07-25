@@ -7,7 +7,7 @@ import createAxiosInstance from '../../../pages/api/axios';
 import styles from './Press.module.css';
 
 const Press = () => {
-  const [activeYear, setActiveYear] = useState('2021');
+  const [activeYear, setActiveYear] = useState('');
   const axios = useMemo(() => createAxiosInstance(), []);
   const [allPress, setAllPress] = useState([]);
   const [filterData, setfilterData] = useState();
@@ -32,8 +32,11 @@ const Press = () => {
     .catch(err => {
       console.log(err?.response);
     });
-    handleYearClick(activeYear);
   }, []);
+
+  useEffect(() => {
+      handleYearClick("2023");
+  }, [allPress]);
 
   console.log(filterData, "hi");
 
