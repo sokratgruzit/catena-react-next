@@ -32,8 +32,6 @@
 }
 
 .guidlineTableItemTtl {
-  font-size: 16px;
-  line-height: 22px;
   color: rgba(22, 32, 41, 0.6);
 }
 .wrapper .guidlineTableItem:nth-child(5) .imageWrapper {

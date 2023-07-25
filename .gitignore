@@ -31,6 +31,6 @@ yarn-error.log*
 # vercel
 .vercel
 
-# Ignore package lock files
-package-lock.json
 yarn.lock
+
+package-lock.json

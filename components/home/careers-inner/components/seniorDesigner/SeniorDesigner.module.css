@@ -28,3 +28,18 @@
   color: #162029;
   margin-top: 20px;
 }
+
+@media (max-width: 767px) {
+  .frontInfo {
+    width: 100%;
+    font-size: 40px;
+  }
+
+  .font__51 {
+    font-size: 40px;
+  }
+
+  .otherTitle {
+    font-size: 40px;
+  }
+}

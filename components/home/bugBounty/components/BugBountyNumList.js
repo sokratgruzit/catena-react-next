@@ -1,15 +1,15 @@
-import styles from './bugBounty.module.css';
+import styles from './BugBounty.module.css';
 
 function BugBountyNumList({ data }) {
   return (
-    <div>
+    <div className={styles.numListContainer}>
       {data?.map((item, i) => {
         return (
           <div key={i}>
-            <p className={styles.listTitle}>{item.title}</p>
-            <ol className={styles.eligibilityList}>
+            <p className={`${styles.numListTitle} font-40 ttl`}>{item.title}</p>
+            <ol>
               {item.listItem?.map((item, i) => {
-                return <li key={i}>{item}</li>;
+                return <li className={`font-20 ${styles.numList}`} key={i}>{item}</li>;
               })}
             </ol>
           </div>

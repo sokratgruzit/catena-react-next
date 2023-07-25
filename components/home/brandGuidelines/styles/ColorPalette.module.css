@@ -1,0 +1,74 @@
+.right.guidlineColorCircleContainer {
+  margin-top: 60px;
+  justify-content: flex-end;
+}
+.guidlineColorCircleContainer {
+  display: flex;
+  position: relative;
+  z-index: 2;
+}
+.guidlineColorCircleItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 30px;
+}
+.right.guidlineColorCircleContainer {
+  margin-top: 60px;
+  justify-content: flex-end;
+}
+.guidlineColorCircleTitle {
+  font-size: 15px;
+  line-height: 24px;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 10px;
+}
+.guidlineColorCircle {
+  height: 64px;
+  width: 64px;
+  border-radius: 50%;
+}
+.guidlineColorCircleContainer {
+  display: flex;
+  position: relative;
+  z-index: 2;
+}
+.guidlineColorCircleItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 30px;
+}
+.right.guidlineColorCircleContainer {
+  margin-top: 60px;
+  justify-content: flex-end;
+}
+@media (max-width: 767px) {
+  .right.guidlineColorCircleContainer {
+    justify-content: center;
+  }
+  .guidlineColorCircleItem {
+    margin-right: 10px;
+  }
+  .right.guidlineColorCircleContainer {
+    justify-content: center;
+  }
+  .guidlineColorCircleItem {
+    margin-right: 10px;
+  }
+  .guidlineColorCircleTitle {
+    font-size: 11px;
+  }
+  .guidlineColorCircle {
+    height: 34px;
+    width: 34px;
+  }
+  .right {
+    width: 100%;
+    padding-right: 0px;
+    margin-top: auto;
+  }
+  .right.guidlineColorCircleContainer {
+    justify-content: center;
+  }
+}

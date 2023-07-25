@@ -12,7 +12,7 @@
   z-index: 77;
   border: 1px solid #162029;
   border-radius: 30px;
-  margin: 90px 0;
+  margin: 90px 0 60px 0;
 }
 
 .font__51 {
@@ -27,5 +27,12 @@
 @media (max-width: 1700px) {
   .font__51 {
     padding-left: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .font__51 {
+    width: 100%;
+    font-size: 40px;
   }
 }

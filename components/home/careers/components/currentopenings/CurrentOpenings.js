@@ -18,7 +18,9 @@ const CurrentOpenings = props => {
                       return (
                         <div key={index} className='text'>
                           <ul>
-                            <li>{subitem}</li>
+                            <li style={{ color: '#162029' }} className='font-20'>
+                              {subitem}
+                            </li>
                           </ul>
                         </div>
                       );

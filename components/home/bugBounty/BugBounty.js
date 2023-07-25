@@ -4,8 +4,6 @@ import BugBountyNumList from './components/BugBountyNumList';
 import BugBountyRewards from './components/BugBountyRewards';
 import BugBountyTitle from './components/BugBountyTitle';
 
-import styles from './components/bugBounty.module.css';
-
 function BugBounty() {
   let data = [
     {

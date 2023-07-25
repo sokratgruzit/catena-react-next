@@ -11,12 +11,9 @@
     line-height: 61px;
     letter-spacing: 0em;
     text-align: left;
-    max-width: 792px;
-    padding: 32px;
 }
 
 .text {
-    width: 640px;
     font-family: Noto Sans;
     font-size: 15px;
     font-weight: 400;

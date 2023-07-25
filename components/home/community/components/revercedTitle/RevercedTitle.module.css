@@ -1,11 +1,6 @@
 .main {
-    border: 1px solid black;
-    border-radius: 20px;
-    padding: 32px 116px;
-    background: #F3E4D2;
     display: flex;
     align-items: center;
-    width: 90%;
 }
 
 .title {
@@ -16,19 +11,6 @@
     letter-spacing: 0em;
     text-align: left;
     transform: rotate(-90deg);
-}
-
-.text {
-    width: 760px;
-    padding: 0 32px;
-    top: 386px;
-    left: 155px;
-    /* border: 1px solid black; */
-}
-
-@font-face {
-    font-family: Noto Sans;
-    src: url(../../../../../public/fonts/NotoSans-Regular.ttf);
 }
 
 @font-face {

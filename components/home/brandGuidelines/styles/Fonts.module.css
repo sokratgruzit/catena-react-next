@@ -36,30 +36,18 @@
 }
 
 .definition h3 {
- 
   margin-bottom: 3px;
   max-width: 440px;
   width: 100%;
 }
 .definition .font {
-  font-size: 20px;
-  letter-spacing: 10px;
   line-height: 40px;
   /* max-width: 440px; */
   width: 100%;
 }
 .definition .num {
-  font-size: 20px;
-  line-height: 40px;
   max-width: 440px;
   width: 100%;
-}
-.lackFont {
-  font-family: Lack-Regular, sans-serif;
-}
-
-.notoSansFont {
-  font-family: Noto Sans, sans-serif;
 }
 
 @media (max-width: 1023px) {
