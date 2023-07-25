@@ -39,6 +39,10 @@
         font-family: Lack;
         color: #FFFFFF;
         left: 5%;
-        font-size: 20px; 
+        font-size: 20px;
+    }
+
+    .container {
+        flex-direction: column;
     }
 }
