@@ -19,7 +19,7 @@ const ExchangesCards = ({ data }) => {
               <div className={styles.buttonsContainer}>
                 {card.buttons.map((b, i) => {
                   return (
-                    <div className={styles.button} key={i}>
+                    <div onClick={b.onClick} className={styles.button} key={i}>
                       {b.name.toUpperCase()}
                     </div>
                   );
