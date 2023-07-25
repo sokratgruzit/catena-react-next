@@ -62,13 +62,10 @@ let faq = [
 function FaqItem() {
   return (
     <div className={`${styles.container} container`}>
-
       <div className={styles.bodyContainer}>
         <img src='/images/FAQ/AQ.png' className={styles.img} />
         <p className={styles.Title}>Answers to frequently asked questions about the CATENA Network.</p>
       </div>
-
-
       <div className={`${styles.containerTwo}`}>
         {faq?.map(item => {
           console
@@ -83,7 +80,6 @@ function FaqItem() {
           );
         })}
       </div>
-
     </div >
   );
 }

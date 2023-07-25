@@ -1,4 +1,4 @@
-import styles from './Plain.module.css'
+import styles from './Plain.module.css';
 
 const RevercedTitle = ({ data }) => {
   return (

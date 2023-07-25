@@ -40,24 +40,37 @@
     padding-top: 70px;
     margin-top: 70px;
   }
+
   .benefits__list-item {
     font-size: 12px;
     line-height: 25px;
   }
 }
+
 @media (max-width: 767px) {
   .career__benefits-section {
     padding-top: 50px;
   }
+
   .career__benefits-container {
     flex-direction: column;
   }
+
   .career__benefit-col:first-child,
   .career__benefit-col:nth-child(2),
   .career__benefit-col:nth-child(3) {
     width: 100%;
   }
+
   .career__benefit-col:not(:last-child) {
     margin-bottom: 30px;
+  }
+
+  .font__51 {
+    font-size: 40px;
+  }
+
+  .font__51 {
+    width: 100%;
   }
 }

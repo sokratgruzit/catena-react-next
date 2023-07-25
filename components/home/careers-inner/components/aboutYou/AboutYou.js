@@ -2,7 +2,7 @@ import React from 'react';
 
 import styles from './AboutYou.module.css';
 
-const AboutYou = ({ head, aboutSalary, aboutRange, title2, toggleSeniorVisibility }) => {
+const AboutYou = ({ head, aboutSalary, aboutRange, title2 }) => {
   return (
     <div>
       <div className='container_bordered'>
@@ -11,32 +11,33 @@ const AboutYou = ({ head, aboutSalary, aboutRange, title2, toggleSeniorVisibilit
           <div className='text'>
             <ul>
               {aboutSalary.map((item, index) => {
-                return <li style={{ color: '#162029', fontSize: '20px', width: '620px' }} key={index}>{item.title}</li>;
+                return (
+                  <li style={{ color: '#162029', fontSize: '20px', width: '620px' }} key={index}>
+                    {item.title}
+                  </li>
+                );
               })}
             </ul>
           </div>
-          <div>
-          </div>
+          <div></div>
         </div>
-      </div >
+      </div>
       <div className='container_bordered'>
         <h2 className={styles.font__51}>{title2}</h2>
         <div className='container_bordered-child'>
           {aboutRange.map((item, index) => {
             return (
               <div key={index} className='text'>
-                <ul >
+                <ul>
                   <li style={{ color: '#162029', fontSize: '20px' }}>{item.title}</li>
                 </ul>
-                <p style={{ color: '#162029', fontSize: '20px', paddingLeft: '20px', lineHeight: '30px' }}>{item.value}</p>
+                <p style={{ color: '#162029', fontSize: '20px', paddingLeft: '20px', lineHeight: '30px' }}>
+                  {item.value}
+                </p>
               </div>
-
             );
           })}
         </div>
-      </div>
-      <div onClick={toggleSeniorVisibility} className='container'>
-        <div className={styles.importButton}>Apply this job now</div>
       </div>
     </div>
   );
