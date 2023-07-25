@@ -1,14 +1,17 @@
 // import JoinCommunity from '../events/components/JoinCommunity';
 import Card from '../../UI/card/Card';
-import styles from './Press.module.css';
 import { useState, useMemo, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import createAxiosInstance from '../../../pages/api/axios';
+
+import styles from './Press.module.css';
 
 const Press = () => {
   const [activeYear, setActiveYear] = useState('2021');
   const axios = useMemo(() => createAxiosInstance(), []);
   const [allPress, setAllPress] = useState([]);
   const [filterData, setfilterData] = useState();
+  const activeLang = useSelector(state => state.settings.activeLang);
 
   const handleYearClick = (year) => {
     setActiveYear(year);
@@ -24,13 +27,15 @@ const Press = () => {
     axios.get(`http://localhost:4003/press/get-all-press`)
     .then(res => {
       setAllPress(res?.data);
-      console.log(allPress);
+      console.log(allPress, "esaaa");
     })
     .catch(err => {
       console.log(err?.response);
     });
     handleYearClick(activeYear);
   }, []);
+
+  console.log(filterData, "hi");
 
   return (
     <div className={`${styles.mainContainer} container`}>
@@ -88,28 +93,28 @@ const Press = () => {
         </div>
         <div className={`${styles.yearsStats}`}>
           <div
-            className={activeYear === '2021' ? styles.activeCont : styles.pasCont}
-            onClick={() => handleYearClick('2021')}
+            className={activeYear === '2023' ? styles.activeCont : styles.pasCont}
+            onClick={() => handleYearClick('2023')}
           >
-            2021
+            2023
           </div>
           <div
             className={activeYear === '2020' ? styles.activeCont : styles.pasCont}
             onClick={() => handleYearClick('2020')}
           >
-            2020
+            2022
           </div>
           <div
             className={activeYear === '2019' ? styles.activeCont : styles.pasCont}
             onClick={() => handleYearClick('2019')}
           >
-            2019
+            2021
           </div>
           <div
             className={activeYear === '2018' ? styles.activeCont : styles.pasCont}
             onClick={() => handleYearClick('2018')}
           >
-            2018
+            2020
           </div>
         </div>
 
@@ -118,8 +123,8 @@ const Press = () => {
         {filterData ? filterData.map((item, index) => {
           return (
             <div key={index} className={styles.icCont}>
-              <img src={item.imgPart} />
-              <p>{item.title}</p>
+              <img src={`http://localhost:4003/uploads/press/${item?.logo_image}`} className={styles.icon}/>
+              <p>{item.title[activeLang]["press.title"]}</p>
             </div>
           )
         }) : (
