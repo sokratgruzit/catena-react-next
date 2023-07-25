@@ -23,14 +23,11 @@
 }
 
 .titleDesc {
-    width: 590px;
-    height: 90px;
-    margin-top: 100px;
-    margin-bottom: 70px;
-}
-
-.titleDesc p {
-    font-size: 30px;
+    width: 50%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .imgBackgr {
@@ -53,3 +50,24 @@
     flex-basis: calc(50% - 25px); 
   }
 
+@media (max-width: 1270px) {
+    .titleContainer {
+        width: auto;
+        /* display: flex; */
+        gap: 20px;
+        font-size: 40px;
+    }
+
+    .titleContainer p {
+        width: auto;
+        /* display: flex; */
+        gap: 20px;
+        font-size: 40px;
+    }
+}
+
+@media (max-width: 500px) {
+    .titleDesc p{
+        font-size: 20px;
+    }
+}

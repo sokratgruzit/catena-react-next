@@ -112,8 +112,9 @@ function MakeProfile() {
         .post('/user/profile', formData)
         .then(res => {
           const cacheBuster = new Date().getTime(); // Generate unique cache-busting value
-          setFIleURL(`http://localhost:4000/image/profile/${account?.toLowerCase()}.png?cache=${cacheBuster}`);
+          setFIleURL(`http://localhost:4003/uploads/profile/${account?.toLowerCase()}.png`);
           dispatch({ type: 'SET_USER', payload: res.data.result });
+          console.log(fileURL);
         })
         .catch(e => console.log(e.response));
     }
@@ -128,7 +129,7 @@ function MakeProfile() {
     });
 
     const cacheBuster = new Date().getTime(); // Generate unique cache-busting value
-    setFIleURL(`http://localhost:4000/image/profile/${account?.toLowerCase()}.png?cache=${cacheBuster}`);
+    setFIleURL(`http://localhost:4003/uploads/profile/${account?.toLowerCase()}.png`);
   }, [user]);
 
   return (
