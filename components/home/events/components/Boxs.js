@@ -38,7 +38,7 @@ const Boxs = () => {
           <p className="title font-40">Braced dissected sheep, kermani halts, boy note. Quis raucous fall gown, euismod creatures spent, uproar tidings.</p>
         </div>
         <div className={`${styles.mapContainer} `}>
-          <Card dataArr={eventsArr} />
+          <Card dataArr={allPress} />
         </div>
       </div>
     </div>

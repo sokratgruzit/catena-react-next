@@ -3,14 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 3001",
     "build": "next build",
     "start": "next start",
     "lint": "next lint --fix",
     "prepare": "husky install"
   },
   "dependencies": {
-    "@catena-network/catena-ui-module": "^0.0.14",
+    "@catena-network/catena-ui-module": "^0.0.23",
     "@next/font": "^13.4.10",
     "@reduxjs/toolkit": "^1.8.3",
     "@szhsin/react-menu": "^3.1.1",
