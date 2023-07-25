@@ -1,6 +1,5 @@
 .btn { 
     margin: 50px 0px 50px 0px; 
-    width: 200px;
     display: flex;
     flex-direction: column;
 }
@@ -18,5 +17,7 @@
 }
 
 .btnBlu { 
+    padding: 30px !important;
+    border: 1px solid #162029;
     text-align: center;
 }
