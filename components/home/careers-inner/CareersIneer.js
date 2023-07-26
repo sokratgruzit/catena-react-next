@@ -141,7 +141,7 @@ const CareersIneer = () => {
     if (showSubmit) {
       setSubmitHeight('0px');
     } else {
-      setSubmitHeight('1900px');
+      setSubmitHeight('2500px');
     }
 
     setShowSubmit(!showSubmit);
@@ -173,7 +173,7 @@ const CareersIneer = () => {
           element={'button'}
         />}
       </div>
-      <div style={{ maxHeight: submitHeight, transition: '0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99)', overflow: 'hidden' }}>
+      <div style={{ maxHeight: submitHeight, transition: '0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99)', overflow: 'hidden', marginBottom: '50px' }}>
         {showSubmit && <SubmitAplication title='Submit Your Application' />}
       </div>
     </div>

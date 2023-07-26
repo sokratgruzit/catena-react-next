@@ -15,13 +15,21 @@ const OpenSearch = ({ title, department, location }) => {
             <div className={styles.openPositions__filterTtl}>{department}</div>
             <div className={styles.infoImport}>
               <Input
-                type={'lable-input-select'}
+                onClick={() => { console.log('rame') }}
+                type={"lable-input-select"}
                 icon={false}
+                // selectData={selectData}
+                emptyFieldErr={true}
+                // defaultData={defaultData}
+                // label={"yourText"}
+                // selectHandler={selectHandler}
+                selectLabel={"All"}
                 selectType={'country'}
-                selectLabel={'All'}
-                status={'warning'}
-                title={'your text'}
-                color={'#FFA726'}
+                // active={active}
+                status={"warning"}
+                title={"your text"}
+                color={"#FFA726"}
+              // customStyles={{ width: "320px" }}
               />
             </div>
           </div>
@@ -29,13 +37,21 @@ const OpenSearch = ({ title, department, location }) => {
             <div className={styles.openPositions__filterTtl}>{location}</div>
             <div className={styles.infoImport}>
               <Input
-                type={'lable-input-select'}
+                onClick={() => { console.log('rame') }}
+                type={"lable-input-select"}
                 icon={false}
+                // selectData={selectData}
+                emptyFieldErr={true}
+                // defaultData={defaultData}
+                // label={"yourText"}
+                // selectHandler={selectHandler}
+                selectLabel={"All"}
                 selectType={'country'}
-                selectLabel={'All'}
-                status={'warning'}
-                title={'your text'}
-                color={'#FFA726'}
+                // active={active}
+                status={"warning"}
+                title={"your text"}
+                color={"#FFA726"}
+              // customStyles={{ width: "320px" }}
               />
             </div>
           </div>
