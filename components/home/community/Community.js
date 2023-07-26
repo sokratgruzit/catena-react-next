@@ -75,8 +75,21 @@ const grant = {
 const Community = () => {
   return (
     <>
-      <div className='container' style={{ paddingTop: '200px', display: "flex", flexDirection: 'column', gap: '32px', marginBottom: "50px" }}>
-        <h1 className='font-90' style={{ width: "80%" }} >Community</h1>
+      <div
+        className='container'
+        style={{
+          paddingTop: '200px',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          position: 'relative',
+          gap: '32px',
+          marginBottom: '50px',
+        }}
+      >
+        <h1 className='font-90' style={{ marginRight: '50%' }}>
+          Community
+        </h1>
         <RevercedTitle data={vision} />
         <Plain data={blockchain} />
         <RevercedTitle data={events} />

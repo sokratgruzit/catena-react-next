@@ -688,7 +688,7 @@ const EXCHANGESDATA = [
 
 const Ecosystem = () => {
   return (
-    <div className='container' style={{ position: 'relative' }}>
+    <div className='container'>
       <div>
         <Title />
         <ExchangesCards data={EXCHANGESDATA} />

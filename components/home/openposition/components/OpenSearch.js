@@ -13,29 +13,47 @@ const OpenSearch = ({ title, department, location }) => {
         <div className={styles.openPositions__container}>
           <div className={styles.openPositions__filter}>
             <div className={styles.openPositions__filterTtl}>{department}</div>
-            <Input
-              type={'lable-input-select'}
-              icon={false}
-              selectType={'country'}
-              selectLabel={'All'}
-              status={'warning'}
-              title={'your text'}
-              color={'#FFA726'}
-              customStylesstyless={{ width: '320px' }}
-            />
+            <div className={styles.infoImport}>
+              <Input
+                onClick={() => { console.log('rame') }}
+                type={"lable-input-select"}
+                icon={false}
+                // selectData={selectData}
+                emptyFieldErr={true}
+                // defaultData={defaultData}
+                // label={"yourText"}
+                // selectHandler={selectHandler}
+                selectLabel={"All"}
+                selectType={'country'}
+                // active={active}
+                status={"warning"}
+                title={"your text"}
+                color={"#FFA726"}
+              // customStyles={{ width: "320px" }}
+              />
+            </div>
           </div>
           <div className={styles.openPositions__filter}>
             <div className={styles.openPositions__filterTtl}>{location}</div>
-            <Input
-              type={'lable-input-select'}
-              icon={false}
-              selectType={'country'}
-              selectLabel={'All'}
-              status={'warning'}
-              title={'your text'}
-              color={'#FFA726'}
-              customStylesstyless={{ width: '320px' }}
-            />
+            <div className={styles.infoImport}>
+              <Input
+                onClick={() => { console.log('rame') }}
+                type={"lable-input-select"}
+                icon={false}
+                // selectData={selectData}
+                emptyFieldErr={true}
+                // defaultData={defaultData}
+                // label={"yourText"}
+                // selectHandler={selectHandler}
+                selectLabel={"All"}
+                selectType={'country'}
+                // active={active}
+                status={"warning"}
+                title={"your text"}
+                color={"#FFA726"}
+              // customStyles={{ width: "320px" }}
+              />
+            </div>
           </div>
           <div className={styles.openPositions__filterClear}>Clear filter</div>
         </div>
