@@ -2,6 +2,7 @@ import { Button } from '@catena-network/catena-ui-module';
 import Image from 'next/image';
 
 import styles from './Card.module.css';
+import Link from 'next/link';
 
 const Card = ({ title }) => {
   return (

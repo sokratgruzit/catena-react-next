@@ -4,8 +4,6 @@ import BugBountyNumList from './components/BugBountyNumList';
 import BugBountyRewards from './components/BugBountyRewards';
 import BugBountyTitle from './components/BugBountyTitle';
 
-import styles from './components/bugBounty.module.css';
-
 function BugBounty() {
   let data = [
     {
@@ -84,17 +82,22 @@ function BugBounty() {
   ];
 
   return (
-    <div className='container'>
-      {/* <img className={styles.bg} src="/images/BG.png" alt="background-image" /> */}
-      <BugBountyTitle />
-      <BugBountyItem data={data} />
-      <div className={styles.listBg}>
-        <BugBountyNumList data={listData} />
-        <BugBountyList data={list} />
+    <div>
+      <div className='container'>
+        <BugBountyTitle />
+        <BugBountyItem data={data} />
       </div>
-      <BugBountyRewards />
-      <BugBountyItem data={reportData} />
-      <BugBountyNumList data={numList} />
+      <div className='container_bordered'>
+        <div className='container_bordered-child'>
+          <BugBountyNumList data={listData} />
+          <BugBountyList data={list} />
+        </div>
+      </div>
+      <div className="container">
+        <BugBountyRewards />
+        <BugBountyItem data={reportData} />
+        <BugBountyNumList data={numList} />
+      </div >
     </div>
   );
 }

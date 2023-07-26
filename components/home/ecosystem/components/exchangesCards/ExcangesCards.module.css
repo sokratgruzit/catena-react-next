@@ -18,8 +18,6 @@
 .card {
     width: 360px;
     height: 464px;
-    top: 656px;
-    left: 155px;
     padding: 30px;
     display: flex;
     flex-direction: column;
@@ -61,4 +59,15 @@
 .button:hover {
     background-color: #FF6969;
     color: #FFF3E5;
+}
+@media (max-width: 740px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: fit-content;
+    }
+    .massive {
+        display: none;
+    }
 }

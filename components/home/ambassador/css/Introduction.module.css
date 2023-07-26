@@ -1,5 +1,16 @@
-.container { 
-    width: 70%;
-    margin-left: 5%;
-    margin-top: 100px;
+.Ttl { 
+    margin-bottom: 20px;
 }
+
+.texts { 
+    max-width: 45%;
+    overflow: hidden;
+    gap: 10px;
+}
+
+/*Ipad 768*/
+@media (max-width: 1023px) {
+    .texts { 
+        max-width: 100%;
+    }
+ }

@@ -1,74 +1,102 @@
 import { Input, Button } from '@catena-network/catena-ui-module';
+import { useState } from 'react';
 
-import styles from './voiceMatters.module.css';
+import styles from './VoiceMatters.module.css';
 
-const VoiceMatter = props => {
-  const { title, description } = props;
-  const changeHandler = (i, e) => {
-    console.log(i.target.value);
+const VoiceMatter = () => {
+  const [formData, setFormData] = useState({
+    email: "",
+    name: "",
+    suggestion: "",
+  });
+
+  const chngHandler = (e) => {
+    const { name, value } = e.target;
+    setFormData(prevState => ({
+      ...prevState,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = () => {
+    console.log(formData);
   };
 
   return (
-    <div>
-      <form>
-        <span>{title}</span>
-        <div className={styles.content_description}>{description}</div>
-        <div>
-          <Input
-            type={'default'}
-            icon={false}
-            label={'EMAIL'}
-            subLabel={''}
-            placeholder={'Enter'}
-            // value={""}
-            onChange={changeHandler}
-            customStyles={{ width: '500px' }}
-          />
+    <div className={`${styles.main} container`}>
+      <div className={`${styles.box} `}>
+        <div className={styles.container}>
+          <img src="/images/VoiceMatter/YourVoiceMatter.png" className={styles.img} />
         </div>
-        <div>
-          <Input
-            type={'default'}
-            icon={false}
-            label={'Name'}
-            subLabel={''}
-            placeholder={'Enter'}
-            // value={""}
-            onChange={changeHandler}
-            customStyles={{ width: '500px' }}
-          />
+        <div className={styles.Title}>
+          <h2>
+            Community feedback helps CATENA improve and grow. Users who provide feedback on
+            their experience help ensure the growth of CATENA and lead us in the direction that the
+            community needs to be. Please use the following form to contribute your thoughts to CATENA:
+          </h2>
         </div>
+      </div>
+      <div className={`${styles.bottomBox} `}>
+        <div className={`${styles.hederBox} `}>
+          <form>
+            <div >
+              <Input
+                className={styles.llll}
+                type={'default'}
+                icon={false}
+                label={'EMAIL'}
+                subLabel={''}
+                placeholder={'Enter'}
+                name="email"
+                value={formData.email}
+                onChange={chngHandler}
+              // customStyles={{ width: '500px' }}
+              />
+            </div>
+            <div>
+              <Input
+                type={'default'}
+                icon={false}
+                label={'Name'}
+                subLabel={''}
+                placeholder={'Enter'}
+                value={formData.name}
+                name="name"
+                onChange={chngHandler}
+              // customStyles={{ width: '500px' }}
+              />
+            </div>
+            <div>
+              <Input
+                type={'textarea'}
+                label={'Make a suggestion'}
+                value={formData.suggestion}
+                onChange={chngHandler}
+                name="suggestion"
+                rows={10}
+                cols={20}
+                placeholder={'Please describe your feedback in detail with corresponding screenshots'}
+                resize={'both'}
 
-        <div>
-          <Input
-            type={'textarea'}
-            label={'Make a suggestion'}
-            // onChange={(e) => console.log(e.target.value)}
-            // value={'sad'}
-            // readOnly={true}
-            name={'textarea input'}
-            rows={10}
-            cols={20}
-            // disabled={true}
-            placeholder={'Please describe your feedback in detail with corresponding screenshots'}
-            // autoFocus={true}
-            // emptyFieldErr={true}
-            resize={'both'}
-          />
-          <label>Limit: 1000 characters</label>
+              />
+              <label>Limit: 1000 characters</label>
+            </div>
+            <div>
+              <Button
+                label={'Button'}
+                size={'btn-lg'}
+                type={'btn-primary'}
+                arrow={'arrow-right'}
+                element={'button'}
+                disabled={false}
+                onClick={handleSubmit}
+                className={styles.btnBlu}
+              />
+            </div>
+          </form>
         </div>
-        <div>
-          <Button
-            label={'Button'}
-            size={'btn-lg'}
-            type={'btn-primary'}
-            arrow={'arrow-right'}
-            element={'button'}
-            disabled={false}
-            onClick={() => console.log('hi')}
-          />
-        </div>
-      </form>
-    </div>
+      </div>
+    </div >
   );
 };
 
