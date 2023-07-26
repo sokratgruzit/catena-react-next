@@ -1,0 +1,92 @@
+[33m59dcfb8[m[33m ([m[1;36mHEAD -> [m[1;32mbog[m[33m)[m HEAD@{0}: commit: new task
+[33m6ffaf2c[m HEAD@{1}: pull origin sibelA: Merge made by the 'ort' strategy.
+[33ma990ec6[m HEAD@{2}: pull origin oposs: Merge made by the 'ort' strategy.
+[33mc1e2eaa[m HEAD@{3}: commit (merge): tsotne
+[33m694ad1a[m HEAD@{4}: pull origin sibelA: Merge made by the 'ort' strategy.
+[33m9bf4515[m HEAD@{5}: commit (merge): tsotne
+[33m324d0a6[m[33m ([m[1;31morigin/bog[m[33m)[m HEAD@{6}: commit (merge): last
+[33m7666d36[m HEAD@{7}: pull origin amnesia: Merge made by the 'ort' strategy.
+[33m00f29ad[m HEAD@{8}: commit (merge): delet_yarlock
+[33m3f9caba[m HEAD@{9}: commit: delet_yarlock
+[33mc1f9663[m HEAD@{10}: pull origin amnesia: Merge made by the 'ort' strategy.
+[33mdbf9ac7[m HEAD@{11}: commit (merge): tsotne
+[33me2ac08d[m HEAD@{12}: pull origin oposs: Merge made by the 'ort' strategy.
+[33m4c085ef[m HEAD@{13}: pull origin sibelA: Fast-forward
+[33m73baf76[m HEAD@{14}: pull origin sibelA: Fast-forward
+[33m97b728c[m HEAD@{15}: pull origin sibelA: Fast-forward
+[33mff111ed[m HEAD@{16}: commit (merge): alex
+[33mcaf506a[m HEAD@{17}: commit: hello I'm here
+[33m362a546[m HEAD@{18}: reset: moving to HEAD
+[33m362a546[m HEAD@{19}: reset: moving to HEAD
+[33m362a546[m HEAD@{20}: reset: moving to HEAD
+[33m362a546[m HEAD@{21}: reset: moving to HEAD
+[33m362a546[m HEAD@{22}: checkout: moving from test to bog
+[33m362a546[m HEAD@{23}: pull origin newgate: updating HEAD
+[33m362a546[m HEAD@{24}: checkout: moving from bog to test
+[33m362a546[m HEAD@{25}: reset: moving to HEAD
+[33m362a546[m HEAD@{26}: reset: moving to HEAD
+[33m362a546[m HEAD@{27}: reset: moving to HEAD
+[33m362a546[m HEAD@{28}: reset: moving to HEAD
+[33m362a546[m HEAD@{29}: reset: moving to HEAD
+[33m362a546[m HEAD@{30}: reset: moving to HEAD
+[33m362a546[m HEAD@{31}: reset: moving to HEAD
+[33m362a546[m HEAD@{32}: reset: moving to HEAD
+[33m362a546[m HEAD@{33}: reset: moving to HEAD
+[33m362a546[m HEAD@{34}: reset: moving to HEAD
+[33m362a546[m HEAD@{35}: reset: moving to HEAD
+[33m362a546[m HEAD@{36}: reset: moving to HEAD
+[33m362a546[m HEAD@{37}: reset: moving to HEAD
+[33m362a546[m HEAD@{38}: reset: moving to HEAD
+[33m362a546[m HEAD@{39}: reset: moving to HEAD
+[33m362a546[m HEAD@{40}: reset: moving to HEAD
+[33m362a546[m HEAD@{41}: reset: moving to HEAD
+[33m362a546[m HEAD@{42}: reset: moving to HEAD
+[33m362a546[m HEAD@{43}: commit: Ramaz
+[33m5bd47de[m HEAD@{44}: commit (merge): tsotne
+[33m88a4770[m HEAD@{45}: commit (merge): tsotne
+[33mdb961e5[m HEAD@{46}: commit (merge): gio
+[33m4dede1c[m HEAD@{47}: commit: opo
+[33m1d7ab46[m HEAD@{48}: pull origin oposs: Merge made by the 'ort' strategy.
+[33mf1845ba[m HEAD@{49}: commit (merge): Nino
+[33mf978943[m HEAD@{50}: pull origin oposs: Merge made by the 'ort' strategy.
+[33m624b3fc[m HEAD@{51}: commit (merge): Tsothe eror
+[33m4bfaf06[m HEAD@{52}: commit (merge): Gio
+[33m217a0d1[m HEAD@{53}: commit (merge): opo
+[33m1e5bdfb[m HEAD@{54}: commit: cotne problem
+[33m0628c72[m HEAD@{55}: pull origin amnesia: Merge made by the 'ort' strategy.
+[33m5e6292b[m HEAD@{56}: commit (merge): NTsloth
+[33m0330dff[m HEAD@{57}: commit: Merge branch 'amnesia' of https://github.com/sokratgruzit/catena-react-next into bog
+[33me5131b0[m HEAD@{58}: commit (merge): mucho
+[33ma81b03a[m HEAD@{59}: reset: moving to ORIG_HEAD
+[33ma81b03a[m HEAD@{60}: pull origin amnesia: Merge made by the 'ort' strategy.
+[33mfe8c2bd[m HEAD@{61}: pull origin newgate: Merge made by the 'ort' strategy.
+[33meaadc79[m HEAD@{62}: commit (merge): Ramaz
+[33m322e2d6[m HEAD@{63}: commit (merge): Tsotne
+[33m424cb10[m HEAD@{64}: commit (merge): NTsloth
+[33m752b062[m HEAD@{65}: commit (merge): ramaz
+[33m3e76155[m HEAD@{66}: commit (merge): Alex
+[33me54e8a8[m HEAD@{67}: pull origin sibelA: Merge made by the 'ort' strategy.
+[33mf3e84de[m HEAD@{68}: commit (merge): sebelA
+[33mb3b992b[m HEAD@{69}: pull origin NTsloth: Merge made by the 'ort' strategy.
+[33m7464113[m HEAD@{70}: pull origin entost: Merge made by the 'ort' strategy.
+[33m01364e1[m HEAD@{71}: pull origin NTsloth: Merge made by the 'ort' strategy.
+[33m82af0e9[m HEAD@{72}: pull origin entost: Merge made by the 'ort' strategy.
+[33me776656[m HEAD@{73}: pull origin entost: Merge made by the 'ort' strategy.
+[33ma5decc5[m HEAD@{74}: commit (merge): Resolved conflicts in yarn.lock
+[33m8573f12[m HEAD@{75}: commit (merge): update
+[33mc042171[m HEAD@{76}: commit (merge): last
+[33mcc23cff[m HEAD@{77}: commit: update
+[33m3331023[m HEAD@{78}: pull origin NTsloth: Merge made by the 'ort' strategy.
+[33m4dc1468[m HEAD@{79}: pull origin amnesia: Fast-forward
+[33mf15e0dc[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m HEAD@{80}: checkout: moving from main to bog
+[33mf15e0dc[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m HEAD@{81}: checkout: moving from bog to main
+[33mb9e2721[m HEAD@{82}: commit: last
+[33m7c1a78f[m HEAD@{83}: pull origin NTsloth: Merge made by the 'ort' strategy.
+[33mb41c3d2[m HEAD@{84}: commit (merge): update
+[33m8c02096[m HEAD@{85}: commit (merge): last
+[33m1b91d33[m HEAD@{86}: pull origin NTsloth: Merge made by the 'ort' strategy.
+[33m1122a25[m HEAD@{87}: pull origin NTsloth: Merge made by the 'ort' strategy.
+[33m8a9b6a4[m HEAD@{88}: commit: last ubdate
+[33me430ba0[m HEAD@{89}: pull origin mucho: Fast-forward
+[33mf15e0dc[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m HEAD@{90}: checkout: moving from main to bog
+[33mf15e0dc[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m HEAD@{91}: clone: from https://github.com/sokratgruzit/catena-react-next.git
