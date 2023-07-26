@@ -2,73 +2,80 @@ import JoinCommunity from '../events/components/JoinCommunity';
 import Card from '../../UI/card/Card';
 import styles from './Press.module.css';
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 
 const Press = () => {
   const [activeYear, setActiveYear] = useState('2021');
   const [filterData, setfilterData] = useState();
 
-  const handleYearClick = (year) => {
+  const handleYearClick = year => {
     setActiveYear(year);
     const data = pressArr.filter(item => item.year === year);
     setfilterData(data);
   };
 
   const pressArr = [
-
     {
       id: 1,
+      slug: 'ai-future-computing',
       img: '/images/press/imgOne.png',
       imgPart: '/images/press/imgPart.png',
       title: 'AI Is The Future Of Computing, And SingularityNET Is The Future Of A.I',
-      year: "2018",
+      year: '2018',
       description:
         'Ben Goertzel, have been among the big names arguing that the blockchain could be a crucial way to push back against some of the most worrying trends facing the field of artificial intelligence.',
     },
 
     {
       id: 3,
+      slug: 'ai-future-computing',
       img: '/images/press/imgThree.png',
       imgPart: '/images/press/imgPartThree.png',
       title: 'AI Is The Future Of Computing, And SingularityNET Is The Future Of A.I',
-      year: "2019",
+      year: '2019',
       description:
         'Ben Goertzel, have been among the big names arguing that the blockchain could be a crucial way to push back against some of the most worrying trends facing the field of artificial intelligence.',
     },
     {
       id: 5,
+      slug: 'ai-multi-chain-network',
       img: '/images/press/pressImgSeven.png',
       imgPart: '/images/press/imgPartTwo.png',
       title: 'This AI Powered Multi-Chain Network Is Building an Internetof Blockchains',
-      year: "2020",
+      year: '2020',
       description:
         'The ever-evolving blockchain technology has been around for over a decade now, but there are still various obstacles need to be addressed, such as its lack of scalability, interoperability, security and usability.',
     },
     {
       id: 2,
+      slug: 'vision-for-future-ai',
       img: '/images/press/imgTwo.png',
       imgPart: '/images/press/imgPartTwo.png',
-      year: "2021",
+      year: '2021',
       title: 'SingularityNET’s Ben Goertzel has  a grand vision for the future of A.I',
     },
     {
       id: 4,
+      slug: 'artificial-inteligence',
       img: '/images/press/imgFour.png',
       imgPart: '/images/press/imgPart.png',
-      year: "2018",
+      year: '2018',
       title: 'Cisco, SingularityNET to Decentralize Artificial Intelligence via Blockchain',
     },
     {
       id: 6,
+      slug: 'artificial-inteligence',
       img: '/images/press/imgFive.png',
       imgPart: '/images/press/imgPartTwo.png',
-      year: "2021",
+      year: '2021',
       title: 'Cisco, SingularityNET to Decentralize Artificial Intelligence via Blockchain',
     },
     {
       id: 8,
+      slug: 'artificial-inteligence',
       img: '/images/press/imgTwo.png',
       imgPart: '/images/press/imgPartTwo.png',
-      year: "2019",
+      year: '2019',
       title: 'Cisco, SingularityNET to Decentralize Artificial Intelligence via Blockchain',
     },
   ];
@@ -84,7 +91,9 @@ const Press = () => {
         <p className={styles.titlePartyTwo}>Press</p>
       </div>
       <div className={styles.bodyContainer}>
-        <Card dataArr={pressArr} />
+        {pressArr.map(item => (
+          <Card key={item.id} dataArr={[item]} />
+        ))}
       </div>
       <div className={`${styles.sourcesContainer}container_bordered`}>
         <div className={styles.sourcesTitle}>
@@ -97,7 +106,6 @@ const Press = () => {
             </div>
             <div className={styles.logCon}>
               <img src='/images/press/CNBC.png' alt='sources' className={styles.logo} />
-
             </div>
             <div className={styles.logCon}>
               <img src='/images/press/bloombergLogo.png' alt='sources' className={styles.logo} />
@@ -158,24 +166,25 @@ const Press = () => {
             2018
           </div>
         </div>
-
       </div>
       <div className={styles.statisticContainer}>
-        {filterData ? filterData.map((item, index) => {
-          return (
-            <div key={index} className={styles.icCont}>
-              <img src={item.imgPart} />
-              <p>{item.title}</p>
-            </div>
-          )
-        }) : (
+        {filterData ? (
+          filterData.map((item, index) => {
+            return (
+              <div key={index} className={styles.icCont}>
+                <img src={item.imgPart} />
+                <p>{item.title}</p>
+              </div>
+            );
+          })
+        ) : (
           <div className={styles.erLoadContainer}>Loading</div>
         )}
-        < div className={styles.pagCont} >
+        <div className={styles.pagCont}>
           <div className={styles.pagination}>pagination</div>
         </div>
       </div>
-    </div >
+    </div>
   );
 };
 export default Press;
