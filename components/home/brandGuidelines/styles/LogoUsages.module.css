@@ -1,6 +1,4 @@
 .title {
-  font-size: 50px;
-  line-height: 55px;
   color: rgba(22, 32, 41, 1);
   text-align: center;
   padding-top: 144px;
@@ -34,10 +32,7 @@
 }
 
 .guidlineTableItemTtl {
-  font-size: 16px;
-  line-height: 22px;
   color: rgba(22, 32, 41, 0.6);
-  max-width: 400px;
 }
 .wrapper .guidlineTableItem:nth-child(5) .imageWrapper {
   background: #8af8ff;

@@ -13,12 +13,12 @@ export default function Typography() {
             fill='#00050F'
           />
         </svg>
-        <h6>Typography</h6>
+        <h6 className='font-20'>Typography</h6>
       </div>
       <div className={styles.content}>
-        <h2 className={styles.title}>Typography</h2>
+        <h2 className={`${styles.title} font-90`}>Typography</h2>
         <div className={styles.typefaces}>
-          <h4>About Typefaces</h4>
+          <h4 className='font_51'>About Typefaces</h4>
           <p>
             CATENA uses Lack and Noto Sans font family. Lack is a brave, contemporary and experimental typeface and
             comes in a single weight with its italic.Noto is a global font collection for writing in all modern and

@@ -13,8 +13,6 @@
 }
 
 .title {
-  font-size: 50px;
-  line-height: 55px;
   color: rgba(22, 32, 41, 1);
   text-align: center;
 }
@@ -37,8 +35,6 @@
 }
 
 .guidlineHalfTtl {
-  font-size: 16px;
-  line-height: 19px;
   color: rgba(22, 32, 41, 0.4);
   padding-top: 13px;
 }

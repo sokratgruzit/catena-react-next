@@ -99,7 +99,7 @@ const Community = () => {
         <Plain data={grant} />
         <Listed titles={grantProgramme} />
       </div>
-      <JoinCommunity />
+      {/* <JoinCommunity /> */}
     </>
   );
 };

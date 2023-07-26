@@ -1,88 +1,140 @@
-// import JoinCommunity from './components/joinCommunity/JoinCommunity';
+// import JoinCommunity from '../events/components/JoinCommunity';
+import Card from '../../UI/card/Card';
+import { useState, useMemo, useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import createAxiosInstance from '../../../pages/api/axios';
+
 import styles from './Press.module.css';
 
 const Press = () => {
-  const pressArr = [
-    {
-      id: 1,
-      img: '/images/press/imgOne.png',
-      imgPart: '/images/press/imgPart.png',
-      title: 'How the Blockchain Could Break Big Tech’s Hold on A.I.',
-      description:
-        'Ben Goertzel, have been among the big names arguing that the blockchain could be a crucial way to push back against some of the most worrying trends facing the field of artificial intelligence.',
-    },
+  const [activeYear, setActiveYear] = useState('2021');
+  const axios = useMemo(() => createAxiosInstance(), []);
+  const [allPress, setAllPress] = useState([]);
+  const [filterData, setfilterData] = useState();
+  const activeLang = useSelector(state => state.settings.activeLang);
 
-    {
-      id: 3,
-      img: '/images/press/imgThree.png',
-      imgPart: '/images/press/imgPartThree.png',
-      title: 'AI Is The Future Of Computing, And SingularityNET Is The Future Of AI',
-      description:
-        'Ben Goertzel, have been among the big names arguing that the blockchain could be a crucial way to push back against some of the most worrying trends facing the field of artificial intelligence.',
-    },
-    {
-      id: 5,
-      img: '/images/press/imgFive.png',
-      imgPart: '/images/press/imgPartTwo.png',
-      title:
-        'Cisco, SingularityNET to This AI Powered Multi-Chain Network Is Building an Internet  of Blockchains Artificial Intelligence via Blockchain',
-      description:
-        'The ever-evolving blockchain technology has been around for over a decade now, but there are still various obstacles need to be addressed, such as its lack of scalability, interoperability, security and usability.',
-    },
-  ];
+  const handleYearClick = (year) => {
+    setActiveYear(year);
+    const data = allPress.filter(item => {
+      const itemYear = item.createdAt.substring(0, 4);
+      console.log(itemYear);
+      return itemYear === year;
+    });
+    setfilterData(data);
+  };
+  
+  useEffect(() => {
+    axios.get(`http://localhost:4003/press/get-all-press`)
+    .then(res => {
+      setAllPress(res?.data);
+      console.log(allPress, "esaaa");
+    })
+    .catch(err => {
+      console.log(err?.response);
+    });
+    handleYearClick(activeYear);
+  }, []);
 
-  const arrPartTwo = [
-    {
-      id: 2,
-      img: '/images/press/imgTwo.png',
-      imgPart: '/images/press/imgPartTwo.png',
-      title: 'SingularityNET’s Ben Goertzel has  a grand vision for the future of AI',
-    },
-    {
-      id: 4,
-      img: '/images/press/imgFour.png',
-      imgPart: '/images/press/imgPart.png',
-      title: 'Cisco, SingularityNET to Decentralize Artificial Intelligence via Blockchain',
-    },
-    {
-      id: 6,
-      img: '/images/press/imgTwo.png',
-      imgPart: '/images/press/imgPartTwo.png',
-      title: 'Cisco, SingularityNET to Decentralize Artificial Intelligence via Blockchain',
-    },
-    {
-      id: 6,
-      img: '/images/press/imgFour.png',
-      imgPart: '/images/press/imgPartTwo.png',
-      title: 'Cisco, SingularityNET to Decentralize Artificial Intelligence via Blockchain',
-    },
-  ];
+  console.log(filterData, "hi");
 
   return (
-    <div className={styles.mainContainer}>
-      <div className={styles.homeTitleContainer}>
+    <div className={`${styles.mainContainer} container`}>
+      <div className={`${styles.titleContainer}`}>
         <p className={styles.titlePartyOne}>Catena</p>
         <p className={styles.titlePartyTwo}>Press</p>
       </div>
-      {/* <JoinCommunity /> */}
       <div className={styles.bodyContainer}>
-        {pressArr.map(item => (
-          <div key={item.id} className={styles.mapContainer}>
-            <img src={item.img} alt={`Image`} className={styles.imageOne} />
-            <img src={item.imgPart} alt={`ImagePart`} className={styles.imageOnePart} />
-            <h2>{item.title}</h2>
-            {item.description && <p>{item.description}</p>}
-          </div>
-        ))}
-        {arrPartTwo.map(item => (
-          <div key={item.id} className={styles.mapContainerTwo}>
-            <img src={item.img} alt={`Image`} className={styles.imgTwo} />
-            <img src={item.imgPart} alt={`ImagePart`} className={styles.imageTwoPart} />
-            <h3>{item.title}</h3>
-          </div>
-        ))}
+        <Card dataArr={allPress} />
       </div>
-    </div>
+      <div className={`${styles.sourcesContainer} `}>
+        <div className={styles.sourcesTitle}>
+          <h1 className='ttl font-40'>Sources</h1>
+        </div>
+        <div className={`${styles.logoContainer} `}>
+          <div className={styles.logoLine}>
+            <div className={styles.logCon}>
+              <img src='/images/press/nasdaq.png' alt='sources' className={styles.logo} />
+            </div>
+            <div className={styles.logCon}>
+              <img src='/images/press/CBNC.png' alt='sources' className={styles.logo} />
+            </div>
+            <div className={styles.logCon}>
+              <img src='/images/press/bloombergLogo.png' alt='sources' className={styles.logo} />
+            </div>
+            <div className={styles.logCon}>
+              <img src='/images/press/nasdaq.png' alt='sources' className={styles.logo} />
+            </div>
+            <div className={styles.logCon}>
+              <img src='/images/press/CBNC.png' alt='sources' className={styles.logo} />
+            </div>
+          </div>
+          <div className={`${styles.logoLine}`}>
+            <div className={`${styles.logCon}`}>
+              <img src='/images/press/Company.png' alt='sources' className={styles.logo} />
+            </div>
+            <div className={styles.logCon}>
+              <img src='/images/press/Frame1.png' alt='sources' className={styles.logo} />
+            </div>
+            <div className={styles.logCon}>
+              <img src='/images/press/nasdaq.png' alt='sources' className={styles.logo} />
+            </div>
+            <div className={styles.logCon}>
+              <img src='/images/press/CBNC.png' alt='sources' className={styles.logo} />
+            </div>
+            <div className={styles.logCon}>
+              <img src='/images/press/Frame 2.png' alt='sources' className={styles.logo} />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className={styles.infoContainer}>
+        <div className={styles.infContTitle}>
+          <h2 className='ttl font-40'>Publics by years</h2>
+        </div>
+        <div className={`${styles.yearsStats}`}>
+          <div
+            className={activeYear === '2023' ? styles.activeCont : styles.pasCont}
+            onClick={() => handleYearClick('2023')}
+          >
+            2023
+          </div>
+          <div
+            className={activeYear === '2020' ? styles.activeCont : styles.pasCont}
+            onClick={() => handleYearClick('2020')}
+          >
+            2022
+          </div>
+          <div
+            className={activeYear === '2019' ? styles.activeCont : styles.pasCont}
+            onClick={() => handleYearClick('2019')}
+          >
+            2021
+          </div>
+          <div
+            className={activeYear === '2018' ? styles.activeCont : styles.pasCont}
+            onClick={() => handleYearClick('2018')}
+          >
+            2020
+          </div>
+        </div>
+
+      </div>
+      <div className={styles.statisticContainer}>
+        {filterData ? filterData.map((item, index) => {
+          return (
+            <div key={index} className={styles.icCont}>
+              <img src={`http://localhost:4003/uploads/press/${item?.logo_image}`} className={styles.icon}/>
+              <p>{item.title[activeLang]["press.title"]}</p>
+            </div>
+          )
+        }) : (
+          <div className={styles.erLoadContainer}>Loading</div>
+        )}
+        < div className={styles.pagCont} >
+          <div className={styles.pagination}>pagination</div>
+        </div>
+      </div>
+    </div >
   );
 };
 export default Press;

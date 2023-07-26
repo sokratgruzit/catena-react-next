@@ -1,0 +1,95 @@
+.container { 
+  width: 100%;
+  display: flex;
+}
+
+.bodyContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+}
+
+.containerTwo { 
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+}
+
+.blog {
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+}
+.bodyContainer  {
+  width: 50%;
+}
+
+.numberBox { 
+  display: flex;
+}
+
+.maneBox { 
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 35px;
+}
+
+.number {
+  width:25px;
+  height: 25px;
+  margin: 10px 10px 10px 10px;
+}
+
+.itemTitle {
+  margin-bottom: 20px;
+}
+
+.itemTease {
+  margin-left: 10px;
+}
+
+.img { 
+  width: 30%;
+  margin: 40px 0px 60px 0px;
+}
+
+.Title { 
+  max-width: 50%;
+}
+
+
+/*Ipad Pro 1024*/
+@media (max-width: 1365px) { 
+  .container { 
+    display: flex;
+    flex-direction: column !important;
+    width: 100%;
+  }
+
+  .containerTwo { 
+    width: 100%;
+  }
+
+  .maneBox { 
+    width: 100%;
+  }
+
+  .Title { 
+    max-width: 100%;
+    margin: 30px 0 30px 0;
+  }
+
+  .bodyContainer { 
+    width: 100%;
+  }
+
+  .img { 
+    margin: 40px 0px 30px 0px;
+  }
+}
+
+/*Mobile 320*/
+@media (max-width: 768px)  { 
+
+}

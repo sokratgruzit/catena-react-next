@@ -1,51 +1,73 @@
-.container { 
-    padding: 50px 100px 50px 100px;
+.mainContainer {
+    width: 100%;
+    position: relative;
 }
-
-.box { }
-
-.boxtwo { 
-    margin-top: 100px;
+.titleContainer {
+    width: 570px;
     display: flex;
-    gap: 100px;
+    gap: 50px;
 }
-.addBox { 
+
+.titlePartyOne {
+    color: #FF6969;
+    font-size: 90px;
+    font-family: 'Lack', sans-serif;
+    font-weight: 400;
+}
+
+.titlePartyTwo {
+    font-size: 90px;
+    color: #162029;
+    font-family: 'Lack', sans-serif;
+    font-weight: 400;
+}
+
+.titleDesc {
+    width: 50%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imgBackgr {
+    background-color: #FF6969;
     width: 72px;
     height: 72px;
-    background: #FF6969;
-    position: absolute;
-    margin-left: 20px;
-    margin-top: -15px;
 }
 
-.imgTxt { 
+.mapContainer {
     display: flex;
-    width: 49px;
-    margin: auto;
-    margin-top: 26px;
+    flex-wrap: wrap;
+    gap: 50px; 
+  }
+  
+  .mapContainer > div:nth-child(1) {
+    flex-basis: 100%; 
+  }
+  
+  .mapContainer > div:nth-child(n+2) {
+    flex-basis: calc(50% - 25px); 
+  }
+
+@media (max-width: 1270px) {
+    .titleContainer {
+        width: auto;
+        /* display: flex; */
+        gap: 20px;
+        font-size: 40px;
+    }
+
+    .titleContainer p {
+        width: auto;
+        /* display: flex; */
+        gap: 20px;
+        font-size: 40px;
+    }
 }
 
-
-.mainImg { 
-    width: 67%;
-    height: auto;
-}
-
-.img { 
-    position: absolute;
-    margin-left: 20px;
-    margin-top: -15px;
-}
-
-.boxTitle { 
-    margin-top: 10px;
-    margin-left: 2px;
-    max-width: 300px;
-    color: #162029;
-    font-weight: 400px;
-}
-
-.title { 
-    margin-top: 10px;
-    display: flex;
+@media (max-width: 500px) {
+    .titleDesc p{
+        font-size: 20px;
+    }
 }

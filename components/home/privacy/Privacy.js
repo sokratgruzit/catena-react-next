@@ -1,5 +1,6 @@
-import PrivacyHeader from './components/PrivacyHeader';
 import PrivacyList from './components/PrivacyList';
+
+import styles from './styles/Privacy.module.css';
 
 export default function privacy() {
   const privacyList = [
@@ -67,7 +68,7 @@ export default function privacy() {
       ],
     },
     {
-      titile: 'Sharing Of Personal Data',
+      title: 'Sharing Of Personal Data',
       text: 'We may share your Personal Data with the following:',
       text: "Third-Party Suppliers. We may disclose Your Enquiry Data to one or more of those selected third-party suppliers of Goods and Services identified on Our Website for the purpose of enabling them to contact You so that they can offer, market and sell relevant Goods and/or Services to You. Each such third party will act as a data controller in relation to the Enquiry Data that We supply to it; and upon contacting You, each such third party will supply to You a copy of its own privacy policy, which will govern that third party's use of Your Personal Data. The suppliers and providers with whom We may share Your information include:",
       bullets: [
@@ -96,6 +97,7 @@ export default function privacy() {
       text: 'When You interact with the Website, We may collect Non-Personal Data and Our servers may automatically keep an activity log of Your use of the Website.',
       children: [
         {
+          title: 'Generally, We collect and store the following Non-Personal Data:',
           bullets: [
             'Demographic information such as age, gender, and five-digit zip code as part of collecting Personal Data;',
             'Device information about Your computer, mobile device, or other device that You use to access the Website. This information may include IP address, geolocation information, unique device identifiers, browser type, browser language, and other transactional information;',
@@ -216,9 +218,14 @@ export default function privacy() {
     },
   ];
   return (
-    <div className='container'>
-      <PrivacyHeader />
-      <PrivacyList privacyList={privacyList} />
+    <div className={`container ${styles.wrapper}`}>
+      <h1 className={styles.title}>
+        <span className='font-90 ttl'>Privacy</span>
+        <span className='font-90 ttl'>Policy</span>
+      </h1>
+      <div className={styles.content}>
+        <PrivacyList privacyList={privacyList} />
+      </div>
     </div>
   );
 }

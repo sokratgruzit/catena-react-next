@@ -1,0 +1,29 @@
+.container { 
+    position: relative;
+    width: 100%;
+}   
+
+.imgTitle{ 
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+
+
+/*Ipad 768*/
+@media (max-width: 1023px) { 
+    .container { 
+        width: 100%;
+    }
+
+    .imgTitle { 
+        width: 80%;
+    }
+}
+
+/*Mobile 320*/
+@media (max-width: 768px) { 
+    .container { 
+        width: 100%;
+    }
+}
