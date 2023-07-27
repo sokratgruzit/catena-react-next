@@ -21,7 +21,7 @@
 }
 
 * {
-  font-family: "Noto-Sans";
+  font-family: 'Noto-Sans';
   font-size: 16px;
   line-height: 150%;
   color: rgba(0, 0, 0, 1);
@@ -242,54 +242,54 @@ button {
 }
 
 .text ol li:before {
-  content: counter(custom-counter)".";
+  content: counter(custom-counter) '.';
   counter-increment: custom-counter;
   padding-right: 10px;
-  color: #A6D0DD;
+  color: #a6d0dd;
   font-weight: 400;
   -webkit-text-stroke: 1px #162029;
   text-stroke: 1px #162029;
 }
 
-.text h1,
-.text h2,
-.text h3,
-.text h4,
-.text h5,
-.text h6 {
+.custum-text h1,
+.custum-text h2,
+.custum-text h3,
+.custum-text h4,
+.custum-text h5,
+.custum-text h6 {
   font-family: 'Lack-Regular' !important;
 }
 
-.text h1 {
+.custum-text h1 {
   font-size: 100px;
   line-height: 110px;
   margin-bottom: 60px;
 }
 
-.text h2 {
+.custum-text h2 {
   font-size: 51px;
   line-height: 66px;
   margin-bottom: 40px;
 }
 
-.text h4 {
+.custum-text h4 {
   font-size: 30px;
   line-height: 44px;
   margin-bottom: 40px;
 }
 
-.text p {
+.custum-text p {
   font-size: 22px;
   line-height: 34px;
   color: #162029;
   margin-bottom: 40px;
 }
 
-.text span {
+.custum-text span {
   display: flex;
 }
 
-.text img {
+.custum-text img {
   width: 100%;
   max-width: 100%;
   object-fit: cover;
@@ -297,11 +297,11 @@ button {
   height: auto;
 }
 
-.text hr {
+.custum-text hr {
   margin-bottom: 40px;
 }
 
-.text button {
+.custum-text button {
   background-color: #fff;
   color: #00050f;
   padding: 4px 10px;
@@ -309,28 +309,28 @@ button {
 }
 
 @media (max-width: 1300px) {
-  .text h1 {
+  .custum-text h1 {
     font-size: 60px;
     line-height: 90px;
     margin-bottom: 40px;
   }
 
-  .text h2 {
+  .custum-text h2 {
     font-size: 40px;
     line-height: 45px;
     margin-bottom: 30px;
   }
 
-  .text h4,
-  .text hr {
+  .custum-text h4,
+  .custum-text hr {
     margin-bottom: 30px;
   }
 
-  .text img {
+  .custum-text img {
     margin: 40px 0;
   }
 
-  .text p {
+  .custum-text p {
     font-size: 18px;
     line-height: 24px;
     margin-bottom: 30px;
@@ -338,48 +338,48 @@ button {
 }
 
 @media (max-width: 767px) {
-  .text h1 {
+  .custum-text h1 {
     font-size: 40px;
     line-height: 55px;
     margin-bottom: 30px;
   }
 
-  .text h2 {
+  .custum-text h2 {
     font-size: 30px;
     line-height: 35px;
     margin-bottom: 20px;
   }
 
-  .text h4 {
+  .custum-text h4 {
     font-size: 20px;
     line-height: 30px;
     margin-bottom: 20px;
   }
 
-  .text img {
+  .custum-text img {
     margin: 30px 0;
   }
 
-  .text p {
+  .custum-text p {
     font-size: 16px;
     line-height: 22px;
     margin-bottom: 20px;
   }
 
-  .text hr {
+  .custum-text hr {
     margin-bottom: 20px;
   }
 }
 
 @media (max-width: 350px) {
-  .text h1 {
+  .custum-text h1 {
     font-size: 30px;
     line-height: 45px;
     margin-bottom: 30px;
   }
 }
 
-.text .coppy-link {
+.custum-text .coppy-link {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -387,18 +387,18 @@ button {
   flex-wrap: wrap;
 }
 
-.text .coppy-link .year {
+.custum-text .coppy-link .year {
   color: rgba(22, 32, 41, 0.5);
 }
 
-.text .coppy-link .dot {
+.custum-text .coppy-link .dot {
   border-radius: 50%;
   width: 3px;
   height: 3px;
   background-color: rgba(22, 32, 41, 0.5);
 }
 
-.text .coppy-link button {
+.custum-text .coppy-link button {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -538,7 +538,6 @@ input:focus:-ms-input-placeholder {
 
 /*Mobile 320*/
 @media (max-width: 767px) {
-
   .text-editor h2,
   .text-editor h3,
   .text-editor h4 {

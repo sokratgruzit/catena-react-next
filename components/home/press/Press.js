@@ -159,7 +159,7 @@ const Press = () => {
       </div>
       <div className={styles.infoContainer}>
         <div className={styles.infContTitle}>
-          <h2 className='ttl font-40'>Publics by years</h2>
+          <h2 className='font-40 ttl'>Publics by years</h2>
         </div>
         <div className={`${styles.yearsStats}`}>
           <div

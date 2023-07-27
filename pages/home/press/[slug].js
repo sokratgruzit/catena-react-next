@@ -1,84 +1,35 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import createAxiosInstance from '../../../pages/api/axios';
 import CoppyLink from '../../../components/home/press/components/pressInner/CoppyLink';
 import Slider from '../../../components/UI/slider/Slider';
 
-const pressData = [
-  {
-    slug: 'vision-for-future-ai',
-    title: 'SingularityNET’s Ben Goertzel has a grand vision for the future of AI',
-    content: [
-      {
-        teaser:
-          ' SingularityNET — an ambitious project to create a decentralized marketplace for AI — has raised a lot of money in its token sale. In around 60 seconds after opening the sale to the public, it sold out of the whole amount of available tokens (the AGI token), bringing the total raised to $36 million.',
-        text: ' However, in this day and age, a startup raising a lot of money in an ICO is not really of interest, at least to many. This is part and parcel of the crazy, unregulated, crypto world these days. But what is interesting is what SingularityNET actually plans to become.',
-      },
-      {
-        teaser: 'In an interview, I asked him how it will all work',
-        text: [
-          ' Proprietary marketplaces exist, like the Amazon Web Services for instance. What we’re creating here is a decentralized marketplace, more like BitTorrent. There’s no central dictator deciding what gets in there. Anyone can put an AI online, wrap it in our API, announce it to the network and any business that needs AI as a service can request it.',
-          'Then you need a good reputation system to grade the best AIs with a high rating. We need blockchain to let us do this in a peer to peer, decentralized way. P2P software that is reliable and not easily hackable and involves payment, but it would still need a distributed ledger.',
-        ],
-      },
-    ],
-  },
-  {
-    slug: 'ai-future-computing',
-    title: 'AI Is The Future Of Computing, And SingularityNET Is The Future Of A.I',
-    content: [
-      {
-        teaser:
-          ' SingularityNET — an ambitious project to create a decentralized marketplace for AI — has raised a lot of money in its token sale. In around 60 seconds after opening the sale to the public, it sold out of the whole amount of available tokens (the AGI token), bringing the total raised to $36 million.',
-        text: ' However, in this day and age, a startup raising a lot of money in an ICO is not really of interest, at least to many. This is part and parcel of the crazy, unregulated, crypto world these days. But what is interesting is what SingularityNET actually plans to become.',
-      },
-      {
-        teaser: 'In an interview, I asked him how it will all work',
-        text: [
-          ' Proprietary marketplaces exist, like the Amazon Web Services for instance. What we’re creating here is a decentralized marketplace, more like BitTorrent. There’s no central dictator deciding what gets in there. Anyone can put an AI online, wrap it in our API, announce it to the network and any business that needs AI as a service can request it.',
-          'Then you need a good reputation system to grade the best AIs with a high rating. We need blockchain to let us do this in a peer to peer, decentralized way. P2P software that is reliable and not easily hackable and involves payment, but it would still need a distributed ledger.',
-        ],
-      },
-    ],
-  },
-  {
-    slug: 'ai-multi-chain-network',
-    title: 'This AI Powered Multi-Chain Network Is Building an Internetof Blockchains',
-    content: [
-      {
-        teaser:
-          ' SingularityNET — an ambitious project to create a decentralized marketplace for AI — has raised a lot of money in its token sale. In around 60 seconds after opening the sale to the public, it sold out of the whole amount of available tokens (the AGI token), bringing the total raised to $36 million.',
-        text: ' However, in this day and age, a startup raising a lot of money in an ICO is not really of interest, at least to many. This is part and parcel of the crazy, unregulated, crypto world these days. But what is interesting is what SingularityNET actually plans to become.',
-      },
-      {
-        teaser: 'In an interview, I asked him how it will all work',
-        text: [
-          ' Proprietary marketplaces exist, like the Amazon Web Services for instance. What we’re creating here is a decentralized marketplace, more like BitTorrent. There’s no central dictator deciding what gets in there. Anyone can put an AI online, wrap it in our API, announce it to the network and any business that needs AI as a service can request it.',
-          'Then you need a good reputation system to grade the best AIs with a high rating. We need blockchain to let us do this in a peer to peer, decentralized way. P2P software that is reliable and not easily hackable and involves payment, but it would still need a distributed ledger.',
-        ],
-      },
-    ],
-  },
-];
-
-const InnerPage = () => {
+const InnerPage = ({ allPress }) => {
   const router = useRouter();
-  const { slug, img } = router.query;
-  const pressItem = pressData.find(item => item.slug === slug);
-
-  const [sliderImages, setSliderImages] = useState([img || '']);
+  const { slug } = router.query;
+  const [pressItem, setPressItem] = useState(null);
+  const [sliderImages, setSliderImages] = useState([]);
 
   useEffect(() => {
-    setSliderImages([img || '']);
-  }, [img]);
+    if (slug && allPress) {
+      const pressItemData = allPress.find(item => item.slug === slug);
+      setPressItem(pressItemData);
+      setSliderImages([pressItemData?.image || '']);
+    }
+  }, [slug, allPress]);
+
+  console.log(allPress);
 
   if (!pressItem) {
-    return <div style={{ marginTop: '200px', marginLeft: '4%' }}>Press item not found.</div>;
+    return <div>ITEM NOT FOUND</div>;
   }
+
+  const { title, description, image, text } = pressItem;
 
   const data = [
     {
       time: '0:13 PM GMT+3',
-      month: ' October 26',
+      month: 'October 26',
       year: 2021,
     },
   ];
@@ -89,11 +40,14 @@ const InnerPage = () => {
 
   return (
     <div className='container' style={{ paddingTop: '200px', paddingBottom: '100px' }}>
-      <div className='text'>
-        <h1>{pressItem.title}</h1>
+      <div className='custum-text'>
+        <h1>{title?.en}</h1>
         <CoppyLink data={data} currentPageURL={getCurrentPageURL} showDetails={true} showCopyButton={true} />
         <Slider images={sliderImages} />
-        {pressItem.content?.map((contentItem, contentIndex) => {
+
+        <p>{description?.en}</p>
+
+        {text?.en?.press?.content?.map((contentItem, contentIndex) => {
           return (
             <div key={contentIndex}>
               <h4>{contentItem.teaser}</h4>
@@ -106,6 +60,9 @@ const InnerPage = () => {
           );
         })}
         <hr />
+
+        {image && <img src={image} alt={title?.en} />}
+
         <CoppyLink data={data} currentPageURL={getCurrentPageURL} showDetails={true} showCopyButton={true} />
       </div>
     </div>
@@ -113,3 +70,15 @@ const InnerPage = () => {
 };
 
 export default InnerPage;
+
+export async function getServerSideProps() {
+  try {
+    const axios = createAxiosInstance();
+    const response = await axios.get('http://localhost:4003/press/get-all-press');
+    const allPress = response?.data || [];
+    return { props: { allPress } };
+  } catch (error) {
+    console.error('Error fetching press data:', error);
+    return { props: { allPress: [] } };
+  }
+}

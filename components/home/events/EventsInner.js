@@ -19,7 +19,7 @@ export default function EventsInner() {
     '/images/eventsInner/thirdImage.png',
   ];
   return (
-    <div className='text'>
+    <div className='custum-text'>
       <h1>How the Blockchain Could Break Big Tech’s Hold on A.I.</h1>
 
       <span>
