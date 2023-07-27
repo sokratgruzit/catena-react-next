@@ -5,7 +5,6 @@ import { useSelector } from 'react-redux';
 import createAxiosInstance from '../../../pages/api/axios';
 
 import styles from './Press.module.css';
-import { useEffect, useState } from 'react';
 import Link from 'next/link';
 
 const Press = () => {
