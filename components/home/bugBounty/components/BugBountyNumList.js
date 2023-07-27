@@ -5,7 +5,7 @@ function BugBountyNumList({ data }) {
     <div className={styles.numListContainer}>
       {data?.map((item, i) => {
         return (
-          <div key={i}>
+          <div className="text" key={i}>
             <p className={`${styles.numListTitle} font-40 ttl`}>{item.title}</p>
             <ol>
               {item.listItem?.map((item, i) => {
