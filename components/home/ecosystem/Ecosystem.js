@@ -27,15 +27,27 @@ const EXCHANGESDATA = [
     buttons: [
       {
         name: 'exchange',
-        onclick: 'rame',
+        onClick: (
+          () => {
+            window.open("https://www.lbank.info/exchange/cmcx/usdt", "_blank");
+          }
+        ),
       },
       {
         name: 'dex',
-        onclick: 'rame',
+        onClick: (
+          () => {
+            window.open("https://www.lbank.info/exchange/cmcx/usdt", "_blank");
+          }
+        ),
       },
       {
         name: 'amm',
-        onclick: 'rame',
+        onClick: (
+          () => {
+            window.open("https://www.lbank.info/exchange/cmcx/usdt", "_blank");
+          }
+        ),
       },
     ],
   },
@@ -77,7 +89,11 @@ const EXCHANGESDATA = [
     buttons: [
       {
         name: 'exchange',
-        onclick: 'rame',
+        onClick: (
+          () => {
+            window.open("https://www.xt.com/en/trade/cmcx_usdt", "_blank");
+          }
+        ),
       },
     ],
   },
@@ -104,7 +120,11 @@ const EXCHANGESDATA = [
     buttons: [
       {
         name: 'exchange',
-        onclick: 'rame',
+        onClick: (
+          () => {
+            window.open("https://www.bitmart.com/trade/en-US?symbol=CMCX_USDT&layout=pro", "_blank");
+          }
+        ),
       },
     ],
   },
@@ -131,15 +151,27 @@ const EXCHANGESDATA = [
     buttons: [
       {
         name: 'exchange',
-        onclick: 'rame',
+        onClick: (
+          () => {
+            window.open("https://p2pb2b.com/trade/CMCX_USDT/", "_blank");
+          }
+        ),
       },
       {
         name: 'dex',
-        onclick: 'rame',
+        onClick: (
+          () => {
+            window.open("https://www.lbank.info/exchange/cmcx/usdt", "_blank");
+          }
+        ),
       },
       {
         name: 'amm',
-        onclick: 'rame',
+        onClick: (
+          () => {
+            window.open("https://www.lbank.info/exchange/cmcx/usdt", "_blank");
+          }
+        ),
       },
     ],
   },
@@ -347,7 +379,11 @@ const EXCHANGESDATA = [
     buttons: [
       {
         name: 'exchange',
-        onclick: 'rame',
+        onClick: (
+          () => {
+            window.open("https://www.cointiger.com/en-us/#/trade_pro?coin=cmcx_usdt", "_blank");
+          }
+        ),
       },
     ],
   },
@@ -375,15 +411,27 @@ const EXCHANGESDATA = [
     buttons: [
       {
         name: 'exchange',
-        onclick: 'rame',
+        onClick: (
+          () => {
+            window.open("https://hoo.com/spot/cmcx-usdt", "_blank");
+          }
+        ),
       },
       {
         name: 'dex',
-        onclick: 'rame',
+        onClick: (
+          () => {
+            window.open("https://www.lbank.info/exchange/cmcx/usdt", "_blank");
+          }
+        ),
       },
       {
         name: 'amm',
-        onclick: 'rame',
+        onClick: (
+          () => {
+            window.open("https://www.lbank.info/exchange/cmcx/usdt", "_blank");
+          }
+        ),
       },
     ],
   },
@@ -410,7 +458,11 @@ const EXCHANGESDATA = [
     buttons: [
       {
         name: 'exchange',
-        onclick: 'rame',
+        onClick: (
+          () => {
+            window.open("https://www.hotbit.io/exchange?symbol=CMCX_USDT", "_blank");
+          }
+        ),
       },
     ],
   },
@@ -437,7 +489,11 @@ const EXCHANGESDATA = [
     buttons: [
       {
         name: 'exchange',
-        onclick: 'rame',
+        onClick: (
+          () => {
+            window.open("https://www.bkex.com/en/trade/CMCX_USDT", "_blank");
+          }
+        ),
       },
     ],
   },
@@ -465,15 +521,27 @@ const EXCHANGESDATA = [
     buttons: [
       {
         name: 'exchange',
-        onclick: 'rame',
+        onClick: (
+          () => {
+            window.open("https://vindax.com/exchange-base.html", "_blank");
+          }
+        ),
       },
       {
         name: 'dex',
-        onclick: 'rame',
+        onClick: (
+          () => {
+            window.open("https://www.lbank.info/exchange/cmcx/usdt", "_blank");
+          }
+        ),
       },
       {
         name: 'amm',
-        onclick: 'rame',
+        onClick: (
+          () => {
+            window.open("https://www.lbank.info/exchange/cmcx/usdt", "_blank");
+          }
+        ),
       },
     ],
   },
@@ -500,15 +568,27 @@ const EXCHANGESDATA = [
     buttons: [
       {
         name: 'exchange',
-        onclick: 'rame',
+        onClick: (
+          () => {
+            window.open("https://www.bkex.com/en/trade/CMCX_USDT", "_blank");
+          }
+        ),
       },
       {
         name: 'dex',
-        onclick: 'rame',
+        onClick: (
+          () => {
+            window.open("https://www.lbank.info/exchange/cmcx/usdt", "_blank");
+          }
+        ),
       },
       {
         name: 'amm',
-        onclick: 'rame',
+        onClick: (
+          () => {
+            window.open("https://www.lbank.info/exchange/cmcx/usdt", "_blank");
+          }
+        ),
       },
     ],
   },
@@ -536,15 +616,27 @@ const EXCHANGESDATA = [
     buttons: [
       {
         name: 'exchange',
-        onclick: 'rame',
+        onClick: (
+          () => {
+            window.open("https://www.indoex.io/trade/CMCX_USDT", "_blank");
+          }
+        ),
       },
       {
         name: 'dex',
-        onclick: 'rame',
+        onClick: (
+          () => {
+            window.open("https://www.lbank.info/exchange/cmcx/usdt", "_blank");
+          }
+        ),
       },
       {
         name: 'amm',
-        onclick: 'rame',
+        onClick: (
+          () => {
+            window.open("https://www.lbank.info/exchange/cmcx/usdt", "_blank");
+          }
+        ),
       },
     ],
   },
@@ -568,15 +660,27 @@ const EXCHANGESDATA = [
     buttons: [
       {
         name: 'exchange',
-        onclick: 'rame',
+        onClick: (
+          () => {
+            window.open("https://www.probit.com/app/exchange/CMCX-USDT", "_blank");
+          }
+        ),
       },
       {
         name: 'dex',
-        onclick: 'rame',
+        onClick: (
+          () => {
+            window.open("https://www.lbank.info/exchange/cmcx/usdt", "_blank");
+          }
+        ),
       },
       {
         name: 'amm',
-        onclick: 'rame',
+        onClick: (
+          () => {
+            window.open("https://www.lbank.info/exchange/cmcx/usdt", "_blank");
+          }
+        ),
       },
     ],
   },
@@ -584,7 +688,7 @@ const EXCHANGESDATA = [
 
 const Ecosystem = () => {
   return (
-    <div className='container' style={{ position: 'relative' }}>
+    <div className='container'>
       <div>
         <Title />
         <ExchangesCards data={EXCHANGESDATA} />

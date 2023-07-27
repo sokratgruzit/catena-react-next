@@ -1,16 +1,27 @@
-import JoinCommunity from '../events/components/JoinCommunity';
+// import JoinCommunity from '../events/components/JoinCommunity';
 import Card from '../../UI/card/Card';
+import { useState, useMemo, useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import createAxiosInstance from '../../../pages/api/axios';
+
 import styles from './Press.module.css';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 
 const Press = () => {
   const [activeYear, setActiveYear] = useState('2021');
+  const axios = useMemo(() => createAxiosInstance(), []);
+  const [allPress, setAllPress] = useState([]);
   const [filterData, setfilterData] = useState();
+  const activeLang = useSelector(state => state.settings.activeLang);
 
   const handleYearClick = year => {
     setActiveYear(year);
-    const data = pressArr.filter(item => item.year === year);
+    const data = allPress.filter(item => {
+      const itemYear = item.createdAt.substring(0, 4);
+      console.log(itemYear);
+      return itemYear === year;
+    });
     setfilterData(data);
   };
 
@@ -81,8 +92,19 @@ const Press = () => {
   ];
 
   useEffect(() => {
+    axios
+      .get(`http://localhost:4003/press/get-all-press`)
+      .then(res => {
+        setAllPress(res?.data);
+        console.log(allPress, 'esaaa');
+      })
+      .catch(err => {
+        console.log(err?.response);
+      });
     handleYearClick(activeYear);
   }, []);
+
+  console.log(filterData, 'hi');
 
   return (
     <div className={`${styles.mainContainer} container`}>
@@ -95,11 +117,11 @@ const Press = () => {
           <Card key={item.id} dataArr={[item]} />
         ))}
       </div>
-      <div className={`${styles.sourcesContainer}container_bordered`}>
+      <div className={`${styles.sourcesContainer} `}>
         <div className={styles.sourcesTitle}>
           <h1 className='ttl font-40'>Sources</h1>
         </div>
-        <div className={`${styles.logoContainer}`}>
+        <div className={`${styles.logoContainer} `}>
           <div className={styles.logoLine}>
             <div className={styles.logCon}>
               <img src='/images/press/nasdaq.png' alt='sources' className={styles.logo} />
@@ -114,11 +136,11 @@ const Press = () => {
               <img src='/images/press/nasdaq.png' alt='sources' className={styles.logo} />
             </div>
             <div className={styles.logCon}>
-              <img src='/images/press/CNBC.png' alt='sources' className={styles.logo} />
+              <img src='/images/press/CBNC.png' alt='sources' className={styles.logo} />
             </div>
           </div>
-          <div className={styles.logoLine}>
-            <div className={styles.logCon}>
+          <div className={`${styles.logoLine}`}>
+            <div className={`${styles.logCon}`}>
               <img src='/images/press/Company.png' alt='sources' className={styles.logo} />
             </div>
             <div className={styles.logCon}>
@@ -128,7 +150,7 @@ const Press = () => {
               <img src='/images/press/nasdaq.png' alt='sources' className={styles.logo} />
             </div>
             <div className={styles.logCon}>
-              <img src='/images/press/CNBC.png' alt='sources' className={styles.logo} />
+              <img src='/images/press/CBNC.png' alt='sources' className={styles.logo} />
             </div>
             <div className={styles.logCon}>
               <img src='/images/press/Frame 2.png' alt='sources' className={styles.logo} />
@@ -137,33 +159,33 @@ const Press = () => {
         </div>
       </div>
       <div className={styles.infoContainer}>
-        {/* <div className={styles.infContTitle}> */}
-        <h2 className='ttl font-40'>Publics by years</h2>
-        {/* </div> */}
-        <div className={styles.yearsStats}>
+        <div className={styles.infContTitle}>
+          <h2 className='ttl font-40'>Publics by years</h2>
+        </div>
+        <div className={`${styles.yearsStats}`}>
           <div
-            className={activeYear === '2021' ? styles.activeCont : styles.pasCont}
-            onClick={() => handleYearClick('2021')}
+            className={activeYear === '2023' ? styles.activeCont : styles.pasCont}
+            onClick={() => handleYearClick('2023')}
           >
-            2021
+            2023
           </div>
           <div
             className={activeYear === '2020' ? styles.activeCont : styles.pasCont}
             onClick={() => handleYearClick('2020')}
           >
-            2020
+            2022
           </div>
           <div
             className={activeYear === '2019' ? styles.activeCont : styles.pasCont}
             onClick={() => handleYearClick('2019')}
           >
-            2019
+            2021
           </div>
           <div
             className={activeYear === '2018' ? styles.activeCont : styles.pasCont}
             onClick={() => handleYearClick('2018')}
           >
-            2018
+            2020
           </div>
         </div>
       </div>

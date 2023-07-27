@@ -9,10 +9,28 @@
   border-top: 1px solid #a6d0dd;
 }
 
+.submitWrapper {
+  overflow: hidden;
+  height: 0;
+  animation: slideIn 5s forwards;
+  margin-bottom: 50px;
+}
+
 .infoImport {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 25px;
+  width: 434px;
+}
+
+@keyframes slideIn {
+  from {
+    height: 0;
+  }
+
+  to {
+    height: 100%;
+  }
 }
 
 @media (max-width: 1700px) {
@@ -24,5 +42,11 @@
 @media (max-width: 767px) {
   .font__51 {
     font-size: 40px;
+  }
+}
+
+@media (max-width: 600px) {
+  .infoImport {
+    width: 80%;
   }
 }

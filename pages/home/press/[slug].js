@@ -72,7 +72,7 @@ const InnerPage = () => {
   }, [img]);
 
   if (!pressItem) {
-    return <div style={{ marginTop: '200px', marginLeft: '40%' }}>Press item not found.</div>;
+    return <div style={{ marginTop: '200px', marginLeft: '4%' }}>Press item not found.</div>;
   }
 
   const data = [

@@ -134,10 +134,17 @@ const aboutRange = [
 ];
 
 const CareersIneer = () => {
-  const [seniorVisible, setSeniorVisible] = useState(false);
+  const [showSubmit, setShowSubmit] = useState(false);
+  const [submitHeight, setSubmitHeight] = useState('0px');
 
-  const toggleSeniorVisibility = () => {
-    setSeniorVisible(!seniorVisible);
+  const handleButtonClick = () => {
+    if (showSubmit) {
+      setSubmitHeight('0px');
+    } else {
+      setSubmitHeight('2500px');
+    }
+
+    setShowSubmit(!showSubmit);
   };
 
   return (
@@ -151,22 +158,23 @@ const CareersIneer = () => {
         description='We are looking for an experienced front-end engineer to join as a member of the core engineering team. As a front-end engineer, you will have an extensive impact over the product, the UI/UX, and the technology.'
       />
       <AboutYou
-        toggleSeniorVisibility={toggleSeniorVisibility}
         aboutSalary={aboutSalary}
         aboutRange={aboutRange}
         head='About You'
         title2='Salary Ranges'
       />
-      {seniorVisible && <SubmitAplication title='Submit Your Application' />}
-      <div className='container' style={{ margin: '50px 0 50px 0' }}>
-        <Button
-          onClick={toggleSeniorVisibility}
+      <div className='container' style={{ margin: '50px 0' }}>
+        {!showSubmit && <Button
+          onClick={handleButtonClick}
           label={'Apply this job now'}
           size={'btn-lg'}
           type={'btn-primary'}
           arrow={'arrow-right'}
           element={'button'}
-        />
+        />}
+      </div>
+      <div style={{ maxHeight: submitHeight, transition: '0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99)', overflow: 'hidden', marginBottom: '50px' }}>
+        {showSubmit && <SubmitAplication title='Submit Your Application' />}
       </div>
     </div>
   );
