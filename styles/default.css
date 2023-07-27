@@ -241,10 +241,6 @@ button {
   counter-reset: custom-counter;
 }
 
-.text ol li {
-  color: grey;
-}
-
 .text ol li:before {
   content: counter(custom-counter)".";
   counter-increment: custom-counter;
@@ -253,8 +249,6 @@ button {
   font-weight: 400;
   -webkit-text-stroke: 1px #162029;
   text-stroke: 1px #162029;
-  /* Text-stroke property for WebKit-based browsers (e.g., Chrome, Safari) */
-  /* Standard text-stroke property */
 }
 
 .text h1,
