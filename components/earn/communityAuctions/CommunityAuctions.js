@@ -77,26 +77,8 @@ const CommunityAuctions = props => {
 
   return (
     <main className={`container ${styles.auction__container}`}>
-      <div className={styles.galaxy}>
-        <Image layout='fill' objectFit='contain' src={'/images/earn/galaxy.png'} alt='astro' />
-      </div>
       <div className={styles.auction__inner}>
         <div className={styles.auction__head}>
-          <div className={styles.astro}>
-            <Image src={astro} alt='astro' />
-          </div>
-          <div className={styles.orbit}>
-            <Image src={orbit} alt='orbit' />
-          </div>
-          <div className={styles.yellowStar}>
-            <Image src={yellowStar} alt='yellowStar' />
-          </div>
-          <div className={styles.ufo}>
-            <Image src={ufo} alt='ufo' />
-          </div>
-          <div className={styles.egg}>
-            <Image src={egg} alt='egg' />
-          </div>
           <div onClick={() => router.push('/earn/farms')} className={styles.communityAuctions}>
             <div className={styles.arrowWrapper}>
               <ArrowSvg className={styles.svgHoverBlue} />
