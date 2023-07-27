@@ -246,8 +246,7 @@ button {
   counter-increment: custom-counter;
   padding-right: 10px;
   color: #A6D0DD;
-  font-weight: 400;
-  -webkit-text-stroke: 1px #162029;
+  -webkit-text-stroke: 0.1px #162029;
 }
 
 .text h1,
