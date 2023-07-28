@@ -7,13 +7,13 @@ import createAxiosInstance from '../../../pages/api/axios';
 import styles from './Press.module.css';
 
 const Press = () => {
-  const [activeYear, setActiveYear] = useState('2021');
+  const [activeYear, setActiveYear] = useState('');
   const axios = useMemo(() => createAxiosInstance(), []);
   const [allPress, setAllPress] = useState([]);
   const [filterData, setfilterData] = useState();
   const activeLang = useSelector(state => state.settings.activeLang);
 
-  const handleYearClick = (year) => {
+  const handleYearClick = year => {
     setActiveYear(year);
     const data = allPress.filter(item => {
       const itemYear = item.createdAt.substring(0, 4);
@@ -22,20 +22,24 @@ const Press = () => {
     });
     setfilterData(data);
   };
-  
+
   useEffect(() => {
-    axios.get(`http://localhost:4003/press/get-all-press`)
-    .then(res => {
-      setAllPress(res?.data);
-      console.log(allPress, "esaaa");
-    })
-    .catch(err => {
-      console.log(err?.response);
-    });
-    handleYearClick(activeYear);
+    axios
+      .get(`http://localhost:4003/press/get-all-press`)
+      .then(res => {
+        setAllPress(res?.data);
+        console.log(allPress, 'esaaa');
+      })
+      .catch(err => {
+        console.log(err?.response);
+      });
   }, []);
 
-  console.log(filterData, "hi");
+  useEffect(() => {
+    handleYearClick('2023');
+  }, [allPress]);
+
+  console.log(filterData, 'hi');
 
   return (
     <div className={`${styles.mainContainer} container`}>
@@ -44,7 +48,9 @@ const Press = () => {
         <p className={styles.titlePartyTwo}>Press</p>
       </div>
       <div className={styles.bodyContainer}>
-        <Card dataArr={allPress} />
+        {allPress.map(item => (
+          <Card key={item.slug} item={item} />
+        ))}
       </div>
       <div className={`${styles.sourcesContainer} `}>
         <div className={styles.sourcesTitle}>
@@ -117,24 +123,25 @@ const Press = () => {
             2020
           </div>
         </div>
-
       </div>
       <div className={styles.statisticContainer}>
-        {filterData ? filterData.map((item, index) => {
-          return (
-            <div key={index} className={styles.icCont}>
-              <img src={`http://localhost:4003/uploads/press/${item?.logo_image}`} className={styles.icon}/>
-              <p>{item.title[activeLang]["press.title"]}</p>
-            </div>
-          )
-        }) : (
+        {filterData ? (
+          filterData.map((item, index) => {
+            return (
+              <div key={index} className={styles.icCont}>
+                <img src={`http://localhost:4003/uploads/press/${item?.logo_image}`} className={styles.icon} />
+                <p>{item.title[activeLang]['press.title']}</p>
+              </div>
+            );
+          })
+        ) : (
           <div className={styles.erLoadContainer}>Loading</div>
         )}
-        < div className={styles.pagCont} >
+        <div className={styles.pagCont}>
           <div className={styles.pagination}>pagination</div>
         </div>
       </div>
-    </div >
+    </div>
   );
 };
 export default Press;
