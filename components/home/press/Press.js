@@ -5,10 +5,9 @@ import { useSelector } from 'react-redux';
 import createAxiosInstance from '../../../pages/api/axios';
 
 import styles from './Press.module.css';
-import Link from 'next/link';
 
 const Press = () => {
-  const [activeYear, setActiveYear] = useState('2021');
+  const [activeYear, setActiveYear] = useState('');
   const axios = useMemo(() => createAxiosInstance(), []);
   const [allPress, setAllPress] = useState([]);
   const [filterData, setfilterData] = useState();
@@ -24,72 +23,6 @@ const Press = () => {
     setfilterData(data);
   };
 
-  const pressArr = [
-    {
-      id: 1,
-      slug: 'ai-future-computing',
-      img: '/images/press/imgOne.png',
-      imgPart: '/images/press/imgPart.png',
-      title: 'AI Is The Future Of Computing, And SingularityNET Is The Future Of A.I',
-      year: '2018',
-      description:
-        'Ben Goertzel, have been among the big names arguing that the blockchain could be a crucial way to push back against some of the most worrying trends facing the field of artificial intelligence.',
-    },
-
-    {
-      id: 3,
-      slug: 'ai-future-computing',
-      img: '/images/press/imgThree.png',
-      imgPart: '/images/press/imgPartThree.png',
-      title: 'AI Is The Future Of Computing, And SingularityNET Is The Future Of A.I',
-      year: '2019',
-      description:
-        'Ben Goertzel, have been among the big names arguing that the blockchain could be a crucial way to push back against some of the most worrying trends facing the field of artificial intelligence.',
-    },
-    {
-      id: 5,
-      slug: 'ai-multi-chain-network',
-      img: '/images/press/pressImgSeven.png',
-      imgPart: '/images/press/imgPartTwo.png',
-      title: 'This AI Powered Multi-Chain Network Is Building an Internetof Blockchains',
-      year: '2020',
-      description:
-        'The ever-evolving blockchain technology has been around for over a decade now, but there are still various obstacles need to be addressed, such as its lack of scalability, interoperability, security and usability.',
-    },
-    {
-      id: 2,
-      slug: 'vision-for-future-ai',
-      img: '/images/press/imgTwo.png',
-      imgPart: '/images/press/imgPartTwo.png',
-      year: '2021',
-      title: 'SingularityNET’s Ben Goertzel has  a grand vision for the future of A.I',
-    },
-    {
-      id: 4,
-      slug: 'artificial-inteligence',
-      img: '/images/press/imgFour.png',
-      imgPart: '/images/press/imgPart.png',
-      year: '2018',
-      title: 'Cisco, SingularityNET to Decentralize Artificial Intelligence via Blockchain',
-    },
-    {
-      id: 6,
-      slug: 'artificial-inteligence',
-      img: '/images/press/imgFive.png',
-      imgPart: '/images/press/imgPartTwo.png',
-      year: '2021',
-      title: 'Cisco, SingularityNET to Decentralize Artificial Intelligence via Blockchain',
-    },
-    {
-      id: 8,
-      slug: 'artificial-inteligence',
-      img: '/images/press/imgTwo.png',
-      imgPart: '/images/press/imgPartTwo.png',
-      year: '2019',
-      title: 'Cisco, SingularityNET to Decentralize Artificial Intelligence via Blockchain',
-    },
-  ];
-
   useEffect(() => {
     axios
       .get(`http://localhost:4003/press/get-all-press`)
@@ -100,8 +33,11 @@ const Press = () => {
       .catch(err => {
         console.log(err?.response);
       });
-    handleYearClick(activeYear);
   }, []);
+
+  useEffect(() => {
+    handleYearClick('2023');
+  }, [allPress]);
 
   console.log(filterData, 'hi');
 
@@ -112,8 +48,8 @@ const Press = () => {
         <p className={styles.titlePartyTwo}>Press</p>
       </div>
       <div className={styles.bodyContainer}>
-        {pressArr.map(item => (
-          <Card key={item.id} dataArr={[item]} />
+        {allPress.map(item => (
+          <Card key={item.slug} item={item} />
         ))}
       </div>
       <div className={`${styles.sourcesContainer} `}>
@@ -126,7 +62,7 @@ const Press = () => {
               <img src='/images/press/nasdaq.png' alt='sources' className={styles.logo} />
             </div>
             <div className={styles.logCon}>
-              <img src='/images/press/CNBC.png' alt='sources' className={styles.logo} />
+              <img src='/images/press/CBNC.png' alt='sources' className={styles.logo} />
             </div>
             <div className={styles.logCon}>
               <img src='/images/press/bloombergLogo.png' alt='sources' className={styles.logo} />
@@ -159,7 +95,7 @@ const Press = () => {
       </div>
       <div className={styles.infoContainer}>
         <div className={styles.infContTitle}>
-          <h2 className='font-40 ttl'>Publics by years</h2>
+          <h2 className='ttl font-40'>Publics by years</h2>
         </div>
         <div className={`${styles.yearsStats}`}>
           <div
@@ -193,8 +129,8 @@ const Press = () => {
           filterData.map((item, index) => {
             return (
               <div key={index} className={styles.icCont}>
-                <img src={item.imgPart} />
-                <p>{item.title}</p>
+                <img src={`http://localhost:4003/uploads/press/${item?.logo_image}`} className={styles.icon} />
+                <p>{item.title[activeLang]['press.title']}</p>
               </div>
             );
           })

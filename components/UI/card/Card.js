@@ -1,30 +1,32 @@
 import React from 'react';
 import Link from 'next/link';
+import { useSelector } from 'react-redux';
 import styles from './Card.module.css';
 
-const Card = ({ dataArr }) => {
+const Card = ({ item }) => {
+  const activeLang = useSelector(state => state.settings.activeLang);
+
   return (
-    <>
-      {dataArr.map(item => (
-        <Link key={item.id} href={`/home/press/${encodeURIComponent(item.id)}`}>
-          <a>
-            <div className={styles.mapCont}>
-              <div>
-                <img src={item.img} alt={`Image`} className={styles.pressImage} />
-                <div className={styles.imgPartBack}>
-                  <img src={item.imgPart} alt={`ImagePart`} className={styles.icon} />
-                </div>
-                {item.imgPartTwo && <button className={styles.digital}>DIGITAL</button>}
-                <div className={styles.cardDesc}>
-                  <h2 className={`${styles.headtitle} title font_40`}>{item.title}</h2>
-                  {item.description && <p className={styles.descP}>{item.description}</p>}
-                </div>
-              </div>
-            </div>
-          </a>
-        </Link>
-      ))}
-    </>
+    <Link href={`/home/press/${encodeURIComponent(item.slug)}`}>
+      <div key={item._id} className={styles.mapCont}>
+        <div className={styles.pressImageCont}>
+          <img src={`http://localhost:4003/uploads/press/${item?.image}`} alt={`Image`} className={styles.pressImage} />
+          <button className={styles.category}>Category</button>
+        </div>
+        <div className={styles.imgPartBack}>
+          <img
+            src={`http://localhost:4003/uploads/press/${item?.logo_image}`}
+            alt={`ImagePart`}
+            className={styles.icon}
+          />
+        </div>
+        {item.imgPartTwo && <button className={styles.digital}>DIGITAL</button>}
+        <div className={styles.cardDesc}>
+          <h2 className={`${styles.headtitle} title font-40`}>{item.title[activeLang]['press.title']}</h2>
+          {item.description && <p className={styles.descP}>{item.inner_descr[activeLang]['press.description']}</p>}
+        </div>
+      </div>
+    </Link>
   );
 };
 
