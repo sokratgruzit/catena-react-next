@@ -13,6 +13,10 @@ const Press = () => {
   const [filterData, setfilterData] = useState();
   const activeLang = useSelector(state => state.settings.activeLang);
 
+  const fileAdress = 'http://localhost:4003/uploads/press/';
+  const title = "press.title";
+  const description = "press.description";
+
   const handleYearClick = (year) => {
     setActiveYear(year);
     const data = allPress.filter(item => {
@@ -47,7 +51,7 @@ const Press = () => {
         <p className={styles.titlePartyTwo}>Press</p>
       </div>
       <div className={styles.bodyContainer}>
-        <Card dataArr={allPress} />
+        <Card dataArr={allPress} fileAdress={fileAdress} title={title} description={description}/>
       </div>
       <div className={`${styles.sourcesContainer} `}>
         <div className={styles.sourcesTitle}>
