@@ -1,8 +1,29 @@
 import React from "react";
 import Card from "../../../UI/card/Card";
+import createAxiosInstance from "../../../../pages/api/axios";
+import { useEffect, useMemo,  useState } from "react";
+
 import styles from "../css/Boxs.module.css";
 
 const Boxs = () => {
+
+  const axios = useMemo(() => createAxiosInstance(), []);
+  const [allEvent, setAllEvent] = useState([]);
+
+
+
+  useEffect(() => {
+    axios.get(`http://localhost:4003/event/get-all-event`)
+    .then(res => {
+      setAllEvent(res?.data);
+      console.log(allEvent, "esaaa");
+    })
+    .catch(err => {
+      console.log(err?.response);
+    });
+  }, []);
+
+
 
   const eventsArr = [
     {
@@ -39,7 +60,7 @@ const Boxs = () => {
           <p className="title font-40">Braced dissected sheep, kermani halts, boy note. Quis raucous fall gown, euismod creatures spent, uproar tidings.</p>
         </div>
         <div className={`${styles.mapContainer} `}>
-          <Card dataArr={eventsArr} />
+          <Card dataArr={allEvent} />
         </div>
       </div>
     </div>
