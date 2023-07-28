@@ -50,6 +50,7 @@
     background-color: #F3E4D2;
     border-radius: 20px;
     border: 1px solid rgb(192, 182, 182);
+    margin-bottom: 150px;
 }
 
 .logCon {
@@ -84,6 +85,7 @@
 .infContTitle h2 {
     position: relative;
     margin-top: 45px;
+    margin-left: 110px;
 }
 
 .yearsStats {
@@ -137,7 +139,8 @@
     border: 1px solid rgb(192, 182, 182);
     background-color: #F3E4D2;
     border-radius: 20px;
-    padding: 20px 70px 20px 105px;
+    padding: 20px 100px 20px 105px;
+    margin-top: 20px;
 }
 
 .icCont{
@@ -203,7 +206,7 @@
 @media (max-width: 815px) {
     .infContTitle h2 {
         font-size: 12px;
-        padding: 37px;
+        padding: 30px;
     }
     .activeCont {
         font-size: 12px;
