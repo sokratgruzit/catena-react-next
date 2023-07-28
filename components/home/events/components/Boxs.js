@@ -1,7 +1,7 @@
 import React from "react";
 import Card from "../../../UI/card/Card";
 import createAxiosInstance from "../../../../pages/api/axios";
-import { useEffect, useMemo,  useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import styles from "../css/Boxs.module.css";
 
@@ -10,20 +10,16 @@ const Boxs = () => {
   const axios = useMemo(() => createAxiosInstance(), []);
   const [allEvent, setAllEvent] = useState([]);
 
-
-
   useEffect(() => {
     axios.get(`http://localhost:4003/event/get-all-event`)
-    .then(res => {
-      setAllEvent(res?.data);
-      console.log(allEvent, "esaaa");
-    })
-    .catch(err => {
-      console.log(err?.response);
-    });
+      .then(res => {
+        setAllEvent(res?.data);
+        console.log(allEvent, "esaaa");
+      })
+      .catch(err => {
+        console.log(err?.response);
+      });
   }, []);
-
-
 
   const eventsArr = [
     {
