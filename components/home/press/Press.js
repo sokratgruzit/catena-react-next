@@ -27,7 +27,7 @@ const Press = () => {
     axios.get(`http://localhost:4003/press/get-all-press`)
     .then(res => {
       setAllPress(res?.data);
-      console.log(allPress, "esaaa");
+      // console.log(allPress, "esaaa");
     })
     .catch(err => {
       console.log(err?.response);
@@ -38,7 +38,7 @@ const Press = () => {
       handleYearClick("2023");
   }, [allPress]);
 
-  console.log(filterData, "hi");
+  // console.log(filterData, "hi");
 
   return (
     <div className={`${styles.mainContainer} container`}>
