@@ -27,18 +27,19 @@ const Press = () => {
   };
 
   useEffect(() => {
-    axios.get(`http://localhost:4003/press/get-all-press`)
-    .then(res => {
-      setAllPress(res?.data);
-      // console.log(allPress, "esaaa");
-    })
-    .catch(err => {
-      console.log(err?.response);
-    });
+    axios
+      .get(`http://localhost:4003/press/get-all-press`)
+      .then(res => {
+        setAllPress(res?.data);
+        // console.log(allPress, "esaaa");
+      })
+      .catch(err => {
+        console.log(err?.response);
+      });
   }, []);
 
   useEffect(() => {
-      handleYearClick("2023");
+    handleYearClick('2023');
   }, [allPress]);
 
   // console.log(filterData, "hi");
@@ -58,10 +59,10 @@ const Press = () => {
         <div className={styles.sourcesTitle}>
           <h1 className='ttl font-40'>Sources</h1>
         </div>
-          <PressLogo/>
+        <PressLogo />
       </div>
-        <Years handleYearClick={handleYearClick} activeYear={activeYear}/>
-        <PublicByYears  filterData={filterData} activeLang={activeLang} />
+      <Years handleYearClick={handleYearClick} activeYear={activeYear} />
+      <PublicByYears filterData={filterData} activeLang={activeLang} />
     </div>
   );
 };
