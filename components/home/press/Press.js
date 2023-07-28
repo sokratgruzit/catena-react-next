@@ -6,6 +6,8 @@ import createAxiosInstance from '../../../pages/api/axios';
 
 import styles from './Press.module.css';
 import Years from './components/filterWithYears/Years';
+import PublicByYears from './components/publicByYears/PublicByYears';
+import PressLogo from './components/pressLogoContainer/PressLogo';
 
 const Press = () => {
   const [activeYear, setActiveYear] = useState('');
@@ -56,61 +58,10 @@ const Press = () => {
         <div className={styles.sourcesTitle}>
           <h1 className='ttl font-40'>Sources</h1>
         </div>
-        <div className={`${styles.logoContainer} `}>
-          <div className={styles.logoLine}>
-            <div className={styles.logCon}>
-              <img src='/images/press/nasdaq.png' alt='sources' className={styles.logo} />
-            </div>
-            <div className={styles.logCon}>
-              <img src='/images/press/CBNC.png' alt='sources' className={styles.logo} />
-            </div>
-            <div className={styles.logCon}>
-              <img src='/images/press/bloombergLogo.png' alt='sources' className={styles.logo} />
-            </div>
-            <div className={styles.logCon}>
-              <img src='/images/press/nasdaq.png' alt='sources' className={styles.logo} />
-            </div>
-            <div className={styles.logCon}>
-              <img src='/images/press/CBNC.png' alt='sources' className={styles.logo} />
-            </div>
-          </div>
-          <div className={`${styles.logoLine}`}>
-            <div className={`${styles.logCon}`}>
-              <img src='/images/press/Company.png' alt='sources' className={styles.logo} />
-            </div>
-            <div className={styles.logCon}>
-              <img src='/images/press/Frame1.png' alt='sources' className={styles.logo} />
-            </div>
-            <div className={styles.logCon}>
-              <img src='/images/press/nasdaq.png' alt='sources' className={styles.logo} />
-            </div>
-            <div className={styles.logCon}>
-              <img src='/images/press/CBNC.png' alt='sources' className={styles.logo} />
-            </div>
-            <div className={styles.logCon}>
-              <img src='/images/press/Frame 2.png' alt='sources' className={styles.logo} />
-            </div>
-          </div>
-        </div>
+          <PressLogo/>
       </div>
         <Years handleYearClick={handleYearClick} activeYear={activeYear}/>
-      <div className={styles.statisticContainer}>
-        {filterData ? (
-          filterData.map((item, index) => {
-            return (
-              <div key={index} className={styles.icCont}>
-                <img src={`http://localhost:4003/uploads/press/${item?.logo_image}`} className={styles.icon} />
-                <p>{item.title[activeLang]['press.title']}</p>
-              </div>
-            );
-          })
-        ) : (
-          <div className={styles.erLoadContainer}>Loading</div>
-        )}
-        <div className={styles.pagCont}>
-          <div className={styles.pagination}>pagination</div>
-        </div>
-      </div>
+        <PublicByYears  filterData={filterData} activeLang={activeLang} />
     </div>
   );
 };

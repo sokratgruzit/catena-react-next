@@ -1,4 +1,4 @@
-import styles from "../../Press.module.css"
+import styles from "../../Press.module.css";
 
 const Years = ({handleYearClick, activeYear}) => {
     return (
