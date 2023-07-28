@@ -3,6 +3,7 @@ import Card from "../../../UI/card/Card";
 import styles from "../css/Boxs.module.css";
 
 const Boxs = () => {
+
   const eventsArr = [
     {
       id: 1,
@@ -38,7 +39,7 @@ const Boxs = () => {
           <p className="title font-40">Braced dissected sheep, kermani halts, boy note. Quis raucous fall gown, euismod creatures spent, uproar tidings.</p>
         </div>
         <div className={`${styles.mapContainer} `}>
-          <Card dataArr={allPress} />
+          <Card dataArr={eventsArr} />
         </div>
       </div>
     </div>
