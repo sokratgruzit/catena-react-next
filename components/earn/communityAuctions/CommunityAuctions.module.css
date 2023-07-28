@@ -1,61 +1,18 @@
 .auction__container {
-  margin-top: 150px !important;
   display: flex;
   flex-direction: column;
+  margin-top: 100px;
+}
+
+.catenaLogo {
+  display: flex;
+  justify-content: center;
 }
 
 .auction__inner {
   display: flex;
   position: relative;
   flex-direction: column;
-}
-
-.galaxy {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -10;
-  width: 100vw;
-  height: calc(100vw * 0.625);
-  max-width: 1920px;
-  max-height: 1200px;
-}
-
-.astro {
-  position: absolute;
-  top: 0px;
-  right: 200px;
-  z-index: -10;
-}
-
-.orbit {
-  position: absolute;
-  top: 0;
-  left: 350px;
-  z-index: -10;
-  width: 145px;
-  height: 110px;
-}
-
-.yellowStar {
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: -10;
-}
-
-.ufo {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  z-index: -10;
-}
-
-.egg {
-  position: absolute;
-  bottom: 0;
-  left: 500px;
-  z-index: -10;
 }
 
 .communityAuctions p {
@@ -115,19 +72,19 @@
 .auction__tableContainer {
   position: relative;
   display: flex;
-  margin-top: 100px;
+  margin-top: 110px;
   justify-content: space-between;
 }
 
 .auction__title {
   display: flex;
   flex-direction: column;
-  margin-top: 80px;
 }
 
 .auction__title p:first-of-type {
   margin: 50px 0;
-  width: 55%;
+  width: 100%;
+  max-width: 700px;
 }
 
 .auction__title p:nth-child(3) {
@@ -136,7 +93,8 @@
 }
 
 .auction__title p:nth-child(4) {
-  width: 58%;
+  width: 100%;
+  max-width: 700px;
 }
 
 .auction__notice {
@@ -151,7 +109,6 @@
 }
 
 .auction__notice p {
-  width: 95%;
   margin-top: 20px;
   color: #7f8287;
 }
@@ -204,8 +161,8 @@
 }
 
 .auction__burnedInner {
-  display: flex;
-  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
 .auction__burnedInner p:last-of-type {
@@ -215,15 +172,6 @@
 
 .auction__burnedInner h2 {
   margin-bottom: 50px;
-}
-
-.logo__stars {
-  width: 702px;
-  height: 702px;
-  position: absolute;
-  top: -280px;
-  right: -50px;
-  z-index: -1;
 }
 
 /* Expend Details */
@@ -335,12 +283,15 @@
 
 .applyButton {
   width: 300px;
-  font-size: 16px;
-  height: 32px;
-  margin-right: 25px;
-  line-height: 18px;
+  background-color: #FF6969;
   margin-top: 80px;
   height: 56px;
+  border: 1px solid #FF6969;
+}
+
+.applyButton:hover {
+  border: 1px solid #FF6969;
+  background-color: transparent;
 }
 
 /* Whitelist */
@@ -356,13 +307,8 @@
 }
 
 .FAQTitleWrapper {
-  width: fit-content;
+  width: 100%;
   max-width: 416px;
-}
-
-.FAQTitle {
-  font-size: 30px;
-  line-height: 42px;
 }
 
 .FAQWrapper {
@@ -372,21 +318,8 @@
 }
 
 .FAQTitleRight {
-  font-size: 20px;
-  line-height: 24px;
-  border-bottom: 1px solid #FFF;
+  border-bottom: 1px solid #1D222C;
   padding-bottom: 24px;
-}
-
-.clouds {
-  position: absolute;
-  bottom: 0;
-  left: -2%;
-  z-index: -10;
-  width: 100vw;
-  height: calc(100vw * 0.36);
-  max-width: 1920px;
-  max-height: 1200px;
 }
 
 .center {
@@ -402,8 +335,14 @@
 
 /*Ipad 768*/
 @media (max-width:767px) {
+  .auction__burnedInner {
+    display: flex;
+    flex-direction: column;
+  }
+
   .FAQSection {
     flex-direction: column;
+    margin-top: 64px;
   }
 
   .FAQWrapper {
@@ -411,7 +350,7 @@
   }
 
   .FAQTitle {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
   }
 
   .FAQTitleWrapper {
@@ -429,25 +368,6 @@
 }
 
 @media (max-width: 1023px) {
-  .astro {
-    right: 0px;
-  }
-
-  .yellowStar {
-    bottom: 200px;
-    top: inherit;
-  }
-
-  .egg {
-    left: 350px;
-    top: 340px;
-  }
-
-  .ufo {
-    bottom: 50px;
-    right: 200px;
-  }
-
   .auction__title h1 {
     width: 50%;
   }
@@ -464,16 +384,16 @@
   .auction__burnedContainer {
     flex-direction: row;
     justify-content: center;
-    margin-top: 0;
+    margin-top: 64px;
   }
 
   .auction__burnedContainer div:first-child {
-    margin-top: 200px;
     text-align: center;
+    align-items: center;
   }
 
-  .logo__stars {
-    top: -500px;
+  .catenaLogo {
+    margin-top: 44px;
   }
 
 }
@@ -499,51 +419,6 @@
 }
 
 @media (max-width: 767px) {
-  .auction__title {
-    margin-top: 400px;
-  }
-
-  .egg {
-    left: 0;
-    top: 250px;
-    display: block;
-    position: absolute;
-  }
-
-  .orbit {
-    width: 110px;
-    top: 50px;
-    left: 0;
-    display: block;
-    position: absolute;
-  }
-
-  .yellowStar {
-    width: 50px;
-    top: 150px;
-    right: 0;
-    display: block;
-    position: absolute;
-  }
-
-  .ufo {
-    top: 300px;
-    right: 0;
-    display: block;
-    position: absolute;
-    width: 107px;
-    height: 101px;
-  }
-
-  .astro {
-    width: 301px;
-    height: 355px;
-    left: 0;
-    position: absolute;
-    display: block;
-    justify-self: flex-start;
-  }
-
   .auction__title h1 {
     width: 100%;
   }
@@ -559,12 +434,6 @@
 
   .auction__title p:nth-child(4) {
     width: 100%;
-  }
-
-  .logo__stars {
-    left: 50%;
-    -webkit-transform: translateX(-50%);
-    transform: translateX(-50%)
   }
 
 }
