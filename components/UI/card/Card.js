@@ -1,5 +1,7 @@
-import styles from "./Card.module.css";
+import React from 'react';
+import Link from 'next/link';
 import { useSelector } from 'react-redux';
+import styles from './Card.module.css';
 
 const Card = ({ dataArr, fileAdress, title, description }) => {
     const activeLang = useSelector(state => state.settings.activeLang);
