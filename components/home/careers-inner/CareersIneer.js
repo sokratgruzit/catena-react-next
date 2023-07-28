@@ -92,6 +92,7 @@ import React, { useState } from 'react';
 import AboutYou from './components/aboutYou/AboutYou';
 import SeniorDesigner from './components/seniorDesigner/SeniorDesigner';
 import SubmitAplication from './components/submitAplication/SubmitAplication';
+import { useRef } from 'react';
 
 const teamResponsible = [
   {
@@ -136,8 +137,13 @@ const aboutRange = [
 const CareersIneer = () => {
   const [showSubmit, setShowSubmit] = useState(false);
   const [submitHeight, setSubmitHeight] = useState('0px');
+  const chatContainerRef = useRef(null);
+
 
   const handleButtonClick = () => {
+    const scrollToBottom = () => {
+      chatContainerRef?.current?.scrollIntoView({ behavior: 'smooth', block: 'end' });
+  };
     if (showSubmit) {
       setSubmitHeight('0px');
     } else {
@@ -145,10 +151,13 @@ const CareersIneer = () => {
     }
 
     setShowSubmit(!showSubmit);
+    scrollToBottom()
+
   };
 
+
   return (
-    <div style={{ paddingTop: '150px', backgroundColor: '#fff2e4' }}>
+    <div ref={chatContainerRef}  style={{ paddingTop: '150px', backgroundColor: '#fff2e4' }}>
       <SeniorDesigner
         teamResponsible={teamResponsible}
         head='Senior UX Designer'

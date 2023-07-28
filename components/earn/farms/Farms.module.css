@@ -2,6 +2,7 @@
   margin-top: 150px !important;
   display: flex;
   flex-direction: column;
+  margin-bottom: 150px;
 }
 
 .routesWrapper{
@@ -21,6 +22,8 @@
   margin-right: auto;
   align-items: center;
   cursor: pointer;
+  padding: 20px 0 20px 115px;
+
 }
 
 .communityAuctions svg {
@@ -28,7 +31,7 @@
 }
 
 .communityAuctions p {
-  color: #ff7152;
+  font-size: 20px;
 }
 
 .communityAuctions a {
@@ -36,8 +39,12 @@
   align-items: center;
 }
 
+.blueHover {
+  color: #ff6969;
+}
+
 .communityAuctions:hover .blueHover {
-  color: #0500ff;
+  color: #ff6969;
 }
 
 .communityAuctions p,
@@ -53,7 +60,7 @@
 }
 
 .communityAuctions:hover .svgHoverBlue path {
-  stroke: #0500ff;
+  color: #ff6969;
 }
 
 .farms__filter {
@@ -78,6 +85,7 @@
 .Farms__filterRightPanel {
   display: flex;
   align-items: center;
+  gap: 20px;
 }
 
 .Farms__filterLeftPanel svg {
@@ -299,6 +307,11 @@
   height: 12px;
 }
 
+.resTitle {
+  padding-left: 115px;
+  color: #162029;
+}
+
 
 
 /*Laptop 1440*/
@@ -313,6 +326,13 @@
 
 /*Ipad Pro 1024*/
 @media (max-width: 1300px) {
+  .resTitle {
+    padding-left: 0;
+  }
+
+  .communityAuctions {
+    padding-left: 0;
+  }
 }
 
 /*Ipad 768*/

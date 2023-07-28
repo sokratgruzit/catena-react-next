@@ -38,7 +38,9 @@ const Table = props => {
   const IdentifyOnClick = props.onClick !== undefined ? props.onClick : null;
 
   return (
-    <div className={styles.Table__wrap}>
+    <div className='container_bordered'>
+      <div className='container_bordered-child'>
+      <div className={styles.Table__wrap}>
       <div className={styles.Table__labels}>
         {props.tableLabels.map((label, index) => {
           return (
@@ -74,6 +76,8 @@ const Table = props => {
           })}
         </div>
       )}
+    </div>
+      </div>
     </div>
   );
 };
