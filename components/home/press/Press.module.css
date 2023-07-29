@@ -133,6 +133,8 @@
     border-radius: 20px;
     padding: 20px 100px 20px 105px;
     margin-top: 20px;
+    cursor: pointer;
+
 }
 
 .icCont {

@@ -5,7 +5,6 @@ import { useSelector } from 'react-redux';
 import createAxiosInstance from '../../../pages/api/axios';
 
 import styles from './Press.module.css';
-const press = "1500px";
 import Years from './components/filterWithYears/Years';
 import PublicByYears from './components/publicByYears/PublicByYears';
 import PressLogo from './components/pressLogoContainer/PressLogo';
@@ -18,10 +17,10 @@ const Press = () => {
   const activeLang = useSelector(state => state.settings.activeLang);
 
   const fileAdress = 'http://localhost:4003/uploads/press/';
-  const title = "press.title";
-  const description = "press.description";
+  const title = 'press.title';
+  const description = 'press.description';
 
-  const handleYearClick = (year) => {
+  const handleYearClick = year => {
     setActiveYear(year);
     const data = allPress.filter(item => {
       const itemYear = item.createdAt.substring(0, 4);
@@ -50,13 +49,13 @@ const Press = () => {
   // console.log(filterData, "hi");
 
   return (
-    <div className={`${styles.mainContainer} container`} style={{marginTop: `${press}`}}>
+    <div className={`${styles.mainContainer} container`}>
       <div className={`${styles.titleContainer}`}>
         <p className={styles.titlePartyOne}>Catena</p>
         <p className={styles.titlePartyTwo}>Press</p>
       </div>
       <div className={styles.bodyContainer}>
-        <Card dataArr={allPress} fileAdress={fileAdress} title={title} description={description}/>
+        <Card dataArr={allPress} fileAdress={fileAdress} title={title} description={description} slugType='press' />
       </div>
       <div className={`${styles.sourcesContainer} `}>
         <div className={styles.sourcesTitle}>
