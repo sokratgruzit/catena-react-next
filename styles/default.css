@@ -248,7 +248,7 @@ button {
   color: #a6d0dd;
   font-weight: 400;
   -webkit-text-stroke: 1px #162029;
-  /* -webkit-text-stroke: 1px #162029; */
+  /* text-stroke: 1px #162029; */
 }
 
 .custum-text h1,

@@ -7,7 +7,7 @@ const Event = () => {
 
   return (
     <div style={{ paddingTop: '200px', background: '#FFF3E5' }}>
-      <Boxs  />
+      <Boxs />
       {/* <JoinCommunity /> */}
     </div>
   );
