@@ -10,25 +10,22 @@ const Boxs = () => {
   const axios = useMemo(() => createAxiosInstance(), []);
   const [allEvent, setAllEvent] = useState([]);
 
-  const fileAdress = 'http://localhost:4003/uploads/event/';
+  const fileAdress = `${process.env.NEXT_PUBLIC_URL}/uploads/event/`;
   const title = "event.title";
   const description = "event.description";
 
 
 
   useEffect(() => {
-    axios.get(`http://localhost:4003/event/get-all-event`)
-    .then(res => {
-      setAllEvent(res?.data);
-    })
-    .catch(err => {
-      console.log(err?.response);
-    });
+    axios.get(`${process.env.NEXT_PUBLIC_URL}/event/get-all-event`)
+      .then(res => {
+        setAllEvent(res?.data);
+      })
+      .catch(err => {
+        console.log(err?.response);
+      });
   }, []);
 
-
- console.log(allEvent, "esaaa");
- 
   return (
     <div className={styles.mainContainer}>
       <div className={`${styles.mainContainer} container`}>
@@ -40,7 +37,7 @@ const Boxs = () => {
           <p className="title font-40">Braced dissected sheep, kermani halts, boy note. Quis raucous fall gown, euismod creatures spent, uproar tidings.</p>
         </div>
         <div className={`${styles.mapContainer} `}>
-          <Card dataArr={allEvent} fileAdress={fileAdress} title={title} description={description} />
+          {/* <Card dataArr={allEvent} fileAdress={fileAdress} title={title} description={description} /> */}
         </div>
       </div>
     </div>

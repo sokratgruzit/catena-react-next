@@ -10,7 +10,7 @@ const PublicByYears = ({ filterData, activeLang }) => {
           return (
             <Link key={index} href={`/home/press/${encodeURIComponent(item.slug)}`}>
               <div className={styles.icCont}>
-                <img src={`http://localhost:4003/uploads/press/${item?.logo_image}`} className={styles.icon} />
+                <img src={`${process.env.NEXT_PUBLIC_URL}/uploads/press/${item?.logo_image}`} className={styles.icon} />
                 <p>{item.title[activeLang]['press.title']}</p>
               </div>
             </Link>
