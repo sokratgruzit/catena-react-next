@@ -5,13 +5,15 @@ function BugBountyNumList({ data }) {
     <div className={styles.numListContainer}>
       {data?.map((item, i) => {
         return (
-          <div className="text" key={i}>
+          <div key={i}>
             <p className={`${styles.numListTitle} font-40 ttl`}>{item.title}</p>
-            <ol>
-              {item.listItem?.map((item, i) => {
-                return <li className={`font-20 ${styles.numList}`} key={i}>{item}</li>;
-              })}
-            </ol>
+            <div className="text">
+              <ol>
+                {item.listItem?.map((item, i) => {
+                  return <li className={`font-20 ${styles.numList}`} key={i}>{item}</li>;
+                })}
+              </ol>
+            </div>
           </div>
         );
       })}

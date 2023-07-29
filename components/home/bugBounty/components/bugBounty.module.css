@@ -34,6 +34,7 @@
 .numList {
   padding: 8px 0;
   font-weight: bold !important;
+  display: flex;
 }
 
 .listTitle {

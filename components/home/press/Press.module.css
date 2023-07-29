@@ -44,12 +44,13 @@
 }
 
 .logoContainer {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  background-color: #f3e4d2;
-  border-radius: 20px;
-  border: 1px solid rgb(192, 182, 182);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #F3E4D2;
+    border-radius: 20px;
+    border: 1px solid rgb(192, 182, 182);
+    margin-bottom: 150px;
 }
 
 .logCon {
@@ -82,8 +83,9 @@
 }
 
 .infContTitle h2 {
-  position: relative;
-  margin-top: 45px;
+    position: relative;
+    margin-top: 45px;
+    margin-left: 110px;
 }
 
 .yearsStats {
@@ -133,12 +135,14 @@
 }
 
 .statisticContainer {
-  width: 100%;
-  border: 1px solid rgb(192, 182, 182);
-  background-color: #f3e4d2;
-  border-radius: 20px;
-  padding: 20px 70px 20px 105px;
-  cursor: pointer;
+    width: 100%;
+    border: 1px solid rgb(192, 182, 182);
+    background-color: #F3E4D2;
+    border-radius: 20px;
+    padding: 20px 100px 20px 105px;
+    margin-top: 20px;
+    cursor: pointer;
+
 }
 
 .icCont {
@@ -197,16 +201,16 @@
 }
 
 @media (max-width: 815px) {
-  .infContTitle h2 {
-    font-size: 12px;
-    padding: 37px;
-  }
-  .activeCont {
-    font-size: 12px;
-  }
-  .pasCont {
-    font-size: 12px;
-  }
+    .infContTitle h2 {
+        font-size: 12px;
+        padding: 30px;
+    }
+    .activeCont {
+        font-size: 12px;
+    }
+    .pasCont  {
+        font-size: 12px;
+    }
 }
 
 @media (max-width: 1050px) {

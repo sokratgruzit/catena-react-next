@@ -13,7 +13,7 @@
 .galaxy {
   position: absolute;
   top: 0;
-  left:0;
+  left: 0;
   z-index: -10;
   width: 100vw;
   height: calc(100vw * 0.625);
@@ -95,7 +95,7 @@
 }
 
 
-.svgHoverBlue{
+.svgHoverBlue {
   transform: rotateZ(180deg);
 }
 
@@ -103,7 +103,7 @@
   transform: translateX(-5px);
 }
 
-.communityAuctions:hover .svgHoverBlue  {
+.communityAuctions:hover .svgHoverBlue {
   stroke: #0500ff;
 }
 
@@ -228,11 +228,11 @@
 
 /* Expend Details */
 
-.vectorSvg{
+.vectorSvg {
   transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
 }
 
-.activeVector{
+.activeVector {
   transform: rotateZ(-180deg);
 }
 
@@ -258,7 +258,7 @@
   width: 3px;
 }
 
-.showWallets{
+.showWallets {
   display: flex;
 }
 
@@ -289,13 +289,13 @@
   height: 44px;
 }
 
-.questionMarkWrapper{
+.questionMarkWrapper {
   width: fit-content;
-  height:20px;
+  height: 20px;
 }
 
-.auction__whitelistSearch input:focus{
-  border:1px solid #0500ff;
+.auction__whitelistSearch input:focus {
+  border: 1px solid #0500ff;
 }
 
 .auction__whitelistSearch svg {
@@ -333,7 +333,7 @@
   margin-left: 10px;
 }
 
-.applyButton{
+.applyButton {
   width: 300px;
   font-size: 16px;
   height: 32px;
@@ -344,44 +344,44 @@
 }
 
 /* Whitelist */
-.goBackSvg{
+.goBackSvg {
   cursor: pointer;
 }
 
-.FAQSection{
+.FAQSection {
   display: flex;
   margin-top: 200px;
   position: relative;
   height: 550px;
 }
 
-.FAQTitleWrapper{
+.FAQTitleWrapper {
   width: fit-content;
   max-width: 416px;
 }
 
-.FAQTitle{
+.FAQTitle {
   font-size: 30px;
   line-height: 42px;
 }
 
-.FAQWrapper{
+.FAQWrapper {
   display: flex;
   flex-direction: column;
   width: 70%;
 }
 
-.FAQTitleRight{
+.FAQTitleRight {
   font-size: 20px;
   line-height: 24px;
   border-bottom: 1px solid #FFF;
   padding-bottom: 24px;
 }
 
-.clouds{
+.clouds {
   position: absolute;
   bottom: 0;
-  left:-2%;
+  left: -2%;
   z-index: -10;
   width: 100vw;
   height: calc(100vw * 0.36);
@@ -389,80 +389,84 @@
   max-height: 1200px;
 }
 
-.center{
-  width:fit-content;
+.center {
+  width: fit-content;
   margin: auto;
 }
 
 /*Laptop 1440*/
-@media (max-width: 1900px) {
-}
+@media (max-width: 1900px) {}
 
 /*Ipad Pro 1024*/
-@media (max-width: 1300px) {
-}
+@media (max-width: 1300px) {}
 
 /*Ipad 768*/
 @media (max-width:767px) {
-  .FAQSection{
+  .FAQSection {
     flex-direction: column;
   }
-  .FAQWrapper{
+
+  .FAQWrapper {
     width: 100%;
   }
-  .FAQTitle{
+
+  .FAQTitle {
     margin-bottom: 10px;
   }
-  .FAQTitleWrapper{
+
+  .FAQTitleWrapper {
     max-width: 100%;
   }
+
   .auction__notice svg {
     margin-right: 20px;
   }
+
   .auction__notice {
     padding: 20px;
   }
-  
+
 }
+
 @media (max-width: 1023px) {
   .astro {
     right: 0px;
   }
-  
+
   .yellowStar {
     bottom: 200px;
     top: inherit;
   }
-  
+
   .egg {
     left: 350px;
     top: 340px;
   }
-  
+
   .ufo {
     bottom: 50px;
     right: 200px;
   }
-  
+
   .auction__title h1 {
     width: 50%;
   }
-  
+
   .auction__container {
     overflow-x: hidden;
   }
-  
+
   .auction__notice {
     margin-top: 140px;
     width: 100%;
   }
-  
+
   .auction__burnedContainer {
     flex-direction: row;
     justify-content: center;
     margin-top: 0;
   }
-  
+
   .auction__burnedContainer div:first-child {
     margin-top: 200px;
     text-align: center;
@@ -471,7 +475,7 @@
   .logo__stars {
     top: -500px;
   }
-  
+
 }
 
 /*Mobile 320*/
@@ -481,31 +485,31 @@
     display: flex;
     flex-direction: column;
   }
-  
+
   .auction__leftPanel {
     width: 100%;
     margin-bottom: 30px;
   }
-  
-  .auction__whitelisTableCont{
+
+  .auction__whitelisTableCont {
     width: 100%;
     height: 485px;
   }
-  
+
 }
 
 @media (max-width: 767px) {
   .auction__title {
     margin-top: 400px;
   }
-  
+
   .egg {
     left: 0;
     top: 250px;
     display: block;
     position: absolute;
   }
-  
+
   .orbit {
     width: 110px;
     top: 50px;
@@ -513,7 +517,7 @@
     display: block;
     position: absolute;
   }
-  
+
   .yellowStar {
     width: 50px;
     top: 150px;
@@ -521,8 +525,8 @@
     display: block;
     position: absolute;
   }
-  
-  .ufo{
+
+  .ufo {
     top: 300px;
     right: 0;
     display: block;
@@ -530,7 +534,7 @@
     width: 107px;
     height: 101px;
   }
-  
+
   .astro {
     width: 301px;
     height: 355px;
@@ -539,30 +543,30 @@
     display: block;
     justify-self: flex-start;
   }
-  
+
   .auction__title h1 {
     width: 100%;
   }
-  
+
   .auction__title p:first-of-type {
     width: 100%;
   }
-  
+
   .auction__title p:nth-child(3) {
     width: 100%;
     margin-bottom: 20px;
   }
-  
+
   .auction__title p:nth-child(4) {
     width: 100%;
   }
-  
+
   .logo__stars {
     left: 50%;
     -webkit-transform: translateX(-50%);
     transform: translateX(-50%)
   }
-  
+
 }
 
 @media (max-width: 450px) {
