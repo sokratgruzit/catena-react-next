@@ -95,9 +95,10 @@
 }
 /* voting styles */
 .rowItem {
-  display: flex;
+  display: grid;
   width: 100%;
-  align-items: center;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  
 }
 .rowItem .td{
   /* white-space: nowrap; */
@@ -112,7 +113,7 @@
 }
 .vectorActive{
   transform: rotateZ(-180deg);
-  stroke:#FF7152;
+  /* stroke:#FF7152; */
 }
 /*Dashboard Start*/
 .dashboardRowItem .td:first-child {
@@ -298,7 +299,12 @@
 
 /* earn_farms */
 .earn_farmsRow .td:first-child, .th_earn_farms:first-child{
-  width: 30%;
+  /* width: 30%; */
+  display: flex;
+  align-items: center;
+}
+
+.vectorDiv {
   display: flex;
   align-items: center;
 }

@@ -99,7 +99,7 @@ const ListItemRow = props => {
           return <MultiTextSvg key={'multi_svg' + type + index} data={item} />;
         }
         if (item.type === 'expand_custom') {
-          return <VectorSvg key={index} className={`${styles.vectorSvg} ${props.expandRow && styles.vectorActive}`} />;
+          return <div className={styles.vectorDiv}><VectorSvg key={index} className={`${styles.vectorSvg} ${props.expandRow && styles.vectorActive}`} /></div>
         }
       })}
     </div>

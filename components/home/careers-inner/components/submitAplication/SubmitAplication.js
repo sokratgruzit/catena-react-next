@@ -53,8 +53,8 @@ const SubmitAplication = ({ title }) => {
               inputType={"text"}
               placeholder={"Enter.."}
               label={"FULL NAME"}
-              subLabel={"example"}
-              onChange={() => { console.log('rame'); }}
+              subLabel={""}
+              onChange={(e) => { console.log(e.target.value); }}
             />
 
             <Input
@@ -65,14 +65,14 @@ const SubmitAplication = ({ title }) => {
               // value={""}
               subLabel={""}
               placeholder={'Enter..'}
-              onChange={() => { console.log('rame'); }}
-
+              onChange={(e) => { console.log(e.target.value); }}
             />
 
             <Input
               type={'label-input-phone-number'}
               label={'PHONE NUMBER'}
-              onChange={() => { console.log('rame'); }}
+              // value={''}
+              onChange={() => { console.log("number"); }}
             />
 
             <Input
@@ -84,6 +84,7 @@ const SubmitAplication = ({ title }) => {
               placeholder={'Enter..'}
               resize={'none'}
               customStyles={{ resize: "none", height: "126px" }}
+              onChange={(e) => { console.log(e.target.value); }}
             />
 
             <Quiz
@@ -108,6 +109,7 @@ const SubmitAplication = ({ title }) => {
               placeholder={'Enter..'}
               resize={'none'}
               customStyles={{ resize: "none", height: "126px" }}
+              onChange={(e) => { console.log(e.target.value); }}
             />
 
             <Input
@@ -119,6 +121,7 @@ const SubmitAplication = ({ title }) => {
               placeholder={'Enter..'}
               resize={'none'}
               customStyles={{ resize: "none", height: "126px" }}
+              onChange={(e) => { console.log(e.target.value); }}
             />
 
             <Input
@@ -130,6 +133,7 @@ const SubmitAplication = ({ title }) => {
               placeholder={'Enter..'}
               label={'Github'}
               subLabel={''}
+              onChange={(e) => { console.log(e.target.value); }}
             />
 
             <Input
@@ -141,6 +145,7 @@ const SubmitAplication = ({ title }) => {
               placeholder={'Enter..'}
               label={'Linkedin'}
               subLabel={''}
+              onChange={(e) => { console.log(e.target.value); }}
             />
 
             <Input
