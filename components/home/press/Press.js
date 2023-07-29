@@ -5,7 +5,6 @@ import { useSelector } from 'react-redux';
 import createAxiosInstance from '../../../pages/api/axios';
 
 import styles from './Press.module.css';
-const press = "1500px";
 import Years from './components/filterWithYears/Years';
 import PublicByYears from './components/publicByYears/PublicByYears';
 import PressLogo from './components/pressLogoContainer/PressLogo';
@@ -49,7 +48,7 @@ const Press = () => {
   // console.log(filterData, "hi");
 
   return (
-    <div className={`${styles.mainContainer} container`} style={{marginTop: `${press}`}}>
+    <div className={`${styles.mainContainer} container`}>
       <div className={`${styles.titleContainer}`}>
         <p className={styles.titlePartyOne}>Catena</p>
         <p className={styles.titlePartyTwo}>Press</p>
