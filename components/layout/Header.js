@@ -53,16 +53,7 @@ const Header = () => {
 
   const account = useSelector(state => state.connect.account);
   const triedReconnect = useSelector(state => state.appState.triedReconnect);
-
-  useEffect(() => {
-    if (account && triedReconnect) {
-      axios
-        .post('/auth/register-wallet-address', { address: account })
-        .then(res => console.log(res))
-        .catch(() => {});
-    }
-    // eslint-disable-next-line
-  }, [account]);
+  const locales = useSelector(state => state.settings.locales);
 
   const [activeMenu, setActiveMenu] = useState(null);
   const [activeLangs, setActiveLangs] = useState(false);
@@ -204,8 +195,12 @@ const Header = () => {
 
   const changeLanguage = loc => {
     // i18n.changeLanguage(locale.toLowerCase());
-    router.push('', '', { locale: loc.toLowerCase() });
-    setRouterLocale(loc);
+    //router.push('', '', { locale: loc.toLowerCase() });
+    //setRouterLocale(loc);
+    dispatch({
+      type: "SET_ACTIVE_LANG",
+      activeLang: loc
+    });
   };
 
   let web3Obj = library;
@@ -283,6 +278,29 @@ const Header = () => {
     setConnectBtnColor('red');
   };
 
+  const getLocales = async () => {
+    axios
+    .get('/langs/get-locales')
+    .then(res => {
+      let locales = res.data[0].list;
+
+      dispatch({
+        type: "SET_LOCALES",
+        locales
+      });
+    })
+    .catch(() => {});
+  };
+
+  const isSticky = e => {
+    const scrollTop = window.scrollY;
+    if (scrollTop >= 10) {
+      setStickHead(true);
+    } else {
+      setStickHead(false);
+    }
+  };
+
   useEffect(() => {
     if (isConnected) {
       getBalance();
@@ -298,7 +316,8 @@ const Header = () => {
     }
     if (window.innerWidth <= 767) {
     }
-    setRouterLocale(router.locale);
+    //setRouterLocale(router.locale);
+    getLocales();
   }, []);
 
   useEffect(() => {
@@ -307,14 +326,16 @@ const Header = () => {
       window.removeEventListener('scroll', isSticky);
     };
   });
-  const isSticky = e => {
-    const scrollTop = window.scrollY;
-    if (scrollTop >= 10) {
-      setStickHead(true);
-    } else {
-      setStickHead(false);
+
+  useEffect(() => {
+    if (account && triedReconnect) {
+      axios
+        .post('/auth/register-wallet-address', { address: account })
+        .then(res => console.log(res))
+        .catch(() => {});
     }
-  };
+    // eslint-disable-next-line
+  }, [account]);
 
   return (
     <div>
@@ -657,21 +678,21 @@ const Header = () => {
                       <span>Change Language</span>
                     </div>
                     <div className={styles.headerLangsModalInner}>
-                      {LANG_DATA.map(item => {
+                      {locales.map(item => {
                         return (
                           <div
                             className={`${styles.headerLangsModalLink} ${
-                              'en' === item.title ? styles.headerLangsModalLinkActive : ''
+                              'en' === item.code ? styles.headerLangsModalLinkActive : ''
                             }`}
-                            key={item.id}
+                            key={item.code}
                             onClick={() => {
                               openLangs(false);
-                              changeLanguage(item.title);
+                              changeLanguage(item.code);
                             }}
                           >
-                            {item.fullName}
-                            <div>-</div>
                             {item.title}
+                            <div>-</div>
+                            {item.code}
                           </div>
                         );
                       })}
