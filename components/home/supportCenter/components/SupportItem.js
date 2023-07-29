@@ -46,13 +46,6 @@ const SUPPORTITEMS = [
     description: "Can't find the solution to your problem? Submit a request to support team.",
     subLink: "/"
   },
-  {
-    svg: <Api />,
-    a: 'API Documentation',
-    arrow: <Arrow />,
-    description: "All document you need when connecting to AAXby API.",
-    subLink: "/"
-  },
 ];
 
 const SupportItem = () => {

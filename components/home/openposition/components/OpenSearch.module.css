@@ -1,5 +1,5 @@
-.openPositions__filter {
-  width: 30%;
+.infoImport {
+  width: 260px;
 }
 
 .featured-jobs__btn-container .main-btn {
@@ -44,11 +44,12 @@
 @media (max-width: 1300px) {}
 
 /*Ipad 768*/
-@media (max-width: 1023px) {}
-
-/*Mobile 320*/
-@media (max-width: 767px) {
+@media (max-width: 1023px) {
   .openPositions__container {
     flex-direction: column;
+    padding-top: 40px;
   }
 }
+
+/*Mobile 320*/
+@media (max-width: 767px) {}

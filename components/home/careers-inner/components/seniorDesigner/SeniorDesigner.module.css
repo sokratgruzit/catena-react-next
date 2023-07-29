@@ -22,6 +22,12 @@
   font-family: 'Lack-Regular' !important;
 }
 
+.textDescription {
+  font-size: 20px;
+  line-height: 30px;
+  color: #162029;
+}
+
 .textDescription1 {
   font-size: 20px;
   line-height: 30px;

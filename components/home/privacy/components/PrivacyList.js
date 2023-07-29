@@ -41,7 +41,7 @@ function PrivacyList({ privacyList }) {
           <p className={styles.text}>{item?.text}</p>
           {item?.link && <a href='mailto:https://www.catenamultichain.com/'>{item?.link}</a>}
           {item?.bullets && (
-            <div className='text'>
+            <div className={`text ${styles.ul}`}>
               <ul>
                 {item?.bullets.map((bullets, j) => (
                   <li key={j}>{bullets}</li>
@@ -62,7 +62,7 @@ function PrivacyList({ privacyList }) {
                 <div className={styles.innerContent}>
                   <p className={styles.teaser}>{child?.text}</p>
                   {child?.bullets && (
-                    <div className='text'>
+                    <div className={`text ${styles.ul}`}>
                       <ul>
                         {child?.bullets.map((bullet, k) => (
                           <li key={k}>{bullet}</li>

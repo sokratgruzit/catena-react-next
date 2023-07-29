@@ -14,7 +14,6 @@ const ExpandButton = ({ expandRow, toggleExpand, className, vectorClassName, onl
           className={`${styles.expandButton} ${expandRow && styles.buttonActive} `}
         />
       )}
-
       <VectorSvg className={`${styles.vectorSvg} ${expandRow && styles.rotate} ${vectorClassName} `} />
     </div>
   );

@@ -29,7 +29,7 @@ const AboutYou = ({ head, aboutSalary, aboutRange, title2 }) => {
             return (
               <div key={index} className='text'>
                 <ul>
-                  <li style={{ color: '#162029', fontSize: '20px' }}>{item.title}</li>
+                  <li>{item.title}</li>
                 </ul>
                 <p style={{ color: '#162029', fontSize: '20px', paddingLeft: '20px', lineHeight: '30px' }}>
                   {item.value}

@@ -1,5 +1,4 @@
 export default function CoppyLink({ data, currentPageURL, showDetails = true, showCopyButton = true }) {
-  
   const copyLinkToClipboard = async link => {
     try {
       await navigator.clipboard.writeText(link);
@@ -8,6 +7,8 @@ export default function CoppyLink({ data, currentPageURL, showDetails = true, sh
       console.error('Failed to copy link: ', err);
     }
   };
+
+  const linkToCopy = currentPageURL();
 
   return (
     <div className='text'>
@@ -20,7 +21,7 @@ export default function CoppyLink({ data, currentPageURL, showDetails = true, sh
               </>
             )}
             {showCopyButton && (
-              <button onClick={() => copyLinkToClipboard(currentPageURL)}>
+              <button onClick={() => copyLinkToClipboard(linkToCopy)}>
                 <svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
                   <circle cx='12' cy='12' r='12' fill='#F3E4D2' />
                   <g clipPath='url(#clip0_3654_460)'>

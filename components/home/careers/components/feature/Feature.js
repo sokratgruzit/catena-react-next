@@ -1,4 +1,3 @@
-// import { Button } from '@catena-network/catena-ui-module';
 import { Button } from '@catena-network/catena-ui-module';
 import Link from 'next/link';
 import { useState } from 'react';
@@ -77,6 +76,7 @@ const Feature = ({ featureLinkList, title, showButton }) => {
                 type={'btn-primary'}
                 arrow={'arrow-right'}
                 element={'button'}
+                onClick={() => { console.log('rame'); }}
               />
             </Link>
           )}

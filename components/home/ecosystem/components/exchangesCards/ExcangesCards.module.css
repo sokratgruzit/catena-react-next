@@ -67,4 +67,7 @@
         gap: 20px;
         width: fit-content;
     }
+    .massive {
+        display: none;
+    }
 }

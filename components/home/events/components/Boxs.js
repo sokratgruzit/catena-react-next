@@ -1,32 +1,34 @@
 import React from "react";
 import Card from "../../../UI/card/Card";
+import createAxiosInstance from "../../../../pages/api/axios";
+import { useEffect, useMemo,  useState } from "react";
+
 import styles from "../css/Boxs.module.css";
 
 const Boxs = () => {
-  const eventsArr = [
-    {
-      id: 1,
-      img: "/images/event/Group.png",
-      imgPart: "/images/event/txt.png",
-      imgPartTwo: "/images/event/digital.png",
-      title: "How the Blockchain Could Break Big Tech’s Hold on A.I.",
-    },
-    {
-      id: 2,
-      img: "/images/event/Grouptwo.png",
-      imgPart: "/images/event/img.png",
-      imgPartTwo: "/images/event/digital.png",
-      title: "SingularityNET’s Ben Goertzel has a grand vision for the future of AI",
-    },
-    {
-      id: 3,
-      img: "/images/event/Groupthree.png",
-      imgPart: "/images/event/img.png",
-      imgPartTwo: "/images/event/digital.png",
-      title: "SingularityNET’s Ben Goertzel has a grand vision for the future of AI",
-    },
-  ];
 
+  const axios = useMemo(() => createAxiosInstance(), []);
+  const [allEvent, setAllEvent] = useState([]);
+
+  const fileAdress = 'http://localhost:4003/uploads/event/';
+  const title = "event.title";
+  const description = "event.description";
+
+
+
+  useEffect(() => {
+    axios.get(`http://localhost:4003/event/get-all-event`)
+    .then(res => {
+      setAllEvent(res?.data);
+    })
+    .catch(err => {
+      console.log(err?.response);
+    });
+  }, []);
+
+
+ console.log(allEvent, "esaaa");
+ 
   return (
     <div className={styles.mainContainer}>
       <div className={`${styles.mainContainer} container`}>
@@ -38,7 +40,7 @@ const Boxs = () => {
           <p className="title font-40">Braced dissected sheep, kermani halts, boy note. Quis raucous fall gown, euismod creatures spent, uproar tidings.</p>
         </div>
         <div className={`${styles.mapContainer} `}>
-          <Card dataArr={eventsArr} />
+          <Card dataArr={allEvent} fileAdress={fileAdress} title={title} description={description} />
         </div>
       </div>
     </div>
