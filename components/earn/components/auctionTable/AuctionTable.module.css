@@ -6,6 +6,10 @@
   position: relative;
 }
 
+.hash {
+  margin-left: 10px;
+}
+
 .auction__finished {
   position: absolute;
   top: 0;
@@ -14,7 +18,6 @@
 
 .auction__tabInner {
   display: flex;
-  cursor: pointer;
   padding: 5px;
   justify-content: center;
 }
@@ -25,9 +28,9 @@
   display: flex;
   flex-direction: row;
   margin: auto;
-  padding: 3px;
+  padding: 4px 2px;
   border-radius: 4px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid #ff6969;
 }
 
 .Activity__filter {
@@ -41,16 +44,15 @@
   border-radius: 4px;
   padding: 6px 12px;
   cursor: pointer;
-  margin:0 2px;
+  margin: 0 2px;
 }
 
 .Activity__filterActive {
-  background-color: rgba(255, 255, 255, 0.1)!important;
+  background-color: #ff6969;
 }
 
 .auction__tabInner {
   display: flex;
-  cursor: pointer;
   padding: 5px;
   justify-content: center;
 }
@@ -58,14 +60,6 @@
 .auction__tabInner p {
   border-radius: 4px;
   padding: 7px 12px;
-}
-
-.number{
-  font-size: 20px;
-  padding: 10px 20px;
-  margin-left: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 4px;
 }
 
 .auction__number {
@@ -82,25 +76,25 @@
 
 .prevBtn,
 .nextBtn,
-.lastBtn{
+.lastBtn {
   margin: 0 20px;
   cursor: pointer;
 }
 
-.nextBtn{
+.nextBtn {
   transform: rotate(180deg);
 }
 
 .prevBtn:hover {
-  fill: #ff7152;
+  fill: #ff6969;
 }
 
 .nextBtn:hover {
-  fill: #ff7152;
+  fill: #ff6969;
 }
 
 .lastBtn:hover {
-  fill: #ff7152;
+  fill: #ff6969;
 }
 
 .archieveDate {
@@ -131,23 +125,23 @@
 
 .auctions__tableHeader div:nth-child(1) {
   width: 25%;
-  color: #627eea;
+  color: #ff6969;
 }
 
 .auctions__tableHeader div:nth-child(2) {
   width: 60%;
-  color: #627eea;
+  color: #ff6969;
 }
 
 .auctions__tableHeader div:nth-child(3) {
-  color: #627eea;
+  color: #ff6969;
 }
 
 .auctions__tableItems {
   display: flex;
   align-items: center;
-  border-bottom: 1px solid #111826;
-  border-top: 1px solid #111826;
+  border-bottom: 1px solid #CDD2DA;
+  border-top: 1px solid #CDD2DA;
   padding: 34px 0;
 }
 
@@ -171,9 +165,14 @@
   cursor: pointer;
 }
 
+.auction__dotMenu svg path {
+  stroke: #ff6969;
+  fill: #ff6969;
+}
+
 @media (max-width: 1110px) {
-  .auction__table{
+  .auction__table {
     width: 100%;
   }
-  
+
 }
