@@ -1,21 +1,19 @@
 import styles from './Listed.module.css';
 
-const RevercedTitle = ({ titles }) => {
+const Listed = ({ titles }) => {
   return (
-    <div className={`container_bordered-child ${styles.main}`}>
-      {/* <div className='container'> */}
-      <div className='container_bordered'>
-        <div className="text">
-          <ul >
+    <div className={`container`}>
+      <div className={`container_bordered`}>
+        <div className={`container_bordered-child text ${styles.main}`}>
+          <ul>
             {titles.map((item, index) => {
-              return <li key={index} >{item.title}</li>
+              return <li key={index}>{item.title}</li>;
             })}
           </ul>
-        </div>
-        {/* </div> */}
+        </div >
       </div>
     </div>
   );
 };
 
-export default RevercedTitle;
+export default Listed;
