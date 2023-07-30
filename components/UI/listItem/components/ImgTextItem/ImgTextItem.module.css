@@ -4,6 +4,7 @@
 }
 .imgTextItem p {
   padding-left: 10px;
+  color: #162029;
 }
 .imgTextItem img {
   width: 25px;
@@ -11,7 +12,9 @@
 }
 .imgTextItem p:last-child {
   font-size: 12px;
+  color: #162029;
 }
 .darkened{
   opacity: 0.3;
+  color: #162029;
 }

@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 
-import CornerDecor from '../../../UI/cornerDecor/CornerDecor';
+// import CornerDecor from '../../../UI/cornerDecor/CornerDecor';
 import TabFilter from '../../../UI/filters/TabFilter';
 
 import styles from './EarnRoutes.module.css';
@@ -37,7 +37,7 @@ const EarnRoutes = () => {
 
   return (
     <div className={styles.wrapper}>
-      <CornerDecor />
+      {/* <CornerDecor /> */}
       <TabFilter
         onClick={navigationHandler}
         data={tabsData}

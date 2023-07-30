@@ -17,7 +17,7 @@ const Press = ({ press }) => {
   const title = "press.title";
   const description = "press.description";
 
-  const handleYearClick = (year) => {
+  const handleYearClick = year => {
     setActiveYear(year);
     const data = press.filter(item => {
       const itemYear = item.createdAt.substring(0, 4);
@@ -37,7 +37,7 @@ const Press = ({ press }) => {
         <p className={styles.titlePartyTwo}>Press</p>
       </div>
       <div className={styles.bodyContainer}>
-        <Card dataArr={press} fileAdress={fileAdress} title={title} description={description} />
+        <Card dataArr={allPress} fileAdress={fileAdress} title={title} description={description} slugType='press' />
       </div>
       <div className={`${styles.sourcesContainer} `}>
         <div className={styles.sourcesTitle}>

@@ -1,15 +1,12 @@
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
-<<<<<<< HEAD
 
 import astro from '../../../public/images/earn/astro.png';
 import egg from '../../../public/images/earn/egg.png';
 import orbit from '../../../public/images/earn/orbit.png';
 import ufo from '../../../public/images/earn/ufo.png';
 import yellowStar from '../../../public/images/earn/yellowStar.png';
-=======
->>>>>>> origin/aladin
 import CommunityAuctionsFAQ from '../../faqOld/communityAuctionsFAQ/CommunityAuctionsFAQ';
 import { ArrowSvg, OpenSvg, QuestionMarkIcon, SearchIcon, SmlArrowSvg } from '../../svg';
 import Button from '../../UI/button/Button';
@@ -80,49 +77,13 @@ const CommunityAuctions = props => {
 
   return (
     <main className={`container ${styles.auction__container}`}>
-<<<<<<< HEAD
-      <div className={styles.galaxy}>
-        <Image layout='fill' objectFit='contain' src={'/images/earn/galaxy.png'} alt='astro' />
-      </div>
-      <div className={styles.auction__inner}>
-        <div className={styles.auction__head}>
-          <div className={styles.astro}>
-            <Image src={astro} alt='astro' />
-          </div>
-          <div className={styles.orbit}>
-            <Image src={orbit} alt='orbit' />
-          </div>
-          <div className={styles.yellowStar}>
-            <Image src={yellowStar} alt='yellowStar' />
-          </div>
-          <div className={styles.ufo}>
-            <Image src={ufo} alt='ufo' />
-          </div>
-          <div className={styles.egg}>
-            <Image src={egg} alt='egg' />
-          </div>
-          <div onClick={() => router.push('/earn/farms')} className={styles.communityAuctions}>
-=======
       <div className={styles.auction__inner}>
         <div className={styles.auction__head}>
           {/* <div onClick={() => router.push('/earn/farms')} className={styles.communityAuctions}>
->>>>>>> origin/aladin
             <div className={styles.arrowWrapper}>
               <ArrowSvg className={styles.svgHoverBlue} />
             </div>
             <p className={`${styles.blueHover}`}>Farms</p>
-<<<<<<< HEAD
-          </div>
-          <div className={styles.auction__title}>
-            <h1 className='font_51'>Community Farm Auction</h1>
-            <p className='font_20'>
-              Each week, qualifying projects can bid CAKE for the right to host a 7-day Farm on CATENA Network
-            </p>
-            <p className='font_20'>This page is for projects to bid for farms. </p>
-            <p className='font_20'>
-              If you&#x2019;re not a whitelisted project, you won&#x2019;t be able to participate, but you can still
-              view what&#x2019;s going on!
-=======
           </div> */}
           <div className={styles.auction__title}>
             <h1 className='font-90 ttl'>Community Farm Auction</h1>
@@ -133,7 +94,6 @@ const CommunityAuctions = props => {
             <p className='font-20'>
               If you're not a whitelisted project, you won't be able to participate, but you can still
               view what's going on!
->>>>>>> origin/aladin
             </p>
             <Button title={'Apply For a Farm/Pool'} type={'blue'} className={styles.applyButton} />
           </div>
@@ -144,13 +104,6 @@ const CommunityAuctions = props => {
           <QuestionMarkIcon />
         </div>
         <div className={styles.auction__noticeInner}>
-<<<<<<< HEAD
-          <h1>Notice</h1>
-          <p>
-            This page is a functional page, for projects to bid for farms. If you&#x2019;re not a whitelisted project,
-            you won&#x2019;t be able to participate, but you can still view the auction bids in real time! Connect a
-            whitelisted project wallet to participate in Auctions.
-=======
           <p>Notice</p>
           <div>
             <p>
@@ -160,7 +113,6 @@ const CommunityAuctions = props => {
           </div>
           <p>
             Connect a whitelisted project wallet to participate in Auctions.
->>>>>>> origin/aladin
           </p>
         </div>
       </div>
@@ -206,18 +158,6 @@ const CommunityAuctions = props => {
       <div className={styles.auction__burnedContainer}>
         <div className={styles.auction__burnedInner}>
           <div>
-<<<<<<< HEAD
-            <h2 className='font_51'>
-              699,580 CATENA <span className='font_51'>BURNED</span>
-            </h2>
-            <p className='font_30'>through community auctions so far!</p>
-            <p className='font_20'>~$2,227,764</p>
-          </div>
-          <div>
-            <div className={styles.logo__stars}>
-              <Image layout='fill' objectFit='contain' src={'/images/earn/logoStars.png'} quality={100} alt='' />
-            </div>
-=======
             <h2 className='font-40'>
               699,580 CATENA <span className='font-40'>BURNED</span>
             </h2>
@@ -232,25 +172,10 @@ const CommunityAuctions = props => {
               <path fillRule="evenodd" clipRule="evenodd" d="M130.721 45.2321C125.399 30.7415 115.041 18.5704 101.478 10.8721C87.9161 3.17374 72.0241 0.444427 56.6139 3.16699C41.2038 5.88955 27.2688 13.8885 17.2744 25.7487C7.27997 37.6088 1.87031 52.5657 2.00251 67.9731C1.86635 83.382 7.2732 98.3416 17.2663 110.205C27.2594 122.068 41.1945 130.07 56.6058 132.794C72.017 135.519 87.9109 132.791 101.475 125.093C115.039 117.394 125.398 105.222 130.721 90.7303C127.925 89.9159 125.31 88.591 123.013 86.8249C113.671 82.2767 96.8835 78.0499 80.5529 86.5035C76.3847 89.7892 71.1957 91.5652 65.8553 91.5339C59.4625 91.5339 53.3316 89.0346 48.8112 84.586C44.2908 80.1374 41.7513 74.1037 41.7513 67.8124C41.7513 61.5211 44.2908 55.4875 48.8112 51.0388C53.3316 46.5902 59.4625 44.091 65.8553 44.091C68.993 44.081 72.1004 44.6951 74.9909 45.8965C77.8814 47.0979 80.4954 48.8617 82.6759 51.0821C91.8211 56.1124 105.963 59.8571 119.583 52.0464C122.55 48.7655 126.418 46.399 130.721 45.2321Z" stroke="#A6D0DD" strokeWidth="4" strokeMiterlimit="10" />
             </svg>
 
->>>>>>> origin/aladin
           </div>
         </div>
       </div>
       <aside className={styles.FAQSection}>
-<<<<<<< HEAD
-        <div className={styles.clouds}>
-          <Image layout='fill' objectFit='contain' src={'/images/earn/clouds.png'} quality={100} alt='' />
-        </div>
-        <div className={styles.FAQTitleWrapper}>
-          <h2 className={styles.FAQTitle}>Frequently Asked Questions</h2>
-        </div>
-        <div className={styles.FAQWrapper}>
-          <h2 className={styles.FAQTitleRight}>How does it work?</h2>
-          <CommunityAuctionsFAQ />
-        </div>
-      </aside>
-    </main>
-=======
         <div className={styles.FAQTitleWrapper}>
           <h2 className={`font-40 ttl ${styles.FAQTitle}`}>Frequently Asked Questions</h2>
         </div>
@@ -260,7 +185,6 @@ const CommunityAuctions = props => {
         </div>
       </aside>
     </main >
->>>>>>> origin/aladin
   );
 };
 
