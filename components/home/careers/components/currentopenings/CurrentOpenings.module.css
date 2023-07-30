@@ -4,23 +4,9 @@
 }
 
 .font__51 {
-  font-size: 51px;
-  line-height: 66px;
   color: #162029;
   padding-left: 115px;
-  font-family: 'Lack-Regular' !important;
   margin-bottom: 50px;
-}
-
-.careerQualities li::after {
-  height: 8px;
-  width: 8px;
-  background: rgba(5, 0, 255, 1);
-  border-radius: 50%;
-  position: absolute;
-  left: 0px;
-  content: '';
-  top: 5px;
 }
 
 .careerQualities__openingTxt::after {
@@ -54,8 +40,6 @@
   display: flex;
   flex-direction: column;
   margin-bottom: 30px;
-  width: 50%;
-  /* justify-content: space-between; */
 }
 
 .careerQualities h2 {
@@ -66,6 +50,12 @@
   display: flex;
   flex-direction: column;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+@media (max-width: 1700px) {
+  .font__51 {
+    padding-left: 25px;
+  }
 }
 
 /*Ipad Pro 1024*/
@@ -101,16 +91,16 @@
   .careerQualities__openingTtl {
     width: 350px;
   }
+
+  .font__51 {
+    padding-left: 15px;
+  }
 }
 
 /*Ipad 768*/
 @media (max-width: 1023px) {
   .career_description {
     padding-top: 10px;
-  }
-
-  .careerQualities__openingTtl {
-    width: 250px;
   }
 }
 
@@ -137,13 +127,4 @@
     grid-template-columns: 1fr;
   }
 
-  .font__51 {
-    font-size: 40px;
-  }
-}
-
-@media (max-width: 1700px) {
-  .font__51 {
-    padding-left: 0;
-  }
 }

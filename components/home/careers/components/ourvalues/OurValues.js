@@ -6,7 +6,7 @@ const OurValues = props => {
     <div className={styles.career__valuesOuter}>
       <div className='container'>
         <div className={styles.career_head}>
-          <h2 className={styles.font__51}>{title}</h2>
+          <h2 className={`${styles.font__51} font-40 ttl`}>{title}</h2>
           <div className={styles.career_description}>
             <p>{description}</p>
           </div>

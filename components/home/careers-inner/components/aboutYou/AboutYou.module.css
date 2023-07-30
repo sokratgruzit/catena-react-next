@@ -8,31 +8,27 @@
   cursor: pointer;
   background-color: #ff6969;
   font-size: 18px;
-  color: #162029;
+  color: #80888f;
   z-index: 77;
   border: 1px solid #162029;
   border-radius: 30px;
   margin: 90px 0 60px 0;
 }
 
-.font__51 {
-  font-size: 51px;
-  line-height: 66px;
+.infoTitle {
   padding-left: 115px;
   margin: 40px 0 40px 0;
   color: #162029;
-  font-family: 'Lack-Regular' !important;
 }
 
 @media (max-width: 1700px) {
-  .font__51 {
-    padding-left: 0;
+  .infoTitle {
+    padding-left: 15px;
   }
 }
 
 @media (max-width: 767px) {
-  .font__51 {
+  .infoTitle {
     width: 100%;
-    font-size: 40px;
   }
 }

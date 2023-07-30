@@ -37,7 +37,7 @@ const OpenSearch = ({ title, department, location }) => {
             <div className={styles.openPositions__filterTtl}>{location}</div>
             <div className={styles.infoImport}>
               <Input
-                onClick={() => { console.log('rame') }}
+                onClick={(e) => { console.log(e.target) }}
                 type={"lable-input-select"}
                 icon={false}
                 // selectData={selectData}

@@ -5,7 +5,7 @@ import styles from './CareersCatena.module.css';
 const CareersCatena = () => {
   return (
     <div style={{ paddingTop: '150px' }} className='container'>
-      <h1 style={{ color: '#162029 !important', fontFamily: 'Lack-Regular !important' }} className='font-90'>
+      <h1 style={{ color: '#162029 !important'}} className='font-90 ttl'>
         Careers at
         <span className={styles.ttl_red}>CATENA</span>
       </h1>

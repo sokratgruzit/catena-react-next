@@ -5,9 +5,6 @@
 }
 
 .font__51 {
-  /* margin-top: 60px; */
-  font-family: 'Lack-Regular' !important;
-  font-size: 51px;
   line-height: 66px;
   color: #162029;
 }
@@ -52,6 +49,7 @@
 }
 
 .career_item .item_ttl {
+  color: #162029;
   position: relative;
   font-size: 20px;
   line-height: 30px;
@@ -118,10 +116,6 @@
   .career_head h2,
   .career_description {
     width: 100%;
-  }
-
-  .font__51 {
-    font-size: 40px;
   }
 }
 
