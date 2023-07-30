@@ -1,0 +1,126 @@
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.active {
+  background: #ffffff1c;
+  border-radius: 4px;
+  color: #ffffff;
+  transition: 0.3s;
+}
+.container {
+  position: relative;
+  width: 100%;
+  margin-top: 25px;
+}
+
+.votingNow__bar p:nth-child(2) {
+  opacity: 0.3;
+}
+.votingNow__category svg {
+  margin: 0px 5px -1px 0;
+}
+
+
+/* .marqueeContainer svg {
+  margin-right: 50px;
+}
+.marqueeContainer {
+  margin: 100px 0;
+}*/
+.filterWrap {
+  width: fit-content;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  width: 261px;
+  height: 44px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.filter {
+  display: flex;
+  justify-content: space-between;
+  width:100%;
+}
+.filter__item{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  line-height: 22px;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 0 14px;
+  margin: 0 3px;
+  height: 34px;
+  width: fit-content;
+  gap: 2px;
+}
+.filterActive {
+  background-color: rgba(255, 255, 255, 0.1)!important;
+}
+.frame__filterWrap{
+  margin: 10px auto;
+  padding: 0 10px;
+  width: fit-content;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  width: 261px;
+  height: 44px;
+}
+.frame__filter__item{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0 2px;
+  margin: 0 3px;
+  height: 34px;
+  width: fit-content;
+  color:rgba(255, 255, 255, 0.7);
+}
+.frame__filterActive {
+  border-bottom: 2px solid #FFF;
+  color: #FFF;
+}
+
+.gradient{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 310px;
+  height: 310px;
+  top: -80px;
+  z-index: -3;
+  background: radial-gradient(50% 50% at 50% 50%, #000F2E 0%, rgba(0, 5, 15, 0) 100%);
+}
+
+/*Laptop 1440*/
+@media (max-width: 1900px) {
+}
+/*Ipad Pro 1024*/
+@media (max-width: 1300px) {
+
+}
+/*Ipad 768*/
+@media (max-width: 1023px) {
+}
+/*Mobile 320*/
+@media (max-width: 767px) {
+}
+

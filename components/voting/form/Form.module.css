@@ -1,0 +1,305 @@
+.wrapper {
+  margin-top: 150px;
+  display: flex;
+  justify-content: center;
+}
+
+.backBtn {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-right: auto;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  width: 600px;
+  max-width: 100%;
+}
+
+.header svg {
+  margin-right: 7px;
+}
+
+.inner {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 600px;
+  background-color: rgba(255, 255, 255, 0.04);
+  position: relative;
+  margin-bottom: 150px;
+  max-width: 100%;
+}
+
+.ProposalForm {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 100%;
+}
+
+.ProposalForm h1 {
+  margin: 10px 0 30px 0;
+  font-size: 30px;
+  line-height: 42px;
+}
+
+.input {
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  width: 540px;
+  color: #ffffff;
+  padding-left: 15px;
+  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+  max-width: 100%;
+}
+
+.input:focus {
+  border-color: rgba(5, 0, 255, 1);
+}
+
+.title input {
+  height: 44px;
+}
+
+.title h2 {
+  margin-bottom: 8px;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.title {
+  margin-bottom: 24px;
+}
+
+.content h3 {
+  font-size: 12px;
+  line-height: 16px;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.02em;
+}
+
+.tip {
+  margin-bottom: 8px;
+  margin-top: 3px;
+  font-size: 10px;
+  line-height: 16px;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.bottomBorder {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin: 50px auto 40px auto;
+  display: flex;
+  width: 100%;
+}
+
+.choices h3:first-child {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.02em;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+}
+
+.actionsWrap {
+  display: flex;
+  gap: 20px;
+}
+
+.actionsWrap input {
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  width: 255px;
+  height: 44px;
+  padding: 16px 0 16px 14px;
+  margin-top: 8px;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.actionsWrap p {
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.actions h3 {
+  margin: 0 0 38px 0;
+  line-height: 16px;
+}
+
+.marginTop {
+  margin-top: 25px;
+}
+
+.snapShot {
+  margin: 26px 0;
+  display: flex;
+  align-items: center;
+}
+
+.snapShot p {
+  opacity: 1;
+  margin-right: 15px;
+  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+}
+
+.snapShot svg {
+  margin-left: 7px;
+  cursor: pointer;
+}
+
+.snapShot a {
+  color: rgba(5, 0, 255, 1);
+  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+}
+
+.backBtn p {
+  color: #ff7152;
+  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+}
+
+.arrowSvg {
+  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+  fill: #ff7152;
+}
+
+.backBtn:hover p {
+  color: #0500ff;
+}
+
+.backBtn:hover .arrowSvg {
+  fill: #0500ff;
+}
+
+.openLink {
+  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+  display: flex;
+  align-items: center;
+}
+
+.openLink:hover {
+  color: #ff7152;
+}
+
+.openLink:hover .openSvg {
+  fill: #ff7152;
+}
+
+.openSvg {
+  width: 12.75px;
+  height: 13px;
+  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+}
+
+.connectWallet {
+  width: 250px;
+  height: 42px;
+}
+
+.publishButton {
+  width: 250px;
+  height: 42px;
+  background-color: #0500ff;
+  border: 1px solid #0500ff;
+  border-radius: 4px;
+  transition: 0.5s;
+}
+
+.publishButton:hover {
+  background-color: transparent;
+}
+
+.addChoice {
+  width: 122px;
+  height: 36px;
+  margin-top: 16px;
+}
+
+.galaxy {
+  position: absolute;
+  right: 0;
+  width: 311px;
+  height: 412px;
+  z-index: -1;
+}
+
+.roundGalaxy {
+  position: absolute;
+  left: 150px;
+  width: 423px;
+  height: 389.7px;
+  top: 700px;
+  z-index: -1;
+}
+
+.gradient {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 740px;
+  height: 740px;
+  top: 50px;
+  z-index: -10;
+  background: radial-gradient(50% 50% at 50% 50%, #000f2e 0%, rgba(0, 5, 15, 0) 100%);
+}
+
+.publishButton:disabled {
+  opacity: 0.3;
+  background-color: #000000;
+  border-color: #ffffff;
+  cursor: not-allowed;
+}
+
+.formErrorsText {
+  font-size: 12px;
+  line-height: 16px;
+  color: #e94a4a;
+  margin-top: 8px;
+}
+
+/*Laptop 1440*/
+@media (max-width: 1900px) {
+}
+
+/*Ipad Pro 1024*/
+@media (max-width: 1300px) {
+  .galaxy {
+    display: none;
+  }
+
+  .roundGalaxy {
+    display: none;
+  }
+}
+
+/*Ipad 768*/
+@media (max-width: 1023px) {
+}
+
+/*Mobile 320*/
+@media (max-width: 667px) {
+  .actionsWrap {
+    flex-direction: column;
+  }
+
+  .actionsWrap input {
+    width: 100%;
+  }
+}

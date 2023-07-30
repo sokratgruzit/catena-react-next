@@ -1,0 +1,147 @@
+.alignteItems {
+    text-align: center;
+    margin-top: 150px;
+}
+.border {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    width: 51.5%;
+}
+.tab {
+    position: relative;
+    text-align: center;
+    padding: 20px;
+}
+.imgBlur {
+    position: absolute;
+    left: 0;
+    top: 160%;
+    z-index: -1;
+    width: 100vw;
+    height: 100vw;
+}
+.title {
+    font-size: 30px;
+}
+.time {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0 50px 0;
+    gap: 20px;
+    font-size: 30px;
+}
+.time span{
+    font-size: 20px;
+    color: #FF7152;
+}
+.day {
+    display: flex;
+    gap: 320px;
+    border-bottom: 1px solid #ffffff10;
+}
+.day h4 {
+    padding-bottom: 20px ;
+    font-size: 16px;
+}
+.day p {
+    font-size: 13px;
+}
+.price {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+}
+.pirceCore h3 {
+    font-size: 30px;
+    color: #FF7152;
+}
+.pirceCore p {
+    text-align: right;
+    font-size: 13px;
+    opacity: 0.7; 
+}
+.buyTickets {
+    display: flex;
+    justify-content: space-between;
+    margin: 30px 0 50px 0;
+}
+.buyTickets button {
+    border: 1px solid #0500FF;
+    border-radius: 4px;
+    padding: 10px 80px;
+}
+.details {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.details p {
+    color: #0500FF;
+    transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+    padding-right: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.paragraph p {
+    text-align: left;
+    font-size: 13px;
+    opacity: 0.7;
+    border-top: 1px solid rgba(255, 253, 253, 0.1);
+    padding: 20px 0;
+}
+.list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    text-align: left;
+}
+.titlePar {
+    font-size: 13px;
+    color: #FF7152;
+}
+.priceCore {
+    font-size: 12px;
+    opacity: 0.7;
+}
+.vectorSvg{
+    transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+    stroke: #0500FF;
+    margin-left: 5px;
+}
+.rotate {
+    transform: rotateZ(-180deg);
+}
+.tabBorder {
+    max-height: 0;
+    overflow: hidden;
+}
+.containerOpacity {
+    opacity: 1;
+    max-height: 665px;
+} 
+.contentOpacity {
+    display: none;
+}
+@media (max-width: 1023px) {
+    .imgBlur {
+        top: 130%;
+    }
+}
+@media (max-width: 767px) {
+    .tab {
+        width: 380px;
+    }
+    .day {
+        display: flex;
+        gap: 37px;
+        border-bottom: 1px solid #ffffff10;
+    }
+    .buyTickets button {
+        border: 1px solid #0500FF;
+        border-radius: 4px;
+        padding: 10px 60px;
+    }
+} 

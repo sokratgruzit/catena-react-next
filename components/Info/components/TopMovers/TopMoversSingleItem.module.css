@@ -1,0 +1,48 @@
+.wrapper{
+  width: 230px;
+  height: 100px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 4px;
+  padding:10px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.title{
+  display: flex;
+  margin-top: 10px;
+  margin-left: 25px;
+}
+
+.logo{
+  width: 25px;
+  height: 25px;
+  margin-right: 5px;
+}
+
+.prices{
+  display: flex;
+  margin: auto;
+  width: fit-content;
+  margin-top: 10px;
+}
+
+.price_change{
+  padding-left: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.PositiveNum{
+  color: #29765A;
+  margin-left: 3px;
+}
+
+.NegativeNum{
+  color: #E94A4A;
+  margin-left: 3px;
+
+}

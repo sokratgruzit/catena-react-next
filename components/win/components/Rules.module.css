@@ -1,0 +1,152 @@
+.Rules__background {
+  position: absolute;
+  bottom: -400%;
+  left: 0;
+  z-index: -1;
+  padding-top: 100%;
+  width: 100%;
+}
+.rulesIcones {
+  margin-top: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+}
+.rulsClock {
+  position: relative;
+  padding-top: 5%;
+  width: 5%;
+}
+.rulesIcones img {
+  margin: 0 10px;
+}
+.rulesTitle h3 {
+  margin-bottom: 80px;
+  font-size: 30px;
+  line-height: 42px;
+  text-align: center;
+}
+.faqCompetition {
+  padding: 0 40px;
+}
+.rulesDescription {
+  display: flex;
+  gap: 100px;
+  padding: 0 40px;
+}
+.rulesDescription div {
+  margin-top: 3%;
+  width: 100%;
+}
+.rulesDescription h4 {
+  margin-bottom: 10px;
+  font-size: 16px;
+  line-height: 24px;
+  color: #ff7152;
+}
+.rulesDescription p {
+  font-size: 13px;
+  line-height: 18px;
+  color: #ffffff;
+  opacity: 0.7;
+}
+.runningLine {
+  margin: 200px 0;
+}
+/* Finished Rules Styless  */
+.everyone {
+  margin-top: 10px;
+}
+.finishedRules {
+  position: relative;
+}
+.planetFinish {
+  position: absolute;
+  margin-bottom: 3%;
+  left: 65%;
+  top: 70%;
+  padding-top: 5%;
+  width: 5%;
+}
+.asteroidFinish {
+  position: absolute;
+  left: 24%;
+  top: 80%;
+  padding-top: 5%;
+  width: 5%;
+}
+.spaceShipMeteorFinish {
+  position: absolute;
+  left: 35%;
+  margin-top: -5%;
+  padding-top: 15%;
+  width: 15%;
+}
+/* responsive */
+
+/*Ipad Pro 1024*/
+@media (max-width: 1300px) {
+  .Rules__background {
+    position: absolute;
+    top: 60%;
+    left: 0;
+    z-index: -1;
+  }
+  .rulesDescription {
+    display: flex;
+    justify-content: space-between;
+  }
+  .asteroidFinish {
+    position: absolute;
+    left: 23%;
+    top: 82%;
+  }
+  .planetFinish {
+    position: absolute;
+    margin-bottom: 3%;
+    left: 73%;
+    top: 70%;
+  }
+  .spaceShipMeteorFinish {
+    position: absolute;
+    left: 35%;
+    margin-top: -15%;
+  }
+}
+/*Ipad 768*/
+@media (max-width: 1023px) {
+
+  .rulesDescription div {
+    margin-top: 5%;
+  }
+  .rulesDescription {
+    display: flex;
+    gap: 10px;
+    padding: 0 40px;
+  }
+  .lines {
+    margin: 0 20px;
+  }
+
+}
+/*Mobile 320*/
+@media (max-width: 767px) {
+  .Rules__background {
+    display: none;
+  }
+  .rulesDescription div {
+    margin-top: 5%;
+    width: 100%;
+  }
+  .rulesDescription {
+    display: block;
+  }
+  .rulesDescription span {
+    display: none;
+  }
+  .spaceShipMeteorFinish {
+    position: absolute;
+    left: 25%;
+    margin-top: -100px;
+  }
+}

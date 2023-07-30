@@ -1,0 +1,50 @@
+.expandContent{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    max-height: 0;
+    overflow: hidden;
+    transition: .4s ease-in-out;
+}
+
+.buttonWrapper{
+    display: flex;
+    align-items: center;
+}
+
+.expandButton{
+    transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+}
+
+.expandTableRow{
+    height: fit-content;
+    max-height: 500px;
+}
+
+.vectorSvg{
+    transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+    margin-left: 4px;
+}
+
+.rotate{
+    transform: rotateZ(-180deg);
+    stroke: #ff7152;
+}
+
+.buttonActive{
+    color: #ff7152;
+}
+
+/*Laptop 1440*/
+@media (max-width: 1900px) {
+}
+/*Ipad Pro 1024*/
+@media (max-width: 1300px) {
+
+}
+/*Ipad 768*/
+@media (max-width: 1023px) {
+}
+/*Mobile 320*/
+@media (max-width: 767px) {
+}

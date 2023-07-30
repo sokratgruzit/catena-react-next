@@ -1,0 +1,213 @@
+.container{
+  position: relative;
+  height: fit-content;
+  min-height: 783px;
+  max-height: 1042.5px;
+  display: flex;
+  align-items: center;
+}
+
+.BlackHoleBg{
+  position: absolute;
+  width: 1168px;
+  height: 783px;
+  left: -40px;
+  z-index: -3;
+}
+
+.clouds{
+  position: absolute;
+  width: 100vw;
+  max-width: 1920px;
+  height: calc(100vw * 0.543);
+  min-height: 783px;
+  max-height: 1042.5px;
+  top:0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: -1;
+}
+
+.rocketmanSection{
+  width: fit-content;
+  padding-left: 100px;
+  height: max-content;
+  width: 55%;
+  min-width: 55%;
+}
+
+.tradeSection{
+  width: 50%;
+}
+.rocketman{
+  position: relative;
+  width: 414.7px;
+  height:580px;
+  justify-self: center;
+  margin-top: -80px;
+}
+
+.tradeNow{
+  width: 200px;
+  height: 42px;
+  max-width: 100%;
+}
+
+.tradeNow a{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 42px;
+  font-size: 16px;
+  line-height: 22px;
+  max-width: 100%;
+}
+
+.buttonWrapper{
+  display: flex;
+  gap: 50px;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+.buttonWrapper a:nth-child(2){
+  display: flex;
+  align-items: center;
+  text-decoration: underline;
+  transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+}
+
+.buttonWrapper a:nth-child(2):hover{
+  color: #FF7152;
+}
+
+.tradeSection{
+  height: fit-content;
+  width: 680px;
+  max-width: 100%;
+  align-self: center;
+  margin-left: auto;
+}
+
+.tradeSection p{
+  margin-top: 32px;
+  margin-bottom: 50px;
+}
+
+.tradeSection h2{
+  font-size: 51px;
+  line-height: 66px;
+}
+
+.tradeSection h2 span{
+  font-size: inherit;
+  line-height: inherit;
+  color: #FF7152;
+}
+
+@media (min-width:1900px) {
+  .BlackHoleBg{
+    left: -200px;
+  }
+  .rocketman{
+    margin-left: -50px;
+  }
+  .rocketmanSection{
+    padding-left: 0;
+  }
+}
+@media (max-width: 1300px) {
+  .BlackHoleBg{
+    left: -25px;
+  }
+  .tradeSection{
+    width: 45%;
+  }
+}
+
+@media (max-width: 1100px) {
+  .rocketmanSection{
+    padding-left: 60px;
+  }
+}
+@media (max-width: 1023px) {
+  .rocketman{
+    width: 316.05px;
+    height: calc(100vw * 0.57 );
+  }
+  .rocketmanSection{
+    padding-left: 5%;
+  }
+  .BlackHoleBg{
+    width: 100vw;
+    height: calc(100vw * 0.67);
+    min-width: 600px;
+  }
+  .tradeSection h2{
+    font-size: 34px;
+    line-height: 54px;
+  }
+  .tradeSection{
+    width: 462px;
+  }
+}
+
+@media (max-width: 876px) {
+  .tradeSection{
+    margin-left: auto;
+  }
+}
+
+@media (max-width:800px) {
+  .container{
+    flex-direction: column;
+  }
+  .BlackHoleBg{
+    width: 100vw;
+    height: calc(100vw * 1.115);
+    min-width: 100vw;
+  }
+  .clouds{
+    width: 100vw;
+    height: calc(100vw * 1.115);
+    min-width: 100vw;
+    min-height: 0px;
+  }
+  .rocketmanSection{
+    padding-top: 30%;
+    margin-bottom: 50px;
+    padding-left: 0px;
+  }
+  .rocketman{
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: -50px;
+  }
+  .tradeSection{
+    margin-left: 0;
+  }
+  .tradeSection h2{
+    text-align: center;
+  }
+  .tradeSection p{
+    text-align: center;
+  }
+  .buttonWrapper{
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+}
+
+@media (max-width: 767px) {
+  .BlackHoleBg{
+    left: -15px;
+  }
+}
+
+@media (max-width:400px) {
+  .rocketman{
+    margin-top: -20px;
+  }
+}

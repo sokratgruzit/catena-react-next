@@ -1,0 +1,8 @@
+.TableRow__titles p:last-child {
+  font-size: 12px;
+  opacity: 0.3;
+}
+.TableRow__titles span {
+  color: #ff7152;
+  padding-right: 7px;
+}

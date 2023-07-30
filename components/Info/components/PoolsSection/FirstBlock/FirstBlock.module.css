@@ -1,0 +1,71 @@
+.firstBlock{
+  width: 433px;
+  height: 304px;
+  padding: 20px;
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+}
+
+
+.poolsTopRow{
+  display: flex;
+  justify-content: space-between;
+}
+
+.firstBlock h4 {
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 18px;
+  color: #627EEA;
+}
+
+.poolsTopRow div:nth-child(2){
+  margin-right: 50px;
+}
+.totalTokens{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 393px;
+  height: 104px;
+  position: relative;
+}
+
+.totalTokensRow{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left:20px;
+  padding-right: 20px;
+}
+.totalTokensRow div:nth-child(1){
+  display: flex;
+  margin: 5px;
+}
+.totalTokensRow div:nth-child(1) p:nth-child(2){
+  margin-left: 10px;
+}
+
+.totalTokensTitle{
+  margin-bottom: 18px;
+}
+
+
+
+@media (max-width: 1200px) {
+  .firstBlock{
+    max-width: 35vw;
+  }
+  .totalTokens{
+    max-width: 100%;
+  }
+}
+
+@media(max-width:896px){
+  .firstBlock{
+    max-width: none;
+  }
+}

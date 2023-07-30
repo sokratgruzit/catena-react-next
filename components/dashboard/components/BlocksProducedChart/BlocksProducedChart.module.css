@@ -1,0 +1,38 @@
+.blocksProducedChart {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  max-width: 100%;
+  padding: 20px 0 20px 20px;
+}
+
+.blocksProducedWrap {
+  width: 100%;
+  height: 330px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(50px);
+  border-radius: 12px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 10px;
+}
+
+.header span {
+  color: rgba(255, 255, 255, 0.4);
+  margin-left: 5px;
+}
+
+.chartDataType {
+  font-size: 12px;
+  line-height: 14px;
+  text-align: right;
+  text-transform: capitalize;
+  color: #0500ff;
+  cursor: pointer;
+}

@@ -1,0 +1,15 @@
+{
+    "top_menu": {
+        "lang": {
+            "default": "FR",
+            "en": "EN",
+            "fr": "FR",
+            "ge": "GE"
+        },
+        "trade": "Trade fr",
+        "earn": "Earn fr",
+        "win": "Win fr",
+        "nft": "NFT fr",
+        "more": "More fr"
+    }
+}

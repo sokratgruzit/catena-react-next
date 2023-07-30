@@ -1,0 +1,89 @@
+.listWrapper {
+  padding-top: 55px;
+  display: flex;
+  flex-direction: column;
+  gap: 34px;
+  padding-bottom: 130px;
+  margin-right: 0;
+  margin-left: auto;
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.content {
+  display: flex;
+}
+
+.content p span {
+  text-transform: uppercase;
+}
+.title {
+  display: flex;
+}
+
+.listWrapper .title p {
+  position: relative;
+  padding-right: 11px;
+  -webkit-text-stroke: 1px #162029;
+  color: #a6d0dd;
+}
+
+.listWrapper .title p::after {
+  content: '';
+  position: absolute;
+  top: 32px;
+  background-color: #a6d0dd;
+  border-radius: 50%;
+  width: 5px;
+  height: 5px;
+  border: 1px solid #162029;
+}
+
+.listWrapper .text {
+  color: #162029;
+  padding-top: 21px;
+}
+.secondaryTitle {
+  display: flex;
+  align-items: center;
+}
+.secondaryTitle .numbering {
+  position: relative;
+  -webkit-text-stroke: 1px #162029;
+  color: #a6d0dd;
+  display: flex;
+  gap: 6px;
+  padding-right: 10px;
+}
+
+.secondaryTitle {
+  padding-top: 34px;
+}
+
+.children .teaser {
+  padding: 21px 0;
+}
+
+.innerContent {
+  padding-left: 40px;
+}
+.listWrapper .children .innerContent ul {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  padding-left: 18px;
+}
+.listWrapper .children .innerContent ul li {
+  position: relative;
+  display: flex;
+  gap: 10px;
+  padding-right: 10px;
+}
+@media (max-width: 767px) {
+  .listWrapper {
+    padding-top: 30px;
+  }
+}

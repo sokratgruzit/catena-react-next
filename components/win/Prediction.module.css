@@ -1,0 +1,589 @@
+.maincContent {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+  padding: 0 40px;
+}
+.cmcxusdContainer {
+  display: flex;
+}
+.PredictionBlur__background {
+  position: relative;
+  top: 45%;
+  left: 40%;
+  z-index: -1;
+}
+.cmcxBlur {
+  display: flex;
+  gap: 15px;
+  position: absolute;
+  top: 30%;
+  left: 18%;
+}
+.cmcxBlur p {
+  opacity: 0.5;
+}
+.cmcxCoin {
+  position: absolute;
+  top: -70%;
+  left: -7%;
+}
+.timerBlur {
+  position: relative;
+  top: 45%;
+  left: -10%;
+  z-index: -1;
+}
+.time {
+  position: absolute;
+  top: -60%;
+  left: 70%;
+}
+.timer {
+  display: flex;
+  gap: 10px;
+  position: absolute;
+  top: 22%;
+  left: 20%;
+}
+.timer p {
+  font-size: 15px;
+  color: #ff7152;
+}
+.timer span {
+  font-size: 13px;
+  opacity: 0.7;
+}
+.sliderMainConteiner {
+  position: relative;
+  margin-top: 50px;
+  border: 1px solid #1118269a;
+}
+.title {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 20px 0 20px;
+  border-bottom: 1px solid #1118269a;
+}
+.title div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 10px;
+  border-bottom: 3px solid #ff7152;
+  width: 50%;
+  text-transform: capitalize;
+}
+.activLive {
+  color: #ff7152;
+}
+.titlePBorder {
+  opacity: 0.5;
+  text-align: right;
+}
+.upPrice {
+  margin: 30px 0;
+}
+.upPrice div {
+  display: flex;
+  justify-content: center;
+}
+.upPrice div p {
+  font-size: 18px;
+  line-height: 25px;
+  text-align: center;
+  color: #66bb6a;
+  box-shadow: 10px 10px 80px 20px rgb(40, 155, 75);
+}
+.upPrice p {
+  text-align: center;
+  font-size: 13px;
+}
+.lastPrice {
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #66bb6a;
+  border-radius: 4px;
+  width: 80%;
+}
+.lastPrice h4 {
+  font-size: 13px;
+  line-height: 18px;
+  opacity: 0.7;
+}
+.widtBorder h2 {
+  margin: 25px 0;
+  font-size: 20px;
+  line-height: 21px;
+  color: #66bb6a;
+}
+.widtBorder h3 {
+  font-size: 15px;
+  line-height: 21px;
+  color: #ffffff;
+  opacity: 0.7;
+}
+.leftSide h3 {
+  font-size: 15px;
+  line-height: 21px;
+  text-align: right;
+  opacity: 0.7;
+}
+.border {
+  display: flex;
+  justify-content: space-between;
+}
+.priceUP {
+  display: flex;
+  padding: 7px 10px;
+  align-items: center;
+  border: 0 solid #66bb6a;
+  background: #66bb6a;
+  border-radius: 4px;
+}
+.mainPrice {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 0;
+  align-items: center;
+}
+.mainPrice h2 {
+  font-size: 20px;
+  line-height: 21px;
+  color: #66bb6a;
+}
+.priceDownContainer {
+  margin: 30px 0;
+  text-align: center;
+}
+.priceDownContainer p {
+  font-size: 13px;
+  opacity: 0.3;
+}
+.priceDown {
+  display: flex;
+  justify-content: center;
+}
+.priceDown svg {
+  opacity: 0.3;
+  color: #e94a4a;
+}
+.priceDown p {
+  font-size: 18px;
+  line-height: 25px;
+  text-align: center;
+  color: #e94a4a;
+  opacity: 0.3;
+}
+/* Expierd styles */
+.sliderMainConteinerExpierd {
+  position: relative;
+  margin-top: 50px;
+  opacity: 0.5;
+  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+}
+.sliderMainConteinerExpierd:hover {
+  opacity: 1;
+}
+.lastPriceExpierd {
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #e94a4a;
+  border-radius: 4px;
+  width: 80%;
+}
+.priceUpExpierd {
+  display: flex;
+  padding: 4.5px 10px;
+  align-items: center;
+  border: 0 solid #66bb6a;
+  background: #e94a4a;
+  border-radius: 4px;
+}
+.mainPriceExpierd {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 0;
+  align-items: center;
+}
+.mainPriceExpierd h2 {
+  font-size: 20px;
+  line-height: 21px;
+  color: #e94a4a;
+}
+.priceDownExpierd {
+  display: flex;
+  justify-content: center;
+}
+.priceDownExpierd svg {
+  opacity: 0.3;
+}
+.priceDownExpierd p {
+  font-size: 18px;
+  line-height: 25px;
+  text-align: center;
+  color: #e94a4a;
+  opacity: 0.3;
+}
+.wtf {
+  box-shadow: 10px 10px 80px 20px red;
+  margin-bottom: 30px;
+}
+.titleExpierd {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 20px 0 20px;
+  border-bottom: 1px solid #1118269a;
+}
+.titleExpierd div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 10px;
+  width: 50%;
+  text-transform: capitalize;
+}
+.titlePBorderExpierd {
+  opacity: 0.5;
+}
+.upPriceExpierd {
+  margin: 31px 0;
+}
+.upPriceExpierd div {
+  display: flex;
+  justify-content: center;
+}
+.upPriceExpierd div p {
+  font-size: 18px;
+  line-height: 25px;
+  text-align: center;
+  color: #66bb6a;
+}
+.upPriceExpierd p {
+  text-align: center;
+  font-size: 13px;
+}
+/* End Expierd styles */
+
+/*  start Next styles */
+.lastPriceNextBorder {
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  width: 80%;
+}
+.lastPriceNext {
+  display: flex;
+  justify-content: space-between;
+}
+.activNext {
+  color: #0500ff;
+}
+.enterBottom {
+  margin: 15px auto;
+  display: block;
+  text-align: center;
+  background: #66bb6a;
+  padding: 3% 0;
+  width: 100%;
+  border-radius: 4px;
+  font-size: 15px;
+}
+.downBottom {
+  margin: auto;
+  margin-top: 10px;
+  display: block;
+  text-align: center;
+  background: #e94a4a;
+  padding: 3% 0;
+  width: 100%;
+  border-radius: 4px;
+  font-size: 15px;
+}
+.titleNext {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #1118269a;
+  padding: 20px 20px 10px 20px;
+}
+.titleNext div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-transform: capitalize;
+}
+.titlePBorderNext {
+  opacity: 0.5;
+  text-align: right;
+}
+.upPriceNext {
+  margin: 30px 0 30px 0;
+}
+.upPriceNext div {
+  display: flex;
+  justify-content: center;
+}
+.upPriceNext div p {
+  font-size: 18px;
+  line-height: 25px;
+  text-align: center;
+  color: #66bb6a;
+}
+.upPriceNext p {
+  text-align: center;
+  font-size: 13px;
+}
+/* End Next styles */
+
+/* Start Later styles */
+.sliderMainContainer {
+  position: relative;
+  margin-top: 50px;
+}
+.laterBorderContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #1118269a;
+  padding: 20px 20px 10px 20px;
+}
+.laterBorder {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+.upLater {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  margin: 40px 0;
+  opacity: 0.3;
+}
+.upLater p {
+  font-size: 18px;
+  line-height: 25px;
+  text-align: center;
+  color: #ffffff;
+  opacity: 1;
+}
+.entryStarts {
+  text-align: center;
+  border: 1px solid #1118269a;
+  margin: 0 20px;
+  padding: 65px 0;
+  border-radius: 4px;
+}
+.entryStartsTitle {
+  font-size: 15px;
+  opacity: 0.7;
+}
+.downLater {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  margin-bottom: 34px;
+  align-items: center;
+  opacity: 0.3;
+}
+.downLater p {
+  font-size: 18px;
+  opacity: 0.7;
+  margin-bottom: 35px;
+}
+/* tabFilter */
+.tab {
+  position: relative;
+  margin: auto;
+  z-index: 20;
+}
+.borderTab {
+  display: flex;
+  margin-top: 160px;
+}
+/* price up & price down buttons */
+.borderDecor {
+  display: flex;
+  position: absolute;
+  top: 150%;
+  left: 50%;
+  background: black;
+  z-index: 50;
+}
+.positionBt {
+  display: flex;
+}
+.positionBt svg {
+  cursor: pointer;
+  margin-right: 10px;
+}
+.bottomBorder {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 40px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.167);
+}
+.upButton {
+  display: flex;
+  -webkit-appearance: none;
+  padding: 8px;
+  border-radius: 4px;
+  background: #66bb6a;
+  align-items: center;
+}
+.wtpakk {
+  display: flex;
+  padding: 8px;
+  border-radius: 4px;
+  background: #e94a4a;
+  align-items: center;
+}
+.wtpakk svg {
+  margin-right: 10px;
+  transform: rotateX(180deg);
+}
+.commitText {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.commitSection {
+  padding: 40px;
+  text-align: center;
+}
+.cmcxPrice input {
+  outline: none;
+  background: none;
+  padding-left: 260px;
+  width: 100%;
+  height: 42px;
+  border: 1px solid #4f4793;
+  border-radius: 4px;
+}
+.bottomSection {
+  position: relative;
+  left: 14%;
+}
+.bottomSection button {
+  position: relative;
+  right: 10%;
+  border: 1px solid #cccccc30;
+  color: #cccccc30;
+  border-radius: 4px;
+  padding: 5px;
+  margin-right: 15px;
+}
+.bottomSection button:hover {
+  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+  background-color: #0500ff;
+  color: white;
+  border: none;
+}
+.range {
+  margin: 25px 0 25px 0;
+}
+.walet {
+  margin: 25px 0 25px 0;
+  background: #e94a4a;
+  padding: 10px 70px;
+  border-radius: 4px;
+}
+.btnsAction {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: 5;
+  transition: 0.150s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+  opacity: 0;
+  pointer-events: none;
+}
+.btnsActionActive {
+  pointer-events: all;
+  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+  opacity: 1;
+}
+.containerOpacity {
+  opacity: 0;
+}
+/* down bt */
+.btnsActionDwn {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: 5;
+  transition: 0.150s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+  opacity: 0;
+  pointer-events: none;
+}
+.btnsActionActiveDwn {
+  pointer-events: all;
+  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+  opacity: 1;
+}
+ .downButton {
+  display: flex;
+  -webkit-appearance: none;
+  padding: 8px;
+  border-radius: 4px;
+  background: #e94a4a;
+  align-items: center;
+}
+.wtpakk1 {
+  display: flex;
+  padding: 8px;
+  border-radius: 4px;
+  background: #66bb6a;
+  align-items: center;
+}
+.wtpakk1 svg {
+  margin-right: 10px;
+  transform: rotateX(-180deg);
+}
+/* responsive */
+@media (max-width: 767px) {
+  .maincContent {
+    padding: 0 15px;
+  }
+  .PredictionBlur__background {
+    position: relative;
+    top: 45%;
+    left: 10%;
+    z-index: -1;
+    width: 50%;
+  }
+  .cmcxCoin {
+    position: absolute;
+    top: -70%;
+    left: -7%;
+    width: 30%;
+  }
+  .cmcxBlur {
+    display: flex;
+    grid-gap: 15px;
+    gap: 10px;
+    position: absolute;
+    top: 12%;
+    left: 14%;
+  }
+  .cmcxBlur h4 {
+    font-size: 13px;
+  }
+  .cmcxBlur p {
+    font-size: 13px;
+  }
+  .time {
+    width: 40px;
+  }
+  .blur {
+    width: 100px;
+  }
+}
+
+.swiperTest{
+  width: 100vw;
+  max-width: 1920px;
+  margin: auto;
+  
+}

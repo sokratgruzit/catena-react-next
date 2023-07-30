@@ -1,0 +1,148 @@
+.currentRankingContainer {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: 220px;
+  height: 238px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(50px);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.topCorner {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 110px;
+  height: 148px;
+  background: linear-gradient(
+    111.99deg,
+    #9d6903 0%,
+    #bd5b23 0.01%,
+    rgba(49, 37, 180, 0) 100%
+  );
+  filter: blur(60px);
+  border-radius: 12px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 50px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.rankingBody {
+  padding-top: 20px;
+}
+
+.votingPowerTitle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.votingPowerTitle h3 {
+  font-size: 12px;
+  line-height: 14px;
+}
+
+.votingProgressWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+  padding-top: 30px;
+}
+
+.progressBarPoints {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.progressBarPoints p {
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.progressBar {
+  display: flex;
+  width: 100%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 32px;
+}
+
+.progress {
+  display: flex;
+  height: 4px;
+  background: #0500ff;
+  border-radius: 32px;
+}
+
+.rankingShow {
+  display: flex;
+  align-items: center;
+}
+
+.rankingShow svg {
+  margin-left: -10px;
+}
+
+@media (max-width: 1300px) {
+  .currentRankingContainer {
+    flex-direction: row;
+    max-width: 440px;
+    width: 100%;
+    height: 156px;
+    align-items: flex-start;
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 30px;
+  }
+  .rankingBody {
+    padding: 0;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+  .votingProgressWrap {
+    padding: 0;
+  }
+  .header {
+    border: none;
+    height: 91.05px;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 15px;
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+    padding-right: 10px;
+    font-size: 12px;
+  }
+  .header h3 {
+    font-size: 10px;
+  }
+  .votingPowerTitle {
+    gap: 10px;
+  }
+  .rankingBody h3 {
+    font-size: 10px;
+  }
+  .rankingBody h2 {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 667px) {
+  .currentRankingContainer {
+    max-width: 100%;
+  }
+}

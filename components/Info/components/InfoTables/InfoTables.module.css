@@ -1,0 +1,142 @@
+.Table__wrapper{
+  box-sizing: border-box;
+  position: relative;
+  padding-bottom: 20px;
+}
+
+.section{
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+.Table__buttons{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  width: fit-content;
+  margin-bottom: 20px;
+}
+
+.activePageNum{
+  background: #0500FF;
+}
+
+.pageCount{
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  margin: auto 5px;
+  cursor: pointer;
+}
+
+.activeSVG{
+  stroke:red;
+}
+
+.title{
+  margin: 50px auto 30px auto;
+  font-size: 30px;
+  line-height: 13px;
+}
+
+.forward{
+  transform: rotate(180deg);
+}
+
+.radioWrapper{
+  max-width: 100%;
+  display: flex;
+}
+
+.radioContainer {
+  margin-left: 20px;
+  margin-top: 15px;
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 15px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.radioContainer input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.radioCheckmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background: rgba(0, 5, 15, .7);
+  border: 1px solid #4D5057;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* On mouse-over, add a grey background color */
+/* .radioContainer:hover input ~ .radioCheckmark {
+  background-color: #ccc;
+} */
+
+/* When the radio button is checked, add a blue background */
+.radioContainer input:checked ~ .radioCheckmark {
+  border: 1px solid #0500FF;  
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.radioCheckmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.radioContainer input:checked ~ .radioCheckmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.radioContainer .radioCheckmark:after {
+	width: 21px;
+	height: 21px;
+	border-radius: 50%;
+
+  background: #0500FF;
+}
+
+@media (max-width:600px){
+  .radioCheckmark{
+    width: 20px;
+    height: 20px;
+  }
+  .radioContainer .radioCheckmark:after {
+    width: 16px;
+    height: 16px;
+  }
+  .radioContainer {
+    margin-left: 10px;
+    padding-left: 25px;
+    margin-bottom: 0;
+  }
+  .radioWrapper{
+    flex-wrap: wrap;
+  }
+}
+
+

@@ -1,0 +1,209 @@
+.expandWrapper{
+  height: fit-content;
+  padding: 20px;
+  padding-top: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.section{
+  display: flex;
+}
+
+.mobileExpand{
+  padding:20px;
+  display: flex;
+}
+.startSection{
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.middleSection{
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around ;
+  margin-left: 30px;
+}
+
+.lastSection{
+  height: 150px;
+  width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.coreEarnedNum{
+  height: 42px;
+  display: flex;
+  align-items: center;
+}
+
+.coreEarned span{
+  color: #ff7152;
+}
+
+.disabledBtn {
+  opacity: 0.3;
+  background-color: #000000 !important;
+  border-color: #ffffff !important;
+  cursor: not-allowed;
+  padding: 8px 24px;
+  border-radius: 4px;
+  width: fit-content;
+}
+
+.pointer {
+  display: flex;
+  align-items: center;
+  margin-left: 30px;
+}
+
+.openSvg{
+  width: 13px;
+  height: 13px;
+  fill:#969BA6;
+  strokeWidth: 0.1px;
+}
+
+.margin0 {
+  margin-left: 0;
+}
+
+.pools__tableEndInner svg {
+  margin-left: 7px;
+  cursor: pointer;
+  stroke: #b3b4b7;
+}
+
+.pools__tableEndInner {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.pools__tableEndInner p {
+  color: #b3b4b7;
+  cursor: pointer;
+}
+
+.endSection{
+  display: flex;
+  flex-direction: column;
+  width: 53%;
+  height: 150px;
+}
+
+.subText{
+  font-size: 12px;
+  line-height: 17px;
+  color: #627EEA;
+  opacity: 0.7;
+}
+
+.usd{
+  line-height: 17px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.connectButton{
+  width: 250px;
+  height: 42px;
+}
+
+.firstSection{
+  width: 30%;
+}
+
+.secondSection{
+  width: 39%;
+}
+
+.thirdSetion{
+  width: 30%;
+}
+
+.lastRow{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.coreStatsSection{
+  display: flex;
+}
+
+.coreStatsSection div{
+  display: flex;
+  margin-right: 100px;
+}
+
+.coreStatsSection div p{
+  font-size: 13px;
+  line-height: 22px;
+}
+
+.coreStatsSection div p:first-child{
+  color: #B2B4B7;
+  margin-right: 20px;
+}
+
+@media (max-width:1023px) {
+  .coreStatsSection{
+    flex-direction: column;
+  }
+}
+
+
+@media (max-width:596px) {
+  .startSection{
+    width: 100%;
+    height: 100px;
+  }
+  .section{
+    flex-wrap: wrap;
+  }
+  .connectButton{
+    width: 100%;
+  }
+  .middleSection{
+    width: 50%;
+    margin-left: 0px;
+  }
+  .pools__tableEndInner{
+    flex-direction: column;
+  }
+  .lastRow{
+    align-items: flex-start;
+    padding-top: 10px;
+  }
+  .lastSection{
+    width: fit-content;
+  }
+  .coreStatsSection div{
+    margin-right: 80px;
+  }
+}
+@media (max-width:400px) {
+  .mobileExpand{
+    flex-wrap: wrap;
+  }
+  .firstSection{
+    width: 50%;
+  }
+  .secondSection{
+    width: 50%;
+  }
+  .thirdSetion{
+    width: 100%;
+    margin-top: 30px;
+  }
+  .coreStatsSection div{
+    margin-right: 0px;
+  }
+}

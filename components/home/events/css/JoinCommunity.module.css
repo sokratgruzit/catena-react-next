@@ -1,0 +1,37 @@
+.boxTitle { 
+    height: auto;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 100px;
+}
+
+.box { 
+    background-color: #A6D0DD !important;
+}
+
+.Titile { 
+    cursor: pointer;
+    margin: 15px 0px 15px 0px;
+}
+
+.aa { 
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-left: 100px;
+}
+
+.paragraph { 
+    cursor: pointer;
+    max-width: 55%;
+    color: #162029;
+    margin-bottom: 15px;
+}
+
+.ppp { 
+    color: #FF6969;
+    border-bottom: 1px solid #FF6969;
+    max-width: 330px;
+    cursor: pointer;
+}

@@ -1,0 +1,52 @@
+.auction__nextDate {
+  margin-bottom: 20px;
+}
+
+.auction__borderBottom {
+  width: 100%;
+  display: flex;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.auction__schedule {
+  margin: 30px 0 20px 0;
+  color: #627eea;
+}
+
+.auction__leftPanelInner {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 20px;
+}
+
+.auction__leftPanelInner > div {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+
+.auction__leftPanelInner > div p {
+  color: #b2b4b7;
+}
+
+.auction__panelQuestion {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 30px 0;
+}
+
+.auction__panelQuestion svg {
+  margin-left: 10px;
+}
+
+.auction__panelQuestion p {
+  color: #b2b4b7;
+}
+
+.questionMarkWrapper{
+  width: fit-content;
+  height:20px;
+}

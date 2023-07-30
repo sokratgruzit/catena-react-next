@@ -1,0 +1,175 @@
+.CollectionsPromo {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 50px;
+}
+.CollectionsPromo__background {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.CollectionsPromo__title {
+    z-index: 10;
+}
+.CollectionsPromo__title span {
+    text-transform: uppercase;
+}
+.CollectionsPromo__teaser span {
+    text-transform: uppercase;
+}
+.CollectionsPromo__teaser {
+    padding-top: 20px;
+    color: #FFFFFF;
+    opacity: 0.7;
+}
+.CollectionsPromo__cards {
+    position: relative;
+    width: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    margin: 100px;
+}
+.CollectionsPromo__card1 {
+    /* position: absolute; */
+    transform: rotate(-30deg);
+    border-radius: 172px;
+    z-index: 6;
+    margin-right: 275px;
+    margin-top: 175px;
+    height: 50%;
+    width: 30%;
+    overflow: hidden;
+}
+.CollectionsPromo__card2 {
+    position: absolute;
+    border-radius: 172px;
+    z-index: 7;
+    height: 50%;
+    width: 30%;
+    overflow: hidden;
+}
+.CollectionsPromo__card3 {
+    position: absolute;
+    border-radius: 172px;
+    z-index: 6;
+    transform: rotate(30deg);
+    margin-left: 275px;
+    margin-bottom: 175px;
+    height: 50%;
+    width: 30%;
+    overflow: hidden;
+}
+.CollectionsPromo__btn {
+    position: relative;
+    z-index: 10;
+}
+.CollectionsPromo__btn__item {
+    position: absolute;
+    top: 29%;
+    left: 29%;
+    z-index: 11;
+}
+/* .CollectionsPromo__btn {
+    position: absolute;
+    z-index: 8;
+    top: 70%;
+    left: 55%;
+} */
+.nftActivityTableFilterMenu svg {
+    margin-left: 15px;
+}
+.CollectionsPromo__btn__spin {
+    z-index: 11;
+}
+.CollectionsPromo__btnWrap {
+    position: absolute;
+    left: 60%;
+    top: 70%;
+    width: 126px;
+    height: 120px;
+    transition: all 1s cubic-bezier(.245,0,0,1);
+    z-index: 11;
+}
+@-webkit-keyframes rotating /* Safari and Chrome */ {
+    from {
+      -webkit-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    to {
+      -webkit-transform: rotate(360deg);
+      -o-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes rotating {
+    from {
+      -ms-transform: rotate(0deg);
+      -moz-transform: rotate(0deg);
+      -webkit-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    to {
+      -ms-transform: rotate(360deg);
+      -moz-transform: rotate(360deg);
+      -webkit-transform: rotate(360deg);
+      -o-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+  .rotating {
+    -webkit-animation: rotating 7s linear infinite;
+    -moz-animation: rotating 7s linear infinite;
+    -ms-animation: rotating 7s linear infinite;
+    -o-animation: rotating 7s linear infinite;
+    animation: rotating 7s linear infinite;
+    z-index: 11;
+  }
+.CollectionsPromo__btnWrap:hover {
+    transform: translate(-5%, -5%) scale(.85);
+    z-index: 11;
+}
+/* .CollectionsPromo__btn__item {
+    position: absolute;
+} */
+/*Laptop 1440*/
+@media (max-width: 1900px) {
+}
+/*Ipad Pro 1024*/
+@media (max-width: 1300px) {
+    .CollectionsPromo__cards {
+        width: 70%;
+    }
+}
+/*Ipad 768*/
+@media (max-width: 1023px) {
+    .CollectionsPromo__cards {
+        width: 40%;
+    }
+}
+/*Mobile 320*/
+@media (max-width: 767px) {
+    .CollectionsPromo {
+        text-align: center;
+        height: 50vh;
+    }
+    .CollectionsPromo__cards {
+        width: 30%;
+        padding-top: 75px;
+    }
+    .CollectionsPromo__card1 {
+        margin-right: 100px;
+        margin-top: 75px;
+    }
+    .CollectionsPromo__card3 {
+        margin-left: 100px;
+        margin-top: 100px;
+    }
+}

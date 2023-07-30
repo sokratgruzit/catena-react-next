@@ -1,0 +1,418 @@
+.farms__container {
+  margin-top: 150px !important;
+  display: flex;
+  flex-direction: column;
+}
+
+.routesWrapper{
+  margin: auto;
+  margin-bottom: 32px;
+}
+
+.background{
+  position: absolute;
+  z-index: -10;
+  top:0%;
+  left: 0%;
+}
+
+.communityAuctions {
+  display: flex;
+  margin-right: auto;
+  align-items: center;
+  cursor: pointer;
+}
+
+.communityAuctions svg {
+  margin-left: 10px;
+}
+
+.communityAuctions p {
+  color: #ff7152;
+}
+
+.communityAuctions a {
+  display: flex;
+  align-items: center;
+}
+
+.communityAuctions:hover .blueHover {
+  color: #0500ff;
+}
+
+.communityAuctions p,
+.svgHoverBlue path,
+.svgHoverBlue,
+.hover svg,
+.hover a {
+  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+}
+
+.communityAuctions:hover .svgHoverBlue {
+  transform: translateX(5px);
+}
+
+.communityAuctions:hover .svgHoverBlue path {
+  stroke: #0500ff;
+}
+
+.farms__filter {
+  position: relative;
+  display: flex;
+  width: 100%;
+  padding: 20px;
+  margin-top: 80px;
+}
+
+.farms__filterInner {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.Farms__filterLeftPanel {
+  display: flex;
+  align-items: center;
+}
+
+.Farms__filterRightPanel {
+  display: flex;
+  align-items: center;
+}
+
+.Farms__filterLeftPanel svg {
+  cursor: pointer;
+}
+
+.Farms__filterLeftPanel svg:nth-child(1) {
+  margin-right: 10px;
+}
+
+.farms__radioBtn {
+  margin: 0 30px;
+}
+
+.searchInput{
+  background-color: #000000;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 5px 10px;
+  width: 250px;
+  margin-left: 30px;
+  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+  border-radius: 4px;
+}
+
+.searchInput:focus{
+  border-color: #0500ff;
+}
+
+.farms__tableContainer {
+  position: relative;
+  display: flex;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.farms__tableInner {
+  display: flex;
+  padding: 20px;
+  width: 100%;
+  flex-direction: column;
+}
+
+.farms__tableHeader {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  padding: 0 80px 20px 80px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.farms__tableHeader div {
+  color: #627eea;
+  display: flex;
+  align-items: center;
+}
+
+.farms__tableHeader svg {
+  margin-left: 5px;
+}
+
+.farms__tableHeader div {
+  width: 20%;
+}
+ 
+.filters{
+  margin-left: -110px;
+  margin-top: -18px;
+  position: absolute;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  cursor: pointer;
+  width: 120px;
+  background-color: #000000;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+  border-radius: 4px;
+  padding: 1px;  
+}
+
+.filterOpen{
+  border:1px solid #0500ff;
+}
+
+.filters p{
+  font-size: 13px;
+}
+
+.FilterName{
+  cursor: pointer;
+  display: flex;
+  align-content: center;
+  padding-left: 10px;
+  height: 30px;
+  color: #969BA6;
+}
+
+.FilterName:hover{
+  background-color: rgba(255, 255, 255, 0.04);
+  border-radius: 0.5rem;
+  color: #FFFFFF;
+}
+
+.vectorSvg{
+  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+}
+
+.rotate{
+  transform: rotateZ(-180deg);
+}
+
+.filterName{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #FFFFFF;
+  padding: 4.5px 10px;
+}
+
+.liquidity{
+  display: flex;
+  align-items: center;
+}
+
+.infoIcon{
+  fill: #0500FF;
+  margin-left: 4px;
+}
+
+.itemWrapper{
+  position: relative;
+  min-height: 494px;
+  width: 100%;
+  height: fit-content;
+  padding: 30px;
+}
+
+.componentsViewSection{
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 20px;
+}
+
+.tableView rect{
+  stroke:white;
+  fill:none;
+}
+
+.componentsView rect{
+  fill:white;
+  stroke: none;
+}
+
+.mobileRow {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+  overflow: hidden;
+  max-height: 0px;
+}
+
+.mobileRow.activeMobileRow {
+  max-height: 800px;
+}
+
+.mobileRowTtl {
+  font-size: 13px;
+  color: rgba(98, 126, 234, 1);
+  line-height: 18px;
+}
+
+.mobileRowContent {
+  font-size: 13px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.borderBottom{
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+.expandButton{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.expandButton div{
+  color:#0500FF;
+}
+
+.expandVector{
+  stroke: #0500FF;
+}
+
+.expandSection p{
+  font-size: 12px;
+  line-height: 17px;
+  color: #B2B4B7;
+  opacity: 0.7;
+  margin-top: 7px;
+  margin-bottom: 3px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.openSvg{
+  fill: #B2B4B7;
+  opacity: 0.7;
+  margin-left: 4px;
+  width: 12px;
+  height: 12px;
+}
+
+
+
+/*Laptop 1440*/
+@media (max-width: 1900px) {
+}
+
+@media (max-width:1450px) {
+  .componentsViewSection{
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+/*Ipad Pro 1024*/
+@media (max-width: 1300px) {
+}
+
+/*Ipad 768*/
+@media (max-width: 1023px) {
+  .componentsViewSection{
+    grid-template-columns: 1fr 1fr;
+  }
+  .farms__filterInner{
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  
+  .Farms__filterRightPanel{
+    margin-top: 10px;
+    margin-left: 110px;
+    margin-bottom: 10px;
+  }
+  
+  .Farms__filterLeftPanel{
+    justify-content: space-between;
+  }
+  
+}
+
+@media (max-width: 883px) {
+  .farms__filterInner{
+    width: 60%;
+  }
+  
+}
+
+/*Mobile 320*/
+@media (max-width: 767px) {
+  .farms__filterInner{
+    width: 70%;
+  }
+  
+}
+
+@media (max-width: 710px) {
+  .componentsViewSection{
+    grid-template-columns: 1fr;
+  }
+
+  .farms__filterInner{
+    width: 100%;
+  }
+  
+  .Farms__filterLeftPanel{
+    justify-content: flex-start;
+  }
+  
+  .Farms__filterRightPanel{
+    align-self:flex-start;
+    margin-left: 110px;
+  }
+  
+  .searchInput{
+    width: 253px;
+  }
+  
+}
+
+@media (max-width:470px){
+  .Farms__filterLeftPanel{
+    flex-wrap: wrap;
+  }
+  
+  .Farms__filterRightPanel{
+    align-self:flex-start;
+    margin-left: 0;
+  }
+  
+  .searchInput{
+    margin-left: 0;
+    height: 36px;
+  }
+  
+  .Farms__filterRightPanel{
+    align-items: flex-end;
+    height: 100px;    
+    margin-top: 0;
+  }
+  
+  .filters{
+    margin-left: 0;
+    margin-top: -87px;
+  }
+  
+}
+
+@media (max-width: 400px) {
+  .componentsViewSection{
+    display: block; 
+  }
+  
+  /* .itemWrapper{
+    max-width: 100%;
+    width: 100%;
+    margin-bottom: 20px;
+  } */
+}

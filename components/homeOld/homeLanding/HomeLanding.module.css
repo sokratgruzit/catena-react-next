@@ -1,0 +1,171 @@
+.inner {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  height: calc(100vw * 0.734);
+  min-height: 1058px;
+  max-height: 1409px ;
+}
+
+.bgContainer{
+  position: absolute;
+  width: 100vw;
+  min-width: 1440px;
+  max-width: 1920px;
+  height: calc(100vw * 0.734);
+  min-height: 1058px;
+  max-height: 1409px ;
+  top:0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: -1;
+}
+
+.title{
+  font-size: 100px;
+  line-height: 110px;
+  align-self: center;
+  text-align: center;
+  margin-top: 225.5px;
+}
+
+.title span{
+  color: #ff7152;
+}
+
+.subTitle{
+  font-size: 20px;
+  line-height: 30px;
+  color: #b2b4b7;
+  width: 665px;
+  height: 60px;
+  text-align: center;
+  align-self: center;
+  margin-top: 30px;
+}
+
+.buttonWrapper {
+  display: flex;
+  width: fit-content;
+  align-self: center;
+  justify-content: center;
+  margin-top: 100px;
+  gap: 30px;
+}
+
+.button{
+  width: 232.3px;
+  height: 56px;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+.button a{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 232.3px;
+  height: 56px;
+  font-size: 16px;
+  line-height: 22px;
+  max-width: calc(50% - 15px);
+}
+
+.coinsSection{
+  position: absolute;
+  width: 100vw;
+  height: 86px;
+  bottom: 0;
+  left: -40px;
+  max-width: 1920px;
+}
+
+/*Laptop 1440*/
+@media (max-width: 1900px) {
+}
+
+@media (min-width: 1900px) {
+  .coinsSection{
+    left: -200px;
+  }
+}
+
+/*Ipad Pro 1024*/
+@media (max-width: 1300px) {
+  .coinsSection{
+    left: -25px;
+  }
+}
+
+/*Ipad 768*/
+@media (max-width: 1023px) {
+  .title{
+    font-size: 80px;
+    line-height: 96px;
+  }
+  .subTitle{
+    width: 704px;
+  }
+
+}
+
+/*Mobile 320*/
+@media (max-width: 767px) {
+  .title{
+    font-size: 71px;
+    line-height: 82px;
+    margin-top: 215.5px;
+  }
+  .subTitle{
+    width: 404px;
+  }
+  .bgContainer{
+    min-height: 998px;
+  }
+  .inner{
+    min-height: 998px;
+  }
+  .coinsSection{
+    left: -15px;
+  }
+
+}
+
+@media (max-width: 600px) {
+  .title{
+    font-size: 51px;
+    line-height: 82px;
+  }
+  .subTitle{
+    width: 404px;
+    max-width: 100%;
+    font-size: 13px;
+    line-height: 21px;
+  }
+  .buttonWrapper {
+    gap: 15px;
+    width: 100%;
+  }
+  .bgContainer{
+    left: 50%;
+    transform: translateX(-40%);
+  }
+  .button{
+    max-width: calc(50% - 15px);
+  }
+
+}
+
+@media (max-width: 400px) {
+  .title{
+    font-size: 41px;
+    line-height: 72px;
+  }
+
+  .inner{
+    min-height: 998px;
+  }
+}
+
+

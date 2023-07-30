@@ -1,0 +1,43 @@
+.font__51 {
+  margin-top: 60px;
+  font-size: 51px;
+  line-height: 66px;
+  color: #162029;
+  padding-bottom: 50px;
+  font-family: 'Lack-Regular' !important;
+}
+
+.careerQualities__subttl {
+  font-size: 30px;
+  line-height: 40px;
+  margin-bottom: 15px;
+  color: #162029;
+  font-family: 'Lack-Regular' !important;
+}
+.careerQualities__text {
+  margin-bottom: 50px;
+  color: #162029;
+  width: 750px;
+  line-height: 30px;
+}
+
+/*Ipad Pro 1024*/
+@media (max-width: 1300px) {
+  .careerQualities {
+    padding-right: 30px;
+    padding-bottom: 50px;
+  }
+}
+/*Ipad 768*/
+@media (max-width: 1023px) {
+}
+/*Mobile 320*/
+@media (max-width: 767px) {
+  .careerQualities__text {
+    width: 100%;
+  }
+
+  .font__51 {
+    font-size: 40px;
+  }
+}
