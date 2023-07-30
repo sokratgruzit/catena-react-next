@@ -1,4 +1,4 @@
-.expandContent{
+.expandContent {
     display: flex;
     width: 100%;
     flex-direction: column;
@@ -7,44 +7,53 @@
     transition: .4s ease-in-out;
 }
 
-.buttonWrapper{
+.buttonWrapper {
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
 
-.expandButton{
+.expandButton {
+    transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+    margin-right: 8px;
+}
+
+.buttonWrapper:hover .expandButton {
+    color: #ff6969;
+}
+.buttonWrapper svg path {
     transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
 }
+.buttonWrapper:hover svg path {
+    stroke: #ff6969;
+}
 
-.expandTableRow{
+.expandTableRow {
     height: fit-content;
     max-height: 500px;
 }
 
-.vectorSvg{
-    transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+.vectorSvg {
     margin-left: 4px;
 }
 
-.rotate{
+.rotate {
     transform: rotateZ(-180deg);
-    stroke: #ff7152;
+    stroke: #ff6969;
 }
 
-.buttonActive{
-    color: #ff7152;
+.buttonActive {
+    color: #ff6969;
 }
 
 /*Laptop 1440*/
-@media (max-width: 1900px) {
-}
-/*Ipad Pro 1024*/
-@media (max-width: 1300px) {
+@media (max-width: 1900px) {}
 
-}
+/*Ipad Pro 1024*/
+@media (max-width: 1300px) {}
+
 /*Ipad 768*/
-@media (max-width: 1023px) {
-}
+@media (max-width: 1023px) {}
+
 /*Mobile 320*/
-@media (max-width: 767px) {
-}
+@media (max-width: 767px) {}

@@ -5,6 +5,12 @@
 .texts { 
     max-width: 45%;
     overflow: hidden;
-    max-height: 200px;
     gap: 10px;
 }
+
+/*Ipad 768*/
+@media (max-width: 1023px) {
+    .texts { 
+        max-width: 100%;
+    }
+ }

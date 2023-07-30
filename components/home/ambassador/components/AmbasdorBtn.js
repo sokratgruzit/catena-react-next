@@ -39,7 +39,7 @@ const AmbasdorBtn = () => {
                             name="email"
                             value={formData.email}
                             onChange={changeHandler}
-                            customStyles={{ width: '500px' }}
+                        // customStyles={{ width: '500px' }}
                         />
                     </div>
                     <div>
@@ -52,7 +52,7 @@ const AmbasdorBtn = () => {
                             name="name"
                             value={formData.name}
                             onChange={changeHandler}
-                            customStyles={{ width: '500px' }}
+                        // customStyles={{ width: '500px' }}
                         />
                     </div>
                     <div>
@@ -88,7 +88,7 @@ const AmbasdorBtn = () => {
                     label={'Apply Now'}
                     size={'btn-lg'}
                     type={'btn-primary'}
-                    arrow={'arrow-right'}
+                    // arrow={'arrow-right'}
                     element={'button'}
                     disabled={false}
                     onClick={() => setChng(true)}

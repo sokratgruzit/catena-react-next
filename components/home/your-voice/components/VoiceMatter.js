@@ -1,11 +1,25 @@
 import { Input, Button } from '@catena-network/catena-ui-module';
+import { useState } from 'react';
 
 import styles from './VoiceMatters.module.css';
 
-const VoiceMatter = props => {
-  const { title, description } = props;
-  const changeHandler = (i, e) => {
-    console.log(i.target.value);
+const VoiceMatter = () => {
+  const [formData, setFormData] = useState({
+    email: "",
+    name: "",
+    suggestion: "",
+  });
+
+  const chngHandler = (e) => {
+    const { name, value } = e.target;
+    setFormData(prevState => ({
+      ...prevState,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = () => {
+    console.log(formData);
   };
 
   return (
@@ -25,7 +39,7 @@ const VoiceMatter = props => {
       <div className={`${styles.bottomBox} `}>
         <div className={`${styles.hederBox} `}>
           <form>
-            <div className={styles.asdwa}>
+            <div >
               <Input
                 className={styles.llll}
                 type={'default'}
@@ -33,9 +47,10 @@ const VoiceMatter = props => {
                 label={'EMAIL'}
                 subLabel={''}
                 placeholder={'Enter'}
-                // value={""}
-                onChange={changeHandler}
-                customStyles={{ width: '500px' }}
+                name="email"
+                value={formData.email}
+                onChange={chngHandler}
+              // customStyles={{ width: '500px' }}
               />
             </div>
             <div>
@@ -45,28 +60,25 @@ const VoiceMatter = props => {
                 label={'Name'}
                 subLabel={''}
                 placeholder={'Enter'}
-                // value={""}
-                onChange={changeHandler}
-                customStyles={{ width: '500px' }}
+                value={formData.name}
+                name="name"
+                onChange={chngHandler}
+              // customStyles={{ width: '500px' }}
               />
             </div>
             <div>
               <Input
                 type={'textarea'}
                 label={'Make a suggestion'}
-                // onChange={(e) => console.log(e.target.value)}
-                // value={'sad'}
-                // readOnly={true}
-                name={'textarea input'}
+                value={formData.suggestion}
+                onChange={chngHandler}
+                name="suggestion"
                 rows={10}
                 cols={20}
-                // disabled={true}
                 placeholder={'Please describe your feedback in detail with corresponding screenshots'}
-                // autoFocus={true}
-                // emptyFieldErr={true}
                 resize={'both'}
+
               />
-              <label>Limit: 1000 characters</label>
             </div>
             <div>
               <Button
@@ -76,7 +88,7 @@ const VoiceMatter = props => {
                 arrow={'arrow-right'}
                 element={'button'}
                 disabled={false}
-                onClick={() => console.log('hi')}
+                onClick={handleSubmit}
                 className={styles.btnBlu}
               />
             </div>

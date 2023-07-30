@@ -23,7 +23,9 @@ const Slider = ({ images }) => {
           />
         </svg>
       </button>
-      <img src={images[currentIndex]} alt={`Image ${currentIndex + 1}`} className={styles.image} />
+      <div className={styles.imageWrapper}>
+        <img src={images[currentIndex]} alt={`Image ${currentIndex + 1}`} className={styles.image} />
+      </div>
       <button className={`${styles.arrowButton} ${styles.next}`} onClick={goToNextSlide}>
         <svg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'>
           <path

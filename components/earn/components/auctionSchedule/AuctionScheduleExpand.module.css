@@ -4,12 +4,9 @@
   justify-content: space-between;
 }
 
-.auction__expandDetails p {
-  color: #b2b4b7;
-}
 
 .auction__expandDetails div:last-child p:last-child {
-  color: #0500ff;
+  color: #ff6969;
   cursor: pointer;
 }
 
@@ -26,5 +23,5 @@
 .auction__borderBottom {
   width: 100%;
   display: flex;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid #dfe0e2;
 }
