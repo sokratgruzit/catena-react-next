@@ -5,7 +5,7 @@ const ExchangesCards = ({ data }) => {
   return (
     <div>
       <div className={styles.cardinfo}>CMCX listed on {data.length} Exchanges</div>
-      <div style={{ width: '112px', color: '#969BA6', position: 'absolute', top: '430px', left: '55%' }} >CMCX massive listing</div>
+      <div className={styles.massive} style={{ width: '152px', color: '#969BA6', position: 'absolute', top: '430px', left: '850px', textAlign: 'right' }} >CMCX massive listing</div>
       <div className={styles.container}>
         {data.map((card, index) => {
           return (
@@ -19,7 +19,7 @@ const ExchangesCards = ({ data }) => {
               <div className={styles.buttonsContainer}>
                 {card.buttons.map((b, i) => {
                   return (
-                    <div className={styles.button} key={i}>
+                    <div onClick={b.onClick} className={styles.button} key={i}>
                       {b.name.toUpperCase()}
                     </div>
                   );
