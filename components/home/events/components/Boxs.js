@@ -13,8 +13,6 @@ const Boxs = () => {
   const title = "event.title";
   const description = "event.description";
 
-
-
   useEffect(() => {
     axios.get(`${process.env.NEXT_PUBLIC_URL}/event/get-all-event`)
       .then(res => {

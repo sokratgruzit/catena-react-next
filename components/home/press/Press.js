@@ -37,7 +37,7 @@ const Press = ({ press }) => {
         <p className={styles.titlePartyTwo}>Press</p>
       </div>
       <div className={styles.bodyContainer}>
-        <Card dataArr={press} fileAdress={fileAdress} title={title} description={description} />
+        <Card dataArr={allPress} fileAdress={fileAdress} title={title} description={description} slugType='press' />
       </div>
       <div className={`${styles.sourcesContainer} `}>
         <div className={styles.sourcesTitle}>
