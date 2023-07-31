@@ -1,6 +1,12 @@
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
+
+import astro from '../../../public/images/earn/astro.png';
+import egg from '../../../public/images/earn/egg.png';
+import orbit from '../../../public/images/earn/orbit.png';
+import ufo from '../../../public/images/earn/ufo.png';
+import yellowStar from '../../../public/images/earn/yellowStar.png';
 import CommunityAuctionsFAQ from '../../faqOld/communityAuctionsFAQ/CommunityAuctionsFAQ';
 import { ArrowSvg, OpenSvg, QuestionMarkIcon, SearchIcon, SmlArrowSvg } from '../../svg';
 import Button from '../../UI/button/Button';

@@ -28,8 +28,10 @@ package-lock.json
 yarn.lock
 # local env files
 .env*.local
+.env
 
 # vercel
 .vercel
 yarn.lock
 package-lock.json
+.env
