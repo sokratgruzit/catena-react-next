@@ -16,6 +16,17 @@
   border-radius: 30px;
   margin: 40px;
 }
+.blueBtn {
+  background: rgba(166, 208, 221, 1);
+  border: 1px solid #fff;
+  padding: 18px 84px !important;
+  border-radius: 61px;
+  transition: 0.4s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+
+.blueBtn:hover {
+  opacity: 0.6;
+}
 
 .banner h2 {
   color: #fff;
@@ -43,5 +54,8 @@
 
   .banner .button {
     padding: 10px 44px;
+  }
+  .blueBtn {
+    padding: 10px 44px !important;
   }
 }

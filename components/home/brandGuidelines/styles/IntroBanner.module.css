@@ -24,7 +24,8 @@
 }
 
 .mainContainerDescription {
-  padding: 160px 155px 250px 155px;
+  padding-top: 160px;
+  padding-bottom: 250px;
   position: relative;
   background-image: url('/images/guidelines/bg.png');
   background-size: cover;
@@ -54,12 +55,27 @@
   margin-left: 43px;
 }
 
+.orangeBtn {
+  display: inline-block;
+  padding: 18px 34px !important;
+  background-color: #ff6969 !important;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 61px;
+  border: 1px solid #fff;
+
+  cursor: pointer;
+}
+.orangeBtn:hover {
+  opacity: 0.6;
+}
+
 @media (max-width: 767px) {
+  .orangeBtn {
+    padding: 10px 26px;
+  }
   .left h1 {
     gap: 0px;
-  }
-  .mainContainerDescription {
-    padding: 160px 30px 250px 30px;
   }
 
   .mainContainerDownload {
