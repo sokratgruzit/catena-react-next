@@ -17,10 +17,10 @@ const Press = () => {
   const activeLang = useSelector(state => state.settings.activeLang);
 
   const fileAdress = 'http://localhost:4003/uploads/press/';
-  const title = "press.title";
-  const description = "press.description";
+  const title = 'press.title';
+  const description = 'press.description';
 
-  const handleYearClick = (year) => {
+  const handleYearClick = year => {
     setActiveYear(year);
     const data = allPress.filter(item => {
       const itemYear = item.createdAt.substring(0, 4);
@@ -31,18 +31,19 @@ const Press = () => {
   };
 
   useEffect(() => {
-    axios.get(`http://localhost:4003/press/get-all-press`)
-    .then(res => {
-      setAllPress(res?.data);
-      // console.log(allPress, "esaaa");
-    })
-    .catch(err => {
-      console.log(err?.response);
-    });
+    axios
+      .get(`http://localhost:4003/press/get-all-press`)
+      .then(res => {
+        setAllPress(res?.data);
+        // console.log(allPress, "esaaa");
+      })
+      .catch(err => {
+        console.log(err?.response);
+      });
   }, []);
 
   useEffect(() => {
-      handleYearClick("2023");
+    handleYearClick('2023');
   }, [allPress]);
 
   // console.log(filterData, "hi");
@@ -54,16 +55,16 @@ const Press = () => {
         <p className={styles.titlePartyTwo}>Press</p>
       </div>
       <div className={styles.bodyContainer}>
-        <Card dataArr={allPress} fileAdress={fileAdress} title={title} description={description}/>
+        <Card dataArr={allPress} fileAdress={fileAdress} title={title} description={description} />
       </div>
       <div className={`${styles.sourcesContainer} `}>
         <div className={styles.sourcesTitle}>
           <h1 className='ttl font-40'>Sources</h1>
         </div>
-          <PressLogo/>
+        <PressLogo />
       </div>
-        <Years handleYearClick={handleYearClick} activeYear={activeYear}/>
-        <PublicByYears  filterData={filterData} activeLang={activeLang} />
+      <Years handleYearClick={handleYearClick} activeYear={activeYear} />
+      <PublicByYears filterData={filterData} activeLang={activeLang} />
     </div>
   );
 };
