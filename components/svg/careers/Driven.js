@@ -2,7 +2,7 @@ import React from 'react'
 
 const Driven = () => {
   return (
-    <svg xmlns='http://www.w3.org/2000/svg' width='88' height='88' viewBox='0 0 88 88' fill='none'>
+    <svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%' viewBox='0 0 88 88' fill='none'>
     <path d='M44 20.6667V39.3334' stroke='#162029' strokeWidth='4' strokeLinecap='round' strokeLinejoin='round' />
     <path
       d='M19.2666 71.0667L32.3333 61.7334'

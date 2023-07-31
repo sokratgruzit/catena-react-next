@@ -1,6 +1,6 @@
 .career_head {
   display: flex;
-  margin: 100px 0;
+  margin: 100px 0 70px 0;
   width: 100%;
 }
 
@@ -61,6 +61,11 @@
   margin-top: 16px;
 }
 
+.mobileSvg {
+  width: 84px;
+  height: 84px;
+}
+
 /*Ipad Pro 1024*/
 @media (max-width: 1300px) {
   .career_item .item_ttl {
@@ -109,6 +114,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 64px;
+    height: 64px;
   }
 
   .career_item {
@@ -116,5 +123,9 @@
     align-items: center;
     justify-content: center;
     padding-left: 0;
+  }
+
+  .career_head {
+    margin: 50px 0;
   }
 }

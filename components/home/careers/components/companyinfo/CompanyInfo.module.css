@@ -4,12 +4,12 @@
 }
 
 .careerHow h2 {
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
 .careerHow p {
   font-size: 20px;
   padding: 20px 0;
-  width: 60%;
+  width: 70%;
   line-height: 30px;
   color: #162029;
   text-align: start;
@@ -19,7 +19,7 @@
 @media (max-width: 1300px) {
 
   .careerHow p {
-    width: 70%;
+    width: 85%;
   }
 
   .font__51 {
@@ -31,6 +31,10 @@
   .careerHow p {
     width: 100%;
     font-size: 16px;
+  }
+
+  .careerHow h2 {
+    margin-bottom: 0;
   }
 
   .workStyle {
