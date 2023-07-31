@@ -16,6 +16,9 @@ const Press = ({ press }) => {
   const fileAdress = `${process.env.NEXT_PUBLIC_URL}/uploads/press/`;
   const title = 'press.title';
   const description = 'press.description';
+  const fileAdress = 'http://localhost:4003/uploads/press/';
+  const title = 'press.title';
+  const description = 'press.description';
 
   const handleYearClick = year => {
     setActiveYear(year);
@@ -29,6 +32,22 @@ const Press = ({ press }) => {
   useEffect(() => {
     handleYearClick('2023');
   }, [press]);
+    axios
+      .get(`http://localhost:4003/press/get-all-press`)
+      .then(res => {
+        setAllPress(res?.data);
+        // console.log(allPress, "esaaa");
+      })
+      .catch(err => {
+        console.log(err?.response);
+      });
+  }, []);
+
+  useEffect(() => {
+    handleYearClick('2023');
+  }, [allPress]);
+
+  // console.log(filterData, "hi");
 
   return (
     <div className={`${styles.mainContainer} container`}>
@@ -37,7 +56,7 @@ const Press = ({ press }) => {
         <p className={styles.titlePartyTwo}>Press</p>
       </div>
       <div className={styles.bodyContainer}>
-        <Card dataArr={press} fileAdress={fileAdress} title={title} description={description} slugType='press' />
+        <Card dataArr={allPress} fileAdress={fileAdress} title={title} description={description} />
       </div>
       <div className={`${styles.sourcesContainer} `}>
         <div className={styles.sourcesTitle}>

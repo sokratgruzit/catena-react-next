@@ -1,29 +1,31 @@
-.container { 
-    position: relative;
-    width: 100%;
-}   
-
-.imgTitle{ 
-    margin-top: 5%;
-    margin-bottom: 5%;
+.container {
+  position: relative;
+  width: 100%;
+  margin-bottom: 100px;
 }
 
+.blackTitle {
+  color: #162029;
+}
 
+.retTitle {
+  color: #ff6969;
+}
 
 /*Ipad 768*/
-@media (max-width: 1023px) { 
-    .container { 
-        width: 100%;
-    }
+@media (max-width: 1023px) {
+  .container {
+    width: 100%;
+  }
 
-    .imgTitle { 
-        width: 80%;
-    }
+  .imgTitle {
+    width: 80%;
+  }
 }
 
 /*Mobile 320*/
-@media (max-width: 768px) { 
-    .container { 
-        width: 100%;
-    }
+@media (max-width: 768px) {
+  .container {
+    width: 100%;
+  }
 }
