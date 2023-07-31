@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import createAxiosInstance from '../../../pages/api/axios';
 import EventsItem from '../../../components/home/events/EventsItem';
+
 export const getStaticPaths = async () => {
   const axios = createAxiosInstance();
 
@@ -33,6 +34,7 @@ export const getStaticProps = async context => {
   return {
     props: {
       item: foundItem,
+      slug,
     },
   };
 };

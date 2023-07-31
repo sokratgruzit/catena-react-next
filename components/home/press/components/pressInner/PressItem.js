@@ -6,17 +6,16 @@ import PublicByYears from '../publicByYears/PublicByYears';
 import { useSelector } from 'react-redux';
 import createAxiosInstance from '../../../../../pages/api/axios';
 
-const PressItem = ({ item }) => {
+const PressItem = ({ item, slug }) => {
   const [activeYear, setActiveYear] = useState('');
   const [allPress, setAllPress] = useState([]);
   const [filterData, setFilterData] = useState();
   const activeLang = useSelector(state => state.settings.activeLang);
-
   const handleYearClick = year => {
     setActiveYear(year);
     const data = allPress.filter(item => {
       const itemYear = item.createdAt.substring(0, 4);
-      return itemYear === year;
+      return itemYear === year && item.slug !== item.slug;
     });
     setFilterData(data);
   };
@@ -26,12 +25,13 @@ const PressItem = ({ item }) => {
     axios
       .get(`${process.env.NEXT_PUBLIC_URL}/press/get-all-press`)
       .then(res => {
-        setAllPress(res?.data);
+        const filteredData = res?.data.filter(pressItem => pressItem.slug !== slug);
+        setAllPress(filteredData);
       })
       .catch(err => {
         console.log(err?.response);
       });
-  }, []);
+  }, [slug]);
 
   useEffect(() => {
     handleYearClick('2023');
