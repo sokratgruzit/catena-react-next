@@ -31,7 +31,6 @@
 }
 
 .imgBackgr {
-    background-color: #FF6969;
     width: 72px;
     height: 72px;
 }
@@ -66,8 +65,21 @@
     }
 }
 
+
+@media (max-width: 950px) {
+    .titleDesc p{
+        font-size: 25px;
+    }
+}
+
 @media (max-width: 500px) {
     .titleDesc p{
         font-size: 20px;
     }
+    .mapContainer {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
 }
+
+
