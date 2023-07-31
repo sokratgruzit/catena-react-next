@@ -64,4 +64,9 @@
   .digital {
     width: auto;
   }
+  .pressImage {
+    /* padding: 5%; */
+    height: auto;
+  }
 }
+
