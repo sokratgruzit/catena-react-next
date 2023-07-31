@@ -4,7 +4,7 @@ import OpenPosition from '../../../components/home/openposition/OpenPosition';
 
 const featureLinkList = [
   {
-    id: 0,
+    id: 'senioruxdesigner_te000054',
     title: 'Senior UX Designer',
     list: ['Technology •', ' Full-Time •', ' Remote • '],
   },

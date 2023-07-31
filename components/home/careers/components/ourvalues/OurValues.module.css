@@ -64,7 +64,7 @@
 /*Ipad Pro 1024*/
 @media (max-width: 1300px) {
   .career_item .item_ttl {
-    margin-top: 30px;
+    margin-top: 10px;
   }
 }
 /*Ipad 768*/
@@ -74,7 +74,7 @@
   }
   .career_item {
     /* padding-right: 30px; */
-    margin-bottom: 70px;
+    margin-bottom: 40px;
   }
 }
 /*Mobile 320*/

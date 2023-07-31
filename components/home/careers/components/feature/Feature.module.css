@@ -15,6 +15,7 @@
   color: #162029;
   display: flex;
   align-items: center;
+  transition: .1s;
 }
 
 /* .popup::before {
