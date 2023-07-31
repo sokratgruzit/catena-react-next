@@ -2,14 +2,17 @@
     display: flex;
     align-items: center;
 }
+.text {
+    margin-bottom: 0px !important;
+}
 
 .title {
+    /* border: 1px solid red;
+    width: fit-content;
     font-family: Lack;
     font-size: 51px;
-    font-weight: 400;
-    line-height: 61px;
-    letter-spacing: 0em;
-    text-align: left;
+    font-weight: 400; */
+    margin-bottom: 0px !important;
     transform: rotate(-90deg);
 }
 
