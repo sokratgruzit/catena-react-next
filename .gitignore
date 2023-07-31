@@ -33,3 +33,4 @@ yarn.lock
 .vercel
 yarn.lock
 package-lock.json
+.env

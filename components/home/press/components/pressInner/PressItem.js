@@ -24,7 +24,7 @@ const PressItem = ({ item }) => {
   useEffect(() => {
     const axios = createAxiosInstance();
     axios
-      .get(`http://localhost:4003/press/get-all-press`)
+      .get(`${process.env.NEXT_PUBLIC_URL}/press/get-all-press`)
       .then(res => {
         setAllPress(res?.data);
       })
@@ -38,8 +38,8 @@ const PressItem = ({ item }) => {
   }, [allPress]);
 
   const sliderImages = [
-    `http://localhost:4003/uploads/press/${item.image}`,
-    `http://localhost:4003/uploads/press/${item.logo_image}`,
+    `${process.env.NEXT_PUBLIC_URL}/uploads/press/${item.image}`,
+    `${process.env.NEXT_PUBLIC_URL}/uploads/press/${item.logo_image}`,
   ];
 
   const data = [

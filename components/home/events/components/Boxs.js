@@ -1,7 +1,7 @@
-import React from 'react';
-import Card from '../../../UI/card/Card';
-import createAxiosInstance from '../../../../pages/api/axios';
-import { useEffect, useMemo, useState } from 'react';
+import React from "react";
+import Card from "../../../UI/card/Card";
+import createAxiosInstance from "../../../../pages/api/axios";
+import { useEffect, useMemo, useState } from "react";
 
 import styles from '../css/Boxs.module.css';
 
@@ -9,13 +9,14 @@ const Boxs = () => {
   const axios = useMemo(() => createAxiosInstance(), []);
   const [allEvent, setAllEvent] = useState([]);
 
-  const fileAdress = 'http://localhost:4003/uploads/event/';
-  const title = 'event.title';
-  const description = 'event.description';
+  const fileAdress = `${process.env.NEXT_PUBLIC_URL}/uploads/event/`;
+  const title = "event.title";
+  const description = "event.description";
+
+
 
   useEffect(() => {
-    axios
-      .get(`http://localhost:4003/event/get-all-event`)
+    axios.get(`${process.env.NEXT_PUBLIC_URL}/event/get-all-event`)
       .then(res => {
         setAllEvent(res?.data);
       })
@@ -23,8 +24,6 @@ const Boxs = () => {
         console.log(err?.response);
       });
   }, []);
-
-  console.log(allEvent, 'esaaa');
 
   return (
     <div className={styles.mainContainer}>
@@ -40,7 +39,7 @@ const Boxs = () => {
           </p>
         </div>
         <div className={`${styles.mapContainer} `}>
-          <Card dataArr={allEvent} fileAdress={fileAdress} title={title} description={description} slugType='events' />
+          {/* <Card dataArr={allEvent} fileAdress={fileAdress} title={title} description={description} /> */}
         </div>
       </div>
     </div>

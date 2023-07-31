@@ -2,51 +2,33 @@
 import Card from '../../UI/card/Card';
 import { useState, useMemo, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import createAxiosInstance from '../../../pages/api/axios';
 
 import styles from './Press.module.css';
 import Years from './components/filterWithYears/Years';
 import PublicByYears from './components/publicByYears/PublicByYears';
 import PressLogo from './components/pressLogoContainer/PressLogo';
 
-const Press = () => {
+const Press = ({ press }) => {
   const [activeYear, setActiveYear] = useState('');
-  const axios = useMemo(() => createAxiosInstance(), []);
-  const [allPress, setAllPress] = useState([]);
   const [filterData, setfilterData] = useState();
   const activeLang = useSelector(state => state.settings.activeLang);
 
-  const fileAdress = 'http://localhost:4003/uploads/press/';
+  const fileAdress = `${process.env.NEXT_PUBLIC_URL}/uploads/press/`;
   const title = 'press.title';
   const description = 'press.description';
 
   const handleYearClick = year => {
     setActiveYear(year);
-    const data = allPress.filter(item => {
+    const data = press.filter(item => {
       const itemYear = item.createdAt.substring(0, 4);
-      console.log(itemYear);
       return itemYear === year;
     });
     setfilterData(data);
   };
 
   useEffect(() => {
-    axios
-      .get(`http://localhost:4003/press/get-all-press`)
-      .then(res => {
-        setAllPress(res?.data);
-        // console.log(allPress, "esaaa");
-      })
-      .catch(err => {
-        console.log(err?.response);
-      });
-  }, []);
-
-  useEffect(() => {
     handleYearClick('2023');
-  }, [allPress]);
-
-  // console.log(filterData, "hi");
+  }, [press]);
 
   return (
     <div className={`${styles.mainContainer} container`}>
@@ -55,7 +37,7 @@ const Press = () => {
         <p className={styles.titlePartyTwo}>Press</p>
       </div>
       <div className={styles.bodyContainer}>
-        <Card dataArr={allPress} fileAdress={fileAdress} title={title} description={description} slugType='press' />
+        <Card dataArr={press} fileAdress={fileAdress} title={title} description={description} />
       </div>
       <div className={`${styles.sourcesContainer} `}>
         <div className={styles.sourcesTitle}>
