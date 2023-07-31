@@ -1,5 +1,5 @@
 import React from 'react';
-import Link from 'next/link';
+import Link from 'next/link'; // Import the Link component
 import { useSelector } from 'react-redux';
 import styles from './Card.module.css';
 
@@ -8,7 +8,7 @@ const Card = ({ dataArr, fileAdress, title, description, slugType }) => {
 
   return (
     <>
-      {dataArr.map(item => (
+      {dataArr?.map(item => (
         <Link key={item._id} href={`/home/${slugType}/${item.slug}`}>
           <div key={item._id} className={styles.mapCont}>
             <div className={styles.pressImageCont}>

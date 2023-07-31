@@ -14,8 +14,8 @@ const Press = ({ press }) => {
   const activeLang = useSelector(state => state.settings.activeLang);
 
   const fileAdress = `${process.env.NEXT_PUBLIC_URL}/uploads/press/`;
-  const title = "press.title";
-  const description = "press.description";
+  const title = 'press.title';
+  const description = 'press.description';
 
   const handleYearClick = year => {
     setActiveYear(year);

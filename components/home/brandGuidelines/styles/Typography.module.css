@@ -43,7 +43,7 @@
   max-width: 580px;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .content {
     gap: 70px;
   }
