@@ -10,7 +10,7 @@ const Card = ({ dataArr, fileAdress, title, description, slugType }) => {
         <>
             {dataArr.map(item => {
                 return (
-                    <Link href={`/home/press/${item.slug}`} key={item._id}>
+                    <Link href={`/home/${slugType}/${item.slug}`} key={item._id}>
                         <div className={styles.mapCont}>
                             <div className={styles.pressImageCont}>
                                 <img src={`${fileAdress}/${item?.image}`} alt={`Image`} className={styles.pressImage} />
