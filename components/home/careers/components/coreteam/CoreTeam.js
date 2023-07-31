@@ -11,7 +11,7 @@ const CoreTeam = props => {
         return (
           <div key={index}>
             <div className={styles.careerQualities__subttl}>{item.title}</div>
-            <div className={styles.careerQualities__text}>{item.value}</div>
+            <div className={`${styles.careerQualities__text} font-20`}>{item.value}</div>
           </div>
         );
       })}
