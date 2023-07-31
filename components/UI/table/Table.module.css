@@ -4,17 +4,23 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    padding: 20px;
+    /* padding: 20px; */
     padding-top: 0px;
 }
 .Table__labels {
     font-size: 30px;
     width: 100%;
     height: auto;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     align-items: center;
     padding: 20px 0;
     border-bottom: 1px solid rgba(255, 255, 255, .1);
+}
+
+.th {
+    color: #162029;
+    display: flex;
 }
 /* .Table__labels div {
     display: flex;

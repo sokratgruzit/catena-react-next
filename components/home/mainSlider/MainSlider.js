@@ -1,5 +1,6 @@
 import { React, useState, useEffect } from 'react';
 
+import Footer from '../../layout/Footer';
 import ReactScrollWheelHandler from "react-scroll-wheel-handler";
 
 import Microscheme from '../../UI/microscheme/Microscheme';
@@ -27,24 +28,30 @@ const MainSlider = () => {
       [5,6,11,12],
       [1,2,7,8],
       [4,5,6,11,12],
+      [1,2,3,7,8],
       [1,2,3,7,8]
   ]
+  let scrollBlocker = true;
   let slideScrollDown = () => {
-      if(activeSlide !== 5) {
+      if(activeSlide !== 5 && scrollBlocker) {
           setActiveSlide(0);
           setLevels(microSchemes[activeSlide])
+          scrollBlocker = false;
           setTimeout(() => {
               setActiveSlide(activeSlide + 1);
-          },400);
+              scrollBlocker = true;
+          },500);
       }
   }
   let slideScrollUp = () => {
-        if(activeSlide !== 1) {
+        if(activeSlide !== 1 && scrollBlocker) {
             setActiveSlide(0);
             setLevels(microSchemes[activeSlide - 2])
+            scrollBlocker = false;
             setTimeout(() => {
                 setActiveSlide(activeSlide - 1);
-            },400);
+                scrollBlocker = true;
+            },500);
         }
   }
   return (
@@ -353,6 +360,9 @@ const MainSlider = () => {
                     </div>
                 </div>
             </div>
+            <Footer
+                active={true}
+            />
         </ReactScrollWheelHandler>
     </>
   );

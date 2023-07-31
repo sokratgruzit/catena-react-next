@@ -5,6 +5,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 import Web3 from 'web3';
 
 import Header from '../components/layout/Header';
+
 import Wrapper from '../components/layout/Wrapper';
 import store, { persistor } from '../store/index';
 

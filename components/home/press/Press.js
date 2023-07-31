@@ -17,7 +17,7 @@ const Press = ({ press }) => {
   const title = "press.title";
   const description = "press.description";
 
-  const handleYearClick = (year) => {
+  const handleYearClick = year => {
     setActiveYear(year);
     const data = press.filter(item => {
       const itemYear = item.createdAt.substring(0, 4);

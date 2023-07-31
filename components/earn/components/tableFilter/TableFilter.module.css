@@ -22,10 +22,11 @@
   padding: 6px 12px;
   cursor: pointer;
   margin:0 2px;
+  color: #162029;
 }
 
 .Activity__filterActive {
-  background-color: rgba(255, 255, 255, 0.1)!important;
+  background-color: #ff6969;
 }
 
 @media (max-width: 1023px) {

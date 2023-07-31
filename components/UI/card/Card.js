@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { useSelector } from 'react-redux';
 import styles from './Card.module.css';
 
-const Card = ({ dataArr, fileAdress, title, description }) => {
+const Card = ({ dataArr, fileAdress, title, description, slugType }) => {
     const activeLang = useSelector(state => state.settings.activeLang);
 
     return (
@@ -29,7 +29,7 @@ const Card = ({ dataArr, fileAdress, title, description }) => {
                 );
             })}
         </>
-    )
+    );
 };
 
 export default Card;
