@@ -1,4 +1,4 @@
-.container { 
+.container {
   width: 100%;
   display: flex;
 }
@@ -10,7 +10,7 @@
   width: 40%;
 }
 
-.containerTwo { 
+.containerTwo {
   width: 60%;
   display: flex;
   flex-direction: column;
@@ -21,22 +21,22 @@
   position: relative;
   width: 100%;
 }
-.bodyContainer  {
+.bodyContainer {
   width: 50%;
 }
 
-.numberBox { 
+.numberBox {
   display: flex;
 }
 
-.maneBox { 
+.maneBox {
   display: flex;
   flex-direction: column;
   margin-bottom: 35px;
 }
 
 .number {
-  width:25px;
+  width: 25px;
   height: 25px;
   margin: 10px 10px 10px 10px;
 }
@@ -49,47 +49,48 @@
   margin-left: 10px;
 }
 
-.img { 
+.img {
   width: 30%;
   margin: 40px 0px 60px 0px;
 }
 
-.Title { 
+.Title {
   max-width: 50%;
 }
 
-
 /*Ipad Pro 1024*/
-@media (max-width: 1365px) { 
-  .container { 
+@media (max-width: 1365px) {
+  .container {
     display: flex;
     flex-direction: column !important;
     width: 100%;
   }
 
-  .containerTwo { 
+  .containerTwo {
     width: 100%;
   }
 
-  .maneBox { 
+  .maneBox {
     width: 100%;
   }
 
-  .Title { 
+  .Title {
     max-width: 100%;
     margin: 30px 0 30px 0;
   }
 
-  .bodyContainer { 
+  .bodyContainer {
     width: 100%;
   }
 
-  .img { 
+  .img {
     margin: 40px 0px 30px 0px;
   }
 }
 
 /*Mobile 320*/
-@media (max-width: 768px)  { 
-
+@media (max-width: 767px) {
+  .number {
+    margin: 0px 10px 10px 10px;
+  }
 }

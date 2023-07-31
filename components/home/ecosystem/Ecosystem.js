@@ -692,7 +692,7 @@ const Ecosystem = () => {
       <div>
         <Title />
         <ExchangesCards data={EXCHANGESDATA} />
-        <Card />
+        {/* <Card /> */}
       </div>
       {/* <JoinCommunity /> */}
     </div>

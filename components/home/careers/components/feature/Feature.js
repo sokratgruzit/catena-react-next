@@ -143,9 +143,6 @@ const Feature = ({ featureLinkList, title, showButton }) => {
   return (
     <div>
       <div className='container_bordered'>
-        <div className={styles.center}>
-          <div className={styles.cloud}>Link Copied!</div>
-        </div>
         <h2 className={`${styles.font__51} font-40 ttl`}>{title}</h2>
         <div className='container_bordered-child'>
           <div className={`${styles.openPositionsList}`}>

@@ -79,7 +79,6 @@ const VoiceMatter = () => {
                 resize={'both'}
 
               />
-              <label>Limit: 1000 characters</label>
             </div>
             <div>
               <Button

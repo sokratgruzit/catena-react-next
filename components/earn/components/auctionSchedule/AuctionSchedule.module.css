@@ -5,31 +5,35 @@
 .auction__borderBottom {
   width: 100%;
   display: flex;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid #dfe0e2;
 }
 
 .auction__schedule {
   margin: 30px 0 20px 0;
-  color: #627eea;
+  color: #ff6969;
 }
 
 .auction__leftPanelInner {
   display: flex;
   flex-direction: column;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid #dfe0e2;
   padding: 20px;
 }
 
-.auction__leftPanelInner > div {
+.auction__leftPanelInner>div {
   display: flex;
   justify-content: space-between;
   width: 100%;
   align-items: center;
 }
 
-.auction__leftPanelInner > div p {
-  color: #b2b4b7;
+.auction__leftPanelInner div:nth-child(1) {
+  padding-bottom: 20px;
 }
+
+/* .auction__leftPanelInner>div p {
+  color: #b2b4b7;
+} */
 
 .auction__panelQuestion {
   display: flex;
@@ -42,11 +46,11 @@
   margin-left: 10px;
 }
 
-.auction__panelQuestion p {
+/* .auction__panelQuestion p {
   color: #b2b4b7;
-}
+} */
 
-.questionMarkWrapper{
+.questionMarkWrapper {
   width: fit-content;
-  height:20px;
+  height: 20px;
 }
