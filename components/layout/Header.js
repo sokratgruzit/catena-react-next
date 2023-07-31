@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import useTranslation from 'next-translate/useTranslation';
 import { useState, useEffect, useMemo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+// import useConnect from "../../hooks/use-connect";
 
 import { injected, walletConnect } from '../../connector';
 import useConnect from '../../hooks/use-connect';
@@ -49,13 +50,10 @@ const WALLETS_DATA = [
 const Header = () => {
   const { connect, disconnect, library, error, setError } = useConnect();
   const axios = useMemo(() => createAxiosInstance(), []);
-  const router = useRouter();
-  const dispatch = useDispatch();
 
   const account = useSelector(state => state.connect.account);
   const triedReconnect = useSelector(state => state.appState.triedReconnect);
   const locales = useSelector(state => state.settings.locales);
-  const activeLang = useSelector(state => state.settings.activeLang);
 
   const [activeMenu, setActiveMenu] = useState(null);
   const [activeLangs, setActiveLangs] = useState(false);
@@ -70,11 +68,15 @@ const Header = () => {
   const slippage = useSelector(state => state.settings.slippage);
   const [balance, setBalance] = useState(0);
   const [stickHead, setStickHead] = useState(false);
+  const { t } = useTranslation('header');
+  const [routerLocale, setRouterLocale] = useState(null);
+
+  const dispatch = useDispatch();
 
   const NAV_DATA = [
     {
       id: 1,
-      title: 'top_menu.trade',
+      title: t('top_menu.trade'),
       route: '/trade/swap',
       subNav: [
         {
@@ -189,15 +191,16 @@ const Header = () => {
     },
   ];
 
-  const changeLanguage = loc => {
-    //i18n.changeLanguage(loc.toLowerCase());
+  const router = useRouter();
 
+  const changeLanguage = loc => {
+    // i18n.changeLanguage(locale.toLowerCase());
+    //router.push('', '', { locale: loc.toLowerCase() });
+    //setRouterLocale(loc);
     dispatch({
       type: "SET_ACTIVE_LANG",
       activeLang: loc
     });
-
-    //router.push(router.pathname, router.asPath, { locale: loc.toLowerCase() });
   };
 
   let web3Obj = library;
@@ -275,6 +278,20 @@ const Header = () => {
     setConnectBtnColor('red');
   };
 
+  const getLocales = async () => {
+    axios
+    .get('/langs/get-locales')
+    .then(res => {
+      let locales = res.data[0].list;
+
+      dispatch({
+        type: "SET_LOCALES",
+        locales
+      });
+    })
+    .catch(() => {});
+  };
+
   const isSticky = e => {
     const scrollTop = window.scrollY;
     if (scrollTop >= 10) {
@@ -299,20 +316,16 @@ const Header = () => {
     }
     if (window.innerWidth <= 767) {
     }
-
-    axios.get(`http://localhost:4003/langs/get-locales`)
-    .then(res => {
-      let locales = res?.data[0]?.list;
-      
-      dispatch({
-        type: "SET_LOCALES",
-        locales
-      });
-    })
-    .catch(err => {
-      console.log(err?.response);
-    });
+    //setRouterLocale(router.locale);
+    getLocales();
   }, []);
+
+  useEffect(() => {
+    window.addEventListener('scroll', isSticky);
+    return () => {
+      window.removeEventListener('scroll', isSticky);
+    };
+  });
 
   useEffect(() => {
     if (account && triedReconnect) {
@@ -321,14 +334,8 @@ const Header = () => {
         .then(res => console.log(res))
         .catch(() => {});
     }
+    // eslint-disable-next-line
   }, [account]);
-
-  useEffect(() => {
-    window.addEventListener('scroll', isSticky);
-    return () => {
-      window.removeEventListener('scroll', isSticky);
-    };
-  });
 
   return (
     <div>
@@ -515,7 +522,7 @@ const Header = () => {
                         fill='white'
                       />
                     </svg>
-                    {activeLang}
+                    {routerLocale}
                   </div>
                 </div>
                 <div className={styles.headerMobileFooterSecond}>
@@ -637,7 +644,7 @@ const Header = () => {
                         />
                       </svg>
                       <div className={styles.headerLangNowTtl}>
-                        <span> {activeLang}</span>
+                        <span> {routerLocale}</span>
                       </div>
                     </div>
                   </div>
@@ -675,9 +682,9 @@ const Header = () => {
                         return (
                           <div
                             className={`${styles.headerLangsModalLink} ${
-                              activeLang === item.code ? styles.headerLangsModalLinkActive : ''
+                              'en' === item.code ? styles.headerLangsModalLinkActive : ''
                             }`}
-                            key={item.code + '_' + item.title}
+                            key={item.code}
                             onClick={() => {
                               openLangs(false);
                               changeLanguage(item.code);

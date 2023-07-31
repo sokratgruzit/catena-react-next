@@ -67,14 +67,9 @@
   padding: 21px 0;
 }
 
-.innerContent {
-  padding-left: 40px;
-}
 .listWrapper .children .innerContent ul {
   display: flex;
   flex-direction: column;
-  gap: 13px;
-  padding-left: 18px;
 }
 .listWrapper .children .innerContent ul li {
   position: relative;
@@ -82,8 +77,15 @@
   gap: 10px;
   padding-right: 10px;
 }
+
+.ul {
+  padding-left: 39px;
+}
 @media (max-width: 767px) {
   .listWrapper {
     padding-top: 30px;
+  }
+  .ul {
+    padding-left: 20px;
   }
 }

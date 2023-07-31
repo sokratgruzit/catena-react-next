@@ -80,7 +80,7 @@ function FaqItem() {
           );
         })}
       </div>
-    </div >
+    </div>
   );
 }
 

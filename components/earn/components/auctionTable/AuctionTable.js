@@ -181,8 +181,8 @@ const AuctionTable = () => {
       </div>
       <div className={styles.auction__tableInner}>
         <div className={styles.auction__number}>
-          <p className='font_20'>
-            Auction #<span className={styles.number}>23</span>
+          <p className='font-20'>
+            Auction <span className={`${styles.hash} font-20`}>#</span><span className={`font-20`}>23</span>
           </p>
           {active === 'Archieve' && (
             <>

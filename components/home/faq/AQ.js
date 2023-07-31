@@ -4,7 +4,7 @@ function AQ() {
   return (
     <div>
       <AQItem />
-    </div >
+    </div>
   );
 }
 
