@@ -39,7 +39,7 @@
   padding: 28px;
   width: fit-content;
 }
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .wrapper {
     flex-direction: column;
     padding-bottom: 175px;

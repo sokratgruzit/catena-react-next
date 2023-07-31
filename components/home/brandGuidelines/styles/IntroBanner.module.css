@@ -70,7 +70,7 @@
   opacity: 0.6;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .orangeBtn {
     padding: 10px 26px;
   }
