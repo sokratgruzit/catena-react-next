@@ -95,7 +95,7 @@ const VoiceMatter = () => {
           </form>
         </div>
       </div>
-    </div >
+    </div>
   );
 };
 
