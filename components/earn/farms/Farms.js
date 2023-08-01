@@ -265,37 +265,41 @@ const Farms = () => {
                   )}
                 </div>
               </div> */}
-              <Input
-                type={"lable-input-select"}
-                icon={false}
-                // selectData={selectData}
-                emptyFieldErr={true}
-                // defaultData={defaultData}
-                // label={"yourText"}
-                // selectHandler={selectHandler}
-                selectLabel={"Hot"}
-                // active={active}
-                status={"warning"}
-                title={"your text"}
-                color={"#FFA726"}
-                customStyles={{ width: "150px" }}
-              />
+              <div className={styles.selectDiv}>
+                <Input
+                  type={"lable-input-select"}
+                  icon={false}
+                  // selectData={selectData}
+                  emptyFieldErr={true}
+                  // defaultData={defaultData}
+                  // label={"yourText"}
+                  // selectHandler={selectHandler}
+                  selectLabel={"Hot"}
+                  // active={active}
+                  status={"warning"}
+                  title={"your text"}
+                  color={"#FFA726"}
+                // customStyles={{ width: "150px" }}
+                />
+              </div>
               {/* <input
                 onChange={e => setSearch(e.target.value)}
                 className={styles.searchInput}
                 type='search'
                 placeholder='Search Farms'
               ></input> */}
-              <Input
-                type={"search-input"}
-                onChange={() => { console.log("search"); }}
-                // defaultData={defaultData}
-                // selectHandler={selectHandler}
-                selectLabel={"select"}
-                placeholder={"search"}
-                // label={"your text"}
-                customStyles={{ width: "70%" }}
-              />
+              <div className={styles.searchDiv}>
+                <Input
+                  type={"search-input"}
+                  onChange={() => { console.log("search"); }}
+                  // defaultData={defaultData}
+                  // selectHandler={selectHandler}
+                  selectLabel={"select"}
+                  placeholder={"search"}
+                  // label={"your text"}
+                  // customStyles={{ width: "70%" }}
+                />
+              </div>
             </div>
           </div>
         </div>

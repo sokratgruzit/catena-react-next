@@ -155,7 +155,7 @@ const Feature = ({ featureLinkList, title, showButton }) => {
                 </Link>
                 {isPopupVisible === index && (
                   <div className={styles.popup}>
-                    <p>Link copied!</p>
+                    <p style={{color: 'white'}}>Copied!</p>
                   </div>
                 )}
                 <svg
