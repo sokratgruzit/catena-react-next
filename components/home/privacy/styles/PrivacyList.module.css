@@ -22,24 +22,7 @@
 }
 .title {
   display: flex;
-}
-
-.listWrapper .title p {
-  position: relative;
-  padding-right: 11px;
-  -webkit-text-stroke: 1px #162029;
-  color: #a6d0dd;
-}
-
-.listWrapper .title p::after {
-  content: '';
-  position: absolute;
-  top: 32px;
-  background-color: #a6d0dd;
-  border-radius: 50%;
-  width: 5px;
-  height: 5px;
-  border: 1px solid #162029;
+  gap: 11px;
 }
 
 .listWrapper .text {

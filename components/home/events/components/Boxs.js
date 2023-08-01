@@ -1,12 +1,11 @@
 import React from 'react';
 import Card from '../../../UI/card/Card';
-import createAxiosInstance from '../../../../pages/api/axios';
 import { useEffect, useMemo, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import styles from '../css/Boxs.module.css';
 
-const Boxs = ({ event }) => {
+const Boxs = ({ events }) => {
   const [activeYear, setActiveYear] = useState('');
   const [filterData, setfilterData] = useState();
   const activeLang = useSelector(state => state.settings.activeLang);
@@ -29,7 +28,7 @@ const Boxs = ({ event }) => {
           </p>
         </div>
         <div className={`${styles.mapContainer} `}>
-          <Card dataArr={event} fileAdress={fileAdress} title={title} description={description} slugType='events' />
+          <Card dataArr={events} fileAdress={fileAdress} title={title} description={description} slugType='events' />
         </div>
       </div>
     </div>

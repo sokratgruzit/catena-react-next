@@ -17,6 +17,7 @@ const PressItem = ({ item, slug }) => {
       const itemYear = item.createdAt.substring(0, 4);
       return itemYear === year && item.slug !== item.slug;
     });
+    console.log(data);
     setFilterData(data);
   };
 
