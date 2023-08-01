@@ -694,7 +694,7 @@ const Ecosystem = () => {
   const [exchanges, setExchanges] = useState(null)
 
   const getAllEcosystems = async () => {
-    await axios.get("http://localhost:4003/ecosystem/get-all-ecosystem").then((res) => {
+    await axios.get("http://localhost:4003/ecosystem/get-active-ecosystem").then((res) => {
       const data = res?.data;
       setExchanges(data);
       console.log(data)
