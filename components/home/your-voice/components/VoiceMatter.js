@@ -76,8 +76,8 @@ const VoiceMatter = () => {
                 rows={10}
                 cols={20}
                 placeholder={'Please describe your feedback in detail with corresponding screenshots'}
-                resize={'both'}
-
+                resize={'none'}
+                customStyles={{ width: '100%', resize: "none" }}
               />
             </div>
             <div>
@@ -95,7 +95,7 @@ const VoiceMatter = () => {
           </form>
         </div>
       </div>
-    </div >
+    </div>
   );
 };
 

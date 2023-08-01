@@ -64,6 +64,7 @@ const AmbasdorBtn = () => {
                             onChange={changeHandler}
                             rows={10}
                             cols={20}
+                            customStyles={{ width: '100%', resize: 'none'}}
                             placeholder={'Please describe your feedback in detail with corresponding screenshots'}
                             resize={'both'}
                         />

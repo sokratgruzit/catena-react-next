@@ -72,6 +72,7 @@
 .auction__tableContainer {
   position: relative;
   display: flex;
+  flex-direction: column;
   margin-top: 110px;
   justify-content: space-between;
 }
@@ -187,8 +188,8 @@
 /* Expend Details */
 /* Whitelist */
 .auction__whitelisTableCont {
-  position: absolute;
-  display: none;
+  /* position: absolute; */
+  /* display: none; */
   background-color: #0a0f19;
   top: 0;
   left: 0;
