@@ -51,7 +51,7 @@
 .guidlineColorsInnerImg img {
   height: 70px;
 }
-@media (max-width: 1300px) {
+@media (max-width: 1365px) {
   .flDirCol {
     width: 100%;
   }
@@ -74,7 +74,7 @@
     flex-direction: column;
   }
 }
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .guidlineColorsInnerDescriptionFloorDescr {
     margin-left: 0px !important;
     margin-right: 10px !important;

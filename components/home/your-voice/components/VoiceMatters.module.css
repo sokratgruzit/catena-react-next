@@ -1,84 +1,55 @@
-.main { 
+.main {
   display: flex;
   width: 100%;
   /* margin: 50px 0px 100px 0px; */
 }
 
-.box { 
+.box {
   display: flex;
   flex-direction: column;
   width: 55%;
 }
 
-.bottomBox { 
+.bottomBox {
   display: flex;
   flex-direction: column;
-  width: 45%;
+  width: 50%;
 }
 
-.container { 
-  width: 45%;
-} 
+.retTitle {
+  color: #ff6969;
+}
 
-.img { 
+.img {
   width: 100%;
 }
 
-.Title { 
+.Title {
   margin: 10% 0px 10% 0px;
   max-width: 70%;
 }
 
 .hederBox {
-  background-color: #F3E4D2;
+  background-color: #f3e4d2;
   border: 1px solid #16202933;
   border-radius: 40px;
   padding: 50px;
- }
+}
 
-
-.btnBlu { 
+.btnBlu {
   width: 100% !important;
   border: 1px solid #162029 !important;
-  background-color: #A6D0DD !important;
+  background-color: #a6d0dd !important;
 }
-
 
 /*Ipad 768*/
-@media (max-width: 1023px) { 
-    .main { 
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-    }
-    .box { 
-      width: 100%;
-    }
-  
-    .container {
-      width: 100%;
-    }
-  
-    .Title { 
-      width: 100%;
-    }
-
-    .bottomBox { 
-      width: 100%;
-    }
-
-    .img { 
-      width: 80%;
-    }
-}
-
-/*Mobile 320*/
-@media (max-width: 768px) { 
-  .main { 
-    width: 100% ;
+@media (max-width: 1023px) {
+  .main {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
   }
-
-  .box { 
+  .box {
     width: 100%;
   }
 
@@ -86,15 +57,38 @@
     width: 100%;
   }
 
-  .Title { 
+  .Title {
+    width: 100%;
+  }
+
+  .bottomBox {
+    width: 100%;
+  }
+
+  .img {
+    width: 80%;
+  }
+}
+
+/*Mobile 320*/
+@media (max-width: 768px) {
+  .main {
+    width: 100%;
+  }
+
+  .box {
+    width: 100%;
+  }
+
+  .container {
+    width: 100%;
+  }
+
+  .Title {
     width: 100%;
     max-width: 100%;
   }
 }
-
-
-
-
 
 /* .voiceBg {
   width: 100%;
@@ -184,8 +178,6 @@
   z-index: 2;
 } */
 
-
-
 /* Form Styles */
 /* .feedbackForm {
   position: relative;
@@ -204,7 +196,6 @@
   left: 50%;
   transform: translate(-50%, -50%);
 } */
-
 
 /* .elIconPlus::after {
   content: "Add file";
@@ -261,4 +252,3 @@
   top: 100%;
   left: 0;
 } */
-

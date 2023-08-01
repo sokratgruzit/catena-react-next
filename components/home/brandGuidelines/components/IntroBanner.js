@@ -1,8 +1,40 @@
-import Download from './Download';
+import { useState } from 'react';
+import { Button } from '@catena-network/catena-ui-module';
 
 import styles from '../styles/IntroBanner.module.css';
 
 export default function IntroBanner() {
+  const [firstAnimation, setFirstAnimation] = useState(false);
+  // const [active, setActive] = useState(false);
+  const visibilityChanged = () => {};
+  const handleFirstAnimation = () => {
+    setTimeout(() => {
+      setFirstAnimation(true);
+    }, 100);
+  };
+
+  const handleDownload = (url, filename) => {
+    fetch(url)
+      .then(response => response.blob())
+      .then(blob => {
+        const blobUrl = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = blobUrl;
+        a.download = filename;
+        a.click();
+        URL.revokeObjectURL(blobUrl);
+      })
+      .catch(error => {
+        console.error('Error fetching the file:', error);
+      });
+  };
+
+  const itemData = [
+    {
+      links: [{ url: '/images/guidelines/firstUsage.png', text: 'Download image 1' }],
+    },
+  ];
+
   const data = [
     {
       brand: 'brand',
@@ -11,28 +43,37 @@ export default function IntroBanner() {
   ];
   return (
     <div className={styles.container}>
-      {/* <img src='/images/guidelines/bg.png' alt='' /> */}
-
-      <div className={`${styles.mainContainerDescription} `}>
+      <div className={`container ${styles.mainContainerDescription} `}>
         {data.map((item, index) => {
           return (
             <div key={index} className={styles.left}>
               <h1>
-                <span className='font-90'>{item.brand}</span>
-                <span className='font-90'>{item.guidelines}</span>
+                <span className='font-90 ttl'>{item.brand}</span>
+                <span className='font-90 ttl'>{item.guidelines}</span>
               </h1>
               <div className={styles.mainContainerDownload}>
-                {/* <a href='/resources/core-logo-pack.zip' target='_blank' className={styles.mainContainerDownloadBtn}>
-                  {item.downloadAllLogos}
-                </a> */}
-                <Download buttonClass='orangebtn' buttonTitle='Download all logos' />
-
+                {itemData.map((item, index) => (
+                  <div className='item' key={index}>
+                    {item.links.map((link, linkIndex) => (
+                      <Button
+                        onClick={() => handleDownload(link.url, link.text)}
+                        key={linkIndex}
+                        label={'Download all logos'}
+                        size={'btn-lg'}
+                        type={'btn-primary'}
+                        arrow={false}
+                        element={'button'}
+                        disabled={false}
+                        className={styles.orangeBtn}
+                      />
+                    ))}
+                  </div>
+                ))}
                 <div className={styles.mainContainerDownloadText}>{item.downloadAs}PDF, EPS & SVG</div>
               </div>
             </div>
           );
         })}
-
         <svg
           style={{
             position: 'absolute',

@@ -40,7 +40,7 @@ const FarmsTableRowExpand = ({ item }) => {
         <div className={styles.section}>
           <div className={styles.startSection}>
             <p>Start Farming</p>
-            <Button title={'Connect Wallet'} type={'blue'} className={styles.connectButton} />
+            <Button title={'Connect Wallet'} type={'red'} className={styles.connectButton} />
           </div>
           <div className={styles.middleSection}>
             <p className={styles.coreEarned}>
@@ -49,12 +49,34 @@ const FarmsTableRowExpand = ({ item }) => {
             <p className={styles.coreEarnedNum}>0</p>
           </div>
           <div className={styles.lastSection}>
+            <p style={{ width: '100%', height: '24px' }}></p>
             <button className={`btnBlue ${styles.disabledBtn}`}>Harvest</button>
           </div>
+          <div className={styles.pointer}>
+            <p style={{ width: '100%', height: '24px' }}></p>
+            <div style={{display: 'flex', gap: '8px'}}>
+              <p style={{color: '#162029'}} className={` ${styles.margin0} font_12 `}>Get CATENA-BNB LP</p>
+              <OpenSvg className={styles.openSvg} />
+            </div>
+          </div>
+          <div className={styles.pointer}>
+            <p style={{ width: '100%', height: '24px' }}></p>
+            <div style={{display: 'flex', gap: '8px'}}>
+              <p style={{color: '#162029'}} className='font_12'>View Contract</p>
+              <OpenSvg className={styles.openSvg} />
+            </div>
+          </div>
+          <div className={styles.pointer}>
+            <p style={{ width: '100%', height: '24px' }}></p>
+            <div style={{display: 'flex', gap: '8px'}}>
+              <p style={{color: '#162029'}} className='font_12'>See Pair Info</p>
+              <OpenSvg className={styles.openSvg} />
+            </div>
+          </div>
         </div>
-        <div className={styles.lastRow}>
+        {/* <div className={styles.lastRow}> */}
           <CoreTag />
-          <div className={styles.farms__tableEndInner}>
+          {/* <div className={styles.farms__tableEndInner}>
             <div className={styles.pointer}>
               <p className={` ${styles.margin0} font_12 `}>Get CATENA-BNB LP</p>
               <OpenSvg className={styles.openSvg} />
@@ -67,8 +89,8 @@ const FarmsTableRowExpand = ({ item }) => {
               <p className='font_12'>See Pair Info</p>
               <OpenSvg className={styles.openSvg} />
             </div>
-          </div>
-        </div>
+          </div> */}
+        {/* </div> */}
       </main>
     </>
   );

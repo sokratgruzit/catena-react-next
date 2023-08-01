@@ -1,5 +1,3 @@
-import React, { useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
 import createAxiosInstance from '../../../pages/api/axios';
 import PressItem from '../../../components/home/press/components/pressInner/PressItem';
 

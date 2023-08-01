@@ -1,14 +1,10 @@
 import React from 'react';
-
 import Boxs from './components/Boxs';
-// import JoinCommunity from './components/JoinCommunity';
 
-const Event = () => {
-
+const Event = ({ event }) => {
   return (
     <div style={{ paddingTop: '200px', background: '#FFF3E5' }}>
-      <Boxs />
-      {/* <JoinCommunity /> */}
+      <Boxs event={event} /> {/* Pass the event data as a prop to the Boxs component */}
     </div>
   );
 };
