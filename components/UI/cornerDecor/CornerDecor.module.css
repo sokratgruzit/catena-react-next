@@ -1,6 +1,6 @@
 .decorBoxWrap {
   position: absolute;
-  /* border: 1px solid #111826; */
+  border: 1px solid #CDD2DA;
   pointer-events: none;
   z-index: -1;
   top: 0;

@@ -2,7 +2,7 @@ import React from 'react'
 
 const Destroy = () => {
   return (
-      <svg xmlns='http://www.w3.org/2000/svg' width='84' height='84' viewBox='0 0 84 84' fill='none'>
+      <svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%' viewBox='0 0 84 84' fill='none'>
         <g clipPath='url(#clip0_199_737)'>
           <g clipPath='url(#clip1_199_737)'>
             <path

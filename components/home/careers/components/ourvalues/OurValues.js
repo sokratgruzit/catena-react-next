@@ -3,28 +3,27 @@ import styles from './OurValues.module.css';
 const OurValues = props => {
   const { iconImages, title, description } = props;
   return (
-    <div className={styles.career__valuesOuter}>
-      <div className='container'>
-        <div className={styles.career_head}>
-          <h2 className={styles.font__51}>{title}</h2>
-          <div className={styles.career_description}>
-            <p>{description}</p>
-          </div>
+    <div className='container'>
+      {/* <div className='container'> */}
+      <div className={styles.career_head}>
+        <h2 className={`${styles.font__51} font-40 ttl`}>{title}</h2>
+        <div className={styles.career_description}>
+          <p>{description}</p>
         </div>
+        {/* </div> */}
       </div>
-      <div className='container'>
-        <div className={styles.career_items}>
-          {iconImages.map((item, index) => {
-            return (
-              <div className={styles.career_item} key={index}>
-                <div>{item.svg}</div>
-                <div key={index} className={styles.item_ttl}>
-                  {item.title}
-                </div>
+      {/* <div className='container'> */}
+      <div className={styles.career_items}>
+        {iconImages.map((item, index) => {
+          return (
+            <div className={styles.career_item} key={index}>
+              <div className={styles.mobileSvg}>{item.svg}</div>
+              <div className={styles.item_ttl}>
+                {item.title}
               </div>
-            );
-          })}
-        </div>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
