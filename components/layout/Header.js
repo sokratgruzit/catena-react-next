@@ -14,24 +14,6 @@ import Tooltip from '../UI/tooltip/Tooltip';
 
 import styles from './Header.module.css';
 
-const LANG_DATA = [
-  {
-    id: 1,
-    title: 'GE',
-    fullName: 'Georgian',
-  },
-  {
-    id: 2,
-    title: 'EN',
-    fullName: 'English',
-  },
-  {
-    id: 3,
-    title: 'FR',
-    fullName: 'Français',
-  },
-];
-
 const WALLETS_DATA = [
   {
     id: 1,
@@ -103,18 +85,18 @@ const Header = () => {
     },
     {
       id: 2,
-      title: 'About',
-      route: '/about',
+      title: 'Overview',
+      route: '/',
       subNav: [
         {
           id: 5,
           title: 'Press',
-          route: '/about/press',
+          route: '/home/press',
         },
         {
           id: 6,
-          title: 'Event',
-          route: '/about/event',
+          title: 'Events',
+          route: '/home/events',
         },
       ],
     },
@@ -198,8 +180,8 @@ const Header = () => {
     //router.push('', '', { locale: loc.toLowerCase() });
     //setRouterLocale(loc);
     dispatch({
-      type: "SET_ACTIVE_LANG",
-      activeLang: loc
+      type: 'SET_ACTIVE_LANG',
+      activeLang: loc,
     });
   };
 
@@ -280,16 +262,16 @@ const Header = () => {
 
   const getLocales = async () => {
     axios
-    .get('/langs/get-locales')
-    .then(res => {
-      let locales = res.data[0].list;
+      .get('/langs/get-locales')
+      .then(res => {
+        let locales = res.data[0].list;
 
-      dispatch({
-        type: "SET_LOCALES",
-        locales
-      });
-    })
-    .catch(() => {});
+        dispatch({
+          type: 'SET_LOCALES',
+          locales,
+        });
+      })
+      .catch(() => {});
   };
 
   const isSticky = e => {
@@ -341,7 +323,7 @@ const Header = () => {
     <div>
       <header className={`${styles.header} ${stickHead ? styles.stickHeader : ''}`}>
         <div className={`${styles.headerInner} container`}>
-          <Link href='/'>
+          <Link href='/home'>
             <div>
               <div
                 className={`${styles.headerLogo} ${styles.headerLogoMobile} ${

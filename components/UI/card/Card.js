@@ -10,7 +10,7 @@ const Card = ({ dataArr, fileAdress, title, description, slugType }) => {
     <>
       {dataArr?.map(item => (
         <Link key={item._id} href={`/home/${slugType}/${item.slug}`}>
-          <div key={item._id} className={styles.mapCont}>
+          <div className={styles.mapCont}>
             <div className={styles.pressImageCont}>
               <img src={`${fileAdress}/${item?.image}`} alt={`Image`} className={styles.pressImage} />
               <button className={styles.category}>Category</button>

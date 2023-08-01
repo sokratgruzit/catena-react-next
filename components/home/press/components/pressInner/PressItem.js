@@ -17,7 +17,6 @@ const PressItem = ({ item, slug }) => {
       const itemYear = item.createdAt.substring(0, 4);
       return itemYear === year && item.slug !== item.slug;
     });
-    console.log(data);
     setFilterData(data);
   };
 
@@ -28,12 +27,18 @@ const PressItem = ({ item, slug }) => {
       .then(res => {
         const filteredData = res?.data.filter(pressItem => pressItem.slug !== slug);
         setAllPress(filteredData);
+
+        const copyLinkData = filteredData.map(item => ({
+          time: item.createdAt.substring(11, 19),
+          month: item.createdAt.substring(5, 10),
+          year: parseInt(item.createdAt.substring(0, 4)),
+        }));
+        setCopyLinkData(copyLinkData);
       })
       .catch(err => {
         console.log(err?.response);
       });
   }, [slug]);
-
   useEffect(() => {
     handleYearClick('2023');
   }, [allPress]);

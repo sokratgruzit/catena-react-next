@@ -36,7 +36,6 @@ const EventsItem = ({ item, slug }) => {
         console.log(err?.response);
       });
   }, [slug]);
-
   useEffect(() => {
     handleYearClick('2023');
   }, [allEvent]);
@@ -105,7 +104,7 @@ const EventsItem = ({ item, slug }) => {
         <div className={styles.item}>
           {relatedEvents.map(event => (
             <Card
-              key={event.id}
+              key={item._id}
               dataArr={event}
               fileAdress={fileAdress}
               title={title}
