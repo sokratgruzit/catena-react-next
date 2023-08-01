@@ -12,6 +12,7 @@
 }
 .footer.footerActive {
     transform: translateY(0%);
+    transition-delay: .4s;
 }
 .footerInner {
     display: flex;
@@ -49,4 +50,22 @@
 }
 .footerMenuList a:hover:after {
     transform: scaleX(0);
+}
+@media (max-width: 1300px) {
+    .footerInner{
+        flex-direction: column-reverse;
+        padding-bottom: 15px;
+    }
+    .footerMenuList a {
+        margin: 0px 15px;
+    }
+    .footerMenuList {
+        margin: 15px 0px;
+    }
+    .footer {
+        height: auto;
+    }
+}
+@media (max-width: 767px) {
+
 }
