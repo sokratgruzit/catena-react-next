@@ -9,51 +9,47 @@ import createAxiosInstance from '../../../../../pages/api/axios';
 const PressItem = ({ item, slug }) => {
   const [activeYear, setActiveYear] = useState('');
   const [allPress, setAllPress] = useState([]);
-  const [filterData, setFilterData] = useState();
-  const activeLang = useSelector(state => state.settings.activeLang);
-  const handleYearClick = year => {
-    setActiveYear(year);
-    const data = allPress.filter(item => {
-      const itemYear = item.createdAt.substring(0, 4);
-      return itemYear === year && item.slug !== item.slug;
-    });
-    setFilterData(data);
-  };
+  const [filterData, setFilterData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
+  const activeLang = useSelector(state => state.settings.activeLang);
+
+  const fetchData = () => {
     const axios = createAxiosInstance();
     axios
       .get(`${process.env.NEXT_PUBLIC_URL}/press/get-all-press`)
       .then(res => {
         const filteredData = res?.data.filter(pressItem => pressItem.slug !== slug);
         setAllPress(filteredData);
-
-        const copyLinkData = filteredData.map(item => ({
-          time: item.createdAt.substring(11, 19),
-          month: item.createdAt.substring(5, 10),
-          year: parseInt(item.createdAt.substring(0, 4)),
-        }));
-        setCopyLinkData(copyLinkData);
       })
       .catch(err => {
         console.log(err?.response);
       });
-  }, [slug]);
+  };
+
   useEffect(() => {
-    handleYearClick('2023');
+    fetchData();
+  }, [slug]);
+
+  useEffect(() => {
+    if (allPress.length > 0) {
+      handleYearClick('2023');
+      setLoading(false);
+    }
   }, [allPress]);
+
+  const handleYearClick = year => {
+    setActiveYear(year);
+    const data = allPress.filter(item => {
+      const itemYear = item.createdAt.substring(0, 4);
+      return itemYear === year && item.slug !== slug;
+    });
+    setFilterData(data);
+  };
 
   const sliderImages = [
     `${process.env.NEXT_PUBLIC_URL}/uploads/press/${item.image}`,
     `${process.env.NEXT_PUBLIC_URL}/uploads/press/${item.logo_image}`,
-  ];
-
-  const data = [
-    {
-      time: '0:13 PM GMT+3',
-      month: 'October 26',
-      year: 2021,
-    },
   ];
 
   const getCurrentPageURL = () => {
@@ -62,17 +58,47 @@ const PressItem = ({ item, slug }) => {
 
   return (
     <div>
-      <div className='custum-text'>
-        <h1>{item.title['en']['press.title']}</h1>
-        <CoppyLink data={data} currentPageURL={getCurrentPageURL} showDetails={true} showCopyButton={true} />
-        <Slider images={sliderImages} />
-        <div>{item.description && <p>{item.inner_descr['en']['press.description']}</p>}</div>
-        <p>{item.text['en']['press.text']}</p>
-        <p>{item.inner_descr['en']['press.description']}</p>
-        <CoppyLink data={data} currentPageURL={getCurrentPageURL} showDetails={true} showCopyButton={true} />
-      </div>
-      <Years handleYearClick={handleYearClick} activeYear={activeYear} />
-      <PublicByYears filterData={filterData} activeLang={activeLang} />
+      {loading ? (
+        <p>Loading...</p>
+      ) : (
+        <>
+          <div className='custum-text'>
+            <h1>{item.title['en']['press.title']}</h1>
+            <CoppyLink
+              data={[
+                {
+                  time: item.createdAt.substring(11, 19),
+                  month: item.createdAt.substring(5, 10),
+                  year: parseInt(item.createdAt.substring(0, 4)),
+                  slug: item.slug,
+                },
+              ]}
+              currentPageURL={getCurrentPageURL}
+              showDetails={true}
+              showCopyButton={true}
+            />
+            <Slider images={sliderImages} />
+            <div>{item.description && <p>{item.inner_descr['en']['press.description']}</p>}</div>
+            <p>{item.text['en']['press.text']}</p>
+            <p>{item.inner_descr['en']['press.description']}</p>
+            <CoppyLink
+              data={[
+                {
+                  time: item.createdAt.substring(11, 19),
+                  month: item.createdAt.substring(5, 10),
+                  year: parseInt(item.createdAt.substring(0, 4)),
+                  slug: item.slug,
+                },
+              ]}
+              currentPageURL={getCurrentPageURL}
+              showDetails={true}
+              showCopyButton={true}
+            />
+          </div>
+          <Years handleYearClick={handleYearClick} activeYear={activeYear} />
+          <PublicByYears filterData={filterData} activeLang={activeLang} />
+        </>
+      )}
     </div>
   );
 };
