@@ -2,7 +2,8 @@ const initialState = {
   slippage: 0.5,
   txDeadlines: 5,
   locales: [],
-  activeLang: 'en'
+  activeLang: 'en',
+  activeColorMode: 'white'
 };
 
 const settingsReducer = (state = initialState, action) => {
@@ -24,6 +25,13 @@ const settingsReducer = (state = initialState, action) => {
     return {
       ...state,
       activeLang: action.activeLang,
+    };
+  }
+
+  if (action.type === 'SET_ACTIVE_COLOR_MODE') {
+    return {
+      ...state,
+      activeColorMode: action.activeColorMode,
     };
   }
 
