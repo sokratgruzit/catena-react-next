@@ -73,13 +73,14 @@
 }
 
 .infoContainer {
-    width: 100%;
+    width: 90%;
     display: flex;
     border-bottom: 1px solid #A6D0DD; 
     position: relative;
     align-items: center;
     justify-content: space-between;
-    margin-top: 20px;
+    margin-top: 20px; 
+    margin-left: 80px;
 }
 
 .yearsStats {
@@ -112,17 +113,6 @@
   transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
   font-size: 30px;
   opacity: 1;
-  cursor: pointer;
-}
-
-.pasCont {
-  width: 70px;
-  border-bottom: 1px solid transparent;
-  display: flex;
-  align-items: center;
-  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
-  font-size: 30px;
-  opacity: 0.5;
   cursor: pointer;
 }
 
@@ -198,9 +188,18 @@
     }
     .activeCont {
         font-size: 12px;
+        width: 27px;
     }
     .pasCont  {
         font-size: 12px;
+        width: 27px;
+    }
+    .yearsStats {
+      gap: 30px;
+    }
+    .infoContainer {
+      margin-left: 30px;
+      gap: 10px;
     }
 }
 
@@ -215,6 +214,10 @@
     display: flex;
     flex-direction: column;
   }
+  .logoContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
   .logCon {
     margin: 5px;
     width: auto;
@@ -224,5 +227,12 @@
   .logo {
     width: auto;
     height: auto;
+  }
+}
+
+@media (max-width: 450px) {
+  .logoContainer {
+    display: grid;
+    grid-template-columns: 1fr;
   }
 }

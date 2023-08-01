@@ -2,7 +2,7 @@ import React from 'react'
 
 const Quality = () => {
   return (
-    <svg xmlns='http://www.w3.org/2000/svg' width='88' height='88' viewBox='0 0 88 88' fill='none'>
+    <svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%' viewBox='0 0 88 88' fill='none'>
     <path
       d='M44 86C67.196 86 86 67.196 86 44C86 20.804 67.196 2 44 2C20.804 2 2 20.804 2 44C2 67.196 20.804 86 44 86Z'
       stroke='#162029'

@@ -1,37 +1,44 @@
-.boxTitle { 
-    height: auto;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 100px;
+.boxTitle {
+  height: auto;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 100px;
 }
 
-.box { 
-    background-color: #A6D0DD !important;
+.box {
+  background-color: #a6d0dd !important;
 }
 
-.Titile { 
-    cursor: pointer;
-    margin: 15px 0px 15px 0px;
+.Titile {
+  cursor: pointer;
+  margin: 15px 0px 15px 0px;
 }
 
-.aa { 
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin-left: 100px;
+.aa {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-left: 100px;
 }
 
-.paragraph { 
-    cursor: pointer;
-    max-width: 55%;
-    color: #162029;
-    margin-bottom: 15px;
+.paragraph {
+  cursor: pointer;
+  max-width: 55%;
+  color: #162029;
+  margin-bottom: 15px;
 }
 
-.ppp { 
-    color: #FF6969;
-    border-bottom: 1px solid #FF6969;
-    max-width: 330px;
-    cursor: pointer;
+.ppp {
+  color: #ff6969;
+  border-bottom: 1px solid #ff6969;
+  max-width: 330px;
+  cursor: pointer;
+}
+
+@media (max-width: 1023px) {
+  .paragraph {
+    width: 100%;
+    max-width: 100%;
+  }
 }

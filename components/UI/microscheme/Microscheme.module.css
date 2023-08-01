@@ -122,3 +122,13 @@
         transform: scale(1.15);
     }
 }
+@media (max-width: 1300px) {
+    .mircroscheme svg {
+        transform: scale(1.85);
+    }
+}
+@media (max-width: 767px) {
+    .mircroscheme svg {
+        transform: scale(2.2);
+    }
+}

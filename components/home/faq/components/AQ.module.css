@@ -56,6 +56,7 @@
 
 .Title {
   max-width: 50%;
+  margin-top: 30px;
 }
 
 /*Ipad Pro 1024*/
@@ -91,6 +92,6 @@
 /*Mobile 320*/
 @media (max-width: 767px) {
   .number {
-    margin: 0px 10px 10px 10px;
+    margin: 9px 10px 10px 10px;
   }
 }

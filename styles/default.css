@@ -415,47 +415,7 @@ button {
   }
 }
 
-@media (max-width: 767px) {
-  .custum-text h1 {
-    font-size: 40px;
-    line-height: 55px;
-    margin-bottom: 30px;
-  }
 
-  .custum-text h2 {
-    font-size: 30px;
-    line-height: 35px;
-    margin-bottom: 20px;
-  }
-
-  .custum-text h4 {
-    font-size: 20px;
-    line-height: 30px;
-    margin-bottom: 20px;
-  }
-
-  .custum-text img {
-    margin: 30px 0;
-  }
-
-  .custum-text p {
-    font-size: 16px;
-    line-height: 22px;
-    margin-bottom: 20px;
-  }
-
-  .custum-text hr {
-    margin-bottom: 20px;
-  }
-}
-
-@media (max-width: 350px) {
-  .custum-text h1 {
-    font-size: 30px;
-    line-height: 45px;
-    margin-bottom: 30px;
-  }
-}
 
 .custum-text .coppy-link {
   display: flex;
@@ -551,41 +511,15 @@ input:focus:-ms-input-placeholder {
     height: 35px;
     padding: 0px 15px;
     font-size: 12px;
-
-    .h3 {
-      font-weight: bold;
-    }
+  }
+  .container {
+    padding: 0px 25px;
   }
 
   .frameworks-container__frameworks-tab img {
     transform: scale(0.7);
   }
 
-  .container {
-    padding: 0px 25px;
-  }
-
-  .container_bordered-child {
-    width: 100%;
-    padding: 35px 15px;
-  }
-
-  .font-51 {
-    font-size: 20px;
-    line-height: 50px;
-  }
-
-  .pT-160 {
-    padding-top: 100px;
-
-    .h3 {
-      font-weight: bold;
-    }
-  }
-
-  .pB-160 {
-    padding-bottom: 100px;
-  }
 }
 
 /*Ipad 768*/
@@ -658,4 +592,40 @@ input:focus:-ms-input-placeholder {
 h3 {
   font-weight: 400;
   font-weight: bold;
+}
+@media (max-width: 767px) {
+  .font-90 {
+    font-size: 36px;
+  }
+  .custum-text h1 {
+    font-size: 40px;
+    line-height: 55px;
+    margin-bottom: 30px;
+  }
+
+  .custum-text h2 {
+    font-size: 30px;
+    line-height: 35px;
+    margin-bottom: 20px;
+  }
+
+  .custum-text h4 {
+    font-size: 20px;
+    line-height: 30px;
+    margin-bottom: 20px;
+  }
+
+  .custum-text img {
+    margin: 30px 0;
+  }
+
+  .custum-text p {
+    font-size: 16px;
+    line-height: 22px;
+    margin-bottom: 20px;
+  }
+
+  .custum-text hr {
+    margin-bottom: 20px;
+  }
 }
