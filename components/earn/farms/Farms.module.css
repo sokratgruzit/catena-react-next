@@ -362,9 +362,9 @@
     justify-content: space-between;
   }
 
-  .farms__filterInner{
+  /* .farms__filterInner{
     width: 60%;
-  }
+  } */
   
 }
 /* 
@@ -376,12 +376,12 @@
 } */
 
 /*Mobile 320*/
-@media (max-width: 767px) {
+/* @media (max-width: 767px) {
   .farms__filterInner{
     width: 70%;
   }
   
-}
+} */
 
 @media (max-width: 710px) {
   .componentsViewSection{

@@ -25,6 +25,7 @@ import TableFilter from '../components/tableFilter/TableFilter';
 import { Input, Switches } from '@catena-network/catena-ui-module';
 
 import styles from './Farms.module.css';
+import TableFarms from '../components/tableFarms/TableFarms';
 
 const farmsData = [
   {
@@ -200,7 +201,7 @@ const Farms = () => {
         </div>
         <div className={`container_bordered`}>
           <h1 className={`font-90 ttl ${styles.resTitle}`}>Stake LP tokens to earn.</h1>
-          <div onClick={() => router.push('/earn/farms/auction')} className={styles.communityAuctions}>
+          <div onClick={() => router.push('/home/earn/farms/auction')} className={styles.communityAuctions}>
             <p className={`${styles.blueHover}`}>Community Auctions</p>
             <ArrowSvg className={styles.svgHoverBlue} />
           </div>
@@ -305,8 +306,10 @@ const Farms = () => {
         </div>
         {dataViewType === 'table' && (
           <div className={`${styles.farms__tableContainer}`}>
-            {/* <CornerDecor /> */}
-            <Table
+             <div className='container_bordered'>
+            <div className='container_bordered-child'>
+              {/* <CornerDecor /> */}
+              {/* <Table
               tableLabels={[
                 '',
                 'Earned',
@@ -324,7 +327,10 @@ const Farms = () => {
               expandClassName={styles.borderBottom}
               tableData={farmsData}
               type={'earn_farms'}
-            />
+            /> */}
+              <TableFarms />
+            </div>
+          </div>
           </div>
         )}
         {dataViewType === 'components' && (
