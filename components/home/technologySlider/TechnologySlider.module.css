@@ -275,6 +275,11 @@
 .scrollMore div:hover p {
     background: #ff6969;
 }
+.mainSliderItemDescriptionTxt {
+    width: 50%;
+    margin-top: 35px;
+    margin-bottom: 80px;
+}
 @media (max-width: 1300px) {
     .mainSliderLogo {
         transform: scale(0.8);

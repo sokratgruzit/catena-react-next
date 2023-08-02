@@ -59,7 +59,7 @@ const Header = () => {
     {
       id: 0,
       title: 'Overview',
-      route: '/home/',
+      route: '/',
       subNav: [],
       subNavWithTitle: [
         {
@@ -68,32 +68,32 @@ const Header = () => {
             {
               id: 20,
               title: 'Brand Guidlines',
-              route: '/home/brand-guidlines',
+              route: '/overview/brand-guidlines',
             },
             {
               id: 21,
               title: 'Careers',
-              route: '/home/careers',
+              route: '/overview/careers',
             },
             {
               id: 22,
               title: 'Press',
-              route: '/home/press',
+              route: '/overview/press',
             },
             {
               id: 23,
               title: 'Events',
-              route: '/home/events',
+              route: '/overview/events',
             },
             {
               id: 24,
               title: 'Privacy',
-              route: '/home/privacy',
+              route: '/overview/privacy',
             },
             {
               id: 25,
               title: 'Terms',
-              route: '/home/terms',
+              route: '/overview/terms',
             }
           ]
         },
