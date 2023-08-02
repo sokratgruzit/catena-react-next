@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useMemo } from 'react';
 import Slider from '../../UI/slider/Slider';
-import CoppyLink from '../press/components/pressInner/CoppyLink';
+import CopyLink from '../press/components/pressInner/CopyLink';
 import { useSelector } from 'react-redux';
 import createAxiosInstance from '../../../pages/api/axios';
 import Card from '../../UI/card/Card';
@@ -87,7 +87,7 @@ const EventsItem = ({ item, slug }) => {
         <h1>{item?.title['en']['event.title']}</h1>
         <span>
           <button>Digital</button>
-          <CoppyLink data={data} currentPageURL={getCurrentPageURL} showDetails={false} showCopyButton={true} />
+          <CopyLink data={data} currentPageURL={getCurrentPageURL} showDetails={false} showCopyButton={true} />
         </span>
         <Slider images={sliderImages} />
         <div>{item?.description && <p>{item?.inner_descr['en']['event.description']}</p>}</div>
@@ -95,7 +95,7 @@ const EventsItem = ({ item, slug }) => {
         <p>{item?.inner_descr['en']['event.description']}</p>
         <span>
           <button>Digital</button>
-          <CoppyLink data={data} currentPageURL={getCurrentPageURL} showDetails={false} showCopyButton={true} />
+          <CopyLink data={data} currentPageURL={getCurrentPageURL} showDetails={false} showCopyButton={true} />
         </span>
       </div>
 

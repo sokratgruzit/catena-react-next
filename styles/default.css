@@ -415,9 +415,7 @@ button {
   }
 }
 
-
-
-.custum-text .coppy-link {
+.custum-text .copy-link {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -425,18 +423,18 @@ button {
   flex-wrap: wrap;
 }
 
-.custum-text .coppy-link .year {
+.custum-text .copy-link .year {
   color: rgba(22, 32, 41, 0.5);
 }
 
-.custum-text .coppy-link .dot {
+.custum-text .copy-link .dot {
   border-radius: 50%;
   width: 3px;
   height: 3px;
   background-color: rgba(22, 32, 41, 0.5);
 }
 
-.custum-text .coppy-link button {
+.custum-text .copy-link button {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -519,7 +517,6 @@ input:focus:-ms-input-placeholder {
   .frameworks-container__frameworks-tab img {
     transform: scale(0.7);
   }
-
 }
 
 /*Ipad 768*/
