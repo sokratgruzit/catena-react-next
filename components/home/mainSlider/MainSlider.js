@@ -40,7 +40,7 @@ const MainSlider = () => {
           setTimeout(() => {
               setActiveSlide(activeSlide + 1);
               scrollBlocker = true;
-          },500);
+          },300);
       }
   }
   let slideScrollUp = () => {
@@ -51,7 +51,7 @@ const MainSlider = () => {
             setTimeout(() => {
                 setActiveSlide(activeSlide - 1);
                 scrollBlocker = true;
-            },500);
+            },300);
         }
   }
   return (
@@ -104,6 +104,12 @@ const MainSlider = () => {
                         </h1>
                         <div className={styles.mainSliderItemBtnOut}>
                             <a href="##" className={styles.mainSliderItemBtn}>Join the Community</a>
+                        </div>
+                        <div className={`${styles.scrollMore}`}>
+                            <div onClick={() => {slideScrollDown()}}>
+                                <p>Scroll Down To Continue</p>
+                                <svg width="14" height="11" viewBox="0 0 14 11" fill="rgba(233, 107, 107, 1)" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M-2.18557e-07 5.5C-2.28619e-07 5.26981 0.0914429 5.04905 0.254213 4.88628L4.38628 0.754214C4.72523 0.415263 5.27477 0.415263 5.61372 0.754214C5.95267 1.09316 5.95267 1.64271 5.61372 1.98166L2.09539 5.5L5.61372 9.01834C5.95268 9.35729 5.95268 9.90684 5.61372 10.2458C5.27477 10.5847 4.72523 10.5847 4.38628 10.2458L0.254213 6.11372C0.091443 5.95095 -2.08495e-07 5.73019 -2.18557e-07 5.5Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M0.113281 5.50023C0.113281 5.02088 0.50187 4.63229 0.981219 4.63229L12.438 4.63229C12.9173 4.63229 13.3059 5.02088 13.3059 5.50023C13.3059 5.97957 12.9173 6.36816 12.438 6.36816L0.981219 6.36816C0.50187 6.36816 0.113281 5.97958 0.113281 5.50023Z"></path></svg>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -361,7 +367,7 @@ const MainSlider = () => {
                 </div>
             </div>
             <Footer
-                active={true}
+                active={activeSlide == 5}
             />
         </ReactScrollWheelHandler>
     </>
