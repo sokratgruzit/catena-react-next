@@ -107,7 +107,41 @@ button {
 *::-webkit-scrollbar-thumb {
   background: #0500ff;
 }
+.noise-parent {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+.noise{
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  right: -50%;
+  bottom: -50%;
+  width: 200%;
+  height: 200vh;
+  background: transparent url('http://assets.iceable.com/img/noise-transparent.png') repeat 0 0;
+  background-repeat: repeat;
+  animation: bg-animation .4s infinite;
+  opacity: .5;
+  visibility: visible;
+  z-index: 0;
+}
 
+@keyframes bg-animation {
+  0% { transform: translate(0,0) }
+  10% { transform: translate(-5%,-5%) }
+  20% { transform: translate(-10%,5%) }
+  30% { transform: translate(5%,-10%) }
+  40% { transform: translate(-5%,15%) }
+  50% { transform: translate(-10%,5%) }
+  60% { transform: translate(15%,0) }
+  70% { transform: translate(0,10%) }
+  80% { transform: translate(-15%,0) }
+  90% { transform: translate(10%,5%) }
+  100% { transform: translate(5%,0) }
+}
 .circle_btn {
   display: flex;
   height: 42px;
@@ -196,7 +230,7 @@ button {
 
 .font-20 {
   font-size: 20px;
-  line-height: 120%;
+  line-height: 150%;
 }
 
 .font-40 {
@@ -248,7 +282,7 @@ button {
   color: #a6d0dd;
   font-weight: 400;
   -webkit-text-stroke: 1px #162029;
-  text-stroke: 1px #162029;
+  /* text-stroke: 1px #162029; */
 }
 
 .custum-text h1,

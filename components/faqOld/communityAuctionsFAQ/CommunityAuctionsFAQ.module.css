@@ -1,12 +1,10 @@
-.faq p{
-  color: rgba(255, 255, 255, 0.7);
-}
-.faq li{
-  color: rgba(255, 255, 255, 0.7);
+/* .faq p {} */
+
+.faq li {
   list-style-type: disc;
 }
 
-.questionWrapper{
+.questionWrapper {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -14,29 +12,29 @@
   cursor: pointer;
 }
 
-.title{
+.title {
   font-size: 20px;
   line-height: 24px;
-  color: rgba(255, 255, 255, 0.7);
   transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
 }
 
-.vectorSvg{
+.vectorSvg {
   transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
   width: 12px;
   height: 6px;
   margin-right: 10px;
 }
-.rotate{
+
+.rotate {
   transform: rotateZ(-180deg);
   stroke: #FF7152;
 }
 
-.brighten{
+/* .brighten {
   color: #FFFFFF;
-}
+} */
 
-.borderBottom{
+.borderBottom {
   padding-bottom: 4px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid #D3D6D9;
 }

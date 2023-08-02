@@ -16,13 +16,28 @@
 }
 
 .card {
+    width: 586px;
+    height: 466px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.img {
+    height: 90px;
+    width: 90px;
+    border-radius: 50%;
+}
+
+/* .card {
     width: 360px;
     height: 464px;
     padding: 30px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-}
+} */
 
 .title {
     font-family: Lack;

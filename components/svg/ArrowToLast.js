@@ -1,7 +1,7 @@
 import React from 'react';
 
 const ArrowToLast = props => (
-  <svg width='17' height='11' viewBox='0 0 17 11' fill='white' xmlns='http://www.w3.org/2000/svg' {...props}>
+  <svg width='17' height='11' viewBox='0 0 17 11' fill='#000' xmlns='http://www.w3.org/2000/svg' {...props}>
     <path
       fillRule='evenodd'
       clipRule='evenodd'
