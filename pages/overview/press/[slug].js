@@ -32,6 +32,7 @@ export const getStaticProps = async context => {
   return {
     props: {
       item: foundItem,
+      slug,
     },
   };
 };

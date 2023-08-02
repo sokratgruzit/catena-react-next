@@ -29,12 +29,13 @@
 }
 
 .hire__steps-head p {
-  opacity: 0.7;
+  color: #162029;
   line-height: 24px;
 }
 
 .hire__stepsTtl {
   color: #ff6969;
+  
 }
 
 .hire__steps {
@@ -103,7 +104,19 @@
 
 @media (max-width: 374px) {
   .hire__steps-desc {
-    font-size: 10px;
-    line-height: 16px;
+    /* font-size: 10px; */
+    /* line-height: 16px; */
+    display: flex;
+    justify-content: center;
+  }
+
+  .hire__stepsTtl {
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .hire__steps-head p {
+    font-size: 16px;
   }
 }

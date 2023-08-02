@@ -1,29 +1,18 @@
 import React from 'react';
 import Card from '../../../UI/card/Card';
-import createAxiosInstance from '../../../../pages/api/axios';
 import { useEffect, useMemo, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import styles from '../css/Boxs.module.css';
 
-const Boxs = ({ event }) => {
+const Boxs = ({ events }) => {
   const [activeYear, setActiveYear] = useState('');
   const [filterData, setfilterData] = useState();
   const activeLang = useSelector(state => state.settings.activeLang);
 
   const fileAdress = `${process.env.NEXT_PUBLIC_URL}/uploads/event/`;
-  const title = "event.title";
-  const description = "event.description";
-
-  useEffect(() => {
-    axios.get(`${process.env.NEXT_PUBLIC_URL}/event/get-all-event`)
-      .then(res => {
-        setAllEvent(res?.data);
-      })
-      .catch(err => {
-        console.log(err?.response);
-      });
-  }, []);
+  const title = 'event.title';
+  const description = 'event.description';
 
   return (
     <div className={styles.mainContainer}>
@@ -39,7 +28,7 @@ const Boxs = ({ event }) => {
           </p>
         </div>
         <div className={`${styles.mapContainer} `}>
-          <Card dataArr={event} fileAdress={fileAdress} title={title} description={description} slugType='events' />
+          <Card dataArr={events} fileAdress={fileAdress} title={title} description={description} slugType='events' />
         </div>
       </div>
     </div>

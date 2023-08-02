@@ -413,9 +413,14 @@
   }
   
   .Farms__filterRightPanel{
-    align-items: flex-end;
-    height: 100px;    
+    /* align-items: flex-end; */
+    /* height: 100px;     */
     margin-top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    margin-bottom: 30px;
   }
   
   .filters{

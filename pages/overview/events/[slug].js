@@ -2,10 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import createAxiosInstance from '../../../pages/api/axios';
 import EventsItem from '../../../components/home/events/EventsItem';
+
 export const getStaticPaths = async () => {
   const axios = createAxiosInstance();
 
-  let event = await axios
+  let events = await axios
     .get(`${process.env.NEXT_PUBLIC_URL}/event/get-all-event`)
     .then(res => {
       return res?.data;
@@ -14,7 +15,7 @@ export const getStaticPaths = async () => {
       console.log(err?.response);
     });
 
-  const paths = event.map(item => ({
+  const paths = events.map(item => ({
     params: { slug: item.slug },
   }));
 
@@ -33,6 +34,7 @@ export const getStaticProps = async context => {
   return {
     props: {
       item: foundItem,
+      slug,
     },
   };
 };

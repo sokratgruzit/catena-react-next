@@ -1,5 +1,5 @@
 import React from 'react';
-import Link from 'next/link'; // Import the Link component
+import Link from 'next/link';
 import { useSelector } from 'react-redux';
 import styles from './Card.module.css';
 

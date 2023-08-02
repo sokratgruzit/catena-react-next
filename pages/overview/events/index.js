@@ -1,5 +1,5 @@
 import React from 'react';
-import Events from '../../../components/home/events/Event';
+import Events from '../../../components/home/events/Events';
 import createAxiosInstance from '../../../pages/api/axios';
 
 export const getStaticProps = async () => {
