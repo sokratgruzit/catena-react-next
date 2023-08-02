@@ -146,7 +146,7 @@ const Header = () => {
     },
     {
       id: 1,
-      title: t('top_menu.trade'),
+      title: 'Trade',
       route: '/trade/swap',
       subNav: [
         {
@@ -169,23 +169,6 @@ const Header = () => {
           title: 'Prepetual',
           route: '/prepetual',
         },*/
-      ],
-    },
-    {
-      id: 2,
-      title: 'Overview',
-      route: '/home',
-      subNav: [
-        {
-          id: 5,
-          title: 'Press',
-          route: '/home/press',
-        },
-        {
-          id: 6,
-          title: 'Event',
-          route: '/home/events',
-        },
       ],
     },
     /*{
@@ -411,7 +394,7 @@ const Header = () => {
     <div>
       <header className={`${styles.header} ${stickHead ? styles.stickHeader : ''}`}>
         <div className={`${styles.headerInner} container`}>
-          <Link href='/home'>
+          <Link href='/'>
             <div>
               <div
                 className={`${styles.headerLogo} ${styles.headerLogoMobile} ${
