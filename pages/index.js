@@ -1,19 +1,7 @@
-import BuyCore from '../components/homeOld/buyCore/BuyCore';
-import CoreApps from '../components/homeOld/coreApps/CoreApps';
-import HomeLanding from '../components/homeOld/homeLanding/HomeLanding';
-import HomeTrust from '../components/homeOld/homeTrust/HomeTrust';
-import Trade from '../components/homeOld/trade/Trade';
+import MainSlider from '../components/home/mainSlider/MainSlider';
 
-const Home = () => {
-  return (
-    <main className='container'>
-      <HomeLanding />
-      <HomeTrust />
-      <Trade />
-      <BuyCore />
-      <CoreApps />
-    </main>
-  );
+const mainSlider = () => {
+    return <MainSlider />;
 };
 
-export default Home;
+export default mainSlider;
