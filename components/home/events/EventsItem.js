@@ -22,6 +22,8 @@ const EventsItem = ({ item, slug }) => {
       const itemYear = item.createdAt.substring(0, 4);
       return itemYear === year;
     });
+    console.log(data, 'this one');
+
     setFilterData(data);
   };
   useEffect(() => {
@@ -56,7 +58,6 @@ const EventsItem = ({ item, slug }) => {
       year: 2021,
     },
   ];
-
   const getCurrentPageURL = () => {
     return window.location.href;
   };
