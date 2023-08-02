@@ -1,23 +1,33 @@
-.btn { 
-    margin: 50px 0px 50px 0px; 
-    display: flex;
-    flex-direction: column;
+.btn {
+  margin: 50px 0px 50px 0px;
+  display: flex;
+  flex-direction: column;
 }
 
-.chnBox { 
-    max-height: 0px;
-    overflow: hidden; 
+.chnBox {
+  max-height: 0px;
+  overflow: hidden;
 }
 .active {
-    max-height: 500px;
-    width: 500px;
-    transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
-    max-height: fit-content;
-    margin: 40px 0px 40px 0px;
+  max-height: 500px;
+  width: 500px;
+  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+  max-height: fit-content;
+  margin: 40px 0px 40px 0px;
 }
 
-.btnBlu { 
-    padding: 30px !important;
-    border: 1px solid #162029;
-    text-align: center;
+.btnBlu {
+  padding: 30px !important;
+  border: 1px solid #162029;
+  text-align: center;
+}
+
+@media (max-width: 767px) {
+  .active {
+    width: 100%;
+  }
+
+  .btnBlu {
+    width: 95% !important;
+  }
 }

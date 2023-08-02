@@ -8,29 +8,17 @@ import styles from './css/EventsItem.module.css';
 
 const EventsItem = ({ item }) => {
   const [activeYear, setActiveYear] = useState('');
-  const [allevents, setAllevents] = useState([]);
+  const [allEvent, setAllEvent] = useState([]);
+  const fileAdress = `${process.env.NEXT_PUBLIC_URL}/uploads/event/`;
   const [filterData, setFilterData] = useState();
   const activeLang = useSelector(state => state.settings.activeLang);
-  const axios = useMemo(() => createAxiosInstance(), []);
-  const [allEvent, setAllEvent] = useState([]);
-  const fileAdress = 'http://localhost:4003/uploads/event/';
+  const axios = createAxiosInstance();
   const title = 'event.title';
   const description = 'event.description';
 
-  useEffect(() => {
-    axios
-      .get(`http://localhost:4003/event/get-all-event`)
-      .then(res => {
-        setAllEvent(res?.data);
-      })
-      .catch(err => {
-        console.log(err?.response);
-      });
-  }, []);
-
   const handleYearClick = year => {
     setActiveYear(year);
-    const data = allevents.filter(item => {
+    const data = allEvent.filter(item => {
       const itemYear = item.createdAt.substring(0, 4);
       return itemYear === year;
     });
@@ -40,9 +28,9 @@ const EventsItem = ({ item }) => {
   useEffect(() => {
     const axios = createAxiosInstance();
     axios
-      .get(`http://localhost:4003/event/get-all-event`)
+      .get(`${process.env.NEXT_PUBLIC_URL}/event/get-all-event`)
       .then(res => {
-        setAllevents(res?.data);
+        setAllEvent(res?.data);
       })
       .catch(err => {
         console.log(err?.response);
@@ -51,11 +39,11 @@ const EventsItem = ({ item }) => {
 
   useEffect(() => {
     handleYearClick('2023');
-  }, [allevents]);
+  }, [allEvent]);
 
   const sliderImages = [
-    `http://localhost:4003/uploads/event/${item.image}`,
-    `http://localhost:4003/uploads/event/${item.logo_image}`,
+    `${process.env.NEXT_PUBLIC_URL}/uploads/event/${item?.image}`,
+    `${process.env.NEXT_PUBLIC_URL}/uploads/event/${item?.logo_image}`,
   ];
 
   const data = [
@@ -77,13 +65,13 @@ const EventsItem = ({ item }) => {
       .get(`http://localhost:4003/event/get-all-event`)
       .then(res => {
         const allEvents = res?.data || [];
-        const filteredEvents = allEvents.filter(event => event._id !== item._id);
+        const filteredEvents = allEvents.filter(event => event._id !== item?._id);
         for (let i = filteredEvents.length - 1; i > 0; i--) {
           const j = Math.floor(Math.random() * (i + 1));
           [filteredEvents[i], filteredEvents[j]] = [filteredEvents[j], filteredEvents[i]];
         }
         const related = filteredEvents.slice(0, 2);
-        setRelatedEvents(related);
+        setRelatedEvents([related]);
       })
       .catch(err => {
         console.log(err?.response);
@@ -93,15 +81,15 @@ const EventsItem = ({ item }) => {
   return (
     <div>
       <div className='custum-text'>
-        <h1>{item.title['en']['event.title']}</h1>
+        <h1>{item?.title['en']['event.title']}</h1>
         <span>
           <button>Digital</button>
           <CoppyLink data={data} currentPageURL={getCurrentPageURL} showDetails={false} showCopyButton={true} />
         </span>
         <Slider images={sliderImages} />
-        <div>{item.description && <p>{item.inner_descr['en']['event.description']}</p>}</div>
-        <p>{item.text['en']['event.text']}</p>
-        <p>{item.inner_descr['en']['event.description']}</p>
+        <div>{item?.description && <p>{item?.inner_descr['en']['event.description']}</p>}</div>
+        <p>{item?.text['en']['event.text']}</p>
+        <p>{item?.inner_descr['en']['event.description']}</p>
         <span>
           <button>Digital</button>
           <CoppyLink data={data} currentPageURL={getCurrentPageURL} showDetails={false} showCopyButton={true} />
@@ -112,14 +100,7 @@ const EventsItem = ({ item }) => {
         <h2 className='ttl font_51'>Other Events</h2>
         <div className={styles.item}>
           {relatedEvents.map(event => (
-            <Card
-              key={event._id}
-              dataArr={[event]}
-              fileAdress={fileAdress}
-              title={title}
-              description={description}
-              slugType='events'
-            />
+            <Card dataArr={event} fileAdress={fileAdress} title={title} description={description} slugType='events' />
           ))}
         </div>
       </div>

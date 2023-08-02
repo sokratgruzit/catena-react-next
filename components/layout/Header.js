@@ -174,7 +174,7 @@ const Header = () => {
     {
       id: 2,
       title: 'Overview',
-      route: '/',
+      route: '/home',
       subNav: [
         {
           id: 5,
@@ -184,7 +184,7 @@ const Header = () => {
         {
           id: 6,
           title: 'Event',
-          route: '/home/event',
+          route: '/home/events',
         },
       ],
     },

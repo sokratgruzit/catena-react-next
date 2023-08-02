@@ -2,37 +2,42 @@ import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import createAxiosInstance from '../../../pages/api/axios';
 import EventsItem from '../../../components/home/events/EventsItem';
+export const getStaticPaths = async () => {
+  const axios = createAxiosInstance();
 
-const EventsInner = () => {
-  const router = useRouter();
-  const { slug } = router.query;
-  const [item, setItem] = useState(null);
+  let event = await axios
+    .get(`${process.env.NEXT_PUBLIC_URL}/event/get-all-event`)
+    .then(res => {
+      return res?.data;
+    })
+    .catch(err => {
+      console.log(err?.response);
+    });
 
-  useEffect(() => {
-    if (slug) {
-      const axios = createAxiosInstance();
-      axios
-        .get(`http://localhost:4003/event/get-all-event`)
-        .then(res => {
-          const foundItem = res?.data.find(item => item.slug === slug);
-          console.log('Fetched data:', res?.data);
-          console.log('Found item:', foundItem);
-          setItem(foundItem);
-        })
-        .catch(err => {
-          console.log(err?.response);
-        });
-    }
-  }, [slug]);
+  const paths = event.map(item => ({
+    params: { slug: item.slug },
+  }));
 
-  if (!item) {
-    return (
-      <div className='container' style={{ paddingTop: '40%', paddingLeft: '50%' }}>
-        Loading...
-      </div>
-    );
-  }
+  return {
+    paths,
+    fallback: false,
+  };
+};
 
+export const getStaticProps = async context => {
+  const slug = context.params.slug;
+  const axios = createAxiosInstance();
+  const res = await axios.post(`${process.env.NEXT_PUBLIC_URL}/event/get-one-event`, { slug });
+  const foundItem = res?.data;
+
+  return {
+    props: {
+      item: foundItem,
+    },
+  };
+};
+
+const EventsInner = ({ item }) => {
   return (
     <div className='container' style={{ paddingTop: '200px', paddingBottom: '100px' }}>
       <EventsItem item={item} />

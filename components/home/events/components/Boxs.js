@@ -2,12 +2,14 @@ import React from 'react';
 import Card from '../../../UI/card/Card';
 import createAxiosInstance from '../../../../pages/api/axios';
 import { useEffect, useMemo, useState } from 'react';
+import { useSelector } from 'react-redux';
 
 import styles from '../css/Boxs.module.css';
 
-const Boxs = () => {
-  const axios = useMemo(() => createAxiosInstance(), []);
-  const [allEvent, setAllEvent] = useState([]);
+const Boxs = ({ event }) => {
+  const [activeYear, setActiveYear] = useState('');
+  const [filterData, setfilterData] = useState();
+  const activeLang = useSelector(state => state.settings.activeLang);
 
   const fileAdress = `${process.env.NEXT_PUBLIC_URL}/uploads/event/`;
   const title = "event.title";
@@ -37,7 +39,7 @@ const Boxs = () => {
           </p>
         </div>
         <div className={`${styles.mapContainer} `}>
-          <Card dataArr={allEvent} fileAdress={fileAdress} title={title} description={description} slugType='events' />
+          <Card dataArr={event} fileAdress={fileAdress} title={title} description={description} slugType='events' />
         </div>
       </div>
     </div>
