@@ -2,6 +2,15 @@
   margin-top: 150px !important;
   display: flex;
   flex-direction: column;
+  margin-bottom: 150px;
+}
+
+.selectDiv {
+  width: 150px;
+}
+
+.searchDiv {
+  width: 70%;
 }
 
 .routesWrapper{
@@ -21,6 +30,8 @@
   margin-right: auto;
   align-items: center;
   cursor: pointer;
+  padding: 20px 0 20px 115px;
+
 }
 
 .communityAuctions svg {
@@ -28,7 +39,7 @@
 }
 
 .communityAuctions p {
-  color: #ff7152;
+  font-size: 20px;
 }
 
 .communityAuctions a {
@@ -36,8 +47,12 @@
   align-items: center;
 }
 
+.blueHover {
+  color: #ff6969;
+}
+
 .communityAuctions:hover .blueHover {
-  color: #0500ff;
+  color: #ff6969;
 }
 
 .communityAuctions p,
@@ -53,7 +68,7 @@
 }
 
 .communityAuctions:hover .svgHoverBlue path {
-  stroke: #0500ff;
+  color: #ff6969;
 }
 
 .farms__filter {
@@ -78,6 +93,7 @@
 .Farms__filterRightPanel {
   display: flex;
   align-items: center;
+  gap: 20px;
 }
 
 .Farms__filterLeftPanel svg {
@@ -299,6 +315,11 @@
   height: 12px;
 }
 
+.resTitle {
+  padding-left: 115px;
+  color: #162029;
+}
+
 
 
 /*Laptop 1440*/
@@ -313,6 +334,13 @@
 
 /*Ipad Pro 1024*/
 @media (max-width: 1300px) {
+  .resTitle {
+    padding-left: 0;
+  }
+
+  .communityAuctions {
+    padding-left: 0;
+  }
 }
 
 /*Ipad 768*/
@@ -327,31 +355,33 @@
   }
   
   .Farms__filterRightPanel{
-    margin-top: 10px;
-    margin-left: 110px;
     margin-bottom: 10px;
   }
   
   .Farms__filterLeftPanel{
     justify-content: space-between;
   }
+
+  /* .farms__filterInner{
+    width: 60%;
+  } */
   
 }
-
+/* 
 @media (max-width: 883px) {
   .farms__filterInner{
     width: 60%;
   }
   
-}
+} */
 
 /*Mobile 320*/
-@media (max-width: 767px) {
+/* @media (max-width: 767px) {
   .farms__filterInner{
     width: 70%;
   }
   
-}
+} */
 
 @media (max-width: 710px) {
   .componentsViewSection{
@@ -364,15 +394,20 @@
   
   .Farms__filterLeftPanel{
     justify-content: flex-start;
+    gap: 20px;
   }
   
   .Farms__filterRightPanel{
     align-self:flex-start;
-    margin-left: 110px;
+    /* margin-left: 110px; */
   }
   
   .searchInput{
     width: 253px;
+  }
+
+  .farms__radioBtn {
+    margin: 0 10px;
   }
   
 }
@@ -393,14 +428,27 @@
   }
   
   .Farms__filterRightPanel{
-    align-items: flex-end;
-    height: 100px;    
+    /* align-items: flex-end; */
+    /* height: 100px;     */
     margin-top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    margin-bottom: 30px;
   }
   
   .filters{
     margin-left: 0;
     margin-top: -87px;
+  }
+
+  .selectDiv {
+    width: 100%;
+  }
+
+  .searchDiv {
+    width: 100%;
   }
   
 }
@@ -408,6 +456,14 @@
 @media (max-width: 400px) {
   .componentsViewSection{
     display: block; 
+  }
+
+  .farms__radioBtn {
+    margin: 0;
+  }
+
+  .communityAuctions p {
+    font-size: 16px;
   }
   
   /* .itemWrapper{

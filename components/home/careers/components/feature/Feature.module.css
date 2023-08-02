@@ -2,6 +2,35 @@
   color: #ff6969;
 }
 
+.popup {
+  position: absolute;
+  top: -1px;
+  right: -23px;
+  background-color: #ff6969;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  padding: 3px 8px;
+  border-radius: 8px;
+  z-index: 999;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  transition: .1s;
+}
+
+.popup::before {
+  content: '';
+  position: absolute;
+  top: 100%;
+  right: 50%;
+  transform: translateX(50%) rotate(180deg);
+  margin-right: -2px;
+  border-width: 8px;
+  border-style: solid;
+  border-color: transparent transparent #ff6969 transparent;
+}
+
+
+
 .featuredJobs__btnContainer {
   height: 68px;
   width: fit-content;
@@ -35,12 +64,9 @@
 }
 
 .font__51 {
-  font-size: 51px;
-  line-height: 66px;
   padding-left: 115px;
-  margin: 25px 0 50px 0;
+  margin: 25px 0 30px 0;
   color: #162029;
-  font-family: 'Lack-Regular' !important;
 }
 
 .openPositionsContainer {
@@ -108,20 +134,30 @@
   fill: #ff7152;
 }
 
+
+@media (max-width: 1700px) {
+  .font__51 {
+    padding-left: 25px;
+  }
+}
+
 @media (max-width: 1300px) {
   .openPositionsList {
     padding-right: 0px;
   }
-}
 
-@media (max-width: 1700px) {
   .font__51 {
-    padding-left: 0;
+    padding-left: 15px;
+  }
+
+  .popup {
+    right: -8px;
+  }
+
+  .popup::before {
+    right: 30%;
   }
 }
 
 @media (max-width: 767px) {
-  .font__51 {
-    font-size: 40px;
-  }
 }

@@ -113,7 +113,7 @@ button {
   width: 100vw;
   overflow: hidden;
 }
-.noise{
+.noise {
   position: absolute;
   top: -50%;
   left: -50%;
@@ -123,24 +123,46 @@ button {
   height: 200vh;
   background: transparent url('http://assets.iceable.com/img/noise-transparent.png') repeat 0 0;
   background-repeat: repeat;
-  animation: bg-animation .4s infinite;
-  opacity: .5;
+  animation: bg-animation 0.4s infinite;
+  opacity: 0.5;
   visibility: visible;
   z-index: 0;
 }
 
 @keyframes bg-animation {
-  0% { transform: translate(0,0) }
-  10% { transform: translate(-5%,-5%) }
-  20% { transform: translate(-10%,5%) }
-  30% { transform: translate(5%,-10%) }
-  40% { transform: translate(-5%,15%) }
-  50% { transform: translate(-10%,5%) }
-  60% { transform: translate(15%,0) }
-  70% { transform: translate(0,10%) }
-  80% { transform: translate(-15%,0) }
-  90% { transform: translate(10%,5%) }
-  100% { transform: translate(5%,0) }
+  0% {
+    transform: translate(0, 0);
+  }
+  10% {
+    transform: translate(-5%, -5%);
+  }
+  20% {
+    transform: translate(-10%, 5%);
+  }
+  30% {
+    transform: translate(5%, -10%);
+  }
+  40% {
+    transform: translate(-5%, 15%);
+  }
+  50% {
+    transform: translate(-10%, 5%);
+  }
+  60% {
+    transform: translate(15%, 0);
+  }
+  70% {
+    transform: translate(0, 10%);
+  }
+  80% {
+    transform: translate(-15%, 0);
+  }
+  90% {
+    transform: translate(10%, 5%);
+  }
+  100% {
+    transform: translate(5%, 0);
+  }
 }
 .circle_btn {
   display: flex;
@@ -270,7 +292,7 @@ button {
   left: 0px;
 }
 
-.text ol {
+/* .text ol {
   list-style-type: none;
   counter-reset: custom-counter;
 }
@@ -282,7 +304,29 @@ button {
   color: #a6d0dd;
   font-weight: 400;
   -webkit-text-stroke: 1px #162029;
-  /* text-stroke: 1px #162029; */
+   text-stroke: 1px #162029; 
+ } */
+.text ol {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.text ol li {
+  position: relative;
+  padding-right: 11px;
+  -webkit-text-stroke: 1px #162029;
+  color: #a6d0dd;
+}
+
+.text ol li::after {
+  content: '';
+  position: absolute;
+  top: 32px;
+  background-color: #a6d0dd;
+  border-radius: 50%;
+  width: 5px;
+  height: 5px;
+  border: 1px solid #162029;
 }
 
 .custum-text h1,

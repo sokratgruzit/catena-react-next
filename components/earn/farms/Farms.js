@@ -22,7 +22,10 @@ import FarmsTableComponent from '../components/farmsTable/FarmsTableComponent';
 import FarmsTableRowExpand from '../components/farmsTable/FarmsTableRowExpand';
 import TableFilter from '../components/tableFilter/TableFilter';
 
+import { Input, Switches } from '@catena-network/catena-ui-module';
+
 import styles from './Farms.module.css';
+import TableFarms from '../components/tableFarms/TableFarms';
 
 const farmsData = [
   {
@@ -192,21 +195,18 @@ const Farms = () => {
 
   return (
     <>
-      <div className={styles.background}>
-        <Image src={background} alt='' />
-      </div>
-      <main className={`container ${styles.farms__container}`}>
+      <main className={`${styles.farms__container}`}>
         <div className={styles.routesWrapper}>
           <EarnRoutes />
         </div>
-        <h1 className='font_30'>Stake LP tokens to earn.</h1>
-        <div onClick={() => router.push('/earn/farms/auction')} className={styles.communityAuctions}>
-          <p className={`${styles.blueHover}`}>Community Auctions</p>
-          <ArrowSvg className={styles.svgHoverBlue} />
-        </div>
-        <div className={`${styles.farms__filter} `}>
-          <CornerDecor />
-          <div className={styles.farms__filterInner}>
+        <div className={`container_bordered`}>
+          <h1 className={`font-90 ttl ${styles.resTitle}`}>Stake LP tokens to earn.</h1>
+          <div onClick={() => router.push('/home/earn/farms/auction')} className={styles.communityAuctions}>
+            <p className={`${styles.blueHover}`}>Community Auctions</p>
+            <ArrowSvg className={styles.svgHoverBlue} />
+          </div>
+          <div className={`container_bordered-child ${styles.farms__filterInner}`}>
+            {/* <CornerDecor /> */}
             <div className={styles.Farms__filterLeftPanel}>
               <TableViewSvg
                 onClick={() => setDataViewType('table')}
@@ -217,10 +217,11 @@ const Farms = () => {
                 className={`${dataViewType === 'components' && styles.componentsView}`}
               />
               <div className={styles.farms__radioBtn}>
-                <div className='radio-btn'>
+                <div style={{ fontSize: '16px', color: '#162029' }} className='radio-btn'>
                   <input type='checkbox' />
                   <div className='radio-btn__inner'>
-                    <div className='radio-btn__icon'></div>
+                    {/* <div style={{ backgroundColor: '#162029' }} className='radio-btn__icon'></div> */}
+                    <Switches type={"sm-switches"} />
                   </div>
                   Staked only
                 </div>
@@ -228,7 +229,7 @@ const Farms = () => {
               <TableFilter />
             </div>
             <div className={styles.Farms__filterRightPanel}>
-              <div className={styles.filterWrapper}>
+              {/* <div className={styles.filterWrapper}>
                 <div
                   ref={selectRef}
                   className={`${styles.filters} ${filter.open && styles.filterOpen}`}
@@ -264,20 +265,51 @@ const Farms = () => {
                     </>
                   )}
                 </div>
+              </div> */}
+              <div className={styles.selectDiv}>
+                <Input
+                  type={"lable-input-select"}
+                  icon={false}
+                  // selectData={selectData}
+                  emptyFieldErr={true}
+                  // defaultData={defaultData}
+                  // label={"yourText"}
+                  // selectHandler={selectHandler}
+                  selectLabel={"Hot"}
+                  // active={active}
+                  status={"warning"}
+                  title={"your text"}
+                  color={"#FFA726"}
+                // customStyles={{ width: "150px" }}
+                />
               </div>
-              <input
+              {/* <input
                 onChange={e => setSearch(e.target.value)}
                 className={styles.searchInput}
                 type='search'
                 placeholder='Search Farms'
-              ></input>
+              ></input> */}
+              <div className={styles.searchDiv}>
+                <Input
+                  type={"search-input"}
+                  onChange={() => { console.log("search"); }}
+                  // defaultData={defaultData}
+                  // selectHandler={selectHandler}
+                  selectLabel={"select"}
+                  placeholder={"search"}
+                  // label={"your text"}
+                  // customStyles={{ width: "70%" }}
+                />
+              </div>
             </div>
           </div>
         </div>
         {dataViewType === 'table' && (
           <div className={`${styles.farms__tableContainer}`}>
-            <CornerDecor />
-            <Table
+             <div className='container_bordered'>
+            <div className='container_bordered-child'>
+              {/* <CornerDecor /> */}
+              {/* <Table
               tableLabels={[
                 '',
                 'Earned',
@@ -295,7 +327,10 @@ const Farms = () => {
               expandClassName={styles.borderBottom}
               tableData={farmsData}
               type={'earn_farms'}
-            />
+            /> */}
+              <TableFarms />
+            </div>
+          </div>
           </div>
         )}
         {dataViewType === 'components' && (

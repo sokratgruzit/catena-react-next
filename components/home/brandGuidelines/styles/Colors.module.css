@@ -115,7 +115,7 @@
     padding: 21px 80px 162px 80px;
   }
 }
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .pallete .content:nth-child(4) .contentBox {
     padding-top: 10%;
     padding-bottom: 10%;

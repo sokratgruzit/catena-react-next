@@ -1,28 +1,39 @@
-import { useState } from "react";
+import React, { useState } from 'react';
 import { Input, Button } from '@catena-network/catena-ui-module';
 
-import styles from "../css/AmbasdorBtn.module.css";
+import styles from '../css/AmbasdorBtn.module.css';
 
 const AmbasdorBtn = () => {
-    const [chng, setChng] = useState(false);
-    const [formData, setFormData] = useState({
-        email: "",
-        name: "",
-        suggestion: ""
-    });
+  const [chng, setChng] = useState(false);
+  const [formData, setFormData] = useState({
+    email: '',
+    name: '',
+    suggestion: '',
+  });
 
-    const changeHandler = (e) => {
-        const { name, value } = e.target;
-        setFormData(prevState => ({
-            ...prevState,
-            [name]: value
-        }));
-    }
+  const [suggestionLength, setSuggestionLength] = useState(0);
+  const changeHandler = e => {
+    const { name, value } = e.target;
 
-    const handleSubmit = () => {
-        console.log(formData);
-        setChng(false);
+    if (name === 'suggestion') {
+      const truncatedValue = value.slice(0, 100);
+      setFormData(prevState => ({
+        ...prevState,
+        [name]: truncatedValue,
+      }));
+      setSuggestionLength(truncatedValue.length);
+    } else {
+      setFormData(prevState => ({
+        ...prevState,
+        [name]: value,
+      }));
     }
+  };
+
+  const handleSubmit = () => {
+    console.log(formData);
+    setChng(false);
+  };
 
     return (
         <div className={`${styles.btn} container `}>
@@ -64,6 +75,7 @@ const AmbasdorBtn = () => {
                             onChange={changeHandler}
                             rows={10}
                             cols={20}
+                            customStyles={{ width: '100%', resize: 'none'}}
                             placeholder={'Please describe your feedback in detail with corresponding screenshots'}
                             resize={'both'}
                         />

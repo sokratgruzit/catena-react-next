@@ -1,38 +1,43 @@
-import React, { useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
 import createAxiosInstance from '../../../pages/api/axios';
 import PressItem from '../../../components/home/press/components/pressInner/PressItem';
 
-const PressSlug = () => {
-  const router = useRouter();
-  const { slug } = router.query;
-  const [item, setItem] = useState(null);
+export const getStaticPaths = async () => {
+  const axios = createAxiosInstance();
 
-  useEffect(() => {
-    if (slug) {
-      const axios = createAxiosInstance();
-      axios
-        .get(`http://localhost:4003/press/get-all-press`)
-        .then(res => {
-          const foundItem = res?.data.find(item => item.slug === slug);
-          console.log('Fetched data:', res?.data);
-          console.log('Found item:', foundItem);
-          setItem(foundItem);
-        })
-        .catch(err => {
-          console.log(err?.response);
-        });
-    }
-  }, [slug]);
+  let press = await axios
+    .get(`${process.env.NEXT_PUBLIC_URL}/press/get-all-press`)
+    .then(res => {
+      return res?.data;
+    })
+    .catch(err => {
+      console.log(err?.response);
+    });
 
-  if (!item) {
-    return (
-      <div className='container' style={{ paddingTop: '40%', paddingLeft: '50%' }}>
-        Loading...
-      </div>
-    );
-  }
+  const paths = press.map(item => ({
+    params: { slug: item.slug },
+  }));
 
+  return {
+    paths,
+    fallback: false,
+  };
+};
+
+export const getStaticProps = async context => {
+  const slug = context.params.slug;
+  const axios = createAxiosInstance();
+  const res = await axios.post(`${process.env.NEXT_PUBLIC_URL}/press/get-one-press`, { slug });
+  const foundItem = res?.data;
+
+  return {
+    props: {
+      item: foundItem,
+      slug,
+    },
+  };
+};
+
+const PressSlug = ({ item }) => {
   return (
     <div className='container' style={{ paddingTop: '200px', paddingBottom: '100px' }}>
       <PressItem item={item} />
