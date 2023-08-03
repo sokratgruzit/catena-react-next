@@ -10,7 +10,7 @@ const Boxs = ({ events }) => {
   const [filterData, setfilterData] = useState();
   const activeLang = useSelector(state => state.settings.activeLang);
 
-  const fileAdress = `${process.env.NEXT_PUBLIC_URL}/uploads/event/`;
+  const fileAdress = `${process.env.NEXT_PUBLIC_URL}/uploads/events/`;
   const title = 'event.title';
   const description = 'event.description';
 
