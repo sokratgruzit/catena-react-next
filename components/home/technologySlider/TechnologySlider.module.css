@@ -366,7 +366,7 @@
 .mainSliderItemNavRotated.mainSliderItemNav {
     right: auto;
     left: -110px;
-    bottom: 140px;
+    bottom: 110px;
     transform: rotate(90deg);
 }
 .mainSliderSecondTtl {
@@ -391,6 +391,9 @@
 }
 /*Laptop 1440*/
 @media (max-width: 1900px) {
+    .mainSliderItemSwiperSecond {
+        padding-bottom: 50px;
+    }
     .mainSliderItemNav {
         right: 40px;
         bottom: 20px;
