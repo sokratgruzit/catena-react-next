@@ -173,7 +173,7 @@ const Header = () => {
     },
     {
       id: 1,
-      title: t('top_menu.trade'),
+      title: 'Trade',
       route: '/trade/swap',
       subNav: [
         {
@@ -196,23 +196,6 @@ const Header = () => {
           title: 'Prepetual',
           route: '/prepetual',
         },*/
-      ],
-    },
-    {
-      id: 2,
-      title: 'About',
-      route: '/about',
-      subNav: [
-        {
-          id: 5,
-          title: 'Press',
-          route: '/about/press',
-        },
-        {
-          id: 6,
-          title: 'Event',
-          route: '/about/event',
-        },
       ],
     },
     /*{
