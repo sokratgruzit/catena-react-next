@@ -5,6 +5,8 @@ import Years from '../filterWithYears/Years';
 import PublicByYears from '../publicByYears/PublicByYears';
 import { useSelector } from 'react-redux';
 import createAxiosInstance from '../../../../../pages/api/axios';
+import JoinCommunity from '../../../events/components/JoinCommunity';
+import styles from '../../Press.module.css';
 
 const PressItem = ({ item, slug }) => {
   const [activeYear, setActiveYear] = useState('');
@@ -99,6 +101,9 @@ const PressItem = ({ item, slug }) => {
           <PublicByYears filterData={filterData} activeLang={activeLang} />
         </>
       )}
+      <div className={styles.joinCommunity}>
+        <JoinCommunity />
+      </div>
     </div>
   );
 };

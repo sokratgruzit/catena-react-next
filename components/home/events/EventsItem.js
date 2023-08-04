@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import createAxiosInstance from '../../../pages/api/axios';
 import Card from '../../UI/card/Card';
 import styles from './css/EventsItem.module.css';
+import JoinCommunity from './components/JoinCommunity';
 
 const EventsItem = ({ item, slug }) => {
   const [activeYear, setActiveYear] = useState('');
@@ -22,8 +23,6 @@ const EventsItem = ({ item, slug }) => {
       const itemYear = item.createdAt.substring(0, 4);
       return itemYear === year;
     });
-    console.log(data, 'this one');
-
     setFilterData(data);
   };
   useEffect(() => {
@@ -114,6 +113,9 @@ const EventsItem = ({ item, slug }) => {
             />
           ))}
         </div>
+      </div>
+      <div className={styles.joinCommunity}>
+        <JoinCommunity />
       </div>
     </div>
   );

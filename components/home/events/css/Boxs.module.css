@@ -48,7 +48,9 @@
 .mapContainer > div:nth-child(n + 2) {
   flex-basis: calc(50% - 25px);
 }
-
+.joinCommunity {
+  margin-top: 128px;
+}
 @media (max-width: 1223px) {
   .titleContainer {
     width: auto;
@@ -64,6 +66,12 @@
   }
   .titleDesc p {
     font-size: 25px;
+  }
+}
+
+@media (max-width: 1023px) {
+  .joinCommunity {
+    margin-top: 80px;
   }
 }
 

@@ -23,7 +23,7 @@ const PublicByYears = ({ filterData, activeLang }) => {
         {filterData && Array.isArray(filterData) ? (
           filterData.slice(0, visibleItems).map((item, index) => {
             return (
-              <Link key={index} href={`/home/press/${item.slug}`}>
+              <Link key={index} href={`/overview/press/${item.slug}`}>
                 <div className={styles.icCont}>
                   <img
                     src={`${process.env.NEXT_PUBLIC_URL}/uploads/press/${item?.logo_image}`}
