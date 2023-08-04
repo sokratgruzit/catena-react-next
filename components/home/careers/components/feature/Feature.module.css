@@ -3,30 +3,33 @@
 }
 
 .popup {
-  position: fixed;
-  bottom: 10px;
-  right: 10px;
-  background-color: #ffffff;
+  position: absolute;
+  top: -1px;
+  right: -23px;
+  background-color: #ff6969;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-  padding: 15px;
+  padding: 3px 8px;
   border-radius: 8px;
   z-index: 999;
   font-size: 14px;
-  color: #162029;
   display: flex;
   align-items: center;
   transition: .1s;
 }
 
-/* .popup::before {
+.popup::before {
   content: '';
   position: absolute;
-  bottom: 100%;
-  right: 15px;
+  top: 100%;
+  right: 50%;
+  transform: translateX(50%) rotate(180deg);
+  margin-right: -2px;
   border-width: 8px;
   border-style: solid;
-  border-color: transparent transparent #ffffff transparent;
-} */
+  border-color: transparent transparent #ff6969 transparent;
+}
+
+
 
 .featuredJobs__btnContainer {
   height: 68px;
@@ -145,6 +148,14 @@
 
   .font__51 {
     padding-left: 15px;
+  }
+
+  .popup {
+    right: -8px;
+  }
+
+  .popup::before {
+    right: 30%;
   }
 }
 

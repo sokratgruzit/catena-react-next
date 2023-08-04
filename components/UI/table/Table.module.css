@@ -22,6 +22,18 @@
     color: #162029;
     display: flex;
 }
+
+@media(max-width:896px){
+    .Table__labels {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+
+@media(max-width:600px){
+    .Table__labels {
+        grid-template-columns: 1fr 1fr .2fr;
+    }
+}
 /* .Table__labels div {
     display: flex;
     align-items: center;

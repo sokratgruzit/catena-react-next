@@ -5,6 +5,14 @@
   margin-bottom: 150px;
 }
 
+.selectDiv {
+  width: 150px;
+}
+
+.searchDiv {
+  width: 70%;
+}
+
 .routesWrapper{
   margin: auto;
   margin-bottom: 32px;
@@ -347,31 +355,33 @@
   }
   
   .Farms__filterRightPanel{
-    margin-top: 10px;
-    margin-left: 110px;
     margin-bottom: 10px;
   }
   
   .Farms__filterLeftPanel{
     justify-content: space-between;
   }
+
+  /* .farms__filterInner{
+    width: 60%;
+  } */
   
 }
-
+/* 
 @media (max-width: 883px) {
   .farms__filterInner{
     width: 60%;
   }
   
-}
+} */
 
 /*Mobile 320*/
-@media (max-width: 767px) {
+/* @media (max-width: 767px) {
   .farms__filterInner{
     width: 70%;
   }
   
-}
+} */
 
 @media (max-width: 710px) {
   .componentsViewSection{
@@ -384,15 +394,20 @@
   
   .Farms__filterLeftPanel{
     justify-content: flex-start;
+    gap: 20px;
   }
   
   .Farms__filterRightPanel{
     align-self:flex-start;
-    margin-left: 110px;
+    /* margin-left: 110px; */
   }
   
   .searchInput{
     width: 253px;
+  }
+
+  .farms__radioBtn {
+    margin: 0 10px;
   }
   
 }
@@ -427,12 +442,28 @@
     margin-left: 0;
     margin-top: -87px;
   }
+
+  .selectDiv {
+    width: 100%;
+  }
+
+  .searchDiv {
+    width: 100%;
+  }
   
 }
 
 @media (max-width: 400px) {
   .componentsViewSection{
     display: block; 
+  }
+
+  .farms__radioBtn {
+    margin: 0;
+  }
+
+  .communityAuctions p {
+    font-size: 16px;
   }
   
   /* .itemWrapper{

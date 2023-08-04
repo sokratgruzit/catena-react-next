@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import useTranslation from 'next-translate/useTranslation';
 import { useState, useEffect, useMemo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 // import useConnect from "../../hooks/use-connect";
@@ -32,10 +31,20 @@ const WALLETS_DATA = [
 const Header = () => {
   const { connect, disconnect, library, error, setError } = useConnect();
   const axios = useMemo(() => createAxiosInstance(), []);
+  const locales = useSelector(state => state.settings.locales);
 
   const account = useSelector(state => state.connect.account);
   const triedReconnect = useSelector(state => state.appState.triedReconnect);
-  const locales = useSelector(state => state.settings.locales);
+
+  useEffect(() => {
+    if (account && triedReconnect) {
+      axios
+        .post('/auth/register-wallet-address', { address: account })
+        .then(res => console.log(res))
+        .catch(() => {});
+    }
+    // eslint-disable-next-line
+  }, [account]);
 
   const [activeMenu, setActiveMenu] = useState(null);
   const [activeLangs, setActiveLangs] = useState(false);
@@ -50,7 +59,6 @@ const Header = () => {
   const slippage = useSelector(state => state.settings.slippage);
   const [balance, setBalance] = useState(0);
   const [stickHead, setStickHead] = useState(false);
-  const { t } = useTranslation('header');
   const [routerLocale, setRouterLocale] = useState(null);
 
   const dispatch = useDispatch();
@@ -63,7 +71,7 @@ const Header = () => {
       subNav: [],
       subNavWithTitle: [
         {
-          title: 'About Us',
+          title:'About Us',
           subNav: [
             {
               id: 20,
@@ -98,7 +106,7 @@ const Header = () => {
           ]
         },
         {
-          title: 'Support',
+          title:'Support',
           subNav: [
             {
               id: 26,
@@ -124,11 +132,11 @@ const Header = () => {
               id: 30,
               title: 'Ambassador',
               route: '/overview/ambassador',
-            },
-          ],
+            }
+          ]
         },
         {
-          title: 'Learn',
+          title:'Learn',
           subNav: [
             {
               id: 31,
@@ -139,10 +147,10 @@ const Header = () => {
               id: 32,
               title: 'Tokenomics',
               route: '/overview/tokenomics',
-            },
-          ],
-        },
-      ],
+            }
+          ]
+        }
+      ]
     },
     {
       id: 1,
@@ -248,11 +256,11 @@ const Header = () => {
 
   const changeLanguage = loc => {
     // i18n.changeLanguage(locale.toLowerCase());
-    //router.push('', '', { locale: loc.toLowerCase() });
-    //setRouterLocale(loc);
+    // router.push('', '', { locale: loc.toLowerCase() });
+    // setRouterLocale(loc);
     dispatch({
-      type: 'SET_ACTIVE_LANG',
-      activeLang: loc,
+      type: "SET_ACTIVE_LANG",
+      activeLang: loc
     });
   };
 
@@ -333,16 +341,16 @@ const Header = () => {
 
   const getLocales = async () => {
     axios
-      .get('/langs/get-locales')
-      .then(res => {
-        let locales = res.data[0].list;
+    .get('/langs/get-locales')
+    .then(res => {
+      let locales = res.data[0].list;
 
-        dispatch({
-          type: 'SET_LOCALES',
-          locales,
-        });
-      })
-      .catch(() => {});
+      dispatch({
+        type: "SET_LOCALES",
+        locales
+      });
+    })
+    .catch(() => {});
   };
 
   const isSticky = e => {
@@ -367,6 +375,7 @@ const Header = () => {
     if (window.innerWidth >= 1024) {
       setDevice('desktop');
     }
+
     if (window.innerWidth <= 767) {
     }
     //setRouterLocale(router.locale);
@@ -375,20 +384,11 @@ const Header = () => {
 
   useEffect(() => {
     window.addEventListener('scroll', isSticky);
+
     return () => {
       window.removeEventListener('scroll', isSticky);
     };
   });
-
-  useEffect(() => {
-    if (account && triedReconnect) {
-      axios
-        .post('/auth/register-wallet-address', { address: account })
-        .then(res => console.log(res))
-        .catch(() => {});
-    }
-    // eslint-disable-next-line
-  }, [account]);
 
   return (
     <div>
@@ -417,43 +417,15 @@ const Header = () => {
                 </svg>
               </div>
               <div className={`${styles.headerLogo} ${styles.headerLogoDesktop}`}>
-                <svg xmlns='http://www.w3.org/2000/svg' width='126' height='24' viewBox='0 0 126 24' fill='none'>
-                  <path
-                    fillRule='evenodd'
-                    clipRule='evenodd'
-                    d='M24.0012 24C30.6286 24 36.0012 18.6274 36.0012 12C36.0012 5.37258 30.6286 0 24.0012 0C18.8313 0 14.425 3.26933 12.737 7.85332C13.4424 8.05999 14.0729 8.44179 14.5784 8.94843C16.2274 9.87684 18.7747 10.5502 21.2604 9.11831C22.0514 8.23525 23.2004 7.67957 24.4793 7.67957C26.8651 7.67957 28.7993 9.6137 28.7993 11.9996C28.7993 14.3854 26.8651 16.3196 24.4793 16.3196C23.504 16.3196 22.6042 15.9964 21.8812 15.4513C20.2003 14.6082 17.1594 13.8465 14.194 15.3929C13.7662 15.7304 13.2731 15.9888 12.7367 16.1459C14.4245 20.7303 18.831 24 24.0012 24Z'
-                    fill='#E96B6B'
-                  />
-                  <path
-                    fillRule='evenodd'
-                    clipRule='evenodd'
-                    d='M23.264 7.85252C21.5757 3.26895 17.1696 0 12 0C5.37258 0 0 5.37258 0 12C0 18.6274 5.37258 24 12 24C17.1699 24 21.5762 20.7307 23.2642 16.1467C22.7582 15.9988 22.2906 15.7609 21.88 15.4513C20.1991 14.6082 17.1582 13.8465 14.1927 15.3929C13.4572 15.9732 12.5285 16.3196 11.5189 16.3196C9.13305 16.3196 7.19892 14.3854 7.19892 11.9996C7.19892 9.6137 9.13305 7.67957 11.5189 7.67957C12.7137 7.67957 13.7951 8.16458 14.5772 8.94843C16.2262 9.87684 18.7735 10.5502 21.2592 9.1183C21.7895 8.52631 22.4806 8.08147 23.264 7.85252Z'
-                    fill='#A6D0DD'
-                  />
-                  <path
-                    d='M55.9371 16.4855C55.575 16.637 55.2105 16.7734 54.8435 16.8946C54.4764 17.0159 54.0968 17.1194 53.7046 17.2053C53.3124 17.2962 52.8976 17.3644 52.4602 17.4099C52.0278 17.4553 51.5627 17.4781 51.0649 17.4781C50.009 17.4781 49.0361 17.3644 48.1461 17.1371C47.2612 16.9098 46.4969 16.5688 45.8533 16.1142C45.2148 15.6546 44.717 15.0838 44.36 14.4019C44.003 13.7149 43.8245 12.9143 43.8245 12C43.8245 11.0857 44.003 10.2877 44.36 9.60574C44.717 8.91877 45.2148 8.34799 45.8533 7.89338C46.4969 7.43372 47.2612 7.09023 48.1461 6.86293C49.0361 6.63562 50.009 6.52197 51.0649 6.52197C51.5627 6.52197 52.0278 6.5447 52.4602 6.59016C52.8976 6.63562 53.3124 6.70382 53.7046 6.79474C54.0968 6.88061 54.4764 6.98416 54.8435 7.10539C55.2105 7.22662 55.575 7.363 55.9371 7.51454V10.0452C55.6505 9.88861 55.3488 9.73454 55.032 9.58301C54.7152 9.42642 54.3658 9.28751 53.9837 9.16628C53.6015 9.04 53.1817 8.93898 52.7241 8.86321C52.2666 8.78239 51.7512 8.74198 51.178 8.74198C50.2981 8.74198 49.5665 8.8329 48.9833 9.01475C48.4051 9.19659 47.9425 9.43905 47.5955 9.74212C47.2486 10.0452 47.0048 10.3937 46.864 10.7877C46.7232 11.1767 46.6528 11.5808 46.6528 12C46.6528 12.2778 46.683 12.5531 46.7433 12.8259C46.8036 13.0936 46.9042 13.3487 47.045 13.5911C47.1858 13.8286 47.3693 14.0483 47.5955 14.2503C47.8218 14.4524 48.1034 14.6266 48.4403 14.7731C48.7771 14.9196 49.1693 15.0358 49.6168 15.1217C50.0693 15.2025 50.5897 15.2429 51.178 15.2429C51.7512 15.2429 52.2666 15.2075 52.7241 15.1368C53.1817 15.061 53.6015 14.9625 53.9837 14.8413C54.3658 14.7201 54.7152 14.5837 55.032 14.4322C55.3488 14.2756 55.6505 14.1165 55.9371 13.9548V16.4855Z'
-                    fill='#162029'
-                  />
-                  <path
-                    d='M66.9484 15.2277H61.1712L60.1983 17.1977H57.0759L62.4986 6.78716H65.621L71.0438 17.1977H67.9214L66.9484 15.2277ZM62.1743 13.1972H65.9604L64.0749 9.36328L62.1743 13.1972Z'
-                    fill='#162029'
-                  />
-                  <path
-                    d='M77.9447 9.05263V17.1977H75.1466V9.05263H70.7496V6.78716H82.3493V9.05263H77.9447Z'
-                    fill='#162029'
-                  />
-                  <path
-                    d='M84.2046 17.1977V6.78716H94.6956V9.00717H87.0782V10.7271H94.3034V12.9471H87.0782V14.9777H94.8012V17.1977H84.2046Z'
-                    fill='#162029'
-                  />
-                  <path
-                    d='M107.298 17.1977L100.307 10.0452V17.1977H97.5088V6.78716H100.548L107.547 13.97V6.78716H110.33V17.1977H107.298Z'
-                    fill='#162029'
-                  />
-                  <path
-                    d='M121.9 15.2277H116.123L115.15 17.1977H112.027L117.45 6.78716H120.572L125.995 17.1977H122.873L121.9 15.2277ZM117.126 13.1972H120.912L119.026 9.36328L117.126 13.1972Z'
-                    fill='#162029'
-                  />
+                <svg xmlns="http://www.w3.org/2000/svg" width="126" height="24" viewBox="0 0 126 24" fill="none">
+                  <path fillRule="evenodd" clipRule="evenodd" d="M24.0012 24C30.6286 24 36.0012 18.6274 36.0012 12C36.0012 5.37258 30.6286 0 24.0012 0C18.8313 0 14.425 3.26933 12.737 7.85332C13.4424 8.05999 14.0729 8.44179 14.5784 8.94843C16.2274 9.87684 18.7747 10.5502 21.2604 9.11831C22.0514 8.23525 23.2004 7.67957 24.4793 7.67957C26.8651 7.67957 28.7993 9.6137 28.7993 11.9996C28.7993 14.3854 26.8651 16.3196 24.4793 16.3196C23.504 16.3196 22.6042 15.9964 21.8812 15.4513C20.2003 14.6082 17.1594 13.8465 14.194 15.3929C13.7662 15.7304 13.2731 15.9888 12.7367 16.1459C14.4245 20.7303 18.831 24 24.0012 24Z" fill="#E96B6B"/>
+                  <path fillRule="evenodd" clipRule="evenodd" d="M23.264 7.85252C21.5757 3.26895 17.1696 0 12 0C5.37258 0 0 5.37258 0 12C0 18.6274 5.37258 24 12 24C17.1699 24 21.5762 20.7307 23.2642 16.1467C22.7582 15.9988 22.2906 15.7609 21.88 15.4513C20.1991 14.6082 17.1582 13.8465 14.1927 15.3929C13.4572 15.9732 12.5285 16.3196 11.5189 16.3196C9.13305 16.3196 7.19892 14.3854 7.19892 11.9996C7.19892 9.6137 9.13305 7.67957 11.5189 7.67957C12.7137 7.67957 13.7951 8.16458 14.5772 8.94843C16.2262 9.87684 18.7735 10.5502 21.2592 9.1183C21.7895 8.52631 22.4806 8.08147 23.264 7.85252Z" fill="#A6D0DD"/>
+                  <path d="M55.9371 16.4855C55.575 16.637 55.2105 16.7734 54.8435 16.8946C54.4764 17.0159 54.0968 17.1194 53.7046 17.2053C53.3124 17.2962 52.8976 17.3644 52.4602 17.4099C52.0278 17.4553 51.5627 17.4781 51.0649 17.4781C50.009 17.4781 49.0361 17.3644 48.1461 17.1371C47.2612 16.9098 46.4969 16.5688 45.8533 16.1142C45.2148 15.6546 44.717 15.0838 44.36 14.4019C44.003 13.7149 43.8245 12.9143 43.8245 12C43.8245 11.0857 44.003 10.2877 44.36 9.60574C44.717 8.91877 45.2148 8.34799 45.8533 7.89338C46.4969 7.43372 47.2612 7.09023 48.1461 6.86293C49.0361 6.63562 50.009 6.52197 51.0649 6.52197C51.5627 6.52197 52.0278 6.5447 52.4602 6.59016C52.8976 6.63562 53.3124 6.70382 53.7046 6.79474C54.0968 6.88061 54.4764 6.98416 54.8435 7.10539C55.2105 7.22662 55.575 7.363 55.9371 7.51454V10.0452C55.6505 9.88861 55.3488 9.73454 55.032 9.58301C54.7152 9.42642 54.3658 9.28751 53.9837 9.16628C53.6015 9.04 53.1817 8.93898 52.7241 8.86321C52.2666 8.78239 51.7512 8.74198 51.178 8.74198C50.2981 8.74198 49.5665 8.8329 48.9833 9.01475C48.4051 9.19659 47.9425 9.43905 47.5955 9.74212C47.2486 10.0452 47.0048 10.3937 46.864 10.7877C46.7232 11.1767 46.6528 11.5808 46.6528 12C46.6528 12.2778 46.683 12.5531 46.7433 12.8259C46.8036 13.0936 46.9042 13.3487 47.045 13.5911C47.1858 13.8286 47.3693 14.0483 47.5955 14.2503C47.8218 14.4524 48.1034 14.6266 48.4403 14.7731C48.7771 14.9196 49.1693 15.0358 49.6168 15.1217C50.0693 15.2025 50.5897 15.2429 51.178 15.2429C51.7512 15.2429 52.2666 15.2075 52.7241 15.1368C53.1817 15.061 53.6015 14.9625 53.9837 14.8413C54.3658 14.7201 54.7152 14.5837 55.032 14.4322C55.3488 14.2756 55.6505 14.1165 55.9371 13.9548V16.4855Z" fill="#162029"/>
+                  <path d="M66.9484 15.2277H61.1712L60.1983 17.1977H57.0759L62.4986 6.78716H65.621L71.0438 17.1977H67.9214L66.9484 15.2277ZM62.1743 13.1972H65.9604L64.0749 9.36328L62.1743 13.1972Z" fill="#162029"/>
+                  <path d="M77.9447 9.05263V17.1977H75.1466V9.05263H70.7496V6.78716H82.3493V9.05263H77.9447Z" fill="#162029"/>
+                  <path d="M84.2046 17.1977V6.78716H94.6956V9.00717H87.0782V10.7271H94.3034V12.9471H87.0782V14.9777H94.8012V17.1977H84.2046Z" fill="#162029"/>
+                  <path d="M107.298 17.1977L100.307 10.0452V17.1977H97.5088V6.78716H100.548L107.547 13.97V6.78716H110.33V17.1977H107.298Z" fill="#162029"/>
+                  <path d="M121.9 15.2277H116.123L115.15 17.1977H112.027L117.45 6.78716H120.572L125.995 17.1977H122.873L121.9 15.2277ZM117.126 13.1972H120.912L119.026 9.36328L117.126 13.1972Z" fill="#162029"/>
                 </svg>
                 <div
                   className={`${styles.headerLogoLine} ${activeMenu !== null ? styles.headerLogoLineActive : ''}`}
@@ -498,62 +470,56 @@ const Header = () => {
                     className={`${styles.headerNavLinkSubTtl} ${activeMenu === item.id ? styles.activeMenuSub : ''}`}
                   >
                     <i className={activeMenu === item.id ? styles.activeBg : ''}></i>
-                    {item.subNav.length > 0 &&
-                      item.subNav.map((sub, index) => {
-                        return (
-                          <Link href={sub.route} key={sub.id}>
-                            <a>
-                              <div
-                                style={{
-                                  transitionDelay:
-                                    activeMenu === item.id ? `${(index + (device === 'desktop' ? 9 : 0)) / 20}s` : '0s',
-                                }}
-                              >
-                                <span>{sub.title}</span>
-                              </div>
-                            </a>
-                          </Link>
-                        );
-                      })}
-                    <div className={`${styles.headerNavLinkWithTitleMain}`}>
-                      {item.subNavWithTitle &&
-                        item.subNavWithTitle.length > 0 &&
-                        item.subNavWithTitle.map((sub, index) => {
-                          return (
-                            <div key={index} className={`${styles.headerNavLinkWithTitleContainer}`}>
-                              <a>
-                                <div
-                                  style={{
-                                    transitionDelay:
-                                      activeMenu === item.id
-                                        ? `${(index + (device === 'desktop' ? 9 : 0)) / 20}s`
-                                        : '0s',
-                                  }}
-                                >
-                                  <span className={`${styles.headerNavLinkWithTitleTtl} ttl`}>{sub.title}</span>
-                                </div>
-                              </a>
-                              {sub.subNav.map(subLower => {
-                                return (
-                                  <Link href={subLower.route} key={subLower.id}>
-                                    <a>
-                                      <div
-                                        style={{
-                                          transitionDelay:
-                                            activeMenu === item.id
-                                              ? `${(index + (device === 'desktop' ? 9 : 0)) / 20}s`
-                                              : '0s',
-                                        }}
-                                      >
-                                        <span>{subLower.title}</span>
-                                      </div>
-                                    </a>
-                                  </Link>
-                                );
-                              })}
+                    {item.subNav.length > 0 && item.subNav.map((sub, index) => {
+                      return (
+                        <Link href={sub.route} key={sub.id}>
+                          <a>
+                            <div
+                              style={{
+                                transitionDelay:
+                                  activeMenu === item.id ? `${(index + (device === 'desktop' ? 9 : 0)) / 20 }s` : '0s',
+                              }}
+                            >
+                              <span>{sub.title}</span>
                             </div>
+                          </a>
+                        </Link>
+                      );
+                    })}
+                    <div  className={`${styles.headerNavLinkWithTitleMain}`}>
+                      {
+                          item.subNavWithTitle && item.subNavWithTitle.length > 0 && item.subNavWithTitle.map((sub, index) => {
+                          return (
+                              <div className={`${styles.headerNavLinkWithTitleContainer}`}>
+                                <a>
+                                  <div
+                                      style={{
+                                        transitionDelay:
+                                            activeMenu === item.id ? `${(index + (device === 'desktop' ? 9 : 0)) / 20}s` : '0s',
+                                      }}
+                                  >
+                                    <span className={`${styles.headerNavLinkWithTitleTtl} ttl`}>{sub.title}</span>
+                                  </div>
+                                </a>
+                                {sub.subNav.map((subLower) => {
+                                  return (
+                                      <Link href={subLower.route} key={subLower.id}>
+                                        <a>
+                                          <div
+                                              style={{
+                                                transitionDelay:
+                                                    activeMenu === item.id ? `${(index + (device === 'desktop' ? 9 : 0)) / 20}s` : '0s',
+                                              }}
+                                          >
+                                            <span>{subLower.title}</span>
+                                          </div>
+                                        </a>
+                                      </Link>
+                                  );
+                                })}
+                              </div>
                           );
-                        })}
+                      })}
                     </div>
                   </div>
                 </div>
