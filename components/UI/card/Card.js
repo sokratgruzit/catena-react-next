@@ -21,7 +21,8 @@ const Card = ({ dataArr, fileAdress, title, description, slugType }) => {
             {item.imgPartTwo && <button className={styles.digital}>DIGITAL</button>}
             <div className={styles.cardDesc}>
               <h2 className={`${styles.headtitle} title font-40`}>{item.title[activeLang][title]}</h2>
-              {item.description && <p className={styles.descP}>{item.inner_descr[activeLang][description]}</p>}
+              {/* {item.description && <p className={styles.descP}>{item.inner_descr[activeLang][description]}</p>} */}
+              <p className={styles.descP}>{item.inner_descr[activeLang][description]}</p>
             </div>
           </div>
         </Link>
