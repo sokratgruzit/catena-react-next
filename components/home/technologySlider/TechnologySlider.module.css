@@ -127,9 +127,16 @@
     display: flex;
     flex-direction: column;
     width: 50%;
+    height: 98vh;
 }
 .mainSliderItemFlex {
     display: flex;
+}
+.mainSliderItemFlexReverse {
+    flex-direction: row-reverse;
+}
+.mainSliderItemFlexReverse .mainSliderItemHalf:first-child{
+    padding-left: 100px;
 }
 .mainSliderItemReverse .mainSliderItemHalf{
     margin-left: auto;
@@ -398,6 +405,46 @@
     opacity: 1;
     transition-delay: .7s;
 }
+.mainSliderLayerItem {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 20px;
+    border: 1px solid #162029;
+    position: relative;
+    overflow: hidden;
+}
+.mainSliderItemHalfSliderCards {
+    height: 100%;
+    position: relative;
+    transform: translateY(10px);
+    opacity: 0;
+    transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+}
+.mainSliderActive .mainSliderItemHalfSliderCards {
+    transform: translateY(0px);
+    opacity: 1;
+    transition-delay: .8s;
+}
+.mainSliderLayerItem i {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: .8;
+}
+.mainSliderLayerItem h2 {
+    font-size: 30px;
+    color: #fff;
+}
+.mainSliderLayerItem p {
+    margin-bottom: 35px;
+}
 /*Laptop 1440*/
 @media (max-width: 1900px) {
     .mainSliderItemSwiperSecond {
@@ -426,9 +473,18 @@
         height: 61px;
         padding: 0px 30px;
     }
+    .mainSliderLayerItem svg{
+        width: 90%;
+    }
 }
 /*Ipad 768*/
 @media (max-width: 1023px) {
+    .mainSliderItemFlexReverse .mainSliderItemHalf:first-child{
+        padding-left: 50px;
+    }
+    .mainSliderLayerItem p {
+        margin-bottom: 10px;
+    }
     .mainSliderItemDescriptionTxt {
         width: 80%;
         margin-top: 15px;
@@ -439,6 +495,9 @@
     }
 }
 @media (max-width: 767px) {
+    .mainSliderItemFlexReverse .mainSliderItemHalf:first-child{
+        padding-left: 0px;
+    }
     .mainSliderItemFlex {
         flex-direction: column;
     }
@@ -487,6 +546,10 @@
         left: auto;
         right: 0px;
         transform: rotate(0);
-        top: -35px;
+        top: 0px;
+    }
+    .mainSliderItemHalfSliderCardContainer {
+        height: 60%!important;
+        margin-bottom: 30px;
     }
 }

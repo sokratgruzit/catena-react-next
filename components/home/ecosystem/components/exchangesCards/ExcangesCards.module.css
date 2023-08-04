@@ -71,18 +71,24 @@
     cursor: pointer;
 }
 
-.button:hover {
-    background-color: #FF6969;
-    color: #FFF3E5;
-}
-@media (max-width: 740px) {
+@media (max-width: 1242px) {
     .container {
         display: flex;
         flex-direction: column;
         gap: 20px;
         width: fit-content;
     }
+}
+
+@media (max-width: 1426px) {
     .massive {
         display: none;
+    }
+}
+
+@media (max-width: 625px) {
+    .card {
+        width: 300px;
+        height: 400px;
     }
 }

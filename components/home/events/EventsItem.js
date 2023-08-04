@@ -9,7 +9,7 @@ import styles from './css/EventsItem.module.css';
 const EventsItem = ({ item, slug }) => {
   const [activeYear, setActiveYear] = useState('');
   const [allEvent, setAllEvent] = useState([]);
-  const fileAdress = `${process.env.NEXT_PUBLIC_URL}/uploads/event/`;
+  const fileAdress = `${process.env.NEXT_PUBLIC_URL}/uploads/events/`;
   const [filterData, setFilterData] = useState();
   const activeLang = useSelector(state => state.settings.activeLang);
   const axios = createAxiosInstance();
@@ -45,8 +45,8 @@ const EventsItem = ({ item, slug }) => {
   }, [allEvent]);
 
   const sliderImages = [
-    `${process.env.NEXT_PUBLIC_URL}/uploads/event/${item?.image}`,
-    `${process.env.NEXT_PUBLIC_URL}/uploads/event/${item?.logo_image}`,
+    `${process.env.NEXT_PUBLIC_URL}/uploads/events/${item?.image}`,
+    `${process.env.NEXT_PUBLIC_URL}/uploads/events/${item?.logo_image}`,
   ];
 
   const data = [

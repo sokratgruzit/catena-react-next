@@ -1,6 +1,9 @@
 import styles from './Microscheme.module.css';
+import { useSelector } from 'react-redux';
 
 const Microscheme = props => {
+  let lvl = useSelector(state => state.settings.microschemeArray);
+  console.log(lvl)
   return (
     <div className={`${styles.mircroscheme}`}>
       {/*<div className={styles.microtest}>*/}
