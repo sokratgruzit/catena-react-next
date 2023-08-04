@@ -1,5 +1,5 @@
 import React from 'react';
-import Events from '../../../components/home/events/Event';
+import Events from '../../../components/home/events/Events';
 import createAxiosInstance from '../../../pages/api/axios';
 
 export const getStaticProps = async () => {
@@ -14,11 +14,7 @@ export const getStaticProps = async () => {
 };
 
 const index = ({ events }) => {
-  return (
-    <div style={{ paddingTop: '150px' }}>
-      <Events events={events} />;
-    </div>
-  );
+  return <Events events={events} />;
 };
 
 export default index;

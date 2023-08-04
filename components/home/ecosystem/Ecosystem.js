@@ -706,13 +706,10 @@ const Ecosystem = () => {
   }, []);
 
   return (
-    <div className='container'>
-      <div>
+    <div className='container' >
         <Title />
         <ExchangesCards data={exchanges} />
-        {/* <Card /> */}
-      </div>
-      {/* <JoinCommunity /> */}
+        <Card />
     </div>
   );
 };

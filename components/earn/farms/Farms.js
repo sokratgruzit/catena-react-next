@@ -25,6 +25,7 @@ import TableFilter from '../components/tableFilter/TableFilter';
 import { Input, Switches } from '@catena-network/catena-ui-module';
 
 import styles from './Farms.module.css';
+import TableFarms from '../components/tableFarms/TableFarms';
 
 const farmsData = [
   {
@@ -200,7 +201,7 @@ const Farms = () => {
         </div>
         <div className={`container_bordered`}>
           <h1 className={`font-90 ttl ${styles.resTitle}`}>Stake LP tokens to earn.</h1>
-          <div onClick={() => router.push('/earn/farms/auction')} className={styles.communityAuctions}>
+          <div onClick={() => router.push('/home/earn/farms/auction')} className={styles.communityAuctions}>
             <p className={`${styles.blueHover}`}>Community Auctions</p>
             <ArrowSvg className={styles.svgHoverBlue} />
           </div>
@@ -265,44 +266,50 @@ const Farms = () => {
                   )}
                 </div>
               </div> */}
-              <Input
-                type={"lable-input-select"}
-                icon={false}
-                // selectData={selectData}
-                emptyFieldErr={true}
-                // defaultData={defaultData}
-                // label={"yourText"}
-                // selectHandler={selectHandler}
-                selectLabel={"Hot"}
-                // active={active}
-                status={"warning"}
-                title={"your text"}
-                color={"#FFA726"}
-                customStyles={{ width: "150px" }}
-              />
+              <div className={styles.selectDiv}>
+                <Input
+                  type={"lable-input-select"}
+                  icon={false}
+                  // selectData={selectData}
+                  emptyFieldErr={true}
+                  // defaultData={defaultData}
+                  // label={"yourText"}
+                  // selectHandler={selectHandler}
+                  selectLabel={"Hot"}
+                  // active={active}
+                  status={"warning"}
+                  title={"your text"}
+                  color={"#FFA726"}
+                // customStyles={{ width: "150px" }}
+                />
+              </div>
               {/* <input
                 onChange={e => setSearch(e.target.value)}
                 className={styles.searchInput}
                 type='search'
                 placeholder='Search Farms'
               ></input> */}
-              <Input
-                type={"search-input"}
-                onChange={() => { console.log("search"); }}
-                // defaultData={defaultData}
-                // selectHandler={selectHandler}
-                selectLabel={"select"}
-                placeholder={"search"}
-                // label={"your text"}
-                customStyles={{ width: "70%" }}
-              />
+              <div className={styles.searchDiv}>
+                <Input
+                  type={"search-input"}
+                  onChange={() => { console.log("search"); }}
+                  // defaultData={defaultData}
+                  // selectHandler={selectHandler}
+                  selectLabel={"select"}
+                  placeholder={"search"}
+                  // label={"your text"}
+                  // customStyles={{ width: "70%" }}
+                />
+              </div>
             </div>
           </div>
         </div>
         {dataViewType === 'table' && (
           <div className={`${styles.farms__tableContainer}`}>
-            {/* <CornerDecor /> */}
-            <Table
+             <div className='container_bordered'>
+            <div className='container_bordered-child'>
+              {/* <CornerDecor /> */}
+              {/* <Table
               tableLabels={[
                 '',
                 'Earned',
@@ -320,7 +327,10 @@ const Farms = () => {
               expandClassName={styles.borderBottom}
               tableData={farmsData}
               type={'earn_farms'}
-            />
+            /> */}
+              <TableFarms />
+            </div>
+          </div>
           </div>
         )}
         {dataViewType === 'components' && (
