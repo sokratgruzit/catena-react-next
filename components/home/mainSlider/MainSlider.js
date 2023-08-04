@@ -10,6 +10,7 @@ import styles from './MainSlider.module.css';
 const MainSlider = () => {
   const [levels, setLevels] = useState([]);
   const [activeSlide, setActiveSlide] = useState(0);
+  const [scrollBlocker, setScrollBlocker] = useState(true);
   useEffect(() => {
       setLevels([4,5,6,9,10,11,12]);
       // setLevels([7]);
@@ -31,27 +32,31 @@ const MainSlider = () => {
       [1,2,3,7,8],
       [1,2,3,7,8]
   ]
-  let scrollBlocker = true;
+  // let scrollBlocker = true;
   let slideScrollDown = () => {
       if(activeSlide !== 5 && scrollBlocker) {
           setActiveSlide(0);
           setLevels(microSchemes[activeSlide])
-          scrollBlocker = false;
+          setScrollBlocker(false);
           setTimeout(() => {
               setActiveSlide(activeSlide + 1);
-              scrollBlocker = true;
-          },300);
+          },100);
+          setTimeout(() => {
+              setScrollBlocker(true);
+          },1000);
       }
   }
   let slideScrollUp = () => {
         if(activeSlide !== 1 && scrollBlocker) {
             setActiveSlide(0);
             setLevels(microSchemes[activeSlide - 2])
-            scrollBlocker = false;
+            setScrollBlocker(false);
             setTimeout(() => {
                 setActiveSlide(activeSlide - 1);
-                scrollBlocker = true;
-            },300);
+            },100);
+            setTimeout(() => {
+                setScrollBlocker(true);
+            },1000);
         }
   }
   return (

@@ -363,11 +363,20 @@
     padding-bottom: 100px;
     position: relative;
 }
-.mainSliderItemNavRotated.mainSliderItemNav {
+.mainSliderItemNavOut .mainSliderItemNav{
     right: auto;
-    left: -110px;
-    bottom: 110px;
-    transform: rotate(90deg);
+    position: relative;
+    top: 0px;
+}
+.mainSliderItemNavOut {
+    display: flex;
+    margin-top: 15px;
+    opacity: 0;
+    transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+}
+.mainSliderActive .mainSliderItemNavOut{
+    transition-delay: .7s;
+    opacity: 1;
 }
 .mainSliderSecondTtl {
     transform: translateY(10px);

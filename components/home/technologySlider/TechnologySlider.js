@@ -13,7 +13,10 @@ import styles from './TechnologySlider.module.css';
 const TechnologySlider = () => {
     const [levels, setLevels] = useState([]);
     const [activeSlide, setActiveSlide] = useState(0);
-    const swiperRef = useRef();
+    const [scrollBlocker, setScrollBlocker] = useState(true);
+    const swiperRefPromo = useRef();
+    const swiperRefNetwork = useRef();
+    const swiperRefConsensus = useRef();
     useEffect(() => {
         setLevels([4,5,6,9,10,11,12]);
         // setLevels([7]);
@@ -381,27 +384,31 @@ const TechnologySlider = () => {
         }
     ];
 
-    let scrollBlocker = true;
+    // let scrollBlocker = true;
     let slideScrollDown = () => {
-        if(activeSlide !== 3 && scrollBlocker) {
+        if(activeSlide !== 4 && scrollBlocker) {
             setActiveSlide(0);
             setLevels(microSchemes[activeSlide])
-            scrollBlocker = false;
+            setScrollBlocker(false);
             setTimeout(() => {
                 setActiveSlide(activeSlide + 1);
-                scrollBlocker = true;
-            },300);
+            },100);
+            setTimeout(() => {
+                setScrollBlocker(true);
+            },1000);
         }
     }
     let slideScrollUp = () => {
         if(activeSlide !== 1 && scrollBlocker) {
             setActiveSlide(0);
             setLevels(microSchemes[activeSlide - 2])
-            scrollBlocker = false;
+            setScrollBlocker(false);
             setTimeout(() => {
                 setActiveSlide(activeSlide - 1);
-                scrollBlocker = true;
-            },300);
+            },100);
+            setTimeout(() => {
+                setScrollBlocker(true);
+            },1000);
         }
     }
     return (
@@ -415,12 +422,12 @@ const TechnologySlider = () => {
                 <div className={`${styles.mainSlider}`}>
                     <div className={`container ${styles.mainSliderItem} ${activeSlide == 1 ? styles.mainSliderActive : ''}`}>
                         <div className={`${styles.mainSliderItemNav}`}>
-                            <div onClick={() => swiperRef.current?.slidePrev()}>
+                            <div onClick={() => swiperRefPromo.current?.slidePrev()}>
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M14.9998 19.92L8.47984 13.4C7.70984 12.63 7.70984 11.37 8.47984 10.6L14.9998 4.08002" stroke="#162029" strokeWidth="2" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
                                 </svg>
                             </div>
-                            <div onClick={() => swiperRef.current?.slideNext()}>
+                            <div onClick={() => swiperRefPromo.current?.slideNext()}>
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M9.00016 19.92L15.5202 13.4C16.2902 12.63 16.2902 11.37 15.5202 10.6L9.00016 4.08002" stroke="#162029" strokeWidth="2" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
                                 </svg>
@@ -439,7 +446,7 @@ const TechnologySlider = () => {
                                     onSwiper={(swiper) => console.log(swiper)}
                                     modules={[Navigation]}
                                     onBeforeInit={(swiper) => {
-                                        swiperRef.current = swiper;
+                                        swiperRefPromo.current = swiper;
                                     }}
                                     breakpoints={{
                                         0: {
@@ -473,24 +480,28 @@ const TechnologySlider = () => {
                     <div className={`container ${styles.mainSliderItem} ${styles.mainSliderItemFlex} ${activeSlide == 2? styles.mainSliderActive : ''}`}>
                         <div className={`${styles.mainSliderItemHalf} pT-180`}>
                             <h1 className={`font-90 ttl ${styles.mainSliderSecondTtl}`}>
-                                Consensus <br/>
+                                Network <br/>
                                 Structure
                             </h1>
-                        </div>
-                        <div className={`${styles.mainSliderItemHalf} ${styles.mainSliderItemHalfSliderSec} pT-180`}>
-                            <div className={`tech-second-slider ${styles.mainSliderItemSwiperSecond}`}>
-                                <div className={`${styles.mainSliderItemNav} ${styles.mainSliderItemNavRotated}`}>
-                                    <div onClick={() => swiperRef.current?.slidePrev()}>
+                            <div className={`${styles.mainSliderItemNavOut}`}>
+                                <div className={`${styles.mainSliderItemNav}`}>
+                                    <div onClick={() => swiperRefNetwork.current?.slidePrev()}>
                                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M14.9998 19.92L8.47984 13.4C7.70984 12.63 7.70984 11.37 8.47984 10.6L14.9998 4.08002" stroke="#162029" strokeWidth="2" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
                                         </svg>
                                     </div>
-                                    <div onClick={() => swiperRef.current?.slideNext()}>
+                                    <div onClick={() => swiperRefNetwork.current?.slideNext()}>
                                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M9.00016 19.92L15.5202 13.4C16.2902 12.63 16.2902 11.37 15.5202 10.6L9.00016 4.08002" stroke="#162029" strokeWidth="2" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
                                         </svg>
                                     </div>
                                 </div>
+                            </div>
+
+                        </div>
+                        <div className={`${styles.mainSliderItemHalf} ${styles.mainSliderItemHalfSliderSec} pT-180`}>
+                            <div className={`tech-second-slider ${styles.mainSliderItemSwiperSecond}`}>
+
                                 <Swiper
                                     direction={'vertical'}
                                     spaceBetween={0}
@@ -498,7 +509,7 @@ const TechnologySlider = () => {
                                     onSwiper={(swiper) => console.log(swiper)}
                                     modules={[Navigation]}
                                     onBeforeInit={(swiper) => {
-                                        swiperRef.current = swiper;
+                                        swiperRefNetwork.current = swiper;
                                     }}
                                     breakpoints={{
                                         0: {
@@ -512,7 +523,7 @@ const TechnologySlider = () => {
                                         }
                                     }}
                                 >
-                                    {technologyConsensusSlider.map((item,index) => {
+                                    {technologyNetworkSlider.map((item,index) => {
                                         return (
                                             <SwiperSlide key={index}>
                                                 <div className={`${styles.mainSliderSwiperSecondItem}`}>
@@ -531,19 +542,18 @@ const TechnologySlider = () => {
                     <div className={`container ${styles.mainSliderItem} ${styles.mainSliderItemFlex} ${styles.mainSliderItemFlexReverse} ${activeSlide == 3? styles.mainSliderActive : ''}`}>
                         <div className={`${styles.mainSliderItemHalf} pT-180`}>
                             <h1 className={`font-90 ttl ${styles.mainSliderSecondTtl}`}>
-                                Consensus <br/>
-                                Structure
+                                CATENA <br/> Layer
                             </h1>
                         </div>
                         <div className={`${styles.mainSliderItemHalf} ${styles.mainSliderItemHalfSliderSec} pT-180`}>
                             <div className={`tech-second-slider ${styles.mainSliderItemSwiperSecond}`}>
                                 <div className={`${styles.mainSliderItemNav} ${styles.mainSliderItemNavRotated}`}>
-                                    <div onClick={() => swiperRef.current?.slidePrev()}>
+                                    <div onClick={() => swiperRefNetwork.current?.slidePrev()}>
                                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M14.9998 19.92L8.47984 13.4C7.70984 12.63 7.70984 11.37 8.47984 10.6L14.9998 4.08002" stroke="#162029" strokeWidth="2" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
                                         </svg>
                                     </div>
-                                    <div onClick={() => swiperRef.current?.slideNext()}>
+                                    <div onClick={() => swiperRefNetwork.current?.slideNext()}>
                                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M9.00016 19.92L15.5202 13.4C16.2902 12.63 16.2902 11.37 15.5202 10.6L9.00016 4.08002" stroke="#162029" strokeWidth="2" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
                                         </svg>
@@ -556,7 +566,65 @@ const TechnologySlider = () => {
                                     onSwiper={(swiper) => console.log(swiper)}
                                     modules={[Navigation]}
                                     onBeforeInit={(swiper) => {
-                                        swiperRef.current = swiper;
+                                        swiperRefNetwork.current = swiper;
+                                    }}
+                                    breakpoints={{
+                                        0: {
+                                            slidesPerView: 1,
+                                        },
+                                        768: {
+                                            slidesPerView: 2.5,
+                                        },
+                                        1900: {
+                                            slidesPerView: 3,
+                                        }
+                                    }}
+                                >
+                                    {technologyNetworkSlider.map((item,index) => {
+                                        return (
+                                            <SwiperSlide key={index}>
+                                                <div className={`${styles.mainSliderSwiperSecondItem}`}>
+                                                    {item.svg ? item.svg : ''}
+                                                    <h2 className={`ttl font-20`}>{item.title}</h2>
+                                                    <p>{item.text}</p>
+                                                </div>
+                                            </SwiperSlide>
+                                        )
+                                    })}
+
+                                </Swiper>
+                            </div>
+                        </div>
+                    </div>
+                    <div className={`container ${styles.mainSliderItem} ${styles.mainSliderItemFlex} ${activeSlide == 4? styles.mainSliderActive : ''}`}>
+                        <div className={`${styles.mainSliderItemHalf} pT-180`}>
+                            <h1 className={`font-90 ttl ${styles.mainSliderSecondTtl}`}>
+                                Consensus <br/>
+                                Structure
+                            </h1>
+                        </div>
+                        <div className={`${styles.mainSliderItemHalf} ${styles.mainSliderItemHalfSliderSec} pT-180`}>
+                            <div className={`tech-second-slider ${styles.mainSliderItemSwiperSecond}`}>
+                                <div className={`${styles.mainSliderItemNav} ${styles.mainSliderItemNavRotated}`}>
+                                    <div onClick={() => swiperRefConsensus.current?.slidePrev()}>
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M14.9998 19.92L8.47984 13.4C7.70984 12.63 7.70984 11.37 8.47984 10.6L14.9998 4.08002" stroke="#162029" strokeWidth="2" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
+                                        </svg>
+                                    </div>
+                                    <div onClick={() => swiperRefConsensus.current?.slideNext()}>
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M9.00016 19.92L15.5202 13.4C16.2902 12.63 16.2902 11.37 15.5202 10.6L9.00016 4.08002" stroke="#162029" strokeWidth="2" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <Swiper
+                                    direction={'vertical'}
+                                    spaceBetween={0}
+                                    onSlideChange={() => console.log('slide change')}
+                                    onSwiper={(swiper) => console.log(swiper)}
+                                    modules={[Navigation]}
+                                    onBeforeInit={(swiper) => {
+                                        swiperRefConsensus.current = swiper;
                                     }}
                                     breakpoints={{
                                         0: {
@@ -588,7 +656,7 @@ const TechnologySlider = () => {
                     </div>
                 </div>
                 <Footer
-                    active={activeSlide == 3}
+                    active={activeSlide == 4}
                 />
             </ReactScrollWheelHandler>
         </>
