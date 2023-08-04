@@ -45,8 +45,8 @@ const EventsItem = ({ item, slug }) => {
   }, [allEvent]);
 
   const sliderImages = [
-    `${process.env.NEXT_PUBLIC_URL}/uploads/event/${item?.image}`,
-    `${process.env.NEXT_PUBLIC_URL}/uploads/event/${item?.logo_image}`,
+    `${process.env.NEXT_PUBLIC_URL}/uploads/events/${item?.image}`,
+    `${process.env.NEXT_PUBLIC_URL}/uploads/events/${item?.logo_image}`,
   ];
 
   const data = [

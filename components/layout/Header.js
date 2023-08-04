@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import useTranslation from 'next-translate/useTranslation';
 import { useState, useEffect, useMemo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 // import useConnect from "../../hooks/use-connect";
@@ -50,6 +49,7 @@ const WALLETS_DATA = [
 const Header = () => {
   const { connect, disconnect, library, error, setError } = useConnect();
   const axios = useMemo(() => createAxiosInstance(), []);
+  const locales = useSelector(state => state.settings.locales);
 
   const account = useSelector(state => state.connect.account);
   const triedReconnect = useSelector(state => state.appState.triedReconnect);
@@ -77,7 +77,6 @@ const Header = () => {
   const slippage = useSelector(state => state.settings.slippage);
   const [balance, setBalance] = useState(0);
   const [stickHead, setStickHead] = useState(false);
-  const { t } = useTranslation('header');
   const [routerLocale, setRouterLocale] = useState(null);
 
   const dispatch = useDispatch();
@@ -275,8 +274,12 @@ const Header = () => {
 
   const changeLanguage = loc => {
     // i18n.changeLanguage(locale.toLowerCase());
-    router.push('', '', { locale: loc.toLowerCase() });
-    setRouterLocale(loc);
+    // router.push('', '', { locale: loc.toLowerCase() });
+    // setRouterLocale(loc);
+    dispatch({
+      type: "SET_ACTIVE_LANG",
+      activeLang: loc
+    });
   };
 
   let web3Obj = library;
@@ -354,6 +357,29 @@ const Header = () => {
     setConnectBtnColor('red');
   };
 
+  const getLocales = async () => {
+    axios
+    .get('/langs/get-locales')
+    .then(res => {
+      let locales = res.data[0].list;
+
+      dispatch({
+        type: "SET_LOCALES",
+        locales
+      });
+    })
+    .catch(() => {});
+  };
+
+  const isSticky = e => {
+    const scrollTop = window.scrollY;
+    if (scrollTop >= 10) {
+      setStickHead(true);
+    } else {
+      setStickHead(false);
+    }
+  };
+
   useEffect(() => {
     if (isConnected) {
       getBalance();
@@ -367,6 +393,7 @@ const Header = () => {
     if (window.innerWidth >= 1024) {
       setDevice('desktop');
     }
+
     if (window.innerWidth <= 767) {
     }
     setRouterLocale(router.locale);
@@ -374,18 +401,11 @@ const Header = () => {
 
   useEffect(() => {
     window.addEventListener('scroll', isSticky);
+
     return () => {
       window.removeEventListener('scroll', isSticky);
     };
   });
-  const isSticky = e => {
-    const scrollTop = window.scrollY;
-    if (scrollTop >= 10) {
-      setStickHead(true);
-    } else {
-      setStickHead(false);
-    }
-  };
 
   return (
     <div>
