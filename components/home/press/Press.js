@@ -7,6 +7,7 @@ import styles from './Press.module.css';
 import Years from './components/filterWithYears/Years';
 import PublicByYears from './components/publicByYears/PublicByYears';
 import PressLogo from './components/pressLogoContainer/PressLogo';
+import JoinCommunity from '../events/components/JoinCommunity';
 
 const Press = ({ press }) => {
   const [activeYear, setActiveYear] = useState('');
@@ -31,22 +32,31 @@ const Press = ({ press }) => {
   }, [press]);
 
   return (
-    <div className={`${styles.mainContainer} container`}>
-      <div className={`${styles.titleContainer}`}>
-        <p className={`${styles.titlePartyOne} ttl`}>Catena</p>
-        <p className={`${styles.titlePartyTwo} ttl`}>Press</p>
-      </div>
-      <div className={styles.bodyContainer}>
-        <Card dataArr={press} fileAdress={fileAdress} title={title} description={description} slugType='press' />
-      </div>
-      <div className={`${styles.sourcesContainer} `}>
-        <div className={styles.sourcesTitle}>
-          <h1 className='ttl font-40'>Sources</h1>
+    <div>
+      <div className={`${styles.mainContainer} container`}>
+        <div className={`${styles.titleContainer}`}>
+          <p className={`${styles.titlePartyOne} ttl`}>Catena</p>
+          <p className={`${styles.titlePartyTwo} ttl`}>Press</p>
         </div>
-        <PressLogo />
+        <div className={styles.bodyContainer}>
+          <Card dataArr={press} fileAdress={fileAdress} title={title} description={description} slugType='press' />
+        </div>
       </div>
-      <Years handleYearClick={handleYearClick} activeYear={activeYear} />
-      <PublicByYears filterData={filterData} activeLang={activeLang} />
+      <div>
+        <div className={`${styles.sourcesContainer} `}>
+          <div className={styles.sourcesTitle}>
+            <h1 className='ttl font-40 container'>Sources</h1>
+          </div>
+          <PressLogo />
+        </div>
+        <div className={`${styles.years} container`}>
+          <Years handleYearClick={handleYearClick} activeYear={activeYear} />
+        </div>
+        <PublicByYears filterData={filterData} activeLang={activeLang} />
+        <div className={styles.joinCommunity}>
+          <JoinCommunity />
+        </div>
+      </div>
     </div>
   );
 };
