@@ -1,4 +1,4 @@
-import MainSlider from '../../components/overview/mainSlider/MainSlider';
+import MainSlider from '../../components/home/mainSlider/MainSlider';
 
 const mainSlider = () => {
   return <MainSlider />;
