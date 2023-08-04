@@ -33,8 +33,8 @@ const Press = ({ press }) => {
   return (
     <div className={`${styles.mainContainer} container`}>
       <div className={`${styles.titleContainer}`}>
-        <p className={styles.titlePartyOne}>Catena</p>
-        <p className={styles.titlePartyTwo}>Press</p>
+        <p className={`${styles.titlePartyOne} ttl`}>Catena</p>
+        <p className={`${styles.titlePartyTwo} ttl`}>Press</p>
       </div>
       <div className={styles.bodyContainer}>
         <Card dataArr={press} fileAdress={fileAdress} title={title} description={description} slugType='press' />

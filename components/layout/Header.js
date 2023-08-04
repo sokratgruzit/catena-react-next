@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import useTranslation from 'next-translate/useTranslation';
 import { useState, useEffect, useMemo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 // import useConnect from "../../hooks/use-connect";
@@ -32,10 +31,20 @@ const WALLETS_DATA = [
 const Header = () => {
   const { connect, disconnect, library, error, setError } = useConnect();
   const axios = useMemo(() => createAxiosInstance(), []);
+  const locales = useSelector(state => state.settings.locales);
 
   const account = useSelector(state => state.connect.account);
   const triedReconnect = useSelector(state => state.appState.triedReconnect);
-  const locales = useSelector(state => state.settings.locales);
+
+  useEffect(() => {
+    if (account && triedReconnect) {
+      axios
+        .post('/auth/register-wallet-address', { address: account })
+        .then(res => console.log(res))
+        .catch(() => {});
+    }
+    // eslint-disable-next-line
+  }, [account]);
 
   const [activeMenu, setActiveMenu] = useState(null);
   const [activeLangs, setActiveLangs] = useState(false);
@@ -50,7 +59,6 @@ const Header = () => {
   const slippage = useSelector(state => state.settings.slippage);
   const [balance, setBalance] = useState(0);
   const [stickHead, setStickHead] = useState(false);
-  const { t } = useTranslation('header');
   const [routerLocale, setRouterLocale] = useState(null);
 
   const dispatch = useDispatch();
@@ -59,7 +67,7 @@ const Header = () => {
     {
       id: 0,
       title: 'Overview',
-      route: '/home/',
+      route: '/',
       subNav: [],
       subNavWithTitle: [
         {
@@ -68,32 +76,32 @@ const Header = () => {
             {
               id: 20,
               title: 'Brand Guidlines',
-              route: '/home/brand-guidlines',
+              route: '/overview/brand-guidlines',
             },
             {
               id: 21,
               title: 'Careers',
-              route: '/home/careers',
+              route: '/overview/careers',
             },
             {
               id: 22,
               title: 'Press',
-              route: '/home/press',
+              route: '/overview/press',
             },
             {
               id: 23,
               title: 'Events',
-              route: '/home/events',
+              route: '/overview/events',
             },
             {
               id: 24,
               title: 'Privacy',
-              route: '/home/privacy',
+              route: '/overview/privacy',
             },
             {
               id: 25,
               title: 'Terms',
-              route: '/home/terms',
+              route: '/overview/terms',
             }
           ]
         },
@@ -146,7 +154,7 @@ const Header = () => {
     },
     {
       id: 1,
-      title: t('top_menu.trade'),
+      title: 'Trade',
       route: '/trade/swap',
       subNav: [
         {
@@ -169,23 +177,6 @@ const Header = () => {
           title: 'Prepetual',
           route: '/prepetual',
         },*/
-      ],
-    },
-    {
-      id: 2,
-      title: 'Overview',
-      route: '/home',
-      subNav: [
-        {
-          id: 5,
-          title: 'Press',
-          route: '/home/press',
-        },
-        {
-          id: 6,
-          title: 'Event',
-          route: '/home/events',
-        },
       ],
     },
     /*{
@@ -265,8 +256,8 @@ const Header = () => {
 
   const changeLanguage = loc => {
     // i18n.changeLanguage(locale.toLowerCase());
-    //router.push('', '', { locale: loc.toLowerCase() });
-    //setRouterLocale(loc);
+    // router.push('', '', { locale: loc.toLowerCase() });
+    // setRouterLocale(loc);
     dispatch({
       type: "SET_ACTIVE_LANG",
       activeLang: loc
@@ -384,6 +375,7 @@ const Header = () => {
     if (window.innerWidth >= 1024) {
       setDevice('desktop');
     }
+
     if (window.innerWidth <= 767) {
     }
     //setRouterLocale(router.locale);
@@ -392,26 +384,17 @@ const Header = () => {
 
   useEffect(() => {
     window.addEventListener('scroll', isSticky);
+
     return () => {
       window.removeEventListener('scroll', isSticky);
     };
   });
 
-  useEffect(() => {
-    if (account && triedReconnect) {
-      axios
-        .post('/auth/register-wallet-address', { address: account })
-        .then(res => console.log(res))
-        .catch(() => {});
-    }
-    // eslint-disable-next-line
-  }, [account]);
-
   return (
     <div>
       <header className={`${styles.header} ${stickHead ? styles.stickHeader : ''}`}>
         <div className={`${styles.headerInner} container`}>
-          <Link href='/home'>
+          <Link href='/'>
             <div>
               <div
                 className={`${styles.headerLogo} ${styles.headerLogoMobile} ${

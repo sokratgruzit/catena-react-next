@@ -6,10 +6,10 @@ import createAxiosInstance from '../../../pages/api/axios';
 import Card from '../../UI/card/Card';
 import styles from './css/EventsItem.module.css';
 
-const EventsItem = ({ item }) => {
+const EventsItem = ({ item, slug }) => {
   const [activeYear, setActiveYear] = useState('');
   const [allEvent, setAllEvent] = useState([]);
-  const fileAdress = `${process.env.NEXT_PUBLIC_URL}/uploads/event/`;
+  const fileAdress = `${process.env.NEXT_PUBLIC_URL}/uploads/events/`;
   const [filterData, setFilterData] = useState();
   const activeLang = useSelector(state => state.settings.activeLang);
   const axios = createAxiosInstance();
@@ -24,26 +24,29 @@ const EventsItem = ({ item }) => {
     });
     setFilterData(data);
   };
-
   useEffect(() => {
     const axios = createAxiosInstance();
     axios
       .get(`${process.env.NEXT_PUBLIC_URL}/event/get-all-event`)
       .then(res => {
-        setAllEvent(res?.data);
+        const filteredData = res?.data.filter(eventItem => eventItem.slug !== slug);
+        setAllEvent(filteredData);
       })
       .catch(err => {
         console.log(err?.response);
       });
-  }, []);
+  }, [slug]);
+  useEffect(() => {
+    handleYearClick('2023');
+  }, [allEvent]);
 
   useEffect(() => {
     handleYearClick('2023');
   }, [allEvent]);
 
   const sliderImages = [
-    `${process.env.NEXT_PUBLIC_URL}/uploads/event/${item?.image}`,
-    `${process.env.NEXT_PUBLIC_URL}/uploads/event/${item?.logo_image}`,
+    `${process.env.NEXT_PUBLIC_URL}/uploads/events/${item?.image}`,
+    `${process.env.NEXT_PUBLIC_URL}/uploads/events/${item?.logo_image}`,
   ];
 
   const data = [
@@ -100,7 +103,14 @@ const EventsItem = ({ item }) => {
         <h2 className='ttl font_51'>Other Events</h2>
         <div className={styles.item}>
           {relatedEvents.map(event => (
-            <Card dataArr={event} fileAdress={fileAdress} title={title} description={description} slugType='events' />
+            <Card
+              key={item._id}
+              dataArr={event}
+              fileAdress={fileAdress}
+              title={title}
+              description={description}
+              slugType='events'
+            />
           ))}
         </div>
       </div>

@@ -34,10 +34,13 @@ function PrivacyList({ privacyList }) {
         })}
       </div>
       {privacyList?.map((item, i) => (
-        <div key={i}>
-          <h2 className={`${styles.title} font-40 ttl`}>
-            <p className='font-40 ttl'>{`${i + 1}`}</p> {item?.title}
-          </h2>
+        <div key={i} className='text'>
+          <div className={`${styles.title} font-40 ttl`}>
+            <ol>
+              <li className='font-40 ttl'>{`${i + 1}`}</li>
+            </ol>
+            {item?.title}
+          </div>
           <p className={styles.text}>{item?.text}</p>
           {item?.link && <a href='mailto:https://www.catenamultichain.com/'>{item?.link}</a>}
           {item?.bullets && (

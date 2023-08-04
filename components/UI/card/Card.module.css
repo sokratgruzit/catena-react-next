@@ -1,13 +1,3 @@
-.digital {
-  width: 72px;
-  height: 24px;
-  position: absolute;
-  font-size: 12px;
-  top: 15px;
-  right: 30px;
-  background-color: #fff3e5;
-}
-
 .mapCont {
   width: 100%;
   position: relative;
@@ -16,10 +6,10 @@
 
 .pressImageCont {
   width: 100%;
-  height: 400px;
+  height: auto;
   position: relative;
   gap: 50px;
-  object-fit: cover;
+  overflow: hidden;
 }
 
 .pressImage {
@@ -64,9 +54,7 @@
   .digital {
     width: auto;
   }
-  .pressImage {
-    /* padding: 5%; */
-    height: auto;
-  }
+  /* .pressImageCont {
+    height: 300px;
+  } */
 }
-

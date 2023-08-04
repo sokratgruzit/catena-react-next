@@ -233,7 +233,7 @@
     z-index: 100000;
     width: 100%;
     left: 0px;
-    bottom: 20px;
+    bottom: 10px;
     display: flex;
     justify-content: center;
     pointer-events: none;
@@ -264,13 +264,13 @@
     transform: rotate(-90deg) translateX(-5px);
 }
 .scrollMore p {
-    border-radius: 61px;
-    border: 1px solid #162029;
-    background: #A6D0DD;
-    padding: 2px 5px;
+    padding: 0px 10px;
     margin-bottom: 5px;
     transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
     font-size: 14px;
+    border-radius: 20px;
+    border: 1px solid rgba(22, 32, 41, 0.10);
+    background: #F2E1CE;
 }
 .scrollMore div:hover p {
     background: #ff6969;

@@ -1,4 +1,5 @@
 import { React, useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 
 import Footer from '../../layout/Footer';
 import ReactScrollWheelHandler from "react-scroll-wheel-handler";
@@ -7,9 +8,12 @@ import Microscheme from '../../UI/microscheme/Microscheme';
 
 import styles from './MainSlider.module.css';
 
-const MainSlider = () => {
+const MainSlider = ({ trans }) => {
+    console.log(trans);
   const [levels, setLevels] = useState([]);
   const [activeSlide, setActiveSlide] = useState(0);
+  const activeLang = useSelector(state => state.settings.activeLang);
+  
   useEffect(() => {
       setLevels([4,5,6,9,10,11,12]);
       // setLevels([7]);
@@ -98,17 +102,17 @@ const MainSlider = () => {
                             </div>
                         </div>
                         <h1 className='font-90 ttl'>
-                            A Virtual World of
+                            {trans[activeLang].slider1_slide1_ttl}
+                            {/* A Virtual World of
                             <br/>
-                            Interconnected Blockchains
+                            Interconnected Blockchains */}
                         </h1>
                         <div className={styles.mainSliderItemBtnOut}>
-                            <a href="##" className={styles.mainSliderItemBtn}>Join the Community</a>
+                            <a href="##" className={styles.mainSliderItemBtn}>{trans[activeLang].slider1_slide1_join_btn}</a>
                         </div>
                         <div className={`${styles.scrollMore}`}>
                             <div onClick={() => {slideScrollDown()}}>
-                                <p>Scroll Down To Continue</p>
-                                <svg width="14" height="11" viewBox="0 0 14 11" fill="rgba(233, 107, 107, 1)" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M-2.18557e-07 5.5C-2.28619e-07 5.26981 0.0914429 5.04905 0.254213 4.88628L4.38628 0.754214C4.72523 0.415263 5.27477 0.415263 5.61372 0.754214C5.95267 1.09316 5.95267 1.64271 5.61372 1.98166L2.09539 5.5L5.61372 9.01834C5.95268 9.35729 5.95268 9.90684 5.61372 10.2458C5.27477 10.5847 4.72523 10.5847 4.38628 10.2458L0.254213 6.11372C0.091443 5.95095 -2.08495e-07 5.73019 -2.18557e-07 5.5Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M0.113281 5.50023C0.113281 5.02088 0.50187 4.63229 0.981219 4.63229L12.438 4.63229C12.9173 4.63229 13.3059 5.02088 13.3059 5.50023C13.3059 5.97957 12.9173 6.36816 12.438 6.36816L0.981219 6.36816C0.50187 6.36816 0.113281 5.97958 0.113281 5.50023Z"></path></svg>
+                                <p>Scroll</p>
                             </div>
                         </div>
                     </div>
@@ -116,7 +120,7 @@ const MainSlider = () => {
                 <div className={`container ${styles.mainSliderItem} ${activeSlide == 2 ? styles.mainSliderActive : ''}`}>
                     <div className={styles.mainSliderItemHalf}>
                         <div className={styles.mainSliderItemTask}>
-                            <div className={styles.mainSliderItemTaskTxt}>Task 1</div>
+                            <div className={styles.mainSliderItemTaskTxt}>{trans[activeLang].slider1_slide2_sm_sc}</div>
                             <svg width="67" height="37" viewBox="0 0 67 37" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M7.5 36.5V29.5H10.5V36.5H7.5Z" fill="#162029" stroke="#162029"/>
                                 <path d="M15.5 36.5V29.5H18.5V36.5H15.5Z" fill="#162029" stroke="#162029"/>
@@ -136,10 +140,10 @@ const MainSlider = () => {
                                 <rect x="0.5" y="7.5" width="66" height="22" rx="3.5" stroke="#162029"/>
                             </svg>
                         </div>
-                        <h2 className={`font-90 ttl`}>Scalability</h2>
-                        <p className={`${styles.mainSliderItemHalfDesc1}`}>This is one of the main reasons that blockchain technology cannot be used on a mass-adoption scale yet. Low throughput and its environmental impact are the biggest obstacles that blockchain has to overcome in order to scale.</p>
+                        <h2 className={`font-90 ttl`}>{trans[activeLang].slider1_slide2_ttl}</h2>
+                        <p className={`${styles.mainSliderItemHalfDesc1}`}>{trans[activeLang].slider1_slide2_text1}</p>
                         <div className={styles.mainSliderItemSolution}>
-                            <div className={styles.mainSliderItemSolutionTxt}>Solution</div>
+                            <div className={styles.mainSliderItemSolutionTxt}>{trans[activeLang].slider1_bg_sc}</div>
                             <svg width="111" height="43" viewBox="0 0 111 43" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M5.5 42.5V35.5H8.5V42.5H5.5Z" fill="#A6D0DD" stroke="#162029"/>
                                 <path d="M13.5 42.5V35.5H16.5V42.5H13.5Z" fill="#A6D0DD" stroke="#162029"/>
@@ -172,7 +176,7 @@ const MainSlider = () => {
                             </svg>
                         </div>
                         <p className={`font-20 ${styles.mainSliderItemHalfDesc2}`}>
-                            We combine the use of AI based PoS consensus, a scalable and secure parallel protocol for distributed ledger via sharding, side chains, and off-chain processing. These techniques allow for acceleration of block broadcasting in blockchain networks and scaling out through asynchronous consensus zones.
+                            {trans[activeLang].slider1_slide2_text2}
                         </p>
                     </div>
                 </div>

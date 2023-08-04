@@ -30,8 +30,8 @@ function MyApp({ Component, pageProps }) {
         <Provider store={store}>
           <PersistGate loading={null} persistor={persistor}>
             <Wrapper>
-              <div className="noise-parent">
-                  <div className="noise"></div>
+              <div className='noise-parent'>
+                <div className='noise'></div>
               </div>
               <Header />
               <Component {...pageProps} />

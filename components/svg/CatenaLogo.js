@@ -1,10 +1,10 @@
 import React from 'react';
 
-const CatenaLogo = ({ className, ...props }) => {
+const CatenaLogo = ({ width, height, className, ...props }) => {
   return (
     <svg
-      width='46'
-      height='31'
+      width={width ? width : 46}
+      height={height ? height : 31}
       viewBox='0 0 46 31'
       fill='none'
       xmlns='http://www.w3.org/2000/svg'
