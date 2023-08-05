@@ -190,6 +190,7 @@ const Farms = () => {
   });
   const [search, setSearch] = useState('');
   const [dataViewType, setDataViewType] = useState('table');
+  const [toggle, setToggle] = useState('')
 
   const router = useRouter();
   const selectRef = useRef();
