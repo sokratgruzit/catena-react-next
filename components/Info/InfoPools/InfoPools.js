@@ -18,7 +18,7 @@ const InfoPools = () => {
         <div className={styles.space}></div>
         <InfoRoutes />
         <div className={styles.starWrapper}>
-          <StarSvg className={styles.starSVG} onClick={() => router.push(`/info/pools/watchlist`)} />
+          <StarSvg className={styles.starSVG} onClick={() => router.push(`/home/info/pools/watchlist`)} />
           <div className={styles.favCount}>3</div>
         </div>
       </div>
