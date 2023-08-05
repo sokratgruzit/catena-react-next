@@ -10,7 +10,6 @@ const ExchangesCards = ({ data }) => {
       <div className={styles.massive} style={{ width: '152px', color: '#969BA6', position: 'absolute', top: '430px', left: '85%', textAlign: 'right' }} >CMCX massive listing</div>
       <div className={styles.container}>
         {data?.map((card, index) => {
-          console.log(card?.exchange_link)
           return (
             <div className={styles.card} style={{ background: card?.color }} key={index}
               onClick={() => { window.open(`${card?.exchange_link}`, "_blank")} }
