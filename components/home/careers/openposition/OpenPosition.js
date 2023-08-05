@@ -2,7 +2,7 @@ import React from 'react';
 import { TableElement } from '@catena-network/catena-ui-module';
 
 import OpenSearch from './components/OpenSearch';
-import Feature from '../careers/components/feature/Feature';
+import Feature from '../../careers/components/feature/Feature';
 import { useState } from 'react';
 
 
