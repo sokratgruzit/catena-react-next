@@ -30,7 +30,7 @@
   z-index: 2;
 }
 
-@media (max-width: 1300px) {
+@media (max-width: 1365px) {
   .guidlineEndHalf {
     padding: 20px;
   }

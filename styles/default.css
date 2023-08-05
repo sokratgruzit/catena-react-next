@@ -113,7 +113,7 @@ button {
   width: 100vw;
   overflow: hidden;
 }
-.noise{
+.noise {
   position: absolute;
   top: -50%;
   left: -50%;
@@ -123,24 +123,46 @@ button {
   height: 200vh;
   background: transparent url('http://assets.iceable.com/img/noise-transparent.png') repeat 0 0;
   background-repeat: repeat;
-  animation: bg-animation .4s infinite;
-  opacity: .5;
+  animation: bg-animation 0.4s infinite;
+  opacity: 0.5;
   visibility: visible;
   z-index: 0;
 }
 
 @keyframes bg-animation {
-  0% { transform: translate(0,0) }
-  10% { transform: translate(-5%,-5%) }
-  20% { transform: translate(-10%,5%) }
-  30% { transform: translate(5%,-10%) }
-  40% { transform: translate(-5%,15%) }
-  50% { transform: translate(-10%,5%) }
-  60% { transform: translate(15%,0) }
-  70% { transform: translate(0,10%) }
-  80% { transform: translate(-15%,0) }
-  90% { transform: translate(10%,5%) }
-  100% { transform: translate(5%,0) }
+  0% {
+    transform: translate(0, 0);
+  }
+  10% {
+    transform: translate(-5%, -5%);
+  }
+  20% {
+    transform: translate(-10%, 5%);
+  }
+  30% {
+    transform: translate(5%, -10%);
+  }
+  40% {
+    transform: translate(-5%, 15%);
+  }
+  50% {
+    transform: translate(-10%, 5%);
+  }
+  60% {
+    transform: translate(15%, 0);
+  }
+  70% {
+    transform: translate(0, 10%);
+  }
+  80% {
+    transform: translate(-15%, 0);
+  }
+  90% {
+    transform: translate(10%, 5%);
+  }
+  100% {
+    transform: translate(5%, 0);
+  }
 }
 .circle_btn {
   display: flex;
@@ -243,12 +265,8 @@ button {
   line-height: 120%;
 }
 
-.pT-160 {
-  padding-top: 160px;
-}
-
-.pB-160 {
-  padding-bottom: 160px;
+.pT-180 {
+  padding-top: 180px;
 }
 
 .text ul li {
@@ -270,7 +288,7 @@ button {
   left: 0px;
 }
 
-.text ol {
+/* .text ol {
   list-style-type: none;
   counter-reset: custom-counter;
 }
@@ -282,7 +300,29 @@ button {
   color: #a6d0dd;
   font-weight: 400;
   -webkit-text-stroke: 1px #162029;
-  /* text-stroke: 1px #162029; */
+   text-stroke: 1px #162029;
+ } */
+.text ol {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.text ol li {
+  position: relative;
+  padding-right: 11px;
+  -webkit-text-stroke: 1px #162029;
+  color: #a6d0dd;
+}
+
+.text ol li::after {
+  content: '';
+  position: absolute;
+  top: 32px;
+  background-color: #a6d0dd;
+  border-radius: 50%;
+  width: 5px;
+  height: 5px;
+  border: 1px solid #162029;
 }
 
 .custum-text h1,
@@ -371,47 +411,7 @@ button {
   }
 }
 
-@media (max-width: 767px) {
-  .custum-text h1 {
-    font-size: 40px;
-    line-height: 55px;
-    margin-bottom: 30px;
-  }
 
-  .custum-text h2 {
-    font-size: 30px;
-    line-height: 35px;
-    margin-bottom: 20px;
-  }
-
-  .custum-text h4 {
-    font-size: 20px;
-    line-height: 30px;
-    margin-bottom: 20px;
-  }
-
-  .custum-text img {
-    margin: 30px 0;
-  }
-
-  .custum-text p {
-    font-size: 16px;
-    line-height: 22px;
-    margin-bottom: 20px;
-  }
-
-  .custum-text hr {
-    margin-bottom: 20px;
-  }
-}
-
-@media (max-width: 350px) {
-  .custum-text h1 {
-    font-size: 30px;
-    line-height: 45px;
-    margin-bottom: 30px;
-  }
-}
 
 .custum-text .coppy-link {
   display: flex;
@@ -474,10 +474,15 @@ input:focus::-moz-placeholder {
 input:focus:-ms-input-placeholder {
   color: transparent;
 }
-
+.tech-second-slider .swiper{
+  height: 100%;
+}
 /* IE 10+ */
 /*Laptop 1440*/
 @media (max-width: 1900px) {
+  .pT-180 {
+    padding-top: 100px;
+  }
   .container_bordered {
     padding: 0px 10px;
   }
@@ -507,45 +512,22 @@ input:focus:-ms-input-placeholder {
     height: 35px;
     padding: 0px 15px;
     font-size: 12px;
-
-    .h3 {
-      font-weight: bold;
-    }
+  }
+  .container {
+    padding: 0px 25px;
   }
 
   .frameworks-container__frameworks-tab img {
     transform: scale(0.7);
   }
 
-  .container {
-    padding: 0px 25px;
-  }
-
-  .container_bordered-child {
-    width: 100%;
-    padding: 35px 15px;
-  }
-
-  .font-51 {
-    font-size: 20px;
-    line-height: 50px;
-  }
-
-  .pT-160 {
-    padding-top: 100px;
-
-    .h3 {
-      font-weight: bold;
-    }
-  }
-
-  .pB-160 {
-    padding-bottom: 100px;
-  }
 }
 
 /*Ipad 768*/
 @media (max-width: 1023px) {
+  .font-40 {
+    font-size: 35px;
+  }
   .techno-tabs__item h3 svg {
     position: relative;
     left: 0px;
@@ -572,6 +554,15 @@ input:focus:-ms-input-placeholder {
 
 /*Mobile 320*/
 @media (max-width: 767px) {
+  .font-40 {
+    font-size: 25px;
+  }
+  .font-20 {
+    font-size: 16px;
+  }
+  .pT-180 {
+    padding-top: 80px;
+  }
   .text-editor h2,
   .text-editor h3,
   .text-editor h4 {
@@ -614,4 +605,41 @@ input:focus:-ms-input-placeholder {
 h3 {
   font-weight: 400;
   font-weight: bold;
+}
+
+@media (max-width: 767px) {
+  .font-90 {
+    font-size: 36px;
+  }
+  .custum-text h1 {
+    font-size: 40px;
+    line-height: 55px;
+    margin-bottom: 30px;
+  }
+
+  .custum-text h2 {
+    font-size: 30px;
+    line-height: 35px;
+    margin-bottom: 20px;
+  }
+
+  .custum-text h4 {
+    font-size: 20px;
+    line-height: 30px;
+    margin-bottom: 20px;
+  }
+
+  .custum-text img {
+    margin: 30px 0;
+  }
+
+  .custum-text p {
+    font-size: 16px;
+    line-height: 22px;
+    margin-bottom: 20px;
+  }
+
+  .custum-text hr {
+    margin-bottom: 20px;
+  }
 }

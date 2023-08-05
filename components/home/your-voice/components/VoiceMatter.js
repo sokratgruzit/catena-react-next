@@ -5,16 +5,16 @@ import styles from './VoiceMatters.module.css';
 
 const VoiceMatter = () => {
   const [formData, setFormData] = useState({
-    email: "",
-    name: "",
-    suggestion: "",
+    email: '',
+    name: '',
+    suggestion: '',
   });
 
-  const chngHandler = (e) => {
+  const chngHandler = e => {
     const { name, value } = e.target;
     setFormData(prevState => ({
       ...prevState,
-      [name]: value
+      [name]: value,
     }));
   };
 
@@ -26,20 +26,21 @@ const VoiceMatter = () => {
     <div className={`${styles.main} container`}>
       <div className={`${styles.box} `}>
         <div className={styles.container}>
-          <img src="/images/VoiceMatter/YourVoiceMatter.png" className={styles.img} />
+          <div className={`${styles.blackTitle} font-90 ttl`}>Your Voice </div>
+          <div className={`${styles.retTitle} font-90`}> Matter</div>
         </div>
         <div className={styles.Title}>
           <h2>
-            Community feedback helps CATENA improve and grow. Users who provide feedback on
-            their experience help ensure the growth of CATENA and lead us in the direction that the
-            community needs to be. Please use the following form to contribute your thoughts to CATENA:
+            Community feedback helps CATENA improve and grow. Users who provide feedback on their experience help ensure
+            the growth of CATENA and lead us in the direction that the community needs to be. Please use the following
+            form to contribute your thoughts to CATENA:
           </h2>
         </div>
       </div>
       <div className={`${styles.bottomBox} `}>
         <div className={`${styles.hederBox} `}>
           <form>
-            <div >
+            <div>
               <Input
                 className={styles.llll}
                 type={'default'}
@@ -47,10 +48,10 @@ const VoiceMatter = () => {
                 label={'EMAIL'}
                 subLabel={''}
                 placeholder={'Enter'}
-                name="email"
+                name='email'
                 value={formData.email}
                 onChange={chngHandler}
-              // customStyles={{ width: '500px' }}
+                // customStyles={{ width: '500px' }}
               />
             </div>
             <div>
@@ -61,9 +62,9 @@ const VoiceMatter = () => {
                 subLabel={''}
                 placeholder={'Enter'}
                 value={formData.name}
-                name="name"
+                name='name'
                 onChange={chngHandler}
-              // customStyles={{ width: '500px' }}
+                // customStyles={{ width: '500px' }}
               />
             </div>
             <div>
@@ -72,7 +73,7 @@ const VoiceMatter = () => {
                 label={'Make a suggestion'}
                 value={formData.suggestion}
                 onChange={chngHandler}
-                name="suggestion"
+                name='suggestion'
                 rows={10}
                 cols={20}
                 placeholder={'Please describe your feedback in detail with corresponding screenshots'}
