@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import styles from './Card.module.css';
 
 const Card = ({ dataArr, fileAdress, title, description, slugType }) => {
+    //Active language
     const activeLang = useSelector(state => state.settings.activeLang);
     
     return (
