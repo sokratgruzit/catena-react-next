@@ -19,7 +19,7 @@ const MainSlider = ({ trans }) => {
   useEffect(() => {
       dispatch({
           type: "SET_MICHROSCHEME_ARRAY",
-          microschemeArray: [1,3,4,5,6,9,10,11]
+          microschemeArray: [1,2,3,4,5,6,7,8,9,10,11,12]
       });
       // setLevels([7]);
       setActiveSlide(1)
@@ -380,6 +380,7 @@ const MainSlider = ({ trans }) => {
             </div>
             <Footer
                 active={activeSlide == 5}
+
             />
         </ReactScrollWheelHandler>
     </>
