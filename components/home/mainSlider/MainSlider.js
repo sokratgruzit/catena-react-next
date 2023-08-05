@@ -7,6 +7,7 @@ import ReactScrollWheelHandler from "react-scroll-wheel-handler";
 import Microscheme from '../../UI/microscheme/Microscheme';
 
 import styles from './MainSlider.module.css';
+import Image from "next/image";
 
 const MainSlider = ({ trans }) => {
     console.log(trans);
@@ -14,29 +15,23 @@ const MainSlider = ({ trans }) => {
   const [activeSlide, setActiveSlide] = useState(0);
   const activeLang = useSelector(state => state.settings.activeLang);
   const [scrollBlocker, setScrollBlocker] = useState(true);
-
+  const dispatch = useDispatch();
   useEffect(() => {
-      setLevels([4,5,6,9,10,11,12]);
+      dispatch({
+          type: "SET_MICHROSCHEME_ARRAY",
+          microschemeArray: [1,3,4,5,6,9,10,11]
+      });
       // setLevels([7]);
       setActiveSlide(1)
   },[])
-  let setLvl = array => {
-    console.log(levels);
-    if (levels.length > 0) {
-      setLevels([]);
-    } else {
-      setLevels(array);
-    }
-  };
   let microSchemes = [
-      [4,5,6,9,10,11,12],
-      [5,6,11,12],
-      [1,2,7,8],
-      [4,5,6,11,12],
-      [1,2,3,7,8],
+      [1,3,4,5,6,9,10,11],
+      [1,3,4,6,10,11,12],
+      [2,3,6,7,8,12],
+      [1,4,5,6,7,11,12],
       [1,2,3,7,8]
   ]
-    const dispatch = useDispatch();
+
     // let scrollBlocker = true;
     let slideScrollDown = () => {
         if(activeSlide !== 5 && scrollBlocker) {
@@ -58,7 +53,10 @@ const MainSlider = ({ trans }) => {
     let slideScrollUp = () => {
         if(activeSlide !== 1 && scrollBlocker) {
             setActiveSlide(0);
-            setLevels(microSchemes[activeSlide - 2])
+            dispatch({
+                type: "SET_MICHROSCHEME_ARRAY",
+                microschemeArray: microSchemes[activeSlide - 2]
+            });
             setScrollBlocker(false);
             setTimeout(() => {
                 setActiveSlide(activeSlide - 1);
@@ -77,6 +75,7 @@ const MainSlider = ({ trans }) => {
         >
             <div className={`${styles.mainSlider}`}>
                 <div className={`container ${styles.mainSliderItem} ${activeSlide == 1 ? styles.mainSliderActive : ''}`}>
+                    {/*<Image src='/images/mainSliderBg.png' width={300} height={300} alt='img' />*/}
                     <div className={styles.mainSliderItemDescription}>
                         <div className={styles.mainSliderLogo}>
                             <div>

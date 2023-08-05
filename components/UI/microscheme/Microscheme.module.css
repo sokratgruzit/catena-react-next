@@ -97,8 +97,8 @@
 .l_r {
     /*transform: translateX(20px);*/
     /*opacity: 0;*/
-    stroke-dasharray: 500;
-    stroke-dashoffset: 500;
+    stroke-dasharray: 900;
+    stroke-dashoffset: 900;
 }
 .animate.l_r {
     /*transform: translateX(0px);*/
