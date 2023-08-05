@@ -1,5 +1,5 @@
 import { React, useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import Footer from '../../layout/Footer';
 import ReactScrollWheelHandler from "react-scroll-wheel-handler";
@@ -7,60 +7,67 @@ import ReactScrollWheelHandler from "react-scroll-wheel-handler";
 import Microscheme from '../../UI/microscheme/Microscheme';
 
 import styles from './MainSlider.module.css';
+import Image from "next/image";
 
 const MainSlider = ({ trans }) => {
     console.log(trans);
   const [levels, setLevels] = useState([]);
   const [activeSlide, setActiveSlide] = useState(0);
   const activeLang = useSelector(state => state.settings.activeLang);
-  
+  const [scrollBlocker, setScrollBlocker] = useState(true);
+  const dispatch = useDispatch();
   useEffect(() => {
-      setLevels([4,5,6,9,10,11,12]);
+      dispatch({
+          type: "SET_MICHROSCHEME_ARRAY",
+          microschemeArray: [1,2,3,4,5,6,7,8,9,10,11,12]
+      });
       // setLevels([7]);
       setActiveSlide(1)
   },[])
-  let setLvl = array => {
-    console.log(levels);
-    if (levels.length > 0) {
-      setLevels([]);
-    } else {
-      setLevels(array);
-    }
-  };
   let microSchemes = [
-      [4,5,6,9,10,11,12],
-      [5,6,11,12],
-      [1,2,7,8],
-      [4,5,6,11,12],
-      [1,2,3,7,8],
+      [1,3,4,5,6,9,10,11],
+      [1,3,4,6,10,11,12],
+      [2,3,6,7,8,12],
+      [1,4,5,6,7,11,12],
       [1,2,3,7,8]
   ]
-  let scrollBlocker = true;
-  let slideScrollDown = () => {
-      if(activeSlide !== 5 && scrollBlocker) {
-          setActiveSlide(0);
-          setLevels(microSchemes[activeSlide])
-          scrollBlocker = false;
-          setTimeout(() => {
-              setActiveSlide(activeSlide + 1);
-              scrollBlocker = true;
-          },300);
-      }
-  }
-  let slideScrollUp = () => {
+
+    // let scrollBlocker = true;
+    let slideScrollDown = () => {
+        if(activeSlide !== 5 && scrollBlocker) {
+            setActiveSlide(0);
+            // setLevels(microSchemes[activeSlide])
+            dispatch({
+                type: "SET_MICHROSCHEME_ARRAY",
+                microschemeArray: microSchemes[activeSlide]
+            });
+            setScrollBlocker(false);
+            setTimeout(() => {
+                setActiveSlide(activeSlide + 1);
+            },100);
+            setTimeout(() => {
+                setScrollBlocker(true);
+            },1000);
+        }
+    }
+    let slideScrollUp = () => {
         if(activeSlide !== 1 && scrollBlocker) {
             setActiveSlide(0);
-            setLevels(microSchemes[activeSlide - 2])
-            scrollBlocker = false;
+            dispatch({
+                type: "SET_MICHROSCHEME_ARRAY",
+                microschemeArray: microSchemes[activeSlide - 2]
+            });
+            setScrollBlocker(false);
             setTimeout(() => {
                 setActiveSlide(activeSlide - 1);
-                scrollBlocker = true;
-            },300);
+            },100);
+            setTimeout(() => {
+                setScrollBlocker(true);
+            },1000);
         }
-  }
+    }
   return (
     <>
-      {true && <Microscheme lvl={levels} />}
         {/*${styles.mainSliderActive}*/}
         <ReactScrollWheelHandler
             upHandler={(e) => slideScrollUp()}
@@ -68,6 +75,7 @@ const MainSlider = ({ trans }) => {
         >
             <div className={`${styles.mainSlider}`}>
                 <div className={`container ${styles.mainSliderItem} ${activeSlide == 1 ? styles.mainSliderActive : ''}`}>
+                    {/*<Image src='/images/mainSliderBg.png' width={300} height={300} alt='img' />*/}
                     <div className={styles.mainSliderItemDescription}>
                         <div className={styles.mainSliderLogo}>
                             <div>
@@ -372,6 +380,7 @@ const MainSlider = ({ trans }) => {
             </div>
             <Footer
                 active={activeSlide == 5}
+
             />
         </ReactScrollWheelHandler>
     </>

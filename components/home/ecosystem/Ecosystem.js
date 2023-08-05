@@ -230,12 +230,12 @@ import createAxiosInstance from '../../../pages/api/axios';
 //             y2='29.9022'
 //             gradientUnits='userSpaceOnUse'
 //           >
-//             <stop stop-color='#EA3671' />
-//             <stop offset='0.04' stop-color='#E03A75' />
-//             <stop offset='0.39' stop-color='#82619B' />
-//             <stop offset='0.69' stop-color='#3C7EB8' />
-//             <stop offset='0.89' stop-color='#1190C9' />
-//             <stop offset='1' stop-color='#0197D0' />
+//             <stop stopColor='#EA3671' />
+//             <stop offset='0.04' stopColor='#E03A75' />
+//             <stop offset='0.39' stopColor='#82619B' />
+//             <stop offset='0.69' stopColor='#3C7EB8' />
+//             <stop offset='0.89' stopColor='#1190C9' />
+//             <stop offset='1' stopColor='#0197D0' />
 //           </linearGradient>
 //           <linearGradient
 //             id='paint1_linear_307_88'
@@ -245,12 +245,12 @@ import createAxiosInstance from '../../../pages/api/axios';
 //             y2='-5360.61'
 //             gradientUnits='userSpaceOnUse'
 //           >
-//             <stop stop-color='#EA3671' />
-//             <stop offset='0.04' stop-color='#E03A75' />
-//             <stop offset='0.39' stop-color='#82619B' />
-//             <stop offset='0.69' stop-color='#3C7EB8' />
-//             <stop offset='0.89' stop-color='#1190C9' />
-//             <stop offset='1' stop-color='#0197D0' />
+//             <stop stopColor='#EA3671' />
+//             <stop offset='0.04' stopColor='#E03A75' />
+//             <stop offset='0.39' stopColor='#82619B' />
+//             <stop offset='0.69' stopColor='#3C7EB8' />
+//             <stop offset='0.89' stopColor='#1190C9' />
+//             <stop offset='1' stopColor='#0197D0' />
 //           </linearGradient>
 //           <linearGradient
 //             id='paint2_linear_307_88'
@@ -260,12 +260,12 @@ import createAxiosInstance from '../../../pages/api/axios';
 //             y2='-14953.6'
 //             gradientUnits='userSpaceOnUse'
 //           >
-//             <stop stop-color='#EA3671' />
-//             <stop offset='0.04' stop-color='#E03A75' />
-//             <stop offset='0.39' stop-color='#82619B' />
-//             <stop offset='0.69' stop-color='#3C7EB8' />
-//             <stop offset='0.89' stop-color='#1190C9' />
-//             <stop offset='1' stop-color='#0197D0' />
+//             <stop stopColor='#EA3671' />
+//             <stop offset='0.04' stopColor='#E03A75' />
+//             <stop offset='0.39' stopColor='#82619B' />
+//             <stop offset='0.69' stopColor='#3C7EB8' />
+//             <stop offset='0.89' stopColor='#1190C9' />
+//             <stop offset='1' stopColor='#0197D0' />
 //           </linearGradient>
 //           <linearGradient
 //             id='paint3_linear_307_88'
@@ -275,12 +275,12 @@ import createAxiosInstance from '../../../pages/api/axios';
 //             y2='-17030.4'
 //             gradientUnits='userSpaceOnUse'
 //           >
-//             <stop stop-color='#EA3671' />
-//             <stop offset='0.04' stop-color='#E03A75' />
-//             <stop offset='0.39' stop-color='#82619B' />
-//             <stop offset='0.69' stop-color='#3C7EB8' />
-//             <stop offset='0.89' stop-color='#1190C9' />
-//             <stop offset='1' stop-color='#0197D0' />
+//             <stop stopColor='#EA3671' />
+//             <stop offset='0.04' stopColor='#E03A75' />
+//             <stop offset='0.39' stopColor='#82619B' />
+//             <stop offset='0.69' stopColor='#3C7EB8' />
+//             <stop offset='0.89' stopColor='#1190C9' />
+//             <stop offset='1' stopColor='#0197D0' />
 //           </linearGradient>
 //           <linearGradient
 //             id='paint4_linear_307_88'
@@ -290,12 +290,12 @@ import createAxiosInstance from '../../../pages/api/axios';
 //             y2='-9528.74'
 //             gradientUnits='userSpaceOnUse'
 //           >
-//             <stop stop-color='#EA3671' />
-//             <stop offset='0.04' stop-color='#E03A75' />
-//             <stop offset='0.39' stop-color='#82619B' />
-//             <stop offset='0.69' stop-color='#3C7EB8' />
-//             <stop offset='0.89' stop-color='#1190C9' />
-//             <stop offset='1' stop-color='#0197D0' />
+//             <stop stopColor='#EA3671' />
+//             <stop offset='0.04' stopColor='#E03A75' />
+//             <stop offset='0.39' stopColor='#82619B' />
+//             <stop offset='0.69' stopColor='#3C7EB8' />
+//             <stop offset='0.89' stopColor='#1190C9' />
+//             <stop offset='1' stopColor='#0197D0' />
 //           </linearGradient>
 //           <linearGradient
 //             id='paint5_linear_307_88'
@@ -305,12 +305,12 @@ import createAxiosInstance from '../../../pages/api/axios';
 //             y2='-5293.72'
 //             gradientUnits='userSpaceOnUse'
 //           >
-//             <stop stop-color='#EA3671' />
-//             <stop offset='0.04' stop-color='#E03A75' />
-//             <stop offset='0.39' stop-color='#82619B' />
-//             <stop offset='0.69' stop-color='#3C7EB8' />
-//             <stop offset='0.89' stop-color='#1190C9' />
-//             <stop offset='1' stop-color='#0197D0' />
+//             <stop stopColor='#EA3671' />
+//             <stop offset='0.04' stopColor='#E03A75' />
+//             <stop offset='0.39' stopColor='#82619B' />
+//             <stop offset='0.69' stopColor='#3C7EB8' />
+//             <stop offset='0.89' stopColor='#1190C9' />
+//             <stop offset='1' stopColor='#0197D0' />
 //           </linearGradient>
 //           <linearGradient
 //             id='paint6_linear_307_88'
@@ -320,12 +320,12 @@ import createAxiosInstance from '../../../pages/api/axios';
 //             y2='-14731.6'
 //             gradientUnits='userSpaceOnUse'
 //           >
-//             <stop stop-color='#EA3671' />
-//             <stop offset='0.04' stop-color='#E03A75' />
-//             <stop offset='0.39' stop-color='#82619B' />
-//             <stop offset='0.69' stop-color='#3C7EB8' />
-//             <stop offset='0.89' stop-color='#1190C9' />
-//             <stop offset='1' stop-color='#0197D0' />
+//             <stop stopColor='#EA3671' />
+//             <stop offset='0.04' stopColor='#E03A75' />
+//             <stop offset='0.39' stopColor='#82619B' />
+//             <stop offset='0.69' stopColor='#3C7EB8' />
+//             <stop offset='0.89' stopColor='#1190C9' />
+//             <stop offset='1' stopColor='#0197D0' />
 //           </linearGradient>
 //           <linearGradient
 //             id='paint7_linear_307_88'
@@ -335,12 +335,12 @@ import createAxiosInstance from '../../../pages/api/axios';
 //             y2='-16914.9'
 //             gradientUnits='userSpaceOnUse'
 //           >
-//             <stop stop-color='#EA3671' />
-//             <stop offset='0.04' stop-color='#E03A75' />
-//             <stop offset='0.39' stop-color='#82619B' />
-//             <stop offset='0.69' stop-color='#3C7EB8' />
-//             <stop offset='0.89' stop-color='#1190C9' />
-//             <stop offset='1' stop-color='#0197D0' />
+//             <stop stopColor='#EA3671' />
+//             <stop offset='0.04' stopColor='#E03A75' />
+//             <stop offset='0.39' stopColor='#82619B' />
+//             <stop offset='0.69' stopColor='#3C7EB8' />
+//             <stop offset='0.89' stopColor='#1190C9' />
+//             <stop offset='1' stopColor='#0197D0' />
 //           </linearGradient>
 //           <linearGradient
 //             id='paint8_linear_307_88'
@@ -350,12 +350,12 @@ import createAxiosInstance from '../../../pages/api/axios';
 //             y2='-3417.24'
 //             gradientUnits='userSpaceOnUse'
 //           >
-//             <stop stop-color='#EA3671' />
-//             <stop offset='0.04' stop-color='#E03A75' />
-//             <stop offset='0.39' stop-color='#82619B' />
-//             <stop offset='0.69' stop-color='#3C7EB8' />
-//             <stop offset='0.89' stop-color='#1190C9' />
-//             <stop offset='1' stop-color='#0197D0' />
+//             <stop stopColor='#EA3671' />
+//             <stop offset='0.04' stopColor='#E03A75' />
+//             <stop offset='0.39' stopColor='#82619B' />
+//             <stop offset='0.69' stopColor='#3C7EB8' />
+//             <stop offset='0.89' stopColor='#1190C9' />
+//             <stop offset='1' stopColor='#0197D0' />
 //           </linearGradient>
 //           <linearGradient
 //             id='paint9_linear_307_88'
@@ -365,12 +365,12 @@ import createAxiosInstance from '../../../pages/api/axios';
 //             y2='-63247.9'
 //             gradientUnits='userSpaceOnUse'
 //           >
-//             <stop stop-color='#EA3671' />
-//             <stop offset='0.04' stop-color='#E03A75' />
-//             <stop offset='0.39' stop-color='#82619B' />
-//             <stop offset='0.69' stop-color='#3C7EB8' />
-//             <stop offset='0.89' stop-color='#1190C9' />
-//             <stop offset='1' stop-color='#0197D0' />
+//             <stop stopColor='#EA3671' />
+//             <stop offset='0.04' stopColor='#E03A75' />
+//             <stop offset='0.39' stopColor='#82619B' />
+//             <stop offset='0.69' stopColor='#3C7EB8' />
+//             <stop offset='0.89' stopColor='#1190C9' />
+//             <stop offset='1' stopColor='#0197D0' />
 //           </linearGradient>
 //         </defs>
 //       </svg>
