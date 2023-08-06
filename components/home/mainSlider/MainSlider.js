@@ -1,55 +1,72 @@
 import { React, useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
+import Footer from '../../layout/Footer';
 import ReactScrollWheelHandler from "react-scroll-wheel-handler";
 
 import Microscheme from '../../UI/microscheme/Microscheme';
 
 import styles from './MainSlider.module.css';
+import Image from "next/image";
 
-const MainSlider = () => {
+const MainSlider = ({ trans }) => {
   const [levels, setLevels] = useState([]);
   const [activeSlide, setActiveSlide] = useState(0);
+  const activeLang = useSelector(state => state.settings.activeLang);
+  const [scrollBlocker, setScrollBlocker] = useState(true);
+  const dispatch = useDispatch();
   useEffect(() => {
-      setLevels([4,5,6,9,10,11,12]);
+      dispatch({
+          type: "SET_MICHROSCHEME_ARRAY",
+          microschemeArray: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48]
+      });
       // setLevels([7]);
       setActiveSlide(1)
   },[])
-  let setLvl = array => {
-    console.log(levels);
-    if (levels.length > 0) {
-      setLevels([]);
-    } else {
-      setLevels(array);
-    }
-  };
   let microSchemes = [
-      [4,5,6,9,10,11,12],
-      [5,6,11,12],
-      [1,2,7,8],
-      [4,5,6,11,12],
+      [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48],
+      [1,3,4,6,10,11,12],
+      [2,3,6,7,8,12],
+      [1,4,5,6,7,11,12],
       [1,2,3,7,8]
   ]
-  let slideScrollDown = () => {
-      if(activeSlide !== 5) {
-          setActiveSlide(0);
-          setLevels(microSchemes[activeSlide])
-          setTimeout(() => {
-              setActiveSlide(activeSlide + 1);
-          },400);
-      }
-  }
-  let slideScrollUp = () => {
-        if(activeSlide !== 1) {
+
+    // let scrollBlocker = true;
+    let slideScrollDown = () => {
+        if(activeSlide !== 5 && scrollBlocker) {
             setActiveSlide(0);
-            setLevels(microSchemes[activeSlide - 2])
+            // setLevels(microSchemes[activeSlide])
+            dispatch({
+                type: "SET_MICHROSCHEME_ARRAY",
+                microschemeArray: microSchemes[activeSlide]
+            });
+            setScrollBlocker(false);
+            setTimeout(() => {
+                setActiveSlide(activeSlide + 1);
+            },100);
+            setTimeout(() => {
+                setScrollBlocker(true);
+            },1000);
+        }
+    }
+    let slideScrollUp = () => {
+        if(activeSlide !== 1 && scrollBlocker) {
+            setActiveSlide(0);
+            dispatch({
+                type: "SET_MICHROSCHEME_ARRAY",
+                microschemeArray: microSchemes[activeSlide - 2]
+            });
+            setScrollBlocker(false);
             setTimeout(() => {
                 setActiveSlide(activeSlide - 1);
-            },400);
+            },100);
+            setTimeout(() => {
+                setScrollBlocker(true);
+            },1000);
         }
-  }
+    }
   return (
     <>
-      {true && <Microscheme lvl={levels} />}
         {/*${styles.mainSliderActive}*/}
         <ReactScrollWheelHandler
             upHandler={(e) => slideScrollUp()}
@@ -57,6 +74,7 @@ const MainSlider = () => {
         >
             <div className={`${styles.mainSlider}`}>
                 <div className={`container ${styles.mainSliderItem} ${activeSlide == 1 ? styles.mainSliderActive : ''}`}>
+                    {/*<Image src='/images/mainSliderBg.png' width={300} height={300} alt='img' />*/}
                     <div className={styles.mainSliderItemDescription}>
                         <div className={styles.mainSliderLogo}>
                             <div>
@@ -91,19 +109,25 @@ const MainSlider = () => {
                             </div>
                         </div>
                         <h1 className='font-90 ttl'>
-                            A Virtual World of
+                            {trans[activeLang]?.slider1_slide1_ttl}
+                            {/* A Virtual World of
                             <br/>
-                            Interconnected Blockchains
+                            Interconnected Blockchains */}
                         </h1>
                         <div className={styles.mainSliderItemBtnOut}>
-                            <a href="##" className={styles.mainSliderItemBtn}>Join the Community</a>
+                            <a href="##" className={styles.mainSliderItemBtn}>{trans[activeLang]?.slider1_slide1_join_btn}</a>
+                        </div>
+                        <div className={`${styles.scrollMore}`}>
+                            <div onClick={() => {slideScrollDown()}}>
+                                <p>Scroll</p>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div className={`container ${styles.mainSliderItem} ${activeSlide == 2 ? styles.mainSliderActive : ''}`}>
                     <div className={styles.mainSliderItemHalf}>
                         <div className={styles.mainSliderItemTask}>
-                            <div className={styles.mainSliderItemTaskTxt}>Task 1</div>
+                            <div className={styles.mainSliderItemTaskTxt}>{trans[activeLang]?.slider1_slide2_sm_sc}</div>
                             <svg width="67" height="37" viewBox="0 0 67 37" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M7.5 36.5V29.5H10.5V36.5H7.5Z" fill="#162029" stroke="#162029"/>
                                 <path d="M15.5 36.5V29.5H18.5V36.5H15.5Z" fill="#162029" stroke="#162029"/>
@@ -123,10 +147,10 @@ const MainSlider = () => {
                                 <rect x="0.5" y="7.5" width="66" height="22" rx="3.5" stroke="#162029"/>
                             </svg>
                         </div>
-                        <h2 className={`font-90 ttl`}>Scalability</h2>
-                        <p className={`${styles.mainSliderItemHalfDesc1}`}>This is one of the main reasons that blockchain technology cannot be used on a mass-adoption scale yet. Low throughput and its environmental impact are the biggest obstacles that blockchain has to overcome in order to scale.</p>
+                        <h2 className={`font-90 ttl`}>{trans[activeLang]?.slider1_slide2_ttl}</h2>
+                        <p className={`${styles.mainSliderItemHalfDesc1}`}>{trans[activeLang]?.slider1_slide2_text1}</p>
                         <div className={styles.mainSliderItemSolution}>
-                            <div className={styles.mainSliderItemSolutionTxt}>Solution</div>
+                            <div className={styles.mainSliderItemSolutionTxt}>{trans[activeLang]?.slider1_bg_sc}</div>
                             <svg width="111" height="43" viewBox="0 0 111 43" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M5.5 42.5V35.5H8.5V42.5H5.5Z" fill="#A6D0DD" stroke="#162029"/>
                                 <path d="M13.5 42.5V35.5H16.5V42.5H13.5Z" fill="#A6D0DD" stroke="#162029"/>
@@ -159,7 +183,7 @@ const MainSlider = () => {
                             </svg>
                         </div>
                         <p className={`font-20 ${styles.mainSliderItemHalfDesc2}`}>
-                            We combine the use of AI based PoS consensus, a scalable and secure parallel protocol for distributed ledger via sharding, side chains, and off-chain processing. These techniques allow for acceleration of block broadcasting in blockchain networks and scaling out through asynchronous consensus zones.
+                            {trans[activeLang]?.slider1_slide2_text2}
                         </p>
                     </div>
                 </div>
@@ -353,6 +377,10 @@ const MainSlider = () => {
                     </div>
                 </div>
             </div>
+            <Footer
+                active={activeSlide == 5}
+
+            />
         </ReactScrollWheelHandler>
     </>
   );

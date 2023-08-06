@@ -1,0 +1,55 @@
+.infoImport {
+  width: 260px;
+}
+
+.featured-jobs__btn-container .main-btn {
+  margin-right: auto;
+}
+
+.openPositions__container {
+  padding-top: 100px;
+  display: flex;
+  width: 100%;
+  gap: 20px;
+}
+
+.openPositions__filterClear {
+  width: 78px;
+  display: flex;
+  align-items: flex-end;
+  border-bottom: 1px solid #a6d0dd;
+  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+  font-size: 14px;
+  line-height: 20px;
+  margin-top: 25px;
+  cursor: pointer;
+  margin-bottom: 12px;
+  font-family: 'Lack-Regular' !important;
+  color: #162029;
+}
+
+.openPositions__filterTtl {
+  font-family: 'Lack-Regular' !important;
+  color: #162029;
+}
+
+.openPositions__filterClear:hover {
+  border-bottom: 1px solid rgba(255, 255, 255, 0);
+  color: #ff7152;
+}
+
+/*Laptop 1440*/
+
+/*Ipad Pro 1024*/
+@media (max-width: 1300px) {}
+
+/*Ipad 768*/
+@media (max-width: 1023px) {
+  .openPositions__container {
+    flex-direction: column;
+    padding-top: 40px;
+  }
+}
+
+/*Mobile 320*/
+@media (max-width: 767px) {}

@@ -1,19 +1,22 @@
-import BuyCore from '../components/homeOld/buyCore/BuyCore';
-import CoreApps from '../components/homeOld/coreApps/CoreApps';
-import HomeLanding from '../components/homeOld/homeLanding/HomeLanding';
-import HomeTrust from '../components/homeOld/homeTrust/HomeTrust';
-import Trade from '../components/homeOld/trade/Trade';
+import MainSlider from '../components/home/mainSlider/MainSlider';
+import createAxiosInstance from './api/axios';
 
-const Home = () => {
-  return (
-    <main className='container'>
-      <HomeLanding />
-      <HomeTrust />
-      <Trade />
-      <BuyCore />
-      <CoreApps />
-    </main>
-  );
+export const getStaticProps = async () => {
+    const axios = createAxiosInstance();
+    const { data } = await axios.get(`${process.env.NEXT_PUBLIC_URL}/translates/get-translates`);;
+  
+    return {
+      props: {
+        translates: data,
+      },
+    };
 };
 
-export default Home;
+
+const mainSlider = ({ translates }) => {
+  let homePage = translates.find(t => t.page === "home_page");
+
+    return <MainSlider test="test" trans={homePage.translates} />;
+};
+
+export default mainSlider;

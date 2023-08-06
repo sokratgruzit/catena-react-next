@@ -4,21 +4,16 @@ const Benefits = props => {
   const { benefitsArr, title } = props;
 
   return (
-    <section className='container'>
-      <div className={styles.career__benefitsSection}>
-        <div className={`${styles.font__51} title`}>{title}</div>
-        <div className={styles.career__benefitsContainer}>
-          <div className='text'>
-            {/* <div className={styles.col_img}></div> */}
-            <ul>
-              {benefitsArr.map((item, index) => {
-                return <li key={index}>{item.title}</li>;
-              })}
-            </ul>
-          </div>
-        </div>
+    <div className='container'>
+      <div style={{color: '#162029', padding: '100px 0 30px 0'}} className='font-40 ttl'>{title}</div>
+      <div className='text'>
+        <ul>
+          {benefitsArr.map((item, index) => {
+            return <li style={{color: '#162029'}} className='font-20' key={index}>{item.title}</li>;
+          })}
+        </ul>
       </div>
-    </section>
+    </div>
   );
 };
 

@@ -28,7 +28,7 @@
 .bodyContainer {
   width: 100%;
   position: relative;
-  margin-top: 100px;
+  margin-top: 150px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 80px;
@@ -40,19 +40,20 @@
 }
 
 .sourcesTitle {
-  margin: 0 50px 30px 110px;
+  margin-bottom: 30px;
 }
 
 .logoContainer {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    background-color: #F3E4D2;
-    border-radius: 20px;
-    border: 1px solid rgb(192, 182, 182);
-    margin-bottom: 150px;
-}
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 
+  /* margin-bottom: 150px; */
+}
+.joinCommunity,
+.years {
+  margin-top: 128px;
+}
 .logCon {
   width: 160px;
   height: 160px;
@@ -67,33 +68,24 @@
   width: 100%;
   display: flex;
   height: 100%;
-  gap: 50px;
-  padding: 20px 70px 20px 105px;
+  gap: 100px;
   align-items: center;
 }
 
 .infoContainer {
-  width: 100%;
-  height: 100px;
+  width: 90%;
   display: flex;
   border-bottom: 1px solid #a6d0dd;
   position: relative;
-  bottom: 30px;
+  align-items: center;
   justify-content: space-between;
-}
-
-.infContTitle h2 {
-    position: relative;
-    margin-top: 45px;
-    margin-left: 110px;
+  margin-top: 20px;
 }
 
 .yearsStats {
-  width: 50%;
-  height: 100%;
+  width: 60%;
   display: flex;
   justify-content: center;
-  align-items: flex-end;
   gap: 30px;
 }
 
@@ -123,24 +115,10 @@
   cursor: pointer;
 }
 
-.pasCont {
-  width: 70px;
-  border-bottom: 1px solid transparent;
-  display: flex;
-  align-items: center;
-  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
-  font-size: 30px;
-  opacity: 0.5;
-  cursor: pointer;
-}
-
 .statisticContainer {
-    width: 100%;
-    border: 1px solid rgb(192, 182, 182);
-    background-color: #F3E4D2;
-    border-radius: 20px;
-    padding: 20px 100px 20px 105px;
-    margin-top: 20px;
+  width: 100%;
+  margin-top: 20px;
+  cursor: pointer;
 }
 
 .icCont {
@@ -172,7 +150,18 @@
   display: flex;
   justify-content: center;
   position: relative;
-  margin-top: 30px;
+  background-color: #a6d0dd !important;
+  padding: 8px 12px !important;
+  border-radius: 4px !important;
+  font-size: 14px !important;
+  line-height: 20px !important;
+  margin: 30px 0px 0px 0px !important;
+}
+
+@media (max-width: 1365px) {
+  .logoLine {
+    gap: 50px;
+  }
 }
 
 @media (max-width: 670px) {
@@ -196,19 +185,31 @@
     grid-template-columns: 1fr;
     gap: 50px;
   }
+
+  .joinCommunity,
+  .years {
+    margin-top: 80px;
+  }
 }
 
 @media (max-width: 815px) {
-    .infContTitle h2 {
-        font-size: 12px;
-        padding: 30px;
-    }
-    .activeCont {
-        font-size: 12px;
-    }
-    .pasCont  {
-        font-size: 12px;
-    }
+  .infContTitle h2 {
+    font-size: 12px;
+  }
+  .activeCont {
+    font-size: 12px;
+    width: 27px;
+  }
+  .pasCont {
+    font-size: 12px;
+    width: 27px;
+  }
+  .yearsStats {
+    gap: 30px;
+  }
+  .infoContainer {
+    gap: 10px;
+  }
 }
 
 @media (max-width: 1050px) {
@@ -218,9 +219,12 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
-    padding: 20px;
     display: flex;
     flex-direction: column;
+  }
+  .logoContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
   }
   .logCon {
     margin: 5px;
@@ -231,5 +235,12 @@
   .logo {
     width: auto;
     height: auto;
+  }
+}
+
+@media (max-width: 450px) {
+  .logoContainer {
+    display: grid;
+    grid-template-columns: 1fr;
   }
 }

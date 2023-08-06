@@ -3,6 +3,22 @@ import React, { useState } from 'react';
 import TabFilter from '../../../UI/filters/TabFilter';
 
 import styles from './TableFilter.module.css';
+import { ComponentViewSvg, TableViewSvg } from '../../../svg';
+
+const svgData = [
+  {
+    id: 0,
+    label: (
+      <ComponentViewSvg />
+    )
+  },
+  {
+    id: 1,
+    label: (
+      <TableViewSvg />
+    )
+  }
+]
 
 const tabsData = [
   {

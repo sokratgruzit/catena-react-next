@@ -211,12 +211,10 @@
   .rewardsContainer {
     padding-top: 70px;
   }
-
   .text {
     padding-bottom: 55px;
   }
 }
-
 @media (max-width: 1023px) {
   .text {
     padding-bottom: 55px;

@@ -84,11 +84,26 @@
   .wrapper {
     grid-template-columns: 1fr;
   }
-
+  .title {
+    padding-bottom: 20px;
+  }
+  .logoVariantsContainer {
+    height: 300px;
+  }
+  .image {
+    max-width: 300px;
+  }
+  .logoVariantsContainer:nth-child(1) .image,
+  .logoVariantsContainer:nth-child(3) .image {
+    max-width: 300px;
+  }
   .logoVariantsContainer:nth-child(3) svg {
     display: block;
   }
-
+  .logoVariantsContainer:nth-child(2) .image,
+  .logoVariantsContainer:nth-child(4) .image {
+    max-width: 150px;
+  }
   .logoVariantsContainer:nth-child(1),
   .logoVariantsContainer:nth-child(3) {
     border-right: none;

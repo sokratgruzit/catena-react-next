@@ -6,32 +6,32 @@ import Link from 'next/link';
 
 const Card = ({ title }) => {
   return (
-    <div className='container'>
-      <div style={{ width: '112px', color: '#969BA6', position: 'absolute', top: '430px', left: '70%' }}>
-        CMCX massive listing
-      </div>
+    <div className={styles.container}>
       <div className={styles.card}>
         <Image src='/Mask Group.png' width={606} height={400} alt='Picture of the author' />
         <div className={styles.title}>Join the CORE Ecosystem Now</div>
         <div className={styles.button}>
-          <Button
-            label={'explore'}
-            size={'btn-lg'}
-            type={'btn-primary'}
-            element={'button'}
-            customStyles={{
-              margin: '0',
-              width: '100%',
-              backgroundColor: '#FF6969',
-            }}
+        <Link href="/home/your-voice">
+            <Button
+              label={'explore'}
+              size={'btn-lg'}
+              type={'btn-primary'}
+              element={'button'}
+              customStyles={{
+                margin: '0',
+                width: '100%',
+                backgroundColor: '#FF6969',
+              }}
             // onClick={() => handleSubmitClick(inputs)}
-          />
+            />
+          </Link>
         </div>
       </div>
       <div className={styles.card}>
         <Image src='/Mask Group (2).png' width={436} height={400} alt='Picture of the author' />
         <div className={styles.title}>Submit your project</div>
         <div className={styles.button}>
+        <Link href="/home/your-voice">
           <Button
             label={'explore'}
             size={'btn-lg'}
@@ -42,8 +42,9 @@ const Card = ({ title }) => {
               width: '100%',
               backgroundColor: '#FF6969',
             }}
-            // onClick={() => handleSubmitClick(inputs)}
+          // onClick={() => handleSubmitClick(inputs)}
           />
+          </Link>
         </div>
       </div>
     </div>

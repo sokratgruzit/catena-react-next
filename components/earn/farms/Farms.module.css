@@ -2,6 +2,29 @@
   margin-top: 150px !important;
   display: flex;
   flex-direction: column;
+  margin-bottom: 150px;
+}
+
+.svgRotate {
+  display: flex;
+  border-radius: 30px;
+  width: 200px;
+  height: 43px;
+  background-color: red;
+  align-items: center;
+  justify-content: center;
+}
+
+.selectDiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.searchDiv {
+  width: 100%;
+  max-width: 900px;
 }
 
 .routesWrapper{
@@ -21,6 +44,8 @@
   margin-right: auto;
   align-items: center;
   cursor: pointer;
+  padding: 20px 0 20px 115px;
+
 }
 
 .communityAuctions svg {
@@ -28,7 +53,7 @@
 }
 
 .communityAuctions p {
-  color: #ff7152;
+  font-size: 20px;
 }
 
 .communityAuctions a {
@@ -36,8 +61,12 @@
   align-items: center;
 }
 
+.blueHover {
+  color: #ff6969;
+}
+
 .communityAuctions:hover .blueHover {
-  color: #0500ff;
+  color: #ff6969;
 }
 
 .communityAuctions p,
@@ -53,7 +82,7 @@
 }
 
 .communityAuctions:hover .svgHoverBlue path {
-  stroke: #0500ff;
+  color: #ff6969;
 }
 
 .farms__filter {
@@ -68,6 +97,7 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
+  gap: 50px;
 }
 
 .Farms__filterLeftPanel {
@@ -78,6 +108,7 @@
 .Farms__filterRightPanel {
   display: flex;
   align-items: center;
+  gap: 20px;
 }
 
 .Farms__filterLeftPanel svg {
@@ -89,7 +120,8 @@
 }
 
 .farms__radioBtn {
-  margin: 0 30px;
+  margin: 0 0 0 20px;
+  width: 120px;
 }
 
 .searchInput{
@@ -299,10 +331,23 @@
   height: 12px;
 }
 
+.resTitle {
+  padding-left: 115px;
+  color: #162029;
+}
+
 
 
 /*Laptop 1440*/
 @media (max-width: 1900px) {
+  .resTitle {
+    padding-left: 25px;
+    color: #162029;
+  }
+
+  .communityAuctions {
+    padding-left: 15px;
+  }
 }
 
 @media (max-width:1450px) {
@@ -313,6 +358,13 @@
 
 /*Ipad Pro 1024*/
 @media (max-width: 1300px) {
+  .resTitle {
+    padding-left: 15px;
+  }
+
+  .communityAuctions {
+    padding-left: 0;
+  }
 }
 
 /*Ipad 768*/
@@ -321,37 +373,59 @@
     grid-template-columns: 1fr 1fr;
   }
   .farms__filterInner{
-    flex-direction: column-reverse;
+    flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
+    gap: 25px;
   }
   
   .Farms__filterRightPanel{
-    margin-top: 10px;
-    margin-left: 110px;
     margin-bottom: 10px;
+    flex-direction: column;
   }
   
   .Farms__filterLeftPanel{
     justify-content: space-between;
   }
+
+  .searchDiv {
+    max-width: 400px;
+  }
+
+  .selectDiv {
+    flex-direction: column;
+    max-width: 400px;
+    width: 100%;
+    align-items: flex-start;
+    gap: 30px;
+  }
+
+  .Farms__filterRightPanel{
+    max-width: 400px;
+    width: 100%;
+    align-items: flex-start;
+  }
+
+  /* .farms__filterInner{
+    width: 60%;
+  } */
   
 }
-
+/* 
 @media (max-width: 883px) {
   .farms__filterInner{
     width: 60%;
   }
   
-}
+} */
 
 /*Mobile 320*/
-@media (max-width: 767px) {
+/* @media (max-width: 767px) {
   .farms__filterInner{
     width: 70%;
   }
   
-}
+} */
 
 @media (max-width: 710px) {
   .componentsViewSection{
@@ -364,15 +438,20 @@
   
   .Farms__filterLeftPanel{
     justify-content: flex-start;
+    gap: 20px;
   }
   
   .Farms__filterRightPanel{
     align-self:flex-start;
-    margin-left: 110px;
+    /* margin-left: 110px; */
   }
   
   .searchInput{
     width: 253px;
+  }
+
+  .farms__radioBtn {
+    margin: 0 10px;
   }
   
 }
@@ -393,14 +472,27 @@
   }
   
   .Farms__filterRightPanel{
-    align-items: flex-end;
-    height: 100px;    
+    /* align-items: flex-end; */
+    /* height: 100px;     */
     margin-top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    margin-bottom: 30px;
   }
   
   .filters{
     margin-left: 0;
     margin-top: -87px;
+  }
+
+  .selectDiv {
+    width: 100%;
+  }
+
+  .searchDiv {
+    width: 100%;
   }
   
 }
@@ -408,6 +500,14 @@
 @media (max-width: 400px) {
   .componentsViewSection{
     display: block; 
+  }
+
+  .farms__radioBtn {
+    margin: 0;
+  }
+
+  .communityAuctions p {
+    font-size: 16px;
   }
   
   /* .itemWrapper{
