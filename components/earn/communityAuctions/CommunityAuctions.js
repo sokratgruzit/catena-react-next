@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router';
 import { useState } from 'react';
-import { Button } from '@catena-network/catena-ui-module';
+import { Button, Input, HelpText } from '@catena-network/catena-ui-module';
+import Link from 'next/link';
 import CommunityAuctionsFAQ from '../../faqOld/communityAuctionsFAQ/CommunityAuctionsFAQ';
 import { CatenaLogo } from '../../svg';
 import Expand from '../../UI/expand/Expand';
@@ -11,6 +12,8 @@ import AuctionTable from '../components/auctionTable/AuctionTable';
 
 
 import styles from './CommunityAuctions.module.css';
+import ArrowWithBorderSvg from '../../svg/ArrowWithBorderSvg';
+import ArrowDiagonalSvg from '../../svg/ArrowDiagonalSvg';
 const stakersRecord = [
   {
     id: 12123,
@@ -19,6 +22,7 @@ const stakersRecord = [
     unstaketime: '01.02.2023 08:15PM',
     CML: 'CML',
     realtimeRewardPerBlock: '1,132,000.1',
+    address: "0xfCcA771Dc22359E4D6e9e9daC743EAb38f51EECe"
   },
   {
     id: 2121234,
@@ -27,6 +31,7 @@ const stakersRecord = [
     unstaketime: '01.02.2023 08:15PM',
     CML: 'CML',
     realtimeRewardPerBlock: '1,132,000.1',
+    address: "0xfCcA771Dc22359E4D6e9e9daC743EAb38f51EECe"
   },
   {
     id: 1221235,
@@ -35,6 +40,7 @@ const stakersRecord = [
     unstaketime: '01.02.2023 08:15PM',
     CML: 'CML',
     realtimeRewardPerBlock: '1,132,000.1',
+    address: "0xfCcA771Dc22359E4D6e9e9daC743EAb38f51EECe"
   },
 ];
 
@@ -47,6 +53,7 @@ const CommunityAuctions = props => {
   return (
     <main className={`container ${styles.auction__container}`}>
       <div className={`${styles.auction__head} custum-text`}>
+        <div className={styles.backToFarmButton}><ArrowWithBorderSvg />Back Farm</div>
         <h1 className='font-90 ttl'>Community Farm Auction</h1>
         <h4 className='font-20'>
           Each week, qualifying projects can bid CAKE for the right to host a 7-day Farm on CATENA Network
@@ -74,26 +81,45 @@ const CommunityAuctions = props => {
         </p>
       </div>
       <div className={styles.auction__tableContainer}>
-        <div className={styles.auction__leftPanel} >
+        {!showWhiteListedWallets && <div className={styles.auction__leftPanel} >
           <Expand
             expandContent={<AuctionScheduleExpand setShowWhiteListedWallets={setShowWhiteListedWallets} />}
             expandButton={<ExpandButton className={styles.centerElement} />}
           >
             <AuctionSchedule />
           </Expand>
-        </div>
-        <div className={styles.allWallets}>
+        </div>}
+        {showWhiteListedWallets && <div className={styles.allWallets}>
+          <div className={styles.allWalletsHeader}>
+            <ArrowWithBorderSvg onClick={() => setShowWhiteListedWallets(false)} />
+            <h2>All Whitelisted Project Wallets</h2>
+          </div>
+          <Input
+            type={"search-input"}
+            // onChange={changeHandler}
+            // defaultData={defaultData}
+            // selectHandler={selectHandler}
+            selectLabel={"select"}
+            placeholder={"Search address or token"}
+            customStyles={{ width: "100%" }}
+          />
           {stakersRecord.map((item, index) => {
             return (
               <div className={styles.wallets} key={index}>
-                <span>{item.id}</span>
+                <div style={{ display: "flex", flexDirection: "column" }}>
+                  <span>
+                    {item.id}
+                  </span>
+                  <span>{item.CML}</span>
+                </div>
+                <div className={styles.addressAndArrow}>{item.address}
+                  <ArrowDiagonalSvg />
+                </div>
               </div>
             );
           })
           }
-
-
-        </div>
+        </div>}
         <div className={styles.tableContainer}>
           <AuctionTable tableDataArr={stakersRecord} />
         </div>

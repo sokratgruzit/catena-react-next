@@ -1,6 +1,5 @@
 import React from 'react';
-
-import { VectorSvg } from '../../../svg';
+import { Button, Input, HelpText } from '@catena-network/catena-ui-module';
 
 import styles from '../CommunityAuctionsFAQ.module.css';
 
@@ -8,7 +7,12 @@ const Question = ({ title, expandRow }) => {
   return (
     <div className={styles.questionWrapper}>
       <p className={`${styles.title} ${expandRow && styles.brighten}`}>{title}</p>
-      <VectorSvg className={`${styles.vectorSvg} ${expandRow && styles.rotate}`} />
+      <Button
+        type={"dropDown-Button"}
+        element={"dropDown-Button"}
+        active={expandRow}
+        onClick={() => setToggle((prevState) => !prevState)}
+      />
     </div>
   );
 };
