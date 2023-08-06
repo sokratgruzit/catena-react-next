@@ -1,7 +1,13 @@
 import React from 'react';
 
-const Contribute = () => {
-  return <div>Contribute</div>;
+import Contribute from '../../../components/home/contrubute/Contrubute';
+
+const index = () => {
+  return (
+    <div style={{ paddingTop: '150px', backgroundColor: '#fff2e4' }}>
+      <Contribute />
+    </div>
+  );
 };
 
-export default Contribute;
+export default index;

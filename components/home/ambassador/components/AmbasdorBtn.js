@@ -11,17 +11,19 @@ const AmbasdorBtn = () => {
     suggestion: '',
   });
 
-  const [suggestionLength, setSuggestionLength] = useState(0);
+  const [suggestionLength, setSuggestionLength] = useState(1000);
+
   const changeHandler = e => {
     const { name, value } = e.target;
 
     if (name === 'suggestion') {
-      const truncatedValue = value.slice(0, 100);
+      const truncatedValue = value.slice(0, 1000);
       setFormData(prevState => ({
         ...prevState,
         [name]: truncatedValue,
       }));
-      setSuggestionLength(truncatedValue.length);
+      const remainingChars = 1000 - truncatedValue.length;
+      setSuggestionLength(remainingChars);
     } else {
       setFormData(prevState => ({
         ...prevState,
