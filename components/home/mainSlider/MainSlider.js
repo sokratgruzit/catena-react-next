@@ -10,7 +10,6 @@ import styles from './MainSlider.module.css';
 import Image from "next/image";
 
 const MainSlider = ({ trans }) => {
-    console.log(trans);
   const [levels, setLevels] = useState([]);
   const [activeSlide, setActiveSlide] = useState(0);
   const activeLang = useSelector(state => state.settings.activeLang);
@@ -110,7 +109,7 @@ const MainSlider = ({ trans }) => {
                             </div>
                         </div>
                         <h1 className='font-90 ttl'>
-                            {trans[activeLang].slider1_slide1_ttl}
+                            {trans[activeLang]?.slider1_slide1_ttl}
                             {/* A Virtual World of
                             <br/>
                             Interconnected Blockchains */}
