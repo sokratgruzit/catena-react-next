@@ -13,7 +13,7 @@ function BugBountyItem({ data }) {
           </div>
         );
       })}
-    </div >
+    </div>
   );
 }
 

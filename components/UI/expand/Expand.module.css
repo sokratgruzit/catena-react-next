@@ -4,7 +4,7 @@
     flex-direction: column;
     max-height: 0;
     overflow: hidden;
-    transition: .4s ease-in-out;
+    transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
 }
 
 .buttonWrapper {
@@ -21,9 +21,7 @@
 .buttonWrapper:hover .expandButton {
     color: #ff6969;
 }
-.buttonWrapper svg path {
-    transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
-}
+
 .buttonWrapper:hover svg path {
     stroke: #ff6969;
 }
@@ -35,6 +33,7 @@
 
 .vectorSvg {
     margin-left: 4px;
+    transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
 }
 
 .rotate {
@@ -44,6 +43,7 @@
 
 .buttonActive {
     color: #ff6969;
+    transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
 }
 
 /*Laptop 1440*/
