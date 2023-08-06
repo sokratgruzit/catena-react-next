@@ -35,6 +35,7 @@ const Header = () => {
           );
         })}
       </div>
+      <div className={styles.border}></div>
       <div className={`${styles.containerOne}`}>
         <p className='ttl'>2. Set amount of CMCX tokens you would like to purchase</p>
         <p>
@@ -51,7 +52,7 @@ const Header = () => {
             className={styles.llll}
             type={'default'}
             icon={false}
-            label={'EMAIL'}
+            label={'Token to Purchase'}
             subLabel={''}
             placeholder={'Enter'}
             name='email'
@@ -65,7 +66,7 @@ const Header = () => {
             className={styles.llll}
             type={'default'}
             icon={false}
-            label={'EMAIL'}
+            label={'Founder Code'}
             subLabel={''}
             placeholder={'Enter'}
             name='email'
@@ -75,10 +76,12 @@ const Header = () => {
           />
         </div>
       </div>
-      <h1>Total CMCX</h1>
-      <div>10000000</div>
-      <div>+ Sale Bonus 0%</div>
-      <div>0</div>
+      <div>
+        <h1>Total CMCX</h1>
+        <div>10000000</div>
+        <div>+ Sale Bonus 0%</div>
+        <div>0</div>
+      </div>
       <div>
         <img src='images/stack-logo.png' />
         <p>
