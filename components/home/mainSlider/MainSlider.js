@@ -43,7 +43,7 @@ const MainSlider = ({ trans }) => {
             setScrollBlocker(false);
             setTimeout(() => {
                 setActiveSlide(activeSlide + 1);
-            },100);
+            },10);
             setTimeout(() => {
                 setScrollBlocker(true);
             },1000);
@@ -59,7 +59,7 @@ const MainSlider = ({ trans }) => {
             setScrollBlocker(false);
             setTimeout(() => {
                 setActiveSlide(activeSlide - 1);
-            },100);
+            },10);
             setTimeout(() => {
                 setScrollBlocker(true);
             },1000);

@@ -5,11 +5,7 @@
     bottom: 0px;
     right: 0px;
     z-index: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    transform: scale(1.2) translateY(-10%);
+    white-space: nowrap;
 }
 .microtest {
     display: flex;
@@ -28,12 +24,11 @@
     border: 1px solid #000;
 }
 .mircroscheme svg {
-    width: 50%;
-    height: 50%;
+    width: fit-content;
+    height: 90%;
+    margin-top: 2%;
+    transform: translateX(-28%);
     /*transform: scale(1.3);*/
-}
-.mircroscheme * {
-
 }
 /*position animation*/
 .opacity,.opacityH {
