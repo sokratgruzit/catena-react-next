@@ -8,6 +8,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
+    transform: scale(1.2) translateY(-10%);
 }
 .microtest {
     display: flex;
@@ -26,11 +28,12 @@
     border: 1px solid #000;
 }
 .mircroscheme svg {
-    width: 100%;
-    transform: scale(1.3);
+    width: 50%;
+    /*height: 50%;*/
+    /*transform: scale(1.3);*/
 }
 .mircroscheme * {
-    transition: 2s linear;
+    transition: 10s linear;
 }
 /*.delay1 {*/
 /*    transition-delay: .5s;*/
@@ -119,16 +122,16 @@
 /*Laptop 1440*/
 @media (max-width: 1900px){
     .mircroscheme svg {
-        transform: scale(1.15);
+        /*transform: scale(1.15);*/
     }
 }
 @media (max-width: 1300px) {
     .mircroscheme svg {
-        transform: scale(1.85);
+        /*transform: scale(1.85);*/
     }
 }
 @media (max-width: 767px) {
     .mircroscheme svg {
-        transform: scale(2.2);
+        /*transform: scale(2.2);*/
     }
 }
