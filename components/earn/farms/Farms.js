@@ -22,7 +22,7 @@ import FarmsTableComponent from '../components/farmsTable/FarmsTableComponent';
 import FarmsTableRowExpand from '../components/farmsTable/FarmsTableRowExpand';
 import TableFilter from '../components/tableFilter/TableFilter';
 
-import { Input, Switches, Button } from '@catena-network/catena-ui-module';
+import { Input, Switches, Button, Tabs } from '@catena-network/catena-ui-module';
 
 import styles from './Farms.module.css';
 import TableFarms from '../components/tableFarms/TableFarms';
@@ -299,16 +299,17 @@ const Farms = () => {
                   color={"#FFA726"}
                 customStyles={{ width: "100%" }}
                 />
-                <div className={styles.svgRotate}>
-                  <TableViewSvg
+                {/* <div className={styles.svgRotate}> */}
+                  {/* <TableViewSvg
                     onClick={() => setDataViewType('table')}
                     className={`${dataViewType === 'components' && styles.tableView}`}
                   />
                   <ComponentViewSvg
                     onClick={() => setDataViewType('components')}
                     className={`${dataViewType === 'components' && styles.componentsView}`}
-                  />
-                </div>
+                  /> */}
+                  <Tabs type={"two-component-tabs"} />
+                {/* </div> */}
               </div>
               {/* <div> */}
               {/* </div> */}
