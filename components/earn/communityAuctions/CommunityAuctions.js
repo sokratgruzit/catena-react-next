@@ -11,6 +11,32 @@ import AuctionTable from '../components/auctionTable/AuctionTable';
 
 
 import styles from './CommunityAuctions.module.css';
+const stakersRecord = [
+  {
+    id: 12123,
+    amount: '1,220,000.2',
+    staketime: '01.02.2023 10:00AM',
+    unstaketime: '01.02.2023 08:15PM',
+    CML: 'CML',
+    realtimeRewardPerBlock: '1,132,000.1',
+  },
+  {
+    id: 2121234,
+    amount: '1,220,000.2',
+    staketime: '01.02.2023 10:00AM',
+    unstaketime: '01.02.2023 08:15PM',
+    CML: 'CML',
+    realtimeRewardPerBlock: '1,132,000.1',
+  },
+  {
+    id: 1221235,
+    amount: '1,220,000.2',
+    staketime: '01.02.2023 10:00AM',
+    unstaketime: '01.02.2023 08:15PM',
+    CML: 'CML',
+    realtimeRewardPerBlock: '1,132,000.1',
+  },
+];
 
 const CommunityAuctions = props => {
   const [showWhiteListedWallets, setShowWhiteListedWallets] = useState(false);
@@ -56,8 +82,20 @@ const CommunityAuctions = props => {
             <AuctionSchedule />
           </Expand>
         </div>
+        <div className={styles.allWallets}>
+          {stakersRecord.map((item, index) => {
+            return (
+              <div className={styles.wallets} key={index}>
+                <span>{item.id}</span>
+              </div>
+            );
+          })
+          }
+
+
+        </div>
         <div className={styles.tableContainer}>
-          <AuctionTable />
+          <AuctionTable tableDataArr={stakersRecord} />
         </div>
       </div>
       <div className={styles.auction__burnedContainer}>

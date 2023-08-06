@@ -29,16 +29,24 @@
   gap: 25px;
 }
 
+.allWallets {
+  border: 1px solid rgba(22, 32, 41, .2);
+  background-color: #F3E4D2;
+  border-radius: 20px;
+  position: absolute;
+  z-index: 111;
+}
+
 .auction__leftPanel {
   position: relative;
   display: flex;
   flex-direction: column;
   padding: 20px;
   width: 35%;
-  background-color: rgba(255, 255, 255, 0.04);
   border-radius: 20px;
   border: 1px solid rgba(22, 32, 41, .2);
   background-color: #F3E4D2;
+  height: fit-content;
 }
 
 .auction__details {
