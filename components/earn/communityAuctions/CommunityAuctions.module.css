@@ -17,6 +17,14 @@
   gap: 6px;
 }
 
+.arrowSvgHover:hover path {
+  fill: #ff6969;
+}
+
+.arrowSvgHover:hover rect {
+  stroke: #ff6969;
+}
+
 .auction__notice {
   margin: 0 auto;
   width: 60%;

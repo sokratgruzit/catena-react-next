@@ -164,7 +164,7 @@ const AuctionTable = ({ tableDataArr }) => {
             customStyle={{ marginLeft: "20px" }}
           />
         </div>
-        <p>Ended Jun 07, 2023 at 06:01 PM</p>
+        <p style={{marginBottom: "0"}}>Ended Jun 07, 2023 at 06:01 PM</p>
       </div>
       <Table
         type={'table-version'}

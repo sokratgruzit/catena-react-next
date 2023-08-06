@@ -53,7 +53,12 @@ const CommunityAuctions = props => {
   return (
     <main className={`container ${styles.auction__container}`}>
       <div className={`${styles.auction__head} custum-text`}>
-        <div className={styles.backToFarmButton}><ArrowWithBorderSvg />Back Farm</div>
+        <Link href={`/overview/earn/farms`}>
+          <div className={styles.backToFarmButton} >
+            <ArrowWithBorderSvg className={styles.arrowSvgHover} />
+            Back Farm
+          </div>
+        </Link>
         <h1 className='font-90 ttl'>Community Farm Auction</h1>
         <h4 className='font-20'>
           Each week, qualifying projects can bid CAKE for the right to host a 7-day Farm on CATENA Network
@@ -91,7 +96,7 @@ const CommunityAuctions = props => {
         </div>}
         {showWhiteListedWallets && <div className={styles.allWallets}>
           <div className={styles.allWalletsHeader}>
-            <ArrowWithBorderSvg onClick={() => setShowWhiteListedWallets(false)} />
+            <ArrowWithBorderSvg onClick={() => setShowWhiteListedWallets(false)} className={styles.arrowSvgHover} />
             <h2>All Whitelisted Project Wallets</h2>
           </div>
           <Input
