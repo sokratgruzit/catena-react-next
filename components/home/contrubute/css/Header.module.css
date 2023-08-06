@@ -1,0 +1,17 @@
+.container {
+  width: 60%;
+  display: flex;
+  gap: 50px;
+}
+
+.itemMap {
+  padding: 80px 140px;
+}
+
+.title {
+  margin: 100px 0 40px 0;
+}
+
+.bowl {
+  margin: 10px 0 10px 90px;
+}
