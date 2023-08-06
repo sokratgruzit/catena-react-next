@@ -14,35 +14,35 @@ const SUPPORTITEMS = [
     a: 'Announcement',
     arrow: <Arrow />,
     description: 'CATENA latest official announcements and notices.',
-    subLink: '/',
+    subLink: 'https://coremultichain.medium.com/',
   },
   {
     svg: <CmcxTkn />,
     a: 'CMCX Token',
     arrow: <Arrow />,
     description: 'The Bridge Between Crypto and Global Finance.',
-    subLink: '/',
+    subLink: 'https://cmcx.io/',
   },
   {
     svg: <Academy />,
     a: 'Academy',
     arrow: <Arrow />,
     description: 'Get a deeper understanding of the crypto industry and market.',
-    subLink: '/',
+    subLink: 'https://coremultichain.com/academy',
   },
   {
     svg: <FAQ />,
     a: 'FAQ',
     arrow: <Arrow />,
     description: 'Any issues? Find answers to commonly asked questions.',
-    subLink: '/faq',
+    subLink: 'https://coremultichain.com/faq',
   },
   {
     svg: <Request />,
     a: 'Submit a request',
     arrow: <Arrow />,
     description: "Can't find the solution to your problem? Submit a request to support team.",
-    subLink: '/',
+    subLink: 'https://coremultichain.com/your-voice',
   },
 ];
 
@@ -59,7 +59,7 @@ const SupportItem = () => {
               <div>{item.svg} </div>
               <div className={`${styles.boxTwo}`}>
                 <div className={styles.boxHover}>
-                  <Link href={`/home/${item.subLink}`} key={item.id}>
+                  <Link href={`${item.subLink}`} key={item.id}>
                     <a className={`${styles.BoxTitle} ttl font-40`}>
                       {item.a}
                       <div className={styles.boder}></div>

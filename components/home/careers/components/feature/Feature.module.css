@@ -134,11 +134,14 @@
   fill: #ff7152;
 }
 
-
-@media (max-width: 1700px) {
+@media (max-width: 1900px) {
   .font__51 {
     padding-left: 25px;
   }
+}
+
+
+@media (max-width: 1700px) {
 }
 
 @media (max-width: 1300px) {

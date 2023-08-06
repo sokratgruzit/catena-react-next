@@ -8,7 +8,7 @@ import SecondBlock from './SecondBlock/SecondBlock';
 import { OpenSvg, StarSvg, SmlArrowSvg } from '../../../svg';
 import Button from '../../../UI/button/Button';
 import InfoRoutes from '../InfoRoutes/InfoRoutes';
-import TokensTable from '../InfoTables/TokensTable';
+// import TokensTable from '../InfoTables/TokensTable';
 import TransactionTable from '../InfoTables/TransactionTable';
 import SearchBar from '../SearchBar/SearchBar';
 
@@ -89,7 +89,7 @@ const PoolsSection = ({ data }) => {
       </div>
       <div>
         <h2 className={styles.tableName}>Tokens</h2>
-        <TokensTable itemsPerPage={5} />
+        {/* <TokensTable itemsPerPage={5} /> */}
       </div>
       <div>
         <h2 className={styles.tableName}>Transaction</h2>

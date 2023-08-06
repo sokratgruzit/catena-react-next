@@ -109,13 +109,13 @@ const MainSlider = ({ trans }) => {
                             </div>
                         </div>
                         <h1 className='font-90 ttl'>
-                            {trans[activeLang].slider1_slide1_ttl}
+                            {trans[activeLang]?.slider1_slide1_ttl}
                             {/* A Virtual World of
                             <br/>
                             Interconnected Blockchains */}
                         </h1>
                         <div className={styles.mainSliderItemBtnOut}>
-                            <a href="##" className={styles.mainSliderItemBtn}>{trans[activeLang].slider1_slide1_join_btn}</a>
+                            <a href="##" className={styles.mainSliderItemBtn}>{trans[activeLang]?.slider1_slide1_join_btn}</a>
                         </div>
                         <div className={`${styles.scrollMore}`}>
                             <div onClick={() => {slideScrollDown()}}>
@@ -127,7 +127,7 @@ const MainSlider = ({ trans }) => {
                 <div className={`container ${styles.mainSliderItem} ${activeSlide == 2 ? styles.mainSliderActive : ''}`}>
                     <div className={styles.mainSliderItemHalf}>
                         <div className={styles.mainSliderItemTask}>
-                            <div className={styles.mainSliderItemTaskTxt}>{trans[activeLang].slider1_slide2_sm_sc}</div>
+                            <div className={styles.mainSliderItemTaskTxt}>{trans[activeLang]?.slider1_slide2_sm_sc}</div>
                             <svg width="67" height="37" viewBox="0 0 67 37" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M7.5 36.5V29.5H10.5V36.5H7.5Z" fill="#162029" stroke="#162029"/>
                                 <path d="M15.5 36.5V29.5H18.5V36.5H15.5Z" fill="#162029" stroke="#162029"/>
@@ -147,10 +147,10 @@ const MainSlider = ({ trans }) => {
                                 <rect x="0.5" y="7.5" width="66" height="22" rx="3.5" stroke="#162029"/>
                             </svg>
                         </div>
-                        <h2 className={`font-90 ttl`}>{trans[activeLang].slider1_slide2_ttl}</h2>
-                        <p className={`${styles.mainSliderItemHalfDesc1}`}>{trans[activeLang].slider1_slide2_text1}</p>
+                        <h2 className={`font-90 ttl`}>{trans[activeLang]?.slider1_slide2_ttl}</h2>
+                        <p className={`${styles.mainSliderItemHalfDesc1}`}>{trans[activeLang]?.slider1_slide2_text1}</p>
                         <div className={styles.mainSliderItemSolution}>
-                            <div className={styles.mainSliderItemSolutionTxt}>{trans[activeLang].slider1_bg_sc}</div>
+                            <div className={styles.mainSliderItemSolutionTxt}>{trans[activeLang]?.slider1_bg_sc}</div>
                             <svg width="111" height="43" viewBox="0 0 111 43" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M5.5 42.5V35.5H8.5V42.5H5.5Z" fill="#A6D0DD" stroke="#162029"/>
                                 <path d="M13.5 42.5V35.5H16.5V42.5H13.5Z" fill="#A6D0DD" stroke="#162029"/>
@@ -183,7 +183,7 @@ const MainSlider = ({ trans }) => {
                             </svg>
                         </div>
                         <p className={`font-20 ${styles.mainSliderItemHalfDesc2}`}>
-                            {trans[activeLang].slider1_slide2_text2}
+                            {trans[activeLang]?.slider1_slide2_text2}
                         </p>
                     </div>
                 </div>
