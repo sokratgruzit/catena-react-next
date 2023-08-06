@@ -1,9 +1,9 @@
 import AQItem from './components/AQItem';
 
-function AQ() {
+function AQ({ allData }) {
   return (
     <div>
-      <AQItem />
+      <AQItem allData={allData} />
     </div>
   );
 }
