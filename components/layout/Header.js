@@ -13,24 +13,6 @@ import Tooltip from '../UI/tooltip/Tooltip';
 
 import styles from './Header.module.css';
 
-const LANG_DATA = [
-  {
-    id: 1,
-    title: 'GE',
-    fullName: 'Georgian',
-  },
-  {
-    id: 2,
-    title: 'EN',
-    fullName: 'English',
-  },
-  {
-    id: 3,
-    title: 'FR',
-    fullName: 'Français',
-  },
-];
-
 const WALLETS_DATA = [
   {
     id: 1,
@@ -396,7 +378,8 @@ const Header = () => {
 
     if (window.innerWidth <= 767) {
     }
-    setRouterLocale(router.locale);
+    //setRouterLocale(router.locale);
+    getLocales();
   }, []);
 
   useEffect(() => {
@@ -745,21 +728,21 @@ const Header = () => {
                       <span>Change Language</span>
                     </div>
                     <div className={styles.headerLangsModalInner}>
-                      {LANG_DATA.map(item => {
+                      {locales.map(item => {
                         return (
                           <div
                             className={`${styles.headerLangsModalLink} ${
-                              'en' === item.title ? styles.headerLangsModalLinkActive : ''
+                              'en' === item.code ? styles.headerLangsModalLinkActive : ''
                             }`}
-                            key={item.id}
+                            key={item.code}
                             onClick={() => {
                               openLangs(false);
-                              changeLanguage(item.title);
+                              changeLanguage(item.code);
                             }}
                           >
-                            {item.fullName}
-                            <div>-</div>
                             {item.title}
+                            <div>-</div>
+                            {item.code}
                           </div>
                         );
                       })}
