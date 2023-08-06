@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 
 import { StarSvg } from '../../svg';
 import InfoRoutes from '../components/InfoRoutes/InfoRoutes';
-import TokensTable from '../components/InfoTables/TokensTable';
+// import TokensTable from '../components/InfoTables/TokensTable';
 import TopMovers from '../components/TopMovers/TopMovers';
 
 import styles from '../InfoPages.module.css';
@@ -24,7 +24,7 @@ const InfoTokens = () => {
       </div>
       <TopMovers />
       <h2>All Tokens</h2>
-      <TokensTable />
+      {/* <TokensTable /> */}
     </div>
   );
 };

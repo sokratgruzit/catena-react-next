@@ -1,6 +1,6 @@
 import React from 'react';
 
-import OpenPosition from '../../../components/home/openposition/OpenPosition';
+import OpenPosition from '../../../components/home/careers/openposition/OpenPosition';
 
 const featureLinkList = [
   {
