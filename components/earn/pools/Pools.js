@@ -309,12 +309,12 @@ const Pools = () => {
 
   return (
     <>
-      <div className={styles.background}>
+      {/* <div className={styles.background}>
         <Image src={background} alt='' />
-      </div>
+      </div> */}
       <div className={`container ${styles.pools__container} `}>
         <div className={styles.routesWrapper}>
-          <EarnRoutes />
+          {/* <EarnRoutes /> */}
         </div>
         <h1 className='font_30'>
           Just stake some tokens to earn.

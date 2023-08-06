@@ -1,4 +1,4 @@
-export default function CoppyLink({ data, currentPageURL, showDetails = true, showCopyButton = true }) {
+export default function CopyLink({ data, currentPageURL, showDetails = true, showCopyButton = true }) {
   const copyLinkToClipboard = async link => {
     try {
       await navigator.clipboard.writeText(link);
@@ -14,7 +14,7 @@ export default function CoppyLink({ data, currentPageURL, showDetails = true, sh
     <div className='text'>
       <div>
         {data.map((item, index) => (
-          <div key={index} className='coppy-link'>
+          <div key={index} className='copy-link'>
             {showDetails && (
               <>
                 {item.time} <div className='dot' /> {item.month},<div className='year'> {item.year}</div>

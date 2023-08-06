@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import TabFilter from '../../../UI/filters/TabFilter';
 
-import styles from './TableFilter.module.css';
+import styles from '../tableFilter/TableFilter.module.css'
 import { ComponentViewSvg, TableViewSvg } from '../../../svg';
 
 const svgData = [
@@ -20,18 +20,7 @@ const svgData = [
   }
 ]
 
-const tabsData = [
-  {
-    id: 0,
-    label: 'Live',
-  },
-  {
-    id: 1,
-    label: 'Finished',
-  },
-];
-
-const TableFilter = () => {
+const TableSvg = () => {
   const [activeFilter, setActiveFilter] = useState('Live');
 
   const navigationHandler = activeItem => {
@@ -41,7 +30,7 @@ const TableFilter = () => {
   return (
     <TabFilter
       onClick={navigationHandler}
-      data={tabsData}
+      data={svgData}
       activeMenu={activeFilter}
       css={{
         wrap: styles.Activity__filterWrap,
@@ -53,4 +42,4 @@ const TableFilter = () => {
   );
 };
 
-export default TableFilter;
+export default TableSvg;

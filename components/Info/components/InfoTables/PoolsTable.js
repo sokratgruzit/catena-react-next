@@ -1,355 +1,212 @@
-import { useRouter } from 'next/router';
 import React, { useState } from 'react';
+import { useMobileWidth } from '../../../../hooks/useMobileWidth';
 
-import PageNumber from './PageNumber';
-import { PaginationButtonSvg } from '../../../svg';
-import Button from '../../../UI/button/Button';
-import CornerDecor from '../../../UI/cornerDecor/CornerDecor';
-import Table from '../../../UI/table/Table';
-import { formatCurrency } from '../../../utils/formatCurrency';
+import { Table, Button } from '@catena-network/catena-ui-module';
 
-import styles from './InfoTables.module.css';
+import { ArrowSvg } from '../../../svg';
+import ArrowDownSvg from '../../../svg/ArrowDownSvg';
 
-const PoolsTable = props => {
-  const router = useRouter();
+const tableHead = [
+  {
+    name: 'Staked Amount',
+    width: 15,
+    mobileWidth: 45,
+    id: 0,
+  },
+  {
+    name: 'Stake Date ',
+    width: 15,
+    id: 1,
+  },
+  {
+    name: 'Unstake Date',
+    width: 15,
+    id: 2,
+  },
+  {
+    name: 'Earn Reward',
+    width: 15,
+    id: 3,
+  },
+  {
+    name: 'Harvest',
+    width: 15,
+    mobileWidth: 45,
+    id: 4,
+  },
+  {
+    name: '',
+    width: 10,
+    id: 5,
+    mobileWidth: 35,
+    position: 'right',
+    className: 'buttons-th',
+    onClick: index => console.log(index),
+  },
+  {
+    name: '',
+    width: 7,
+    id: 6,
+    mobileWidth: 20,
+    position: 'right',
+    className: 'buttons-th',
+    onClick: index => console.log(index),
+  },
+];
+const stakersRecord = [
+  {
+    id: 12123,
+    amount: '1,220,000.2',
+    staketime: '01.02.2023 10:00AM',
+    unstaketime: '01.02.2023 08:15PM',
+    CML: 'CML',
+    realtimeRewardPerBlock: '1,132,000.1',
+  },
+  {
+    id: 2121234,
+    amount: '1,220,000.2',
+    staketime: '01.02.2023 10:00AM',
+    unstaketime: '01.02.2023 08:15PM',
+    CML: 'CML',
+    realtimeRewardPerBlock: '1,132,000.1',
+  },
+  {
+    id: 1221235,
+    amount: '1,220,000.2',
+    staketime: '01.02.2023 10:00AM',
+    unstaketime: '01.02.2023 08:15PM',
+    CML: 'CML',
+    realtimeRewardPerBlock: '1,132,000.1',
+  },
+];
 
-  const InfoTablePool_Data = [
-    {
-      id: 0,
-      data: [
-        {
-          text: 1,
-          type: 'text',
-        },
-        {
-          img: '../../../images/Info/TopTokens/1.png',
-          title: 'USDC/WBNB',
-          onClick: () => router.push(`/info/pools/${'USDC/WBNB'.replace('/', '-')}`),
-          type: 'img_text',
-        },
-        {
-          text: formatCurrency(327.09),
-          type: 'text',
-        },
-        {
-          text: formatCurrency(197.24),
-          type: 'text',
-        },
-        {
-          text: formatCurrency(73.35),
-          type: 'text',
-        },
-        {
-          text: formatCurrency(67.37),
-          type: 'text',
-        },
-        {
-          text: formatCurrency(27.59),
-          type: 'text',
-        },
-      ],
-    },
-    {
-      id: 1,
-      data: [
-        {
-          text: 2,
-          type: 'text',
-        },
-        {
-          img: '../../../images/Info/TopTokens/2.png',
-          title: 'WBNB/BUSD',
-          onClick: () => router.push(`/info/pools/${'WBNB/BUSD'.replace('/', '-')}`),
-          type: 'img_text',
-        },
-        {
-          text: formatCurrency(327.09),
-          type: 'text',
-        },
-        {
-          text: formatCurrency(197.24),
-          type: 'text',
-        },
-        {
-          text: formatCurrency(73.35),
-          type: 'text',
-        },
-        {
-          text: formatCurrency(67.37),
-          type: 'text',
-        },
-        {
-          text: formatCurrency(27.59),
-          type: 'text',
-        },
-      ],
-    },
-    {
-      id: 2,
-      data: [
-        {
-          text: 3,
-          type: 'text',
-        },
-        {
-          img: '../../../images/Info/TopTokens/3.png',
-          title: 'USDT/WBNB',
-          onClick: () => router.push(`/info/pools/${'USDT/WBNB'.replace('/', '-')}`),
-          type: 'img_text',
-        },
-        {
-          text: formatCurrency(327.09),
-          type: 'text',
-        },
-        {
-          text: formatCurrency(197.24),
-          type: 'text',
-        },
-        {
-          text: formatCurrency(73.35),
-          type: 'text',
-        },
-        {
-          text: formatCurrency(67.37),
-          type: 'text',
-        },
-        {
-          text: formatCurrency(27.59),
-          type: 'text',
-        },
-      ],
-    },
-    {
-      id: 3,
-      data: [
-        {
-          text: 4,
-          type: 'text',
-        },
-        {
-          img: '../../../images/Info/TopTokens/4.png',
-          title: 'GSD/USDC',
-          onClick: () => router.push(`/info/pools/${'GSD/USDC'.replace('/', '-')}`),
-          type: 'img_text',
-        },
-        {
-          text: formatCurrency(327.09),
-          type: 'text',
-        },
-        {
-          text: formatCurrency(197.24),
-          type: 'text',
-        },
-        {
-          text: formatCurrency(73.35),
-          type: 'text',
-        },
-        {
-          text: formatCurrency(67.37),
-          type: 'text',
-        },
-        {
-          text: formatCurrency(27.59),
-          type: 'text',
-        },
-      ],
-    },
-    {
-      id: 4,
-      data: [
-        {
-          text: 5,
-          type: 'text',
-        },
-        {
-          img: '../../../images/Info/TopTokens/5.png',
-          title: 'LUNA/BUSD',
-          onClick: () => router.push(`/info/pools/${'LUNA/BUSD'.replace('/', '-')}`),
-          type: 'img_text',
-        },
-        {
-          text: formatCurrency(327.09),
-          type: 'text',
-        },
-        {
-          text: formatCurrency(197.24),
-          type: 'text',
-        },
-        {
-          text: formatCurrency(73.35),
-          type: 'text',
-        },
-        {
-          text: formatCurrency(67.37),
-          type: 'text',
-        },
-        {
-          text: formatCurrency(27.59),
-          type: 'text',
-        },
-      ],
-    },
-    {
-      id: 5,
-      data: [
-        {
-          text: 6,
-          type: 'text',
-        },
-        {
-          img: '../../../images/Info/TopTokens/6.png',
-          title: 'CATENA/WBNB',
-          onClick: () => router.push(`/info/pools/${'CATENA/WBNB'.replace('/', '-')}`),
-          type: 'img_text',
-        },
-        {
-          text: formatCurrency(327.09),
-          type: 'text',
-        },
-        {
-          text: formatCurrency(197.24),
-          type: 'text',
-        },
-        {
-          text: formatCurrency(73.35),
-          type: 'text',
-        },
-        {
-          text: formatCurrency(67.37),
-          type: 'text',
-        },
-        {
-          text: formatCurrency(27.59),
-          type: 'text',
-        },
-      ],
-    },
-    {
-      id: 6,
-      data: [
-        {
-          text: 7,
-          type: 'text',
-        },
-        {
-          img: '../../../images/Info/TopTokens/7.png',
-          title: 'LUNA/USDT',
-          onClick: () => router.push(`/info/pools/${'LUNA/USDT'.replace('/', '-')}`),
-          type: 'img_text',
-        },
-        {
-          text: formatCurrency(327.09),
-          type: 'text',
-        },
-        {
-          text: formatCurrency(197.24),
-          type: 'text',
-        },
-        {
-          text: formatCurrency(73.35),
-          type: 'text',
-        },
-        {
-          text: formatCurrency(67.37),
-          type: 'text',
-        },
-        {
-          text: formatCurrency(27.59),
-          type: 'text',
-        },
-      ],
-    },
-    {
-      id: 7,
-      data: [
-        {
-          text: 8,
-          type: 'text',
-        },
-        {
-          img: '../../../images/Info/TopTokens/8.png',
-          title: 'USDT/BUSD',
-          onClick: () => router.push(`/info/pools/${'USDT/BUSD'.replace('/', '-')}`),
-          type: 'img_text',
-        },
-        {
-          text: formatCurrency(327.09),
-          type: 'text',
-        },
-        {
-          text: formatCurrency(197.24),
-          type: 'text',
-        },
-        {
-          text: formatCurrency(73.35),
-          type: 'text',
-        },
-        {
-          text: formatCurrency(67.37),
-          type: 'text',
-        },
-        {
-          text: formatCurrency(27.59),
-          type: 'text',
-        },
-      ],
-    },
-  ];
+const AuctionTable = () => {
+  const [mobileExpand, setMobileExpand] = useState(null);
+  const [createStakingPopUpActive, setCreateStakingPopUpActive] = useState(false);
+  const [loading, setLoading] = useState(false)
+  const { width, mobile } = useMobileWidth();
 
-  const [pageCountPools, setPageCountPools] = useState(1);
-  const itemsPerPage = props.itemsPerPage || 10;
-  const [filteredData, setFilteredData] = useState(
-    InfoTablePool_Data.slice(itemsPerPage * (pageCountPools - 1), itemsPerPage - 1 + pageCountPools),
-  );
+  let mobileExpandFunc = id => {
+    if (!mobile) {
+      if (id !== mobileExpand) {
+        setMobileExpand(id);
+      } else {
+        setMobileExpand(null);
+      }
+    }
+  };
+
+  const handlePopUpOpen = () => {
+    setCreateStakingPopUpActive(true);
+  };
+
+
+  const tableEmptyData = {
+    label: 'Stake to earn Complend reward',
+    button: (
+      <Button element={'referral-button'} label={'Create Staking'} icon={<ArrowSvg />} onClick={handlePopUpOpen} />
+    ),
+  };
+
+  let tableData =
+    stakersRecord?.length > 0 &&
+    stakersRecord.map((item, index) => (
+      <div
+        className={`table-parent ${mobileExpand === index ? 'active' : ''}`}
+        key={index}
+        onClick={() => {
+          mobileExpandFunc(index);
+        }}
+      >
+        <div className={'table'}>
+          {tableHead?.slice(0, 5).map((i, index) => (
+            <div
+              key={index}
+              className={`td col ${i.mobileWidth ? true : false}`}
+              style={{ width: `${mobile ? i.mobileWidth : i.width}%` }}
+            >
+              <span>
+                {
+                  [
+                    item.amount,
+                    item.staketime,
+                    item.unstaketime,
+                    'CML',
+                    parseFloat(item.realtimeRewardPerBlock).toFixed(10),
+                  ][index]
+                }
+              </span>
+            </div>
+          ))}
+          {width > 940 &&
+            tableHead.slice(5, 7).map((i, index) => (
+              <div
+                key={index}
+                className={`td col ${i.position} ${i.mobileWidth ? true : false}`}
+                style={{
+                  width: `${mobile ? i.mobileWidth : i.width}%`,
+                  marginRight: `${width < 1450 ? '10px' : '0'}`,
+                }}
+              >
+                <Button
+                  element={'staking-button'}
+                  label={index === 0 ? 'Unstake' : 'Harvest'}
+                  active={index === 0}
+                  customStyles={{ borderRadius: '32px' }}
+                  onClick={() => i.onClick(index)}
+                  disabled={index === 0 ? item.unstaked : item.withdrawan}
+                />
+              </div>
+            ))}
+        </div>
+        <div className='table-more' />
+        <div className='icon-place'>
+          <ArrowDownSvg />
+        </div>
+        <div className='table-mobile'>
+          <div className='table-mobile-content'>
+            {[1, 2, 3].map(index => (
+              <div className='td' key={index}>
+                <div className='mobile-ttl'>{tableHead[index].name}</div>
+                <span>
+                  {index === 1 && item.staketime}
+                  {index === 2 && item.unstaketime}
+                  {index === 3 && 'CML'}
+                </span>
+              </div>
+            ))}
+            {width <= 940 && (
+              <div className='table-buttons'>
+                {[5, 6].map(index => (
+                  <div className='td' key={index}>
+                    <Button
+                      element='staking-button'
+                      label={index === 5 ? 'Unstake' : 'Harvest'}
+                      active={index === 5}
+                      customStyles={{ borderRadius: '32px' }}
+                      onClick={() => tableHead[index].onClick(index)}
+                      disabled={index === 5 ? item.unstaked : item.withdrawan}
+                    />
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    ));
 
   return (
-    <div className={styles.Table__wrapper}>
-      <CornerDecor />
-      <Table
-        tableLabels={['#', 'Pool', 'Volume 24H', 'Volume 7D', 'LP Reward Fees - 24H', 'LP Reward APR', 'Liquidity', '']}
-        tableData={filteredData}
-        type={'info_table_pools'}
-      />
-      <div className={styles.Table__buttons}>
-        <Button
-          customStyles={{ marginRight: '10px' }}
-          title={<PaginationButtonSvg className={styles.back} pageCountTokens={pageCountPools} disabled={1} />}
-          onClick={() => {
-            if (pageCountPools > 1) setPageCountPools(prevValue => prevValue - 1);
-          }}
-        />
-        <PageNumber
-          mainStyle={styles.pageCount}
-          activeStyle={styles.activePageNum}
-          title={1}
-          state={pageCountPools}
-          setState={setPageCountPools}
-        />
-        <PageNumber
-          mainStyle={styles.pageCount}
-          activeStyle={styles.activePageNum}
-          title={2}
-          state={pageCountPools}
-          setState={setPageCountPools}
-        />
-        <PageNumber
-          mainStyle={styles.pageCount}
-          activeStyle={styles.activePageNum}
-          title={3}
-          state={pageCountPools}
-          setState={setPageCountPools}
-        />
-        <Button
-          customStyles={{
-            marginLeft: '10px',
-          }}
-          title={<PaginationButtonSvg className={styles.forward} pageCountTokens={pageCountPools} disabled={3} />}
-          onClick={() => {
-            if (pageCountPools < 3) setPageCountPools(prevValue => prevValue + 1);
-          }}
-        />
-      </div>
-    </div>
+    <Table
+      type={'table-version'}
+      tableHead={tableHead}
+      mobile={mobile}
+      tableData={stakersRecord.length ? tableData : false}
+      tableEmpty={true}
+      tableEmptyData={tableEmptyData}
+      loading={loading}
+    />
   );
 };
-export default PoolsTable;
+
+export default AuctionTable;

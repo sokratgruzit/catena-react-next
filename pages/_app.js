@@ -5,7 +5,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 import Web3 from 'web3';
 
 import Header from '../components/layout/Header';
-
+import Microscheme from '../components/UI/microscheme/Microscheme';
 import Wrapper from '../components/layout/Wrapper';
 import store, { persistor } from '../store/index';
 
@@ -33,6 +33,7 @@ function MyApp({ Component, pageProps }) {
               <div className='noise-parent'>
                 <div className='noise'></div>
               </div>
+              <Microscheme lvl={[1,2]}/>
               <Header />
               <Component {...pageProps} />
               {/*<Footer />*/}

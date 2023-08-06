@@ -3,7 +3,8 @@ const initialState = {
   txDeadlines: 5,
   locales: [],
   activeLang: 'en',
-  activeColorMode: 'white'
+  activeColorMode: 'white',
+  microschemeArray: []
 };
 
 const settingsReducer = (state = initialState, action) => {
@@ -32,6 +33,12 @@ const settingsReducer = (state = initialState, action) => {
     return {
       ...state,
       activeColorMode: action.activeColorMode,
+    };
+  }
+  if (action.type === 'SET_MICHROSCHEME_ARRAY') {
+    return {
+      ...state,
+      microschemeArray: action.microschemeArray,
     };
   }
 

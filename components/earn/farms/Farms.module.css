@@ -5,12 +5,26 @@
   margin-bottom: 150px;
 }
 
+.svgRotate {
+  display: flex;
+  border-radius: 30px;
+  width: 200px;
+  height: 43px;
+  background-color: red;
+  align-items: center;
+  justify-content: center;
+}
+
 .selectDiv {
-  width: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
 
 .searchDiv {
-  width: 70%;
+  width: 100%;
+  max-width: 900px;
 }
 
 .routesWrapper{
@@ -83,6 +97,7 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
+  gap: 50px;
 }
 
 .Farms__filterLeftPanel {
@@ -105,7 +120,8 @@
 }
 
 .farms__radioBtn {
-  margin: 0 30px;
+  margin: 0 0 0 20px;
+  width: 120px;
 }
 
 .searchInput{
@@ -324,6 +340,14 @@
 
 /*Laptop 1440*/
 @media (max-width: 1900px) {
+  .resTitle {
+    padding-left: 25px;
+    color: #162029;
+  }
+
+  .communityAuctions {
+    padding-left: 15px;
+  }
 }
 
 @media (max-width:1450px) {
@@ -335,7 +359,7 @@
 /*Ipad Pro 1024*/
 @media (max-width: 1300px) {
   .resTitle {
-    padding-left: 0;
+    padding-left: 15px;
   }
 
   .communityAuctions {
@@ -349,17 +373,37 @@
     grid-template-columns: 1fr 1fr;
   }
   .farms__filterInner{
-    flex-direction: column-reverse;
+    flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
+    gap: 25px;
   }
   
   .Farms__filterRightPanel{
     margin-bottom: 10px;
+    flex-direction: column;
   }
   
   .Farms__filterLeftPanel{
     justify-content: space-between;
+  }
+
+  .searchDiv {
+    max-width: 400px;
+  }
+
+  .selectDiv {
+    flex-direction: column;
+    max-width: 400px;
+    width: 100%;
+    align-items: flex-start;
+    gap: 30px;
+  }
+
+  .Farms__filterRightPanel{
+    max-width: 400px;
+    width: 100%;
+    align-items: flex-start;
   }
 
   /* .farms__filterInner{

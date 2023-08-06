@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 
-import CareersIneer from '../../../components/home/careers-inner/CareersIneer';
+import CareersIneer from '../../../components/home/careers/careers-inner/CareersIneer';
 
 const careersData = [
   {

@@ -294,7 +294,7 @@
     }
     .mainSliderLogo {
         transform: scale(1);
-        width: 100%;
+        margin: 20px auto;
         padding: 10px 30px;
     }
     .mainSliderItemHalf {

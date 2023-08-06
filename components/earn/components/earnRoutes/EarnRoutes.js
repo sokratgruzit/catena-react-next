@@ -25,14 +25,18 @@ const EarnRoutes = () => {
   const getCurrentLocation = loc => {
     let returnStatement = '';
     if (loc === '/earn/farms') returnStatement = 'Farms';
-    if (loc === '/earn/pools') returnStatement = 'Pools';
+    if (loc === '/home/info/pools') returnStatement = 'Pools';
     return returnStatement;
   };
   const [activeRoute, setActiveRoute] = useState(getCurrentLocation(router.pathname));
 
   const navigationHandler = activeItem => {
     setActiveRoute(capitalizeFirstLetter(activeItem.toLowerCase()));
-    router.push(`/earn/${activeItem.toLowerCase()}`);
+    if (activeItem.toLowerCase() === 'farms') {
+      router.push('/earn/farms');
+    } else if (activeItem.toLowerCase() === 'pools') {
+      router.push('/home/info/pools');
+    }
   };
 
   return (

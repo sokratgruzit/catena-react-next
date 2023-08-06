@@ -4,7 +4,7 @@ import PageNumber from './PageNumber';
 import { PaginationButtonSvg } from '../../../svg';
 import Button from '../../../UI/button/Button';
 import CornerDecor from '../../../UI/cornerDecor/CornerDecor';
-import Table from '../../../UI/table/Table';
+// import Table from '../../../UI/table/Table';
 import { formatCurrency } from '../../../utils/formatCurrency';
 
 import styles from './InfoTables.module.css';
@@ -506,11 +506,11 @@ const TransactionTable = () => {
           </label>
         ))}
       </div>
-      <Table
+      {/* <Table
         tableLabels={['Action', 'Total Value', 'Token Amount', 'Token Amoun', 'Account', 'Time']}
         tableData={TransactionTable_DATA}
         type={'info_table_transactions'}
-      />
+      /> */}
       <div className={styles.Table__buttons}>
         <Button
           customStyles={{ marginRight: '10px' }}

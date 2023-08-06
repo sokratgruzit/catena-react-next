@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import styles from '../css/Boxs.module.css';
+import JoinCommunity from './JoinCommunity';
 
 const Boxs = ({ events }) => {
   const [activeYear, setActiveYear] = useState('');
@@ -30,6 +31,9 @@ const Boxs = ({ events }) => {
         <div className={`${styles.mapContainer} `}>
           <Card dataArr={events} fileAdress={fileAdress} title={title} description={description} slugType='events' />
         </div>
+      </div>
+      <div className={styles.joinCommunity}>
+        <JoinCommunity />
       </div>
     </div>
   );
