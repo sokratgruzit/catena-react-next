@@ -3,7 +3,7 @@ import Press from '../../../components/home/press/Press';
 
 export const getStaticProps = async () => {
   const axios = createAxiosInstance();
-  const { data } = await axios.get(`${process.env.NEXT_PUBLIC_URL}/press/get-all-press`);;
+  const { data } = await axios.get(`${process.env.NEXT_PUBLIC_URL}/press/get-all-press`);
 
   return {
     props: {

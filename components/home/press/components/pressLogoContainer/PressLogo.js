@@ -1,8 +1,9 @@
-import styles from "../../Press.module.css";
+import styles from '../../Press.module.css';
 
 const PressLogo = () => {
-    return (
-        <div className={`${styles.logoContainer} `}>
+  return (
+    <div className='container_bordered'>
+      <div className={`${styles.logoContainer} container_bordered-child`}>
         <div className={styles.logoLine}>
           <div className={styles.logCon}>
             <img src='/images/press/nasdaq.png' alt='sources' className={styles.logo} />
@@ -38,7 +39,8 @@ const PressLogo = () => {
           </div>
         </div>
       </div>
-    )
-}
+    </div>
+  );
+};
 
 export default PressLogo;

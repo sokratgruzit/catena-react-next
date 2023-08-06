@@ -117,7 +117,7 @@ const Feature = ({ featureLinkList, title, showButton }) => {
   const [isPopupVisible, setPopupVisible] = useState(null);
 
   const handlePopupClick = (index) => {
-    setCopiedLink(`http://localhost:3000/home/careers/${featureLinkList[index].id}`);
+    setCopiedLink(`http://localhost:3000/overview/careers/${featureLinkList[index].id}`);
     setPopupVisible(index);
     setTimeout(() => {
       setPopupVisible(null);
@@ -148,7 +148,7 @@ const Feature = ({ featureLinkList, title, showButton }) => {
           <div className={`${styles.openPositionsList}`}>
             {featureLinkList.map((item, index) => (
               <div className={styles.openPositionsListItem} key={item.id}>
-                <Link href={`/home/careers/${item.id}`} key={item.id}>
+                <Link href={`/overview/careers/${item.id}`} key={item.id}>
                   <div>
                     <span className='ttl'>{item.title}</span>
                   </div>
@@ -161,7 +161,7 @@ const Feature = ({ featureLinkList, title, showButton }) => {
                 <svg
                   className={styles.openPositionsListItemSvg}
                   onClick={() => {
-                    handleCopy(`http://localhost:3000/home/careers/${item.id}`);
+                    handleCopy(`http://localhost:3000/overview/careers/${item.id}`);
                     handlePopupClick(index);
                   }}
                   xmlns='http://www.w3.org/2000/svg'
