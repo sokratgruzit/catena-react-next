@@ -1,8 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 import { useState, useEffect, useMemo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import useLanguages from '../../hooks/useLanguages';
 // import useConnect from "../../hooks/use-connect";
 
 import { injected, walletConnect } from '../../connector';
@@ -32,19 +32,10 @@ const Header = () => {
   const { connect, disconnect, library, error, setError } = useConnect();
   const axios = useMemo(() => createAxiosInstance(), []);
   const locales = useSelector(state => state.settings.locales);
+  const activeLang = useSelector(state => state.settings.activeLang);
 
   const account = useSelector(state => state.connect.account);
   const triedReconnect = useSelector(state => state.appState.triedReconnect);
-
-  useEffect(() => {
-    if (account && triedReconnect) {
-      axios
-        .post('/auth/register-wallet-address', { address: account })
-        .then(res => console.log(res))
-        .catch(() => {});
-    }
-    // eslint-disable-next-line
-  }, [account]);
 
   const [activeMenu, setActiveMenu] = useState(null);
   const [activeLangs, setActiveLangs] = useState(false);
@@ -59,9 +50,9 @@ const Header = () => {
   const slippage = useSelector(state => state.settings.slippage);
   const [balance, setBalance] = useState(0);
   const [stickHead, setStickHead] = useState(false);
-  const [routerLocale, setRouterLocale] = useState(null);
 
   const dispatch = useDispatch();
+  const { handleLanguageChange } = useLanguages();
 
   const NAV_DATA = [
     {
@@ -252,16 +243,13 @@ const Header = () => {
     },
   ];
 
-  const router = useRouter();
-
   const changeLanguage = loc => {
-    // i18n.changeLanguage(locale.toLowerCase());
-    // router.push('', '', { locale: loc.toLowerCase() });
-    // setRouterLocale(loc);
     dispatch({
       type: "SET_ACTIVE_LANG",
       activeLang: loc
     });
+        
+    handleLanguageChange(loc);
   };
 
   let web3Obj = library;
@@ -390,11 +378,21 @@ const Header = () => {
     };
   });
 
+  useEffect(() => {
+    if (account && triedReconnect) {
+      axios
+        .post('/auth/register-wallet-address', { address: account })
+        .then(res => console.log(res))
+        .catch(() => {});
+    }
+    // eslint-disable-next-line
+  }, [account]);
+
   return (
     <div>
       <header className={`${styles.header} ${stickHead ? styles.stickHeader : ''}`}>
         <div className={`${styles.headerInner} container`}>
-          <Link href='/'>
+          <Link href='/' locale={activeLang}>
             <div>
               <div
                 className={`${styles.headerLogo} ${styles.headerLogoMobile} ${
@@ -453,7 +451,10 @@ const Header = () => {
                     openMenu(null);
                   }}
                 >
-                  <Link href={item.route}>
+                  <Link 
+                    href={item.route}
+                    locale={activeLang}
+                  >
                     <a
                       className={`${styles.headerNavLinkTtl} ${activeMenu === item.id ? styles.activeTtl : ''}`}
                       onMouseEnter={() => {
@@ -472,7 +473,7 @@ const Header = () => {
                     <i className={activeMenu === item.id ? styles.activeBg : ''}></i>
                     {item.subNav.length > 0 && item.subNav.map((sub, index) => {
                       return (
-                        <Link href={sub.route} key={sub.id}>
+                        <Link href={sub.route} key={sub.id} locale={activeLang}>
                           <a>
                             <div
                               style={{
@@ -503,7 +504,7 @@ const Header = () => {
                                 </a>
                                 {sub.subNav.map((subLower) => {
                                   return (
-                                      <Link href={subLower.route} key={subLower.id}>
+                                      <Link href={subLower.route} key={subLower.id} locale={activeLang}>
                                         <a>
                                           <div
                                               style={{
@@ -572,7 +573,7 @@ const Header = () => {
                         fill='white'
                       />
                     </svg>
-                    {routerLocale}
+                    {activeLang}
                   </div>
                 </div>
                 <div className={styles.headerMobileFooterSecond}>
@@ -694,7 +695,7 @@ const Header = () => {
                         />
                       </svg>
                       <div className={styles.headerLangNowTtl}>
-                        <span> {routerLocale}</span>
+                        <span> {activeLang}</span>
                       </div>
                     </div>
                   </div>
@@ -732,7 +733,7 @@ const Header = () => {
                         return (
                           <div
                             className={`${styles.headerLangsModalLink} ${
-                              'en' === item.code ? styles.headerLangsModalLinkActive : ''
+                              item.code === activeLang ? styles.headerLangsModalLinkActive : ''
                             }`}
                             key={item.code}
                             onClick={() => {
@@ -1058,7 +1059,7 @@ const Header = () => {
                 />
               </svg>
             </div>
-            <Link href='/wallet'>
+            <Link href='/wallet' locale={activeLang}>
               <a className={styles.headerConnectedModalLink}>
                 <span>Wallet</span>
                 <svg width='5' height='9' viewBox='0 0 5 9' fill='none' xmlns='http://www.w3.org/2000/svg'>
@@ -1071,7 +1072,7 @@ const Header = () => {
                 </svg>
               </a>
             </Link>
-            <Link href='/recent-transactions'>
+            <Link href='/recent-transactions' locale={activeLang}>
               <a className={styles.headerConnectedModalLink}>
                 <span>Recent Transactions</span>
                 <svg width='5' height='9' viewBox='0 0 5 9' fill='none' xmlns='http://www.w3.org/2000/svg'>
@@ -1085,7 +1086,7 @@ const Header = () => {
               </a>
             </Link>
             <i></i>
-            <Link href='/your-nfts'>
+            <Link href='/your-nfts' locale={activeLang}>
               <a className={styles.headerConnectedModalLink}>
                 <span>Your NFTs</span>
                 <svg width='5' height='9' viewBox='0 0 5 9' fill='none' xmlns='http://www.w3.org/2000/svg'>
@@ -1098,7 +1099,7 @@ const Header = () => {
                 </svg>
               </a>
             </Link>
-            <Link href='/make-profile'>
+            <Link href='/make-profile' locale={activeLang}>
               <a className={styles.headerConnectedModalLink}>
                 <span>Make a Profile</span>
                 <svg width='5' height='9' viewBox='0 0 5 9' fill='none' xmlns='http://www.w3.org/2000/svg'>
