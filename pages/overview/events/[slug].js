@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import createAxiosInstance from '../../../pages/api/axios';
 import EventsItem from '../../../components/home/events/EventsItem';
 
-export const getStaticPaths = async () => {
+export const getStaticPaths = async ({ locales }) => {
   const axios = createAxiosInstance();
 
   let events = await axios
@@ -15,9 +15,12 @@ export const getStaticPaths = async () => {
       console.log(err?.response);
     });
 
-  const paths = events.map(item => ({
-    params: { slug: item.slug },
-  }));
+  const paths = events.flatMap((item) =>
+    locales.map((loc) => ({
+      params: { slug: item.slug },
+      locale: loc,
+    }))
+  );
 
   return {
     paths,

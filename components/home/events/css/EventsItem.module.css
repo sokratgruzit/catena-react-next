@@ -16,6 +16,16 @@
   height: 100%;
 }
 
+.joinCommunity {
+  margin-top: 128px;
+}
+
+@media (max-width: 1023px) {
+  .joinCommunity {
+    margin-top: 80px;
+  }
+}
+
 @media (max-width: 767px) {
   .item {
     flex-direction: column;

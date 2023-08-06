@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import Slider from '../../../../UI/slider/Slider';
-import CoppyLink from '../pressInner/CoppyLink';
+import CopyLink from '../pressInner/CopyLink';
 import Years from '../filterWithYears/Years';
 import PublicByYears from '../publicByYears/PublicByYears';
 import { useSelector } from 'react-redux';
 import createAxiosInstance from '../../../../../pages/api/axios';
+import JoinCommunity from '../../../events/components/JoinCommunity';
+import styles from '../../Press.module.css';
 
 const PressItem = ({ item, slug }) => {
   const [activeYear, setActiveYear] = useState('');
@@ -64,7 +66,7 @@ const PressItem = ({ item, slug }) => {
         <>
           <div className='custum-text'>
             <h1>{item.title['en']['press.title']}</h1>
-            <CoppyLink
+            <CopyLink
               data={[
                 {
                   time: item.createdAt.substring(11, 19),
@@ -81,7 +83,7 @@ const PressItem = ({ item, slug }) => {
             <div>{item.description && <p>{item.inner_descr['en']['press.description']}</p>}</div>
             <p>{item.text['en']['press.text']}</p>
             <p>{item.inner_descr['en']['press.description']}</p>
-            <CoppyLink
+            <CopyLink
               data={[
                 {
                   time: item.createdAt.substring(11, 19),
@@ -99,6 +101,9 @@ const PressItem = ({ item, slug }) => {
           <PublicByYears filterData={filterData} activeLang={activeLang} />
         </>
       )}
+      <div className={styles.joinCommunity}>
+        <JoinCommunity />
+      </div>
     </div>
   );
 };
