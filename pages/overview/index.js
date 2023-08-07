@@ -3,7 +3,7 @@ import createAxiosInstance from './api/axios';
 
 export const getStaticProps = async () => {
     const axios = createAxiosInstance();
-    const { data } = await axios.get(`${process.env.NEXT_PUBLIC_URL}/translates/get-translates`);;
+    const { data } = await axios.get(`${process.env.NEXT_PUBLIC_URL}/translates/get-translates`);
   
     return {
       props: {
