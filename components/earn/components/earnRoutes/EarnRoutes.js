@@ -25,7 +25,7 @@ const EarnRoutes = () => {
   const getCurrentLocation = loc => {
     let returnStatement = '';
     if (loc === '/earn/farms') returnStatement = 'Farms';
-    if (loc === '/home/info/pools') returnStatement = 'Pools';
+    if (loc === '/overview/info/pools') returnStatement = 'Pools';
     return returnStatement;
   };
   const [activeRoute, setActiveRoute] = useState(getCurrentLocation(router.pathname));
@@ -35,7 +35,7 @@ const EarnRoutes = () => {
     if (activeItem.toLowerCase() === 'farms') {
       router.push('/earn/farms');
     } else if (activeItem.toLowerCase() === 'pools') {
-      router.push('/home/info/pools');
+      router.push('/overview/info/pools');
     }
   };
 
