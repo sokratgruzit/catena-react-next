@@ -33,9 +33,9 @@ const SubmitApplication = ({ title }) => {
   const [application, setApplication] = useState({
     name: '',
     email: '',
+    phone: '',
     descr: '',
-    question1: '',
-    question2: '',
+    quiz: [],
     language: '',
     info: '',
     gitHub: '',
@@ -43,14 +43,13 @@ const SubmitApplication = ({ title }) => {
     file: '',
     jobId: '',
   });
-  const [phone, setPhone] = useState(null);
+
 
 
   const handleOptionChange = (questionIndex, optionIndex) => {
     const updatedAnswers = [...selectedAnswers];
     updatedAnswers[questionIndex] = optionIndex;
     setSelectedAnswers(updatedAnswers);
-    console.log(selectedAnswers);
   };
 
   const submitHandler = async () => {
@@ -65,6 +64,8 @@ const SubmitApplication = ({ title }) => {
       },
     };
 
+    if (application.file) {
+      const formData = new FormData();
     if (application.file) {
       const formData = new FormData();
 
@@ -89,7 +90,13 @@ const SubmitApplication = ({ title }) => {
           .post("http://localhost:4003/upload-many", formData, config)
           .then(async (res) => {
             let status = res.data.status;
+      try {
+        await axios
+          .post("http://localhost:4003/upload-many", formData, config)
+          .then(async (res) => {
+            let status = res.data.status;
 
+            if (status) {
             if (status) {
               await axios
                 .post("http://localhost:4003/application/create", {
@@ -97,8 +104,7 @@ const SubmitApplication = ({ title }) => {
                   email: application.email,
                   phone: 'mgsm',
                   descr: application.descr,
-                  question1: 'quesytion1',
-                  question2: 'question2',
+                  quiz: selectedAnswers,
                   language: application.language,
                   info: application.info,
                   gitHub: application.gitHub,
@@ -109,6 +115,14 @@ const SubmitApplication = ({ title }) => {
                 .then(() => {
 
                 });
+            }
+          });
+      } catch (err) {
+        console.log(err);
+      }
+    } else {
+      console.log("Images requeired");
+    }
             }
           });
       } catch (err) {
@@ -197,7 +211,7 @@ const SubmitApplication = ({ title }) => {
               label={'PHONE NUMBER'}
               name={'phone'}
               // value={''}application
-              onChange={(e) => { setPhone(e) }}
+              onChange={(e) => { setApplication((prev) => ({ ...prev, phone: e })); }}
             />
 
             <Input
