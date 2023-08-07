@@ -32,9 +32,9 @@ const SubmitApplication = ({ title }) => {
   const [application, setApplication] = useState({
     name: '',
     email: '',
+    phone: '',
     descr: '',
-    question1: '',
-    question2: '',
+    quiz: [],
     language: '',
     info: '',
     gitHub: '',
@@ -42,58 +42,47 @@ const SubmitApplication = ({ title }) => {
     file: '',
     jobId: '',
   });
-  const [phone, setPhone] = useState(null);
+
 
 
   const handleOptionChange = (questionIndex, optionIndex) => {
     const updatedAnswers = [...selectedAnswers];
     updatedAnswers[questionIndex] = optionIndex;
     setSelectedAnswers(updatedAnswers);
-    console.log(selectedAnswers);
   };
 
   const submitHandler = async () => {
-    // console.log(application);
-    // const config = {
-    //   headers: {
-    //     "Content-Type": "multipart/form-data",
-    //   },
-    // };
+    console.log(application);
+    const config = {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    };
 
-    // if (application.file) {
-    //   const formData = new FormData();
+    if (application.file) {
+      const formData = new FormData();
 
-    //   const logoDotIndex = application.file.name.lastIndexOf(".");
-    //   const logoExt = application.file.name.substring(logoDotIndex + 1);
-    //   const newLogoName = Date.now() + "-application-pdf." + logoExt;
+      const logoDotIndex = application.file.name.lastIndexOf(".");
+      const logoExt = application.file.name.substring(logoDotIndex + 1);
+      const newLogoName = Date.now() + "-application-pdf." + logoExt;
 
-    //   formData.append("name", application.name);
-    //   // formData.append("email", application.email);
-    //   // formData.append("descr", application.descr);
-    //   // formData.append("question1", exchangeLink);
-    //   // formData.append("question2", exchangeLink);
-    //   // formData.append("language", application.language);
-    //   // formData.append("info", application.info);
-    //   // formData.append("gitHub", application.gitHub);
-    //   // formData.append("linkedin", application.linkedin);
-    //   formData.append("imgFolder", "application");
-    //   formData.append("image", application.file, newLogoName);
+      formData.append("imgFolder", "application");
+      formData.append("image", application.file, newLogoName);
 
-      // try {
-      //   await axios
-      //     .post("http://localhost:4003/upload-many", formData, config)
-      //     .then(async (res) => {
-      //       let status = res.data.status;
+      try {
+        await axios
+          .post("http://localhost:4003/upload-many", formData, config)
+          .then(async (res) => {
+            let status = res.data.status;
 
-      //       if (status) {
+            if (status) {
               await axios
                 .post("http://localhost:4003/careers/create", {
                   name: application.name,
                   email: application.email,
                   phone: 'mgsm',
                   descr: application.descr,
-                  question1: 'quesytion1',
-                  question2: 'question2',
+                  quiz: selectedAnswers,
                   language: application.language,
                   info: application.info,
                   gitHub: application.gitHub,
@@ -104,14 +93,14 @@ const SubmitApplication = ({ title }) => {
                 .then(() => {
 
                 });
-    //         }
-    //       });
-    //   } catch (err) {
-    //     console.log(err);
-    //   }
-    // } else {
-    //   console.log("Images requeired");
-    // }
+            }
+          });
+      } catch (err) {
+        console.log(err);
+      }
+    } else {
+      console.log("Images requeired");
+    }
   };
 
   const handlerSubmit = (e) => {
@@ -192,7 +181,7 @@ const SubmitApplication = ({ title }) => {
               label={'PHONE NUMBER'}
               name={'phone'}
               // value={''}application
-              onChange={(e) => { setPhone(e) }}
+              onChange={(e) => { setApplication((prev) => ({ ...prev, phone: e })); }}
             />
 
             <Input

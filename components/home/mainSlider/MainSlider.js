@@ -12,26 +12,26 @@ import TaskSvg from '../../svg/mainSlider/TaskSvg';
 import SolutionSvg from '../../svg/mainSlider/SolutionSvg';
 
 const MainSlider = ({ trans }) => {
-    const [levels, setLevels] = useState([]);
-    const [activeSlide, setActiveSlide] = useState(0);
-    const activeLang = useSelector(state => state.settings.activeLang);
-    const [scrollBlocker, setScrollBlocker] = useState(true);
-    const dispatch = useDispatch();
-    useEffect(() => {
-        dispatch({
-            type: "SET_MICHROSCHEME_ARRAY",
-            microschemeArray: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48]
-        });
-        // setLevels([7]);
-        setActiveSlide(1)
-    }, [])
-    let microSchemes = [
-        [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48],
-        [1, 3, 4, 6, 10, 11, 12],
-        [2, 3, 6, 7, 8, 12],
-        [1, 4, 5, 6, 7, 11, 12],
-        [1, 2, 3, 7, 8]
-    ]
+  const [levels, setLevels] = useState([]);
+  const [activeSlide, setActiveSlide] = useState(0);
+  const activeLang = useSelector(state => state.settings.activeLang);
+  const [scrollBlocker, setScrollBlocker] = useState(true);
+  const dispatch = useDispatch();
+  useEffect(() => {
+      dispatch({
+          type: "SET_MICHROSCHEME_ARRAY",
+          microschemeArray: [1,2,3,4,5,6,7,8,9,10,11,12]
+      });
+      // setLevels([7]);
+      setActiveSlide(1)
+  },[])
+  let microSchemes = [
+      [1,2,3,4,5,6,7,8,9,10,11,12],
+      [1],
+      [2,3,6,7,8,12],
+      [1,4,5,6,7,11,12],
+      [1,2,3,7,8]
+  ]
 
     // let scrollBlocker = true;
     let slideScrollDown = () => {
@@ -45,7 +45,7 @@ const MainSlider = ({ trans }) => {
             setScrollBlocker(false);
             setTimeout(() => {
                 setActiveSlide(activeSlide + 1);
-            }, 100);
+            },10);
             setTimeout(() => {
                 setScrollBlocker(true);
             }, 1000);
@@ -61,7 +61,7 @@ const MainSlider = ({ trans }) => {
             setScrollBlocker(false);
             setTimeout(() => {
                 setActiveSlide(activeSlide - 1);
-            }, 100);
+            },10);
             setTimeout(() => {
                 setScrollBlocker(true);
             }, 1000);
