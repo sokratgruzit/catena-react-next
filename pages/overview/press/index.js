@@ -1,23 +1,36 @@
 import createAxiosInstance from '../../../pages/api/axios';
 import Press from '../../../components/home/press/Press';
 
-export const getStaticProps = async () => {
+export async function getServerSideProps({ query }) {
+  const currentPage = query.page || 1;
+  const limit = 4;
+  
+
   const axios = createAxiosInstance();
-  const { data } = await axios.get(`${process.env.NEXT_PUBLIC_URL}/press/get-all-press`);
+  const response = await axios.get(`${process.env.NEXT_PUBLIC_URL}/press/get-all-press`, {
+    params: { page: currentPage, limit: limit },
+    
+  });
+  const pressData = response.data.press;
+  const current = response.data.currentPage
+  const totalPages = response.data.totalPages;
 
   return {
     props: {
-      press: data,
+      press: pressData,
+      currentPage: current,
+      totalCount: totalPages,
     },
   };
-};
+}
 
-const index = ({ press }) => {
+const Index = ({ press, currentPage = 1, totalCount }) => {
+
   return (
     <div style={{ paddingTop: '150px' }}>
-      <Press press={press} />;
+      <Press press={press} currentPage={currentPage} totalCount={totalCount} />
     </div>
   );
 };
 
-export default index;
+export default Index;

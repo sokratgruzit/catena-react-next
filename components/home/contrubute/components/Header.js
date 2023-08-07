@@ -21,9 +21,9 @@ const Header = () => {
       <h1 className={`${styles.ttl} font-90 ttl`}>Contribute</h1>
       <h1 className={`${styles.title} ttl`}>1. Select the payment method and calculate token price</h1>
       <div className={`${styles.container}`}>
-        {Box.map((item, indx) => {
+        {Box.map((item, index) => {
           return (
-            <div className={`${styles.boxMap}`}>
+            <div key={index} className={`${styles.boxMap}`} >
               <div className={`${styles.itemMap} container_bordered-child `}>
                 <img item={item.img} />
                 <p>{item.ttl}</p>
