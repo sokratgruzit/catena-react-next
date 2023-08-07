@@ -7,13 +7,13 @@ export const getStaticPaths = async ({ locales }) => {
   const axios = createAxiosInstance();
 
   let events = await axios
-    .get(`${process.env.NEXT_PUBLIC_URL}/event/get-all-event`)
-    .then(res => {
-      return res?.data;
-    })
-    .catch(err => {
-      console.log(err?.response);
-    });
+  .get(`${process.env.NEXT_PUBLIC_URL}/event/get-all-event`)
+  .then(res => {
+    return res?.data;
+  })
+  .catch(err => {
+    console.log(err?.response);
+  });
 
   const paths = events.flatMap((item) =>
     locales.map((loc) => ({
