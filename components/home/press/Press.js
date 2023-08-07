@@ -8,6 +8,8 @@ import Years from './components/filterWithYears/Years';
 import PublicByYears from './components/publicByYears/PublicByYears';
 import PressLogo from './components/pressLogoContainer/PressLogo';
 import JoinCommunity from '../events/components/JoinCommunity';
+import { TableElement } from '@catena-network/catena-ui-module';
+import axios from 'axios';
 
 const Press = ({ press }) => {
   const [activeYear, setActiveYear] = useState('');
@@ -30,6 +32,15 @@ const Press = ({ press }) => {
   useEffect(() => {
     handleYearClick('2023');
   }, [press]);
+
+  // useEffect(() => {
+  //   axios.get(`${process.env.NEXT_PUBLIC_URL}/press/get-all-press`, { page: currentPage, limit: 3 })
+  //     .then(res => {
+  //       setfilterData(res.data);
+  //     }
+  //     );
+  // }, [currentPage]);
+  // console.log(filterData);
 
   return (
     <div>
