@@ -66,13 +66,11 @@ const SubmitApplication = ({ title }) => {
 
     if (application.file) {
       const formData = new FormData();
-    if (application.file) {
-      const formData = new FormData();
 
       const logoDotIndex = application.file.name.lastIndexOf(".");
       const logoExt = application.file.name.substring(logoDotIndex + 1);
       const newLogoName = Date.now() + "-application-pdf." + logoExt;
-
+  
       formData.append("name", application.name);
       formData.append("email", application.email);
       formData.append("descr", application.descr);
@@ -90,13 +88,7 @@ const SubmitApplication = ({ title }) => {
           .post("http://localhost:4003/upload-many", formData, config)
           .then(async (res) => {
             let status = res.data.status;
-      try {
-        await axios
-          .post("http://localhost:4003/upload-many", formData, config)
-          .then(async (res) => {
-            let status = res.data.status;
 
-            if (status) {
             if (status) {
               await axios
                 .post("http://localhost:4003/application/create", {
@@ -115,14 +107,6 @@ const SubmitApplication = ({ title }) => {
                 .then(() => {
 
                 });
-            }
-          });
-      } catch (err) {
-        console.log(err);
-      }
-    } else {
-      console.log("Images requeired");
-    }
             }
           });
       } catch (err) {
