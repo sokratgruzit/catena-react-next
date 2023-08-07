@@ -15,7 +15,7 @@ export const getStaticProps = async () => {
 const mainSlider = ({ translates }) => {
     let homePage = translates.find(t => t.page === "home_page");
 
-    return <MainSlider test="test" trans={homePage.translates} />;
+    return <MainSlider test="test" trans={homePage?.translates} />;
 };
 
 export default mainSlider;
