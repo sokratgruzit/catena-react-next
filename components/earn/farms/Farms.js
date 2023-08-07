@@ -22,12 +22,12 @@ import FarmsTableComponent from '../components/farmsTable/FarmsTableComponent';
 import FarmsTableRowExpand from '../components/farmsTable/FarmsTableRowExpand';
 import TableFilter from '../components/tableFilter/TableFilter';
 
-import { Input, Switches, Button } from '@catena-network/catena-ui-module';
+import { Input, Switches, Button, Tabs } from '@catena-network/catena-ui-module';
 
 import styles from './Farms.module.css';
 import TableFarms from '../components/tableFarms/TableFarms';
 import TableSvg from '../components/tableSvg/TableSvg';
-
+import Link from 'next/link';
 const farmsData = [
   {
     id: 0,
@@ -204,18 +204,18 @@ const Farms = () => {
         <div className={`container_bordered`}>
           <h1 style={{ paddingBottom: '20px' }} className={`font-90 ttl ${styles.resTitle}`}>Farms</h1>
           <h2 className={`font-40 ttl ${styles.resTitle}`}>Stake LP tokens to earn.</h2>
-          <div onClick={() => router.push('/home/earn/farms/auction')} className={styles.communityAuctions}>
-            {/* <p className={`${styles.blueHover}`}>Community Auctions</p> */}
-            {/* <ArrowSvg className={styles.svgHoverBlue} /> */}
-            <Button
-              label={"Community Auctions"}
-              size={"btn-lg"}
-              type={"btn-primary"}
-              arrow={"arrow-right"}
-              element={"button"}
-              // disabled={true}
-              onClick={() => setToggle((prevState) => !prevState)}
-            />
+          <div className={styles.communityAuctions}>
+            <Link href={'/overview/earn/farms/auction'}>
+              <Button
+                label={"Community Auctions"}
+                size={"btn-lg"}
+                type={"btn-primary"}
+                arrow={"arrow-right"}
+                element={"button"}
+                // disabled={true}
+                onClick={() => setToggle((prevState) => !prevState)}
+              />
+            </Link>
           </div>
           <div className={`container_bordered-child ${styles.farms__filterInner}`}>
             {/* <CornerDecor /> */}
@@ -297,18 +297,19 @@ const Farms = () => {
                   status={"warning"}
                   title={"your text"}
                   color={"#FFA726"}
-                customStyles={{ width: "100%" }}
+                  customStyles={{ width: "100%" }}
                 />
-                <div className={styles.svgRotate}>
-                  <TableViewSvg
+                {/* <div className={styles.svgRotate}> */}
+                {/* <TableViewSvg
                     onClick={() => setDataViewType('table')}
                     className={`${dataViewType === 'components' && styles.tableView}`}
                   />
                   <ComponentViewSvg
                     onClick={() => setDataViewType('components')}
                     className={`${dataViewType === 'components' && styles.componentsView}`}
-                  />
-                </div>
+                  /> */}
+                <Tabs type={"two-component-tabs"} />
+                {/* </div> */}
               </div>
               {/* <div> */}
               {/* </div> */}

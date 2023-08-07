@@ -1,7 +1,7 @@
 import createAxiosInstance from '../../../pages/api/axios';
 import PressItem from '../../../components/home/press/components/pressInner/PressItem';
 
-export const getStaticPaths = async () => {
+export const getStaticPaths = async ({ locales }) => {
   const axios = createAxiosInstance();
 
   let press = await axios
@@ -13,9 +13,12 @@ export const getStaticPaths = async () => {
       console.log(err?.response);
     });
 
-  const paths = press.map(item => ({
-    params: { slug: item.slug },
-  }));
+  const paths = press.flatMap((item) =>
+    locales.map((loc) => ({
+      params: { slug: item.slug },
+      locale: loc,
+    }))
+  );
 
   return {
     paths,

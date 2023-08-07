@@ -30,9 +30,9 @@
   stroke: #FF7152;
 }
 
-/* .brighten {
-  color: #FFFFFF;
-} */
+.brighten {
+  color:  #FF7152 !important;
+}
 
 .borderBottom {
   padding-bottom: 4px;

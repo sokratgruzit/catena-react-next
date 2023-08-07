@@ -3,6 +3,9 @@ import Head from 'next/head';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import Web3 from 'web3';
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
+import useLanguages from '../hooks/useLanguages';
 
 import Header from '../components/layout/Header';
 import Microscheme from '../components/UI/microscheme/Microscheme';
@@ -19,6 +22,27 @@ function getLibrary(provider, connector) {
 }
 
 function MyApp({ Component, pageProps }) {
+  const router = useRouter();
+  const { setLocaleInUrl } = useLanguages();
+  const [isInitialized, setIsInitialized] = useState(false);
+
+  useEffect(() => {
+    if (!isInitialized) {
+      let { query } = router;
+
+      if (query.lang) {
+        store.dispatch({
+          type: "SET_ACTIVE_LANG",
+          activeLang: query.lang
+        });
+      } else {
+        setLocaleInUrl('en');
+      }
+
+      setIsInitialized(true);
+    }
+  }, [isInitialized]);
+
   return (
     <div>
       <Head>

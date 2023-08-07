@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 
 const Microscheme = props => {
     let lvl = useSelector(state => state.settings.microschemeArray);
-    console.log(lvl)
+    
     return (
         <div className={`${styles.mircroscheme}`}>
             <svg width='1440' height='1024' viewBox='0 0 1440 1024' fill='none'>
