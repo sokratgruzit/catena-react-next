@@ -19,9 +19,9 @@ function FaqItem({ allData }) {
                   {index + 1}
                   <span>.</span>
                 </p>
-                <div className={`${styles.itemTitle} ttl  font-40 `}>{item.translations[activeLang].question}</div>
+                <div className={`${styles.itemTitle} ttl  font-40 `}>{item.translations[activeLang]?.question}</div>
               </div>
-              <div className={`${styles.itemTease} `}>{item.translations[activeLang].answer}`</div>
+              <div className={`${styles.itemTease} `}>{item.translations[activeLang]?.answer}`</div>
             </div>
           );
         })}
