@@ -150,7 +150,13 @@
   transform: scaleY(1);
   transition-delay: .3s;
 }
-
+.headerNavLinkSubTtl > svg{
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  height: 110px;
+  width: fit-content;
+}
 .headerNavLink {
   display: flex;
   flex-direction: column;
