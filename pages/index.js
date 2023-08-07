@@ -3,7 +3,7 @@ import createAxiosInstance from './api/axios';
 
 export const getStaticProps = async () => {
     const axios = createAxiosInstance();
-    const { data } = await axios.get(`${process.env.NEXT_PUBLIC_URL}/translates/get-translates`);;
+    const { data } = await axios.get(`${process.env.NEXT_PUBLIC_URL}/translates/get-translates`);
   
     return {
       props: {
@@ -12,9 +12,8 @@ export const getStaticProps = async () => {
     };
 };
 
-
 const mainSlider = ({ translates }) => {
-  let homePage = translates.find(t => t.page === "home_page");
+    let homePage = translates.find(t => t.page === "main-slider");
 
     return <MainSlider test="test" trans={homePage.translates} />;
 };
