@@ -2396,7 +2396,7 @@ const Microscheme = props => {
                         fill='#162029'
                     />
                     <circle
-                        className={`${styles.delay2} ${styles.opacityH} circle18`}className={`${styles.delay3} ${styles.opacity} circle18`}
+                        className={`${styles.delay2} ${styles.opacityH} circle18`}
                         opacity='0.3'
                         cx='3'
                         cy='3'
@@ -6618,7 +6618,7 @@ const Microscheme = props => {
                         fill='#162029'
                     />
                     <circle
-                        className={`${styles.delay2} ${styles.opacityH} circle24`}className={`${styles.delay3} ${styles.opacity} circle24`}
+                        className={`${styles.delay2} ${styles.opacityH} circle24`}
                         opacity='0.3'
                         cx='3'
                         cy='3'
