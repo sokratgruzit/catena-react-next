@@ -15,11 +15,7 @@ export const getStaticProps = async () => {
 };
 
 const mainSlider = ({ translates }) => {
-  let keys = Object.entries(translates.en).map(([key]) => {
-    return key;
-  });
-
-  return <MainSlider test="test" trans={translates} keys={keys} />;
+  return <MainSlider test="test" trans={translates} />;
 };
 
 export default mainSlider;
