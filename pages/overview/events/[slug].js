@@ -15,12 +15,21 @@ export const getStaticPaths = async ({ locales }) => {
     console.log(err?.response);
   });
 
-  const paths = events.flatMap((item) =>
-    locales.map((loc) => ({
-      params: { slug: item.slug },
+  let paths;
+
+  if (events && events.length > 0) {
+    paths = press.flatMap((item) =>
+      locales.map((loc) => ({
+        params: { slug: item.slug },
+        locale: loc,
+      }))
+    );
+  } else {
+    paths = locales.map((loc) => ({
+      params: { slug: 'default' },
       locale: loc,
-    }))
-  );
+    }));
+  }
 
   return {
     paths,
