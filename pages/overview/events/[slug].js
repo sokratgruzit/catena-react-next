@@ -18,7 +18,7 @@ export const getStaticPaths = async ({ locales }) => {
   let paths;
 
   if (events && events.length > 0) {
-    paths = press.flatMap((item) =>
+    paths = events.flatMap((item) =>
       locales.map((loc) => ({
         params: { slug: item.slug },
         locale: loc,
