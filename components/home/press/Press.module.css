@@ -50,8 +50,7 @@
 
   /* margin-bottom: 150px; */
 }
-.joinCommunity,
-.years {
+.joinCommunity {
   margin-top: 128px;
 }
 .logCon {
@@ -186,8 +185,7 @@
     gap: 50px;
   }
 
-  .joinCommunity,
-  .years {
+  .joinCommunity {
     margin-top: 80px;
   }
 }
