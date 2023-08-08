@@ -31,7 +31,9 @@
   margin-top: 150px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 80px;
+  column-gap: 80px;
+  row-gap: 140px;
+  margin-bottom: 100px;
 }
 
 .sourcesContainer {
@@ -172,7 +174,7 @@
 @media (max-width: 1023px) {
   .bodyContainer {
     grid-template-columns: 1fr;
-    gap: 50px;
+    gap: 100px;
   }
 
   .joinCommunity,

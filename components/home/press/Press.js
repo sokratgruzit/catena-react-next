@@ -4,16 +4,17 @@ import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useRouter } from 'next/router';
 
-import styles from './Press.module.css';
 import Years from './components/filterWithYears/Years';
 import PublicByYears from './components/publicByYears/PublicByYears';
 import PressLogo from './components/pressLogoContainer/PressLogo';
 import JoinCommunity from '../events/components/JoinCommunity';
 import { TableElement } from '@catena-network/catena-ui-module';
 
+import styles from './Press.module.css';
+
 const Press = ({ press, currentPage, totalCount }) => {
   const [activeYear, setActiveYear] = useState('');
-  const [filterData, setfilterData] = useState();
+  const [filterData, setFilterData] = useState([]);
   const activeLang = useSelector(state => state.settings.activeLang);
 
   const fileAdress = `${process.env.NEXT_PUBLIC_URL}/uploads/press/`;
@@ -22,20 +23,19 @@ const Press = ({ press, currentPage, totalCount }) => {
 
   const router = useRouter();
 
-  const handlePageChange = (page) => {
+  const handlePageChange = page => {
     router.push({
       pathname: router.pathname,
       query: { ...router.query, page },
     });
   };
-
   const handleYearClick = year => {
     setActiveYear(year);
     const data = press.filter(item => {
       const itemYear = item.createdAt.substring(0, 4);
       return itemYear === year;
     });
-    setfilterData(data);
+    setFilterData(data);
   };
 
   useEffect(() => {
@@ -53,11 +53,11 @@ const Press = ({ press, currentPage, totalCount }) => {
           <Card dataArr={press} fileAdress={fileAdress} title={title} description={description} slugType='press' />
         </div>
         <TableElement
-          customStyle={{ zIndex: "10000" }}
+          customStyle={{ zIndex: '10000' }}
           type='pagination'
           currentPage={currentPage}
           totalCount={totalCount}
-          onPageChange={(page) => handlePageChange(page)}
+          onPageChange={page => handlePageChange(page)}
         />
       </div>
       <div>
@@ -67,10 +67,7 @@ const Press = ({ press, currentPage, totalCount }) => {
           </div>
           <PressLogo />
         </div>
-        <div className={`${styles.years} container`}>
-          <Years handleYearClick={handleYearClick} activeYear={activeYear} />
-        </div>
-        <PublicByYears filterData={filterData} activeLang={activeLang} />
+        <PublicByYears press={press} />
         <div className={styles.joinCommunity}>
           <JoinCommunity />
         </div>
