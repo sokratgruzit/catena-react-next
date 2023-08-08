@@ -1,8 +1,7 @@
-import Component from './components/component';
-
+import Component from './components/Component';
 const PaymentProcess = () => {
   return (
-    <div>
+    <div style={{ paddingTop: '150px', backgroundColor: '#fff2e4' }}>
       <Component />
     </div>
   );

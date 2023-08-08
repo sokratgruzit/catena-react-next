@@ -1,0 +1,27 @@
+.container {
+  width: 55%;
+  margin: 0px 0px;
+}
+
+.heder {
+  margin-top: 50px;
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.ttle {
+  margin: 20px 0px;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 70%;
+}
+
+.img {
+  width: 21px;
+  height: 21px;
+}
