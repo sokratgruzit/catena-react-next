@@ -2,27 +2,27 @@ import createAxiosInstance from '../../../pages/api/axios';
 import Press from '../../../components/home/press/Press';
 
 export async function getServerSideProps({ query }) {
-  const currentPage = parseInt(query.page, 10) || 1;
+  const currentPage = query.page || 1;
   const limit = 4;
-
+  
   const axios = createAxiosInstance();
   const response = await axios.get(`${process.env.NEXT_PUBLIC_URL}/press/get-all-press`, {
-    params: { type: "main", page: currentPage, limit: limit },
+    params: { page: currentPage, limit: limit },
   });
-
   const pressData = response.data.press;
+  const current = response.data.currentPage
+  const totalPages = response.data.totalPages;
 
   return {
     props: {
       press: pressData,
-      currentPage,
-      totalCount: 10,
+      currentPage: current,
+      totalCount: totalPages,
     },
   };
 }
 
-const Index = ({ press, currentPage = 1, totalCount = 10 }) => {
-
+const index = ({ press, currentPage = 1, totalCount }) => {
   return (
     <div style={{ paddingTop: '150px' }}>
       <Press press={press} currentPage={currentPage} totalCount={totalCount} />
@@ -30,4 +30,4 @@ const Index = ({ press, currentPage = 1, totalCount = 10 }) => {
   );
 };
 
-export default Index;
+export default index;

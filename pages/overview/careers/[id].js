@@ -2212,10 +2212,10 @@ export const getStaticProps = async ({ params }) => {
   };
 };
 
-const CareersId = ({ object }) => {
+const index = ({ object }) => {
   const router = useRouter();
 
   return <CareersIneer data={object} />;
 };
 
-export default CareersId;
+export default index;

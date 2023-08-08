@@ -11,7 +11,6 @@ import Image from "next/image";
 import TaskSvg from '../../svg/mainSlider/TaskSvg';
 import SolutionSvg from '../../svg/mainSlider/SolutionSvg';
 
-//Need to prettify this file
 const MainSlider = ({ trans }) => {
     const [levels, setLevels] = useState([]);
     const [activeSlide, setActiveSlide] = useState(0);

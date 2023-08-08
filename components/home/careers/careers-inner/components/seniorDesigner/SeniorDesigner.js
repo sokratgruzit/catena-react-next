@@ -1,8 +1,8 @@
-import React from 'react';
-
+import React, { useState } from 'react';
 import styles from './SeniorDesigner.module.css';
 
 const SeniorDesigner = ({ teamResponsible, title2, head, title, description, title3 }) => {
+  
   return (
     <div className='container'>
       <h1 style={{ color: '#162029' }} className='font-90 ttl'>{head}</h1>
