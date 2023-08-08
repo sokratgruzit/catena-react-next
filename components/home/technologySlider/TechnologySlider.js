@@ -1,5 +1,5 @@
 import { React, useState, useEffect, useRef } from 'react';
-
+import { useSelector, useDispatch } from 'react-redux';
 import Footer from '../../layout/Footer';
 import ReactScrollWheelHandler from "react-scroll-wheel-handler";
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -14,31 +14,38 @@ const TechnologySlider = () => {
     const [levels, setLevels] = useState([]);
     const [activeSlide, setActiveSlide] = useState(0);
     const [scrollBlocker, setScrollBlocker] = useState(true);
+    const dispatch = useDispatch();
     const swiperRefPromo = useRef();
     const swiperRefNetwork = useRef();
     const swiperRefConsensus = useRef();
     const swiperRefLayers = useRef();
+    let microSchemes;
+    if(window.innerWidth > 1250){
+        microSchemes = [
+            [1,2,7,8,9,10,11,13,14,15,23,24],
+            [1,2,5,6,11,13,14,15,16,17,23,24],
+            [1,2,11,13,14,20,21,22,23,24],
+            [1,2,5,6,13,14,15,16,17,23,24]
+        ]
+    }
+    if(window.innerWidth < 1250){
+        microSchemes = [
+            [1,2,6,7,8,9,10,11,13,17,18,19,20,21,22,23,24],
+            [1,2,4,13,14,15,18,19,20,21,22,23,24],
+            [1,2,6,7,10,11,13,14,16,17,18,19,20,21,22,23,24],
+            [1,2,4,13,14,15,18,19,20,21,22,23,24]
+        ]
+    }
+
     useEffect(() => {
-        setLevels([4,5,6,9,10,11,12]);
-        // setLevels([7]);
-        setActiveSlide(3)
+        setActiveSlide(1)
+        setTimeout(() => {
+            dispatch({
+                type: "SET_MICHROSCHEME_ARRAY",
+                microschemeArray: microSchemes[activeSlide]
+            });
+        },500)
     },[])
-    let setLvl = array => {
-        console.log(levels);
-        if (levels.length > 0) {
-            setLevels([]);
-        } else {
-            setLevels(array);
-        }
-    };
-    let microSchemes = [
-        [4,5,6,9,10,11,12],
-        [5,6,11,12],
-        [1,2,7,8],
-        [4,5,6,11,12],
-        [1,2,3,7,8],
-        [1,2,3,7,8]
-    ];
     const technologyPromoSlider = [
         {
             title: 'Catena',
@@ -675,7 +682,10 @@ const TechnologySlider = () => {
     let slideScrollDown = () => {
         if(activeSlide !== 4 && scrollBlocker) {
             setActiveSlide(0);
-            setLevels(microSchemes[activeSlide])
+            dispatch({
+                type: "SET_MICHROSCHEME_ARRAY",
+                microschemeArray: microSchemes[activeSlide]
+            });
             setScrollBlocker(false);
             setTimeout(() => {
                 setActiveSlide(activeSlide + 1);
@@ -688,7 +698,10 @@ const TechnologySlider = () => {
     let slideScrollUp = () => {
         if(activeSlide !== 1 && scrollBlocker) {
             setActiveSlide(0);
-            setLevels(microSchemes[activeSlide - 2])
+            dispatch({
+                type: "SET_MICHROSCHEME_ARRAY",
+                microschemeArray: microSchemes[activeSlide - 2]
+            });
             setScrollBlocker(false);
             setTimeout(() => {
                 setActiveSlide(activeSlide - 1);
@@ -700,8 +713,6 @@ const TechnologySlider = () => {
     }
     return (
         <>
-            {true && <Microscheme lvl={levels} />}
-            {/*${styles.mainSliderActive}*/}
             <ReactScrollWheelHandler
                 upHandler={(e) => slideScrollUp()}
                 downHandler={(e) => slideScrollDown()}
