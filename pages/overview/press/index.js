@@ -3,7 +3,7 @@ import Press from '../../../components/home/press/Press';
 
 export async function getServerSideProps({ query }) {
   const currentPage = query.page || 1;
-  const limit = 4;
+  const limit = 6;
   
   const axios = createAxiosInstance();
   const response = await axios.get(`${process.env.NEXT_PUBLIC_URL}/press/get-all-press`, {
