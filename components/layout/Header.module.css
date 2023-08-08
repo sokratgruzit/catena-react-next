@@ -150,7 +150,14 @@
   transform: scaleY(1);
   transition-delay: .3s;
 }
-
+.headerNavLinkSubTtl > svg,.headerLangsModal > svg{
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  height: 120px;
+  z-index: 2;
+  width: fit-content;
+}
 .headerNavLink {
   display: flex;
   flex-direction: column;
@@ -279,10 +286,17 @@
   display: flex;
   align-items: center;
   cursor: pointer;
+  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+  border-radius: 20px;
+  border: 1px solid rgba(22, 32, 41, 0);
+  background: transparent;
+  padding: 5px 10px;
 }
 
 .headerLangNowActive .headerLangNowMainTtl {
   pointer-events: none;
+  border: 1px solid rgba(22, 32, 41, 0.10);
+  background: #F2E1CE;
 }
 
 .headerLangNowMainTtl svg {
@@ -290,21 +304,14 @@
   transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
 }
 
-.headerLangNowMainTtl path {
-  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
-}
-
-.headerLangNowMainTtl:hover path {
-  fill: #ff7152;
-}
-
 .headerLangNowMainTtl span {
   transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
   text-transform: uppercase;
 }
 
-.headerLangNowMainTtl:hover span {
-  color: #ff7152;
+.headerLangNowMainTtl:hover {
+  border: 1px solid rgba(22, 32, 41, 0.10);
+  background: #F2E1CE;
 }
 
 .headerLangNowSvg {
@@ -343,16 +350,17 @@
 .headerLangsModalLink {
   display: flex;
   align-items: center;
-  padding: 20px 0px;
-  border-bottom: 1px dashed rgba(255, 255, 255, 0.2);
-  color: rgba(255, 255, 255, 0.7);
+  color:  rgba(0, 0, 0, 0.5);
   transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
   cursor: pointer;
+  font-size: 14px;
+  line-height: 120%;
+  margin-bottom: 5px;
 }
 
 .headerLangsModalLink:hover,
 .headerLangsModalLinkActive {
-  color: rgba(255, 255, 255, 1);
+  color:  rgba(0, 0, 0, 1);
 }
 
 .headerLangsModalLinkActive {
@@ -375,13 +383,20 @@
   margin-left: 15px;
   margin-right: 15px;
   position: relative;
-  min-width: 20px;
+  min-width: 40px;
   height: 100%;
   justify-content: center;
 }
 
-.headerSettingsBtn svg {
+.headerSettingsBtnSvg svg {
   cursor: pointer;
+  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+  border-radius: 20px;
+  border: 1px solid rgba(22, 32, 41, 0);
+  background: transparent;
+  padding: 5px;
+  width: 35px;
+  height: 35px;
 }
 
 .headerSettingsBtnSvg {
@@ -410,7 +425,7 @@
 .headerSettingsBtnActive>i,
 .headerLangNowActive>i,
 .headerConnectedBtnActive .headerConnectedBtnArrow i {
-  min-width: 80px;
+  /*min-width: 80px;*/
   transition-delay: 0s;
 }
 
@@ -418,8 +433,9 @@
   transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
 }
 
-.headerSettingsBtn:not(.headerSettingsBtnActive) svg:hover path {
-  fill: #ff7152;
+.headerSettingsBtnSvg svg:hover,.headerSettingsBtnActive .headerSettingsBtnSvg svg{
+  border: 1px solid rgba(22, 32, 41, 0.10);
+  background: #F2E1CE;
 }
 
 .headerLangOptionParent {
@@ -775,9 +791,9 @@
 .headerLangsModal {
   position: absolute;
   right: 0px;
-  padding: 30px 15px 30px 30px;
+  padding: 30px 15px 90px 30px;
   width: 433px;
-  top: 104px;
+  top: 68px;
   pointer-events: none;
 }
 
@@ -790,7 +806,9 @@
   width: 100%;
   height: 100%;
   z-index: 1;
-  background: #ff7152;
+  border-radius: 20px;
+  border: 1px solid rgba(22, 32, 41, 0.10);
+  background: #F2E1CE;
   transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
   transform-origin: top;
   transform: scaleY(0);
@@ -1022,6 +1040,20 @@
   color: rgba(0, 0, 0, 1);
   pointer-events: none;
   opacity: 1!important;
+}
+.navCircle {
+  opacity: 0;
+}
+.navLine {
+  stroke-dasharray: 900;
+  stroke-dashoffset: 900;
+}
+.headerNavLinkSubTtl > svg {
+  opacity: 0;
+  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+}
+.activeMenu .headerNavLinkSubTtl > svg {
+  opacity: 1;
 }
 /*Laptop 1440*/
 @media (max-width: 1900px) {}
