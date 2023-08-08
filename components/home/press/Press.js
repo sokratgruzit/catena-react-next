@@ -13,6 +13,9 @@ import { TableElement } from '@catena-network/catena-ui-module';
 import styles from './Press.module.css';
 
 const Press = ({ press, currentPage, totalCount }) => {
+  const [activeYear, setActiveYear] = useState('');
+  const [filterData, setFilterData] = useState([]);
+  const activeLang = useSelector(state => state.settings.activeLang);
 
   const fileAdress = `${process.env.NEXT_PUBLIC_URL}/uploads/press/`;
   const title = 'press.title';
@@ -20,12 +23,24 @@ const Press = ({ press, currentPage, totalCount }) => {
 
   const router = useRouter();
 
-  const handlePageChange = (page) => {
+  const handlePageChange = page => {
     router.push({
       pathname: router.pathname,
       query: { ...router.query, page },
     });
   };
+  const handleYearClick = year => {
+    setActiveYear(year);
+    const data = press.filter(item => {
+      const itemYear = item.createdAt.substring(0, 4);
+      return itemYear === year;
+    });
+    setFilterData(data);
+  };
+
+  useEffect(() => {
+    handleYearClick('2023');
+  }, [press]);
 
   return (
     <div>
@@ -38,11 +53,11 @@ const Press = ({ press, currentPage, totalCount }) => {
           <Card dataArr={press} fileAdress={fileAdress} title={title} description={description} slugType='press' />
         </div>
         <TableElement
-          customStyle={{ zIndex: "10000" }}
+          customStyle={{ zIndex: '10000' }}
           type='pagination'
           currentPage={currentPage}
           totalCount={totalCount}
-          onPageChange={(page) => handlePageChange(page)}
+          onPageChange={page => handlePageChange(page)}
         />
       </div>
       <div>

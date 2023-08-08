@@ -34,7 +34,7 @@ function PrivacyList({ privacyList }) {
         })}
       </div>
       {privacyList?.map((item, i) => (
-        <div key={i} className='text'>
+        <div key={i} className={styles.orderedList}>
           <div className={`${styles.title} font-40 ttl`}>
             <ol>
               <li className='font-40 ttl'>{`${i + 1}`}</li>

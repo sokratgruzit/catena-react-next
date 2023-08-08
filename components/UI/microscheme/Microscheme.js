@@ -4,15 +4,15 @@ import { React, useEffect } from 'react';
 import { gsap, Linear } from 'gsap';
 
 const Microscheme = props => {
-  let lvl = useSelector(state => state.settings.microschemeArray);
-  console.log(lvl);
-  let animateLines = array => {
-    let stringIn = '';
-    let stringOut = '';
-    let stringInDots = '';
-    let stringOutDots = '';
-    let fullRange = false;
-    let outElementsArray = [];
+    let lvl = useSelector(state => state.settings.microschemeArray);
+    console.log(lvl)
+    let animateLines = (array) => {
+        let stringIn = '';
+        let stringOut = '';
+        let stringInDots = '';
+        let stringOutDots = '';
+        let fullRange = false;
+        let outElementsArray = [];
 
     if (array.length !== 0) {
       for (let i = 1; i < array.length; i++) {
