@@ -5,7 +5,7 @@ export const getStaticPaths = async ({ locales }) => {
   const axios = createAxiosInstance();
 
   let press = await axios
-    .get(`${process.env.NEXT_PUBLIC_URL}/press/get-all-press`)
+    .get(`${process.env.NEXT_PUBLIC_URL}/press/get-all-press-slug`)
     .then(res => {
       return res?.data;
     })
