@@ -71,27 +71,27 @@ const SubmitApplication = ({ title }) => {
       const logoExt = application.file.name.substring(logoDotIndex + 1);
       const newLogoName = Date.now() + "-application-pdf." + logoExt;
   
-      formData.append("name", application.name);
-      formData.append("email", application.email);
-      formData.append("descr", application.descr);
-      // formData.append("question1");
-      // formData.append("question2");
-      formData.append("language", application.language);
-      formData.append("info", application.info);
-      formData.append("gitHub", application.gitHub);
-      formData.append("linkedin", application.linkedin);
+      // formData.append("name", application.name);
+      // formData.append("email", application.email);
+      // formData.append("descr", application.descr);
+      // // formData.append("question1");
+      // // formData.append("question2");
+      // formData.append("language", application.language);
+      // formData.append("info", application.info);
+      // formData.append("gitHub", application.gitHub);
+      // formData.append("linkedin", application.linkedin);
       formData.append("imgFolder", "application");
       formData.append("image", application.file, newLogoName);
 
       try {
         await axios
-          .post("http://localhost:4003/upload-many", formData, config)
+          .post(`${process.env.NEXT_PUBLIC_URL}/upload-many`, formData, config)
           .then(async (res) => {
             let status = res.data.status;
 
             if (status) {
               await axios
-                .post("http://localhost:4003/application/create", {
+                .post(`${process.env.NEXT_PUBLIC_URL}/application/create`, {
                   name: application.name,
                   email: application.email,
                   phone: application.phone,
@@ -249,7 +249,8 @@ const SubmitApplication = ({ title }) => {
 
             <Input
               type={'default'}
-              name={"gitHub"}              // value={value}console.log(e.target.value);
+              name={"gitHub"}           
+              // value={value}console.log(e.target.value);
               icon={true}
               emptyFieldErr={false}
               inputType={'text'}
