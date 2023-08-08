@@ -21,27 +21,6 @@ const InfoTokensInngerPage_Data = {
   transactions_24h: 2.02,
 };
 
-const InfoTokensInnerPage = props => {
-  const router = useRouter();
-  const { tokenId } = router.query;
-  // fetch data by ID
-
-  return (
-    // <DynamicNamespaces namespaces={['dynamic']} fallback='Loading...'>
-    <div>
-      <div className={styles.backgroundMain}>
-        <Image layout='responsive' objectFit='cover' quality={100} src={BackgroundImg} alt='background' />
-      </div>
-      <div className={styles.section}>
-        <TokenSection data={props.infoTokensDetails} />
-      </div>
-    </div>
-    // </DynamicNamespaces>
-  );
-};
-
-export default InfoTokensInnerPage;
-
 export async function getStaticPaths(context) {
   console.log(context);
   return {
@@ -94,3 +73,24 @@ export async function getStaticProps(context) {
     },
   };
 }
+
+const index = props => {
+  const router = useRouter();
+  const { tokenId } = router.query;
+  // fetch data by ID
+
+  return (
+    // <DynamicNamespaces namespaces={['dynamic']} fallback='Loading...'>
+    <div>
+      <div className={styles.backgroundMain}>
+        <Image layout='responsive' objectFit='cover' quality={100} src={BackgroundImg} alt='background' />
+      </div>
+      <div className={styles.section}>
+        <TokenSection data={props.infoTokensDetails} />
+      </div>
+    </div>
+    // </DynamicNamespaces>
+  );
+};
+
+export default index;

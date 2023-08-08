@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Prepetual = () => {
+const index = () => {
   return <div>Prepetual</div>;
 };
 
-export default Prepetual;
+export default index;

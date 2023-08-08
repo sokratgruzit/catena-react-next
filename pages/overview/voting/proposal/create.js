@@ -2,8 +2,8 @@ import React from 'react';
 
 //import Form from '../../../../components/voting/form/Form';
 
-const Create = () => {
+const index = () => {
   return <></>;
 };
 
-export default Create;
+export default index;
