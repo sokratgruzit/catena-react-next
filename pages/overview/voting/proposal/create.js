@@ -1,9 +1,9 @@
 import React from 'react';
 
-import Form from '../../../../components/voting/form/Form';
+//import Form from '../../../../components/voting/form/Form';
 
 const Create = () => {
-  return <Form />;
+  return <></>;
 };
 
 export default Create;
