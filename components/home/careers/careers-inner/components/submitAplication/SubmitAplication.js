@@ -94,7 +94,7 @@ const SubmitApplication = ({ title }) => {
                 .post("http://localhost:4003/application/create", {
                   name: application.name,
                   email: application.email,
-                  phone: 'mgsm',
+                  phone: application.phone,
                   descr: application.descr,
                   quiz: selectedAnswers,
                   language: application.language,
