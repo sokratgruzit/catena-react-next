@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useMobileWidth } from '../../../../hooks/useMobileWidth';
 
-import { Table, Button } from '@catena-network/catena-ui-module';
+import { Table, Button, Tabs, TableElement } from '@catena-network/catena-ui-module';
 
 import { ArrowSvg } from '../../../svg';
 import ArrowDownSvg from '../../../svg/ArrowDownSvg';
@@ -10,83 +10,29 @@ import styles from './AuctionTable.module.css';
 
 const tableHead = [
   {
-    name: 'Staked Amount',
+    name: 'Position',
     width: 15,
     mobileWidth: 45,
     id: 0,
   },
   {
-    name: 'Stake Date ',
+    name: 'Farm',
     width: 15,
     id: 1,
   },
   {
-    name: 'Unstake Date',
+    name: 'CMCX Bid',
     width: 15,
     id: 2,
-  },
-  {
-    name: 'Earn Reward',
-    width: 15,
-    id: 3,
-  },
-  {
-    name: 'Harvest',
-    width: 15,
-    mobileWidth: 45,
-    id: 4,
-  },
-  {
-    name: '',
-    width: 10,
-    id: 5,
-    mobileWidth: 35,
-    position: 'right',
-    className: 'buttons-th',
-    onClick: index => console.log(index),
-  },
-  {
-    name: '',
-    width: 7,
-    id: 6,
-    mobileWidth: 20,
-    position: 'right',
-    className: 'buttons-th',
-    onClick: index => console.log(index),
-  },
-];
-const stakersRecord = [
-  {
-    id: 12123,
-    amount: '1,220,000.2',
-    staketime: '01.02.2023 10:00AM',
-    unstaketime: '01.02.2023 08:15PM',
-    CML: 'CML',
-    realtimeRewardPerBlock: '1,132,000.1',
-  },
-  {
-    id: 2121234,
-    amount: '1,220,000.2',
-    staketime: '01.02.2023 10:00AM',
-    unstaketime: '01.02.2023 08:15PM',
-    CML: 'CML',
-    realtimeRewardPerBlock: '1,132,000.1',
-  },
-  {
-    id: 1221235,
-    amount: '1,220,000.2',
-    staketime: '01.02.2023 10:00AM',
-    unstaketime: '01.02.2023 08:15PM',
-    CML: 'CML',
-    realtimeRewardPerBlock: '1,132,000.1',
-  },
+  }
 ];
 
-const AuctionTable = () => {
+const AuctionTable = ({ tableDataArr }) => {
   const [mobileExpand, setMobileExpand] = useState(null);
   const [createStakingPopUpActive, setCreateStakingPopUpActive] = useState(false);
   const [loading, setLoading] = useState(false)
   const { width, mobile } = useMobileWidth();
+  const [currentPage, setCurrentPage] = useState(1);
 
   let mobileExpandFunc = id => {
     if (!mobile) {
@@ -111,8 +57,8 @@ const AuctionTable = () => {
   };
 
   let tableData =
-    stakersRecord?.length > 0 &&
-    stakersRecord.map((item, index) => (
+    tableDataArr?.length > 0 &&
+    tableDataArr.map((item, index) => (
       <div
         className={`table-parent ${mobileExpand === index ? 'active' : ''}`}
         key={index}
@@ -167,7 +113,7 @@ const AuctionTable = () => {
         </div>
         <div className='table-mobile'>
           <div className='table-mobile-content'>
-            {[1, 2, 3].map(index => (
+            {[0, 1, 2].map(index => (
               <div className='td' key={index}>
                 <div className='mobile-ttl'>{tableHead[index].name}</div>
                 <span>
@@ -199,15 +145,38 @@ const AuctionTable = () => {
     ));
 
   return (
-    <Table
-      type={'table-version'}
-      tableHead={tableHead}
-      mobile={mobile}
-      tableData={stakersRecord.length ? tableData : false}
-      tableEmpty={true}
-      tableEmptyData={tableEmptyData}
-      loading={loading}
-    />
+    <div className={`${styles.tableContainer} container_bordered`}>
+      <div className={styles.tableTabs}>
+        <Tabs type={"two-component-tabs-with-text"} leftBtnText="Latest" rightBtnText="Archive" customStyle={{ color: "black" }} />
+      </div>
+      <div className={`${styles.tyablePagination} custum-text`}>
+        <div className={styles.tyablePaginationInner}>
+          <h4 style={{ marginBottom: "0" }}>Auctions</h4>
+          <div className={styles.pageNumber}>
+            <span style={{ opacity: ".6", fontSize: "30px" }}>#</span>
+            <span style={{ fontSize: "30px" }}>20</span>
+          </div>
+          <TableElement
+            type={"arrowPagination"}
+            currentPage={currentPage}
+            totalCount={20}
+            onPageChange={(page) => setCurrentPage(page)}
+            customStyle={{ marginLeft: "20px" }}
+          />
+        </div>
+        <p style={{marginBottom: "0"}}>Ended Jun 07, 2023 at 06:01 PM</p>
+      </div>
+      <Table
+        type={'table-version'}
+        tableHead={tableHead}
+        mobile={mobile}
+        tableData={tableDataArr.length ? tableData : false}
+        tableEmpty={true}
+        tableEmptyData={tableEmptyData}
+        loading={loading}
+        customStyles={{ border: "1px solid rgba(22, 32, 41, .2)", borderRadius: "20px", backgroundColor: "#FFF3E5" }}
+      />
+    </div>
   );
 };
 

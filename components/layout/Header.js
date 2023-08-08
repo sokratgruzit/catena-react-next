@@ -68,7 +68,7 @@ const Header = () => {
             {
               id: 20,
               title: 'Brand Guidlines',
-              route: '/overview/brand-guidlines',
+              route: '/overview/brand-guidelines',
             },
             {
               id: 21,
