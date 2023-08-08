@@ -106,6 +106,7 @@
     transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
     transform: translateY(10px);
     opacity: 0;
+    width: 80%;
 }
 .mainSliderActive .mainSliderItemDescription h1 {
     transform: translateY(0px);
@@ -291,11 +292,15 @@
     }
     .mainSliderItemDescription h1{
         text-align: center;
+        width: 100%;
     }
     .mainSliderLogo {
         transform: scale(1);
         margin: 20px auto;
-        padding: 10px 30px;
+        padding: 5px 30px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
     }
     .mainSliderItemHalf {
         width: 100%;
