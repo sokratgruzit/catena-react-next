@@ -1,11 +1,30 @@
-import React, { useState } from 'react';
+// PublicByYears.js
+import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import Link from 'next/link';
 import { Button } from '@catena-network/catena-ui-module';
 import styles from '../../Press.module.css';
+import Years from '../filterWithYears/Years';
 
-const PublicByYears = ({ filterData, activeLang }) => {
+const PublicByYears = ({ press }) => {
   const itemsPerPage = 5;
   const [visibleItems, setVisibleItems] = useState(itemsPerPage);
+  const [activeYear, setActiveYear] = useState('');
+  const [filterData, setFilterData] = useState([]);
+  const activeLang = useSelector(state => state.settings.activeLang);
+
+  const handleYearClick = year => {
+    setActiveYear(year);
+    const data = press.filter(item => {
+      const itemYear = item.createdAt.substring(0, 4);
+      return itemYear === year;
+    });
+    setFilterData(data);
+  };
+
+  useEffect(() => {
+    handleYearClick(activeYear || '2023');
+  }, [press, activeYear]);
 
   const loadMore = () => {
     setVisibleItems(prevVisibleItems => prevVisibleItems + itemsPerPage);
@@ -19,6 +38,7 @@ const PublicByYears = ({ filterData, activeLang }) => {
 
   return (
     <div className='container_bordered'>
+      <Years handleYearClick={handleYearClick} activeYear={activeYear} allPress={press} />
       <div className={`${styles.statisticContainer} container_bordered-child`}>
         {filterData && Array.isArray(filterData) ? (
           filterData.slice(0, visibleItems).map((item, index) => {

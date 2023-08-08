@@ -29,6 +29,7 @@ const SubmitApplication = ({ title }) => {
   const axios = createAxiosInstance();
 
   const [selectedAnswers, setSelectedAnswers] = useState([]);
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const [application, setApplication] = useState({
     name: '',
     email: '',
@@ -52,6 +53,10 @@ const SubmitApplication = ({ title }) => {
   };
 
   const submitHandler = async () => {
+    setShowSuccessMessage(true);
+    setTimeout(() => {
+      setShowSuccessMessage(false);
+    }, 3000);
     console.log(application);
     const config = {
       headers: {
@@ -65,7 +70,16 @@ const SubmitApplication = ({ title }) => {
       const logoDotIndex = application.file.name.lastIndexOf(".");
       const logoExt = application.file.name.substring(logoDotIndex + 1);
       const newLogoName = Date.now() + "-application-pdf." + logoExt;
-
+  
+      formData.append("name", application.name);
+      formData.append("email", application.email);
+      formData.append("descr", application.descr);
+      // formData.append("question1");
+      // formData.append("question2");
+      formData.append("language", application.language);
+      formData.append("info", application.info);
+      formData.append("gitHub", application.gitHub);
+      formData.append("linkedin", application.linkedin);
       formData.append("imgFolder", "application");
       formData.append("image", application.file, newLogoName);
 
@@ -77,7 +91,7 @@ const SubmitApplication = ({ title }) => {
 
             if (status) {
               await axios
-                .post("http://localhost:4003/careers/create", {
+                .post("http://localhost:4003/application/create", {
                   name: application.name,
                   email: application.email,
                   phone: application.phone,
@@ -276,6 +290,7 @@ const SubmitApplication = ({ title }) => {
               disabled={false}
               onClick={submitHandler}
             />
+            {showSuccessMessage && <div style={{color: 'green'}}>your application is sucsessful</div>}
           </div>
         </div>
       </div>

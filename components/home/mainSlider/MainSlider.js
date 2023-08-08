@@ -8,6 +8,8 @@ import Microscheme from '../../UI/microscheme/Microscheme';
 
 import styles from './MainSlider.module.css';
 import Image from 'next/image';
+import TaskSvg from '../../svg/mainSlider/TaskSvg';
+import SolutionSvg from '../../svg/mainSlider/SolutionSvg';
 
 const MainSlider = ({ trans }) => {
   const [levels, setLevels] = useState([]);
@@ -26,6 +28,7 @@ const MainSlider = ({ trans }) => {
       [1, 2, 3, 4, 5, 6, 10, 11, 12, 13, 14, 15, 16, 17, 23, 24],
     ];
   }
+
   if (window.innerWidth < 1250) {
     microSchemes = [
       [1, 2, 5, 6, 7, 8, 9, 10, 11, 16, 17, 18, 19, 20, 21, 22, 23, 24],
@@ -64,6 +67,7 @@ const MainSlider = ({ trans }) => {
       }, 1000);
     }
   };
+
   let slideScrollUp = () => {
     if (activeSlide !== 1 && scrollBlocker) {
       setActiveSlide(0);
@@ -72,7 +76,6 @@ const MainSlider = ({ trans }) => {
         microschemeArray: microSchemes[activeSlide - 2],
       });
       setScrollBlocker(false);
-      console.log(activeSlide, 'sadasddas');
       setTimeout(() => {
         setActiveSlide(activeSlide - 1);
       }, 10);
@@ -81,6 +84,7 @@ const MainSlider = ({ trans }) => {
       }, 1000);
     }
   };
+
   return (
     <>
       {/*${styles.mainSliderActive}*/}
@@ -139,12 +143,7 @@ const MainSlider = ({ trans }) => {
                   </svg>
                 </div>
               </div>
-              <h1 className='font-90 ttl'>
-                {trans[activeLang]?.slider1_slide1_ttl}
-                {/* A Virtual World of
-                            <br/>
-                            Interconnected Blockchains */}
-              </h1>
+              <h1 className='font-90 ttl'>{trans[activeLang]?.slider1_slide1_ttl}</h1>
               <div className={styles.mainSliderItemBtnOut}>
                 <a href='##' className={styles.mainSliderItemBtn}>
                   {trans[activeLang]?.slider1_slide1_join_btn}
@@ -165,59 +164,13 @@ const MainSlider = ({ trans }) => {
             <div className={styles.mainSliderItemHalf}>
               <div className={styles.mainSliderItemTask}>
                 <div className={styles.mainSliderItemTaskTxt}>{trans[activeLang]?.slider1_slide2_sm_sc}</div>
-                <svg width='67' height='37' viewBox='0 0 67 37' fill='none' xmlns='http://www.w3.org/2000/svg'>
-                  <path d='M7.5 36.5V29.5H10.5V36.5H7.5Z' fill='#162029' stroke='#162029' />
-                  <path d='M15.5 36.5V29.5H18.5V36.5H15.5Z' fill='#162029' stroke='#162029' />
-                  <path d='M23.5 36.5V29.5H26.5V36.5H23.5Z' fill='#162029' stroke='#162029' />
-                  <path d='M31.5 36.5V29.5H34.5V36.5H31.5Z' fill='#162029' stroke='#162029' />
-                  <path d='M39.5 36.5V29.5H42.5V36.5H39.5Z' fill='#162029' stroke='#162029' />
-                  <path d='M47.5 36.5V29.5H50.5V36.5H47.5Z' fill='#162029' stroke='#162029' />
-                  <path d='M55.5 36.5V29.5H58.5V36.5H55.5Z' fill='#162029' stroke='#162029' />
-                  <path d='M7.5 7.5V0.5H10.5V7.5H7.5Z' fill='#162029' stroke='#162029' />
-                  <path d='M15.5 7.5V0.5H18.5V7.5H15.5Z' fill='#162029' stroke='#162029' />
-                  <path d='M23.5 7.5V0.5H26.5V7.5H23.5Z' fill='#162029' stroke='#162029' />
-                  <path d='M31.5 7.5V0.5H34.5V7.5H31.5Z' fill='#162029' stroke='#162029' />
-                  <path d='M39.5 7.5V0.5H42.5V7.5H39.5Z' fill='#162029' stroke='#162029' />
-                  <path d='M47.5 7.5V0.5H50.5V7.5H47.5Z' fill='#162029' stroke='#162029' />
-                  <path d='M55.5 7.5V0.5H58.5V7.5H55.5Z' fill='#162029' stroke='#162029' />
-                  <rect x='0.5' y='7.5' width='66' height='22' rx='3.5' fill='#162029' />
-                  <rect x='0.5' y='7.5' width='66' height='22' rx='3.5' stroke='#162029' />
-                </svg>
+                <TaskSvg />
               </div>
               <h2 className={`font-90 ttl`}>{trans[activeLang]?.slider1_slide2_ttl}</h2>
               <p className={`${styles.mainSliderItemHalfDesc1}`}>{trans[activeLang]?.slider1_slide2_text1}</p>
               <div className={styles.mainSliderItemSolution}>
                 <div className={styles.mainSliderItemSolutionTxt}>{trans[activeLang]?.slider1_bg_sc}</div>
-                <svg width='111' height='43' viewBox='0 0 111 43' fill='none' xmlns='http://www.w3.org/2000/svg'>
-                  <path d='M5.5 42.5V35.5H8.5V42.5H5.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M13.5 42.5V35.5H16.5V42.5H13.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M21.5 42.5V35.5H24.5V42.5H21.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M29.5 42.5V35.5H32.5V42.5H29.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M37.5 42.5V35.5H40.5V42.5H37.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M45.5 42.5V35.5H48.5V42.5H45.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M53.5 42.5V35.5H56.5V42.5H53.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M61.5 42.5V35.5H64.5V42.5H61.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M69.5 42.5V35.5H72.5V42.5H69.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M77.5 42.5V35.5H80.5V42.5H77.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M85.5 42.5V35.5H88.5V42.5H85.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M93.5 42.5V35.5H96.5V42.5H93.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M101.5 42.5V35.5H104.5V42.5H101.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M5.5 7.5V0.5H8.5V7.5H5.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M13.5 7.5V0.5H16.5V7.5H13.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M21.5 7.5V0.5H24.5V7.5H21.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M29.5 7.5V0.5H32.5V7.5H29.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M37.5 7.5V0.5H40.5V7.5H37.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M45.5 7.5V0.5H48.5V7.5H45.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M53.5 7.5V0.5H56.5V7.5H53.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M61.5 7.5V0.5H64.5V7.5H61.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M69.5 7.5V0.5H72.5V7.5H69.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M77.5 7.5V0.5H80.5V7.5H77.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M85.5 7.5V0.5H88.5V7.5H85.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M93.5 7.5V0.5H96.5V7.5H93.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M101.5 7.5V0.5H104.5V7.5H101.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <rect x='0.5' y='7.5' width='110' height='28' rx='3.5' fill='#A6D0DD' />
-                  <rect x='0.5' y='7.5' width='110' height='28' rx='3.5' stroke='#162029' />
-                </svg>
+                <SolutionSvg />
               </div>
               <p className={`font-20 ${styles.mainSliderItemHalfDesc2}`}>{trans[activeLang]?.slider1_slide2_text2}</p>
             </div>
@@ -230,24 +183,7 @@ const MainSlider = ({ trans }) => {
             <div className={styles.mainSliderItemHalf}>
               <div className={styles.mainSliderItemTask}>
                 <div className={styles.mainSliderItemTaskTxt}>Task 2</div>
-                <svg width='67' height='37' viewBox='0 0 67 37' fill='none' xmlns='http://www.w3.org/2000/svg'>
-                  <path d='M7.5 36.5V29.5H10.5V36.5H7.5Z' fill='#162029' stroke='#162029' />
-                  <path d='M15.5 36.5V29.5H18.5V36.5H15.5Z' fill='#162029' stroke='#162029' />
-                  <path d='M23.5 36.5V29.5H26.5V36.5H23.5Z' fill='#162029' stroke='#162029' />
-                  <path d='M31.5 36.5V29.5H34.5V36.5H31.5Z' fill='#162029' stroke='#162029' />
-                  <path d='M39.5 36.5V29.5H42.5V36.5H39.5Z' fill='#162029' stroke='#162029' />
-                  <path d='M47.5 36.5V29.5H50.5V36.5H47.5Z' fill='#162029' stroke='#162029' />
-                  <path d='M55.5 36.5V29.5H58.5V36.5H55.5Z' fill='#162029' stroke='#162029' />
-                  <path d='M7.5 7.5V0.5H10.5V7.5H7.5Z' fill='#162029' stroke='#162029' />
-                  <path d='M15.5 7.5V0.5H18.5V7.5H15.5Z' fill='#162029' stroke='#162029' />
-                  <path d='M23.5 7.5V0.5H26.5V7.5H23.5Z' fill='#162029' stroke='#162029' />
-                  <path d='M31.5 7.5V0.5H34.5V7.5H31.5Z' fill='#162029' stroke='#162029' />
-                  <path d='M39.5 7.5V0.5H42.5V7.5H39.5Z' fill='#162029' stroke='#162029' />
-                  <path d='M47.5 7.5V0.5H50.5V7.5H47.5Z' fill='#162029' stroke='#162029' />
-                  <path d='M55.5 7.5V0.5H58.5V7.5H55.5Z' fill='#162029' stroke='#162029' />
-                  <rect x='0.5' y='7.5' width='66' height='22' rx='3.5' fill='#162029' />
-                  <rect x='0.5' y='7.5' width='66' height='22' rx='3.5' stroke='#162029' />
-                </svg>
+                <TaskSvg />
               </div>
               <h2 className={`font-90 ttl`}>Usability</h2>
               <p className={`${styles.mainSliderItemHalfDesc1}`}>
@@ -257,36 +193,7 @@ const MainSlider = ({ trans }) => {
               </p>
               <div className={styles.mainSliderItemSolution}>
                 <div className={styles.mainSliderItemSolutionTxt}>Solution</div>
-                <svg width='111' height='43' viewBox='0 0 111 43' fill='none' xmlns='http://www.w3.org/2000/svg'>
-                  <path d='M5.5 42.5V35.5H8.5V42.5H5.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M13.5 42.5V35.5H16.5V42.5H13.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M21.5 42.5V35.5H24.5V42.5H21.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M29.5 42.5V35.5H32.5V42.5H29.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M37.5 42.5V35.5H40.5V42.5H37.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M45.5 42.5V35.5H48.5V42.5H45.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M53.5 42.5V35.5H56.5V42.5H53.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M61.5 42.5V35.5H64.5V42.5H61.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M69.5 42.5V35.5H72.5V42.5H69.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M77.5 42.5V35.5H80.5V42.5H77.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M85.5 42.5V35.5H88.5V42.5H85.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M93.5 42.5V35.5H96.5V42.5H93.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M101.5 42.5V35.5H104.5V42.5H101.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M5.5 7.5V0.5H8.5V7.5H5.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M13.5 7.5V0.5H16.5V7.5H13.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M21.5 7.5V0.5H24.5V7.5H21.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M29.5 7.5V0.5H32.5V7.5H29.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M37.5 7.5V0.5H40.5V7.5H37.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M45.5 7.5V0.5H48.5V7.5H45.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M53.5 7.5V0.5H56.5V7.5H53.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M61.5 7.5V0.5H64.5V7.5H61.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M69.5 7.5V0.5H72.5V7.5H69.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M77.5 7.5V0.5H80.5V7.5H77.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M85.5 7.5V0.5H88.5V7.5H85.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M93.5 7.5V0.5H96.5V7.5H93.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M101.5 7.5V0.5H104.5V7.5H101.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <rect x='0.5' y='7.5' width='110' height='28' rx='3.5' fill='#A6D0DD' />
-                  <rect x='0.5' y='7.5' width='110' height='28' rx='3.5' stroke='#162029' />
-                </svg>
+                <SolutionSvg />
               </div>
               <p className={`font-20 ${styles.mainSliderItemHalfDesc2}`}>
                 We are developing an easy to use ecosystem. This will include a wallet and simplified payment gateways,
@@ -299,24 +206,7 @@ const MainSlider = ({ trans }) => {
             <div className={styles.mainSliderItemHalf}>
               <div className={styles.mainSliderItemTask}>
                 <div className={styles.mainSliderItemTaskTxt}>Task 3</div>
-                <svg width='67' height='37' viewBox='0 0 67 37' fill='none' xmlns='http://www.w3.org/2000/svg'>
-                  <path d='M7.5 36.5V29.5H10.5V36.5H7.5Z' fill='#162029' stroke='#162029' />
-                  <path d='M15.5 36.5V29.5H18.5V36.5H15.5Z' fill='#162029' stroke='#162029' />
-                  <path d='M23.5 36.5V29.5H26.5V36.5H23.5Z' fill='#162029' stroke='#162029' />
-                  <path d='M31.5 36.5V29.5H34.5V36.5H31.5Z' fill='#162029' stroke='#162029' />
-                  <path d='M39.5 36.5V29.5H42.5V36.5H39.5Z' fill='#162029' stroke='#162029' />
-                  <path d='M47.5 36.5V29.5H50.5V36.5H47.5Z' fill='#162029' stroke='#162029' />
-                  <path d='M55.5 36.5V29.5H58.5V36.5H55.5Z' fill='#162029' stroke='#162029' />
-                  <path d='M7.5 7.5V0.5H10.5V7.5H7.5Z' fill='#162029' stroke='#162029' />
-                  <path d='M15.5 7.5V0.5H18.5V7.5H15.5Z' fill='#162029' stroke='#162029' />
-                  <path d='M23.5 7.5V0.5H26.5V7.5H23.5Z' fill='#162029' stroke='#162029' />
-                  <path d='M31.5 7.5V0.5H34.5V7.5H31.5Z' fill='#162029' stroke='#162029' />
-                  <path d='M39.5 7.5V0.5H42.5V7.5H39.5Z' fill='#162029' stroke='#162029' />
-                  <path d='M47.5 7.5V0.5H50.5V7.5H47.5Z' fill='#162029' stroke='#162029' />
-                  <path d='M55.5 7.5V0.5H58.5V7.5H55.5Z' fill='#162029' stroke='#162029' />
-                  <rect x='0.5' y='7.5' width='66' height='22' rx='3.5' fill='#162029' />
-                  <rect x='0.5' y='7.5' width='66' height='22' rx='3.5' stroke='#162029' />
-                </svg>
+                <TaskSvg />
               </div>
               <h2 className={`font-90 ttl`}>Interoperability</h2>
               <p className={`${styles.mainSliderItemHalfDesc1}`}>
@@ -325,36 +215,7 @@ const MainSlider = ({ trans }) => {
               </p>
               <div className={styles.mainSliderItemSolution}>
                 <div className={styles.mainSliderItemSolutionTxt}>Solution</div>
-                <svg width='111' height='43' viewBox='0 0 111 43' fill='none' xmlns='http://www.w3.org/2000/svg'>
-                  <path d='M5.5 42.5V35.5H8.5V42.5H5.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M13.5 42.5V35.5H16.5V42.5H13.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M21.5 42.5V35.5H24.5V42.5H21.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M29.5 42.5V35.5H32.5V42.5H29.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M37.5 42.5V35.5H40.5V42.5H37.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M45.5 42.5V35.5H48.5V42.5H45.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M53.5 42.5V35.5H56.5V42.5H53.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M61.5 42.5V35.5H64.5V42.5H61.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M69.5 42.5V35.5H72.5V42.5H69.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M77.5 42.5V35.5H80.5V42.5H77.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M85.5 42.5V35.5H88.5V42.5H85.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M93.5 42.5V35.5H96.5V42.5H93.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M101.5 42.5V35.5H104.5V42.5H101.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M5.5 7.5V0.5H8.5V7.5H5.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M13.5 7.5V0.5H16.5V7.5H13.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M21.5 7.5V0.5H24.5V7.5H21.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M29.5 7.5V0.5H32.5V7.5H29.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M37.5 7.5V0.5H40.5V7.5H37.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M45.5 7.5V0.5H48.5V7.5H45.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M53.5 7.5V0.5H56.5V7.5H53.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M61.5 7.5V0.5H64.5V7.5H61.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M69.5 7.5V0.5H72.5V7.5H69.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M77.5 7.5V0.5H80.5V7.5H77.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M85.5 7.5V0.5H88.5V7.5H85.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M93.5 7.5V0.5H96.5V7.5H93.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M101.5 7.5V0.5H104.5V7.5H101.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <rect x='0.5' y='7.5' width='110' height='28' rx='3.5' fill='#A6D0DD' />
-                  <rect x='0.5' y='7.5' width='110' height='28' rx='3.5' stroke='#162029' />
-                </svg>
+                <SolutionSvg />
               </div>
               <p className={`font-20 ${styles.mainSliderItemHalfDesc2}`}>
                 We address blockchain interoperability by improving the efficiency of cross-chain transactional logic
@@ -371,24 +232,7 @@ const MainSlider = ({ trans }) => {
             <div className={styles.mainSliderItemHalf}>
               <div className={styles.mainSliderItemTask}>
                 <div className={styles.mainSliderItemTaskTxt}>Task 4</div>
-                <svg width='67' height='37' viewBox='0 0 67 37' fill='none' xmlns='http://www.w3.org/2000/svg'>
-                  <path d='M7.5 36.5V29.5H10.5V36.5H7.5Z' fill='#162029' stroke='#162029' />
-                  <path d='M15.5 36.5V29.5H18.5V36.5H15.5Z' fill='#162029' stroke='#162029' />
-                  <path d='M23.5 36.5V29.5H26.5V36.5H23.5Z' fill='#162029' stroke='#162029' />
-                  <path d='M31.5 36.5V29.5H34.5V36.5H31.5Z' fill='#162029' stroke='#162029' />
-                  <path d='M39.5 36.5V29.5H42.5V36.5H39.5Z' fill='#162029' stroke='#162029' />
-                  <path d='M47.5 36.5V29.5H50.5V36.5H47.5Z' fill='#162029' stroke='#162029' />
-                  <path d='M55.5 36.5V29.5H58.5V36.5H55.5Z' fill='#162029' stroke='#162029' />
-                  <path d='M7.5 7.5V0.5H10.5V7.5H7.5Z' fill='#162029' stroke='#162029' />
-                  <path d='M15.5 7.5V0.5H18.5V7.5H15.5Z' fill='#162029' stroke='#162029' />
-                  <path d='M23.5 7.5V0.5H26.5V7.5H23.5Z' fill='#162029' stroke='#162029' />
-                  <path d='M31.5 7.5V0.5H34.5V7.5H31.5Z' fill='#162029' stroke='#162029' />
-                  <path d='M39.5 7.5V0.5H42.5V7.5H39.5Z' fill='#162029' stroke='#162029' />
-                  <path d='M47.5 7.5V0.5H50.5V7.5H47.5Z' fill='#162029' stroke='#162029' />
-                  <path d='M55.5 7.5V0.5H58.5V7.5H55.5Z' fill='#162029' stroke='#162029' />
-                  <rect x='0.5' y='7.5' width='66' height='22' rx='3.5' fill='#162029' />
-                  <rect x='0.5' y='7.5' width='66' height='22' rx='3.5' stroke='#162029' />
-                </svg>
+                <TaskSvg />
               </div>
               <h2 className={`font-90 ttl`}>Security</h2>
               <p className={`${styles.mainSliderItemHalfDesc1}`}>
@@ -398,36 +242,7 @@ const MainSlider = ({ trans }) => {
               </p>
               <div className={styles.mainSliderItemSolution}>
                 <div className={styles.mainSliderItemSolutionTxt}>Solution</div>
-                <svg width='111' height='43' viewBox='0 0 111 43' fill='none' xmlns='http://www.w3.org/2000/svg'>
-                  <path d='M5.5 42.5V35.5H8.5V42.5H5.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M13.5 42.5V35.5H16.5V42.5H13.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M21.5 42.5V35.5H24.5V42.5H21.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M29.5 42.5V35.5H32.5V42.5H29.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M37.5 42.5V35.5H40.5V42.5H37.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M45.5 42.5V35.5H48.5V42.5H45.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M53.5 42.5V35.5H56.5V42.5H53.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M61.5 42.5V35.5H64.5V42.5H61.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M69.5 42.5V35.5H72.5V42.5H69.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M77.5 42.5V35.5H80.5V42.5H77.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M85.5 42.5V35.5H88.5V42.5H85.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M93.5 42.5V35.5H96.5V42.5H93.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M101.5 42.5V35.5H104.5V42.5H101.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M5.5 7.5V0.5H8.5V7.5H5.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M13.5 7.5V0.5H16.5V7.5H13.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M21.5 7.5V0.5H24.5V7.5H21.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M29.5 7.5V0.5H32.5V7.5H29.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M37.5 7.5V0.5H40.5V7.5H37.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M45.5 7.5V0.5H48.5V7.5H45.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M53.5 7.5V0.5H56.5V7.5H53.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M61.5 7.5V0.5H64.5V7.5H61.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M69.5 7.5V0.5H72.5V7.5H69.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M77.5 7.5V0.5H80.5V7.5H77.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M85.5 7.5V0.5H88.5V7.5H85.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M93.5 7.5V0.5H96.5V7.5H93.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <path d='M101.5 7.5V0.5H104.5V7.5H101.5Z' fill='#A6D0DD' stroke='#162029' />
-                  <rect x='0.5' y='7.5' width='110' height='28' rx='3.5' fill='#A6D0DD' />
-                  <rect x='0.5' y='7.5' width='110' height='28' rx='3.5' stroke='#162029' />
-                </svg>
+                <SolutionSvg />
               </div>
               <p className={`font-20 ${styles.mainSliderItemHalfDesc2}`}>
                 Security is guaranteed in our ecosystem thanks to secure multi-party computation, committee
