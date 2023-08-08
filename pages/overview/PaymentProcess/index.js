@@ -1,10 +1,9 @@
-import React from 'react';
-import Contribute from '../../../components/home/contrubute/Contrubute';
+import PaymentProcess from '../../../components/home/PaymentProcess/PaymentProcess';
 
 const idex = () => {
   return (
     <div style={{ paddingTop: '150px', backgroundColor: '#fff2e4' }}>
-      <Contribute />
+      <PaymentProcess />
     </div>
   );
 };

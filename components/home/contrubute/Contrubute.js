@@ -1,11 +1,11 @@
 import Header from './components/Header';
-// import Botoom from './components/Botoom';
+import Bottom from './components/Bottom';
 
 const Contribute = () => {
   return (
     <div>
       <Header />
-      {/* <Botoom /> */}
+      <Bottom />
     </div>
   );
 };
