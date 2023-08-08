@@ -1,7 +1,7 @@
 import Terms from '../../../components/home/terms/Terms';
 
-function index() {
+const index = () => {
   return <Terms />;
-}
+};
 
 export default index;

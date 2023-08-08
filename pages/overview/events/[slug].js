@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
+import React from 'react';
 import createAxiosInstance from '../../../pages/api/axios';
 import EventsItem from '../../../components/home/events/EventsItem';
 
@@ -7,7 +6,7 @@ export const getStaticPaths = async ({ locales }) => {
   const axios = createAxiosInstance();
 
   let events = await axios
-  .get(`${process.env.NEXT_PUBLIC_URL}/event/get-all-event`)
+  .get(`${process.env.NEXT_PUBLIC_URL}/event/get-all-event-slug`)
   .then(res => {
     return res?.data;
   })
@@ -45,13 +44,12 @@ export const getStaticProps = async context => {
 
   return {
     props: {
-      item: foundItem,
-      slug,
+      item: foundItem
     },
   };
 };
 
-const EventsInner = ({ item }) => {
+const index = ({ item }) => {
   return (
     <div className='container' style={{ paddingTop: '200px', paddingBottom: '100px' }}>
       <EventsItem item={item} />
@@ -59,4 +57,4 @@ const EventsInner = ({ item }) => {
   );
 };
 
-export default EventsInner;
+export default index;

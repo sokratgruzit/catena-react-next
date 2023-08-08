@@ -24,7 +24,7 @@ export const getStaticPaths = async ({ locales }) => {
     );
   } else {
     paths = locales.map((loc) => ({
-      params: { slug: 'default' },
+      params: { slug: `press-${loc}` },
       locale: loc,
     }));
   }
@@ -46,13 +46,12 @@ export const getStaticProps = async context => {
   return {
     props: {
       item: foundItem,
-      slug,
       press: pressByYears
     },
   };
 };
 
-const PressSlug = ({ item, press }) => {
+const index = ({ item, press }) => {
   return (
     <div className='container' style={{ paddingTop: '200px', paddingBottom: '100px' }}>
       <PressItem item={item} press={press} />
@@ -60,4 +59,4 @@ const PressSlug = ({ item, press }) => {
   );
 };
 
-export default PressSlug;
+export default index;

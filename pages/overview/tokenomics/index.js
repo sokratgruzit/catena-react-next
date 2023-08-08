@@ -1,7 +1,7 @@
 import Tokenomics from '../../../components/home/tokenomics/Tokenomics';
 
-function index() {
+const index = () => {
   return <Tokenomics />;
-}
+};
 
 export default index;

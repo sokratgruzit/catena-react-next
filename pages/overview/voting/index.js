@@ -2,8 +2,8 @@ import React from 'react';
 
 import Voting from '../../../components/voting/voting/Voting';
 
-const VotingPage = () => {
+const index = () => {
   return <Voting />;
 };
 
-export default VotingPage;
+export default index;
