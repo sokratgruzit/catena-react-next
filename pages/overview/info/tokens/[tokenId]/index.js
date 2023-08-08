@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import React from 'react';
-// import { MongoClient } from 'mongodb';
 
 import TokenSection from '../../../../../components/Info/components/TokensSection/TokenSection';
 import BackgroundImg from '../../../../../public/images/Info/background/background.png';
@@ -83,19 +82,6 @@ export async function getStaticPaths(context) {
 export async function getStaticProps(context) {
   const { tokenId } = context.params;
 
-  // const client = await MongoClient.connect(
-  //   'mongodb+srv://sokrat:sokrat12345@cluster0.x2cvw.mongodb.net/cmcx?retryWrites=true&w=majority',
-  // );
-  // const db = client.db();
-
-  // const InfoTokensDetails = db.collection('InfoTokensDetails');
-  // const tokensData = await InfoTokensDetails.findOne({ id: 1 });
-
-  // delete tokensData._id;
-
-  // client.close();
-
-  // console.log(tokensData);
   const res = await fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${tokenId}`);
 
   const tokensData = await res.json();

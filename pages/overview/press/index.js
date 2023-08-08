@@ -22,7 +22,7 @@ export async function getServerSideProps({ query }) {
   };
 }
 
-const Index = ({ press, currentPage = 1, totalCount }) => {
+const index = ({ press, currentPage = 1, totalCount }) => {
   return (
     <div style={{ paddingTop: '150px' }}>
       <Press press={press} currentPage={currentPage} totalCount={totalCount} />
@@ -30,4 +30,4 @@ const Index = ({ press, currentPage = 1, totalCount }) => {
   );
 };
 
-export default Index;
+export default index;

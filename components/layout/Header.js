@@ -147,22 +147,22 @@ const Header = () => {
     {
       id: 1,
       title: 'Trade',
-      route: '/trade/swap',
+      route: '/overview/trade/swap',
       subNav: [
         {
           id: 1,
           title: 'Swap',
-          route: '/trade/swap',
+          route: '/overview/trade/swap',
         },
         {
           id: 2,
           title: 'Bridge',
-          route: '/trade/bridge',
+          route: '/overview/trade/bridge',
         },
         {
           id: 3,
           title: 'Staking',
-          route: '/trade/staking',
+          route: '/overview/trade/staking',
         },
         /*{
           id: 4,
@@ -218,7 +218,7 @@ const Header = () => {
     {
       id: 5,
       title: 'More',
-      route: '/voting',
+      route: '/overview/voting',
       subNav: [
         /*{
           id: 13,
@@ -228,7 +228,7 @@ const Header = () => {
         {
           id: 14,
           title: 'Voting',
-          route: '/voting',
+          route: '/overview/voting',
         },
         {
           id: 456,
