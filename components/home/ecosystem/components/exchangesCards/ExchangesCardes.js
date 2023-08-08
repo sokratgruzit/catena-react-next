@@ -3,7 +3,7 @@ import styles from './ExcangesCards.module.css';
 
 const ExchangesCards = ({ data }) => {
   const [exchang, setExchanges] = useState('exchange');
-  console.log(data?.length)
+  
   return (
     <div>
       <div className={styles.cardinfo}>CMCX listed on {data?.length} Exchanges</div>
