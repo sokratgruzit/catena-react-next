@@ -34,11 +34,14 @@ const Header = () => {
     account,
     connect,
     chainId,
+    MetaMaskEagerlyConnect,
+    WalletConnectEagerly
   } = useConnect();
   const axios = useMemo(() => createAxiosInstance(), []);
   const locales = useSelector(state => state.settings.locales);
   const activeLang = useSelector(state => state.settings.activeLang);
   const triedReconnect = useSelector(state => state.appState.triedReconnect);
+  const providerType = useSelector(state => state.connect.providerType);
 
   const [activeMenu, setActiveMenu] = useState(null);
   const [activeLangs, setActiveLangs] = useState(false);
@@ -451,7 +454,6 @@ const Header = () => {
     } else {
       setBalance(0);
     }
-    // console.log(isConnected);
   }, [account, isConnected]);
 
   useEffect(() => {
@@ -460,6 +462,18 @@ const Header = () => {
     }
 
     if (window.innerWidth <= 767) {
+    }
+
+    MetaMaskEagerlyConnect(injected, () => {
+      dispatch({ type: 'SET_TRIED_RECONNECT', payload: true });
+    });
+
+    WalletConnectEagerly(walletConnect, () => {
+      dispatch({ type: 'SET_TRIED_RECONNECT', payload: true });
+    });
+
+    if (!providerType) {
+      dispatch({ type: 'SET_TRIED_RECONNECT', payload: true });
     }
 
     getLocales();
@@ -603,11 +617,11 @@ const Header = () => {
                         <circle className={`${styles.navCircle} navCircle navCircle${item.id}`} cx="3" cy="3" r="2.25" transform="matrix(-1 0 0 1 538.6 170.06)" stroke="#162029" strokeWidth="1.5"/>
                       </g>
                       <g opacity="0.4">
-                        <path className={`${styles.navLine} navLine navLine${item.id}`} d="M521.6 259.06V251.16V243.27V235.37V227.48V219.58V211.69V203.79V195.9V188V180.11V172.21V164.32L516.02 158.74V150.84V142.95V135.05V127.16V119.26V111.37V103.47V95.58V87.69V79.79V71.9001V64" stroke="#162029" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path className={`${styles.navLine} navLine navLine${item.id}`} d="M521.6 259.06V251.16V243.27V235.37V227.48V219.58V211.69V203.79V195.9V188V180.11V172.21V164.32L516.02 158.74V150.84V142.95V135.05V127.16V119.26V111.37V103.47V95.58V87.69V79.79V71.9001V64" stroke="#162029" strokeLinecap="round" strokeLinejoin="round"/>
                         <path className={`${styles.navCircle} navCircle navCircle${item.id}`} d="M519 64C519 63.4067 518.824 62.8267 518.494 62.3333C518.165 61.84 517.696 61.4554 517.148 61.2284C516.6 61.0013 515.997 60.9419 515.415 61.0576C514.833 61.1734 514.298 61.4591 513.879 61.8787C513.459 62.2983 513.173 62.8328 513.058 63.4147C512.942 63.9967 513.001 64.5999 513.228 65.1481C513.455 65.6962 513.84 66.1648 514.333 66.4944C514.827 66.8241 515.407 67 516 67C516.796 67 517.559 66.6839 518.121 66.1213C518.684 65.5587 519 64.7956 519 64Z" fill="#162029"/>
                       </g>
                       <g opacity="0.2">
-                        <path className={`${styles.navLine} navLine navLine${item.id}`} d="M119 89.5156L126.9 89.5156L134.79 89.5156L142.68 89.5156L148.26 95.0956L153.85 100.676L159.43 106.266L165.01 111.846L170.6 117.426L178.49 117.426L186.39 117.426L194.28 117.426L202.17 117.426L210.07 117.426L217.96 117.426L225.86 117.426L233.76 117.426L241.65 117.426L249.54 117.426L257.44 117.426L265.33 117.426L273.23 117.426L278.81 123.016L284.39 128.596L289.98 134.176L295.56 139.756L301.14 145.336L306.72 150.926L312.3 156.506L317.88 162.086L323.47 167.666L329.05 173.256L336.95 173.256L344.84 173.256L352.74 173.256L360.63 173.256L368.52 173.256L376.42 173.256L384.31 173.256L392.21 173.256L400.1 173.256L408 173.256L415.89 173.256L423.79 173.256L429.37 167.666L434.95 162.086L440.53 156.506L446.12 150.926L451.7 156.506L457.28 162.086L462.86 167.666L468.45 173.256" stroke="#162029" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path className={`${styles.navLine} navLine navLine${item.id}`} d="M119 89.5156L126.9 89.5156L134.79 89.5156L142.68 89.5156L148.26 95.0956L153.85 100.676L159.43 106.266L165.01 111.846L170.6 117.426L178.49 117.426L186.39 117.426L194.28 117.426L202.17 117.426L210.07 117.426L217.96 117.426L225.86 117.426L233.76 117.426L241.65 117.426L249.54 117.426L257.44 117.426L265.33 117.426L273.23 117.426L278.81 123.016L284.39 128.596L289.98 134.176L295.56 139.756L301.14 145.336L306.72 150.926L312.3 156.506L317.88 162.086L323.47 167.666L329.05 173.256L336.95 173.256L344.84 173.256L352.74 173.256L360.63 173.256L368.52 173.256L376.42 173.256L384.31 173.256L392.21 173.256L400.1 173.256L408 173.256L415.89 173.256L423.79 173.256L429.37 167.666L434.95 162.086L440.53 156.506L446.12 150.926L451.7 156.506L457.28 162.086L462.86 167.666L468.45 173.256" stroke="#162029" strokeLinecap="round" strokeLinejoin="round"/>
                         <path className={`${styles.navLine} navLine navLine${item.id}`} d="M472.249 174.994C472.265 174.409 472.06 173.841 471.675 173.401C471.237 172.984 470.655 172.75 470.049 172.75C469.438 172.75 468.851 172.988 468.413 173.413C467.988 173.851 467.75 174.438 467.75 175.049C467.75 175.655 467.984 176.237 468.401 176.675C468.841 177.06 469.409 177.265 469.994 177.249C470.587 177.233 471.151 176.99 471.571 176.571C471.99 176.151 472.233 175.587 472.249 174.994Z" stroke="#162029" strokeWidth="1.5"/>
                         <path className={`${styles.navLine} navLine navLine${item.id}`} d="M118.249 89.994C118.265 89.4095 118.06 88.8407 117.675 88.4014C117.237 87.9835 116.655 87.75 116.049 87.75C115.438 87.75 114.851 87.9877 114.413 88.4125C113.988 88.8514 113.75 89.4383 113.75 90.0494C113.75 90.6551 113.984 91.2372 114.401 91.6747C114.841 92.0598 115.409 92.2652 115.994 92.2491C116.587 92.2329 117.151 91.9901 117.571 91.5706C117.99 91.1512 118.233 90.587 118.249 89.994Z" stroke="#162029" strokeWidth="1.5"/>
                       </g>
@@ -630,7 +644,7 @@ const Header = () => {
                       <circle className={`${styles.navCircle} navCircle navCircle${item.id}`} cx="3" cy="3" r="2.25" transform="matrix(-4.37114e-08 -1 -1 4.37114e-08 590 34)" stroke="#A6D0DD" strokeWidth="1.5"/>
                       <circle className={`${styles.navCircle} navCircle navCircle${item.id}`} cx="3" cy="3" r="2.25" transform="matrix(-4.37114e-08 -1 -1 4.37114e-08 618 137)" stroke="#A6D0DD" strokeWidth="1.5"/>
                       <g opacity="0.2">
-                        <path className={`${styles.navLine} navLine navLine${item.id}`} d="M599.489 253L599.489 245.1L599.489 237.21L599.489 229.31L599.489 221.42L599.489 213.52L599.489 205.63L599.489 197.74L599.489 189.84L599.489 181.95L599.489 174.05L599.489 166.15L599.489 158.26L599.489 150.37L599.489 142.47L599.489 134.58L599.489 126.68L599.489 118.79L599.489 110.89L599.489 103L599.489 95.1001L599.489 87.2101L599.489 79.3201L599.489 71.4201L599.489 63.5301L593.909 57.9401L588.329 52.3601L582.739 46.7801L577.159 41.2001L569.269 41.2001L561.369 41.2001L553.479 41.2001L545.589 41.2001L537.689 41.2001L529.789 41.2001L524.209 35.6101" stroke="#162029" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path className={`${styles.navLine} navLine navLine${item.id}`} d="M599.489 253L599.489 245.1L599.489 237.21L599.489 229.31L599.489 221.42L599.489 213.52L599.489 205.63L599.489 197.74L599.489 189.84L599.489 181.95L599.489 174.05L599.489 166.15L599.489 158.26L599.489 150.37L599.489 142.47L599.489 134.58L599.489 126.68L599.489 118.79L599.489 110.89L599.489 103L599.489 95.1001L599.489 87.2101L599.489 79.3201L599.489 71.4201L599.489 63.5301L593.909 57.9401L588.329 52.3601L582.739 46.7801L577.159 41.2001L569.269 41.2001L561.369 41.2001L553.479 41.2001L545.589 41.2001L537.689 41.2001L529.789 41.2001L524.209 35.6101" stroke="#162029" strokeLinecap="round" strokeLinejoin="round"/>
                         <path className={`${styles.navCircle} navCircle navCircle${item.id}`} d="M525.789 34.0401C525.479 33.7297 525.083 33.5184 524.653 33.4327C524.222 33.3471 523.776 33.3911 523.37 33.5592C522.964 33.7272 522.618 34.0118 522.374 34.3768C522.13 34.7419 522 35.1711 522 35.6101C522 36.0492 522.13 36.4784 522.374 36.8434C522.618 37.2085 522.964 37.493 523.37 37.6611C523.776 37.8291 524.222 37.8731 524.653 37.7875C525.083 37.7019 525.479 37.4905 525.789 37.1801C526.203 36.7625 526.436 36.1982 526.436 35.6101C526.436 35.0221 526.203 34.4578 525.789 34.0401Z" fill="#162029"/>
                       </g>
                       <g opacity="0.6">
@@ -638,7 +652,7 @@ const Header = () => {
                         <circle className={`${styles.navCircle} navCircle navCircle${item.id}`} cx="543" cy="50" r="2.25" transform="rotate(-90 543 50)" stroke="#162029" strokeWidth="1.5"/>
                       </g>
                       <g opacity="0.4">
-                        <path className={`${styles.navLine} navLine navLine${item.id}`} d="M472.484 6.00003L472.484 13.9001L472.484 21.79L472.484 29.6801L466.904 35.26L461.324 40.85L455.734 46.4301L450.154 52.01L444.574 57.6L444.574 65.4901L444.574 73.39L444.574 81.28L444.574 89.17L444.574 97.07L444.574 104.96L444.574 112.86L444.574 120.76L444.574 128.65L444.574 136.54" stroke="#162029" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path className={`${styles.navLine} navLine navLine${item.id}`} d="M472.484 6.00003L472.484 13.9001L472.484 21.79L472.484 29.6801L466.904 35.26L461.324 40.85L455.734 46.4301L450.154 52.01L444.574 57.6L444.574 65.4901L444.574 73.39L444.574 81.28L444.574 89.17L444.574 97.07L444.574 104.96L444.574 112.86L444.574 120.76L444.574 128.65L444.574 136.54" stroke="#162029" strokeLinecap="round" strokeLinejoin="round"/>
                         <path className={`${styles.navCircle} navCircle navCircle${item.id}`} d="M445.006 141.249C445.591 141.265 446.159 141.06 446.599 140.675C447.016 140.237 447.25 139.655 447.25 139.049C447.25 138.438 447.012 137.851 446.587 137.413C446.149 136.988 445.562 136.75 444.951 136.75C444.345 136.75 443.763 136.984 443.325 137.401C442.94 137.841 442.735 138.409 442.751 138.994C442.767 139.587 443.01 140.151 443.429 140.571C443.849 140.99 444.413 141.233 445.006 141.249Z" stroke="#162029" strokeWidth="1.5"/>
                         <path className={`${styles.navCircle} navCircle navCircle${item.id}`} d="M472.006 5.24913C472.591 5.26516 473.159 5.0598 473.599 4.67473C474.016 4.23716 474.25 3.65511 474.25 3.0494C474.25 2.43834 474.012 1.85138 473.587 1.41253C473.149 0.987673 472.562 0.75 471.951 0.75C471.345 0.75 470.763 0.983541 470.325 1.40145C469.94 1.84073 469.735 2.40946 469.751 2.99402C469.767 3.58698 470.01 4.15117 470.429 4.57061C470.849 4.99005 471.413 5.23287 472.006 5.24913Z" stroke="#162029" strokeWidth="1.5"/>
                       </g>
@@ -1645,7 +1659,7 @@ const Header = () => {
                 </svg>
               </a>
             </Link>
-            <Link href='/make-profile' locale={activeLang}>
+            {account && <Link href='/overview/make-profile' locale={activeLang}>
               <a className={styles.headerConnectedModalLink}>
                 <span>Make a Profile</span>
                 <svg width='5' height='9' viewBox='0 0 5 9' fill='none' xmlns='http://www.w3.org/2000/svg'>
@@ -1657,7 +1671,7 @@ const Header = () => {
                   />
                 </svg>
               </a>
-            </Link>
+            </Link>}
             <i></i>
             <div
               className={styles.headerConnectedModalLink}
