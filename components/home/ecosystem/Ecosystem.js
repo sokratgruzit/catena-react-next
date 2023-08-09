@@ -5,10 +5,12 @@ import JoinCommunity from '../events/components/JoinCommunity';
 
 const Ecosystem = ({ exchanges }) => {
   return (
-    <div className='container' >
+    <div className='pT-180'>
+      <div className='container' >
         <Title />
         <ExchangesCards data={exchanges} />
         <Card />
+      </div>
     </div>
   );
 };
