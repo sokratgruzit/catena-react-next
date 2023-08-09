@@ -8,6 +8,12 @@
   left: 0px;
   z-index: 100 !important;
   transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+  transform: translateY(-10px);
+  opacity: 0;
+}
+.headerActive.header {
+  transform: translateY(0px);
+  opacity: 1;
 }
 
 .stickHeader {

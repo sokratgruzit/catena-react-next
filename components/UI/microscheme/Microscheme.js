@@ -5,7 +5,6 @@ import { gsap, Linear } from 'gsap';
 
 const Microscheme = props => {
     let lvl = useSelector(state => state.settings.microschemeArray);
-    console.log(lvl)
     let animateLines = (array) => {
         let stringIn = '';
         let stringOut = '';
@@ -52,7 +51,7 @@ const Microscheme = props => {
                 ease: Linear.easeNone
             });
         }
-    }
+    };
     useEffect(() => {
         animateLines(lvl);
     }, [lvl]);
