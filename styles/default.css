@@ -95,7 +95,7 @@ button {
 
 /* width */
 *::-webkit-scrollbar {
-  width: 8px;
+  width: 5px;
 }
 
 /* Track */
@@ -105,7 +105,7 @@ button {
 
 /* Handle */
 *::-webkit-scrollbar-thumb {
-  background: #0500ff;
+  background: #A6D0DD;
 }
 .noise-parent {
   position: fixed;
