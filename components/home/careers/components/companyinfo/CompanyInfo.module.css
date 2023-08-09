@@ -1,5 +1,5 @@
 .workStyle {
-  margin-top: 40px;
+  margin-top: 30px;
   color: #162029;
 }
 
@@ -20,6 +20,10 @@
 
   .careerHow p {
     width: 85%;
+  }
+
+  .workStyle {
+    margin-top: 20px;
   }
 
   .font__51 {
