@@ -10,7 +10,7 @@ const Feature = ({ featureLinkList, title, showButton }) => {
   const [isPopupVisible, setPopupVisible] = useState(null);
 
   const handlePopupClick = (index) => {
-    setCopiedLink(`http://localhost:3000/overview/careers/${featureLinkList[index].id}`);
+    setCopiedLink(`${process.env.NEXT_PUBLIC_URL}/careers/${featureLinkList[index].id}`);
     setPopupVisible(index);
     setTimeout(() => {
       setPopupVisible(null);
@@ -37,7 +37,7 @@ const Feature = ({ featureLinkList, title, showButton }) => {
   const axios = createAxiosInstance();
   useEffect(() => {
     axios
-      .get(`http://localhost:4003/careers/get-all-careers`)
+      .get(`${process.env.NEXT_PUBLIC_URL}/careers/get-all-careers`)
       .then(res => {
         // console.log(res.data);
         setAllCareers(res.data)
@@ -53,7 +53,7 @@ const Feature = ({ featureLinkList, title, showButton }) => {
         <h2 className={`${styles.font__51} font-40 ttl`}>{title}</h2>
         <div className='container_bordered-child'>
           <div className={`${styles.openPositionsList}`}>
-          {/* {allCareers?.map((item, index) => {
+            {/* {allCareers?.map((item, index) => {
               // console.log(item);
               return (
                 <div className={styles.openPositionsListItem} key={index}>
@@ -102,18 +102,18 @@ const Feature = ({ featureLinkList, title, showButton }) => {
               <div className={styles.openPositionsListItem} key={item.id}>
                 <Link href={`/overview/careers/${item.id}`} key={item.id}>
                   <div>
-                    <span style={{color: '#162029'}} className='ttl'>{item.title}</span>
+                    <span style={{ color: '#162029' }} className='ttl'>{item.title}</span>
                   </div>
                 </Link>
                 {isPopupVisible === index && (
                   <div className={styles.popup}>
-                    <p style={{color: 'white'}}>Copied!</p>
+                    <p style={{ color: 'white' }}>Copied!</p>
                   </div>
                 )}
                 <svg
                   className={styles.openPositionsListItemSvg}
                   onClick={() => {
-                    handleCopy(`http://localhost:3000/overview/careers/${item.id}`);
+                    handleCopy(`${process.env.NEXT_PUBLIC_URL}/careers/${item.id}`);
                     handlePopupClick(index);
                   }}
                   xmlns='http://www.w3.org/2000/svg'
@@ -133,7 +133,7 @@ const Feature = ({ featureLinkList, title, showButton }) => {
                 </svg>
                 <p>
                   {item.list.map((item, index) => (
-                    <span style={{color: '#162029'}} className='ttl' key={index}>
+                    <span style={{ color: '#162029' }} className='ttl' key={index}>
                       {item}
                     </span>
                   ))}

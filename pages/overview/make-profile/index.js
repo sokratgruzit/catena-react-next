@@ -1,7 +1,7 @@
-import React from 'react';
+import MakeProfile from '../../../components/makeProfile/MakeProfile';
 
 const index = () => {
-  return <div>Make Profile</div>;
+  return <MakeProfile />;
 };
 
 export default index;

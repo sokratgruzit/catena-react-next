@@ -26,8 +26,8 @@ export const getStaticPaths = async ({ locales }) => {
     paths = locales.map((loc) => ({
       params: { slug: `press-${loc}` },
       locale: loc,
-    })),
-  );
+    }));
+  }
 
   return {
     paths,
