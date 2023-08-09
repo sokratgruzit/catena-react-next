@@ -5,6 +5,7 @@
   align-items: center;
   justify-content: center;
   height: 670px;
+  z-index: 9999;
 }
 
 .makeProfileWrapper {
@@ -12,6 +13,7 @@
   flex-direction: column;
   gap: 10px;
   width: 600px;
+  z-index: 9999;
 }
 
 .input {
