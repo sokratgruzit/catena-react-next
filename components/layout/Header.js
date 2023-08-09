@@ -3,10 +3,9 @@ import Link from 'next/link';
 import { useState, useEffect, useMemo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import useLanguages from '../../hooks/useLanguages';
-// import useConnect from "../../hooks/use-connect";
-
-import { injected, walletConnect } from '../../connector';
-import useConnect from '../../hooks/use-connect';
+import { gsap, Linear } from 'gsap';
+import { injected, walletConnect } from '../../hooks/connector';
+import { useConnect } from '../../hooks/use-connect';
 import createAxiosInstance from '../../pages/api/axios';
 import Button from '../UI/button/Button';
 import Tooltip from '../UI/tooltip/Tooltip';
@@ -15,13 +14,13 @@ import styles from './Header.module.css';
 
 const WALLETS_DATA = [
   {
-    id: 1,
+    id: 'meta-0',
     title: 'Metamask',
     img: 'meta.png',
     type: 'metaMask',
   },
   {
-    id: 2,
+    id: 'connect-0',
     title: 'Wallet Connect',
     img: 'walletconnect.png',
     type: 'walletConnect',
@@ -29,12 +28,20 @@ const WALLETS_DATA = [
 ];
 
 const Header = () => {
-  const { connect, disconnect, library, error, setError } = useConnect();
+  const {
+    library,
+    disconnect,
+    switchToBscTestnet,
+    account,
+    MetaMaskEagerlyConnect,
+    WalletConnectEagerly,
+    connect,
+    chainId,
+  } = useConnect();
   const axios = useMemo(() => createAxiosInstance(), []);
   const locales = useSelector(state => state.settings.locales);
   const activeLang = useSelector(state => state.settings.activeLang);
-
-  const account = useSelector(state => state.connect.account);
+  const providerType = useSelector((state) => state.connect.providerType);
   const triedReconnect = useSelector(state => state.appState.triedReconnect);
 
   const [activeMenu, setActiveMenu] = useState(null);
@@ -56,86 +63,89 @@ const Header = () => {
 
   const NAV_DATA = [
     {
-      id: 0,
+      id: 'overview-main',
       title: 'Overview',
       route: '/',
       subNav: [],
       subNavWithTitle: [
         {
+          id: 'about-main',
           title:'About Us',
           subNav: [
             {
-              id: 20,
+              id: 'about-0',
               title: 'Brand Guidlines',
               route: '/overview/brand-guidelines',
             },
             {
-              id: 21,
+              id: 'about-1',
               title: 'Careers',
               route: '/overview/careers',
             },
             {
-              id: 22,
+              id: 'about-2',
               title: 'Press',
               route: '/overview/press',
             },
             {
-              id: 23,
+              id: 'about-3',
               title: 'Events',
               route: '/overview/events',
             },
             {
-              id: 24,
+              id: 'about-4',
               title: 'Privacy',
               route: '/overview/privacy',
             },
             {
-              id: 25,
+              id: 'about-5',
               title: 'Terms',
               route: '/overview/terms',
             }
           ]
         },
         {
+          id: 'support-main',
           title:'Support',
           subNav: [
             {
-              id: 26,
+              id: 'support-0',
               title: 'Bug Bounty',
               route: '/overview/bug-bounty',
             },
             {
-              id: 27,
+              id: 'support-1',
               title: 'Your Voice Matter',
               route: '/overview/your-voice',
             },
             {
-              id: 28,
+              id: 'support-2',
               title: 'Support',
               route: '/overview/support',
             },
             {
-              id: 29,
+              id: 'support-3',
               title: 'FAQ',
               route: '/overview/faq',
             },
             {
-              id: 30,
+              id: 'support-4',
               title: 'Ambassador',
               route: '/overview/ambassador',
             }
           ]
         },
         {
+          id: 'learn-main',
           title:'Learn',
           subNav: [
             {
-              id: 31,
+              id: 'learn-0',
               title: 'Technology',
               route: '/overview/technology',
             },
             {
-              id: 32,
+              id: 'learn-1',
               title: 'Tokenomics',
               route: '/overview/tokenomics',
             }
@@ -144,24 +154,24 @@ const Header = () => {
       ]
     },
     {
-      id: 1,
+      id: 'trade-main',
       title: 'Trade',
-      route: '/trade/swap',
+      route: '/overview/trade/swap',
       subNav: [
         {
-          id: 1,
+          id: 'trade-0',
           title: 'Swap',
-          route: '/trade/swap',
+          route: '/overview/trade/swap',
         },
         {
-          id: 2,
+          id: 'trade-1',
           title: 'Bridge',
-          route: '/trade/bridge',
+          route: '/overview/trade/bridge',
         },
         {
-          id: 3,
+          id: 'trade-2',
           title: 'Staking',
-          route: '/trade/staking',
+          route: '/overview/trade/staking',
         },
         /*{
           id: 4,
@@ -215,9 +225,9 @@ const Header = () => {
       ],
     },*/
     {
-      id: 5,
+      id: 'more-main',
       title: 'More',
-      route: '/voting',
+      route: '/overview/voting',
       subNav: [
         /*{
           id: 13,
@@ -225,12 +235,12 @@ const Header = () => {
           route: '/info',
         },*/
         {
-          id: 14,
+          id: 'more-0',
           title: 'Voting',
-          route: '/voting',
+          route: '/overview/voting',
         },
         {
-          id: 456,
+          id: 'more-1',
           title: 'Wallet',
           route: 'https://wallet-landing-next-six.vercel.app',
         },
@@ -248,7 +258,7 @@ const Header = () => {
       type: "SET_ACTIVE_LANG",
       activeLang: loc
     });
-        
+
     handleLanguageChange(loc);
   };
 
@@ -266,9 +276,47 @@ const Header = () => {
     if (window.innerWidth >= 1024) {
       closeAll();
     }
+    gsap.to(`.navCircle`, {
+      opacity: 0,
+      // strokeDasharray: 900,
+      duration: 1, // Adjust the duration as needed
+      ease: Linear.easeNone
+    });
+    gsap.to(`.navLine`, {
+      strokeDashoffset: 900,
+      strokeDasharray: 900,
+      duration: 1, // Adjust the duration as needed
+      ease: Linear.easeNone
+    });
     if (activeMenu !== id) {
       setActiveMenu(id);
+      setTimeout(() => {
+        gsap.to(`.navCircle${id}`, {
+          opacity: 1,
+          // strokeDasharray: 900,
+          duration: 4, // Adjust the duration as needed
+          ease: Linear.easeNone
+        });
+        gsap.to(`.navLine${id}`, {
+          strokeDashoffset: 0,
+          // strokeDasharray: 900,
+          duration: 5, // Adjust the duration as needed
+          ease: Linear.easeNone
+        });
+      },800)
     } else {
+      gsap.to(`.navCircle`, {
+        opacity: 0,
+        // strokeDasharray: 900,
+        duration: 1, // Adjust the duration as needed
+        ease: Linear.easeNone
+      });
+      gsap.to(`.navLine`, {
+        strokeDashoffset: 900,
+        strokeDasharray: 900,
+        duration: 1, // Adjust the duration as needed
+        ease: Linear.easeNone
+      });
       setActiveMenu(null);
     }
   };
@@ -276,6 +324,18 @@ const Header = () => {
   const openLangs = state => {
     closeAll();
     setActiveLangs(state);
+    console.log(state)
+    gsap.to(`.navCircleSettings`, {
+      opacity: 1,
+      // strokeDasharray: 900,
+      duration: 1, // Adjust the duration as needed
+      ease: Linear.easeNone
+    });
+    gsap.to(`.navLineSettings`, {
+      strokeDasharray: 0,
+      duration: 1, // Adjust the duration as needed
+      ease: Linear.easeNone
+    });
     if (device === 'mobile') {
       if (state === true) {
         setConnectBtnColor('white');
@@ -325,6 +385,18 @@ const Header = () => {
     setActiveLangs(false);
     setActiveBurger(false);
     setConnectBtnColor('red');
+    // gsap.to(`.navCircleSettings`, {
+    //   opacity: 0,
+    //   // strokeDasharray: 900,
+    //   duration: 1, // Adjust the duration as needed
+    //   ease: Linear.easeNone
+    // });
+    gsap.to(`.navLineSettings`, {
+      strokeDashoffset: 900,
+      strokeDasharray: 900,
+      duration: 1, // Adjust the duration as needed
+      ease: Linear.easeNone
+    });
   };
 
   const getLocales = async () => {
@@ -366,7 +438,14 @@ const Header = () => {
 
     if (window.innerWidth <= 767) {
     }
-    //setRouterLocale(router.locale);
+
+    MetaMaskEagerlyConnect(injected);
+    WalletConnectEagerly(walletConnect);
+
+    if (!providerType) {
+      dispatch({ type: "SET_TRIED_RECONNECT", payload: true });
+    }
+    
     getLocales();
   }, []);
 
@@ -381,12 +460,17 @@ const Header = () => {
   useEffect(() => {
     if (account && triedReconnect) {
       axios
-        .post('/auth/register-wallet-address', { address: account })
-        .then(res => console.log(res))
-        .catch(() => {});
+      .post('/auth/register-wallet-address', { address: account })
+      .then(res => console.log(res))
+      .catch(() => {});
+
+      dispatch({
+        type: "UPDATE_STATE",
+        account: account,
+        chainId: chainId,
+      });
     }
-    // eslint-disable-next-line
-  }, [account]);
+  }, [account, chainId, dispatch]);
 
   return (
     <div>
@@ -451,7 +535,7 @@ const Header = () => {
                     openMenu(null);
                   }}
                 >
-                  <Link 
+                  <Link
                     href={item.route}
                     locale={activeLang}
                   >
@@ -471,6 +555,157 @@ const Header = () => {
                     className={`${styles.headerNavLinkSubTtl} ${activeMenu === item.id ? styles.activeMenuSub : ''}`}
                   >
                     <i className={activeMenu === item.id ? styles.activeBg : ''}></i>
+                    <svg width="618" height="181" viewBox="0 0 618 181" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <g opacity="0.4">
+                        <circle className={`${styles.navCircle} navCircle navCircle${item.id}`} cx="3" cy="3" r="2.25" transform="matrix(4.37114e-08 1 1 -4.37114e-08 211 154)" stroke="#FF6969" strokeWidth="1.5"/>
+                        <circle className={`${styles.navCircle} navCircle navCircle${item.id}`} cx="3" cy="3" r="2.25" transform="matrix(4.37114e-08 1 1 -4.37114e-08 247 154)" stroke="#FF6969" strokeWidth="1.5"/>
+                        <path className={`${styles.navLine} navLine navLine${item.id}`} d="M216.5 157C242.1 157 248.5 157 248.5 157" stroke="#FF6969"/>
+                      </g>
+                      <g opacity="0.4">
+                        <circle className={`${styles.navCircle} navCircle navCircle${item.id}`} cx="3" cy="3" r="2.25" transform="matrix(4.37114e-08 1 1 -4.37114e-08 219 142)" stroke="#162029" strokeWidth="1.5"/>
+                        <circle className={`${styles.navCircle} navCircle navCircle${item.id}`} cx="3" cy="3" r="2.25" transform="matrix(4.37114e-08 1 1 -4.37114e-08 255 142)" stroke="#162029" strokeWidth="1.5"/>
+                        <path className={`${styles.navLine} navLine navLine${item.id}`} d="M224.5 145C250.1 145 256.5 145 256.5 145" stroke="#162029"/>
+                      </g>
+                      <g opacity="0.4">
+                        <circle className={`${styles.navCircle} navCircle navCircle${item.id}`} cx="3" cy="3" r="2.25" transform="matrix(4.37114e-08 1 1 -4.37114e-08 211 130)" stroke="#162029" strokeWidth="1.5"/>
+                        <circle className={`${styles.navCircle} navCircle navCircle${item.id}`} cx="3" cy="3" r="2.25" transform="matrix(4.37114e-08 1 1 -4.37114e-08 255 130)" stroke="#162029" strokeWidth="1.5"/>
+                        <path className={`${styles.navLine} navLine navLine${item.id}`} d="M217 133C249 133 257 133 257 133" stroke="#162029"/>
+                      </g>
+                      <g opacity="0.4">
+                        <path className={`${styles.navLine} navLine navLine${item.id}`} d="M321.289 116.079C345.289 140.079 351.289 146.079 351.289 146.079" stroke="#162029"/>
+                        <circle className={`${styles.navCircle} navCircle navCircle${item.id}`} cx="319.863" cy="114.493" r="2.25" transform="rotate(-45 319.863 114.493)" stroke="#162029" strokeWidth="1.5"/>
+                        <circle className={`${styles.navCircle} navCircle navCircle${item.id}`} cx="352.704" cy="147.493" r="2.25" transform="rotate(-45 352.704 147.493)" stroke="#162029" strokeWidth="1.5"/>
+                      </g>
+                      <g opacity="0.4">
+                        <path className={`${styles.navLine} navLine navLine${item.id}`} d="M318.289 127.079C335.089 143.879 339.289 148.079 339.289 148.079" stroke="#162029"/>
+                        <circle className={`${styles.navCircle} navCircle navCircle${item.id}`} cx="316.863" cy="125.493" r="2.25" transform="rotate(-45 316.863 125.493)" stroke="#162029" strokeWidth="1.5"/>
+                        <circle className={`${styles.navCircle} navCircle navCircle${item.id}`} cx="340.704" cy="149.493" r="2.25" transform="rotate(-45 340.704 149.493)" stroke="#162029" strokeWidth="1.5"/>
+                      </g>
+                      <g opacity="0.3">
+                        <path className={`${styles.navLine} navLine navLine${item.id}`} d="M296.197 118.067C329.007 150.877 337.209 159.079 337.209 159.079" stroke="#162029"/>
+                        <circle className={`${styles.navCircle} navCircle navCircle${item.id}`} cx="294.783" cy="116.653" r="2.25" transform="rotate(-45 294.783 116.653)" stroke="#162029" strokeWidth="1.5"/>
+                        <circle className={`${styles.navCircle} navCircle navCircle${item.id}`} cx="338.624" cy="160.493" r="2.25" transform="rotate(-45 338.624 160.493)" stroke="#162029" strokeWidth="1.5"/>
+                      </g>
+                      <g opacity="0.4">
+                        <circle className={`${styles.navCircle} navCircle navCircle${item.id}`} cx="535.6" cy="82.0601" r="2.25" stroke="#162029" strokeWidth="1.5"/>
+                        <circle className={`${styles.navCircle} navCircle navCircle${item.id}`} cx="535.6" cy="99.0601" r="2.25" stroke="#162029" strokeWidth="1.5"/>
+                        <path className={`${styles.navLine} navLine navLine${item.id}`} d="M535.6 85.0601C535.6 94.6601 535.6 97.0601 535.6 97.0601" stroke="#162029"/>
+                      </g>
+                      <g opacity="0.4">
+                        <path className={`${styles.navLine} navLine navLine${item.id}`} d="M525.6 84.0601C525.6 130.46 525.6 142.06 525.6 142.06" stroke="#162029"/>
+                        <circle className={`${styles.navCircle} navCircle navCircle${item.id}`} cx="3" cy="3" r="2.25" transform="matrix(-1 0 0 1 528.6 79.0601)" stroke="#162029" strokeWidth="1.5"/>
+                        <circle className={`${styles.navCircle} navCircle navCircle${item.id}`} cx="3" cy="3" r="2.25" transform="matrix(-1 0 0 1 528.6 141.06)" stroke="#162029" strokeWidth="1.5"/>
+                      </g>
+                      <g opacity="0.4">
+                        <path className={`${styles.navLine} navLine navLine${item.id}`} d="M535.6 113.06C535.6 159.46 535.6 171.06 535.6 171.06" stroke="#162029"/>
+                        <circle className={`${styles.navCircle} navCircle navCircle${item.id}`} cx="3" cy="3" r="2.25" transform="matrix(-1 0 0 1 538.6 108.06)" stroke="#162029" strokeWidth="1.5"/>
+                        <circle className={`${styles.navCircle} navCircle navCircle${item.id}`} cx="3" cy="3" r="2.25" transform="matrix(-1 0 0 1 538.6 170.06)" stroke="#162029" strokeWidth="1.5"/>
+                      </g>
+                      <g opacity="0.4">
+                        <path className={`${styles.navLine} navLine navLine${item.id}`} d="M521.6 259.06V251.16V243.27V235.37V227.48V219.58V211.69V203.79V195.9V188V180.11V172.21V164.32L516.02 158.74V150.84V142.95V135.05V127.16V119.26V111.37V103.47V95.58V87.69V79.79V71.9001V64" stroke="#162029" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path className={`${styles.navCircle} navCircle navCircle${item.id}`} d="M519 64C519 63.4067 518.824 62.8267 518.494 62.3333C518.165 61.84 517.696 61.4554 517.148 61.2284C516.6 61.0013 515.997 60.9419 515.415 61.0576C514.833 61.1734 514.298 61.4591 513.879 61.8787C513.459 62.2983 513.173 62.8328 513.058 63.4147C512.942 63.9967 513.001 64.5999 513.228 65.1481C513.455 65.6962 513.84 66.1648 514.333 66.4944C514.827 66.8241 515.407 67 516 67C516.796 67 517.559 66.6839 518.121 66.1213C518.684 65.5587 519 64.7956 519 64Z" fill="#162029"/>
+                      </g>
+                      <g opacity="0.2">
+                        <path className={`${styles.navLine} navLine navLine${item.id}`} d="M119 89.5156L126.9 89.5156L134.79 89.5156L142.68 89.5156L148.26 95.0956L153.85 100.676L159.43 106.266L165.01 111.846L170.6 117.426L178.49 117.426L186.39 117.426L194.28 117.426L202.17 117.426L210.07 117.426L217.96 117.426L225.86 117.426L233.76 117.426L241.65 117.426L249.54 117.426L257.44 117.426L265.33 117.426L273.23 117.426L278.81 123.016L284.39 128.596L289.98 134.176L295.56 139.756L301.14 145.336L306.72 150.926L312.3 156.506L317.88 162.086L323.47 167.666L329.05 173.256L336.95 173.256L344.84 173.256L352.74 173.256L360.63 173.256L368.52 173.256L376.42 173.256L384.31 173.256L392.21 173.256L400.1 173.256L408 173.256L415.89 173.256L423.79 173.256L429.37 167.666L434.95 162.086L440.53 156.506L446.12 150.926L451.7 156.506L457.28 162.086L462.86 167.666L468.45 173.256" stroke="#162029" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path className={`${styles.navLine} navLine navLine${item.id}`} d="M472.249 174.994C472.265 174.409 472.06 173.841 471.675 173.401C471.237 172.984 470.655 172.75 470.049 172.75C469.438 172.75 468.851 172.988 468.413 173.413C467.988 173.851 467.75 174.438 467.75 175.049C467.75 175.655 467.984 176.237 468.401 176.675C468.841 177.06 469.409 177.265 469.994 177.249C470.587 177.233 471.151 176.99 471.571 176.571C471.99 176.151 472.233 175.587 472.249 174.994Z" stroke="#162029" strokeWidth="1.5"/>
+                        <path className={`${styles.navLine} navLine navLine${item.id}`} d="M118.249 89.994C118.265 89.4095 118.06 88.8407 117.675 88.4014C117.237 87.9835 116.655 87.75 116.049 87.75C115.438 87.75 114.851 87.9877 114.413 88.4125C113.988 88.8514 113.75 89.4383 113.75 90.0494C113.75 90.6551 113.984 91.2372 114.401 91.6747C114.841 92.0598 115.409 92.2652 115.994 92.2491C116.587 92.2329 117.151 91.9901 117.571 91.5706C117.99 91.1512 118.233 90.587 118.249 89.994Z" stroke="#162029" strokeWidth="1.5"/>
+                      </g>
+                      <path className={`${styles.navLine} navLine navLine${item.id}`} d="M152 135L96 135" stroke="url(#paint0_linear_1461_8373)"/>
+                      <path className={`${styles.navLine} navLine navLine${item.id}`} opacity="0.4" d="M152 131L105 131" stroke="url(#paint1_linear_1461_8373)"/>
+                      <path className={`${styles.navLine} navLine navLine${item.id}`} opacity="0.4" d="M152 139L94 139" stroke="url(#paint2_linear_1461_8373)"/>
+                      <g opacity="0.6">
+                        <g opacity="0.4">
+                          <circle cx="457.749" cy="60.1098" r="2.25" transform="rotate(-133.692 457.749 60.1098)" stroke="#162029" strokeWidth="1.5"/>
+                          <circle cx="483.779" cy="35.2414" r="2.25" transform="rotate(-133.692 483.779 35.2414)" stroke="#162029" strokeWidth="1.5"/>
+                          <path className={`${styles.navLine} navLine navLine${item.id}`} d="M459.557 58.3828C478.067 40.6987 482.695 36.2776 482.695 36.2776" stroke="#162029"/>
+                        </g>
+                        <g opacity="0.4">
+                          <circle className={`${styles.navCircle} navCircle navCircle${item.id}`} cx="457.459" cy="72.8344" r="2.25" transform="rotate(-133.692 457.459 72.8344)" stroke="#162029" strokeWidth="1.5"/>
+                          <circle className={`${styles.navCircle} navCircle navCircle${item.id}`} cx="469.027" cy="61.7819" r="2.25" transform="rotate(-133.692 469.027 61.7819)" stroke="#162029" strokeWidth="1.5"/>
+                          <path className={`${styles.navLine} navLine navLine${item.id}`} d="M459.628 70.762C465.991 64.683 467.582 63.1633 467.582 63.1633" stroke="#162029"/>
+                        </g>
+                      </g>
+                      <path className={`${styles.navLine} navLine navLine${item.id}`} d="M615.5 132L615.5 51.5L595.5 31L589 31" stroke="#A6D0DD"/>
+                      <circle className={`${styles.navCircle} navCircle navCircle${item.id}`} cx="3" cy="3" r="2.25" transform="matrix(-4.37114e-08 -1 -1 4.37114e-08 590 34)" stroke="#A6D0DD" strokeWidth="1.5"/>
+                      <circle className={`${styles.navCircle} navCircle navCircle${item.id}`} cx="3" cy="3" r="2.25" transform="matrix(-4.37114e-08 -1 -1 4.37114e-08 618 137)" stroke="#A6D0DD" strokeWidth="1.5"/>
+                      <g opacity="0.2">
+                        <path className={`${styles.navLine} navLine navLine${item.id}`} d="M599.489 253L599.489 245.1L599.489 237.21L599.489 229.31L599.489 221.42L599.489 213.52L599.489 205.63L599.489 197.74L599.489 189.84L599.489 181.95L599.489 174.05L599.489 166.15L599.489 158.26L599.489 150.37L599.489 142.47L599.489 134.58L599.489 126.68L599.489 118.79L599.489 110.89L599.489 103L599.489 95.1001L599.489 87.2101L599.489 79.3201L599.489 71.4201L599.489 63.5301L593.909 57.9401L588.329 52.3601L582.739 46.7801L577.159 41.2001L569.269 41.2001L561.369 41.2001L553.479 41.2001L545.589 41.2001L537.689 41.2001L529.789 41.2001L524.209 35.6101" stroke="#162029" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path className={`${styles.navCircle} navCircle navCircle${item.id}`} d="M525.789 34.0401C525.479 33.7297 525.083 33.5184 524.653 33.4327C524.222 33.3471 523.776 33.3911 523.37 33.5592C522.964 33.7272 522.618 34.0118 522.374 34.3768C522.13 34.7419 522 35.1711 522 35.6101C522 36.0492 522.13 36.4784 522.374 36.8434C522.618 37.2085 522.964 37.493 523.37 37.6611C523.776 37.8291 524.222 37.8731 524.653 37.7875C525.083 37.7019 525.479 37.4905 525.789 37.1801C526.203 36.7625 526.436 36.1982 526.436 35.6101C526.436 35.0221 526.203 34.4578 525.789 34.0401Z" fill="#162029"/>
+                      </g>
+                      <g opacity="0.6">
+                        <path className={`${styles.navLine} navLine navLine${item.id}`} d="M590.5 188L590.5 71L570.5 50L545.5 50" stroke="#162029"/>
+                        <circle className={`${styles.navCircle} navCircle navCircle${item.id}`} cx="543" cy="50" r="2.25" transform="rotate(-90 543 50)" stroke="#162029" strokeWidth="1.5"/>
+                      </g>
+                      <g opacity="0.4">
+                        <path className={`${styles.navLine} navLine navLine${item.id}`} d="M472.484 6.00003L472.484 13.9001L472.484 21.79L472.484 29.6801L466.904 35.26L461.324 40.85L455.734 46.4301L450.154 52.01L444.574 57.6L444.574 65.4901L444.574 73.39L444.574 81.28L444.574 89.17L444.574 97.07L444.574 104.96L444.574 112.86L444.574 120.76L444.574 128.65L444.574 136.54" stroke="#162029" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path className={`${styles.navCircle} navCircle navCircle${item.id}`} d="M445.006 141.249C445.591 141.265 446.159 141.06 446.599 140.675C447.016 140.237 447.25 139.655 447.25 139.049C447.25 138.438 447.012 137.851 446.587 137.413C446.149 136.988 445.562 136.75 444.951 136.75C444.345 136.75 443.763 136.984 443.325 137.401C442.94 137.841 442.735 138.409 442.751 138.994C442.767 139.587 443.01 140.151 443.429 140.571C443.849 140.99 444.413 141.233 445.006 141.249Z" stroke="#162029" strokeWidth="1.5"/>
+                        <path className={`${styles.navCircle} navCircle navCircle${item.id}`} d="M472.006 5.24913C472.591 5.26516 473.159 5.0598 473.599 4.67473C474.016 4.23716 474.25 3.65511 474.25 3.0494C474.25 2.43834 474.012 1.85138 473.587 1.41253C473.149 0.987673 472.562 0.75 471.951 0.75C471.345 0.75 470.763 0.983541 470.325 1.40145C469.94 1.84073 469.735 2.40946 469.751 2.99402C469.767 3.58698 470.01 4.15117 470.429 4.57061C470.849 4.99005 471.413 5.23287 472.006 5.24913Z" stroke="#162029" strokeWidth="1.5"/>
+                      </g>
+                      <g opacity="0.4">
+                        <circle className={`${styles.navCircle} navCircle navCircle${item.id}`} cx="412" cy="96" r="2.25" stroke="#162029" strokeWidth="1.5"/>
+                        <circle className={`${styles.navCircle} navCircle navCircle${item.id}`} cx="412" cy="113" r="2.25" stroke="#162029" strokeWidth="1.5"/>
+                        <path className={`${styles.navLine} navLine navLine${item.id}`} d="M412 99C412 108.6 412 111 412 111" stroke="#162029"/>
+                      </g>
+                      <path className={`${styles.navLine} navLine navLine${item.id}`} d="M412 123.5C412 149.1 412 155.5 412 155.5" stroke="url(#paint3_linear_1461_8373)"/>
+                      <circle className={`${styles.navCircle} navCircle navCircle${item.id}`} cx="412" cy="121" r="2.25" stroke="#A5CEDB" strokeWidth="1.5"/>
+                      <circle className={`${styles.navCircle} navCircle navCircle${item.id}`} cx="412" cy="157" r="2.25" stroke="#9C9B97" strokeWidth="1.5"/>
+                      <path className={`${styles.navLine} navLine navLine${item.id}`} d="M421 94C421 140.4 421 152 421 152" stroke="url(#paint4_linear_1461_8373)"/>
+                      <circle className={`${styles.navCircle} navCircle navCircle${item.id}`} cx="421" cy="92" r="2.25" stroke="#A19D99" strokeWidth="1.5"/>
+                      <circle className={`${styles.navCircle} navCircle navCircle${item.id}`} cx="421" cy="154" r="2.25" stroke="#F96969" strokeWidth="1.5"/>
+                      <g opacity="0.3">
+                        <path className={`${styles.navLine} navLine navLine${item.id}`} d="M182.9 139L177.32 144.58L171.74 150.17L166.16 155.75H158.26H150.37H142.47H134.58H126.68H118.79H110.89H103H95.11H87.21H79.32L73.73 161.33L68.15 166.91L62.57 172.49L56.99 178.08L51.4 183.66L45.82 189.24L40.24 194.82L34.66 200.41L29.07 205.99L23.49 211.57L17.91 217.15L12.33 222.74L6.74 228.32L1.16 233.9L-4.42 239.48L-10 245.07V252.96L-4.42 258.54L1.16 264.13L6.74 269.71L12.33 275.29L17.91 280.87V272.98V265.08V257.19V249.29V241.4V233.5V225.61" stroke="#162029" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path className={`${styles.navCircle} navCircle navCircle${item.id}`} d="M183.72 139.44C184.67 139.44 185.44 138.67 185.44 137.72C185.44 136.77 184.67 136 183.72 136C182.77 136 182 136.77 182 137.72C182 138.67 182.77 139.44 183.72 139.44Z" fill="#162029"/>
+                      </g>
+                      <circle className={`${styles.navCircle} navCircle navCircle${item.id}`} opacity="0.3" cx="3" cy="3" r="3" transform="matrix(4.37114e-08 -1 -1 -4.37114e-08 571 159)" fill="#162029"/>
+                      <circle className={`${styles.navCircle} navCircle navCircle${item.id}`} opacity="0.4" cx="3" cy="3" r="3" transform="matrix(4.37114e-08 -1 -1 -4.37114e-08 571 149)" fill="#162029"/>
+                      <circle className={`${styles.navCircle} navCircle navCircle${item.id}`} opacity="0.3" cx="3" cy="3" r="3" transform="matrix(4.37114e-08 -1 -1 -4.37114e-08 571 139)" fill="#162029"/>
+                      <circle className={`${styles.navCircle} navCircle navCircle${item.id}`} cx="3" cy="3" r="3" transform="matrix(4.37114e-08 -1 -1 -4.37114e-08 571 129)" fill="#A6D0DD"/>
+                      <g opacity="0.6">
+                        <g opacity="0.4">
+                          <circle className={`${styles.navCircle} navCircle navCircle${item.id}`} cx="382" cy="72" r="2.25" stroke="#162029" strokeWidth="1.5"/>
+                          <circle className={`${styles.navCircle} navCircle navCircle${item.id}`} cx="382" cy="116" r="2.25" stroke="#162029" strokeWidth="1.5"/>
+                          <path className={`${styles.navLine} navLine navLine${item.id}`} d="M382 75C382 106.2 382 114 382 114" stroke="#162029"/>
+                        </g>
+                        <g opacity="0.4">
+                          <path className={`${styles.navLine} navLine navLine${item.id}`} d="M374 147.5L374 47L383 35L394.5 35" stroke="#162029"/>
+                          <path className={`${styles.navCircle} navCircle navCircle${item.id}`} d="M400 35.0118C400.002 34.4179 399.828 33.8368 399.5 33.3419C399.172 32.847 398.704 32.4606 398.156 32.2317C397.608 32.0029 397.005 31.9418 396.422 32.0562C395.839 32.1706 395.304 32.4554 394.883 32.8745C394.462 33.2936 394.175 33.8281 394.059 34.4104C393.942 34.9927 394.001 35.5965 394.227 36.1453C394.454 36.6942 394.838 37.1634 395.332 37.4936C395.826 37.8238 396.406 38 397 38C397.794 38 398.555 37.6856 399.117 37.1255C399.679 36.5654 399.997 35.8054 400 35.0118ZM395.294 35.0118C395.292 34.6711 395.391 34.3374 395.579 34.0531C395.767 33.7688 396.035 33.5469 396.349 33.4154C396.663 33.2839 397.01 33.2489 397.344 33.3148C397.678 33.3807 397.985 33.5446 398.226 33.7855C398.467 34.0264 398.631 34.3335 398.697 34.6678C398.763 35.0021 398.728 35.3484 398.596 35.6628C398.465 35.9771 398.243 36.2452 397.959 36.4331C397.674 36.6209 397.341 36.72 397 36.7177C396.548 36.7177 396.114 36.5379 395.794 36.218C395.474 35.8981 395.294 35.4642 395.294 35.0118Z" fill="#162029"/>
+                          <path className={`${styles.navCircle} navCircle navCircle${item.id}`} d="M377 150.012C377.002 149.418 376.828 148.837 376.5 148.342C376.172 147.847 375.704 147.461 375.156 147.232C374.608 147.003 374.005 146.942 373.422 147.056C372.839 147.171 372.304 147.455 371.883 147.875C371.462 148.294 371.175 148.828 371.059 149.41C370.942 149.993 371.001 150.596 371.227 151.145C371.454 151.694 371.838 152.163 372.332 152.494C372.826 152.824 373.406 153 374 153C374.794 153 375.555 152.686 376.117 152.125C376.679 151.565 376.997 150.805 377 150.012ZM372.294 150.012C372.292 149.671 372.391 149.337 372.579 149.053C372.767 148.769 373.035 148.547 373.349 148.415C373.663 148.284 374.01 148.249 374.344 148.315C374.678 148.381 374.985 148.545 375.226 148.785C375.467 149.026 375.631 149.334 375.697 149.668C375.763 150.002 375.728 150.348 375.596 150.663C375.465 150.977 375.243 151.245 374.959 151.433C374.674 151.621 374.341 151.72 374 151.718C373.548 151.718 373.114 151.538 372.794 151.218C372.474 150.898 372.294 150.464 372.294 150.012Z" fill="#162029"/>
+                        </g>
+                        <g opacity="0.4">
+                          <path className={`${styles.navLine} navLine navLine${item.id}`} d="M390 86C390 100.4 390 104 390 104" stroke="#162029"/>
+                          <circle className={`${styles.navCircle} navCircle navCircle${item.id}`} cx="3" cy="3" r="2.25" transform="matrix(-1 -8.74228e-08 -8.74228e-08 1 392.944 81)" stroke="#162029" strokeWidth="1.5"/>
+                          <circle className={`${styles.navCircle} navCircle navCircle${item.id}`} cx="3" cy="3" r="2.25" transform="matrix(-1 -8.74228e-08 -8.74228e-08 1 393 102.571)" stroke="#162029" strokeWidth="1.5"/>
+                        </g>
+                      </g>
+                      <path className={`${styles.navLine} navLine navLine${item.id}`} opacity="0.4" d="M494 156L494 129" stroke="#162029"/>
+                      <path className={`${styles.navLine} navLine navLine${item.id}`} opacity="0.4" d="M479 141L479 114" stroke="#162029"/>
+                      <path className={`${styles.navLine} navLine navLine${item.id}`} opacity="0.4" d="M485 156L485 108" stroke="#162029"/>
+                      <defs>
+                        <linearGradient id="paint0_linear_1461_8373" x1="152.832" y1="135.178" x2="92.1188" y2="135.18" gradientUnits="userSpaceOnUse">
+                          <stop stopColor="#FF6969"/>
+                          <stop offset="1" stopColor="#FF6969" stopOpacity="0"/>
+                        </linearGradient>
+                        <linearGradient id="paint1_linear_1461_8373" x1="152" y1="130" x2="105" y2="130" gradientUnits="userSpaceOnUse">
+                          <stop stopOpacity="0"/>
+                          <stop offset="0.494792"/>
+                          <stop offset="1" stopOpacity="0"/>
+                        </linearGradient>
+                        <linearGradient id="paint2_linear_1461_8373" x1="152" y1="138" x2="94" y2="138" gradientUnits="userSpaceOnUse">
+                          <stop stopOpacity="0"/>
+                          <stop offset="0.494792"/>
+                          <stop offset="1" stopOpacity="0"/>
+                        </linearGradient>
+                        <linearGradient id="paint3_linear_1461_8373" x1="413.455" y1="155.5" x2="413.455" y2="124" gradientUnits="userSpaceOnUse">
+                          <stop stopColor="#162029" stopOpacity="0.4"/>
+                          <stop offset="1" stopColor="#A6D0DD"/>
+                        </linearGradient>
+                        <linearGradient id="paint4_linear_1461_8373" x1="422.455" y1="152" x2="422.455" y2="94.5" gradientUnits="userSpaceOnUse">
+                          <stop stopColor="#FF6969"/>
+                          <stop offset="0.9999" stopColor="#162029" stopOpacity="0.4"/>
+                          <stop offset="1" stopColor="#162029" stopOpacity="0.2"/>
+                        </linearGradient>
+                      </defs>
+                    </svg>
                     {item.subNav.length > 0 && item.subNav.map((sub, index) => {
                       return (
                         <Link href={sub.route} key={sub.id} locale={activeLang}>
@@ -491,7 +726,7 @@ const Header = () => {
                       {
                           item.subNavWithTitle && item.subNavWithTitle.length > 0 && item.subNavWithTitle.map((sub, index) => {
                           return (
-                              <div className={`${styles.headerNavLinkWithTitleContainer}`}>
+                              <div key={sub.id} className={`${styles.headerNavLinkWithTitleContainer}`}>
                                 <a>
                                   <div
                                       style={{
@@ -675,23 +910,23 @@ const Header = () => {
                       <svg width='21' height='21' viewBox='0 0 21 21' fill='none' xmlns='http://www.w3.org/2000/svg'>
                         <path
                           d='M10.7539 20.0439C5.23763 20.0439 0.753906 15.5602 0.753906 10.0439C0.753906 4.52767 5.23763 0.0439453 10.7539 0.0439453C16.2702 0.0439453 20.7539 4.52767 20.7539 10.0439C20.7539 15.5602 16.2702 20.0439 10.7539 20.0439ZM10.7539 1.43929C6.00972 1.43929 2.14926 5.29976 2.14926 10.0439C2.14926 14.7881 6.00972 18.6486 10.7539 18.6486C15.4981 18.6486 19.3586 14.7881 19.3586 10.0439C19.3586 5.29976 15.4981 1.43929 10.7539 1.43929Z'
-                          fill='white'
+                          fill='#000'
                         />
                         <path
                           d='M7.96216 19.1137H7.03192C6.65053 19.1137 6.33425 18.7974 6.33425 18.416C6.33425 18.0346 6.63192 17.7276 7.01332 17.7183C5.55285 12.7063 5.55285 7.38152 7.01332 2.36947C6.83114 2.36581 6.65773 2.29054 6.53064 2.15996C6.40354 2.02939 6.33299 1.85401 6.33425 1.6718C6.33425 1.2904 6.65053 0.974121 7.03192 0.974121H7.96216C8.18541 0.974121 8.39936 1.08575 8.5296 1.26249C8.65983 1.44854 8.69704 1.6811 8.62262 1.89505C6.87378 7.19005 6.87378 12.907 8.62262 18.202C8.69704 18.416 8.65983 18.6485 8.5296 18.8346C8.39936 19.002 8.18541 19.1137 7.96216 19.1137Z'
-                          fill='white'
+                          fill='#000'
                         />
                         <path
                           d='M13.5428 19.1137C13.4317 19.1146 13.322 19.0889 13.2229 19.0386C13.1239 18.9882 13.0384 18.9148 12.9736 18.8246C12.9089 18.7343 12.8668 18.6298 12.8509 18.5198C12.835 18.4098 12.8458 18.2977 12.8823 18.1927C14.6311 12.8977 14.6311 7.18076 12.8823 1.88577C12.853 1.79903 12.841 1.70737 12.8471 1.61602C12.8532 1.52467 12.8773 1.43542 12.9179 1.35336C12.9585 1.2713 13.0148 1.19803 13.0838 1.13776C13.1527 1.07748 13.2328 1.03136 13.3195 1.00205C13.4062 0.972727 13.4979 0.960779 13.5893 0.966884C13.6806 0.972989 13.7699 0.997026 13.8519 1.03763C13.934 1.07822 14.0072 1.13459 14.0675 1.2035C14.1278 1.27241 14.1739 1.35252 14.2032 1.43925C16.0544 7.0168 16.0544 13.0431 14.2032 18.6206C14.1102 18.9276 13.8311 19.1137 13.5428 19.1137Z'
-                          fill='white'
+                          fill='#000'
                         />
                         <path
                           d='M10.7534 14.8811C8.15801 14.8811 5.57197 14.5183 3.07894 13.7835C3.06964 14.1556 2.76266 14.4625 2.38127 14.4625C1.99987 14.4625 1.68359 14.1463 1.68359 13.7649V12.8346C1.68359 12.6114 1.79522 12.3974 1.97197 12.2672C2.15801 12.137 2.39057 12.0997 2.60452 12.1742C7.89952 13.923 13.6165 13.923 18.9115 12.1742C19.0167 12.1381 19.129 12.1278 19.2391 12.1439C19.3491 12.1601 19.4537 12.2024 19.5441 12.2672C19.7301 12.3974 19.8324 12.6114 19.8324 12.8346V13.7649C19.8324 14.1463 19.5162 14.4625 19.1348 14.4625C18.7534 14.4625 18.4464 14.1649 18.4371 13.7835C15.9348 14.5183 13.3487 14.8811 10.7534 14.8811Z'
-                          fill='white'
+                          fill='#000'
                         />
                         <path
                           d='M19.125 7.95059C19.0506 7.95059 18.9761 7.94129 18.9017 7.91338C13.6067 6.16454 7.88974 6.16454 2.59475 7.91338C2.22265 8.03431 1.83196 7.83896 1.71103 7.47617C1.5994 7.10408 1.79475 6.71338 2.15754 6.59245C7.73509 4.74132 13.7614 4.74132 19.3389 6.59245C19.7017 6.71338 19.9064 7.11338 19.7761 7.47617C19.7325 7.6144 19.6457 7.73501 19.5285 7.82038C19.4114 7.90574 19.2699 7.95137 19.125 7.95059Z'
-                          fill='white'
+                          fill='#000'
                         />
                       </svg>
                       <div className={styles.headerLangNowTtl}>
@@ -701,7 +936,7 @@ const Header = () => {
                   </div>
                   <div className={styles.headerLangsModal}>
                     <i></i>
-                    <div className={styles.headerLangsModalTtl}>Change Language</div>
+                    <div className={`${styles.headerLangsModalTtl} ttl`}>Change Language</div>
                     <div className={styles.modalsMobileTitle}>
                       <svg
                         onClick={() => {
@@ -748,6 +983,157 @@ const Header = () => {
                         );
                       })}
                     </div>
+                    <svg width="618" height="181" viewBox="0 0 618 181" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <g opacity="0.4">
+                        <circle className={`${styles.navCircle} navCircle navCircleSettings`} cx="3" cy="3" r="2.25" transform="matrix(4.37114e-08 1 1 -4.37114e-08 211 154)" stroke="#FF6969" strokeWidth="1.5"/>
+                        <circle className={`${styles.navCircle} navCircle navCircleSettings`} cx="3" cy="3" r="2.25" transform="matrix(4.37114e-08 1 1 -4.37114e-08 247 154)" stroke="#FF6969" strokeWidth="1.5"/>
+                        <path className={`${styles.navLine} navLine navLineSettings`} d="M216.5 157C242.1 157 248.5 157 248.5 157" stroke="#FF6969"/>
+                      </g>
+                      <g opacity="0.4">
+                        <circle className={`${styles.navCircle} navCircle navCircleSettings`} cx="3" cy="3" r="2.25" transform="matrix(4.37114e-08 1 1 -4.37114e-08 219 142)" stroke="#162029" strokeWidth="1.5"/>
+                        <circle className={`${styles.navCircle} navCircle navCircleSettings`} cx="3" cy="3" r="2.25" transform="matrix(4.37114e-08 1 1 -4.37114e-08 255 142)" stroke="#162029" strokeWidth="1.5"/>
+                        <path className={`${styles.navLine} navLine navLineSettings`} d="M224.5 145C250.1 145 256.5 145 256.5 145" stroke="#162029"/>
+                      </g>
+                      <g opacity="0.4">
+                        <circle className={`${styles.navCircle} navCircle navCircleSettings`} cx="3" cy="3" r="2.25" transform="matrix(4.37114e-08 1 1 -4.37114e-08 211 130)" stroke="#162029" strokeWidth="1.5"/>
+                        <circle className={`${styles.navCircle} navCircle navCircleSettings`} cx="3" cy="3" r="2.25" transform="matrix(4.37114e-08 1 1 -4.37114e-08 255 130)" stroke="#162029" strokeWidth="1.5"/>
+                        <path className={`${styles.navLine} navLine navLineSettings`} d="M217 133C249 133 257 133 257 133" stroke="#162029"/>
+                      </g>
+                      <g opacity="0.4">
+                        <path className={`${styles.navLine} navLine navLineSettings`} d="M321.289 116.079C345.289 140.079 351.289 146.079 351.289 146.079" stroke="#162029"/>
+                        <circle className={`${styles.navCircle} navCircle navCircleSettings`} cx="319.863" cy="114.493" r="2.25" transform="rotate(-45 319.863 114.493)" stroke="#162029" strokeWidth="1.5"/>
+                        <circle className={`${styles.navCircle} navCircle navCircleSettings`} cx="352.704" cy="147.493" r="2.25" transform="rotate(-45 352.704 147.493)" stroke="#162029" strokeWidth="1.5"/>
+                      </g>
+                      <g opacity="0.4">
+                        <path className={`${styles.navLine} navLine navLineSettings`} d="M318.289 127.079C335.089 143.879 339.289 148.079 339.289 148.079" stroke="#162029"/>
+                        <circle className={`${styles.navCircle} navCircle navCircleSettings`} cx="316.863" cy="125.493" r="2.25" transform="rotate(-45 316.863 125.493)" stroke="#162029" strokeWidth="1.5"/>
+                        <circle className={`${styles.navCircle} navCircle navCircleSettings`} cx="340.704" cy="149.493" r="2.25" transform="rotate(-45 340.704 149.493)" stroke="#162029" strokeWidth="1.5"/>
+                      </g>
+                      <g opacity="0.3">
+                        <path className={`${styles.navLine} navLine navLineSettings`} d="M296.197 118.067C329.007 150.877 337.209 159.079 337.209 159.079" stroke="#162029"/>
+                        <circle className={`${styles.navCircle} navCircle navCircleSettings`} cx="294.783" cy="116.653" r="2.25" transform="rotate(-45 294.783 116.653)" stroke="#162029" strokeWidth="1.5"/>
+                        <circle className={`${styles.navCircle} navCircle navCircleSettings`} cx="338.624" cy="160.493" r="2.25" transform="rotate(-45 338.624 160.493)" stroke="#162029" strokeWidth="1.5"/>
+                      </g>
+                      <g opacity="0.4">
+                        <circle className={`${styles.navCircle} navCircle navCircleSettings`} cx="535.6" cy="82.0601" r="2.25" stroke="#162029" strokeWidth="1.5"/>
+                        <circle className={`${styles.navCircle} navCircle navCircleSettings`} cx="535.6" cy="99.0601" r="2.25" stroke="#162029" strokeWidth="1.5"/>
+                        <path className={`${styles.navLine} navLine navLineSettings`} d="M535.6 85.0601C535.6 94.6601 535.6 97.0601 535.6 97.0601" stroke="#162029"/>
+                      </g>
+                      <g opacity="0.4">
+                        <path className={`${styles.navLine} navLine navLineSettings`} d="M525.6 84.0601C525.6 130.46 525.6 142.06 525.6 142.06" stroke="#162029"/>
+                        <circle className={`${styles.navCircle} navCircle navCircleSettings`} cx="3" cy="3" r="2.25" transform="matrix(-1 0 0 1 528.6 79.0601)" stroke="#162029" strokeWidth="1.5"/>
+                        <circle className={`${styles.navCircle} navCircle navCircleSettings`} cx="3" cy="3" r="2.25" transform="matrix(-1 0 0 1 528.6 141.06)" stroke="#162029" strokeWidth="1.5"/>
+                      </g>
+                      <g opacity="0.4">
+                        <path className={`${styles.navLine} navLine navLineSettings`} d="M535.6 113.06C535.6 159.46 535.6 171.06 535.6 171.06" stroke="#162029"/>
+                        <circle className={`${styles.navCircle} navCircle navCircleSettings`} cx="3" cy="3" r="2.25" transform="matrix(-1 0 0 1 538.6 108.06)" stroke="#162029" strokeWidth="1.5"/>
+                        <circle className={`${styles.navCircle} navCircle navCircleSettings`} cx="3" cy="3" r="2.25" transform="matrix(-1 0 0 1 538.6 170.06)" stroke="#162029" strokeWidth="1.5"/>
+                      </g>
+                      <g opacity="0.4">
+                        <path className={`${styles.navLine} navLine navLineSettings`} d="M521.6 259.06V251.16V243.27V235.37V227.48V219.58V211.69V203.79V195.9V188V180.11V172.21V164.32L516.02 158.74V150.84V142.95V135.05V127.16V119.26V111.37V103.47V95.58V87.69V79.79V71.9001V64" stroke="#162029" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path className={`${styles.navCircle} navCircle navCircleSettings`} d="M519 64C519 63.4067 518.824 62.8267 518.494 62.3333C518.165 61.84 517.696 61.4554 517.148 61.2284C516.6 61.0013 515.997 60.9419 515.415 61.0576C514.833 61.1734 514.298 61.4591 513.879 61.8787C513.459 62.2983 513.173 62.8328 513.058 63.4147C512.942 63.9967 513.001 64.5999 513.228 65.1481C513.455 65.6962 513.84 66.1648 514.333 66.4944C514.827 66.8241 515.407 67 516 67C516.796 67 517.559 66.6839 518.121 66.1213C518.684 65.5587 519 64.7956 519 64Z" fill="#162029"/>
+                      </g>
+                      <g opacity="0.2">
+                        <path className={`${styles.navLine} navLine navLineSettings`} d="M119 89.5156L126.9 89.5156L134.79 89.5156L142.68 89.5156L148.26 95.0956L153.85 100.676L159.43 106.266L165.01 111.846L170.6 117.426L178.49 117.426L186.39 117.426L194.28 117.426L202.17 117.426L210.07 117.426L217.96 117.426L225.86 117.426L233.76 117.426L241.65 117.426L249.54 117.426L257.44 117.426L265.33 117.426L273.23 117.426L278.81 123.016L284.39 128.596L289.98 134.176L295.56 139.756L301.14 145.336L306.72 150.926L312.3 156.506L317.88 162.086L323.47 167.666L329.05 173.256L336.95 173.256L344.84 173.256L352.74 173.256L360.63 173.256L368.52 173.256L376.42 173.256L384.31 173.256L392.21 173.256L400.1 173.256L408 173.256L415.89 173.256L423.79 173.256L429.37 167.666L434.95 162.086L440.53 156.506L446.12 150.926L451.7 156.506L457.28 162.086L462.86 167.666L468.45 173.256" stroke="#162029" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path className={`${styles.navLine} navLine navLineSettings`} d="M472.249 174.994C472.265 174.409 472.06 173.841 471.675 173.401C471.237 172.984 470.655 172.75 470.049 172.75C469.438 172.75 468.851 172.988 468.413 173.413C467.988 173.851 467.75 174.438 467.75 175.049C467.75 175.655 467.984 176.237 468.401 176.675C468.841 177.06 469.409 177.265 469.994 177.249C470.587 177.233 471.151 176.99 471.571 176.571C471.99 176.151 472.233 175.587 472.249 174.994Z" stroke="#162029" strokeWidth="1.5"/>
+                        <path className={`${styles.navLine} navLine navLineSettings`} d="M118.249 89.994C118.265 89.4095 118.06 88.8407 117.675 88.4014C117.237 87.9835 116.655 87.75 116.049 87.75C115.438 87.75 114.851 87.9877 114.413 88.4125C113.988 88.8514 113.75 89.4383 113.75 90.0494C113.75 90.6551 113.984 91.2372 114.401 91.6747C114.841 92.0598 115.409 92.2652 115.994 92.2491C116.587 92.2329 117.151 91.9901 117.571 91.5706C117.99 91.1512 118.233 90.587 118.249 89.994Z" stroke="#162029" strokeWidth="1.5"/>
+                      </g>
+                      <path className={`${styles.navLine} navLine navLineSettings`} d="M152 135L96 135" stroke="url(#paint0_linear_1461_8373)"/>
+                      <path className={`${styles.navLine} navLine navLineSettings`} opacity="0.4" d="M152 131L105 131" stroke="url(#paint1_linear_1461_8373)"/>
+                      <path className={`${styles.navLine} navLine navLineSettings`} opacity="0.4" d="M152 139L94 139" stroke="url(#paint2_linear_1461_8373)"/>
+                      <g opacity="0.6">
+                        <g opacity="0.4">
+                          <circle cx="457.749" cy="60.1098" r="2.25" transform="rotate(-133.692 457.749 60.1098)" stroke="#162029" strokeWidth="1.5"/>
+                          <circle cx="483.779" cy="35.2414" r="2.25" transform="rotate(-133.692 483.779 35.2414)" stroke="#162029" strokeWidth="1.5"/>
+                          <path className={`${styles.navLine} navLine navLineSettings`} d="M459.557 58.3828C478.067 40.6987 482.695 36.2776 482.695 36.2776" stroke="#162029"/>
+                        </g>
+                        <g opacity="0.4">
+                          <circle className={`${styles.navCircle} navCircle navCircleSettings`} cx="457.459" cy="72.8344" r="2.25" transform="rotate(-133.692 457.459 72.8344)" stroke="#162029" strokeWidth="1.5"/>
+                          <circle className={`${styles.navCircle} navCircle navCircleSettings`} cx="469.027" cy="61.7819" r="2.25" transform="rotate(-133.692 469.027 61.7819)" stroke="#162029" strokeWidth="1.5"/>
+                          <path className={`${styles.navLine} navLine navLineSettings`} d="M459.628 70.762C465.991 64.683 467.582 63.1633 467.582 63.1633" stroke="#162029"/>
+                        </g>
+                      </g>
+                      <path className={`${styles.navLine} navLine navLineSettings`} d="M615.5 132L615.5 51.5L595.5 31L589 31" stroke="#A6D0DD"/>
+                      <circle className={`${styles.navCircle} navCircle navCircleSettings`} cx="3" cy="3" r="2.25" transform="matrix(-4.37114e-08 -1 -1 4.37114e-08 590 34)" stroke="#A6D0DD" strokeWidth="1.5"/>
+                      <circle className={`${styles.navCircle} navCircle navCircleSettings`} cx="3" cy="3" r="2.25" transform="matrix(-4.37114e-08 -1 -1 4.37114e-08 618 137)" stroke="#A6D0DD" strokeWidth="1.5"/>
+                      <g opacity="0.2">
+                        <path className={`${styles.navLine} navLine navLineSettings`} d="M599.489 253L599.489 245.1L599.489 237.21L599.489 229.31L599.489 221.42L599.489 213.52L599.489 205.63L599.489 197.74L599.489 189.84L599.489 181.95L599.489 174.05L599.489 166.15L599.489 158.26L599.489 150.37L599.489 142.47L599.489 134.58L599.489 126.68L599.489 118.79L599.489 110.89L599.489 103L599.489 95.1001L599.489 87.2101L599.489 79.3201L599.489 71.4201L599.489 63.5301L593.909 57.9401L588.329 52.3601L582.739 46.7801L577.159 41.2001L569.269 41.2001L561.369 41.2001L553.479 41.2001L545.589 41.2001L537.689 41.2001L529.789 41.2001L524.209 35.6101" stroke="#162029" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path className={`${styles.navCircle} navCircle navCircleSettings`} d="M525.789 34.0401C525.479 33.7297 525.083 33.5184 524.653 33.4327C524.222 33.3471 523.776 33.3911 523.37 33.5592C522.964 33.7272 522.618 34.0118 522.374 34.3768C522.13 34.7419 522 35.1711 522 35.6101C522 36.0492 522.13 36.4784 522.374 36.8434C522.618 37.2085 522.964 37.493 523.37 37.6611C523.776 37.8291 524.222 37.8731 524.653 37.7875C525.083 37.7019 525.479 37.4905 525.789 37.1801C526.203 36.7625 526.436 36.1982 526.436 35.6101C526.436 35.0221 526.203 34.4578 525.789 34.0401Z" fill="#162029"/>
+                      </g>
+                      <g opacity="0.6">
+                        <path className={`${styles.navLine} navLine navLineSettings`} d="M590.5 188L590.5 71L570.5 50L545.5 50" stroke="#162029"/>
+                        <circle className={`${styles.navCircle} navCircle navCircleSettings`} cx="543" cy="50" r="2.25" transform="rotate(-90 543 50)" stroke="#162029" strokeWidth="1.5"/>
+                      </g>
+                      <g opacity="0.4">
+                        <path className={`${styles.navLine} navLine navLineSettings`} d="M472.484 6.00003L472.484 13.9001L472.484 21.79L472.484 29.6801L466.904 35.26L461.324 40.85L455.734 46.4301L450.154 52.01L444.574 57.6L444.574 65.4901L444.574 73.39L444.574 81.28L444.574 89.17L444.574 97.07L444.574 104.96L444.574 112.86L444.574 120.76L444.574 128.65L444.574 136.54" stroke="#162029" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path className={`${styles.navCircle} navCircle navCircleSettings`} d="M445.006 141.249C445.591 141.265 446.159 141.06 446.599 140.675C447.016 140.237 447.25 139.655 447.25 139.049C447.25 138.438 447.012 137.851 446.587 137.413C446.149 136.988 445.562 136.75 444.951 136.75C444.345 136.75 443.763 136.984 443.325 137.401C442.94 137.841 442.735 138.409 442.751 138.994C442.767 139.587 443.01 140.151 443.429 140.571C443.849 140.99 444.413 141.233 445.006 141.249Z" stroke="#162029" strokeWidth="1.5"/>
+                        <path className={`${styles.navCircle} navCircle navCircleSettings`} d="M472.006 5.24913C472.591 5.26516 473.159 5.0598 473.599 4.67473C474.016 4.23716 474.25 3.65511 474.25 3.0494C474.25 2.43834 474.012 1.85138 473.587 1.41253C473.149 0.987673 472.562 0.75 471.951 0.75C471.345 0.75 470.763 0.983541 470.325 1.40145C469.94 1.84073 469.735 2.40946 469.751 2.99402C469.767 3.58698 470.01 4.15117 470.429 4.57061C470.849 4.99005 471.413 5.23287 472.006 5.24913Z" stroke="#162029" strokeWidth="1.5"/>
+                      </g>
+                      <g opacity="0.4">
+                        <circle className={`${styles.navCircle} navCircle navCircleSettings`} cx="412" cy="96" r="2.25" stroke="#162029" strokeWidth="1.5"/>
+                        <circle className={`${styles.navCircle} navCircle navCircleSettings`} cx="412" cy="113" r="2.25" stroke="#162029" strokeWidth="1.5"/>
+                        <path className={`${styles.navLine} navLine navLineSettings`} d="M412 99C412 108.6 412 111 412 111" stroke="#162029"/>
+                      </g>
+                      <path className={`${styles.navLine} navLine navLineSettings`} d="M412 123.5C412 149.1 412 155.5 412 155.5" stroke="url(#paint3_linear_1461_8373)"/>
+                      <circle className={`${styles.navCircle} navCircle navCircleSettings`} cx="412" cy="121" r="2.25" stroke="#A5CEDB" strokeWidth="1.5"/>
+                      <circle className={`${styles.navCircle} navCircle navCircleSettings`} cx="412" cy="157" r="2.25" stroke="#9C9B97" strokeWidth="1.5"/>
+                      <path className={`${styles.navLine} navLine navLineSettings`} d="M421 94C421 140.4 421 152 421 152" stroke="url(#paint4_linear_1461_8373)"/>
+                      <circle className={`${styles.navCircle} navCircle navCircleSettings`} cx="421" cy="92" r="2.25" stroke="#A19D99" strokeWidth="1.5"/>
+                      <circle className={`${styles.navCircle} navCircle navCircleSettings`} cx="421" cy="154" r="2.25" stroke="#F96969" strokeWidth="1.5"/>
+                      <g opacity="0.3">
+                        <path className={`${styles.navLine} navLine navLineSettings`} d="M182.9 139L177.32 144.58L171.74 150.17L166.16 155.75H158.26H150.37H142.47H134.58H126.68H118.79H110.89H103H95.11H87.21H79.32L73.73 161.33L68.15 166.91L62.57 172.49L56.99 178.08L51.4 183.66L45.82 189.24L40.24 194.82L34.66 200.41L29.07 205.99L23.49 211.57L17.91 217.15L12.33 222.74L6.74 228.32L1.16 233.9L-4.42 239.48L-10 245.07V252.96L-4.42 258.54L1.16 264.13L6.74 269.71L12.33 275.29L17.91 280.87V272.98V265.08V257.19V249.29V241.4V233.5V225.61" stroke="#162029" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path className={`${styles.navCircle} navCircle navCircleSettings`} d="M183.72 139.44C184.67 139.44 185.44 138.67 185.44 137.72C185.44 136.77 184.67 136 183.72 136C182.77 136 182 136.77 182 137.72C182 138.67 182.77 139.44 183.72 139.44Z" fill="#162029"/>
+                      </g>
+                      <circle className={`${styles.navCircle} navCircle navCircleSettings`} opacity="0.3" cx="3" cy="3" r="3" transform="matrix(4.37114e-08 -1 -1 -4.37114e-08 571 159)" fill="#162029"/>
+                      <circle className={`${styles.navCircle} navCircle navCircleSettings`} opacity="0.4" cx="3" cy="3" r="3" transform="matrix(4.37114e-08 -1 -1 -4.37114e-08 571 149)" fill="#162029"/>
+                      <circle className={`${styles.navCircle} navCircle navCircleSettings`} opacity="0.3" cx="3" cy="3" r="3" transform="matrix(4.37114e-08 -1 -1 -4.37114e-08 571 139)" fill="#162029"/>
+                      <circle className={`${styles.navCircle} navCircle navCircleSettings`} cx="3" cy="3" r="3" transform="matrix(4.37114e-08 -1 -1 -4.37114e-08 571 129)" fill="#A6D0DD"/>
+                      <g opacity="0.6">
+                        <g opacity="0.4">
+                          <circle className={`${styles.navCircle} navCircle navCircleSettings`} cx="382" cy="72" r="2.25" stroke="#162029" strokeWidth="1.5"/>
+                          <circle className={`${styles.navCircle} navCircle navCircleSettings`} cx="382" cy="116" r="2.25" stroke="#162029" strokeWidth="1.5"/>
+                          <path className={`${styles.navLine} navLine navLineSettings`} d="M382 75C382 106.2 382 114 382 114" stroke="#162029"/>
+                        </g>
+                        <g opacity="0.4">
+                          <path className={`${styles.navLine} navLine navLineSettings`} d="M374 147.5L374 47L383 35L394.5 35" stroke="#162029"/>
+                          <path className={`${styles.navCircle} navCircle navCircleSettings`} d="M400 35.0118C400.002 34.4179 399.828 33.8368 399.5 33.3419C399.172 32.847 398.704 32.4606 398.156 32.2317C397.608 32.0029 397.005 31.9418 396.422 32.0562C395.839 32.1706 395.304 32.4554 394.883 32.8745C394.462 33.2936 394.175 33.8281 394.059 34.4104C393.942 34.9927 394.001 35.5965 394.227 36.1453C394.454 36.6942 394.838 37.1634 395.332 37.4936C395.826 37.8238 396.406 38 397 38C397.794 38 398.555 37.6856 399.117 37.1255C399.679 36.5654 399.997 35.8054 400 35.0118ZM395.294 35.0118C395.292 34.6711 395.391 34.3374 395.579 34.0531C395.767 33.7688 396.035 33.5469 396.349 33.4154C396.663 33.2839 397.01 33.2489 397.344 33.3148C397.678 33.3807 397.985 33.5446 398.226 33.7855C398.467 34.0264 398.631 34.3335 398.697 34.6678C398.763 35.0021 398.728 35.3484 398.596 35.6628C398.465 35.9771 398.243 36.2452 397.959 36.4331C397.674 36.6209 397.341 36.72 397 36.7177C396.548 36.7177 396.114 36.5379 395.794 36.218C395.474 35.8981 395.294 35.4642 395.294 35.0118Z" fill="#162029"/>
+                          <path className={`${styles.navCircle} navCircle navCircleSettings`} d="M377 150.012C377.002 149.418 376.828 148.837 376.5 148.342C376.172 147.847 375.704 147.461 375.156 147.232C374.608 147.003 374.005 146.942 373.422 147.056C372.839 147.171 372.304 147.455 371.883 147.875C371.462 148.294 371.175 148.828 371.059 149.41C370.942 149.993 371.001 150.596 371.227 151.145C371.454 151.694 371.838 152.163 372.332 152.494C372.826 152.824 373.406 153 374 153C374.794 153 375.555 152.686 376.117 152.125C376.679 151.565 376.997 150.805 377 150.012ZM372.294 150.012C372.292 149.671 372.391 149.337 372.579 149.053C372.767 148.769 373.035 148.547 373.349 148.415C373.663 148.284 374.01 148.249 374.344 148.315C374.678 148.381 374.985 148.545 375.226 148.785C375.467 149.026 375.631 149.334 375.697 149.668C375.763 150.002 375.728 150.348 375.596 150.663C375.465 150.977 375.243 151.245 374.959 151.433C374.674 151.621 374.341 151.72 374 151.718C373.548 151.718 373.114 151.538 372.794 151.218C372.474 150.898 372.294 150.464 372.294 150.012Z" fill="#162029"/>
+                        </g>
+                        <g opacity="0.4">
+                          <path className={`${styles.navLine} navLine navLineSettings`} d="M390 86C390 100.4 390 104 390 104" stroke="#162029"/>
+                          <circle className={`${styles.navCircle} navCircle navCircleSettings`} cx="3" cy="3" r="2.25" transform="matrix(-1 -8.74228e-08 -8.74228e-08 1 392.944 81)" stroke="#162029" strokeWidth="1.5"/>
+                          <circle className={`${styles.navCircle} navCircle navCircleSettings`} cx="3" cy="3" r="2.25" transform="matrix(-1 -8.74228e-08 -8.74228e-08 1 393 102.571)" stroke="#162029" strokeWidth="1.5"/>
+                        </g>
+                      </g>
+                      <path className={`${styles.navLine} navLine navLineSettings`} opacity="0.4" d="M494 156L494 129" stroke="#162029"/>
+                      <path className={`${styles.navLine} navLine navLineSettings`} opacity="0.4" d="M479 141L479 114" stroke="#162029"/>
+                      <path className={`${styles.navLine} navLine navLineSettings`} opacity="0.4" d="M485 156L485 108" stroke="#162029"/>
+                      <defs>
+                        <linearGradient id="paint0_linear_1461_8373" x1="152.832" y1="135.178" x2="92.1188" y2="135.18" gradientUnits="userSpaceOnUse">
+                          <stop stopColor="#FF6969"/>
+                          <stop offset="1" stopColor="#FF6969" stopOpacity="0"/>
+                        </linearGradient>
+                        <linearGradient id="paint1_linear_1461_8373" x1="152" y1="130" x2="105" y2="130" gradientUnits="userSpaceOnUse">
+                          <stop stopOpacity="0"/>
+                          <stop offset="0.494792"/>
+                          <stop offset="1" stopOpacity="0"/>
+                        </linearGradient>
+                        <linearGradient id="paint2_linear_1461_8373" x1="152" y1="138" x2="94" y2="138" gradientUnits="userSpaceOnUse">
+                          <stop stopOpacity="0"/>
+                          <stop offset="0.494792"/>
+                          <stop offset="1" stopOpacity="0"/>
+                        </linearGradient>
+                        <linearGradient id="paint3_linear_1461_8373" x1="413.455" y1="155.5" x2="413.455" y2="124" gradientUnits="userSpaceOnUse">
+                          <stop stopColor="#162029" stopOpacity="0.4"/>
+                          <stop offset="1" stopColor="#A6D0DD"/>
+                        </linearGradient>
+                        <linearGradient id="paint4_linear_1461_8373" x1="422.455" y1="152" x2="422.455" y2="94.5" gradientUnits="userSpaceOnUse">
+                          <stop stopColor="#FF6969"/>
+                          <stop offset="0.9999" stopColor="#162029" stopOpacity="0.4"/>
+                          <stop offset="1" stopColor="#162029" stopOpacity="0.2"/>
+                        </linearGradient>
+                      </defs>
+                    </svg>
                   </div>
                 </div>
               </div>
@@ -770,11 +1156,11 @@ const Header = () => {
                   >
                     <path
                       d='M11.3047 13.7208C9.27352 13.7208 7.625 12.0723 7.625 10.0411C7.625 8.00985 9.27352 6.36133 11.3047 6.36133C13.336 6.36133 14.9845 8.00985 14.9845 10.0411C14.9845 12.0723 13.336 13.7208 11.3047 13.7208ZM11.3047 7.83322C10.088 7.83322 9.0969 8.8243 9.0969 10.0411C9.0969 11.2578 10.088 12.2489 11.3047 12.2489C12.5215 12.2489 13.5126 11.2578 13.5126 10.0411C13.5126 8.8243 12.5215 7.83322 11.3047 7.83322Z'
-                      fill='white'
+                      fill='#000'
                     />
                     <path
                       d='M14.4524 20.0399C14.2463 20.0399 14.0402 20.0105 13.8342 19.9614C13.2258 19.7946 12.7155 19.4119 12.3917 18.8722L12.274 18.676C11.695 17.6751 10.9002 17.6751 10.3212 18.676L10.2133 18.8624C9.88948 19.4119 9.37922 19.8044 8.77084 19.9614C8.15264 20.1283 7.51482 20.0399 6.97512 19.7161L5.28735 18.7447C4.99079 18.5748 4.73064 18.348 4.52177 18.0775C4.31291 17.8069 4.15943 17.4979 4.07012 17.1679C3.9808 16.838 3.9574 16.4937 4.00126 16.1548C4.04512 15.8158 4.15537 15.4888 4.32571 15.1925C4.61028 14.6921 4.68878 14.2407 4.52196 13.9561C4.35515 13.6715 3.9332 13.5047 3.35426 13.5047C1.92161 13.5047 0.753906 12.337 0.753906 10.9044V9.17735C0.753906 7.7447 1.92161 6.57699 3.35426 6.57699C3.9332 6.57699 4.35515 6.41018 4.52196 6.12561C4.68878 5.84105 4.62009 5.38966 4.32571 4.88922C3.98227 4.29065 3.89395 3.58414 4.07058 2.91688C4.24721 2.23981 4.67896 1.68048 5.28735 1.33704L6.98494 0.365591C8.09376 -0.291857 9.55585 0.0908364 10.2231 1.21929L10.3409 1.41554C10.9198 2.41643 11.7146 2.41643 12.2936 1.41554L12.4015 1.2291C13.0688 0.0908364 14.5309 -0.291857 15.6495 0.375403L17.3373 1.34685C17.6338 1.51678 17.894 1.7435 18.1029 2.01405C18.3117 2.2846 18.4652 2.59367 18.5545 2.92358C18.6438 3.2535 18.6672 3.59779 18.6234 3.93675C18.5795 4.27572 18.4693 4.60271 18.2989 4.89903C18.0143 5.39948 17.9358 5.85086 18.1027 6.13543C18.2695 6.41999 18.6914 6.58681 19.2704 6.58681C20.703 6.58681 21.8707 7.75451 21.8707 9.18716V10.9142C21.8707 12.3468 20.703 13.5145 19.2704 13.5145C18.6914 13.5145 18.2695 13.6813 18.1027 13.9659C17.9358 14.2505 18.0045 14.7019 18.2989 15.2023C18.6424 15.8009 18.7405 16.5074 18.554 17.1747C18.4687 17.5066 18.3169 17.8178 18.1078 18.0894C17.8986 18.361 17.6365 18.5872 17.3373 18.7545L15.6397 19.7259C15.2668 19.932 14.8645 20.0399 14.4524 20.0399ZM11.3025 16.4093C12.1758 16.4093 12.9903 16.9588 13.5496 17.9302L13.6575 18.1167C13.7753 18.3227 13.9715 18.4699 14.207 18.5288C14.4425 18.5877 14.678 18.5582 14.8743 18.4405L16.5719 17.4592C16.831 17.3098 17.0206 17.0641 17.0996 16.7757C17.1786 16.4872 17.1406 16.1792 16.9938 15.9186C16.4345 14.957 16.3658 13.9659 16.7976 13.2103C17.2293 12.4548 18.1223 12.023 19.2409 12.023C19.8689 12.023 20.3694 11.5226 20.3694 10.8946V9.16753C20.3694 8.54934 19.8689 8.03908 19.2409 8.03908C18.1223 8.03908 17.2293 7.60732 16.7976 6.85175C16.3658 6.09618 16.4345 5.1051 16.9938 4.14346C17.141 3.88833 17.1803 3.58414 17.1018 3.28976C17.0233 2.99538 16.8368 2.75988 16.5817 2.60287L14.8841 1.63142C14.7817 1.57137 14.6685 1.53211 14.5508 1.51588C14.4332 1.49966 14.3136 1.50679 14.1987 1.53687C14.0839 1.56695 13.9761 1.61938 13.8816 1.69117C13.787 1.76296 13.7075 1.8527 13.6477 1.95524L13.5398 2.14168C12.9805 3.11313 12.166 3.66264 11.2927 3.66264C10.4194 3.66264 9.60491 3.11313 9.04559 2.14168L8.93765 1.94543C8.81571 1.74489 8.62032 1.59986 8.39306 1.54122C8.16581 1.48257 7.92464 1.51493 7.72088 1.63142L6.0233 2.61269C5.76422 2.76213 5.57458 3.00776 5.49557 3.29623C5.41657 3.58469 5.45458 3.89267 5.60135 4.15327C6.16067 5.11491 6.22936 6.10599 5.79761 6.86156C5.36585 7.61714 4.4729 8.04889 3.35426 8.04889C2.72625 8.04889 2.2258 8.54934 2.2258 9.17735V10.9044C2.2258 11.5226 2.72625 12.0328 3.35426 12.0328C4.4729 12.0328 5.36585 12.4646 5.79761 13.2202C6.22936 13.9757 6.16067 14.9668 5.60135 15.9284C5.45416 16.1836 5.41491 16.4878 5.49341 16.7821C5.57191 17.0765 5.75836 17.312 6.01348 17.469L7.71107 18.4405C7.91714 18.568 8.16245 18.5975 8.38814 18.5386C8.62365 18.4797 8.8199 18.3227 8.94746 18.1167L9.0554 17.9302C9.61472 16.9686 10.4292 16.4093 11.3025 16.4093Z'
-                      fill='white'
+                      fill='#000'
                     />
                   </svg>
                 </div>

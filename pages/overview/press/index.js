@@ -5,11 +5,9 @@ export async function getServerSideProps({ query }) {
   const currentPage = query.page || 1;
   const limit = 4;
   
-
   const axios = createAxiosInstance();
   const response = await axios.get(`${process.env.NEXT_PUBLIC_URL}/press/get-all-press`, {
     params: { page: currentPage, limit: limit },
-    
   });
   const pressData = response.data.press;
   const current = response.data.currentPage
@@ -24,8 +22,7 @@ export async function getServerSideProps({ query }) {
   };
 }
 
-const Index = ({ press, currentPage = 1, totalCount }) => {
-
+const index = ({ press, currentPage = 1, totalCount }) => {
   return (
     <div style={{ paddingTop: '150px' }}>
       <Press press={press} currentPage={currentPage} totalCount={totalCount} />
@@ -33,4 +30,4 @@ const Index = ({ press, currentPage = 1, totalCount }) => {
   );
 };
 
-export default Index;
+export default index;

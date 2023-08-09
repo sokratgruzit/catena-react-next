@@ -1,7 +1,7 @@
 import Privacy from '../../../components/home/privacy/Privacy';
 
-function index() {
+const index = () => {
   return <Privacy />;
-}
+};
 
 export default index;

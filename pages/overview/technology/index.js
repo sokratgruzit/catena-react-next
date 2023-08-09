@@ -1,6 +1,7 @@
 import TechnologySlider from '../../../components/home/technologySlider/TechnologySlider';
-function index() {
+
+const index = () => {
   return <TechnologySlider />;
-}
+};
 
 export default index;

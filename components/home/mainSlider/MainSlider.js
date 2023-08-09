@@ -12,11 +12,11 @@ import TaskSvg from '../../svg/mainSlider/TaskSvg';
 import SolutionSvg from '../../svg/mainSlider/SolutionSvg';
 
 const MainSlider = ({ trans }) => {
-  const [levels, setLevels] = useState([]);
-  const [activeSlide, setActiveSlide] = useState(0);
-  const activeLang = useSelector(state => state.settings.activeLang);
-  const [scrollBlocker, setScrollBlocker] = useState(true);
-  const dispatch = useDispatch();
+    const [levels, setLevels] = useState([]);
+    const [activeSlide, setActiveSlide] = useState(0);
+    const activeLang = useSelector(state => state.settings.activeLang);
+    const [scrollBlocker, setScrollBlocker] = useState(true);
+    const dispatch = useDispatch();
     // [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24]
     let microSchemes;
     if(window.innerWidth > 1250){
@@ -26,8 +26,9 @@ const MainSlider = ({ trans }) => {
             [1,2,3,4,5,10,11,12,13,14,15,16,23,24],
             [1,2,7,8,9,10,20,21,22,23,24],
             [1,2,3,4,5,6,10,11,12,13,14,15,16,17,23,24]
-        ]
+        ];
     }
+
     if(window.innerWidth < 1250){
         microSchemes = [
             [1,2,5,6,7,8,9,10,11,16,17,18,19,20,21,22,23,24],
@@ -35,19 +36,18 @@ const MainSlider = ({ trans }) => {
             [1,2,3,6,7,8,9,10,11,12,13,14,23,24],
             [1,2,5,6,7,8,9,10,11,16,17,18,19,20,21,22,23,24],
             [1,2,3,6,7,8,9,10,11,12,13,14,23,24]
-        ]
+        ];
     }
 
-  useEffect(() => {
-      setActiveSlide(1)
-      setTimeout(() => {
-          dispatch({
-              type: "SET_MICHROSCHEME_ARRAY",
-              microschemeArray: microSchemes[activeSlide]
-          });
-      },500)
-  },[])
-
+    useEffect(() => {
+        setActiveSlide(1);
+        setTimeout(() => {
+            dispatch({
+                type: "SET_MICHROSCHEME_ARRAY",
+                microschemeArray: microSchemes[activeSlide]
+            });
+        }, 500);
+    },[]);
 
     // let scrollBlocker = true;
     let slideScrollDown = () => {
@@ -66,7 +66,8 @@ const MainSlider = ({ trans }) => {
                 setScrollBlocker(true);
             }, 1000);
         }
-    }
+    };
+
     let slideScrollUp = () => {
         if (activeSlide !== 1 && scrollBlocker) {
             setActiveSlide(0);
@@ -75,7 +76,6 @@ const MainSlider = ({ trans }) => {
                 microschemeArray: microSchemes[activeSlide - 2]
             });
             setScrollBlocker(false);
-            console.log(activeSlide,'sadasddas')
             setTimeout(() => {
                 setActiveSlide(activeSlide - 1);
             },10);
@@ -83,7 +83,8 @@ const MainSlider = ({ trans }) => {
                 setScrollBlocker(true);
             }, 1000);
         }
-    }
+    };
+
     return (
         <>
             {/*${styles.mainSliderActive}*/}
@@ -129,9 +130,6 @@ const MainSlider = ({ trans }) => {
                             </div>
                             <h1 className='font-90 ttl'>
                                 {trans[activeLang]?.slider1_slide1_ttl}
-                                {/* A Virtual World of
-                            <br/>
-                            Interconnected Blockchains */}
                             </h1>
                             <div className={styles.mainSliderItemBtnOut}>
                                 <a href="##" className={styles.mainSliderItemBtn}>{trans[activeLang]?.slider1_slide1_join_btn}</a>

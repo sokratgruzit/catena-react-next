@@ -1,12 +1,14 @@
 import { useEffect, useMemo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { injected } from '../../connector';
-import useConnect from '../../hooks/use-connect';
+import { injected } from '../../hooks/connector';
+import { useConnect } from '../../hooks/use-connect';
 import createAxiosInstance from '../../pages/api/axios';
 
 const Wrapper = ({ children }) => {
-  const { MetaMaskEagerlyConnect } = useConnect();
+  const {
+    MetaMaskEagerlyConnect
+  } = useConnect();
   const account = useSelector(state => state.connect.account);
   const triedReconnect = useSelector(state => state.appState.triedReconnect);
   const providerType = useSelector(state => state.connect.providerType);
