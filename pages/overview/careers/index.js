@@ -1,7 +1,7 @@
 import Careers from '../../../components/home/careers/Careers';
 
-const Career = () => {
+const index = () => {
   return <Careers />
 };
 
-export default Career;
+export default index;

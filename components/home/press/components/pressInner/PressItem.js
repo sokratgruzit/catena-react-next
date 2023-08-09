@@ -3,10 +3,10 @@ import Slider from '../../../../UI/slider/Slider';
 import CopyLink from '../pressInner/CopyLink';
 import { useSelector } from 'react-redux';
 import JoinCommunity from '../../../events/components/JoinCommunity';
-
 import styles from '../../Press.module.css';
+import PublicByYears from '../publicByYears/PublicByYears';
 
-const PressItem = ({ item, slug }) => {
+const PressItem = ({ item, press }) => {
   const activeLang = useSelector(state => state.settings.activeLang);
   const sliderImages = [
     `${process.env.NEXT_PUBLIC_URL}/uploads/press/${item.image}`,
@@ -45,6 +45,7 @@ const PressItem = ({ item, slug }) => {
           </div>
         </>
       )}
+      <PublicByYears press={press} />
       <div className={styles.joinCommunity}>
         <JoinCommunity />
       </div>

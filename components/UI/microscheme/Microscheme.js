@@ -21,13 +21,11 @@ const Microscheme = props => {
             }
             gsap.to(stringInDots, {
                 opacity: 1,
-                // strokeDasharray: 900,
                 duration: 4, // Adjust the duration as needed
                 ease: Linear.easeNone
             });
             gsap.to(stringIn, {
                 strokeDashoffset: 0,
-                // strokeDasharray: 900,
                 duration: 5, // Adjust the duration as needed
                 ease: Linear.easeNone
             });
@@ -54,10 +52,6 @@ const Microscheme = props => {
                 ease: Linear.easeNone
             });
         }
-
-        console.log(stringIn)
-        console.log(stringOut)
-        console.log(stringOutDots)
     }
     useEffect(() => {
         animateLines(lvl);
@@ -2396,7 +2390,7 @@ const Microscheme = props => {
                         fill='#162029'
                     />
                     <circle
-                        className={`${styles.delay2} ${styles.opacityH} circle18`}className={`${styles.delay3} ${styles.opacity} circle18`}
+                        className={`${styles.delay2} ${styles.opacityH} circle18`}
                         opacity='0.3'
                         cx='3'
                         cy='3'
@@ -6618,7 +6612,7 @@ const Microscheme = props => {
                         fill='#162029'
                     />
                     <circle
-                        className={`${styles.delay2} ${styles.opacityH} circle24`}className={`${styles.delay3} ${styles.opacity} circle24`}
+                        className={`${styles.delay2} ${styles.opacityH} circle24`}
                         opacity='0.3'
                         cx='3'
                         cy='3'

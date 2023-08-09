@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Leaderbord = () => {
+const index = () => {
   return <div>Leaderbord</div>;
 };
 
-export default Leaderbord;
+export default index;

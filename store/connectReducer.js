@@ -35,6 +35,7 @@ const connectReducer = (state = INIT_STATE, action) => {
       ...action,
     };
   }
+
   return state;
 };
 

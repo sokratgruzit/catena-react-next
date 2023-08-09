@@ -1,22 +1,18 @@
-import { useEffect, useState } from 'react';
 import createAxiosInstance from '../../../pages/api/axios';
 import Ecosystem from '../../../components/home/ecosystem/Ecosystem';
 
-const index = () => {
+export const getStaticProps = async () => {
   const axios = createAxiosInstance();
-  const [exchanges, setExchanges] = useState(null)
+  const { data } = await axios.get(`${process.env.NEXT_PUBLIC_URL}/ecosystem/get-active-ecosystem`);
 
-  const getAllEcosystems = async () => {
-    await axios.get("http://localhost:4003/ecosystem/get-active-ecosystem").then((res) => {
-      const data = res?.data;
-      setExchanges(data);
-    });
+  return {
+    props: {
+      exchanges: data,
+    },
   };
+};
 
-  useEffect(() => {
-    getAllEcosystems();
-  }, []);
-
+const index = ({ exchanges }) => {
   return (
     <div style={{ paddingTop: '150px', backgroundColor: '#fff2e4' }}>
       <Ecosystem exchanges={exchanges} />

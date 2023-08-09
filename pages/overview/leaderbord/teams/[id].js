@@ -1,7 +1,7 @@
 import React from 'react';
 
-const TeamsDetailPage = () => {
+const index = () => {
   return <div>TeamsDetailPage</div>;
 };
 
-export default TeamsDetailPage;
+export default index;

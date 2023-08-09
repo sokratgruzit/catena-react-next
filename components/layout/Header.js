@@ -3,11 +3,9 @@ import Link from 'next/link';
 import { useState, useEffect, useMemo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import useLanguages from '../../hooks/useLanguages';
-// import useConnect from "../../hooks/use-connect";
 import { gsap, Linear } from 'gsap';
-
-import { injected, walletConnect } from '../../connector';
-import useConnect from '../../hooks/use-connect';
+import { injected, walletConnect } from '../../hooks/connector';
+import { useConnect } from '../../hooks/use-connect';
 import createAxiosInstance from '../../pages/api/axios';
 import Button from '../UI/button/Button';
 import Tooltip from '../UI/tooltip/Tooltip';
@@ -16,13 +14,13 @@ import styles from './Header.module.css';
 
 const WALLETS_DATA = [
   {
-    id: 1,
+    id: 'meta-0',
     title: 'Metamask',
     img: 'meta.png',
     type: 'metaMask',
   },
   {
-    id: 2,
+    id: 'connect-0',
     title: 'Wallet Connect',
     img: 'walletconnect.png',
     type: 'walletConnect',
@@ -30,12 +28,20 @@ const WALLETS_DATA = [
 ];
 
 const Header = () => {
-  const { connect, disconnect, library, error, setError } = useConnect();
+  const {
+    library,
+    disconnect,
+    switchToBscTestnet,
+    account,
+    MetaMaskEagerlyConnect,
+    WalletConnectEagerly,
+    connect,
+    chainId,
+  } = useConnect();
   const axios = useMemo(() => createAxiosInstance(), []);
   const locales = useSelector(state => state.settings.locales);
   const activeLang = useSelector(state => state.settings.activeLang);
-
-  const account = useSelector(state => state.connect.account);
+  const providerType = useSelector((state) => state.connect.providerType);
   const triedReconnect = useSelector(state => state.appState.triedReconnect);
 
   const [activeMenu, setActiveMenu] = useState(null);
@@ -57,86 +63,89 @@ const Header = () => {
 
   const NAV_DATA = [
     {
-      id: 0,
+      id: 'overview-main',
       title: 'Overview',
       route: '/',
       subNav: [],
       subNavWithTitle: [
         {
+          id: 'about-main',
           title:'About Us',
           subNav: [
             {
-              id: 20,
+              id: 'about-0',
               title: 'Brand Guidlines',
               route: '/overview/brand-guidelines',
             },
             {
-              id: 21,
+              id: 'about-1',
               title: 'Careers',
               route: '/overview/careers',
             },
             {
-              id: 22,
+              id: 'about-2',
               title: 'Press',
               route: '/overview/press',
             },
             {
-              id: 23,
+              id: 'about-3',
               title: 'Events',
               route: '/overview/events',
             },
             {
-              id: 24,
+              id: 'about-4',
               title: 'Privacy',
               route: '/overview/privacy',
             },
             {
-              id: 25,
+              id: 'about-5',
               title: 'Terms',
               route: '/overview/terms',
             }
           ]
         },
         {
+          id: 'support-main',
           title:'Support',
           subNav: [
             {
-              id: 26,
+              id: 'support-0',
               title: 'Bug Bounty',
               route: '/overview/bug-bounty',
             },
             {
-              id: 27,
+              id: 'support-1',
               title: 'Your Voice Matter',
               route: '/overview/your-voice',
             },
             {
-              id: 28,
+              id: 'support-2',
               title: 'Support',
               route: '/overview/support',
             },
             {
-              id: 29,
+              id: 'support-3',
               title: 'FAQ',
               route: '/overview/faq',
             },
             {
-              id: 30,
+              id: 'support-4',
               title: 'Ambassador',
               route: '/overview/ambassador',
             }
           ]
         },
         {
+          id: 'learn-main',
           title:'Learn',
           subNav: [
             {
-              id: 31,
+              id: 'learn-0',
               title: 'Technology',
               route: '/overview/technology',
             },
             {
-              id: 32,
+              id: 'learn-1',
               title: 'Tokenomics',
               route: '/overview/tokenomics',
             }
@@ -145,24 +154,24 @@ const Header = () => {
       ]
     },
     {
-      id: 1,
+      id: 'trade-main',
       title: 'Trade',
-      route: '/trade/swap',
+      route: '/overview/trade/swap',
       subNav: [
         {
-          id: 1,
+          id: 'trade-0',
           title: 'Swap',
-          route: '/trade/swap',
+          route: '/overview/trade/swap',
         },
         {
-          id: 2,
+          id: 'trade-1',
           title: 'Bridge',
-          route: '/trade/bridge',
+          route: '/overview/trade/bridge',
         },
         {
-          id: 3,
+          id: 'trade-2',
           title: 'Staking',
-          route: '/trade/staking',
+          route: '/overview/trade/staking',
         },
         /*{
           id: 4,
@@ -216,9 +225,9 @@ const Header = () => {
       ],
     },*/
     {
-      id: 5,
+      id: 'more-main',
       title: 'More',
-      route: '/voting',
+      route: '/overview/voting',
       subNav: [
         /*{
           id: 13,
@@ -226,12 +235,12 @@ const Header = () => {
           route: '/info',
         },*/
         {
-          id: 14,
+          id: 'more-0',
           title: 'Voting',
-          route: '/voting',
+          route: '/overview/voting',
         },
         {
-          id: 456,
+          id: 'more-1',
           title: 'Wallet',
           route: 'https://wallet-landing-next-six.vercel.app',
         },
@@ -456,7 +465,14 @@ const Header = () => {
 
     if (window.innerWidth <= 767) {
     }
-    //setRouterLocale(router.locale);
+
+    MetaMaskEagerlyConnect(injected);
+    WalletConnectEagerly(walletConnect);
+
+    if (!providerType) {
+      dispatch({ type: "SET_TRIED_RECONNECT", payload: true });
+    }
+
     getLocales();
   }, []);
 
@@ -471,12 +487,17 @@ const Header = () => {
   useEffect(() => {
     if (account && triedReconnect) {
       axios
-        .post('/auth/register-wallet-address', { address: account })
-        .then(res => console.log(res))
-        .catch(() => {});
+      .post('/auth/register-wallet-address', { address: account })
+      .then(res => console.log(res))
+      .catch(() => {});
+
+      dispatch({
+        type: "UPDATE_STATE",
+        account: account,
+        chainId: chainId,
+      });
     }
-    // eslint-disable-next-line
-  }, [account]);
+  }, [account, chainId, dispatch]);
 
   return (
     <div>
@@ -659,7 +680,7 @@ const Header = () => {
                       <circle className={`${styles.navCircle} navCircle navCircle${item.id}`} cx="421" cy="92" r="2.25" stroke="#A19D99" strokeWidth="1.5"/>
                       <circle className={`${styles.navCircle} navCircle navCircle${item.id}`} cx="421" cy="154" r="2.25" stroke="#F96969" strokeWidth="1.5"/>
                       <g opacity="0.3">
-                        <path className={`${styles.navLine} navLine navLine${item.id}`} d="M182.9 139L177.32 144.58L171.74 150.17L166.16 155.75H158.26H150.37H142.47H134.58H126.68H118.79H110.89H103H95.11H87.21H79.32L73.73 161.33L68.15 166.91L62.57 172.49L56.99 178.08L51.4 183.66L45.82 189.24L40.24 194.82L34.66 200.41L29.07 205.99L23.49 211.57L17.91 217.15L12.33 222.74L6.74 228.32L1.16 233.9L-4.42 239.48L-10 245.07V252.96L-4.42 258.54L1.16 264.13L6.74 269.71L12.33 275.29L17.91 280.87V272.98V265.08V257.19V249.29V241.4V233.5V225.61" stroke="#162029" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path className={`${styles.navLine} navLine navLine${item.id}`} d="M182.9 139L177.32 144.58L171.74 150.17L166.16 155.75H158.26H150.37H142.47H134.58H126.68H118.79H110.89H103H95.11H87.21H79.32L73.73 161.33L68.15 166.91L62.57 172.49L56.99 178.08L51.4 183.66L45.82 189.24L40.24 194.82L34.66 200.41L29.07 205.99L23.49 211.57L17.91 217.15L12.33 222.74L6.74 228.32L1.16 233.9L-4.42 239.48L-10 245.07V252.96L-4.42 258.54L1.16 264.13L6.74 269.71L12.33 275.29L17.91 280.87V272.98V265.08V257.19V249.29V241.4V233.5V225.61" stroke="#162029" strokeLinecap="round" strokeLinejoin="round"/>
                         <path className={`${styles.navCircle} navCircle navCircle${item.id}`} d="M183.72 139.44C184.67 139.44 185.44 138.67 185.44 137.72C185.44 136.77 184.67 136 183.72 136C182.77 136 182 136.77 182 137.72C182 138.67 182.77 139.44 183.72 139.44Z" fill="#162029"/>
                       </g>
                       <circle className={`${styles.navCircle} navCircle navCircle${item.id}`} opacity="0.3" cx="3" cy="3" r="3" transform="matrix(4.37114e-08 -1 -1 -4.37114e-08 571 159)" fill="#162029"/>
@@ -732,7 +753,7 @@ const Header = () => {
                       {
                           item.subNavWithTitle && item.subNavWithTitle.length > 0 && item.subNavWithTitle.map((sub, index) => {
                           return (
-                              <div className={`${styles.headerNavLinkWithTitleContainer}`}>
+                              <div key={sub.id} className={`${styles.headerNavLinkWithTitleContainer}`}>
                                 <a>
                                   <div
                                       style={{
@@ -1144,7 +1165,6 @@ const Header = () => {
                         </linearGradient>
                       </defs>
                     </svg>
-
                   </div>
                 </div>
               </div>
