@@ -1,11 +1,19 @@
 .sliderContainer {
   display: flex;
+  flex-direction: column;
   max-width: 100%;
   justify-content: center;
   width: 100%;
   position: relative;
+  padding-top: 30px;
 }
-
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
 .imageSlider {
   display: flex;
   align-items: center;
@@ -18,34 +26,42 @@
 
 .image {
   max-width: 100%;
-  height: auto;
+  width: 100%;
+  aspect-ratio: 16/9;
   object-fit: cover;
+  max-height: 60vh;
 }
 
-.arrowButton {
-  background: none;
-  border: none;
+.mainSliderItemNav {
+  display: flex;
+  height: 44px;
+  border-radius: 30px;
+  border: 1px solid #162029;
+  background: #a6d0dd;
+  width: 100px;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+}
+
+.mainSliderItemNav:hover {
+  background: #ff6969;
+}
+.mainSliderItemNav > div {
+  display: flex;
+  width: 24px;
+  height: 24px;
+  align-items: center;
+  justify-content: center;
+  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
   cursor: pointer;
-  font-size: 16px;
 }
-
-.sliderContainer button {
-  background: transparent;
-  transition: 0.4s;
-  padding: 0;
+.mainSliderItemNav > div:first-child:hover {
+  transform: translateX(-5px);
 }
-
-.arrowButton svg {
-  width: 40px;
-  height: 40px;
-}
-
-.arrowButton svg path {
-  transition: 0.4s;
-}
-
-.sliderContainer .button:hover svg path {
-  fill: #ff6969;
+.mainSliderItemNav > div:last-child:hover {
+  transform: translateX(5px);
 }
 
 .next {
@@ -58,7 +74,7 @@
 
 @media (max-width: 1665px) {
   .sliderContainer {
-    margin-top: 40px;
+    padding-top: 40px;
   }
   .imageWrapper {
     width: 100%;
@@ -67,10 +83,9 @@
 
 @media (max-width: 1023px) {
   .sliderContainer {
-    margin-top: 40px;
+    padding-top: 40px;
   }
   .imageWrapper {
-    margin-top: 40px;
     width: 100%;
   }
 
@@ -87,10 +102,12 @@
 
 @media (max-width: 767px) {
   .sliderContainer {
-    margin-top: 30px;
+    padding-top: 20px;
   }
-  .imageWrapper {
-    margin-top: 30px;
+
+  .mainSliderItemNav {
+    height: 35px;
+    width: 90px;
   }
 
   .arrowButton svg {
