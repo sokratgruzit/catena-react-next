@@ -1,14 +1,8 @@
-import { useEffect } from 'react';
-import Aos from 'aos';
-import 'aos/dist/aos.css';
 import styles from '../../Press.module.css';
 
 const PressLogo = () => {
-  useEffect(() => {
-    Aos.init({ duration: 700 });
-  }, []);
   return (
-    <div className='container_bordered' data-aos='fade-up'>
+    <div className='container_bordered'>
       <div className={`${styles.logoContainer} container_bordered-child`}>
         <div className={styles.logoLine}>
           <div className={styles.logCon}>

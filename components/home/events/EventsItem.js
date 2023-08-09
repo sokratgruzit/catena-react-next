@@ -1,6 +1,4 @@
 import React, { useEffect, useState, useMemo } from 'react';
-import Aos from 'aos';
-import 'aos/dist/aos.css';
 import Slider from '../../UI/slider/Slider';
 import CopyLink from '../press/components/pressInner/CopyLink';
 import { useSelector } from 'react-redux';
@@ -83,32 +81,26 @@ const EventsItem = ({ item, slug }) => {
       });
   }, [item]);
 
-  useEffect(() => {
-    Aos.init({ duration: 700 });
-  }, []);
-
   return (
     <div className='pT-180 container'>
       <div className='custum-text'>
-        <h1 data-aos='fade-up'>{item?.title['en']['event.title']}</h1>
+        <h1>{item?.title['en']['event.title']}</h1>
         <span>
-          <button data-aos='fade-up'>Digital</button>
+          <button>Digital</button>
           <CopyLink data={data} currentPageURL={getCurrentPageURL} showDetails={false} showCopyButton={true} />
         </span>
         <Slider images={sliderImages} />
-        <div data-aos='fade-up'>{item?.description && <p>{item?.inner_descr['en']['event.description']}</p>}</div>
-        <p data-aos='fade-up'>{item?.text['en']['event.text']}</p>
-        <p data-aos='fade-up'>{item?.inner_descr['en']['event.description']}</p>
+        <div>{item?.description && <p>{item?.inner_descr['en']['event.description']}</p>}</div>
+        <p>{item?.text['en']['event.text']}</p>
+        <p>{item?.inner_descr['en']['event.description']}</p>
         <span>
-          <button data-aos='fade-up'>Digital</button>
+          <button>Digital</button>
           <CopyLink data={data} currentPageURL={getCurrentPageURL} showDetails={false} showCopyButton={true} />
         </span>
       </div>
 
       <div className={styles.items}>
-        <h2 className='ttl font_51' data-aos='fade-up'>
-          Other Events
-        </h2>
+        <h2 className='ttl font_51'>Other Events</h2>
         <div className={styles.item}>
           {relatedEvents.map(event => (
             <Card

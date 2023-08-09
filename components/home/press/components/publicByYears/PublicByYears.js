@@ -2,8 +2,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import Link from 'next/link';
-import Aos from 'aos';
-import 'aos/dist/aos.css';
 import { Button } from '@catena-network/catena-ui-module';
 import styles from '../../Press.module.css';
 import Years from '../filterWithYears/Years';
@@ -38,10 +36,6 @@ const PublicByYears = ({ press }) => {
 
   const canLoadMore = filterData && Array.isArray(filterData) && visibleItems < filterData.length;
 
-  useEffect(() => {
-    Aos.init({ duration: 700 });
-  }, []);
-
   return (
     <div className='container_bordered'>
       <Years handleYearClick={handleYearClick} activeYear={activeYear} allPress={press} />
@@ -50,7 +44,7 @@ const PublicByYears = ({ press }) => {
           filterData.slice(0, visibleItems).map((item, index) => {
             return (
               <Link key={index} href={`/overview/press/${item.slug}`}>
-                <div className={styles.icCont} data-aos='fade-up'>
+                <div className={styles.icCont}>
                   <img
                     src={`${process.env.NEXT_PUBLIC_URL}/uploads/press/${item?.logo_image}`}
                     className={styles.icon}
@@ -66,7 +60,6 @@ const PublicByYears = ({ press }) => {
         <div>
           {canLoadMore ? (
             <Button
-              data-aos='fade-up'
               onClick={loadMore}
               label={'Load More Publics'}
               size={'btn-lg'}
@@ -79,7 +72,6 @@ const PublicByYears = ({ press }) => {
           ) : (
             visibleItems > itemsPerPage && (
               <Button
-                data-aos='fade-up'
                 onClick={loadLess}
                 label={'Load Less Publics'}
                 size={'btn-lg'}

@@ -1,15 +1,8 @@
-import { useEffect } from 'react';
-import Aos from 'aos';
-import 'aos/dist/aos.css';
 import styles from '../css/JoinCommunity.module.css';
 
 const JoinCommunity = () => {
-  useEffect(() => {
-    Aos.init({ duration: 700 });
-  }, []);
-
   return (
-    <div className={`${styles.boxTitle} container_bordered `} data-aos='fade-up'>
+    <div className={`${styles.boxTitle} container_bordered `}>
       <div className={`${styles.box} container_bordered-child`}>
         <h1 className={`${styles.Titile} ttl font-40`}>Join our community</h1>
         <p className={`${styles.paragraph} `}>
