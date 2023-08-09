@@ -35,7 +35,6 @@ const Wrapper = ({ children }) => {
       axios
         .post('/user', { address: account })
         .then(res => {
-          console.log(res.data.user, 'hehe');
           dispatch({ type: 'SET_USER', payload: res.data?.user });
         })
         .catch(err => {
