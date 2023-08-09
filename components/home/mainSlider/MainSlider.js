@@ -142,7 +142,7 @@ const MainSlider = ({ trans }) => {
                         </div>
                     </div>
                     <div className={`container ${styles.mainSliderItem} ${activeSlide == 2 ? styles.mainSliderActive : ''}`}>
-                        <div className={styles.mainSliderItemHalf}>
+                        <div className={`${styles.mainSliderItemHalf} pT-180`}>
                             <div className={styles.mainSliderItemTask}>
                                 <div className={styles.mainSliderItemTaskTxt}>{trans[activeLang]?.slider1_slide2_sm_sc}</div>
                                 <TaskSvg />
@@ -159,7 +159,7 @@ const MainSlider = ({ trans }) => {
                         </div>
                     </div>
                     <div className={`container ${styles.mainSliderItem} ${styles.mainSliderItemReverse} ${activeSlide == 3 ? styles.mainSliderActive : ''}`}>
-                        <div className={styles.mainSliderItemHalf}>
+                        <div className={`${styles.mainSliderItemHalf} pT-180`}>
                             <div className={styles.mainSliderItemTask}>
                                 <div className={styles.mainSliderItemTaskTxt}>Task 2</div>
                                 <TaskSvg />
@@ -176,7 +176,7 @@ const MainSlider = ({ trans }) => {
                         </div>
                     </div>
                     <div className={`container ${styles.mainSliderItem} ${activeSlide == 4 ? styles.mainSliderActive : ''}`}>
-                        <div className={styles.mainSliderItemHalf}>
+                        <div className={`${styles.mainSliderItemHalf} pT-180`}>
                             <div className={styles.mainSliderItemTask}>
                                 <div className={styles.mainSliderItemTaskTxt}>Task 3</div>
                                 <TaskSvg />
@@ -193,7 +193,7 @@ const MainSlider = ({ trans }) => {
                         </div>
                     </div>
                     <div className={`container ${styles.mainSliderItem} ${styles.mainSliderItemReverse} ${activeSlide == 5 ? styles.mainSliderActive : ''}`}>
-                        <div className={styles.mainSliderItemHalf}>
+                        <div className={`${styles.mainSliderItemHalf} pT-180`}>
                             <div className={styles.mainSliderItemTask}>
                                 <div className={styles.mainSliderItemTaskTxt}>Task 4</div>
                                 <TaskSvg />
