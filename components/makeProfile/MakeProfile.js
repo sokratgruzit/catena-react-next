@@ -5,27 +5,22 @@ import { useConnect } from '../../hooks/use-connect';
 
 import PhoneNumberSelect from './components/phoneNumberSelect/PhoneNumberSelect';
 import createAxiosInstance from '../../pages/api/axios';
-import CustomSelect from '../UI/customSelect/CustomSelect';
 import FormSelectDate from '../voting/components/formDateInput/FormSelectDate';
 
 import styles from './MakeProfile.module.css';
 
-const nationalities = ['American', 'British', 'French', 'German', 'Italian', 'Spanish'];
-
-function MakeProfile() {
+const MakeProfile = () => {
   const { account } = useConnect();
   const user = useSelector(state => state.appState.user);
   const dispatch = useDispatch();
   const router = useRouter();
-
-  const [fileURL, setFIleURL] = useState('');
-  const [file, setFile] = useState(null);
 
   const axios = useMemo(() => createAxiosInstance(), []);
   const [inputs, setInputs] = useState({
     fullname: '',
     email: '',
     mobile: '',
+    password: '',
     dateOfBirth: new Date(),
   });
 
@@ -33,19 +28,18 @@ function MakeProfile() {
     fullname: '',
     email: '',
     mobile: '',
+    password: ''
   });
 
   const handleInputChange = event => {
     const { name, value } = event.target;
     let error = '';
+
     switch (name) {
       case 'name':
         error = value ? '' : 'Name is required';
         break;
       case 'email':
-        // if (!value) {
-        //   error = "Email is required";
-        // } else
         if (value && !/^\S+@\S+\.\S+$/.test(value)) {
           error = 'Email is not valid';
         }
@@ -58,6 +52,7 @@ function MakeProfile() {
       ...inputs,
       [name]: value,
     });
+
     setErrors({
       ...errors,
       [name]: error,
@@ -68,24 +63,18 @@ function MakeProfile() {
     handleInputChange({ target: { name: name, value } });
   }
 
-  const handleFullMobileNumberChange = value => {
-    handleInputChange({ target: { name: 'mobile', value } });
-  };
-
   const handleSubmit = event => {
     event.preventDefault();
 
     let isValid = true;
     const newErrors = {};
+
     for (const [key, value] of Object.entries(inputs)) {
       switch (key) {
         case 'fullname':
           newErrors[key] = value ? '' : 'Fullname is required';
           break;
         case 'email':
-          // if (!value) {
-          //   newErrors[key] = "Email is required";
-          // } else
           if (value && !/^\S+@\S+\.\S+$/.test(value)) {
             newErrors[key] = 'Email is not valid';
           }
@@ -102,24 +91,19 @@ function MakeProfile() {
     setErrors(newErrors);
 
     if (isValid) {
-      const formData = new FormData();
-      formData.append('image', file);
-      formData.append('address', account);
-      formData.append('fullname', inputs.fullname);
-      formData.append('email', inputs.email);
-      formData.append('mobile', inputs.mobile);
-      formData.append('nationality', inputs.nationality);
-      formData.append('dateOfBirth', inputs.dateOfBirth);
-
       axios
-        .post('/user/profile', formData)
-        .then(res => {
-          const cacheBuster = new Date().getTime(); // Generate unique cache-busting value
-          setFIleURL(`${process.env.NEXT_PUBLIC_URL}/uploads/profile/${account?.toLowerCase()}.png`);
-          dispatch({ type: 'SET_USER', payload: res.data.result });
-          console.log(fileURL);
-        })
-        .catch(e => console.log(e.response));
+      .post('/user/profile', {
+        address: account,
+        fullname: inputs.fullname,
+        email: inputs.email,
+        mobile: inputs.mobile,
+        password: inputs.password,
+        dateOfBirth: inputs.dateOfBirth
+      })
+      .then(res => {
+        dispatch({ type: 'SET_USER', payload: res.data });
+      })
+      .catch(e => console.log(e.response));
     }
   };
 
@@ -128,23 +112,21 @@ function MakeProfile() {
       fullname: user?.fullname ?? '',
       email: user?.email ?? '',
       mobile: user?.mobile ?? '',
-      dateOfBirth: user?.dateOfBirth ? new Date(user?.dateOfBirth) : '',
-      nationality: user?.nationality,
+      password: '',
+      dateOfBirth: user?.dateOfBirth ? new Date(user?.dateOfBirth) : ''
     });
-
-    const cacheBuster = new Date().getTime(); // Generate unique cache-busting value
-    //setFIleURL(`${process.env.NEXT_PUBLIC_URL}/uploads/profile/${account?.toLowerCase()}.png`);
   }, [user]);
 
   useEffect(() => {
-    console.log(account)
-    const { pathname, asPath, locale } = router;
-
-    if (!account) router.push(pathname, asPath, { locale });
+    const { locale } = router;
+    
+    if (!account) router.push('/', undefined, { locale });
   }, [account]);
 
-  return (
-    <div className={styles.container}>
+  let content = null;
+
+  if (account) {
+    content = <div className={styles.container}>
       <form onSubmit={handleSubmit} className={styles.makeProfileWrapper}>
         <label>
           Fullname:
@@ -157,7 +139,17 @@ function MakeProfile() {
           />
           {errors.fullname && <span className='error'>{errors.fullname}</span>}
         </label>
-
+        <label>
+          Password:
+          <input
+            type='password'
+            name='password'
+            value={inputs.password}
+            onChange={handleInputChange}
+            className={styles.input}
+          />
+          {errors.password && <span className='error'>{errors.password}</span>}
+        </label>
         <label>
           Email:
           <input type='email' name='email' value={inputs.email} onChange={handleInputChange} className={styles.input} />
@@ -180,34 +172,16 @@ function MakeProfile() {
             maxDate={new Date()}
           />
         </label>
-        <label htmlFor='imageUploader' className={styles.uploader}>
-          <span className={styles.label}>{''}</span>
-          <div className={styles.uploadBtn}>Upload Image</div>
-          <input
-            type='file'
-            name='image'
-            id='imageUploader'
-            accept='image/jpeg, image/png, image/jpg'
-            onChange={e => {
-              setFIleURL(URL.createObjectURL(e.target.files[0]));
-              setFile(e.target.files[0]);
-            }}
-          />
-        </label>
-        <CustomSelect
-          options={nationalities}
-          handleSelectChange={value => handleCustomUpdate('nationality', value)}
-          selected={inputs.nationality}
-        />
-        <div className={styles.imgOverview}>
-          <img className={styles.preview} src={fileURL} alt='img' />
-        </div>
         <button type='submit' className={styles.submit}>
           Submit
         </button>
       </form>
-    </div>
-  );
-}
+    </div>;
+  } else {
+    content = <div>Loading...</div>;
+  }
+
+  return content;
+};
 
 export default MakeProfile;
