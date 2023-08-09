@@ -34,10 +34,10 @@ function PrivacyList({ privacyList }) {
         })}
       </div>
       {privacyList?.map((item, i) => (
-        <div key={i} className='text'>
-          <div className={`${styles.title} font-40 ttl`}>
+        <div key={i} className={styles.orderedList}>
+          <div className={`${styles.title} font-40 ttl `}>
             <ol>
-              <li className='font-40 ttl'>{`${i + 1}`}</li>
+              <li className='font-40 '>{`${i + 1}`}</li>
             </ol>
             {item?.title}
           </div>
@@ -56,7 +56,7 @@ function PrivacyList({ privacyList }) {
             item?.children?.map((child, j) => (
               <div key={j} className={styles.children}>
                 <h3 className={`${styles.secondaryTitle}  font_20 ttl`}>
-                  <p className={`${styles.numbering} ttl font_20`}>
+                  <p className={`${styles.numbering}  font_20`}>
                     {`${i + 1}.${j + 1} `}
                     <span className={styles.circle}></span>
                   </p>
