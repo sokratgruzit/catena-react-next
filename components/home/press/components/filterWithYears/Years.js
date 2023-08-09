@@ -15,7 +15,7 @@ const Years = ({ handleYearClick, activeYear, allPress }) => {
   return (
     <div className={styles.infoContainer}>
       <div className={styles.infContTitle}>
-        <h2 className='ttl font-40'>Publics by years</h2>
+        <h2 className='ttl font-40 container'>Publics by years</h2>
       </div>
       <div className={`${styles.yearsStats}`}>
         <Swiper slidesPerView={1} spaceBetween={20} navigation pagination={{ clickable: true }}>
