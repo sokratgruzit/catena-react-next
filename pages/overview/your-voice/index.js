@@ -1,7 +1,7 @@
 import YourVoice from '../../../components/home/yourVoice/YourVoice';
 
 const index = () => {
-  return <YourVoice />
+  return <YourVoice />;
 };
 
 export default index;

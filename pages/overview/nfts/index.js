@@ -93,10 +93,6 @@ let nftArrivalsData = [
   },
 ];
 
-const NftsPage = props => {
-  return <Overview {...props} />;
-};
-
 export async function getStaticProps() {
   return {
     props: {
@@ -104,5 +100,9 @@ export async function getStaticProps() {
     },
   };
 }
+
+const NftsPage = props => {
+  return <Overview {...props} />;
+};
 
 export default NftsPage;

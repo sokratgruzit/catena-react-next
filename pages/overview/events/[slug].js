@@ -50,7 +50,7 @@ export const getStaticProps = async context => {
 };
 
 const index = ({ item }) => {
-  return <EventsItem item={item} />
+  return <EventsItem item={item} />;
 };
 
 export default index;

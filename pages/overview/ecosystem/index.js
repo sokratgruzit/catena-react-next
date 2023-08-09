@@ -13,7 +13,7 @@ export const getStaticProps = async () => {
 };
 
 const index = ({ exchanges }) => {
-  return  <Ecosystem exchanges={exchanges} />
+  return  <Ecosystem exchanges={exchanges} />;
 };
 
 export default index;
