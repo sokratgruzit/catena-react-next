@@ -1,3 +1,4 @@
+// PublicByYears.js
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import Link from 'next/link';
@@ -9,8 +10,7 @@ const PublicByYears = ({ press }) => {
   const itemsPerPage = 5;
   const [visibleItems, setVisibleItems] = useState(itemsPerPage);
   const [activeYear, setActiveYear] = useState('');
-  const [filterData, setfilterData] = useState();
-
+  const [filterData, setFilterData] = useState([]);
   const activeLang = useSelector(state => state.settings.activeLang);
 
   const handleYearClick = year => {
@@ -19,12 +19,12 @@ const PublicByYears = ({ press }) => {
       const itemYear = item.createdAt.substring(0, 4);
       return itemYear === year;
     });
-    setfilterData(data);
+    setFilterData(data);
   };
 
   useEffect(() => {
-    handleYearClick('2023');
-  }, [press]);
+    handleYearClick(activeYear || '2023');
+  }, [press, activeYear]);
 
   const loadMore = () => {
     setVisibleItems(prevVisibleItems => prevVisibleItems + itemsPerPage);
@@ -38,7 +38,7 @@ const PublicByYears = ({ press }) => {
 
   return (
     <div className='container_bordered'>
-      <Years handleYearClick={handleYearClick} activeYear={activeYear} />
+      <Years handleYearClick={handleYearClick} activeYear={activeYear} allPress={press} />
       <div className={`${styles.statisticContainer} container_bordered-child`}>
         {filterData && Array.isArray(filterData) ? (
           filterData.slice(0, visibleItems).map((item, index) => {

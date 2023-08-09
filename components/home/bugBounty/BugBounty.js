@@ -82,7 +82,7 @@ function BugBounty() {
   ];
 
   return (
-    <div>
+    <div className='pT-180'>
       <div className='container'>
         <BugBountyTitle />
         <BugBountyItem data={data} />
