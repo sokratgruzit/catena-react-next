@@ -231,7 +231,7 @@
 }
 .scrollMore {
     position: absolute;
-    z-index: 100000;
+    z-index: 10;
     width: 100%;
     left: 0px;
     bottom: 10px;
