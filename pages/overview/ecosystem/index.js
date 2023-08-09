@@ -13,11 +13,7 @@ export const getStaticProps = async () => {
 };
 
 const index = ({ exchanges }) => {
-  return (
-    <div style={{ paddingTop: '150px', backgroundColor: '#fff2e4' }}>
-      <Ecosystem exchanges={exchanges} />
-    </div>
-  );
+  return  <Ecosystem exchanges={exchanges} />;
 };
 
 export default index;

@@ -7,7 +7,7 @@ import BackgroundImg from '../../../../public/images/Info/background/background.
 import styles from '../../../../components/Info/InfoPages.module.css';
 
 const index = () => {
-  return <InfoPools />
+  return <InfoPools />;
 };
 
 export default index;

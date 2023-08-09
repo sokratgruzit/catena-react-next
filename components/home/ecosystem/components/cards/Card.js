@@ -11,7 +11,7 @@ const Card = ({ title }) => {
         <Image src='/Mask Group.png' width={606} height={400} alt='Picture of the author' />
         <div className={styles.title}>Join the CORE Ecosystem Now</div>
         <div className={styles.button}>
-        <Link href="/home/your-voice">
+        <Link href="/home/yourVoice">
             <Button
               label={'explore'}
               size={'btn-lg'}
@@ -31,7 +31,7 @@ const Card = ({ title }) => {
         <Image src='/Mask Group (2).png' width={436} height={400} alt='Picture of the author' />
         <div className={styles.title}>Submit your project</div>
         <div className={styles.button}>
-        <Link href="/home/your-voice">
+        <Link href="/home/yourVoice">
           <Button
             label={'explore'}
             size={'btn-lg'}

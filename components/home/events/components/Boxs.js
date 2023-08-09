@@ -1,6 +1,8 @@
 import React from 'react';
 import Card from '../../../UI/card/Card';
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 import { useSelector } from 'react-redux';
 
 import styles from '../css/Boxs.module.css';
@@ -15,14 +17,18 @@ const Boxs = ({ events }) => {
   const title = 'event.title';
   const description = 'event.description';
 
+  useEffect(() => {
+    Aos.init({ duration: 700 });
+  }, []);
+
   return (
     <div className={styles.mainContainer}>
-      <div className={`${styles.mainContainer} container`}>
-        <div className={styles.titleContainer}>
+      <div className={`${styles.mainContainer} pT-180 container`}>
+        <div className={styles.titleContainer} data-aos='fade-up'>
           <p className={styles.titlePartyOne}>Catena</p>
           <p className={styles.titlePartyTwo}>Events</p>
         </div>
-        <div className={`${styles.titleDesc}`}>
+        <div className={`${styles.titleDesc}`} data-aos='fade-up'>
           <p className='title font-40'>
             Braced dissected sheep, kermani halts, boy note. Quis raucous fall gown, euismod creatures spent, uproar
             tidings.

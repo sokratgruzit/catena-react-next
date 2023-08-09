@@ -1,7 +1,7 @@
 import Careers from '../../../components/home/careers/Careers';
 
 const index = () => {
-  return <Careers />
+  return <Careers />;
 };
 
 export default index;

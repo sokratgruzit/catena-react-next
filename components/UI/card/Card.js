@@ -1,4 +1,6 @@
-import React from 'react';
+import { useEffect } from 'react';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 import Link from 'next/link';
 import { useSelector } from 'react-redux';
 import styles from './Card.module.css';
@@ -6,11 +8,15 @@ import styles from './Card.module.css';
 const Card = ({ dataArr, fileAdress, title, description, slugType }) => {
   const activeLang = useSelector(state => state.settings.activeLang);
 
+  useEffect(() => {
+    Aos.init({ duration: 700 });
+  }, []);
+
   return (
     <>
       {dataArr.map(item => (
         <Link key={item._id} href={`/overview/${slugType}/${item.slug}`}>
-          <div key={item._id} className={styles.mapCont}>
+          <div key={item._id} className={`${styles.mapCont} aos-init`} data-aos='fade-up'>
             <div className={styles.pressImageCont}>
               <img src={`${fileAdress}${item?.image}`} alt={`Image`} className={styles.pressImage} />
               <button className={styles.category}>Category</button>

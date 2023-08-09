@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 
 import styles from './Slider.module.css';
 
@@ -13,8 +15,12 @@ const Slider = ({ images }) => {
     setCurrentIndex(prevIndex => (prevIndex - 1 + images.length) % images.length);
   };
 
+  useEffect(() => {
+    Aos.init({ duration: 700 });
+  }, []);
+
   return (
-    <div className={styles.sliderContainer}>
+    <div className={styles.sliderContainer} data-aos='fade-up'>
       <button className={`${styles.arrowButton} ${styles.prev}`} onClick={goToPreviousSlide}>
         <svg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'>
           <path

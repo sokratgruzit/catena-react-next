@@ -1,4 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 import Slider from '../../../../UI/slider/Slider';
 import CopyLink from '../pressInner/CopyLink';
 import { useSelector } from 'react-redux';
@@ -17,14 +19,18 @@ const PressItem = ({ item, press }) => {
     return window.location.href;
   };
 
+  useEffect(() => {
+    Aos.init({ duration: 700 });
+  }, []);
+
   return (
-    <div>
+    <div className='container pT-180'>
       {!item ? (
         <p>Loading...</p>
       ) : (
         <>
           <div className='custum-text'>
-            <h1>{item.title['en']['press.title']}</h1>
+            <h1 data-aos='fade-up'>{item.title['en']['press.title']}</h1>
             <CopyLink
               data={[
                 {
@@ -39,9 +45,9 @@ const PressItem = ({ item, press }) => {
               showCopyButton={true}
             />
             <Slider images={sliderImages} />
-            <div>{item.description && <p>{item.inner_descr[activeLang]['press.description']}</p>}</div>
-            <p>{item.text[activeLang]['press.text']}</p>
-            <p>{item.inner_descr[activeLang]['press.description']}</p>
+            <div data-aos='fade-up'>{item.description && <p>{item.inner_descr[activeLang]['press.description']}</p>}</div>
+            <p data-aos='fade-up'>{item.text[activeLang]['press.text']}</p>
+            <p data-aos='fade-up'>{item.inner_descr[activeLang]['press.description']}</p>
           </div>
         </>
       )}

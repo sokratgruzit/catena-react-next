@@ -3,7 +3,8 @@ import Card from '../../UI/card/Card';
 import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useRouter } from 'next/router';
-
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 import Years from './components/filterWithYears/Years';
 import PublicByYears from './components/publicByYears/PublicByYears';
 import PressLogo from './components/pressLogoContainer/PressLogo';
@@ -42,10 +43,13 @@ const Press = ({ press, currentPage, totalCount }) => {
     handleYearClick('2023');
   }, [press]);
 
+  useEffect(() => {
+    Aos.init({ duration: 700 });
+  }, []);
   return (
     <div>
-      <div className={`${styles.mainContainer} container`}>
-        <div className={`${styles.titleContainer}`}>
+      <div className={`${styles.mainContainer} container pT-180`}>
+        <div className={`${styles.titleContainer}`} data-aos='fade-up'>
           <p className={`${styles.titlePartyOne} ttl`}>Catena</p>
           <p className={`${styles.titlePartyTwo} ttl`}>Press</p>
         </div>
@@ -53,6 +57,7 @@ const Press = ({ press, currentPage, totalCount }) => {
           <Card dataArr={press} fileAdress={fileAdress} title={title} description={description} slugType='press' />
         </div>
         <TableElement
+          data-aos='fade-up'
           customStyle={{ zIndex: '10000' }}
           type='pagination'
           currentPage={currentPage}
@@ -62,7 +67,7 @@ const Press = ({ press, currentPage, totalCount }) => {
       </div>
       <div>
         <div className={`${styles.sourcesContainer} `}>
-          <div className={styles.sourcesTitle}>
+          <div className={styles.sourcesTitle} data-aos='fade-up'>
             <h1 className='ttl font-40 container'>Sources</h1>
           </div>
           <PressLogo />
