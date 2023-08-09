@@ -17,7 +17,7 @@ const ExchangesCards = ({ data }) => {
               <div className={styles.img}>
                 <img
                   className={styles.img}
-                  src={`http://localhost:4003/uploads/ecosystem/${card?.logo_image}`}
+                  src={`${process.env.NEXT_PUBLIC_URL}uploads/ecosystem/${card?.logo_image}`}
                   alt="img"
                 />
               </div>
