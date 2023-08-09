@@ -1,13 +1,16 @@
 import { useEffect, useMemo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { injected } from '../../connector';
-import useConnect from '../../hooks/use-connect';
+import { injected, walletConnect } from '../../hooks/connector';
+import { useConnect } from '../../hooks/use-connect';
 import createAxiosInstance from '../../pages/api/axios';
 
 const Wrapper = ({ children }) => {
-  const { MetaMaskEagerlyConnect } = useConnect();
-  const account = useSelector(state => state.connect.account);
+  const {
+    MetaMaskEagerlyConnect,
+    WalletConnectEagerly,
+    account
+  } = useConnect();
   const triedReconnect = useSelector(state => state.appState.triedReconnect);
   const providerType = useSelector(state => state.connect.providerType);
   const axios = useMemo(() => createAxiosInstance(), []);
@@ -18,10 +21,13 @@ const Wrapper = ({ children }) => {
       dispatch({ type: 'SET_TRIED_RECONNECT', payload: true });
     });
 
+    WalletConnectEagerly(walletConnect, () => {
+      dispatch({ type: 'SET_TRIED_RECONNECT', payload: true });
+    });
+
     if (!providerType) {
       dispatch({ type: 'SET_TRIED_RECONNECT', payload: true });
     }
-    // eslint-disable-next-line
   }, []);
 
   useEffect(() => {
@@ -29,15 +35,14 @@ const Wrapper = ({ children }) => {
       axios
         .post('/user', { address: account })
         .then(res => {
-          console.log(res.data.user);
+          console.log(res.data.user, 'hehe');
           dispatch({ type: 'SET_USER', payload: res.data?.user });
         })
         .catch(err => {
           console.log(err.response);
         });
     }
-    // eslint-disable-next-line
-  }, [account]);
+  }, [account, triedReconnect]);
 
   return children;
 };

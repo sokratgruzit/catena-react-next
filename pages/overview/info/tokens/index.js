@@ -6,7 +6,7 @@ import BackgroundImg from '../../../../public/images/Info/background/background.
 
 import styles from '../../../../components/Info/InfoPages.module.css';
 
-const Tokens = () => {
+const index = () => {
   return (
     <div>
       <div className={styles.backgroundMain}>
@@ -17,4 +17,4 @@ const Tokens = () => {
   );
 };
 
-export default Tokens;
+export default index;

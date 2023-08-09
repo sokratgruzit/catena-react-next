@@ -21,13 +21,11 @@ const Microscheme = props => {
             }
             gsap.to(stringInDots, {
                 opacity: 1,
-                // strokeDasharray: 900,
                 duration: 4, // Adjust the duration as needed
                 ease: Linear.easeNone
             });
             gsap.to(stringIn, {
                 strokeDashoffset: 0,
-                // strokeDasharray: 900,
                 duration: 5, // Adjust the duration as needed
                 ease: Linear.easeNone
             });
@@ -54,10 +52,6 @@ const Microscheme = props => {
                 ease: Linear.easeNone
             });
         }
-
-        console.log(stringIn)
-        console.log(stringOut)
-        console.log(stringOutDots)
     }
     useEffect(() => {
         animateLines(lvl);

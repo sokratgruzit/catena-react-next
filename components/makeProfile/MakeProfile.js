@@ -1,5 +1,7 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useRouter } from 'next/router';
+import { useConnect } from '../../hooks/use-connect';
 
 import PhoneNumberSelect from './components/phoneNumberSelect/PhoneNumberSelect';
 import createAxiosInstance from '../../pages/api/axios';
@@ -11,9 +13,10 @@ import styles from './MakeProfile.module.css';
 const nationalities = ['American', 'British', 'French', 'German', 'Italian', 'Spanish'];
 
 function MakeProfile() {
-  const account = useSelector(state => state.connect.account);
+  const { account } = useConnect();
   const user = useSelector(state => state.appState.user);
   const dispatch = useDispatch();
+  const router = useRouter();
 
   const [fileURL, setFIleURL] = useState('');
   const [file, setFile] = useState(null);
@@ -119,6 +122,7 @@ function MakeProfile() {
         .catch(e => console.log(e.response));
     }
   };
+
   useEffect(() => {
     setInputs({
       fullname: user?.fullname ?? '',
@@ -129,8 +133,15 @@ function MakeProfile() {
     });
 
     const cacheBuster = new Date().getTime(); // Generate unique cache-busting value
-    setFIleURL(`${process.env.NEXT_PUBLIC_URL}/uploads/profile/${account?.toLowerCase()}.png`);
+    //setFIleURL(`${process.env.NEXT_PUBLIC_URL}/uploads/profile/${account?.toLowerCase()}.png`);
   }, [user]);
+
+  useEffect(() => {
+    console.log(account)
+    const { pathname, asPath, locale } = router;
+
+    if (!account) router.push(pathname, asPath, { locale });
+  }, [account]);
 
   return (
     <div className={styles.container}>
