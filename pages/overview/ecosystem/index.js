@@ -14,7 +14,7 @@ export const getStaticProps = async () => {
 
 const index = ({ exchanges }) => {
   return (
-    <div style={{ paddingTop: '150px', backgroundColor: '#fff2e4' }}>
+    <div className='.pT-180'>
       <Ecosystem exchanges={exchanges} />
     </div>
   );
