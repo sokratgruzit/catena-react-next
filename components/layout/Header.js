@@ -900,7 +900,7 @@ const Header = () => {
                     fill='#A6D0DD'
                   />
                 </svg>
-                ${account && triedReconnect ? balance : 0}
+                <span>${account && triedReconnect ? balance : 0}</span>
               </div>
               <div className={`${styles.headerLangs}`}>
                 <div className={`${styles.headerLangNow} ${activeLangs ? styles.headerLangNowActive : ''}`}>

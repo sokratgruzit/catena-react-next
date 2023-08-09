@@ -11,6 +11,8 @@
 .container {
   position: relative;
   width: 100%;
+  margin-top: 80px;
+  background: linear-gradient(180deg, #162029 0%, rgba(5, 12, 26, 0.7) 100%);
 }
 
 .container img {
@@ -27,9 +29,9 @@
   padding-top: 160px;
   padding-bottom: 250px;
   position: relative;
-  background-image: url('/images/guidelines/bg.png');
-  background-size: cover;
-  background-position: center;
+  /*background-image: url('/images/guidelines/bg.png');*/
+  /*background-size: cover;*/
+  /*background-position: center;*/
   display: flex;
   flex-direction: column;
   color: #fff;
