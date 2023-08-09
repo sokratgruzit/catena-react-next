@@ -53,7 +53,7 @@ const Feature = ({ featureLinkList, title, showButton }) => {
         <h2 className={`${styles.font__51} font-40 ttl`}>{title}</h2>
         <div className='container_bordered-child'>
           <div className={`${styles.openPositionsList}`}>
-          {/* {allCareers?.map((item, index) => {
+          {allCareers?.map((item, index) => {
               // console.log(item);
               return (
                 <div className={styles.openPositionsListItem} key={index}>
@@ -97,8 +97,8 @@ const Feature = ({ featureLinkList, title, showButton }) => {
                   </p>
                 </div>
               )
-            })} */}
-            {featureLinkList.map((item, index) => (
+            })}
+            {/* {featureLinkList.map((item, index) => (
               <div className={styles.openPositionsListItem} key={item.id}>
                 <Link href={`/overview/careers/${item.id}`} key={item.id}>
                   <div>
@@ -139,7 +139,7 @@ const Feature = ({ featureLinkList, title, showButton }) => {
                   ))}
                 </p>
               </div>
-            ))}
+            ))} */}
           </div>
           {showButton && (
             <Link href={'open-position'}>
