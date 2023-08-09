@@ -31,7 +31,9 @@
   margin-top: 150px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 80px;
+  column-gap: 80px;
+  row-gap: 140px;
+  margin-bottom: 100px;
 }
 
 .sourcesContainer {
@@ -72,11 +74,11 @@
 }
 
 .infoContainer {
-  width: 90%;
+  width: 100%;
   display: flex;
   border-bottom: 1px solid #a6d0dd;
   position: relative;
-  align-items: center;
+  align-items: flex-end;
   justify-content: space-between;
   margin-top: 20px;
 }
@@ -85,11 +87,17 @@
   width: 60%;
   display: flex;
   justify-content: center;
-  gap: 30px;
+}
+.yearsStats div div div {
+  width: fit-content !important;
+  margin: 0 40px 0 0 !important;
+}
+
+.yearsStats div div:last-child {
+  margin: 0 !important;
 }
 
 .pasCont {
-  width: 20%;
   display: flex;
   z-index: 10;
   justify-content: center;
@@ -104,7 +112,7 @@
 }
 
 .activeCont {
-  width: 70px;
+  /* width: 70px; */
   border-bottom: 1px solid #ff6969;
   display: flex;
   align-items: center;
@@ -162,55 +170,15 @@
     gap: 50px;
   }
 }
-
-@media (max-width: 670px) {
-  .titleContainer {
-    gap: 20px;
-    font-size: 20px;
-  }
-  .titleContainer p {
-    font-size: 40px;
-  }
-}
-
-@media (max-width: 1168px) {
-  .bodyContainer {
-    gap: 20px;
-  }
-}
-
 @media (max-width: 1023px) {
   .bodyContainer {
     grid-template-columns: 1fr;
-    gap: 50px;
+    gap: 100px;
   }
 
   .joinCommunity {
     margin-top: 80px;
   }
-}
-
-@media (max-width: 815px) {
-  .infContTitle h2 {
-    font-size: 12px;
-  }
-  .activeCont {
-    font-size: 12px;
-    width: 27px;
-  }
-  .pasCont {
-    font-size: 12px;
-    width: 27px;
-  }
-  .yearsStats {
-    gap: 30px;
-  }
-  .infoContainer {
-    gap: 10px;
-  }
-}
-
-@media (max-width: 1050px) {
   .logoLine {
     width: auto;
     height: auto;
@@ -234,9 +202,35 @@
     width: auto;
     height: auto;
   }
+
+  .yearsStats {
+    gap: 30px;
+  }
+  .infoContainer {
+    gap: 10px;
+  }
 }
 
-@media (max-width: 450px) {
+@media (max-width: 767px) {
+  .infoContainer {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  .yearsStats {
+    width: 100%;
+    justify-content: flex-start;
+  }
+  .yearsStats div {
+    margin: 0 !important;
+  }
+  .titleContainer {
+    gap: 20px;
+    font-size: 20px;
+  }
+  .titleContainer p {
+    font-size: 40px;
+  }
   .logoContainer {
     display: grid;
     grid-template-columns: 1fr;
