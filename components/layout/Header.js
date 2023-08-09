@@ -3,11 +3,9 @@ import Link from 'next/link';
 import { useState, useEffect, useMemo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import useLanguages from '../../hooks/useLanguages';
-// import useConnect from "../../hooks/use-connect";
 import { gsap, Linear } from 'gsap';
-
-import { injected, walletConnect } from '../../connector';
-import useConnect from '../../hooks/use-connect';
+import { injected, walletConnect } from '../../hooks/connector';
+import { useConnect } from '../../hooks/use-connect';
 import createAxiosInstance from '../../pages/api/axios';
 import Button from '../UI/button/Button';
 import Tooltip from '../UI/tooltip/Tooltip';
@@ -30,12 +28,20 @@ const WALLETS_DATA = [
 ];
 
 const Header = () => {
-  const { connect, disconnect, library, error, setError } = useConnect();
+  const {
+    library,
+    disconnect,
+    switchToBscTestnet,
+    account,
+    MetaMaskEagerlyConnect,
+    WalletConnectEagerly,
+    connect,
+    chainId,
+  } = useConnect();
   const axios = useMemo(() => createAxiosInstance(), []);
   const locales = useSelector(state => state.settings.locales);
   const activeLang = useSelector(state => state.settings.activeLang);
-
-  const account = useSelector(state => state.connect.account);
+  const providerType = useSelector((state) => state.connect.providerType);
   const triedReconnect = useSelector(state => state.appState.triedReconnect);
 
   const [activeMenu, setActiveMenu] = useState(null);
@@ -432,7 +438,14 @@ const Header = () => {
 
     if (window.innerWidth <= 767) {
     }
-    //setRouterLocale(router.locale);
+
+    MetaMaskEagerlyConnect(injected);
+    WalletConnectEagerly(walletConnect);
+
+    if (!providerType) {
+      dispatch({ type: "SET_TRIED_RECONNECT", payload: true });
+    }
+    
     getLocales();
   }, []);
 
@@ -447,12 +460,17 @@ const Header = () => {
   useEffect(() => {
     if (account && triedReconnect) {
       axios
-        .post('/auth/register-wallet-address', { address: account })
-        .then(res => console.log(res))
-        .catch(() => {});
+      .post('/auth/register-wallet-address', { address: account })
+      .then(res => console.log(res))
+      .catch(() => {});
+
+      dispatch({
+        type: "UPDATE_STATE",
+        account: account,
+        chainId: chainId,
+      });
     }
-    // eslint-disable-next-line
-  }, [account]);
+  }, [account, chainId, dispatch]);
 
   return (
     <div>
