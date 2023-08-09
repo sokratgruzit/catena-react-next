@@ -23,7 +23,7 @@ export async function getServerSideProps({ query }) {
 }
 
 const index = ({ press, currentPage = 1, totalCount }) => {
-  return <Press press={press} currentPage={currentPage} totalCount={totalCount} />
+  return <Press press={press} currentPage={currentPage} totalCount={totalCount} />;
 };
 
 export default index;
