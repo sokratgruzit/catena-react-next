@@ -29,7 +29,7 @@ const Press = ({ press, currentPage, totalCount }) => {
 
   return (
     <div>
-      <div className={`${styles.mainContainer} container`}>
+      <div className={`${styles.mainContainer} container pT-180`}>
         <div className={`${styles.titleContainer}`}>
           <p className={`${styles.titlePartyOne} ttl`}>Catena</p>
           <p className={`${styles.titlePartyTwo} ttl`}>Press</p>

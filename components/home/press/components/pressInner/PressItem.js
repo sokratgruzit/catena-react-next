@@ -18,7 +18,7 @@ const PressItem = ({ item, press }) => {
   };
 
   return (
-    <div>
+    <div className='container pT-180'>
       {!item ? (
         <p>Loading...</p>
       ) : (
