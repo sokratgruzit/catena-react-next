@@ -34,11 +34,14 @@ const Header = () => {
     account,
     connect,
     chainId,
+    MetaMaskEagerlyConnect,
+    WalletConnectEagerly
   } = useConnect();
   const axios = useMemo(() => createAxiosInstance(), []);
   const locales = useSelector(state => state.settings.locales);
   const activeLang = useSelector(state => state.settings.activeLang);
   const triedReconnect = useSelector(state => state.appState.triedReconnect);
+  const providerType = useSelector(state => state.connect.providerType);
 
   const [activeMenu, setActiveMenu] = useState(null);
   const [activeLangs, setActiveLangs] = useState(false);
@@ -452,7 +455,6 @@ const Header = () => {
     } else {
       setBalance(0);
     }
-    // console.log(isConnected);
   }, [account, isConnected]);
 
   useEffect(() => {
@@ -461,6 +463,18 @@ const Header = () => {
     }
 
     if (window.innerWidth <= 767) {
+    }
+
+    MetaMaskEagerlyConnect(injected, () => {
+      dispatch({ type: 'SET_TRIED_RECONNECT', payload: true });
+    });
+
+    WalletConnectEagerly(walletConnect, () => {
+      dispatch({ type: 'SET_TRIED_RECONNECT', payload: true });
+    });
+
+    if (!providerType) {
+      dispatch({ type: 'SET_TRIED_RECONNECT', payload: true });
     }
 
     getLocales();
@@ -1646,7 +1660,7 @@ const Header = () => {
                 </svg>
               </a>
             </Link>
-            <Link href='/make-profile' locale={activeLang}>
+            {account && <Link href='/overview/make-profile' locale={activeLang}>
               <a className={styles.headerConnectedModalLink}>
                 <span>Make a Profile</span>
                 <svg width='5' height='9' viewBox='0 0 5 9' fill='none' xmlns='http://www.w3.org/2000/svg'>
@@ -1658,7 +1672,7 @@ const Header = () => {
                   />
                 </svg>
               </a>
-            </Link>
+            </Link>}
             <i></i>
             <div
               className={styles.headerConnectedModalLink}

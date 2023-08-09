@@ -8,9 +8,9 @@ import createAxiosInstance from '../../pages/api/axios';
 const Wrapper = ({ children }) => {
   const {
     MetaMaskEagerlyConnect,
-    WalletConnectEagerly
+    WalletConnectEagerly,
+    account
   } = useConnect();
-  const account = useSelector(state => state.connect.account);
   const triedReconnect = useSelector(state => state.appState.triedReconnect);
   const providerType = useSelector(state => state.connect.providerType);
   const axios = useMemo(() => createAxiosInstance(), []);
