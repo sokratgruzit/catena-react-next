@@ -74,9 +74,9 @@ const grant = {
 
 const Community = () => {
   return (
-    <>
-      <div className='container' style={{ paddingTop: '100px', display: "flex", flexDirection: 'column', gap: '32px', marginBottom: "50px" }}>
-        <h1 className='font-90' style={{ width: "80%" }} >Community</h1>
+    <div className='pT-180'>
+      <div className='container' style={{display: "flex", flexDirection: "column", gap: "30px"}} >
+        <h1 className='font-90 ttl' style={{color: "#162029"}} >Community</h1>
         <RevercedTitle data={vision} />
         <Plain data={blockchain} />
         <RevercedTitle data={events} />
@@ -87,7 +87,7 @@ const Community = () => {
         <Listed titles={grantProgramme} />
       </div>
       {/* <JoinCommunity /> */}
-    </>
+    </div>
   );
 };
 
