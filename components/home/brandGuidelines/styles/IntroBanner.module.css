@@ -1,7 +1,6 @@
 .left h1 {
   display: flex;
   flex-direction: column;
-  gap: 30px;
 }
 .left h1 span {
   color: #fff;
@@ -11,6 +10,8 @@
 .container {
   position: relative;
   width: 100%;
+  margin-top: 80px;
+  background: linear-gradient(180deg, #162029 0%, rgba(5, 12, 26, 0.7) 100%);
 }
 
 .container img {
@@ -27,9 +28,6 @@
   padding-top: 160px;
   padding-bottom: 250px;
   position: relative;
-  background-image: url('/images/guidelines/bg.png');
-  background-size: cover;
-  background-position: center;
   display: flex;
   flex-direction: column;
   color: #fff;
@@ -70,6 +68,12 @@
   opacity: 0.6;
 }
 
+@media (max-width: 1900px) {
+  .mainContainerDescription {
+    padding-top: 20px;
+    padding-bottom: 60px;
+  }
+}
 @media (max-width: 768px) {
   .orangeBtn {
     padding: 10px 26px;

@@ -5,7 +5,6 @@ import { gsap, Linear } from 'gsap';
 
 const Microscheme = props => {
     let lvl = useSelector(state => state.settings.microschemeArray);
-    console.log(lvl)
     let animateLines = (array) => {
         let stringIn = '';
         let stringOut = '';
@@ -52,7 +51,7 @@ const Microscheme = props => {
                 ease: Linear.easeNone
             });
         }
-    }
+    };
     useEffect(() => {
         animateLines(lvl);
     }, [lvl]);
@@ -3025,14 +3024,16 @@ const Microscheme = props => {
                         <circle className={`${styles.delay4} ${styles.opacity} circle18`} cx='1283' cy='537' r='4' transform='rotate(90 1283 537)' fill='#FF6969' />
                         <circle className={`${styles.delay5} ${styles.opacity} circle18`} cx='1283' cy='549' r='4' transform='rotate(90 1283 549)' fill='#162029' />
                     </g>
-                    <circle className={`${styles.delay1} ${styles.opacityH} circle6`} opacity='0.3' cx='1369' cy='29.6992' r='3' transform='rotate(180 1369 29.6992)' fill='#162029' />
-                    <circle className={`${styles.delay2} ${styles.opacityH} circle6`} opacity='0.4' cx='1359' cy='29.6992' r='3' transform='rotate(180 1359 29.6992)' fill='#162029' />
-                    <circle className={`${styles.delay3} ${styles.opacityH} circle6`} opacity='0.3' cx='1349' cy='29.6992' r='3' transform='rotate(180 1349 29.6992)' fill='#162029' />
-                    <circle className={`${styles.delay4} ${styles.opacityH} circle6`} opacity='0.3' cx='1339' cy='29.6992' r='3' transform='rotate(180 1339 29.6992)' fill='#162029' />
-                    <circle className={`${styles.delay1} ${styles.opacityH} circle6`} opacity='0.3' cx='1369' cy='21.6992' r='3' transform='rotate(180 1369 21.6992)' fill='#162029' />
-                    <circle className={`${styles.delay2} ${styles.opacityH} circle6`} opacity='0.4' cx='1359' cy='21.6992' r='3' transform='rotate(180 1359 21.6992)' fill='#162029' />
-                    <circle className={`${styles.delay3} ${styles.opacityH} circle6`} opacity='0.3' cx='1349' cy='21.6992' r='3' transform='rotate(180 1349 21.6992)' fill='#162029' />
-                    <circle className={`${styles.delay4} ${styles.opacityH} circle6`} opacity='0.3' cx='1339' cy='21.6992' r='3' transform='rotate(180 1339 21.6992)' fill='#162029' />
+                    <g opacity='0.4'>
+                        <circle className={`${styles.delay1} ${styles.opacityH} circle6`} opacity='0.3' cx='1369' cy='29.6992' r='3' transform='rotate(180 1369 29.6992)' fill='#162029' />
+                        <circle className={`${styles.delay2} ${styles.opacityH} circle6`} opacity='0.4' cx='1359' cy='29.6992' r='3' transform='rotate(180 1359 29.6992)' fill='#162029' />
+                        <circle className={`${styles.delay3} ${styles.opacityH} circle6`} opacity='0.3' cx='1349' cy='29.6992' r='3' transform='rotate(180 1349 29.6992)' fill='#162029' />
+                        <circle className={`${styles.delay4} ${styles.opacityH} circle6`} opacity='0.3' cx='1339' cy='29.6992' r='3' transform='rotate(180 1339 29.6992)' fill='#162029' />
+                        <circle className={`${styles.delay1} ${styles.opacityH} circle6`} opacity='0.3' cx='1369' cy='21.6992' r='3' transform='rotate(180 1369 21.6992)' fill='#162029' />
+                        <circle className={`${styles.delay2} ${styles.opacityH} circle6`} opacity='0.4' cx='1359' cy='21.6992' r='3' transform='rotate(180 1359 21.6992)' fill='#162029' />
+                        <circle className={`${styles.delay3} ${styles.opacityH} circle6`} opacity='0.3' cx='1349' cy='21.6992' r='3' transform='rotate(180 1349 21.6992)' fill='#162029' />
+                        <circle className={`${styles.delay4} ${styles.opacityH} circle6`} opacity='0.3' cx='1339' cy='21.6992' r='3' transform='rotate(180 1339 21.6992)' fill='#162029' />
+                    </g>
                     <g opacity='0.4'>
                         <circle
                             className={`${styles.delay1} ${styles.opacity} circle6`}
@@ -4605,6 +4606,7 @@ const Microscheme = props => {
                             fill='#162029'
                         />
                     </g>
+                    <g opacity='0.4'>
                     <circle
                         className={`${styles.delay1} ${styles.opacityH} circle19`}
                         opacity='0.3'
@@ -4816,6 +4818,7 @@ const Microscheme = props => {
                     <circle className={`${styles.delay2} ${styles.opacityH} circle23`} opacity='0.4' cx='1086' cy='774' r='3' transform='rotate(-90 1086 774)' fill='#162029' />
                     <circle className={`${styles.delay3} ${styles.opacityH} circle23`} opacity='0.3' cx='1086' cy='764' r='3' transform='rotate(-90 1086 764)' fill='#162029' />
                     <circle className={`${styles.delay4} ${styles.opacityH} circle23`} opacity='0.3' cx='1086' cy='754' r='3' transform='rotate(-90 1086 754)' fill='#162029' />
+                    </g>
                     <g opacity='0.4'>
                         <circle className={`${styles.delay3} ${styles.opacity} circle8`} cx='372' cy='368' r='2.25' stroke='#FF6969' strokeWidth='1.5' />
                         <circle className={`${styles.delay4} ${styles.opacity} circle8`} cx='372' cy='404' r='2.25' stroke='#FF6969' strokeWidth='1.5' />
