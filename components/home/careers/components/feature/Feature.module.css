@@ -99,6 +99,10 @@
   align-items: center;
 }
 
+.openPositionsListItem div span {
+  color: #162029;
+}
+
 .openPositionsListItem > p {
   opacity: 0.5;
   font-size: 15px;

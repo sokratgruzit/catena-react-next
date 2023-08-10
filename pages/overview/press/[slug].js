@@ -4,6 +4,7 @@ import PressItem from '../../../components/home/press/components/pressInner/Pres
 export const getStaticPaths = async ({ locales }) => {
   const axios = createAxiosInstance();
 
+  // Press slugs
   let press = await axios
     .get(`${process.env.NEXT_PUBLIC_URL}/press/get-all-press-slug`)
     .then(res => {
