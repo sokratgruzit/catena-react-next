@@ -6,7 +6,13 @@
   color: #fff;
   text-transform: capitalize;
 }
-
+.mainContainerDescription > svg {
+  position: absolute;
+  top: 20%;
+  right: 0px;
+  z-index: 1;
+  max-width: 100%;
+}
 .container {
   position: relative;
   width: 100%;
@@ -43,10 +49,6 @@
   margin-top: 55px;
 }
 
-.mainContainerDownload:hover {
-  opacity: 0.6;
-}
-
 .mainContainerDownloadText {
   color: rgba(255, 255, 255, 0.3);
   margin-top: 10px;
@@ -74,7 +76,7 @@
     padding-bottom: 60px;
   }
 }
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .orangeBtn {
     padding: 10px 26px;
   }
@@ -84,5 +86,11 @@
 
   .mainContainerDownload {
     margin-top: 25px;
+  }
+  .mainContainerDescription > svg {
+    top: 0%;
+    right: 0px;
+    max-width: 51%;
+    max-height: 103%;
   }
 }

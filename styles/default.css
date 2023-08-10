@@ -252,7 +252,31 @@ button {
   border: 1px solid rgba(22, 32, 41, 0.2);
   background: #f3e4d2;
 }
-
+.oAnimation {
+  transition: .6s cubic-bezier(.79,.01,.15,.99);
+  opacity: 0;
+}
+.oAnimation.animate {
+  opacity: 1;
+}
+.tYAnimation {
+  transform: translateY(10px);
+  opacity: 0;
+  transition: .6s cubic-bezier(.79,.01,.15,.99);
+}
+.tYAnimation.animate {
+  transform: translateY(0px);
+  opacity: 1;
+}
+.delay1.animate {
+  transition-delay: .1s;
+}
+.delay2.animate {
+  transition-delay: .2s;
+}
+.delay3.animate {
+  transition-delay: .3s;
+}
 .font-20 {
   font-size: 20px;
   line-height: 150%;
@@ -271,7 +295,9 @@ button {
 .pT-180 {
   padding-top: 180px;
 }
-
+.pT-140 {
+  padding-top: 140px;
+}
 .text ul li {
   position: relative;
   display: flex;
@@ -465,6 +491,9 @@ input:focus:-ms-input-placeholder {
   .pT-180 {
     padding-top: 100px;
   }
+  .pT-140 {
+    padding-top: 80px;
+  }
   .container_bordered {
     padding: 0px 10px;
   }
@@ -506,6 +535,9 @@ input:focus:-ms-input-placeholder {
 
 /*Ipad 768*/
 @media (max-width: 1023px) {
+  .pT-140 {
+    padding-top: 50px;
+  }
   .font-40 {
     font-size: 35px;
   }
@@ -536,7 +568,7 @@ input:focus:-ms-input-placeholder {
 /*Mobile 320*/
 @media (max-width: 767px) {
   .font-40 {
-    font-size: 25px;
+    font-size: 28px;
   }
   .font-20 {
     font-size: 16px;
