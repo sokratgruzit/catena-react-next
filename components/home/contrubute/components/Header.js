@@ -5,7 +5,7 @@ import styles from '../css/Header.module.css';
 const Header = () => {
   const Box = [
     {
-      scr: '/images/contribute/tokens/tok1.png',
+      img: '/images/contribute/tokens/tok1.png',
       ttl: 'USDT',
       Bowl: '0.01405261 USDT',
     },
@@ -23,9 +23,9 @@ const Header = () => {
       <div className={`${styles.container}`}>
         {Box.map((item, index) => {
           return (
-            <div key={index} className={`${styles.boxMap}`} >
+            <div key={index} className={`${styles.boxMap}`}>
               <div className={`${styles.itemMap} container_bordered-child `}>
-                <img className={styles.image} item={item.scr} />
+                <img className={styles.image} src={item.img} />
                 <p>{item.ttl}</p>
               </div>
               <div className={styles.bowl}></div>

@@ -1,6 +1,11 @@
 .container {
-  width: 55%;
+  width: 60%;
   margin: 0px 0px;
+}
+
+.btn {
+  display: flex;
+  gap: 20px;
 }
 
 .heder {
@@ -11,6 +16,7 @@
 }
 
 .ttle {
+  display: flex;
   margin: 20px 0px;
 }
 
@@ -24,4 +30,52 @@
 .img {
   width: 21px;
   height: 21px;
+}
+
+.item {
+  display: flex;
+  margin: 15px 0px;
+}
+
+.imgTwo {
+  position: absolute;
+  padding: 20px 15px 0px 40px;
+}
+
+.imgTtl {
+  margin-top: 30px;
+}
+
+.itemTwo {
+  display: flex;
+  gap: 13px;
+}
+.tokenImg {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+}
+
+.btn {
+  width: 100%;
+  margin: 30px 0;
+}
+
+.btnBlu {
+  width: 100% !important;
+  background-color: #a6d0dd !important;
+}
+
+.itemOne {
+  display: flex;
+  margin: 25px 0px;
+  gap: 10px;
+}
+
+.bottomTitle {
+  display: flex;
+}
+
+.imgOne {
+  margin-right: 10px;
 }
