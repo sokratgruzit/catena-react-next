@@ -253,7 +253,7 @@
 .mainSliderActive .scrollMore > div {
     transform: translateY(0px);
     opacity: 1;
-    transition-delay: ,4s;
+    transition-delay: 4s;
 }
 .scrollMore svg {
     transform: rotate(-90deg);

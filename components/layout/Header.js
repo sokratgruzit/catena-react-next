@@ -56,6 +56,7 @@ const Header = () => {
   const slippage = useSelector(state => state.settings.slippage);
   const [balance, setBalance] = useState(0);
   const [stickHead, setStickHead] = useState(false);
+  const [animate, setAnimate] = useState(false);
 
   const dispatch = useDispatch();
   const { handleLanguageChange } = useLanguages();
@@ -480,8 +481,8 @@ const Header = () => {
   }, []);
 
   useEffect(() => {
+    setAnimate(true);
     window.addEventListener('scroll', isSticky);
-
     return () => {
       window.removeEventListener('scroll', isSticky);
     };
@@ -504,7 +505,7 @@ const Header = () => {
 
   return (
     <div>
-      <header className={`${styles.header} ${stickHead ? styles.stickHeader : ''}`}>
+      <header className={`${animate && styles.headerActive} ${styles.header} ${stickHead ? styles.stickHeader : ''}`}>
         <div className={`${styles.headerInner} container`}>
           <Link href='/' locale={activeLang}>
             <div>
@@ -914,7 +915,7 @@ const Header = () => {
                     fill='#A6D0DD'
                   />
                 </svg>
-                ${account && triedReconnect ? balance : 0}
+                <span>${account && triedReconnect ? balance : 0}</span>
               </div>
               <div className={`${styles.headerLangs}`}>
                 <div className={`${styles.headerLangNow} ${activeLangs ? styles.headerLangNowActive : ''}`}>
