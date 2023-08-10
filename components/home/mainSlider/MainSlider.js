@@ -11,7 +11,6 @@ import Image from "next/image";
 import TaskSvg from '../../svg/mainSlider/TaskSvg';
 import SolutionSvg from '../../svg/mainSlider/SolutionSvg';
 
-//Prettify this file
 const MainSlider = ({ trans }) => {
     const [levels, setLevels] = useState([]);
     const [activeSlide, setActiveSlide] = useState(0);
@@ -39,6 +38,7 @@ const MainSlider = ({ trans }) => {
             [1,2,3,6,7,8,9,10,11,12,13,14,23,24]
         ];
     }
+
 
     useEffect(() => {
         setActiveSlide(1);
@@ -143,7 +143,7 @@ const MainSlider = ({ trans }) => {
                         </div>
                     </div>
                     <div className={`container ${styles.mainSliderItem} ${activeSlide == 2 ? styles.mainSliderActive : ''}`}>
-                        <div className={styles.mainSliderItemHalf}>
+                        <div className={`${styles.mainSliderItemHalf} pT-180`}>
                             <div className={styles.mainSliderItemTask}>
                                 <div className={styles.mainSliderItemTaskTxt}>{trans[activeLang]?.slider1_slide2_sm_sc}</div>
                                 <TaskSvg />
@@ -160,7 +160,7 @@ const MainSlider = ({ trans }) => {
                         </div>
                     </div>
                     <div className={`container ${styles.mainSliderItem} ${styles.mainSliderItemReverse} ${activeSlide == 3 ? styles.mainSliderActive : ''}`}>
-                        <div className={styles.mainSliderItemHalf}>
+                        <div className={`${styles.mainSliderItemHalf} pT-180`}>
                             <div className={styles.mainSliderItemTask}>
                                 <div className={styles.mainSliderItemTaskTxt}>Task 2</div>
                                 <TaskSvg />
@@ -177,7 +177,7 @@ const MainSlider = ({ trans }) => {
                         </div>
                     </div>
                     <div className={`container ${styles.mainSliderItem} ${activeSlide == 4 ? styles.mainSliderActive : ''}`}>
-                        <div className={styles.mainSliderItemHalf}>
+                        <div className={`${styles.mainSliderItemHalf} pT-180`}>
                             <div className={styles.mainSliderItemTask}>
                                 <div className={styles.mainSliderItemTaskTxt}>Task 3</div>
                                 <TaskSvg />
@@ -194,7 +194,7 @@ const MainSlider = ({ trans }) => {
                         </div>
                     </div>
                     <div className={`container ${styles.mainSliderItem} ${styles.mainSliderItemReverse} ${activeSlide == 5 ? styles.mainSliderActive : ''}`}>
-                        <div className={styles.mainSliderItemHalf}>
+                        <div className={`${styles.mainSliderItemHalf} pT-180`}>
                             <div className={styles.mainSliderItemTask}>
                                 <div className={styles.mainSliderItemTaskTxt}>Task 4</div>
                                 <TaskSvg />

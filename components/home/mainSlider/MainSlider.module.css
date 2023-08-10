@@ -126,7 +126,6 @@
     transition-delay: .5s;
 }
 .mainSliderItemHalf {
-    padding-top: 180px;
     display: flex;
     flex-direction: column;
     width: 60%;
@@ -231,7 +230,7 @@
 }
 .scrollMore {
     position: absolute;
-    z-index: 100000;
+    z-index: 10;
     width: 100%;
     left: 0px;
     bottom: 10px;
@@ -254,7 +253,7 @@
 .mainSliderActive .scrollMore > div {
     transform: translateY(0px);
     opacity: 1;
-    transition-delay: ,4s;
+    transition-delay: 4s;
 }
 .scrollMore svg {
     transform: rotate(-90deg);
@@ -304,7 +303,6 @@
     }
     .mainSliderItemHalf {
         width: 100%;
-        padding-top: 80px;
     }
     .mainSliderItemHalfDesc2,.mainSliderItemHalfDesc1 {
         font-size: 14px;

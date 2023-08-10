@@ -33,9 +33,9 @@ const BecomeAmbassador = () => {
             <div className="container_bordered-child">
                 <h1 className={`${styles.ttli} ttl font-40`}>Why Become an Ambassador</h1>
                 <div>
-                    {titleArray.map((item, title) => {
+                    {titleArray.map((item, index) => {
                         return (
-                            <div key={item} className={styles.becameTitle}>
+                            <div key={index} className={styles.becameTitle}>
                                 <a className={`${styles.a} `}>{item.a}</a>
                                 <p className={`${styles.p} p`}>{item.p}</p>
                             </div>

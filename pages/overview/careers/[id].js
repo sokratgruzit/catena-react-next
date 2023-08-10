@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router';
-
+import React, { useState } from 'react';
+import createAxiosInstance from '../../../../../pages/api/axios';
 import CareersIneer from '../../../components/home/careers/careers-inner/CareersIneer';
 
 const careersData = [
@@ -2190,7 +2191,22 @@ const careersData = [
   },
 ];
 
+
 export const getStaticPaths = async () => {
+  const axios = createAxiosInstance();
+
+  const [career, setCareer] = useState(null);
+
+  axios
+      .get(`${process.env.NEXT_PUBLIC_URL}/careers/get-all-careers`)
+      .then(res => {
+        // console.log(res.data);
+        setCareer(res.data)
+      })
+      .catch(err => {
+        console.log(err?.response);
+      });
+
   const paths = careersData.map(item => ({
     params: { id: item.id.toString() },
   }));
@@ -2212,10 +2228,10 @@ export const getStaticProps = async ({ params }) => {
   };
 };
 
-const CareersId = ({ object }) => {
+const index = ({ object }) => {
   const router = useRouter();
 
   return <CareersIneer data={object} />;
 };
 
-export default CareersId;
+export default index;

@@ -12,22 +12,13 @@ export const getStaticPaths = async ({ locales }) => {
     .catch(err => {
       console.log(err?.response);
     });
-  
-  let paths;
 
-  if (press && press.length > 0) {
-    paths = press.flatMap((item) =>
-      locales.map((loc) => ({
-        params: { slug: item.slug },
-        locale: loc,
-      }))
-    );
-  } else {
-    paths = locales.map((loc) => ({
-      params: { slug: 'default' },
+  const paths = press.flatMap(item =>
+    locales.map(loc => ({
+      params: { slug: item.slug },
       locale: loc,
-    }));
-  }
+    })),
+  );
 
   return {
     paths,
@@ -46,18 +37,13 @@ export const getStaticProps = async context => {
   return {
     props: {
       item: foundItem,
-      slug,
       press: pressByYears
     },
   };
 };
 
-const PressSlug = ({ item, press }) => {
-  return (
-    <div className='container' style={{ paddingTop: '200px', paddingBottom: '100px' }}>
-      <PressItem item={item} press={press} />
-    </div>
-  );
+const index = ({ item, press }) => {
+  return <PressItem item={item} press={press} />;
 };
 
-export default PressSlug;
+export default index;
