@@ -134,7 +134,7 @@ const aboutRange = [
   },
 ];
 
-const CareersIneer = () => {
+const CareersIneer = ({item}) => {
   const [showSubmit, setShowSubmit] = useState(false);
   const [submitHeight, setSubmitHeight] = useState('0px');
   const chatContainerRef = useRef(null);
@@ -158,6 +158,8 @@ const CareersIneer = () => {
 
   return (
     <div ref={chatContainerRef} className='pT-180'>
+      {item.description}
+      {item.title}
       <SeniorDesigner
         teamResponsible={teamResponsible}
         head='Senior UX Designer'

@@ -2,8 +2,10 @@ import Link from 'next/link';
 import React, { useState } from 'react';
 
 import styles from './Footer.module.css';
+import {useSelector} from "react-redux";
 
 const Copyright = props => {
+  const activeLang = useSelector(state => state.settings.activeLang);
   return (
     <footer className={`${styles.footer} ${props.active && styles.footerActive}`}>
       <div className={`${styles.footerInner} container`}>
@@ -12,12 +14,16 @@ const Copyright = props => {
           <a href='https://cmcx.io/' target='_blank'>
             How to buy?
           </a>
-          <a href='https://www.coremultichain.com/privacy' target='_blank'>
-            Privacy
-          </a>
-          <a href='https://www.coremultichain.com/termsofuse' target='_blank'>
-            Terms
-          </a>
+          <Link href='/overview/privacy' locale={activeLang}>
+            <a>
+              Privacy
+            </a>
+          </Link>
+          <Link href='/overview/terms' locale={activeLang}>
+            <a>
+              Terms
+            </a>
+          </Link>
         </div>
         <div className={styles.footerSocials}>
           <a href='https://www.youtube.com/c/coremultichain' target='_blank'>

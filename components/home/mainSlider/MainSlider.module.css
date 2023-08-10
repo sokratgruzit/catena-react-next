@@ -126,7 +126,6 @@
     transition-delay: .5s;
 }
 .mainSliderItemHalf {
-    padding-top: 180px;
     display: flex;
     flex-direction: column;
     width: 60%;
@@ -304,7 +303,6 @@
     }
     .mainSliderItemHalf {
         width: 100%;
-        padding-top: 80px;
     }
     .mainSliderItemHalfDesc2,.mainSliderItemHalfDesc1 {
         font-size: 14px;

@@ -2,16 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { Button } from '@catena-network/catena-ui-module';
 import Link from 'next/link';
 import styles from './Feature.module.css';
-import createAxiosInstance from '../../../../../pages/api/axios';
 import CopyIcon from '../../../../svg/careers/CopyIcon';
 
 
-const Feature = ({ featureLinkList, title, showButton }) => {
+const Feature = ({ featureLinkList, title, showButton, careers }) => {
   const [copiedLink, setCopiedLink] = useState('');
   const [isPopupVisible, setPopupVisible] = useState(null);
 
   const handlePopupClick = (index) => {
-    setCopiedLink(`http://localhost:3000/overview/careers/${featureLinkList[index].id}`);
+    setCopiedLink(`${process.env.NEXT_PUBLIC_URL}/careers/${featureLinkList[index].id}`);
     setPopupVisible(index);
     setTimeout(() => {
       setPopupVisible(null);
@@ -34,31 +33,16 @@ const Feature = ({ featureLinkList, title, showButton }) => {
     return null;
   }
 
-  const [allCareers, setAllCareers] = useState(null)
-  const axios = createAxiosInstance();
-  useEffect(() => {
-    axios
-      .get(`http://localhost:4003/careers/get-all-careers`)
-      .then(res => {
-        // console.log(res.data);
-        setAllCareers(res.data)
-      })
-      .catch(err => {
-        console.log(err?.response);
-      });
-  });
-
   return (
     <div>
       <div className='container_bordered'>
-        <h2 className={`${styles.font__51} font-40 ttl`}>{title}</h2>
+        <h2 className={`${styles.font__51} font-40 ttl`}>Featured Jobs</h2>
         <div className='container_bordered-child'>
           <div className={`${styles.openPositionsList}`}>
-          {allCareers?.map((item, index) => {
-              // console.log(item);
+            {careers?.map((item, index) => {
               return (
                 <div className={styles.openPositionsListItem} key={index}>
-                  <Link href={`/overview/careers/${item._id}`}>
+                  <Link href={`/overview/careers/${item.slug}`}>
                     <div>
                       <span className='ttl'>{item.title['en']['career.title']}</span>
                     </div>
@@ -91,18 +75,18 @@ const Feature = ({ featureLinkList, title, showButton }) => {
               <div className={styles.openPositionsListItem} key={item.id}>
                 <Link href={`/overview/careers/${item.id}`} key={item.id}>
                   <div>
-                    <span style={{color: '#162029'}} className='ttl'>{item.title}</span>
+                    <span style={{ color: '#162029' }} className='ttl'>{item.title}</span>
                   </div>
                 </Link>
                 {isPopupVisible === index && (
                   <div className={styles.popup}>
-                    <p style={{color: 'white'}}>Copied!</p>
+                    <p style={{ color: 'white' }}>Copied!</p>
                   </div>
                 )}
                 <svg
                   className={styles.openPositionsListItemSvg}
                   onClick={() => {
-                    handleCopy(`http://localhost:3000/overview/careers/${item.id}`);
+                    handleCopy(`${process.env.NEXT_PUBLIC_URL}/careers/${item.id}`);
                     handlePopupClick(index);
                   }}
                   xmlns='http://www.w3.org/2000/svg'
@@ -122,7 +106,7 @@ const Feature = ({ featureLinkList, title, showButton }) => {
                 </svg>
                 <p>
                   {item.list.map((item, index) => (
-                    <span style={{color: '#162029'}} className='ttl' key={index}>
+                    <span style={{ color: '#162029' }} className='ttl' key={index}>
                       {item}
                     </span>
                   ))}
@@ -138,9 +122,7 @@ const Feature = ({ featureLinkList, title, showButton }) => {
                 type={'btn-primary'}
                 arrow={'arrow-right'}
                 element={'button'}
-                onClick={() => {
-                  console.log('rame');
-                }}
+                onClick={() => { console.log('rame'); }}
               />
             </Link>
           )}
