@@ -157,7 +157,7 @@ const CareersIneer = () => {
 
 
   return (
-    <div ref={chatContainerRef}  style={{ paddingTop: '150px', backgroundColor: '#fff2e4' }}>
+    <div ref={chatContainerRef}  className='pT-180'>
       <SeniorDesigner
         teamResponsible={teamResponsible}
         head='Senior UX Designer'

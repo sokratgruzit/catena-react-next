@@ -95,7 +95,7 @@ button {
 
 /* width */
 *::-webkit-scrollbar {
-  width: 8px;
+  width: 5px;
 }
 
 /* Track */
@@ -105,7 +105,7 @@ button {
 
 /* Handle */
 *::-webkit-scrollbar-thumb {
-  background: #0500ff;
+  background: #A6D0DD;
 }
 .noise-parent {
   position: fixed;
@@ -291,7 +291,7 @@ button {
   left: 0px;
 }
 
-/* .text ol {
+.text ol {
   list-style-type: none;
   counter-reset: custom-counter;
 }
@@ -303,29 +303,7 @@ button {
   color: #a6d0dd;
   font-weight: 400;
   -webkit-text-stroke: 1px #162029;
-   text-stroke: 1px #162029;
- } */
-.text ol {
-  list-style-type: none;
-  padding-left: 0;
-}
-
-.text ol li {
-  position: relative;
-  padding-right: 11px;
-  -webkit-text-stroke: 1px #162029;
-  color: #a6d0dd;
-}
-
-.text ol li::after {
-  content: '';
-  position: absolute;
-  top: 32px;
-  background-color: #a6d0dd;
-  border-radius: 50%;
-  width: 5px;
-  height: 5px;
-  border: 1px solid #162029;
+  text-stroke: 1px #162029;
 }
 
 .custum-text h1,
@@ -475,7 +453,7 @@ input:focus::-moz-placeholder {
 input:focus:-ms-input-placeholder {
   color: transparent;
 }
-.tech-second-slider .swiper{
+.tech-second-slider .swiper {
   height: 100%;
 }
 /* IE 10+ */

@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useRouter } from 'next/router';
 
-import Years from './components/filterWithYears/Years';
 import PublicByYears from './components/publicByYears/PublicByYears';
 import PressLogo from './components/pressLogoContainer/PressLogo';
 import JoinCommunity from '../events/components/JoinCommunity';
@@ -13,14 +12,13 @@ import { TableElement } from '@catena-network/catena-ui-module';
 import styles from './Press.module.css';
 
 const Press = ({ press, currentPage, totalCount }) => {
-
   const fileAdress = `${process.env.NEXT_PUBLIC_URL}/uploads/press/`;
   const title = 'press.title';
   const description = 'press.description';
 
   const router = useRouter();
 
-  const handlePageChange = (page) => {
+  const handlePageChange = page => {
     router.push({
       pathname: router.pathname,
       query: { ...router.query, page },
@@ -29,7 +27,7 @@ const Press = ({ press, currentPage, totalCount }) => {
 
   return (
     <div>
-      <div className={`${styles.mainContainer} container`}>
+      <div className={`${styles.mainContainer} container pT-180`}>
         <div className={`${styles.titleContainer}`}>
           <p className={`${styles.titlePartyOne} ttl`}>Catena</p>
           <p className={`${styles.titlePartyTwo} ttl`}>Press</p>
@@ -38,11 +36,11 @@ const Press = ({ press, currentPage, totalCount }) => {
           <Card dataArr={press} fileAdress={fileAdress} title={title} description={description} slugType='press' />
         </div>
         <TableElement
-          customStyle={{ zIndex: "10000" }}
+          customStyle={{ zIndex: '10000' }}
           type='pagination'
           currentPage={currentPage}
           totalCount={totalCount}
-          onPageChange={(page) => handlePageChange(page)}
+          onPageChange={page => handlePageChange(page)}
         />
       </div>
       <div>
@@ -52,7 +50,7 @@ const Press = ({ press, currentPage, totalCount }) => {
           </div>
           <PressLogo />
         </div>
-        <PublicByYears press={press} />
+        <PublicByYears />
         <div className={styles.joinCommunity}>
           <JoinCommunity />
         </div>

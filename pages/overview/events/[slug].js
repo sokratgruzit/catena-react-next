@@ -50,11 +50,7 @@ export const getStaticProps = async context => {
 };
 
 const index = ({ item }) => {
-  return (
-    <div className='container' style={{ paddingTop: '200px', paddingBottom: '100px' }}>
-      <EventsItem item={item} />
-    </div>
-  );
+  return <EventsItem item={item} />;
 };
 
 export default index;

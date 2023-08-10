@@ -8,6 +8,28 @@
   margin-left: auto;
 }
 
+.orderedList ol {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.orderedList ol li {
+  position: relative;
+  padding-right: 11px;
+  -webkit-text-stroke: 1px #162029;
+  color: #a6d0dd;
+}
+
+.orderedList ol li::after {
+  content: '';
+  position: absolute;
+  top: 32px;
+  background-color: #a6d0dd;
+  border-radius: 50%;
+  width: 5px;
+  height: 5px;
+  border: 1px solid #162029;
+}
 .intro {
   display: flex;
   flex-direction: column;
