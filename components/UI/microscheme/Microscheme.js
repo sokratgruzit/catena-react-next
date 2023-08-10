@@ -1197,8 +1197,8 @@ const Microscheme = props => {
                     <path className={`${styles.delay3} ${styles.opacityH} circle18`} opacity='0.4' d='M1319 581L1176 581' stroke='url(#paint25_linear_110_2)' />
                     <path className={`${styles.delay2} ${styles.opacityH} circle18`} opacity='0.4' d='M1258 589L1209 589' stroke='#162029' />
                     <path className={`${styles.delay1} ${styles.opacityH} circle18`} d='M1271 573L1165 573' stroke='#FF6969' />
-                    <path className={`${styles.delay2} ${styles.opacityH} circle18`} opacity='0.4' d='M63 426L63 450' stroke='#162029' />
-                    <path className={`${styles.delay1} ${styles.opacityH} circle18`} opacity='0.4' d='M58 426L58 448' stroke='#162029' />
+                    {/*<path className={`${styles.delay2} ${styles.opacityH} circle18`} opacity='0.4' d='M63 426L63 450' stroke='#162029' />*/}
+                    {/*<path className={`${styles.delay1} ${styles.opacityH} circle18`} opacity='0.4' d='M58 426L58 448' stroke='#162029' />*/}
                     <path
                         className={`${styles.delay3} ${styles.line}  line15`}
                         d='M625 750L625 806'
@@ -5425,8 +5425,8 @@ const Microscheme = props => {
                     <path className={`${styles.delay3} ${styles.opacityH} circle24`} opacity='0.4' d='M1319 581L1176 581' stroke='url(#paint25_linear_110_2)' />
                     <path className={`${styles.delay2} ${styles.opacityH} circle24`} opacity='0.4' d='M1258 589L1209 589' stroke='#162029' />
                     <path className={`${styles.delay1} ${styles.opacityH} circle24`} d='M1271 573L1165 573' stroke='#FF6969' />
-                    <path className={`${styles.delay2} ${styles.opacityH} circle24`} opacity='0.4' d='M63 426L63 450' stroke='#162029' />
-                    <path className={`${styles.delay1} ${styles.opacityH} circle24`} opacity='0.4' d='M58 426L58 448' stroke='#162029' />
+                    {/*<path className={`${styles.delay2} ${styles.opacityH} circle24`} opacity='0.4' d='M63 426L63 450' stroke='#162029' />*/}
+                    {/*<path className={`${styles.delay1} ${styles.opacityH} circle24`} opacity='0.4' d='M58 426L58 448' stroke='#162029' />*/}
                     <path
                         className={`${styles.delay3} ${styles.line}  line21`}
                         d='M625 750L625 806'
