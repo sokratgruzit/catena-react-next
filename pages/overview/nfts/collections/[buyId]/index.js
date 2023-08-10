@@ -246,16 +246,6 @@ const collectionItems = [
   },
 ];
 
-const BuyPage = props => {
-  const router = useRouter();
-
-  if (router.isFallback) {
-    return <h1>Loading...</h1>;
-  }
-
-  return <Buy {...props} />;
-};
-
 export async function getStaticPaths() {
   return {
     fallback: true,
@@ -303,4 +293,14 @@ export async function getStaticProps(context) {
   };
 }
 
-export default BuyPage;
+const index = props => {
+  const router = useRouter();
+
+  if (router.isFallback) {
+    return <h1>Loading...</h1>;
+  }
+
+  return <Buy {...props} />;
+};
+
+export default index;
