@@ -2227,25 +2227,59 @@ import createAxiosInstance from '../../api/axios';
 import CareersIneer from '../../../components/home/careers/careers-inner/CareersIneer';
 
 
+// export const getStaticPaths = async ({ locales }) => {
+//   const axios = createAxiosInstance();
+
+//   let careers = await axios
+//   .get(`${process.env.NEXT_PUBLIC_URL}/careers/get-all-careers-slug`)
+//   .then(res => {
+//     return res?.data;
+//   })
+//   .catch(err => {
+//     console.log(err?.response);
+//   });
+
+//   let paths;
+//   console.log(careers);
+
+//   if (careers && careers.length > 0) {
+//     paths = careers.flatMap((item) =>
+//       locales.map((loc) => ({
+//         params: { slug: item._id },
+//         locale: loc,
+//       }))
+//     );
+//   } else {
+//     paths = locales.map((loc) => ({
+//       params: { slug: 'default' },
+//       locale: loc,
+//     }));
+//   }
+
+//   return {
+//     paths,
+//     fallback: false,
+//   };
+// };
+
 export const getStaticPaths = async ({ locales }) => {
   const axios = createAxiosInstance();
 
   let careers = await axios
-  .get(`${process.env.NEXT_PUBLIC_URL}/careers/get-all-careers-slug`)
-  .then(res => {
-    return res?.data;
-  })
-  .catch(err => {
-    console.log(err?.response);
-  });
+    .get(`${process.env.NEXT_PUBLIC_URL}/careers/get-all-careers-slug`)
+    .then(res => {
+      return res?.data;
+    })
+    .catch(err => {
+      console.log(err?.response);
+    });
 
   let paths;
-  console.log(careers);
 
   if (careers && careers.length > 0) {
     paths = careers.flatMap((item) =>
       locales.map((loc) => ({
-        params: { slug: item._id },
+        params: { slug: item.slug }, // Use "slug" instead of "_id"
         locale: loc,
       }))
     );
@@ -2262,10 +2296,12 @@ export const getStaticPaths = async ({ locales }) => {
   };
 };
 
+
 export const getStaticProps = async context => {
   const slug = context.params.slug;
   const axios = createAxiosInstance();
-  const res = await axios.post(`${process.env.NEXT_PUBLIC_URL}/careers/get-one-careers`, { slug });
+  // const res = await axios.get(`${process.env.NEXT_PUBLIC_URL}/careers/get-one-careers`, { slug });
+  const res = await axios.get(`${process.env.NEXT_PUBLIC_URL}/careers/get-one-careers?slug=${slug}`);
   const foundItem = res?.data;
 
   return {
