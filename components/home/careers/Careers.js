@@ -251,12 +251,12 @@ const hiringProcess = [
   },
 ];
 
-const Careers = () => {
+const Careers = ({careers}) => {
   return (
     <div>
       <CareersCatena />
       <CompanyInfo workflow={workflow} title='How we work' />
-      <Feature featureLinkList={featureLinkList} title='Featured Jobs' showButton={true} />
+      <Feature careers={careers} featureLinkList={featureLinkList} title='Featured Jobs' showButton={true} />
       <OurValues
         iconImages={iconImages}
         title='Our Values'
