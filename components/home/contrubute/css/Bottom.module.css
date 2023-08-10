@@ -1,0 +1,50 @@
+.containerOne {
+  margin: 0px 0px !important;
+  padding: 0px 40px !important;
+  width: 55%;
+}
+
+.ttle {
+  margin: 5px 0 15px 0;
+}
+
+.box {
+  margin: 30px 0px;
+  padding: 45px 30px;
+}
+
+.llll {
+  margin-bottom: 15px;
+}
+
+.items {
+  margin: 15px 0px;
+}
+
+.itemsOne {
+  margin: 15px 0px;
+}
+
+.bottom {
+  display: flex;
+  width: 100%;
+  margin-top: 30px;
+}
+
+.img {
+  width: 24px;
+  height: 24px;
+  margin: 0px 4px 4px 4px;
+}
+
+.bottTitle {
+  color: #ff6969;
+}
+
+.btn {
+  margin-top: 30px;
+}
+.btnBlu {
+  width: 100% !important;
+  background-color: #a6d0dd !important;
+}

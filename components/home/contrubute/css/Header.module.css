@@ -1,17 +1,46 @@
-.container {
-  width: 60%;
+.hederContainer {
   display: flex;
-  gap: 50px;
-}
-
-.itemMap {
-  padding: 80px 140px;
+  position: relative;
+  flex-direction: column;
+  width: 55%;
+  margin: 0px 0px !important;
+  padding: 0px 40px !important;
 }
 
 .title {
   margin: 100px 0 40px 0;
 }
 
-.bowl {
-  margin: 10px 0 10px 90px;
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  gap: 50px;
+}
+
+.itemMap {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.image {
+  z-index: 999;
+  width: 50px;
+  height: 50px;
+}
+
+.boxMap {
+  width: 100%;
+}
+
+.BowlBox {
+  margin: 10px 0px 10px 30%;
+}
+
+.border {
+  margin-top: 40px;
+  margin-bottom: 10px;
+  border: 1px solid #162029;
 }
