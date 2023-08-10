@@ -4,7 +4,7 @@ const JoinCommunity = () => {
   return (
     <div className={`${styles.boxTitle} container_bordered `}>
       <div className={`${styles.box} container_bordered-child`}>
-        <h1 className={`${styles.Titile} ttl font-40`}>Join our community</h1>
+        <h1 className={`${styles.Titile} ttl font-40 `}>Join our community</h1>
         <p className={`${styles.paragraph} `}>
           Stay up-to-date with the latest CATENA developments such as events, programs and news by joining our social
           media channels.

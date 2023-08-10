@@ -1,6 +1,6 @@
 import React from 'react';
 import Card from '../../../UI/card/Card';
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import styles from '../css/Boxs.module.css';

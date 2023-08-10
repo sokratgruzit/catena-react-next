@@ -1,4 +1,3 @@
-import React from 'react';
 import Link from 'next/link';
 import { useSelector } from 'react-redux';
 import styles from './Card.module.css';
@@ -10,7 +9,7 @@ const Card = ({ dataArr, fileAdress, title, description, slugType }) => {
     <>
       {dataArr.map(item => (
         <Link key={item._id} href={`/overview/${slugType}/${item.slug}`}>
-          <div key={item._id} className={styles.mapCont}>
+          <div key={item._id} className={`${styles.mapCont} aos-init`}>
             <div className={styles.pressImageCont}>
               <img src={`${fileAdress}${item?.image}`} alt={`Image`} className={styles.pressImage} />
               <button className={styles.category}>Category</button>
