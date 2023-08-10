@@ -1,7 +1,6 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useRouter } from 'next/router';
-import { useConnect } from '../../hooks/use-connect';
 
 import PhoneNumberSelect from './components/phoneNumberSelect/PhoneNumberSelect';
 import createAxiosInstance from '../../pages/api/axios';
@@ -10,8 +9,7 @@ import FormSelectDate from '../voting/components/formDateInput/FormSelectDate';
 import styles from './MakeProfile.module.css';
 
 const MakeProfile = () => {
-  const { account } = useConnect();
-  const user = useSelector(state => state.appState.user);
+  const account = useSelector(state => state.connect.account);
   const dispatch = useDispatch();
   const router = useRouter();
 
@@ -21,7 +19,7 @@ const MakeProfile = () => {
     email: '',
     mobile: '',
     password: '',
-    dateOfBirth: new Date(),
+    dateOfBirth: new Date()
   });
 
   const [errors, setErrors] = useState({
@@ -48,15 +46,15 @@ const MakeProfile = () => {
         break;
     }
 
-    setInputs({
-      ...inputs,
+    setInputs(prev => ({
+      ...prev,
       [name]: value,
-    });
+    }));
 
-    setErrors({
-      ...errors,
+    setErrors(prev => ({
+      ...prev,
       [name]: error,
-    });
+    }));
   };
 
   function handleCustomUpdate(name, value) {
@@ -68,6 +66,7 @@ const MakeProfile = () => {
 
     let isValid = true;
     const newErrors = {};
+    const { locale } = router;
 
     for (const [key, value] of Object.entries(inputs)) {
       switch (key) {
@@ -98,7 +97,8 @@ const MakeProfile = () => {
         email: inputs.email,
         mobile: inputs.mobile,
         password: inputs.password,
-        dateOfBirth: inputs.dateOfBirth
+        dateOfBirth: inputs.dateOfBirth,
+        locale: locale
       })
       .then(res => {
         dispatch({ type: 'SET_USER', payload: res.data });
@@ -108,14 +108,27 @@ const MakeProfile = () => {
   };
 
   useEffect(() => {
-    setInputs({
-      fullname: user?.fullname ?? '',
-      email: user?.email ?? '',
-      mobile: user?.mobile ?? '',
-      password: '',
-      dateOfBirth: user?.dateOfBirth ? new Date(user?.dateOfBirth) : ''
-    });
-  }, [user]);
+    if (account) {
+      axios
+      .post('/user', { address: account })
+      .then(res => {
+        let user = res?.data?.user;
+        const dateOfBirth = user.dateOfBirth ? new Date(user.dateOfBirth) : new Date();
+        
+        dispatch({ type: 'SET_USER', payload: user });
+        setInputs({
+          fullname: user.fullname,
+          email: user.email,
+          mobile: user.mobile,
+          password: '',
+          dateOfBirth: dateOfBirth
+        });
+      })
+      .catch(err => {
+        console.log(err.response);
+      });
+    }
+  }, [account]);
 
   useEffect(() => {
     const { locale } = router;
@@ -152,7 +165,13 @@ const MakeProfile = () => {
         </label>
         <label>
           Email:
-          <input type='email' name='email' value={inputs.email} onChange={handleInputChange} className={styles.input} />
+          <input 
+            type='email' 
+            name='email' 
+            value={inputs.email} 
+            onChange={handleInputChange} 
+            className={styles.input} 
+          />
           {errors.email && <span className='error'>{errors.email}</span>}
         </label>
         <label className={styles.phoneNumberLabel}>
