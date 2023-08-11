@@ -1,13 +1,9 @@
-// import JoinCommunity from '../events/components/JoinCommunity';
-import Card from '../../UI/card/Card';
-import { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
 import { useRouter } from 'next/router';
-
+import { TableElement } from '@catena-network/catena-ui-module';
+import Card from '../../UI/card/Card';
+import JoinCommunity from '../events/components/JoinCommunity';
 import PublicByYears from './components/publicByYears/PublicByYears';
 import PressLogo from './components/pressLogoContainer/PressLogo';
-import JoinCommunity from '../events/components/JoinCommunity';
-import { TableElement } from '@catena-network/catena-ui-module';
 
 import styles from './Press.module.css';
 
@@ -26,35 +22,26 @@ const Press = ({ press, currentPage, totalCount }) => {
   };
 
   return (
-    <div>
-      <div className={`${styles.mainContainer} container pT-180`}>
-        <div className={`${styles.titleContainer}`}>
-          <p className={`${styles.titlePartyOne} ttl`}>Catena</p>
-          <p className={`${styles.titlePartyTwo} ttl`}>Press</p>
-        </div>
-        <div className={styles.bodyContainer}>
-          <Card dataArr={press} fileAdress={fileAdress} title={title} description={description} slugType='press' />
-        </div>
-        <TableElement
-          customStyle={{ zIndex: '10000' }}
-          type='pagination'
-          currentPage={currentPage}
-          totalCount={totalCount}
-          onPageChange={page => handlePageChange(page)}
-        />
+    <div className={`${styles.mainContainer} container pT-180`}>
+      <div className={`${styles.titleContainer}`}>
+        <p className={`${styles.titlePartyOne} ttl`}>Catena</p>
+        <p className={`${styles.titlePartyTwo} ttl`}>Press</p>
       </div>
-      <div>
-        <div className={`${styles.sourcesContainer} `}>
-          <div className={styles.sourcesTitle}>
-            <h1 className='ttl font-40 container'>Sources</h1>
-          </div>
-          <PressLogo />
-        </div>
-        <PublicByYears />
-        <div className={styles.joinCommunity}>
-          <JoinCommunity />
-        </div>
+      <div className={styles.bodyContainer}>
+        <Card dataArr={press} fileAdress={fileAdress} title={title} description={description} slugType='press' />
       </div>
+      <TableElement
+        type='pagination'
+        currentPage={currentPage}
+        totalCount={totalCount}
+        onPageChange={page => handlePageChange(page)}
+      />
+      <div className={`${styles.sourcesContainer} `}>
+        <h1 className='ttl font-40 container'>Sources</h1>
+        <PressLogo />
+      </div>
+      <PublicByYears />
+      <JoinCommunity />
     </div>
   );
 };

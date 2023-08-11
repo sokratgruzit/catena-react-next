@@ -1,14 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { Swiper, SwiperSlide } from 'swiper/react';
 import Link from 'next/link';
-import { Button, TableElement } from '@catena-network/catena-ui-module';
+import { TableElement } from '@catena-network/catena-ui-module';
 import createAxiosInstance from '../../../../../pages/api/axios';
-SwiperCore.use([Navigation, Pagination]);
-import SwiperCore, { Navigation, Pagination } from 'swiper';
-import { useRouter } from 'next/router';
 
-import 'swiper/css';
 import styles from '../../Press.module.css';
 
 const PublicByYears = () => {
@@ -17,7 +12,7 @@ const PublicByYears = () => {
   const [activeYear, setActiveYear] = useState('');
   const [filterData, setFilterData] = useState([]);
   const [totalPages, setTotalPages] = useState(1);
-  
+
   const activeLang = useSelector(state => state.settings.activeLang);
   const years = ["2020", "2021", "2022", "2023"];
   const limit = 1;
@@ -45,8 +40,6 @@ const PublicByYears = () => {
     }
   };
 
-  console.log("gg");
-
   const handleYearClick = (year) => {
     setActiveYear(year);
     fetchDataByYear(year);
@@ -57,24 +50,20 @@ const PublicByYears = () => {
   }, []);
 
   return (
-    <div className='container_bordered'>
+    <div className={`${styles.yearsWrapper} container_bordered`}>
       <div className={styles.infoContainer}>
         <div className={styles.infContTitle}>
           <h2 className='ttl font-40'>Publics by years</h2>
         </div>
         <div className={`${styles.yearsStats}`}>
-          <Swiper slidesPerView={1} spaceBetween={20} navigation pagination={{ clickable: true }}>
-            {years.map(year => (
-              <SwiperSlide key={year}>
-                <div
-                  className={`ttl ${activeYear === year ? styles.activeCont : styles.pasCont}`}
-                  onClick={() => handleYearClick(year)}
-                >
-                  {year}
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
+          {years.map(year => (
+            <div
+              className={`ttl ${activeYear === year ? styles.activeCont : styles.pasCont}`}
+              onClick={() => handleYearClick(year)}
+            >
+              {year}
+            </div>
+          ))}
         </div>
       </div>
       <div className={`${styles.statisticContainer} container_bordered-child`}>
