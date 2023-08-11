@@ -154,7 +154,7 @@ const CareersIneer = ({item}) => {
     scrollToBottom()
 
   };
-  console.log(item);
+  console.log(item, 'blaaa');
 
   return (
     <div ref={chatContainerRef} className='pT-180'>

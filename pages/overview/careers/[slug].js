@@ -40,10 +40,10 @@ export const getStaticPaths = async ({ locales }) => {
 export const getStaticProps = async context => {
   const slug = context.params.slug;
   const axios = createAxiosInstance();
-  // const res = await axios.get(`${process.env.NEXT_PUBLIC_URL}/careers/get-one-career`, { slug });
-  const res = await axios.get(`${process.env.NEXT_PUBLIC_URL}/careers/get-one-career?slug=${slug}`);
+  const res = await axios.post(`${process.env.NEXT_PUBLIC_URL}/careers/get-one-career`, { slug });
+  // const res = await axios.get(`${process.env.NEXT_PUBLIC_URL}/careers/get-one-career?slug=${slug}`);
   const foundItem = res?.data;
-  console.log(res.data, 'resdata')
+  console.log(slug, 'resdata')
 
   return {
     props: {
@@ -54,6 +54,7 @@ export const getStaticProps = async context => {
  
 
 const index = ({ item }) => {
+  console.log(item, 'jjgjghv');
   return <CareersIneer item={item} />;
 };
 
