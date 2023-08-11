@@ -39,6 +39,7 @@ const MainSlider = ({ trans }) => {
         ];
     }
 
+
     useEffect(() => {
         setActiveSlide(1);
         setTimeout(() => {

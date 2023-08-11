@@ -9,12 +9,24 @@ const Wrapper = ({ children }) => {
   const {
     MetaMaskEagerlyConnect,
     WalletConnectEagerly,
-    account
+    account,
+    library
   } = useConnect();
   const triedReconnect = useSelector(state => state.appState.triedReconnect);
   const providerType = useSelector(state => state.connect.providerType);
   const axios = useMemo(() => createAxiosInstance(), []);
   const dispatch = useDispatch();
+
+  const getBalance = async () => {
+    if (library !== undefined) {
+      library.eth.getBalance(account.toLocaleLowerCase()).then(res => {
+        dispatch({
+          type: "UPDATE_STATE",
+          balance: res
+        });
+      });
+    }
+  };
 
   useEffect(() => {
     MetaMaskEagerlyConnect(injected, () => {
@@ -27,20 +39,25 @@ const Wrapper = ({ children }) => {
 
     if (!providerType) {
       dispatch({ type: 'SET_TRIED_RECONNECT', payload: true });
-    }
+    } 
   }, []);
 
   useEffect(() => {
     if (account && triedReconnect) {
       axios
-        .post('/user', { address: account })
-        .then(res => {
-          console.log(res.data.user, 'hehe');
-          dispatch({ type: 'SET_USER', payload: res.data?.user });
-        })
-        .catch(err => {
-          console.log(err.response);
+      .post('/user', { address: account })
+      .then(res => {
+        dispatch({ type: 'SET_USER', payload: res.data?.user });
+        dispatch({
+          type: "UPDATE_STATE",
+          account: account.toLocaleLowerCase()
         });
+      })
+      .catch(err => {
+        console.log(err.response);
+      });
+
+      getBalance();
     }
   }, [account, triedReconnect]);
 

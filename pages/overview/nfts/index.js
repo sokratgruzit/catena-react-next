@@ -101,8 +101,8 @@ export async function getStaticProps() {
   };
 }
 
-const NftsPage = props => {
+const index = props => {
   return <Overview {...props} />;
 };
 
-export default NftsPage;
+export default index;
