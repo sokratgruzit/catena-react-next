@@ -156,22 +156,22 @@ const Header = () => {
     {
       id: 'trade-main',
       title: 'Trade',
-      route: '/overview/trade/swap',
+      route: '/overview',
       subNav: [
         {
           id: 'trade-0',
           title: 'Swap',
-          route: '/overview/trade/swap',
+          route: '/overview',
         },
         {
           id: 'trade-1',
           title: 'Bridge',
-          route: '/overview/trade/bridge',
+          route: 'https://bridge.catena.network/',
         },
         {
           id: 'trade-2',
           title: 'Staking',
-          route: '/overview/trade/staking',
+          route: 'https://dapp.coremultichain.com/',
         },
         /*{
           id: 4,
