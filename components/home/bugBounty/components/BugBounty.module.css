@@ -204,7 +204,11 @@
 .td:nth-child(4) {
   width: 37.29%;
 }
-
+@media (max-width: 1900px) {
+  .text {
+    padding-top: 30px;
+  }
+}
 @media (max-width: 1300px) {
   .rewardsContainer {
     padding-top: 70px;

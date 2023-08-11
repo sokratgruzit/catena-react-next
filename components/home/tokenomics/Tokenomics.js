@@ -18,7 +18,7 @@ function Tokenomics() {
             [1,2,10,11,12,13,14,22,23,24],
             [1,2,3,10,11,12,13,14,15,16,20,21,22,23,24]
         ];
-    }
+    };
 
     if(window.innerWidth < 1250){
         microSchemes = [
@@ -26,16 +26,14 @@ function Tokenomics() {
             [1,2,6,7,8,9,10,11,12,13,14,19,20,21,22,23,24],
             [1,2,6,7,8,9,10,11,12,13,14,17,18,19,20,21,22,23,24]
         ];
-    }
+    };
 
     const setScheme = (num) => {
-        console.log(num);
         dispatch({
             type: "SET_MICHROSCHEME_ARRAY",
             microschemeArray: microSchemes[num]
         });
-        console.log(microSchemes[num])
-    }
+    };
 
     useEffect(() => {
         setTimeout(() => {

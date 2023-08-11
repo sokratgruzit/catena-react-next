@@ -438,6 +438,7 @@ const Microscheme = props => {
                         r='3'
                         fill='#162029'
                     />
+                    <g opacity='0.4'>
                     <circle
                         className={`${styles.delay2} ${styles.opacityH} circle14`}
                         opacity='0.4'
@@ -461,6 +462,7 @@ const Microscheme = props => {
                         r='3'
                         fill='#A6D0DD'
                     />
+                    </g>
                     <circle className={`${styles.delay4} ${styles.opacityH} circle1`} opacity='0.3' cx='220' cy='284' r='3' transform='rotate(-90 220 284)' fill='#162029' />
                     <circle className={`${styles.delay3} ${styles.opacityH} circle1`} opacity='0.4' cx='220' cy='274' r='3' transform='rotate(-90 220 274)' fill='#162029' />
                     <circle className={`${styles.delay2} ${styles.opacityH} circle1`} opacity='0.3' cx='220' cy='264' r='3' transform='rotate(-90 220 264)' fill='#162029' />
