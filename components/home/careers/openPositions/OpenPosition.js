@@ -6,13 +6,14 @@ import Feature from '../../careers/components/feature/Feature';
 import { useState } from 'react';
 
 
-const OpenPosition = ({ featureLinkList }) => {
+const OpenPosition = ({ careers }) => {
 
   const [currentPage, setCurrentPage] = useState(1);
+  console.log(careers, 'aaaaa');
   return (
     <div>
       <OpenSearch title='Open Positions' department='DEPARTMENT' location='LOCATION' />
-      <Feature featureLinkList={featureLinkList} />
+      <Feature careers={careers} />
       <div style={{ margin: '40px 0 80px 0' }}>
         <TableElement
           type={"pagination"}
