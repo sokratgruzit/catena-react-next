@@ -10,11 +10,11 @@ function BugBountyRewards() {
 
         <div className={styles.rewardsSteps}>
           <div className={styles.rewardsStep}>
-            <div className={`font-20 ${styles.rewardsStepsTtl}`}>First</div>
+            <div className={`font-20 ${styles.rewardsStepsTtl} ttl`}>First</div>
             <div className={styles.rewardsStepsDesc}>Submit suggestions</div>
           </div>
           <div className={styles.rewardsStep}>
-            <div className={`font-20 ${styles.rewardsStepsTtl}`}>Then</div>
+            <div className={`font-20 ${styles.rewardsStepsTtl} ttl`}>Then</div>
             <div className={styles.rewardsStepsDesc}>Get rewarded</div>
           </div>
         </div>
@@ -32,10 +32,10 @@ function BugBountyRewards() {
           <div className={`ttl ${styles.rangeTtl} font-20`}>Rewards Range</div>
           <div className={styles.rewardsTable}>
             <div className={`${styles.tr} ${styles.trHead} `}>
-              <div className={styles.td}>BUGS</div>
-              <div className={styles.td}>LOW RISK</div>
-              <div className={styles.td}>MEDIUM RISK</div>
-              <div className={styles.td}>HIGH RISK</div>
+              <div className={`${styles.td} ttl`}>BUGS</div>
+              <div className={`${styles.td} ttl`}>LOW RISK</div>
+              <div className={`${styles.td} ttl`}>MEDIUM RISK</div>
+              <div className={`${styles.td} ttl`}>HIGH RISK</div>
             </div>
             <div className={`${styles.tr} ${styles.trBody}`}>
               <div className={styles.td}>10-50 USDT</div>
