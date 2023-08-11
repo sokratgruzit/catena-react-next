@@ -14,7 +14,7 @@ const CareersPage = () => {
 
       })
       .catch(error => {
-        console.log(err?.response);
+        // console.log(err?.response);
       });
   }, []);
 
