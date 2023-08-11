@@ -104,6 +104,7 @@ export const useConnect = (props) => {
       });
       return;
     }
+
     if (providerType === "metaMask") {
       setConnectionLoading(true);
     }
@@ -120,7 +121,7 @@ export const useConnect = (props) => {
           dispatch({
             type: "UPDATE_STATE",
             isConnected: true,
-            providerType,
+            providerType
           });
         })
         .catch((e) => {
@@ -157,10 +158,12 @@ export const useConnect = (props) => {
         await library.provider.close();
       }
       deactivate();
+      dispatch({ type: 'SET_USER', payload: null });
       dispatch({
         type: "UPDATE_STATE",
         account: "",
         providerType: "",
+        balance: 0
       });
     } catch (error) {
       console.log("Error on disconnect: ", error);

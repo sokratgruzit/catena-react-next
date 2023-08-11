@@ -25,7 +25,7 @@ export const getStaticPaths = async ({ locales }) => {
     );
   } else {
     paths = locales.map((loc) => ({
-      params: { slug: 'default' },
+      params: { slug: `event-${loc}` },
       locale: loc,
     }));
   }

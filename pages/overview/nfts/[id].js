@@ -1,7 +1,7 @@
 import React from 'react';
 
-const nftDetailPage = () => {
+const index = () => {
   return <div>nftDetailPage</div>;
 };
 
-export default nftDetailPage;
+export default index;
