@@ -13,50 +13,40 @@ import styles from '../../Press.module.css';
 
 const PublicByYears = () => {
   const axios = createAxiosInstance();
-  const itemsPerPage = 1;
-  const [visibleItems, setVisibleItems] = useState(itemsPerPage);
-  const activeLang = useSelector(state => state.settings.activeLang);
-  const [press, setPressData] = useState([]);
-  const years = ["2020", "2021", "2022", "2023"];
+  const [currentPage, setCurrentPage] = useState(1);
   const [activeYear, setActiveYear] = useState('');
   const [filterData, setFilterData] = useState([]);
-  const [totalCount, setTotalCount] = useState(1);
-  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
   
-  const router = useRouter();
-  const handlePageChange = page => {
-    router.push({
-      pathname: router.pathname,
-      query: { ...router.query, page },
-    });
+  const activeLang = useSelector(state => state.settings.activeLang);
+  const years = ["2020", "2021", "2022", "2023"];
+  const limit = 1;
+
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+    fetchDataByYear(activeYear, page);
   };
 
 
-  const fetchDataByYear = async (year) => {
+  const fetchDataByYear = async (year, page = 1) => {
+    console.log(year);
     try {
       const response = await axios.post(`${process.env.NEXT_PUBLIC_URL}/press/get-press-by-year`, {
         year: year,
-        page: currentPage,
-        limit: itemsPerPage,
+        page: page,
+        limit: limit,
       });
       const pressData = response.data.press;
       setFilterData(pressData);
-      setTotalCount(response.data.totalPages)
-      setCurrentPage(response.data.currentPage)
-      console.log('pressData', response.data);
+      setTotalPages(response.data.totalPages);
+      setCurrentPage(response.data.currentPage);
     } catch (error) {
       console.error('Error fetching press data by year:', error);
     }
   };
 
-
   const handleYearClick = (year) => {
-    const data = press.filter(item => {
-      const itemYear = item.year.substring(0, 4);
-      return itemYear === year;
-    });
     setActiveYear(year);
-    setFilterData(data);
     fetchDataByYear(year);
   };
 
@@ -105,12 +95,12 @@ const PublicByYears = () => {
         )}
       </div>
       <TableElement
-          customStyle={{ zIndex: '10000' }}
-          type='pagination'
-          currentPage={currentPage}
-          totalCount={totalCount}
-          onPageChange={page => handlePageChange(page)}
-        />
+        customStyle={{ zIndex: '10000' }}
+        type='pagination'
+        currentPage={currentPage}
+        totalCount={totalPages}
+        onPageChange={handlePageChange}
+      />
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import React, { useState } from 'react';
-import createAxiosInstance from '../../../../../pages/api/axios';
+import createAxiosInstance from '../api/axios';
 import CareersIneer from '../../../components/home/careers/careers-inner/CareersIneer';
 
 const careersData = [
@@ -2190,7 +2190,6 @@ const careersData = [
     ],
   },
 ];
-
 
 export const getStaticPaths = async () => {
   const axios = createAxiosInstance();

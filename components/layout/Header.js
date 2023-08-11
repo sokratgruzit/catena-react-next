@@ -29,17 +29,18 @@ const WALLETS_DATA = [
 
 const Header = () => {
   const {
-    library,
     disconnect,
-    account,
     connect,
     chainId,
+    account,
     MetaMaskEagerlyConnect,
     WalletConnectEagerly
   } = useConnect();
   const axios = useMemo(() => createAxiosInstance(), []);
   const locales = useSelector(state => state.settings.locales);
   const activeLang = useSelector(state => state.settings.activeLang);
+  const address = useSelector(state => state.connect.account);
+  const balance = useSelector(state => state.connect.balance);
   const triedReconnect = useSelector(state => state.appState.triedReconnect);
   const providerType = useSelector(state => state.connect.providerType);
 
@@ -54,8 +55,8 @@ const Header = () => {
   const [walletModal, setWalletModal] = useState(false);
   const isConnected = useSelector(state => state.connect.isConnected);
   const slippage = useSelector(state => state.settings.slippage);
-  const [balance, setBalance] = useState(0);
   const [stickHead, setStickHead] = useState(false);
+  const [animate, setAnimate] = useState(false);
 
   const dispatch = useDispatch();
   const { handleLanguageChange } = useLanguages();
@@ -261,16 +262,6 @@ const Header = () => {
     handleLanguageChange(loc);
   };
 
-  let web3Obj = library;
-
-  const getBalance = async () => {
-    if (web3Obj !== undefined) {
-      web3Obj.eth.getBalance(account).then(res => {
-        setBalance(res);
-      });
-    }
-  };
-
   const openMenu = id => {
     if (window.innerWidth >= 1024) {
       closeAll();
@@ -449,14 +440,6 @@ const Header = () => {
   };
 
   useEffect(() => {
-    if (isConnected) {
-      getBalance();
-    } else {
-      setBalance(0);
-    }
-  }, [account, isConnected]);
-
-  useEffect(() => {
     if (window.innerWidth >= 1024) {
       setDevice('desktop');
     }
@@ -480,8 +463,8 @@ const Header = () => {
   }, []);
 
   useEffect(() => {
+    setAnimate(true);
     window.addEventListener('scroll', isSticky);
-
     return () => {
       window.removeEventListener('scroll', isSticky);
     };
@@ -504,7 +487,7 @@ const Header = () => {
 
   return (
     <div>
-      <header className={`${styles.header} ${stickHead ? styles.stickHeader : ''}`}>
+      <header className={`${animate && styles.headerActive} ${styles.header} ${stickHead ? styles.stickHeader : ''}`}>
         <div className={`${styles.headerInner} container`}>
           <Link href='/' locale={activeLang}>
             <div>
@@ -914,7 +897,7 @@ const Header = () => {
                     fill='#A6D0DD'
                   />
                 </svg>
-                ${account && triedReconnect ? balance : 0}
+                <span>${address && triedReconnect ? balance : 0}</span>
               </div>
               <div className={`${styles.headerLangs}`}>
                 <div className={`${styles.headerLangNow} ${activeLangs ? styles.headerLangNowActive : ''}`}>
@@ -1540,7 +1523,7 @@ const Header = () => {
                 </div>
               </div>
               <div
-                className={`${account && triedReconnect ? styles.headerNotConnected : ''} ${
+                className={`${address && triedReconnect ? styles.headerNotConnected : ''} ${
                   styles.headerConnectBtnContainer
                 } ${activeSettings ? styles.transformRight : ''}`}
               >
@@ -1557,7 +1540,7 @@ const Header = () => {
                 />
               </div>
               <div
-                className={`${styles.headerConnected} ${account && triedReconnect ? '' : styles.headerNotConnected} ${
+                className={`${styles.headerConnected} ${address && triedReconnect ? '' : styles.headerNotConnected} ${
                   activeSettings ? styles.transformRight : ''
                 }`}
               >
@@ -1571,7 +1554,7 @@ const Header = () => {
                     <Image src={`/images/meta.png`} alt='avatar' layout='fill' />
                     <i></i>
                   </div>
-                  <span>{account && triedReconnect ? account : ''}</span>
+                  <span>{address && triedReconnect ? address : ''}</span>
                   <div className={styles.headerConnectedBtnArrow}>
                     <i></i>
                     <div className={styles.headerConnectedBtnArrowSvg}>
@@ -1605,7 +1588,7 @@ const Header = () => {
           <div className={styles.headerConnectedModalInner}>
             <div className={styles.headerConnectedModalAddress}>
               <div>
-                <span>{account && triedReconnect ? account : ''}</span>
+                <span>{address && triedReconnect ? address : ''}</span>
                 <span>metamask</span>
               </div>
               <svg width='17' height='17' viewBox='0 0 17 17' fill='none' xmlns='http://www.w3.org/2000/svg'>
@@ -1659,7 +1642,7 @@ const Header = () => {
                 </svg>
               </a>
             </Link>
-            {account && <Link href='/overview/make-profile' locale={activeLang}>
+            {address && <Link href='/overview/make-profile' locale={activeLang}>
               <a className={styles.headerConnectedModalLink}>
                 <span>Make a Profile</span>
                 <svg width='5' height='9' viewBox='0 0 5 9' fill='none' xmlns='http://www.w3.org/2000/svg'>
