@@ -45,6 +45,8 @@ const PublicByYears = () => {
     }
   };
 
+  console.log("gg");
+
   const handleYearClick = (year) => {
     setActiveYear(year);
     fetchDataByYear(year);
