@@ -4,7 +4,6 @@ import PressItem from '../../../components/home/press/components/pressInner/Pres
 export const getStaticPaths = async ({ locales }) => {
   const axios = createAxiosInstance();
 
-  // Press slugs
   let press = await axios
     .get(`${process.env.NEXT_PUBLIC_URL}/press/get-all-press-slug`)
     .then(res => {
@@ -16,7 +15,7 @@ export const getStaticPaths = async ({ locales }) => {
 
     let paths;
 
-    if (events && events.length > 0) {
+    if (press && press.length > 0) {
       paths = press.flatMap(item =>
         locales.map(loc => ({
           params: { slug: item.slug },
