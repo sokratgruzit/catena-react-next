@@ -22,7 +22,7 @@ const OpenSearch = ({ title, department, location }) => {
 
   return (
     <div className='container'>
-      <h1 style={{ marginTop: '194px', color: '#162029' }} className='font-90 ttl'>
+      <h1 style={{ color: '#162029' }} className='font-90 ttl pT-180'>
         {title}
       </h1>
       <div>
