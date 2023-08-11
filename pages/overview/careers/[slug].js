@@ -2279,13 +2279,13 @@ export const getStaticPaths = async ({ locales }) => {
   if (careers && careers.length > 0) {
     paths = careers.flatMap((item) =>
       locales.map((loc) => ({
-        params: { slug: item.slug }, // Use "slug" instead of "_id"
+        params: { slug: item.slug }, 
         locale: loc,
       }))
     );
   } else {
     paths = locales.map((loc) => ({
-      params: { slug: 'default' },
+      params: { slug: `career-${loc}` },
       locale: loc,
     }));
   }
