@@ -95,6 +95,9 @@ const Marquee = props => {
   if (props.label === 'propsal') {
     svgArray = [<p key={'1'}>hi</p>];
   }
+  if (props.label === 'propsal') {
+    svgArray = [<p key={'1'}>hi</p>];
+  }
   if (props.label === 'voting') {
     svgArray = [
       <ProposalsText key={'1'} />,
