@@ -2,6 +2,9 @@
   width: 100%;
   position: relative;
   margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
 }
 
 .titleContainer {
@@ -28,21 +31,16 @@
 .bodyContainer {
   width: 100%;
   position: relative;
-  margin-top: 150px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   column-gap: 80px;
   row-gap: 140px;
-  margin-bottom: 100px;
 }
 
 .sourcesContainer {
-  position: relative;
-  margin-top: 130px;
-}
-
-.sourcesTitle {
-  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 }
 
 .logoContainer {
@@ -52,9 +50,7 @@
 
   /* margin-bottom: 150px; */
 }
-.joinCommunity {
-  margin-top: 128px;
-}
+
 .logCon {
   width: 160px;
   height: 160px;
@@ -73,28 +69,28 @@
   align-items: center;
 }
 
+.yearsWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
 .infoContainer {
   width: 100%;
   display: flex;
   border-bottom: 1px solid #a6d0dd;
-  position: relative;
   align-items: flex-end;
   justify-content: space-between;
-  margin-top: 20px;
+  padding: 0 115px;
 }
 
 .yearsStats {
-  width: 60%;
   display: flex;
-  justify-content: center;
-}
-.yearsStats div div div {
-  width: fit-content !important;
-  margin: 0 40px 0 0 !important;
+  gap: 24px;
 }
 
-.yearsStats div div:last-child {
-  margin: 0 !important;
+.infContTitle {
+  padding-bottom: 30px;
 }
 
 .pasCont {
@@ -102,6 +98,7 @@
   z-index: 10;
   justify-content: center;
   gap: 40px;
+  padding-bottom: 30px;
   border-bottom: 1px solid transparent;
   display: flex;
   align-items: center;
@@ -112,7 +109,6 @@
 }
 
 .activeCont {
-  /* width: 70px; */
   border-bottom: 1px solid #ff6969;
   display: flex;
   align-items: center;
@@ -120,6 +116,8 @@
   font-size: 30px;
   opacity: 1;
   cursor: pointer;
+  height: 100%;
+  padding-bottom: 30px;
 }
 
 .statisticContainer {
@@ -165,20 +163,30 @@
   margin: 30px 0px 0px 0px !important;
 }
 
+.innerMainWrapp {
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+}
+
+@media (max-width: 1900px) { 
+  .infoContainer {
+    padding: 0 25px;
+  }
+}
+
 @media (max-width: 1365px) {
   .logoLine {
     gap: 50px;
   }
 }
+
 @media (max-width: 1023px) {
   .bodyContainer {
     grid-template-columns: 1fr;
     gap: 100px;
   }
 
-  .joinCommunity {
-    margin-top: 80px;
-  }
   .logoLine {
     width: auto;
     height: auto;
@@ -188,10 +196,12 @@
     display: flex;
     flex-direction: column;
   }
+
   .logoContainer {
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
+
   .logCon {
     margin: 5px;
     width: auto;
@@ -206,6 +216,7 @@
   .yearsStats {
     gap: 30px;
   }
+
   .infoContainer {
     gap: 10px;
   }
@@ -217,20 +228,25 @@
     justify-content: flex-start;
     align-items: flex-start;
   }
+
   .yearsStats {
     width: 100%;
     justify-content: flex-start;
   }
+
   .yearsStats div {
     margin: 0 !important;
   }
+
   .titleContainer {
     gap: 20px;
     font-size: 20px;
   }
+
   .titleContainer p {
     font-size: 40px;
   }
+
   .logoContainer {
     display: grid;
     grid-template-columns: 1fr;
