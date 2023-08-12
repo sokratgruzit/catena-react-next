@@ -19,7 +19,7 @@ export const getStaticPaths = async ({ locales }) => {
   if (careers && careers.length > 0) {
     paths = careers.flatMap((item) =>
       locales.map((loc) => ({
-        params: { slug: item.slug },
+        params: { slug: item.slug }, 
         locale: loc,
       }))
     );
@@ -37,13 +37,13 @@ export const getStaticPaths = async ({ locales }) => {
 };
 
 
-// Update this part of your frontend code
 export const getStaticProps = async context => {
   const slug = context.params.slug;
   const axios = createAxiosInstance();
-  const res = await axios.get(`${process.env.NEXT_PUBLIC_URL}/careers/get-one-careers?slug=${slug}`);
+  const res = await axios.post(`${process.env.NEXT_PUBLIC_URL}/careers/get-one-career`, { slug });
+  // const res = await axios.get(`${process.env.NEXT_PUBLIC_URL}/careers/get-one-career?slug=${slug}`);
   const foundItem = res?.data;
-  console.log(res.data, 'resdata')
+  console.log(slug, 'resdata')
 
   return {
     props: {
@@ -54,6 +54,7 @@ export const getStaticProps = async context => {
  
 
 const index = ({ item }) => {
+  console.log(item, 'jjgjghv');
   return <CareersIneer item={item} />;
 };
 
