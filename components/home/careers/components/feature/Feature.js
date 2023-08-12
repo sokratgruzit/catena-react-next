@@ -29,10 +29,6 @@ const Feature = ({ featureLinkList, title, showButton, careers }) => {
       });
   };
 
-  if (!featureLinkList) {
-    return null;
-  }
-
   return (
     <div>
       <div className='container_bordered'>

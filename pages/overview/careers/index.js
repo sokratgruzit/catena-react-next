@@ -7,7 +7,7 @@ export const getStaticProps = async context => {
 
   return {
     props: {
-      careers: data,
+      careers: data.career,
     },
   };
 };
