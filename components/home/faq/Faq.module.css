@@ -1,6 +1,7 @@
 .container {
   width: 100%;
   display: flex;
+  padding-top: 150px;
 }
 
 .bodyContainer {
@@ -27,6 +28,11 @@
 
 .numberBox {
   display: flex;
+}
+
+.number {
+  -webkit-text-stroke: 1px #162029;
+  color: #a6d0dd;
 }
 
 .maneBox {
