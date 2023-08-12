@@ -120,4 +120,12 @@
     max-width: 400px;
     margin: 0 auto;
   }
+  .mainLogo {
+    margin: 50px auto 100px auto;
+    max-width: 250px;
+    max-height: 104px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+  }
 }

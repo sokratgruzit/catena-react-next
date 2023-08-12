@@ -5,7 +5,7 @@ import styles from './Tokenomics.module.css';
 function Certik() {
   return (
     <div>
-      <div className={`${styles.pt80}`}>
+      <div className={`${styles.pt80}`} data-aos='fade-up'>
         <div>
           <p className='ttl font-20'>
             Initial token price will be 0.05 USDT, ceiling price will be 2.00 USDT at the Seed Round. <br /> Unsold

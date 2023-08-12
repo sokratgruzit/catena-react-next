@@ -3,8 +3,45 @@ import BugBountyList from './components/BugBountyList';
 import BugBountyNumList from './components/BugBountyNumList';
 import BugBountyRewards from './components/BugBountyRewards';
 import BugBountyTitle from './components/BugBountyTitle';
+import {useDispatch} from "react-redux";
+import { InView } from 'react-intersection-observer';
+import {useEffect, useState} from "react";
 
 function BugBounty() {
+  const dispatch = useDispatch();
+  const [pageReady, setPageReady] = useState(false);
+  let microSchemes;
+  if(window.innerWidth > 1250){
+    microSchemes = [
+      [1,2,9,10,11,12,13,14,20,21,22,23,24],
+      [1,2,10,11,12,13,14,22,23,24]
+    ];
+  };
+
+  if(window.innerWidth < 1250){
+    microSchemes = [
+      [1,2,5,6,7,8,9,10,11,12,13,14,20,21,22,23,24],
+      [1,10,11,12,13,14,22,23,24]
+    ];
+  };
+
+  const setScheme = (num) => {
+    console.log(num);
+    dispatch({
+      type: "SET_MICHROSCHEME_ARRAY",
+      microschemeArray: microSchemes[num]
+    });
+    console.log(microSchemes[num])
+  };
+  useEffect(() => {
+    setTimeout(() => {
+      setPageReady(true);
+      dispatch({
+        type: "SET_MICHROSCHEME_ARRAY",
+        microschemeArray: microSchemes[0]
+      });
+    }, 400);
+  },[]);
   let data = [
     {
       title: 'Eligibility',
@@ -83,21 +120,25 @@ function BugBounty() {
 
   return (
     <div className='pT-180'>
-      <div className='container'>
-        <BugBountyTitle />
-        <BugBountyItem data={data} />
-      </div>
-      <div className='container_bordered'>
-        <div className='container_bordered-child'>
-          <BugBountyNumList data={listData} />
-          <BugBountyList data={list} />
+      <InView as="div" onChange={(inView, entry) => (inView && setScheme(0))}>
+        <div className='container'>
+          <BugBountyTitle animate={pageReady} />
+          <BugBountyItem data={data} animate={pageReady}/>
         </div>
-      </div>
-      <div className="container">
-        <BugBountyRewards />
-        <BugBountyItem data={reportData} />
-        <BugBountyNumList data={numList} />
-      </div >
+        <div className='container_bordered'>
+          <div className={`container_bordered-child tYAnimation delay4 ${pageReady ? 'animate' : ''}`}>
+            <BugBountyNumList data={listData}/>
+            <BugBountyList data={list} />
+          </div>
+        </div>
+      </InView>
+      <InView as="div" onChange={(inView, entry) => (inView && setScheme(1))}>
+        <div className="container">
+          <BugBountyRewards />
+          <BugBountyItem data={reportData} />
+          <BugBountyNumList data={numList} />
+        </div >
+      </InView>
     </div>
   );
 }

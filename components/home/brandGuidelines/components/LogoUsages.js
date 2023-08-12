@@ -17,10 +17,10 @@ export default function LogoUsages() {
   ];
   return (
     <div>
-      <h3 className={`${styles.title} font_51`}>Incorrect Usage</h3>
+      <h3 className={`${styles.title} font-40 ttl pT-140`} data-aos="fade-up">Incorrect Usage</h3>
       <div className={styles.wrapper}>
         {incorrectUsageList.map((item, index) => (
-          <div key={index} className={styles.guidlineTableItem}>
+          <div key={index} className={styles.guidlineTableItem} data-aos="fade-up">
             <div className={styles.imageWrapper}>
               <img src={item.img} alt='' />
             </div>
