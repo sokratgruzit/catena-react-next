@@ -7,7 +7,7 @@ const ExchangesCards = ({ data }) => {
   return (
     <div>
       <div className={styles.cardinfo}>CMCX listed on {data?.length} Exchanges</div>
-      <div className={styles.massive} style={{ width: '152px', color: '#969BA6', position: 'absolute', top: '430px', left: '85%', textAlign: 'right' }} >CMCX massive listing</div>
+      <div className={styles.massive} >CMCX massive listing</div>
       <div className={styles.container}>
         {data?.map((card, index) => {
           return (

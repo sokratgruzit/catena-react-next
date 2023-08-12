@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useRouter } from 'next/router';
 
-import Years from './components/filterWithYears/Years';
 import PublicByYears from './components/publicByYears/PublicByYears';
 import PressLogo from './components/pressLogoContainer/PressLogo';
 import JoinCommunity from '../events/components/JoinCommunity';
@@ -13,10 +12,6 @@ import { TableElement } from '@catena-network/catena-ui-module';
 import styles from './Press.module.css';
 
 const Press = ({ press, currentPage, totalCount }) => {
-  const [activeYear, setActiveYear] = useState('');
-  const [filterData, setFilterData] = useState([]);
-  const activeLang = useSelector(state => state.settings.activeLang);
-
   const fileAdress = `${process.env.NEXT_PUBLIC_URL}/uploads/press/`;
   const title = 'press.title';
   const description = 'press.description';
@@ -29,18 +24,6 @@ const Press = ({ press, currentPage, totalCount }) => {
       query: { ...router.query, page },
     });
   };
-  const handleYearClick = year => {
-    setActiveYear(year);
-    const data = press.filter(item => {
-      const itemYear = item.createdAt.substring(0, 4);
-      return itemYear === year;
-    });
-    setFilterData(data);
-  };
-
-  useEffect(() => {
-    handleYearClick('2023');
-  }, [press]);
 
   return (
     <div>
@@ -67,7 +50,7 @@ const Press = ({ press, currentPage, totalCount }) => {
           </div>
           <PressLogo />
         </div>
-        <PublicByYears press={press} />
+        <PublicByYears />
         <div className={styles.joinCommunity}>
           <JoinCommunity />
         </div>

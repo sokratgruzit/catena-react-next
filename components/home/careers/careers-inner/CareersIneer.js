@@ -134,7 +134,7 @@ const aboutRange = [
   },
 ];
 
-const CareersIneer = () => {
+const CareersIneer = ({item}) => {
   const [showSubmit, setShowSubmit] = useState(false);
   const [submitHeight, setSubmitHeight] = useState('0px');
   const chatContainerRef = useRef(null);
@@ -143,7 +143,7 @@ const CareersIneer = () => {
   const handleButtonClick = () => {
     const scrollToBottom = () => {
       chatContainerRef?.current?.scrollIntoView({ behavior: 'smooth', block: 'end' });
-  };
+    };
     if (showSubmit) {
       setSubmitHeight('0px');
     } else {
@@ -154,13 +154,13 @@ const CareersIneer = () => {
     scrollToBottom()
 
   };
-
+  console.log(item);
 
   return (
-    <div ref={chatContainerRef}  className='pT-180'>
+    <div ref={chatContainerRef} className='pT-180'>
       <SeniorDesigner
         teamResponsible={teamResponsible}
-        head='Senior UX Designer'
+        head={item.title['en']['career.title']}
         title='Front-end Engineer role'
         title2='As a member of the team,you will be responsible for'
         description='We are looking for an experienced front-end engineer to join as a member of the core engineering team. As a front-end engineer, you will have an extensive impact over the product, the UI/UX, and the technology.'
