@@ -1,4 +1,3 @@
-import React from 'react';
 import createAxiosInstance from '../../api/axios';
 import CareersIneer from '../../../components/home/careers/careers-inner/CareersIneer';
 
@@ -19,11 +18,7 @@ export const getStaticPaths = async ({ locales }) => {
   if (careers && careers.length > 0) {
     paths = careers.flatMap((item) =>
       locales.map((loc) => ({
-<<<<<<< HEAD
         params: { slug: item.slug }, 
-=======
-        params: { slug: item.slug },
->>>>>>> b780954abbec50e0b672a4463f8e87da0db81d49
         locale: loc,
       }))
     );
@@ -40,19 +35,11 @@ export const getStaticPaths = async ({ locales }) => {
   };
 };
 
-
-// Update this part of your frontend code
 export const getStaticProps = async context => {
   const slug = context.params.slug;
   const axios = createAxiosInstance();
-<<<<<<< HEAD
   const res = await axios.post(`${process.env.NEXT_PUBLIC_URL}/careers/get-one-career`, { slug });
-  //const res = await axios.get(`${process.env.NEXT_PUBLIC_URL}/careers/get-one-careers?slug=${slug}`);
-=======
-  const res = await axios.get(`${process.env.NEXT_PUBLIC_URL}/careers/get-one-careers?slug=${slug}`);
->>>>>>> b780954abbec50e0b672a4463f8e87da0db81d49
   const foundItem = res?.data;
-  console.log(res.data, 'resdata')
 
   return {
     props: {
