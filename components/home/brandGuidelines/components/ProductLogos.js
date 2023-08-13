@@ -30,7 +30,7 @@ export default function ProductLogos() {
           >
             <h5 className={`${styles.guidlineHalfTtl} ${styles.font51}`}>{item.logo}</h5>
 
-            <img className={styles.image} src={item.logoImg} alt='' />
+            <img className={styles.image} src={item.logoImg} alt={item.logo} />
           </div>
         );
       })}

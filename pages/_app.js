@@ -11,6 +11,8 @@ import Header from '../components/layout/Header';
 import Microscheme from '../components/UI/microscheme/Microscheme';
 import Wrapper from '../components/layout/Wrapper';
 import store, { persistor } from '../store/index';
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 import '../styles/globals.css';
 import '../styles/style.css';
@@ -25,7 +27,10 @@ function MyApp({ Component, pageProps }) {
   const router = useRouter();
   const { setLocaleInUrl } = useLanguages();
   const [isInitialized, setIsInitialized] = useState(false);
-
+  useEffect(() => {
+    AOS.init();
+    AOS.refresh();
+  }, []);
   useEffect(() => {
     if (!isInitialized) {
       let { query } = router;
