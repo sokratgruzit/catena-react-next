@@ -7,6 +7,7 @@ import createAxiosInstance from '../../pages/api/axios';
 import FormSelectDate from '../voting/components/formDateInput/FormSelectDate';
 
 import styles from './MakeProfile.module.css';
+import { Input } from '@catena-network/catena-ui-module';
 
 const MakeProfile = () => {
   const account = useSelector(state => state.connect.account);
@@ -92,52 +93,60 @@ const MakeProfile = () => {
 
     if (isValid) {
       axios
-      .post('/user/profile', {
-        address: account,
-        fullname: inputs.fullname,
-        email: inputs.email,
-        mobile: inputs.mobile,
-        password: inputs.password,
-        dateOfBirth: inputs.dateOfBirth,
-        status: true,
-        locale: locale
-      })
-      .then(res => {
-        dispatch({ type: 'SET_USER', payload: res.data });
-      })
-      .catch(e => console.log(e.response));
+        .post('/user/profile', {
+          address: account,
+          fullname: inputs.fullname,
+          email: inputs.email,
+          mobile: inputs.mobile,
+          password: inputs.password,
+          dateOfBirth: inputs.dateOfBirth,
+          status: true,
+          locale: locale
+        })
+        .then(res => {
+          dispatch({ type: 'SET_USER', payload: res.data });
+        })
+        .catch(e => console.log(e.response));
     }
   };
 
   useEffect(() => {
     if (account) {
       axios
-      .post('/user', { address: account })
-      .then(res => {
-        let user = res?.data?.user;
-        const dateOfBirth = user.dateOfBirth ? new Date(user.dateOfBirth) : new Date();
-        
-        dispatch({ type: 'SET_USER', payload: user });
-        setInputs({
-          fullname: user.fullname,
-          email: user.email,
-          mobile: user.mobile,
-          status: user.status,
-          password: '',
-          dateOfBirth: dateOfBirth
+        .post('/user', { address: account })
+        .then(res => {
+          let user = res?.data?.user;
+          const dateOfBirth = user.dateOfBirth ? new Date(user.dateOfBirth) : new Date();
+
+          dispatch({ type: 'SET_USER', payload: user });
+          setInputs({
+            fullname: user.fullname,
+            email: user.email,
+            mobile: user.mobile,
+            status: user.status,
+            password: '',
+            dateOfBirth: dateOfBirth
+          });
+        })
+        .catch(err => {
+          console.log(err.response);
         });
-      })
-      .catch(err => {
-        console.log(err.response);
-      });
     }
   }, [account]);
 
   useEffect(() => {
     const { locale } = router;
-    
+
     if (!account) router.push('/', undefined, { locale });
   }, [account]);
+  const changeHandler = (i, e) => {
+    console.log(i.target.value);
+  };
+  const[cover, setCover] = useState(true)
+  const coverhandler = () => {
+    console.log("coverHandler");
+    setCover(true);
+  };
 
   let content = null;
 
@@ -166,17 +175,38 @@ const MakeProfile = () => {
           />
           {errors.password && <span className='error'>{errors.password}</span>}
         </label>
+        <Input
+          type={"default"}
+          icon={true}
+          inputType={"password"}
+          coverHandler={coverhandler}
+          placeholder={"password input"}
+          label={"Enter Password"}
+          subLabel={""}
+          onChange={changeHandler}
+        />
         <label>
           Email:
-          <input 
-            type='email' 
-            name='email' 
-            value={inputs.email} 
-            onChange={handleInputChange} 
-            className={styles.input} 
+          <input
+            type='email'
+            name='email'
+            value={inputs.email}
+            onChange={handleInputChange}
+            className={styles.input}
           />
           {errors.email && <span className='error'>{errors.email}</span>}
         </label>
+        <Input
+          type={"default"}
+          icon={false}
+          label={"Eneter e-mail"}
+          editable={true}
+          defaultValue={"hahaha"}
+          value={"@emal.com"}
+          subLabel={""}
+          placeholder={"default input"}
+          onChange={changeHandler}
+        />
         <label className={styles.phoneNumberLabel}>
           Mobile Number (Optional)
           <PhoneNumberSelect
