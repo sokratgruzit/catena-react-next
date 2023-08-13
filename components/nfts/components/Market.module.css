@@ -186,7 +186,24 @@
   .astronautFigureBg {
     right: -7px;
   }
+  .planet1 {
+    right: calc(38% - 120px);
+    top: -25px;
+  }
+  .planet4 svg,
+  .planet1,
+  .planet3 svg {
+    width: 50px;
+    height: 50px;
+  }
+  .planet4 {
+    right: 0;
+  }
+  .planet3 {
+    left: -12%;
+  }
 }
+
 /* 
 @keyframes nftSec {
   0% {
@@ -230,6 +247,7 @@
 }  */
 /*Laptop 1440*/
 .marqueeContainer {
-  width: 100%; /* Or adjust to your desired width */
+  width: 100%;
   overflow: hidden;
+  margin-top: 130px;
 }

@@ -6,11 +6,11 @@ import styles from './CollectionsPromo.module.css';
 const CollectionsPromo = () => {
   return (
     <div className={`${styles.CollectionsPromo} container`}>
-      <div className={styles.CollectionsPromo__background}>
+      {/* <div className={styles.CollectionsPromo__background}>
         <Image layout='fill' src='/images/nft/background/bckOfNftCollection.png' alt='' />
-      </div>
-      <p className={`${styles.CollectionsPromo__title} font_30`}>
-        <span className={`font_30`}>NFT </span>Collections
+      </div> */}
+      <p className={`${styles.CollectionsPromo__title} font_51`}>
+        <span className={`font_51`}>NFT </span>Collections
       </p>
       <p className={styles.CollectionsPromo__teaser}>
         +10.000 amazing <span>NFT</span> Collection in our <span>CATENA</span> Market lorem ipsum moments restrictions
@@ -36,7 +36,7 @@ const CollectionsPromo = () => {
                 fill='none'
                 xmlns='http://www.w3.org/2000/svg'
               >
-                <circle cx='25.293' cy='25.3711' r='25' fill='#0500FF' />
+                <circle cx='25.293' cy='25.3711' r='25' fill='#FF6969' />
                 <path
                   fillRule='evenodd'
                   clipRule='evenodd'
