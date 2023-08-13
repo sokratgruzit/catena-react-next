@@ -43,7 +43,7 @@ export default function Colors() {
   ];
   return (
     <div className={styles.colors}>
-      <div className={`${styles.line} font_20`}>
+      <div  data-aos="fade-up" className={`${styles.line} font_20`}>
         <svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
           <g opacity='0.6'>
             <path
@@ -65,11 +65,11 @@ export default function Colors() {
         Color
       </div>
       <div className={styles.collorPallete}>
-        <h1 className={`${styles.title} font-90`}>Color Palette</h1>
+        <h1 className={`${styles.title} font-90 ttl`} data-aos="fade-up">Color Palette</h1>
         <div className={styles.pallete}>
           {colors.map((item, index) => {
             return (
-              <div key={index} className={styles.content}>
+              <div key={index} className={styles.content} data-aos="fade-up">
                 <div className={styles.contentBox}>
                   <p>{item.color}</p>
                   <p>{item.hex}</p>

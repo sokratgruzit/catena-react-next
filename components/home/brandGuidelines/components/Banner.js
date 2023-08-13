@@ -44,7 +44,7 @@ export default function Banner() {
           </a> */}
           {/* <Download buttonClass='bluebtn' buttonTitle='Download' /> */}
           {itemData.map((item, index) => (
-            <div className='item' key={index}>
+            <div className='item' key={index} data-aos="fade-up">
               {item.links.map((link, linkIndex) => (
                 <Button
                   onClick={() => handleDownload(link.url, link.text)}
