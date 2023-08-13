@@ -17,7 +17,7 @@ const Boxs = ({ events }) => {
 
   return (
     <div className={styles.mainContainer}>
-      <div className={`${styles.mainContainer} container`}>
+      <div className={`${styles.mainContainer} pT-180 container`}>
         <div className={styles.titleContainer}>
           <p className={styles.titlePartyOne}>Catena</p>
           <p className={styles.titlePartyTwo}>Events</p>

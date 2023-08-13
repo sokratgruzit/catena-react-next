@@ -134,7 +134,7 @@ const aboutRange = [
   },
 ];
 
-const CareersIneer = () => {
+const CareersIneer = ({item}) => {
   const [showSubmit, setShowSubmit] = useState(false);
   const [submitHeight, setSubmitHeight] = useState('0px');
   const chatContainerRef = useRef(null);
@@ -143,7 +143,7 @@ const CareersIneer = () => {
   const handleButtonClick = () => {
     const scrollToBottom = () => {
       chatContainerRef?.current?.scrollIntoView({ behavior: 'smooth', block: 'end' });
-  };
+    };
     if (showSubmit) {
       setSubmitHeight('0px');
     } else {
@@ -157,7 +157,7 @@ const CareersIneer = () => {
 
 
   return (
-    <div ref={chatContainerRef}  style={{ paddingTop: '150px', backgroundColor: '#fff2e4' }}>
+    <div ref={chatContainerRef} className='pT-180'>
       <SeniorDesigner
         teamResponsible={teamResponsible}
         head='Senior UX Designer'

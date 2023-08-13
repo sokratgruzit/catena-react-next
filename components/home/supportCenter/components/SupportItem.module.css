@@ -22,8 +22,18 @@
   display: flex;
 }
 
-.aaa {
-  margin: 0px 10px 5px 10px;
+.svgs {
+  position: relative;
+  width: 105px;
+  height: 105px;
+}
+
+.svgs svg {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 100px;
+  height: 100px;
 }
 
 .paragrah {

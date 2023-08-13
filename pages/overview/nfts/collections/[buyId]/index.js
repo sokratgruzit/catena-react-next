@@ -1,4 +1,3 @@
-import { MongoClient } from 'mongodb';
 import { useRouter } from 'next/router';
 
 import Buy from '../../../../../components/nfts/components/Buy';
@@ -247,16 +246,6 @@ const collectionItems = [
   },
 ];
 
-const BuyPage = props => {
-  const router = useRouter();
-
-  if (router.isFallback) {
-    return <h1>Loading...</h1>;
-  }
-
-  return <Buy {...props} />;
-};
-
 export async function getStaticPaths() {
   return {
     fallback: true,
@@ -286,32 +275,32 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context) {
-  const client = await MongoClient.connect(
-    'mongodb+srv://sokrat:lalala12345@cluster0.x2cvw.mongodb.net/cmcx?retryWrites=true&w=majority',
-  );
-  const db = client.db();
-
-  const buyCollection = db.collection('buyInfo');
-  const buyInfo = await buyCollection.find().toArray();
-
-  client.close();
-
   return {
     props: {
       buyDetails: {
-        imgSrc: buyInfo[0].imgSrc,
-        title: buyInfo[0].title,
-        value: buyInfo[0].value,
-        blockQuote: buyInfo[0].blockQuote,
-        cmcx: buyInfo[0].cmcx,
-        usd: buyInfo[0].usd,
-        id: buyInfo[0]._id.toString(),
+        imgSrc: '',
+        title: '',
+        value: '',
+        blockQuote: '',
+        cmcx: '',
+        usd: '',
+        id: '',
       },
-      ownerItems: ownerItemData,
-      detailsItems: detailsTableData,
-      collectionsItems: collectionItems,
+      ownerItems: '',
+      detailsItems: '',
+      collectionsItems: '',
     },
   };
 }
 
-export default BuyPage;
+const index = props => {
+  const router = useRouter();
+
+  if (router.isFallback) {
+    return <h1>Loading...</h1>;
+  }
+
+  return <Buy {...props} />;
+};
+
+export default index;

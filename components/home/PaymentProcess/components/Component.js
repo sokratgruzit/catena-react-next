@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import { Input, Button } from '@catena-network/catena-ui-module';
 
 import styles from '../css/Component.module.css';
@@ -20,6 +21,12 @@ const Component = () => {
       img: '/images/contribute/tokens/tok1.png',
     },
   ];
+  const [isChecked, setIsChecked] = useState(false);
+
+  const handleCheckboxChange = () => {
+    setIsChecked(!isChecked);
+  };
+
   return (
     <div className={`${styles.container} container`}>
       <div className={`${styles.ttl}`}>
@@ -59,7 +66,9 @@ const Component = () => {
           })}
         </div>
         <div className={styles.itemOne}>
-          <p>mark[]</p>
+          <div className={` ${styles.customCheckbox}${isChecked ? 'checked' : ''}`} onClick={handleCheckboxChange}>
+            <div className={styles.checkboxIcon}>{isChecked && <span>&#10003;</span>}</div>
+          </div>
           <p>I hereby agree to the token purchase agreement and token sale term.</p>
         </div>
         <div className={`${styles.btn}`}>

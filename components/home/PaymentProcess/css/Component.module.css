@@ -30,6 +30,7 @@
 .img {
   width: 21px;
   height: 21px;
+  margin: 0px 5px 0px 0px;
 }
 
 .item {
@@ -78,4 +79,32 @@
 
 .imgOne {
   margin-right: 10px;
+}
+
+.checBox {
+  width: 20px;
+  height: 20px;
+  border: 1px solid red;
+}
+
+.checkboxIcon {
+  width: 17px;
+  height: 17px;
+  border-radius: 5px;
+  border: 1px solid #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2px;
+  font-size: 14px;
+}
+
+.checkboxLabel {
+  font-size: 16px;
+}
+
+.checked .checkboxIcon {
+  background-color: #000;
+  border-color: #000;
+  color: #fff;
 }

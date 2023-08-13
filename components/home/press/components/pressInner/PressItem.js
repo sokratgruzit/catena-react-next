@@ -6,11 +6,11 @@ import JoinCommunity from '../../../events/components/JoinCommunity';
 import styles from '../../Press.module.css';
 import PublicByYears from '../publicByYears/PublicByYears';
 
-const PressItem = ({ item, press }) => {
+const PressonePress = ({ onePress, press }) => {
   const activeLang = useSelector(state => state.settings.activeLang);
   const sliderImages = [
-    `${process.env.NEXT_PUBLIC_URL}/uploads/press/${item.image}`,
-    `${process.env.NEXT_PUBLIC_URL}/uploads/press/${item.logo_image}`,
+    `${process.env.NEXT_PUBLIC_URL}/uploads/press/${onePress.image}`,
+    `${process.env.NEXT_PUBLIC_URL}/uploads/press/${onePress.logo_image}`,
   ];
 
   const getCurrentPageURL = () => {
@@ -18,20 +18,20 @@ const PressItem = ({ item, press }) => {
   };
 
   return (
-    <div>
-      {!item ? (
+    <div className='container pT-180'>
+      {!onePress ? (
         <p>Loading...</p>
       ) : (
         <>
           <div className='custum-text'>
-            <h1>{item.title['en']['press.title']}</h1>
+            <h1>{onePress.title['en']['press.title']}</h1>
             <CopyLink
               data={[
                 {
-                  time: item.createdAt.substring(11, 19),
-                  month: item.createdAt.substring(5, 10),
-                  year: parseInt(item.createdAt.substring(0, 4)),
-                  slug: item.slug,
+                  time: onePress.createdAt.substring(11, 19),
+                  month: onePress.createdAt.substring(5, 10),
+                  year: parseInt(onePress.createdAt.substring(0, 4)),
+                  slug: onePress.slug,
                 },
               ]}
               currentPageURL={getCurrentPageURL}
@@ -39,13 +39,13 @@ const PressItem = ({ item, press }) => {
               showCopyButton={true}
             />
             <Slider images={sliderImages} />
-            <div>{item.description && <p>{item.inner_descr[activeLang]['press.description']}</p>}</div>
-            <p>{item.text[activeLang]['press.text']}</p>
-            <p>{item.inner_descr[activeLang]['press.description']}</p>
+            <div>{onePress.description && <p>{onePress.inner_descr[activeLang]['press.description']}</p>}</div>
+            <p>{onePress.text[activeLang]['press.text']}</p>
+            <p>{onePress.inner_descr[activeLang]['press.description']}</p>
           </div>
         </>
       )}
-      <PublicByYears press={press} />
+      <PublicByYears />
       <div className={styles.joinCommunity}>
         <JoinCommunity />
       </div>
@@ -53,4 +53,4 @@ const PressItem = ({ item, press }) => {
   );
 };
 
-export default PressItem;
+export default PressonePress;

@@ -14,8 +14,8 @@ export const getStaticProps = async () => {
   };
 };
 
-const mainSlider = ({ translates }) => {
+const index = ({ translates }) => {
   return <MainSlider test='test' trans={translates} />;
 };
 
-export default mainSlider;
+export default index;

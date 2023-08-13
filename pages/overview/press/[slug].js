@@ -13,12 +13,21 @@ export const getStaticPaths = async ({ locales }) => {
       console.log(err?.response);
     });
 
-  const paths = press.flatMap((item) =>
-    locales.map((loc) => ({
-      params: { slug: item.slug },
-      locale: loc,
-    }))
-  );
+    let paths;
+
+    if (press && press.length > 0) {
+      paths = press.flatMap(item =>
+        locales.map(loc => ({
+          params: { slug: item.slug },
+          locale: loc,
+        })),
+      );
+    } else {
+      paths = locales.map((loc) => ({
+        params: { slug: `press-${loc}` },
+        locale: loc,
+      }));
+    }
 
   return {
     paths,
@@ -30,25 +39,17 @@ export const getStaticProps = async context => {
   const slug = context.params.slug;
   const axios = createAxiosInstance();
   const res = await axios.post(`${process.env.NEXT_PUBLIC_URL}/press/get-one-press`, { slug });
-  const response = await axios.post(`${process.env.NEXT_PUBLIC_URL}/press/get-all-press-by-years`);
-  const pressByYears = response?.data;
-  const foundItem = res?.data;
+  const foundPress = res?.data;
 
   return {
     props: {
-      item: foundItem,
-      slug,
-      press: pressByYears
+      onePress: foundPress,
     },
   };
 };
 
-const PressSlug = ({ item, press }) => {
-  return (
-    <div className='container' style={{ paddingTop: '200px', paddingBottom: '100px' }}>
-      <PressItem item={item} press={press} />
-    </div>
-  );
+const index = ({ onePress, press }) => {
+  return <PressItem onePress={onePress} />;
 };
 
-export default PressSlug;
+export default index;

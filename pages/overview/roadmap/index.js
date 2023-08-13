@@ -2,8 +2,8 @@ import React from 'react';
 
 import Roadmap from '../../../components/home/roadmap/Roadmap';
 
-function index() {
+const index = () => {
   return <Roadmap />;
-}
+};
 
 export default index;

@@ -82,7 +82,7 @@ const EventsItem = ({ item, slug }) => {
   }, [item]);
 
   return (
-    <div>
+    <div className='pT-180 container' >
       <div className='custum-text'>
         <h1>{item?.title['en']['event.title']}</h1>
         <span>

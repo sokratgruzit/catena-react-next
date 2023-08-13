@@ -1,0 +1,74 @@
+.mane {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 40%;
+  margin: 0px 0px;
+  margin-left: 50%;
+  padding: 35px 50px;
+}
+
+.containerOne {
+  background-color: #fff3e5;
+  margin-bottom: 20px;
+  padding: 20px 70px;
+}
+
+.itemOne {
+  display: flex;
+  gap: 10px;
+}
+
+.itemTwo {
+  display: flex;
+  margin-top: 30px;
+  gap: 5px;
+}
+
+.containerTwo {
+  background-color: #fff3e5;
+  margin-bottom: 20px;
+  padding: 20px 70px;
+}
+
+.boxOne {
+  margin: 10px 0px;
+}
+
+.boxTwo {
+  margin: 10px 0px;
+}
+
+.containerThree {
+  background-color: #fff3e5;
+  margin-bottom: 20px;
+  padding: 20px 70px;
+}
+
+.bottomOne {
+  display: flex;
+  margin: 15px 0px;
+}
+
+.imageBox {
+  margin: 0px 10px;
+}
+
+.img {
+  display: flex;
+  gap: 10px;
+  margin: 15px 0px;
+}
+
+.botoomBox {
+  display: flex;
+  margin: 15px 0px;
+}
+
+.bottomImg {
+  margin-right: 10px;
+}
+
+.botoomttl {
+  border-bottom: 1px solid black;
+}

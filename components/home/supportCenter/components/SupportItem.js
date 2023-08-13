@@ -48,7 +48,7 @@ const SUPPORTITEMS = [
 
 const SupportItem = () => {
   return (
-    <div className={`${styles.mane} container`}>
+    <div className={`${styles.mane} container pT-180`}>
       <h1 className={`${styles.TiTle} ttl font-90`}>
         <span>Support</span> <span className={styles.span}>Center</span>
       </h1>
@@ -56,7 +56,7 @@ const SupportItem = () => {
         {SUPPORTITEMS.map((item, index) => {
           return (
             <div key={index} className={styles.box}>
-              <div>{item.svg} </div>
+              <div className={styles.svgs}>{item.svg} </div>
               <div className={`${styles.boxTwo}`}>
                 <div className={styles.boxHover}>
                   <Link href={`${item.subLink}`} key={item.id}>
