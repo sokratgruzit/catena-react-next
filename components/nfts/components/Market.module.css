@@ -1,179 +1,32 @@
-.Market {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
+.container {
+  padding-top: 100px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
 }
-.Market__background {
-  top: 0;
-  left: 0;
-  width: 100%;
-  position: absolute;
-  z-index: -1;
-  height: 120vh;
-}
-.Market__containers {
-  display: flex;
-  height: 1050px;
-}
-.Market__searchBlock {
-  position: relative;
-  width: 50%;
-  padding-top: 150px;
-}
-.Market__asstronaut {
-  position: relative;
-  width: 50%;
-}
-.Market__title {
+
+.title {
   font-size: 100px;
   line-height: 120px;
   margin-bottom: 21px;
 }
-.Market__title span {
+
+.title span {
   text-transform: uppercase;
   font-size: 100px;
   line-height: 120px;
 }
-.Market__searchBoxTitles {
-  display: flex;
-  flex-direction: column;
-}
-.Market__titleTeaser {
-  margin-bottom: 55px;
-}
-.Market__titleTeaser span {
-  text-transform: uppercase;
+
+.titleTeaser {
   font-size: 30px;
   line-height: 36px;
+  margin-bottom: 55px;
 }
-.Market__searchBar {
-  padding-top: 100px;
-  position: relative;
-  height: 50px;
-}
-.Market__searchInput {
-  width: 445px;
-  height: 50px;
-  border-radius: 34px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  background-color: rgba(255, 255, 255, 0.04);
-  padding-left: 20px;
-  padding-top: 14.5px;
-  padding-bottom: 14.5px;
-  padding-right: 120px;
-}
-.blueBtn {
-  width: 96px;
-  height: 40px;
-  background: #0500ff !important;
-  border-radius: 32px;
-  position: absolute;
-  top: 105px;
-  left: 345px;
-  transition: 0.5s;
-  cursor: pointer;
-  text-align: center;
-  padding: 8px;
-}
-.Market__searchBtn__disabled {
-  width: 96px;
-  height: 40px;
-  background-color: rgba(255, 255, 255, 0.05);
-  border-radius: 32px;
-  position: absolute;
-  pointer-events: none;
-  top: 105px;
-  left: 345px;
-  transition: 0.5s;
-  text-align: center;
-  padding: 8px;
-}
-.Market__leftContainerBox__searchBarBtn:hover {
-  border: 1px solid #0500ff;
-  background-color: transparent;
-  padding: 8px;
-}
-.Market__planet1 {
-  position: absolute;
-  right: 88px;
-  top: 104px;
-  width: 140px;
-  height: 140px;
-}
-.Market__planet2 {
-  position: absolute;
-  top: 225px;
-  right: 172px;
-  width: 74px;
-  height: 60px;
-}
-.Market__planet3 {
-  position: absolute;
-  right: 639px;
-  top: 458.24px;
-}
-.imageWrapper {
-  position: relative;
-  top: 155px;
-  height: 573px;
-}
-.Market__asstronautFigureBg {
-  position: absolute;
-  width: 100%;
-  top: 0;
-  height: 100%;
-  max-width: 400px;
-  right: 148.1px;
-}
-.Market__asstronautFigure {
-  position: absolute;
-  top: 95px;
-  right: 198.1px;
 
-  max-width: 330px;
-  width: 100%;
-  height: 559px;
-  position: absolute;
-  width: 100%;
-  bottom: 0;
+.titleTeaser span {
+  text-transform: uppercase;
 }
-.Market__planet4 {
-  position: absolute;
-  right: 10px;
-  top: 650px;
-}
-.Market__planet5 {
-  position: absolute;
-  top: 641.17px;
-  right: 139px;
-}
-.Market__rock1 {
-  position: absolute;
-  right: 592px;
-  top: 748px;
-  width: 60px;
-  height: 60px;
-}
-.Running__text {
-  width: 100%;
-  position: relative;
-  display: flex;
-  height: 100px;
-  padding: 150px;
-}
-.Running__text__row {
-  width: 100%;
-  position: absolute;
-  height: 50px;
-  display: flex;
-}
-.Running__text__secRow {
-  width: 100%;
-  position: absolute;
-  height: 50px;
-  display: flex;
-  margin-top: 40px;
-}
+
 .Activity__btn {
   margin-top: 10px;
   display: flex;
@@ -182,6 +35,7 @@
   border: 1px solid #162029;
   justify-content: space-between;
   transition: 0.5s;
+  color: #162029;
   background-color: #a6d0dd;
   padding: 18px 34px;
   border-radius: 61px;
@@ -192,6 +46,10 @@
 .Activity__btn svg {
   transition: 0.5s;
 }
+
+.Activity__btn svg path {
+  fill: #162029;
+}
 .Activity__btn:hover svg {
   transform: translateX(5px);
   transition: 0.5s;
@@ -199,116 +57,137 @@
 .Activity__btn:hover {
   color: #0500ff;
 }
-.Running__text__first {
+
+.imagesWrapper {
+  position: relative;
+  width: 100%;
+  height: 573px;
+}
+
+.planet1 {
   position: absolute;
-  animation: nftFirst 10s infinite;
+  right: 74px;
+  top: -49px;
+  width: 140px;
+  height: 140px;
+}
+.planet2 {
+  position: absolute;
+  top: 55px;
+  right: 205px;
+  width: 74px;
+  height: 60px;
+}
+.planet3 {
+  position: absolute;
+  right: 613px;
+  top: 317.24px;
+  z-index: -1;
+}
+
+.astronautFigureBg {
+  position: absolute;
+  width: 100%;
   top: 0;
   height: 100%;
-  display: flex;
-  width: 100%;
-  left: 0;
-  animation-timing-function: linear;
+  max-width: 400px;
+  right: 148.1px;
 }
-.Running__text__first svg {
-  width: 15%;
-}
-.Running__secRow__first {
+.astronautFigure {
   position: absolute;
-  animation: nftSecF 10s infinite;
-  top: 0;
-  height: 100%;
-  display: flex;
+  top: 95px;
+  right: 198.1px;
+  max-width: 330px;
   width: 100%;
-  right: 0;
-  animation-timing-function: linear;
-}
-.Running__secRow__first svg {
-  width: 15%;
-}
-.Running__secRow__sec svg {
-  width: 15%;
-}
-.Running__secRow__sec {
+  height: 559px;
   position: absolute;
-  top: 0;
-  right: 100%;
-  height: 100%;
-  display: flex;
   width: 100%;
-  animation: nftSecS 10s infinite;
-  animation-timing-function: linear;
+  bottom: 0;
 }
-.Running__text__second svg {
-  width: 15%;
-}
-.Running__text__second {
+.planet4 {
   position: absolute;
-  top: 0;
-  left: 100%;
-  height: 100%;
-  display: flex;
-  width: 100%;
-  animation: nftSec 10s infinite;
-  animation-timing-function: linear;
+  right: 10px;
+  top: 511px;
 }
-.Running__text__secRow {
-  width: 100%;
+.planet5 {
   position: absolute;
-  /* animation: nftL 5s infinite; */
-  top: 50px;
-}
-@media (max-width: 1365px) {
-  /* .Market__containers {
-    flex-direction: column-reverse;
-    justify-content: center;
-    align-items: center;
-  } */
-  .Market__planet1 {
-    right: -12px;
-  }
-  .Market__asstronautFigureBg {
-    right: 48px;
-  }
-  .Market__asstronautFigure {
-    right: 98px;
-  }
-  .Market__planet3 {
-    right: 460px;
-    z-index: -1;
-  }
+  top: 641.17px;
+  right: 139px;
 }
 
 @media (max-width: 1023px) {
-  .Market__title,
-  .Market__title span {
+  .container {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .imagesWrapper {
+    height: 400px;
+  }
+
+  .planet1 {
+    position: absolute;
+    right: calc(38% - 140px);
+    top: -65px;
+    width: 140px;
+    height: 140px;
+  }
+  .planet2 {
+    width: 44px;
+    height: 30px;
+    position: absolute;
+    top: 44px;
+    right: calc(50% - 44px);
+  }
+
+  .planet4 {
+    position: absolute;
+    right: calc(25% - 92px);
+    top: 407px;
+  }
+  .planet3 {
+    left: calc(25% - 133px);
+  }
+
+  .astronautFigureBg {
+    max-width: 300px;
+    right: calc(50% - 150px);
+  }
+  .astronautFigure {
+    right: calc(50% - 124px);
+    max-width: 260px;
+    height: 350px;
+  }
+
+  .title {
     font-size: 50px;
     line-height: 55px;
   }
-  .Market__titleTeaser,
-  .Market__titleTeaser span {
+
+  .title span {
+    font-size: 50px;
+    line-height: 55px;
+  }
+
+  .titleTeaser,
+  .titleTeaser span {
     font-size: 20px;
     line-height: 22px;
   }
-  .Market__titleTeaser {
-    margin-bottom: 20px;
-  }
+
   .Activity__btn {
-    padding: 12px 20px;
-    width: 175px;
-  }
-  .imageWrapper {
-    width: 70%;
-    height: 40%;
-  }
-  .Market__asstronautFigure {
-    width: 58%;
-    height: 74%;
-  }
-  .Market__asstronautFigureBg {
-    width: 80%;
-    height: 80%;
+    margin-top: 30px;
   }
 }
+
+@media (max-width: 350px) {
+  .astronautFigureBg {
+    right: -7px;
+  }
+}
+/* 
 @keyframes nftSec {
   0% {
     top: 0px;
@@ -348,5 +227,9 @@
     top: 0px;
     right: 0%;
   }
-}
+}  */
 /*Laptop 1440*/
+.marqueeContainer {
+  width: 100%; /* Or adjust to your desired width */
+  overflow: hidden;
+}
