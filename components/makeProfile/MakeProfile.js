@@ -2,12 +2,11 @@ import React, { useState, useMemo, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useRouter } from 'next/router';
 import { Button, Input } from '@catena-network/catena-ui-module';
-import PhoneNumberSelect from './components/phoneNumberSelect/PhoneNumberSelect';
 import createAxiosInstance from '../../pages/api/axios';
-import FormSelectDate from '../voting/components/formDateInput/FormSelectDate';
 import { socket } from '../../pages/api/socket';
 
 import styles from './MakeProfile.module.css';
+import { set } from 'date-fns';
 
 const MakeProfile = () => {
   const [cover, setCover] = useState(true)
@@ -55,8 +54,20 @@ const MakeProfile = () => {
     }));
   };
 
+  const changeCountry = (data) => {
+    let number = data.code + data.number
+    setFormData(prevState => ({
+      ...prevState,
+      mobile: number,
+    }));
+  };
+
   function handleCustomUpdate(name, value) {
     changeHandler({ target: { name: name, value } });
+    setFormData(prevState => ({
+      ...prevState,
+      [name]: value,
+    }));
   }
 
   const handleSubmit = event => {
@@ -170,23 +181,20 @@ const MakeProfile = () => {
             subLabel={":"}
             onChange={changeHandler}
           />
-          <label className={styles.phoneNumberLabel}>
-            Mobile Number (Optional)
-            <PhoneNumberSelect
-              handleFullMobileNumberChange={value => handleCustomUpdate('mobile', value)}
-              value={formData.mobile}
-            />
-          </label>
-          <label className={styles.formSelectDateWrap}>
-            Date Of Birth:
-            <FormSelectDate
-              placeholderText='YYYY/MM/DD'
-              onChange={date => handleCustomUpdate('dateOfBirth', date)}
-              selected={formData.dateOfBirth}
-              minDate={new Date('1900/01/01')}
-              maxDate={new Date()}
-            />
-          </label>
+          <Input
+            type={"label-input-phone-number"}
+            label={"Phone Number"}
+            onChange={changeCountry}
+          />
+          <Input
+            type={"date-picker-input"}
+            label={"your text"}
+            placeholderText="YYYY/MM/DD"
+            onChange={(date) => handleCustomUpdate("dateOfBirth", date)}
+            selected={formData.dateOfBirth}
+            minDate={new Date("1900/01/01")}
+            maxDate={new Date()}
+          />
           <Button
             label={'Submit'}
             size={'btn-lg'}
