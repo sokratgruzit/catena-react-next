@@ -2,6 +2,10 @@ import Listed from './components/listed/Listed';
 import Plain from './components/plain/Plain';
 import RevercedTitle from './components/revercedTitle/RevercedTitle';
 import JoinCommunity from '../events/components/JoinCommunity';
+import styles from './Community.module.css';
+import { InView } from 'react-intersection-observer';
+import { useDispatch } from 'react-redux';
+import {useEffect, useState} from "react";
 
 const devCommunity = [
   {
@@ -73,19 +77,61 @@ const grant = {
 };
 
 const Community = () => {
+  const dispatch = useDispatch();
+  const [pageReady, setPageReady] = useState(false);
+  let microSchemes;
+  if(window.innerWidth > 1250){
+    microSchemes = [
+      [8,9,10,11,12,13,14,15,22,23,24],
+      [1,2,3,10,11,12,13,14,15,22,23,24],
+    ];
+  }
+
+  if(window.innerWidth < 1250){
+    microSchemes = [
+      [1,2,3,5,6,7,8,9,10,11,12,13,14,22,23,24],
+      [1,2,7,8,9,10,11,12,13,14,21,22,23,24]
+    ];
+  }
+
+  const setScheme = (num) => {
+    console.log(num);
+    dispatch({
+      type: "SET_MICHROSCHEME_ARRAY",
+      microschemeArray: microSchemes[num]
+    });
+  }
+
+  useEffect(() => {
+    setTimeout(() => {
+      setPageReady(true);
+      dispatch({
+        type: "SET_MICHROSCHEME_ARRAY",
+        microschemeArray: microSchemes[0]
+      });
+    }, 400);
+  },[]);
   return (
-    <div className='pT-180'>
-      <div className='container' style={{display: "flex", flexDirection: "column", gap: "30px"}} >
-        <h1 className='font-90 ttl' style={{color: "#162029"}} >Community</h1>
-        <RevercedTitle data={vision} />
-        <Plain data={blockchain} />
-        <RevercedTitle data={events} />
-        <RevercedTitle data={teams} />
+    <div className={`pT-180 ${styles.community}`}>
+        <InView as="div" onChange={(inView, entry) => (inView && setScheme(0))}>
+          <div className='container' >
+            <h1 className={`font-90 ttl tYAnimation ${pageReady ? 'animate' : ''}`} style={{color: "#162029"}} >Community</h1>
+          </div>
+          <RevercedTitle data={vision} animate={pageReady}/>
+          <Plain data={blockchain} />
+          <div className='pT-100'>
+            <RevercedTitle data={events} />
+          </div>
+        </InView>
+      <InView as="div" onChange={(inView, entry) => (inView && setScheme(1))}>
+        <div className='pT-100' data-aos="fade-up">
+          <RevercedTitle data={teams} />
+        </div>
         <Plain data={community} />
         <Listed titles={devCommunity} />
         <Plain data={grant} />
         <Listed titles={grantProgramme} />
-      </div>
+      </InView>
       {/* <JoinCommunity /> */}
     </div>
   );

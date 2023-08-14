@@ -25,7 +25,7 @@
 .content {
   display: flex;
   flex-direction: column;
-  gap: 128px;
+  gap: 50px;
 }
 
 .typefaces {
@@ -43,8 +43,11 @@
   max-width: 580px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .content {
     gap: 70px;
+  }
+  .typography {
+    padding-bottom: 50px;
   }
 }

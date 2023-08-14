@@ -65,9 +65,20 @@
 }
 @media (max-width: 1023px) {
   .logoVariantsContainer {
+    height: 250px;
+  }
+  .logoVariantsContainer {
     flex-basis: 100%;
   }
   .guidlineHalf {
     flex-basis: 100%;
+  }
+}
+@media (max-width: 767px) {
+  .image {
+    max-width: 250px;
+  }
+  .logoVariantsContainer {
+    height: 160px;
   }
 }

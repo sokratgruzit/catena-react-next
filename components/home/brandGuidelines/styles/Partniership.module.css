@@ -70,11 +70,12 @@
 .imgWrapper h4 {
   color: rgba(255, 255, 255, 1);
 }
-
-@media (max-width: 1365px) {
+@media (max-width: 1900px) {
   .partniership {
-    padding: 40px;
+    padding: 45px;
   }
+}
+@media (max-width: 1365px) {
 
   .imgWrapper {
     gap: 10px;
