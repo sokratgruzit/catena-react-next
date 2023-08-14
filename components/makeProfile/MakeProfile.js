@@ -201,9 +201,7 @@ const MakeProfile = () => {
           icon={false}
           label={"Eneter e-mail"}
           editable={true}
-          defaultValue={"hahaha"}
-          value={"@emal.com"}
-          subLabel={""}
+          value={inputs.email}
           placeholder={"default input"}
           onChange={changeHandler}
         />
