@@ -10,7 +10,7 @@ import { socket } from '../../pages/api/socket';
 import styles from './MakeProfile.module.css';
 
 const MakeProfile = () => {
-  const [cover, setCover] = useState(true)
+  const [mobileNumber, setMobileNumber] = useState('');
   const [show, setShow] = useState(false);
   const [user_id, setUser_id] = useState(null);
   const [formData, setFormData] = useState({
@@ -42,13 +42,14 @@ const MakeProfile = () => {
   const dispatch = useDispatch();
   const axios = useMemo(() => createAxiosInstance(), []);
 
-  const coverhandler = () => {
-    setCover(true);
-  };
-
   const changeHandler = e => {
     const { name, value } = e.target;
     
+    if (name === "mobile") {
+      let mobile = `${value.flag} ${value.code} ${value.number}`;
+      setMobileNumber(mobile);
+    }
+
     setFormData(prevState => ({
       ...prevState,
       [name]: value,
@@ -83,14 +84,14 @@ const MakeProfile = () => {
     }
 
     setErrors(newErrors);
-
+    
     if (isValid) {
       axios
         .post('/user/profile', {
           address: account,
           fullname: formData.fullname,
           email: formData.email,
-          mobile: formData.mobile,
+          mobile: mobileNumber,
           password: formData.password,
           dateOfBirth: formData.dateOfBirth,
           status: true,
@@ -110,16 +111,22 @@ const MakeProfile = () => {
         .then(res => {
           let user = res?.data?.user;
           const dateOfBirth = user.dateOfBirth ? new Date(user.dateOfBirth) : new Date();
+          const mobString = user.mobile ? user.mobile.split(' ') : "US +1".split(" ");
 
           dispatch({ type: 'SET_USER', payload: user });
           setFormData({
             fullname: user.fullname,
             email: user.email,
-            mobile: user.mobile,
+            mobile: {
+              flag: mobString[0],
+              code: mobString[1],
+              number: mobString[2]
+            },
             status: user.status,
             password: '',
             dateOfBirth: dateOfBirth
           });
+          setMobileNumber(user.mobile);
         })
         .catch(err => {
           console.log(err.response);
@@ -136,57 +143,54 @@ const MakeProfile = () => {
         <div className={`${styles.makeProfileWrapper}`}>
           <Input
             type={"default"}
+            editable={true}
             name="fullname"
-            icon={true}
             value={formData.fullname}
             emptyFieldErr={true}
             inputType={"text"}
-            placeholder={"default input"}
+            placeholder={"Your full name"}
             label={"Fullname"}
-            subLabel={":"}
+            onChange={changeHandler}
+          />
+          <Input
+            type={"default"}
+            name="email"
+            value={formData.email}
+            emptyFieldErr={true}
+            editable={true}
+            inputType={"email"}
+            placeholder={"Your email address"}
+            label={"Email"}
             onChange={changeHandler}
           />
           <Input
             type={"default"}
             name="password"
-            icon={true}
             value={formData.password}
             inputType={"password"}
-            coverHandler={coverhandler}
-            placeholder={"password input"}
+            editable={true}
+            emptyFieldErr={true}
+            placeholder={"New password"}
             label={"Enter Password"}
-            subLabel={""}
             onChange={changeHandler}
           />
           <Input
-            type={"default"}
-            icon={true}
-            name="email"
-            value={formData.email}
-            emptyFieldErr={true}
-            inputType={"text"}
-            placeholder={"default input"}
-            label={"Email"}
-            subLabel={":"}
-            onChange={changeHandler}
+            type={"label-input-phone-number"}
+            name="mobile"
+            value={formData.mobile}
+            placeholder={"Mobile Number"}
+            label={"Enter your mobile number"}
+            onChange={value => handleCustomUpdate('mobile', value)}
           />
-          <label className={styles.phoneNumberLabel}>
-            Mobile Number (Optional)
-            <PhoneNumberSelect
-              handleFullMobileNumberChange={value => handleCustomUpdate('mobile', value)}
-              value={formData.mobile}
-            />
-          </label>
-          <label className={styles.formSelectDateWrap}>
-            Date Of Birth:
-            <FormSelectDate
-              placeholderText='YYYY/MM/DD'
-              onChange={date => handleCustomUpdate('dateOfBirth', date)}
-              selected={formData.dateOfBirth}
-              minDate={new Date('1900/01/01')}
-              maxDate={new Date()}
-            />
-          </label>
+          <Input
+            type={"date-picker-input"}
+            name="dateOfBirth"
+            value={formData.dateOfBirth}
+            editable={true}
+            placeholder={"YYYY/MM/DD"}
+            label={"Date Of Birth"}
+            onChange={value => handleCustomUpdate('dateOfBirth', value)}
+          />
           <Button
             label={'Submit'}
             size={'btn-lg'}
