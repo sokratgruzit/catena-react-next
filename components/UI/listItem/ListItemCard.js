@@ -14,7 +14,6 @@ const ListItemCard = props => {
   if (type === 'nft_arrivals' || type === 'nft_activity' || type === 'nft_creator') {
     obj = (
       <div key={data.id} className={styles.Arrivals__listItemWrap}>
-        <CornerDecor />
         <Link href={`/nfts/collections/buy`}>
           <a>
             <div className={styles.Arrivals__imgBlock}>
@@ -26,12 +25,14 @@ const ListItemCard = props => {
             </div>
             <div className={styles.nftArrivals__content}>
               <p className={styles.Arrivals__contentTitle}>Asking Price:</p>
-              <div className={styles.Arrivals__contentTeaserBlock}>
-                <p>
-                  <span className={styles.colored}>{data.value}</span>
-                  {data.price}
+              <div className={styles.Arrivals__contentTeaserDiv}>
+                <p className={`${styles.Arrivals__contentTeaser} ${styles.Arrivals__contentTeaserSpan} font_13`}>
+                  ({data.priceUSD})
                 </p>
-                <p className={`${styles.Arrivals__contentTeaser} font_13`}>({data.priceUSD})</p>
+                <p className={styles.price}>
+                  {data.price}
+                  <span className={styles.colored}> {data.value}</span>
+                </p>
               </div>
             </div>
           </a>

@@ -19,6 +19,7 @@ const MakeProfile = () => {
     email: '',
     mobile: '',
     password: '',
+    status: true,
     dateOfBirth: new Date()
   });
 
@@ -98,6 +99,7 @@ const MakeProfile = () => {
         mobile: inputs.mobile,
         password: inputs.password,
         dateOfBirth: inputs.dateOfBirth,
+        status: true,
         locale: locale
       })
       .then(res => {
@@ -120,6 +122,7 @@ const MakeProfile = () => {
           fullname: user.fullname,
           email: user.email,
           mobile: user.mobile,
+          status: user.status,
           password: '',
           dateOfBirth: dateOfBirth
         });
