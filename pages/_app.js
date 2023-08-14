@@ -28,10 +28,12 @@ function MyApp({ Component, pageProps }) {
   const router = useRouter();
   const { setLocaleInUrl } = useLanguages();
   const [isInitialized, setIsInitialized] = useState(false);
+
   useEffect(() => {
     AOS.init();
     AOS.refresh();
   }, []);
+  
   useEffect(() => {
     if (!isInitialized) {
       let { query } = router;
