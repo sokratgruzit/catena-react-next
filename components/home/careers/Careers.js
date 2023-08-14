@@ -30,69 +30,6 @@ const workflow = [
   },
 ];
 
-const featureLinkList = [
-  {
-    id: 0,
-    title: 'Senior UX Designer',
-    list: ['Technology •', ' Full-Time •', ' Remote • '],
-  },
-  {
-    id: 1,
-    title: 'Senior UX Designer',
-    list: ['Technology •', ' Full-Time •', ' Remote • '],
-  },
-  {
-    id: 2,
-    title: 'Senior UX Designer',
-    list: ['Technology •', ' Full-Time •', ' Remote • '],
-  },
-  {
-    id: 3,
-    title: 'Senior UX Designer',
-    list: ['Technology •', ' Full-Time •', ' Remote • '],
-  },
-  {
-    id: 4,
-    title: 'Senior UX Designer',
-    list: ['Technology •', ' Full-Time •', ' Remote • '],
-  },
-  // {
-  //   id: 5,
-  //   title: 'Senior UX Designer',
-  //   list: ['Technology •', ' Full-Time •', ' Remote • '],
-  // },
-  // {
-  //   id: 6,
-  //   title: 'Senior UX Designer',
-  //   list: ['Sales & Support •', ' Remote • '],
-  // },
-  // {
-  //   id: 7,
-  //   title: 'Senior UX Designer',
-  //   list: ['Operations •', ' Full-Time •', ' Remote • '],
-  // },
-  // {
-  //   id: 8,
-  //   title: 'Senior UX Designer',
-  //   list: ['Technology •', ' Full-Time •', ' Remote • '],
-  // },
-  // {
-  //   id: 9,
-  //   title: 'Senior UX Designer',
-  //   list: ['Technology •', ' Full-Time •', ' Remote • '],
-  // },
-  // {
-  //   id: 10,
-  //   title: 'Senior UX Designer',
-  //   list: ['Technology •', ' Full-Time •', ' Remote • '],
-  // },
-  // {
-  //   id: 11,
-  //   title: 'Senior UX Designer',
-  //   list: ['Marketing •', ' Full-Time •', ' Remote • '],
-  // },
-];
-
 const team = [
   {
     title: '',
@@ -256,7 +193,7 @@ const Careers = ({careers}) => {
     <div>
       <CareersCatena />
       <CompanyInfo workflow={workflow} title='How we work' />
-      <Feature careers={careers} featureLinkList={featureLinkList} title='Featured Jobs' showButton={true} />
+      <Feature careers={careers} title='Featured Jobs' showButton={true} />
       <OurValues
         iconImages={iconImages}
         title='Our Values'

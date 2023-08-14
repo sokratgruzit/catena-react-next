@@ -10,7 +10,7 @@ import ProductLogos from './components/ProductLogos';
 import Typography from './components/Typography';
 import { InView } from 'react-intersection-observer';
 import { useDispatch } from 'react-redux';
-import {useEffect, useState} from "react";
+import {useEffect,useState} from "react";
 
 function BrandGuidelines() {
     const dispatch = useDispatch();
