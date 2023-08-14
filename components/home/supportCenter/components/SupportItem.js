@@ -48,8 +48,8 @@ const SUPPORTITEMS = [
 
 const SupportItem = () => {
   return (
-    <div className={`${styles.mane} container pT-180`}>
-      <h1 className={`${styles.TiTle} ttl font-90`}>
+    <div className={`${styles.mane} container`}>
+      <h1 className={`${styles.TiTle} ttl font-90 pT-180 pB-50`}>
         <span>Support</span> <span className={styles.span}>Center</span>
       </h1>
       <div className={styles.container}>

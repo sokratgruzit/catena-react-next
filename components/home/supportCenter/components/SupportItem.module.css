@@ -5,8 +5,8 @@
   gap: 35px;
 }
 
-.TiTle {
-  margin: 50px 0px 50px 0px;
+.TiTle span{
+  font-family: inherit;
 }
 
 .boxHover {
@@ -22,27 +22,27 @@
   display: flex;
 }
 
-.aaa {
-  margin: 0px 10px 5px 10px;
-}
-
 .paragrah {
   margin-bottom: 80px;
+  padding-right: 40px;
 }
 
 .boder {
   border: 1px solid #ff6969;
   margin-top: 5px;
   width: 100%;
+  transition: .6s cubic-bezier(.79,.01,.15,.99);
 }
 
+.BoxTitle {
+  transition: .6s cubic-bezier(.79,.01,.15,.99);
+}
 .BoxTitle:hover {
   color: #ff6969;
 }
 
 .BoxTitle:hover .boder {
-  transition: 0.9s cubic-bezier(0.79, 0.01, 0.15, 0.99);
-  transform: scale(0.04);
+  transform: scaleX(0);
 }
 
 .span {
