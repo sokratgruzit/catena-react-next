@@ -4,7 +4,6 @@ import OpenPosition from '../../../../components/home/careers/openPositions/Open
 export async function getServerSideProps({ query }) {
   const currentPage = query.page || 1;
   const limit = 1;
-  console.log(careersData, "aaa");
 
   const axios = createAxiosInstance();
   const response = await axios.get(`${process.env.NEXT_PUBLIC_URL}/careers/get-all-careers`, {
