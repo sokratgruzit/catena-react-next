@@ -317,7 +317,7 @@ button {
 .text ul li:after {
   content: '';
   position: absolute;
-  top: 9px;
+  top: 6px;
   background-color: #a6d0dd;
   border-radius: 50%;
   width: 10px;
@@ -630,10 +630,6 @@ input:focus:-ms-input-placeholder {
   }
 }
 
-h3 {
-  font-weight: 400;
-  font-weight: bold;
-}
 
 @media (max-width: 767px) {
   .font-90 {

@@ -2,9 +2,9 @@ import styles from "../css/CatenaAmbassador.module.css"
 
 const CatenaAmbassador = () => {
     return (
-        <div className={`${styles.containerCatena} container `}>
-            <h1 className={`${styles.CatTit} ttl font-40`}> Are You Eligible to Become a CATENA Ambassador?</h1>
-            <div className={`${styles.ulTxt}  text`}>
+        <div className={`${styles.containerCatena} container`}>
+            <h1 className={`${styles.CatTit} ttl font-40`} data-aos="fade-up"> Are You Eligible to Become a CATENA Ambassador?</h1>
+            <div className={`${styles.ulTxt}  text`} data-aos="fade-up">
                 <ul>
                     <li>You’re a blockchain and privacy enthusiast, an influencer, or an expert.</li>
                 </ul>
