@@ -125,29 +125,32 @@ const ListItemCard = props => {
             <div className={styles.Product__content}>
               <div className={styles.Product__images}>
                 {/* <Image src={data.toReciverImg} layout='fill' alt='nft' /> */}
-                <Image src='/images/nft/nft_collection_items/fig1.png' width={30} height={30} alt='img' />
-                <Image src='/images/nft/nft_collection_items/fig2.png' width={30} height={30} alt='img' />
-                <Image src='/images/nft/nft_collection_items/fig3.png' width={30} height={30} alt='img' />
+                {/* <Image src='/images/nft/nft_collection_items/fig1.png' width={30} height={30} alt='img' />
+                <Image src='/images/nft/nft_collection_items/fig2.png' width={30} height={30} alt='img' /> */}
+                <img
+                  className={styles.Product__images__img}
+                  src='/images/nft/nft_collection_items/fig4.png'
+                  alt='img'
+                />
               </div>
               <div className={styles.Product__logo}>
-                <Image src='/images/nft/nft_collection_items/logo1.png' width={30} height={30} alt='img' />
+                <img src='/images/nft/nft_collection_items/logo.png' alt='img' />
               </div>
               <div className={styles.Product__titles}>
-                <p>Created By</p>
                 <p>The AKC</p>
               </div>
             </div>
             <div className={styles.Product__content__inner}>
               <div className={styles.Product__volume}>
-                <p className={`font_13`}>Volume:</p>
+                <p>Volume:</p>
               </div>
               <div className={styles.Product__price}>
                 <p>
-                  <span>CMCX</span> 1.04
+                  1.04 <span>CMCX</span>
                 </p>
-                <p>
+                {/* <p>
                   <span>items</span>8.9K
-                </p>
+                </p> */}
               </div>
             </div>
           </div>

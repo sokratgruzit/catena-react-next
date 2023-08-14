@@ -25,7 +25,7 @@ const CollectionsPromo = () => {
         <div className={styles.CollectionsPromo__card3}>
           <Image layout='fill' src='/images/nft/cards/cardright.png' alt='' />
         </div>
-        <Link href={`/nfts/collections`}>
+        <Link href={`/overview/nfts/collections`}>
           <div className={styles.CollectionsPromo__btnWrap}>
             <div className={styles.CollectionsPro1mo__btn}>
               <svg

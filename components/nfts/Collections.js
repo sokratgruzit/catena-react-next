@@ -465,31 +465,25 @@ let tabsRightData = [
     id: 0,
     label: 'Card',
     svg: (
-      <svg width='18' height='18' viewBox='0 0 18 18' fill='none' xmlns='http://www.w3.org/2000/svg'>
-        <path
-          d='M10.1592 1.58002L10.1592 6.95202C10.1592 7.46202 10.6712 7.66602 11.9432 7.66602L15.1752 7.66602C16.4472 7.66602 16.9592 7.46202 16.9592 6.95202L16.9592 1.58002C16.9592 1.07002 16.4472 0.866018 15.1752 0.866018L11.9432 0.866018C10.6712 0.866018 10.1592 1.07002 10.1592 1.58002Z'
-          stroke='white'
-          strokeLinecap='round'
-          strokeLinejoin='round'
-        />
-        <path
-          d='M10.1592 10.7812L10.1592 16.1532C10.1592 16.6632 10.6712 16.8672 11.9432 16.8672L15.1752 16.8672C16.4472 16.8672 16.9592 16.6632 16.9592 16.1532L16.9592 10.7812C16.9592 10.2712 16.4472 10.0672 15.1752 10.0672L11.9432 10.0672C10.6712 10.0672 10.1592 10.2712 10.1592 10.7812Z'
-          stroke='white'
-          strokeLinecap='round'
-          strokeLinejoin='round'
-        />
-        <path
-          d='M0.958984 1.58197L0.958984 6.95397C0.958984 7.46397 1.47098 7.66797 2.74298 7.66797L5.97498 7.66797C7.24698 7.66797 7.75898 7.46397 7.75898 6.95397L7.75898 1.58197C7.75898 1.07197 7.24698 0.86797 5.97498 0.86797L2.74298 0.86797C1.47098 0.86797 0.958984 1.07197 0.958984 1.58197Z'
-          stroke='white'
-          strokeLinecap='round'
-          strokeLinejoin='round'
-        />
-        <path
-          d='M0.958984 10.7812L0.958984 16.1532C0.958984 16.6632 1.47098 16.8672 2.74298 16.8672L5.97498 16.8672C7.24698 16.8672 7.75898 16.6632 7.75898 16.1532L7.75898 10.7812C7.75898 10.2712 7.24698 10.0672 5.97498 10.0672L2.74298 10.0672C1.47098 10.0672 0.958984 10.2712 0.958984 10.7812Z'
-          stroke='white'
-          strokeLinecap='round'
-          strokeLinejoin='round'
-        />
+      <svg width='24' height='25' viewBox='0 0 24 25' fill='none' xmlns='http://www.w3.org/2000/svg'>
+        <g opacity='0.6'>
+          <path
+            d='M22 9.51805V4.97805C22 3.56805 21.36 2.99805 19.77 2.99805H15.73C14.14 2.99805 13.5 3.56805 13.5 4.97805V9.50805C13.5 10.928 14.14 11.488 15.73 11.488H19.77C21.36 11.498 22 10.928 22 9.51805Z'
+            fill='#162029'
+          />
+          <path
+            d='M22 20.768V16.728C22 15.138 21.36 14.498 19.77 14.498H15.73C14.14 14.498 13.5 15.138 13.5 16.728V20.768C13.5 22.358 14.14 22.998 15.73 22.998H19.77C21.36 22.998 22 22.358 22 20.768Z'
+            fill='#162029'
+          />
+          <path
+            d='M10.5 9.51805V4.97805C10.5 3.56805 9.86 2.99805 8.27 2.99805H4.23C2.64 2.99805 2 3.56805 2 4.97805V9.50805C2 10.928 2.64 11.488 4.23 11.488H8.27C9.86 11.498 10.5 10.928 10.5 9.51805Z'
+            fill='#162029'
+          />
+          <path
+            d='M10.5 20.768V16.728C10.5 15.138 9.86 14.498 8.27 14.498H4.23C2.64 14.498 2 15.138 2 16.728V20.768C2 22.358 2.64 22.998 4.23 22.998H8.27C9.86 22.998 10.5 22.358 10.5 20.768Z'
+            fill='#162029'
+          />
+        </g>
       </svg>
     ),
   },
@@ -497,19 +491,17 @@ let tabsRightData = [
     id: 1,
     label: 'Row',
     svg: (
-      <svg width='18' height='18' viewBox='0 0 18 18' fill='none' xmlns='http://www.w3.org/2000/svg'>
-        <path
-          d='M15.279 10.0664H2.63898C1.43898 10.0664 0.958984 10.5784 0.958984 11.8504V15.0824C0.958984 16.3544 1.43898 16.8664 2.63898 16.8664H15.279C16.479 16.8664 16.959 16.3544 16.959 15.0824V11.8504C16.959 10.5784 16.479 10.0664 15.279 10.0664Z'
-          stroke='white'
-          strokeLinecap='round'
-          strokeLinejoin='round'
-        />
-        <path
-          d='M15.279 0.867188H2.63898C1.43898 0.867188 0.958984 1.37919 0.958984 2.65119V5.88319C0.958984 7.15519 1.43898 7.66719 2.63898 7.66719H15.279C16.479 7.66719 16.959 7.15519 16.959 5.88319V2.65119C16.959 1.37919 16.479 0.867188 15.279 0.867188Z'
-          stroke='white'
-          strokeLinecap='round'
-          strokeLinejoin='round'
-        />
+      <svg width='24' height='25' viewBox='0 0 24 25' fill='none' xmlns='http://www.w3.org/2000/svg'>
+        <g opacity='0.6'>
+          <path
+            d='M19.9 14.498H4.1C2.6 14.498 2 15.138 2 16.728V20.768C2 22.358 2.6 22.998 4.1 22.998H19.9C21.4 22.998 22 22.358 22 20.768V16.728C22 15.138 21.4 14.498 19.9 14.498Z'
+            fill='#162029'
+          />
+          <path
+            d='M19.9 2.99805H4.1C2.6 2.99805 2 3.63805 2 5.22805V9.26805C2 10.858 2.6 11.498 4.1 11.498H19.9C21.4 11.498 22 10.858 22 9.26805V5.22805C22 3.63805 21.4 2.99805 19.9 2.99805Z'
+            fill='#162029'
+          />
+        </g>
       </svg>
     ),
   },
@@ -570,22 +562,10 @@ const Collections = () => {
   }*/
 
   return (
-    <div className={`${styles.NftCollections} ${styles.container}`}>
-      <img className={styles.Collections__bckground} src='../images/nft/background/bckOfNftCollection.png' />
+    <div className={`${styles.NftCollections} ${styles.container} container`}>
       <ArrowBtn route={'nfts'} direction={'back'} />
-      <p className={`${styles.Collection__title} font-30`}>Collections</p>
+      <p className={`${styles.Collection__title} ttl font-90`}>Collections</p>
       <div className={styles.Collection__filtres}>
-        <TabFilter
-          onClick={filterTableHandler}
-          activeMenu={activeMenuItem}
-          data={tabsData}
-          css={{
-            wrap: filterStyles.Collections__filterWrap,
-            filter: filterStyles.Collections__filter,
-            active: filterStyles.Activity__filterActive,
-            item: filterStyles.Activity__filter__item,
-          }}
-        />
         <div className={styles.Collection__rightPanel}>
           <TabFilter
             onClick={switchTableModeHandler}
@@ -598,7 +578,7 @@ const Collections = () => {
               item: filterStyles.Collections__filter__item,
             }}
           />
-          <div className={styles.Collections__menu}>
+          {/* <div className={styles.Collections__menu}>
             <div>
               <Menu
                 menuButton={
@@ -624,15 +604,26 @@ const Collections = () => {
                 transition
               >
                 <MenuItem className={styles.Collections__menu__item}>
-                  <Link href='/nfts/activity'>Activity</Link>
+                  <Link href='/overview/nfts/activity'>Activity</Link>
                 </MenuItem>
                 <MenuItem className={styles.Collections__menu__item}>
-                  <Link href='/nfts'>Overview</Link>
+                  <Link href='/overview/nfts'>Overview</Link>
                 </MenuItem>
               </Menu>
             </div>
-          </div>
+          </div> */}
         </div>
+        <TabFilter
+          onClick={filterTableHandler}
+          activeMenu={activeMenuItem}
+          data={tabsData}
+          css={{
+            wrap: filterStyles.Collections__filterWrap,
+            filter: filterStyles.Collections__filter,
+            active: filterStyles.Activity__filterActive,
+            item: filterStyles.Activity__filter__item,
+          }}
+        />
       </div>
       {tableMode === 'Card' ? (
         <div className={styles.Collection__table}>
