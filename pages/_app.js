@@ -6,6 +6,7 @@ import Web3 from 'web3';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import useLanguages from '../hooks/useLanguages';
+import { socket } from "./api/socket";
 
 import Header from '../components/layout/Header';
 import Microscheme from '../components/UI/microscheme/Microscheme';
@@ -27,10 +28,12 @@ function MyApp({ Component, pageProps }) {
   const router = useRouter();
   const { setLocaleInUrl } = useLanguages();
   const [isInitialized, setIsInitialized] = useState(false);
+
   useEffect(() => {
     AOS.init();
     AOS.refresh();
   }, []);
+  
   useEffect(() => {
     if (!isInitialized) {
       let { query } = router;
@@ -48,6 +51,25 @@ function MyApp({ Component, pageProps }) {
     }
   }, [isInitialized]);
 
+  useEffect(() => {
+    socket.on('connection', () => {
+      console.log('Connected to WebSocket server');
+    });
+
+    socket.emit('join', 'Hello from the client');
+
+    socket.on('message', (message) => {
+      console.log('Message received: ', message);
+    });
+
+    socket.on('disconnect', () => {
+      console.log('Disconnected from WebSocket server');
+    });
+  });
+
+  socket.on('join', (message) => {
+  }, []);
+
   return (
     <div>
       <Head>
@@ -62,7 +84,7 @@ function MyApp({ Component, pageProps }) {
               <div className='noise-parent'>
                 <div className='noise'></div>
               </div>
-              <Microscheme lvl={[1,2]}/>
+              <Microscheme lvl={[1, 2]} />
               <Header />
               <Component {...pageProps} />
               {/*<Footer />*/}

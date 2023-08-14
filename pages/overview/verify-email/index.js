@@ -25,6 +25,7 @@ const index = () => {
       .catch(err => {
         console.log(err?.response);
       });
+      console.log('token', token);
   }, []);
 
   return (

@@ -1,20 +1,19 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useRouter } from 'next/router';
-
+import { Button, Input } from '@catena-network/catena-ui-module';
 import PhoneNumberSelect from './components/phoneNumberSelect/PhoneNumberSelect';
 import createAxiosInstance from '../../pages/api/axios';
 import FormSelectDate from '../voting/components/formDateInput/FormSelectDate';
+import { socket } from '../../pages/api/socket';
 
 import styles from './MakeProfile.module.css';
 
 const MakeProfile = () => {
-  const account = useSelector(state => state.connect.account);
-  const dispatch = useDispatch();
-  const router = useRouter();
-
-  const axios = useMemo(() => createAxiosInstance(), []);
-  const [inputs, setInputs] = useState({
+  const [cover, setCover] = useState(true)
+  const [show, setShow] = useState(false);
+  const [user_id, setUser_id] = useState(null);
+  const [formData, setFormData] = useState({
     fullname: '',
     email: '',
     mobile: '',
@@ -30,46 +29,41 @@ const MakeProfile = () => {
     password: ''
   });
 
-  const handleInputChange = event => {
-    const { name, value } = event.target;
-    let error = '';
+  socket.on('emailVerified', (userId) => {
+    setShow(true);
+    setUser_id(userId);
+    console.log(`User with ID ${userId} has verified their email`);
+  });
 
-    switch (name) {
-      case 'name':
-        error = value ? '' : 'Name is required';
-        break;
-      case 'email':
-        if (value && !/^\S+@\S+\.\S+$/.test(value)) {
-          error = 'Email is not valid';
-        }
-        break;
-      default:
-        break;
-    }
+  const account = useSelector(state => state.connect.account);
 
-    setInputs(prev => ({
-      ...prev,
+  const router = useRouter();
+  const { locale } = router;
+  const dispatch = useDispatch();
+  const axios = useMemo(() => createAxiosInstance(), []);
+
+  const coverhandler = () => {
+    setCover(true);
+  };
+
+  const changeHandler = e => {
+    const { name, value } = e.target;
+    
+    setFormData(prevState => ({
+      ...prevState,
       [name]: value,
-    }));
-
-    setErrors(prev => ({
-      ...prev,
-      [name]: error,
     }));
   };
 
   function handleCustomUpdate(name, value) {
-    handleInputChange({ target: { name: name, value } });
+    changeHandler({ target: { name: name, value } });
   }
 
   const handleSubmit = event => {
-    event.preventDefault();
-
     let isValid = true;
     const newErrors = {};
-    const { locale } = router;
 
-    for (const [key, value] of Object.entries(inputs)) {
+    for (const [key, value] of Object.entries(formData)) {
       switch (key) {
         case 'fullname':
           newErrors[key] = value ? '' : 'Fullname is required';
@@ -92,118 +86,121 @@ const MakeProfile = () => {
 
     if (isValid) {
       axios
-      .post('/user/profile', {
-        address: account,
-        fullname: inputs.fullname,
-        email: inputs.email,
-        mobile: inputs.mobile,
-        password: inputs.password,
-        dateOfBirth: inputs.dateOfBirth,
-        status: true,
-        locale: locale
-      })
-      .then(res => {
-        dispatch({ type: 'SET_USER', payload: res.data });
-      })
-      .catch(e => console.log(e.response));
+        .post('/user/profile', {
+          address: account,
+          fullname: formData.fullname,
+          email: formData.email,
+          mobile: formData.mobile,
+          password: formData.password,
+          dateOfBirth: formData.dateOfBirth,
+          status: true,
+          locale: locale
+        })
+        .then(res => {
+          dispatch({ type: 'SET_USER', payload: res.data });
+        })
+        .catch(e => console.log(e.response));
     }
   };
 
   useEffect(() => {
     if (account) {
       axios
-      .post('/user', { address: account })
-      .then(res => {
-        let user = res?.data?.user;
-        const dateOfBirth = user.dateOfBirth ? new Date(user.dateOfBirth) : new Date();
-        
-        dispatch({ type: 'SET_USER', payload: user });
-        setInputs({
-          fullname: user.fullname,
-          email: user.email,
-          mobile: user.mobile,
-          status: user.status,
-          password: '',
-          dateOfBirth: dateOfBirth
+        .post('/user', { address: account })
+        .then(res => {
+          let user = res?.data?.user;
+          const dateOfBirth = user.dateOfBirth ? new Date(user.dateOfBirth) : new Date();
+
+          dispatch({ type: 'SET_USER', payload: user });
+          setFormData({
+            fullname: user.fullname,
+            email: user.email,
+            mobile: user.mobile,
+            status: user.status,
+            password: '',
+            dateOfBirth: dateOfBirth
+          });
+        })
+        .catch(err => {
+          console.log(err.response);
         });
-      })
-      .catch(err => {
-        console.log(err.response);
-      });
+    } else {
+      router.push('/', undefined, { locale });
     }
   }, [account]);
 
-  useEffect(() => {
-    const { locale } = router;
-    
-    if (!account) router.push('/', undefined, { locale });
-  }, [account]);
-
-  let content = null;
-
-  if (account) {
-    content = <div className={styles.container}>
-      <form onSubmit={handleSubmit} className={styles.makeProfileWrapper}>
-        <label>
-          Fullname:
-          <input
-            type='text'
-            name='fullname'
-            value={inputs.fullname}
-            onChange={handleInputChange}
-            className={styles.input}
+  return (
+    <>
+      {show && <div className={styles.notification}>{`User with ID ${user_id} has verified email`}</div>}
+      {account ? <div className="container">
+        <div className={`${styles.makeProfileWrapper}`}>
+          <Input
+            type={"default"}
+            name="fullname"
+            icon={true}
+            value={formData.fullname}
+            emptyFieldErr={true}
+            inputType={"text"}
+            placeholder={"default input"}
+            label={"Fullname"}
+            subLabel={":"}
+            onChange={changeHandler}
           />
-          {errors.fullname && <span className='error'>{errors.fullname}</span>}
-        </label>
-        <label>
-          Password:
-          <input
-            type='password'
-            name='password'
-            value={inputs.password}
-            onChange={handleInputChange}
-            className={styles.input}
+          <Input
+            type={"default"}
+            name="password"
+            icon={true}
+            value={formData.password}
+            inputType={"password"}
+            coverHandler={coverhandler}
+            placeholder={"password input"}
+            label={"Enter Password"}
+            subLabel={""}
+            onChange={changeHandler}
           />
-          {errors.password && <span className='error'>{errors.password}</span>}
-        </label>
-        <label>
-          Email:
-          <input 
-            type='email' 
-            name='email' 
-            value={inputs.email} 
-            onChange={handleInputChange} 
-            className={styles.input} 
+          <Input
+            type={"default"}
+            icon={true}
+            name="email"
+            value={formData.email}
+            emptyFieldErr={true}
+            inputType={"text"}
+            placeholder={"default input"}
+            label={"Email"}
+            subLabel={":"}
+            onChange={changeHandler}
           />
-          {errors.email && <span className='error'>{errors.email}</span>}
-        </label>
-        <label className={styles.phoneNumberLabel}>
-          Mobile Number (Optional)
-          <PhoneNumberSelect
-            handleFullMobileNumberChange={value => handleCustomUpdate('mobile', value)}
-            value={inputs.mobile}
+          <label className={styles.phoneNumberLabel}>
+            Mobile Number (Optional)
+            <PhoneNumberSelect
+              handleFullMobileNumberChange={value => handleCustomUpdate('mobile', value)}
+              value={formData.mobile}
+            />
+          </label>
+          <label className={styles.formSelectDateWrap}>
+            Date Of Birth:
+            <FormSelectDate
+              placeholderText='YYYY/MM/DD'
+              onChange={date => handleCustomUpdate('dateOfBirth', date)}
+              selected={formData.dateOfBirth}
+              minDate={new Date('1900/01/01')}
+              maxDate={new Date()}
+            />
+          </label>
+          <Button
+            label={'Submit'}
+            size={'btn-lg'}
+            type={'btn-primary'}
+            arrow={'arrow-right'}
+            element={'button'}
+            disabled={false}
+            onClick={() => handleSubmit()}
+            className={styles.btnBlu}
           />
-        </label>
-        <label className={styles.formSelectDateWrap}>
-          Date Of Birth:
-          <FormSelectDate
-            placeholderText='YYYY/MM/DD'
-            onChange={date => handleCustomUpdate('dateOfBirth', date)}
-            selected={inputs.dateOfBirth}
-            minDate={new Date('1900/01/01')}
-            maxDate={new Date()}
-          />
-        </label>
-        <button type='submit' className={styles.submit}>
-          Submit
-        </button>
-      </form>
-    </div>;
-  } else {
-    content = <div>Loading...</div>;
-  }
-
-  return content;
+        </div>
+      </div> : <div className={`${styles.loadingElement}`}>Loading...</div>}
+    </>
+  );
 };
 
 export default MakeProfile;
