@@ -38,7 +38,7 @@ const AmbasdorBtn = () => {
   };
 
   return (
-    <div className={`${styles.btn} container `}>
+    <div className={`${styles.btn} container `} data-aos="fade-up">
       <div className={`${styles.chnBox} ${chng ? styles.active : ''}`}>
         <form>
           <div>

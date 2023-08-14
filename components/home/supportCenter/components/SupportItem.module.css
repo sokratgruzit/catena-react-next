@@ -2,11 +2,11 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  gap: 35px;
+  gap: 25px;
 }
 
-.TiTle {
-  margin: 50px 0px 50px 0px;
+.TiTle span{
+  font-family: inherit;
 }
 
 .boxHover {
@@ -22,27 +22,27 @@
   display: flex;
 }
 
-.aaa {
-  margin: 0px 10px 5px 10px;
-}
-
 .paragrah {
   margin-bottom: 80px;
+  padding-right: 40px;
 }
 
-.boder {
+.border {
   border: 1px solid #ff6969;
   margin-top: 5px;
   width: 100%;
+  transition: .6s cubic-bezier(.79,.01,.15,.99);
 }
 
+.BoxTitle {
+  transition: .6s cubic-bezier(.79,.01,.15,.99);
+}
 .BoxTitle:hover {
   color: #ff6969;
 }
 
-.BoxTitle:hover .boder {
-  transition: 0.9s cubic-bezier(0.79, 0.01, 0.15, 0.99);
-  transform: scale(0.04);
+.BoxTitle:hover .border {
+  transform: scaleX(0);
 }
 
 .span {
@@ -50,13 +50,14 @@
   margin-left: 10%;
 }
 
-.arrowe {
-  margin: 15px 10px 10px 10px;
+.arrow {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
 }
-
 /*Ipad 768*/
 @media (max-width: 1023px) {
-  .mane {
+  .main {
     width: 100%;
   }
 
@@ -68,13 +69,24 @@
 }
 
 /*Mobile 320*/
-@media (max-width: 768px) {
-  .mane {
+@media (max-width: 767px) {
+  .paragrah {
+    margin-bottom: 40px;
+  }
+  .box {
+    gap: 15px;
+  }
+
+  .main {
     width: 100%;
   }
 
   .container {
     display: grid;
     grid-template-columns: 1fr;
+  }
+  .boxSvg svg {
+    height: 70px;
+    width: 70px;
   }
 }
