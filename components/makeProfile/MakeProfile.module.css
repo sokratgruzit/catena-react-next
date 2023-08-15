@@ -1,41 +1,13 @@
-.container {
-  padding-top: 100px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 670px;
-  z-index: 9999;
-}
-
 .makeProfileWrapper {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  width: 600px;
+  width: 800px;
   z-index: 9999;
-}
-
-.input {
-  width: 100%;
-  height: 44px;
-  border: 1px solid gray;
-  background: none;
-  padding: 0 20px;
-  border-radius: 8px;
-}
-
-.submit {
-  width: 80px;
-  height: 44px;
-  border-radius: 8px;
-  border: none;
-  background-color: #f5841d;
-  transition: opacity 0.2s ease-in-out;
-}
-
-.submit:hover {
-  opacity: 0.7;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 50%);
 }
 
 .formSelectDateWrap input {
@@ -50,31 +22,27 @@
   line-height: 16px;
 }
 
-.imgOverview {
+.loadingElement {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 50%);
   display: flex;
+  justify-content: center;
   align-items: center;
-  gap: 5px;
-  flex-wrap: wrap;
-  padding-top: 15px;
-}
-.preview {
-  width: 50px;
-  height: 50px;
-  object-fit: cover;
-  border-radius: 4px;
 }
 
-.uploadBtn {
+.notification {
+  position: absolute;
+  top: 100px;
+  right: 50px;
   display: flex;
-  align-items: center;
   justify-content: center;
-  padding: 0 16px;
-  width: 200px;
-  height: 44px;
-  border: 1px solid gray;
+  align-items: center;
+  background-color: red;
   border-radius: 4px;
-  font-size: 12px;
+  font-size: 16px;
   line-height: 16px;
-  cursor: pointer;
-  transition: 0.4s;
+  color: #fff;
+  padding: 8px 14px;
 }

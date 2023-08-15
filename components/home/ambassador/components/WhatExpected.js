@@ -3,9 +3,9 @@ import styles from '../css/WhatExpected.module.css';
 const WhatExpected = () => {
   return (
     <div className={`${styles.heder} container`}>
-      <h1 className={`${styles.mainTiTle} ttl  font-40`}>What is Expected of You</h1>
+      <h1 className={`${styles.mainTiTle} ttl  font-40`} data-aos="fade-up">What is Expected of You</h1>
 
-      <div className={`${styles.ulTxt}  text`}>
+      <div className={`${styles.ulTxt}  text`} data-aos="fade-up">
         <h4 className={`${styles.TiTle} `}>
           There isn’t really one standard way to be a CATENA ambassador, but here are some examples:
         </h4>

@@ -1,11 +1,12 @@
-import createAxiosInstance from '../../../pages/api/axios';
-import PressItem from '../../../components/home/press/components/pressInner/PressItem';
+import React from 'react';
+import createAxiosInstance from '../../api/axios';
+import CareersIneer from '../../../components/home/careers/careers-inner/CareersIneer';
 
 export const getStaticPaths = async ({ locales }) => {
   const axios = createAxiosInstance();
 
-  let press = await axios
-    .get(`${process.env.NEXT_PUBLIC_URL}/press/get-all-press-slug`)
+  let careers = await axios
+    .get(`${process.env.NEXT_PUBLIC_URL}/careers/get-all-careers-slug`)
     .then(res => {
       return res?.data;
     })
@@ -13,21 +14,21 @@ export const getStaticPaths = async ({ locales }) => {
       console.log(err?.response);
     });
 
-    let paths;
+  let paths;
 
-    if (press && press.length > 0) {
-      paths = press.flatMap(item =>
-        locales.map(loc => ({
-          params: { slug: item.slug },
-          locale: loc,
-        })),
-      );
-    } else {
-      paths = locales.map((loc) => ({
-        params: { slug: `press-${loc}` },
+  if (careers && careers.length > 0) {
+    paths = careers.flatMap((item) =>
+      locales.map((loc) => ({
+        params: { slug: item.slug }, 
         locale: loc,
-      }));
-    }
+      }))
+    );
+  } else {
+    paths = locales.map((loc) => ({
+      params: { slug: `career-${loc}` },
+      locale: loc,
+    }));
+  }
 
   return {
     paths,
@@ -35,24 +36,23 @@ export const getStaticPaths = async ({ locales }) => {
   };
 };
 
+
 export const getStaticProps = async context => {
   const slug = context.params.slug;
   const axios = createAxiosInstance();
-  const res = await axios.post(`${process.env.NEXT_PUBLIC_URL}/press/get-one-press`, { slug });
-  const response = await axios.post(`${process.env.NEXT_PUBLIC_URL}/press/get-all-press-by-years`);
-  const pressByYears = response?.data;
+  const res = await axios.post(`${process.env.NEXT_PUBLIC_URL}/careers/get-one-career`, { slug });
   const foundItem = res?.data;
+  console.log(slug, 'resdata')
 
   return {
     props: {
-      item: foundItem,
-      press: pressByYears
+      item: foundItem
     },
   };
 };
-
-const index = ({ item, press }) => {
-  return <PressItem item={item} press={press} />;
+ 
+const index = ({ item }) => {
+  return <CareersIneer item={item} />;
 };
 
 export default index;

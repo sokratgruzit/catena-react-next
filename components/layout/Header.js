@@ -79,26 +79,31 @@ const Header = () => {
             },
             {
               id: 'about-1',
+              title: 'Community',
+              route: '/overview/community',
+            },
+            {
+              id: 'about-2',
               title: 'Careers',
               route: '/overview/careers',
             },
             {
-              id: 'about-2',
+              id: 'about-3',
               title: 'Press',
               route: '/overview/press',
             },
             {
-              id: 'about-3',
+              id: 'about-4',
               title: 'Events',
               route: '/overview/events',
             },
             {
-              id: 'about-4',
+              id: 'about-5',
               title: 'Privacy',
               route: '/overview/privacy',
             },
             {
-              id: 'about-5',
+              id: 'about-6',
               title: 'Terms',
               route: '/overview/terms',
             }

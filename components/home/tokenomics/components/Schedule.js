@@ -25,9 +25,9 @@ function Schedule() {
   ];
   return (
     <div>
-      <h2 className={` ${styles.schedule_title} font-40 ttl container`}>Token Release Schedule</h2>
+      <h2 className={` ${styles.schedule_title} font-40 ttl container`} data-aos='fade-up'>Token Release Schedule</h2>
       <div className='container_bordered'>
-        <div className='container_bordered-child'>
+        <div className='container_bordered-child' data-aos='fade-up'>
           <div className={`${styles.schedule_grid}`}>
             {data?.map((item, i) => {
               return (
