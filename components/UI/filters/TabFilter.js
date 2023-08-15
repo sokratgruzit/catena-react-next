@@ -3,17 +3,11 @@ const TabFilter = props => {
     <div className={props.css.wrap}>
       <div className={props.css.filter}>
         {props.data.map(tab => {
-          let tabContent = tab.svg ? (
-            <>
-              {tab.svg} {tab.label}
-            </>
-          ) : (
-            tab.label
-          );
+          let tabContent = tab.svg ? <>{tab.svg}</> : tab.label;
 
           return (
             <div
-              key={tab.id + tab.label}
+              key={tab.id}
               onClick={() => {
                 props.onClick(tab.label);
               }}

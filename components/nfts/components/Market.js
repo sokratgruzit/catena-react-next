@@ -82,7 +82,7 @@ export default function Market() {
           <p className={`${styles.titleTeaser} font_30`}>
             Buy And Sell NFT’s on <span className={`font_30`}> CATENA </span>
           </p>
-          <Link href={`/nfts/activity`}>
+          <Link href={`/overview/nfts/activity`}>
             <div className={styles.Activity__btn}>
               See Activities
               <svg width='14' height='11' viewBox='0 0 14 11' fill='FF7152' xmlns='http://www.w3.org/2000/svg'>

@@ -8,27 +8,27 @@ const ArrowBtn = props => {
   let btn = '';
 
   if (props.route === 'nfts') {
-    route = '/nfts';
-    title = 'Back to Overview';
+    route = '/overview/nfts';
+    title = 'Back Overview';
   }
 
   if (props.route === 'back__collections') {
-    route = '/nfts/collections';
+    route = '/overview/nfts/collections';
     title = 'Back';
   }
 
   if (props.route === 'activity') {
-    route = `/nfts/activity`;
+    route = `/overview/nfts/activity`;
     title = `See Activities`;
   }
 
   if (props.route === 'activity' && props.direction === 'forward' && props.title === 'viewAll') {
-    route = '/nfts/activity';
+    route = '/overview/nfts/activity';
     title = 'View All';
   }
 
   if (props.route === 'collections' && props.direction === 'forward' && props.title === 'viewAll') {
-    route = '/nfts/collections';
+    route = '/overview/nfts/collections';
     title = 'View All';
   }
 

@@ -1,8 +1,7 @@
 import Link from 'next/link';
 import { useState } from 'react';
-
+import { useRouter } from 'next/router';
 import ListItemCard from '../../UI/listItem/ListItemCard';
-
 import styles from './Arrivals.module.css';
 import CommunityAuctionsFAQ from '../../faqOld/communityAuctionsFAQ/CommunityAuctionsFAQ';
 
@@ -11,18 +10,18 @@ const Arrivals = props => {
   const [toggle, setToggle] = useState(false);
 
   const handleToggleClick = () => {
-    setToggle(!toggle); // Using setToggle here to toggle the value of 'toggle'
+    setToggle(!toggle);
   };
 
   return (
     <div>
-      <div className='container'>
+      <div>
         <div className={styles.Arrivals}>
           <div className={styles.Arrivals__item}>
-            <p className={`font_30`}>Newest Arrivals</p>
+            <p className={`font_30 container`}>Newest Arrivals</p>
             <div className={styles.Arrivals__btn}>
-              <Link href={`/nfts/activity`}>
-                <p className={styles.Arrivals__btnTxt}>View All</p>
+              <Link href='/overview/nfts/activity'>
+                <p className={`${styles.Arrivals__btnTxt} container`}>View All</p>
               </Link>
               <svg
                 className={styles.Arrivals__btn__svg}
@@ -47,7 +46,7 @@ const Arrivals = props => {
               </svg>
             </div>
           </div>
-          <div className={styles.Arrivals__itemsList}>
+          <div className={`${styles.Arrivals__itemsList} container`}>
             {props.arrivals.map(item => {
               return <ListItemCard key={item.id} data={item} type={'nft_arrivals'} />;
             })}
@@ -55,10 +54,14 @@ const Arrivals = props => {
         </div>
       </div>
       <div className={`${styles.FAQSection} custum-text`}>
-        <h2>Frequently Asked Questions</h2>
+        <div className='container'>
+          <h2>Frequently Asked Questions</h2>
+        </div>
         <div className={`${styles.FAQWrapper} custum-text`}>
-          <h4>How does it work?</h4>
-          <CommunityAuctionsFAQ setToggle={setToggle} />
+          <div className='container'>
+            <h4>How does it work?</h4>
+            <CommunityAuctionsFAQ setToggle={setToggle} />
+          </div>
         </div>
       </div>
     </div>

@@ -1,148 +1,148 @@
 .container {
-    width: 100%;
-    max-width: 1920px;
-    padding: 0px 40px;
-    margin: 0px auto;
-    display: flex;
-    position: relative;
-    z-index: 5;
+  width: 100%;
+  max-width: 1920px;
+  padding: 0px 40px;
+  margin: 0px auto;
+  display: flex;
+  position: relative;
+  z-index: 5;
 }
 .Collections__bckground {
-    position: absolute;
-    left: 0;
-    top: 0;
-    z-index: -1!important;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1 !important;
 }
 .NftCollections {
-    padding-top: 250px;
-    display: flex;
-    flex-direction: column;
-    padding-bottom: 100px;
+  display: flex;
+  flex-direction: column;
+  padding-top: 100px;
+  padding-bottom: 100px;
 }
 .Nft__backBtn {
-    display: flex;
-    align-items: center;
-    width: 175px;
-    cursor: pointer;
-    transition: .5s;
+  display: flex;
+  align-items: center;
+  width: 175px;
+  cursor: pointer;
+  transition: 0.5s;
 }
 .Nft__backBtn p {
-    transition: .5s;
+  transition: 0.5s;
 }
 .Nft__backBtn svg {
-    transition: .5s;
+  transition: 0.5s;
 }
 .Collections__menu__item {
-    background-color: #111826!important;
+  background-color: #111826 !important;
 }
 
 .Nft__backBtn:hover svg path {
-    fill: #0500FF;
+  fill: #0500ff;
 }
 .Nft__backBtn:hover svg {
-    transform: translateX(-5px);
+  transform: translateX(-5px);
 }
 .Nft__backBtn:hover p {
-    color: #0500FF;
+  color: #0500ff;
 }
 .Nft__backBtn p {
-    color: #FF7152;
-    padding-left: 5px;
+  color: #ff7152;
+  padding-left: 5px;
 }
 .Collection__title {
-    padding-top: 10px;
-    text-transform: capitalize;
+  padding-top: 10px;
+  text-transform: capitalize;
 }
 .Collection__filtres {
-    display: flex;
-    width: 100%;
-    padding-top: 80px;
+  display: flex;
+  width: 100%;
+  padding-top: 80px;
+  justify-content: space-between;
 }
 .Collection__filtres ul {
-    display: flex;
+  display: flex;
 }
 .Collection__filtres li {
-    border-radius: 4px;
-    background-color:  rgba(255, 255, 255, 0.1);
-    padding: 4px 12px;
-    margin-left: 10px;
-    transition: .5s;
-    cursor: pointer;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 4px 12px;
+  margin-left: 10px;
+  transition: 0.5s;
+  cursor: pointer;
 }
 .Collection__filterItemA {
-    background-color: #0500FF!important;
+  background-color: #0500ff !important;
 }
 .Collection__rightPanel {
-    display: flex;
-    margin-left: auto;
+  display: flex;
 }
 .Collection__rowFilter {
-    margin-right: 30px;
+  margin-right: 30px;
 }
 .Collection__cardFilter {
-    margin-right: 10px;
+  margin-right: 10px;
 }
 .Collection__filter__deactive {
-    opacity: 0.3;
+  opacity: 0.3;
 }
 .nftCollectionTableFilterRightPanelActived {
-    margin-right: 10px
+  margin-right: 10px;
 }
 .nftCollectionTableFilterRightPanelSelector {
-   border: 1px solid #111826;
-   border-radius: 4px;
-   background-color:  rgba(0, 5, 15, 0);
-   height: 30px;
-   padding: 4px 12px;
-   width: 128px;
+  border: 1px solid #111826;
+  border-radius: 4px;
+  background-color: rgba(0, 5, 15, 0);
+  height: 30px;
+  padding: 4px 12px;
+  width: 128px;
 }
 .Collections__menu {
-    display: flex;
-    align-items: center;
-    border: 1px solid #111826;
-    padding: 4px 12px;
-    border-radius: 4px;
+  display: flex;
+  align-items: center;
+  border: 1px solid #111826;
+  padding: 4px 12px;
+  border-radius: 4px;
 }
 .nftActivitTtableFilterMenu__inner {
-    padding-right: 10px;
+  padding-right: 10px;
 }
 .Collections__menu__svg {
-    margin-left: 10px;
+  margin-left: 10px;
 }
 .TabFilter {
-    cursor: pointer;
+  cursor: pointer;
 }
 /* nft_collections product container*/
 .Collection__table {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    flex-wrap: wrap;
-    margin-right: auto;
-    grid-gap: 30px;
-    gap: 30px;
-    margin-top: 30px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  flex-wrap: wrap;
+  margin-right: auto;
+  grid-gap: 30px;
+  gap: 30px;
+  margin-top: 30px;
 }
 .Collection__tableWrap {
-    margin-top: 30px;
-    border: 1px solid #111826;
-    position: relative;
+  margin-top: 30px;
+  border: 1px solid #111826;
+  position: relative;
 }
 .gradientBck {
-    position: absolute;
-    z-index: -11;
-    right: calc(50% - 420px);
-    bottom: 5%;
-    width: 50%;
+  position: absolute;
+  z-index: -11;
+  right: calc(50% - 420px);
+  bottom: 5%;
+  width: 50%;
 }
 .collections__mobile {
-    display: flex;
-    width: 100%;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    overflow: hidden;
-    padding-top: 30px;
-    position: relative;
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  overflow: hidden;
+  padding-top: 30px;
+  position: relative;
 }
 /* .collections__mobile img:first-child {
     position: absolute;
@@ -150,17 +150,13 @@
 } */
 /*Laptop 1440*/
 @media (max-width: 1900px) {
-
 }
 /*Ipad Pro 1024*/
 @media (max-width: 1300px) {
-  
 }
 /*Ipad 768*/
 @media (max-width: 1023px) {
- 
 }
 /*Mobile 320*/
 @media (max-width: 767px) {
-    
 }
