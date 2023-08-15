@@ -1,10 +1,8 @@
 .hederContainer {
   display: flex;
-  position: relative;
   flex-direction: column;
-  width: 55%;
-  margin: 0px 0px !important;
-  padding: 0px 40px !important;
+  position: relative;
+  margin: 0px;
 }
 
 .title {
