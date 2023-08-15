@@ -1,23 +1,18 @@
-import React, { useEffect, useState } from 'react';
 import createAxiosInstance from '../../api/axios';
 import Careers from '../../../components/home/careers/Careers';
 
-const CareersPage = () => {
-  const [careers, setCareers] = useState([]);
+export const getStaticProps = async context => {
+  const axios = createAxiosInstance();
+  const { data } = await axios.get(`${process.env.NEXT_PUBLIC_URL}/careers/get-all-careers`);
 
-  useEffect(() => {
-    const axios = createAxiosInstance();
-    axios.get(`${process.env.NEXT_PUBLIC_URL}/careers/get-all-careers`)
-      .then(response => {
-        setCareers(response.data);
-        console.log(response.data);
+  return {
+    props: {
+      careers: data.career,
+    },
+  };
+};
 
-      })
-      .catch(error => {
-        console.log(err?.response);
-      });
-  }, []);
-
+const CareersPage = ({ careers }) => {
   return <Careers careers={careers} />;
 };
 

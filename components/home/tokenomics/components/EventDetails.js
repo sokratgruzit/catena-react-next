@@ -23,10 +23,10 @@ function EventDetails() {
   return (
     <div className={`${styles.pt64} ${styles.flex} ${styles.responsive_flex} ${styles.alignItemsCenter}`}>
       <div className={`${styles.left_bar}`}>
-        <h2 className={` font-40 ttl `}>
+        <h2 className={` font-40 ttl `} data-aos='fade-up'>
           Token Distribution <br /> Event Details
         </h2>
-        <div>
+        <div data-aos='fade-up'>
           <div className={`${styles.flex} ${styles.icon_wrap} ${styles.alignItemsCenter}`}>
             <svg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'>
               <path
@@ -43,7 +43,7 @@ function EventDetails() {
         </div>
       </div>
       <div className='container_bordered'>
-        <div className='container_bordered-child'>
+        <div className='container_bordered-child' data-aos='fade-up'>
           <div className={`${styles.eventDetails_textWrap}`}>
             {data?.map((item, i) => {
               return (

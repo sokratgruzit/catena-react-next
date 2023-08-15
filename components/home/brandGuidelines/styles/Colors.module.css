@@ -20,7 +20,7 @@
 }
 
 .title {
-  padding-bottom: 100px;
+  padding-bottom: 40px;
 
   color: rgba(22, 32, 41, 1);
 }
@@ -112,16 +112,17 @@
 
 @media (max-width: 1023px) {
   .colors {
-    padding: 21px 80px 162px 80px;
+    padding: 21px 50px 100px 50px;
   }
 }
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .pallete .content:nth-child(4) .contentBox {
     padding-top: 10%;
     padding-bottom: 10%;
   }
   .colors {
-    padding: 21px 40px 162px 40px;
+    padding: 21px 20px 50px 20px;
+    gap: 20px;
   }
   .pallete {
     display: grid;

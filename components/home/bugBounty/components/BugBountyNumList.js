@@ -1,8 +1,8 @@
 import styles from './BugBounty.module.css';
 
-function BugBountyNumList({ data }) {
+function BugBountyNumList({ data, animate }) {
   return (
-    <div className={styles.numListContainer}>
+    <div className={styles.numListContainer} data-aos='fade-up'>
       {data?.map((item, i) => {
         return (
           <div key={i}>
