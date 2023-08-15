@@ -5,12 +5,11 @@ import styles from './Feature.module.css';
 import CopyIcon from '../../../../svg/careers/CopyIcon';
 
 
-const Feature = ({ featureLinkList, title, showButton, careers }) => {
+const Feature = ({ title, showButton, careers }) => {
   const [copiedLink, setCopiedLink] = useState('');
   const [isPopupVisible, setPopupVisible] = useState(null);
 
   const handlePopupClick = (index) => {
-    setCopiedLink(`${process.env.NEXT_PUBLIC_URL}/careers/${featureLinkList[index].id}`);
     setPopupVisible(index);
     setTimeout(() => {
       setPopupVisible(null);
@@ -29,10 +28,13 @@ const Feature = ({ featureLinkList, title, showButton, careers }) => {
       });
   };
 
+
+  console.log(careers, 'ager');
+
   return (
     <div>
       <div className='container_bordered'>
-        <h2 className={`${styles.font__51} font-40 ttl`}>Featured Jobs</h2>
+        <h2 className={`${styles.font__51} font-40 ttl`}>{title}</h2>
         <div className='container_bordered-child'>
           <div className={`${styles.openPositionsList}`}>
             {careers?.map((item, index) => {
@@ -51,8 +53,8 @@ const Feature = ({ featureLinkList, title, showButton, careers }) => {
                   <div
                     className={styles.openPositionsListItemSvg}
                     onClick={() => {
-                      // handleCopy(`http://localhost:3000/overview/careers/${item.id}`);
-                      // handlePopupClick(index);
+                      handleCopy(`http://localhost:3001/overview/careers/${item.slug}`);
+                      handlePopupClick(index);
                     }}
                   >
                     <CopyIcon />
