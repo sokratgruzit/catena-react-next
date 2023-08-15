@@ -6,10 +6,12 @@ const Bottom = () => {
   return (
     <div className={`${styles.containerOne} container`}>
       <p className='ttl'>2. Set amount of CMCX tokens you would like to purchase</p>
-      <p className={styles.ttle}>
-        Enter the amount you would like to contribute in order to calculate the amount of tokens you will receive. The
-        calculator below helps to convert the required quantity of tokens into the amount of your selected currency.
-      </p>
+      <div className={styles.asdawd}>
+        {/* <p className={styles.ttle}>
+          Enter the amount you would like to contribute in order to calculate the amount of tokens you will receive. The
+          calculator below helps to convert the required quantity of tokens into the amount of your selected currency.
+        </p> */}
+      </div>
       <div className={`${styles.box} container_bordered-child`}>
         <p>Your remaining purchase limit: 3000000</p>
         <p>Transaction Fee: 0.0006828 ETH</p>

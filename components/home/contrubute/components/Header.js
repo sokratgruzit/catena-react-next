@@ -1,5 +1,4 @@
 import { Input, Button } from '@catena-network/catena-ui-module';
-
 import styles from '../css/Header.module.css';
 
 const Header = () => {
