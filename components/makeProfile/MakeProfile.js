@@ -2,12 +2,11 @@ import React, { useState, useMemo, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useRouter } from 'next/router';
 import { Button, Input } from '@catena-network/catena-ui-module';
-import PhoneNumberSelect from './components/phoneNumberSelect/PhoneNumberSelect';
 import createAxiosInstance from '../../pages/api/axios';
-import FormSelectDate from '../voting/components/formDateInput/FormSelectDate';
 import { socket } from '../../pages/api/socket';
 
 import styles from './MakeProfile.module.css';
+import { set } from 'date-fns';
 
 const MakeProfile = () => {
   const [mobileNumber, setMobileNumber] = useState('');
@@ -56,8 +55,20 @@ const MakeProfile = () => {
     }));
   };
 
+  const changeCountry = (data) => {
+    let number = data.code + data.number
+    setFormData(prevState => ({
+      ...prevState,
+      mobile: number,
+    }));
+  };
+
   function handleCustomUpdate(name, value) {
     changeHandler({ target: { name: name, value } });
+    setFormData(prevState => ({
+      ...prevState,
+      [name]: value,
+    }));
   }
 
   const handleSubmit = event => {
