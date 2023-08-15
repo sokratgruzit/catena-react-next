@@ -22,21 +22,23 @@ const Press = ({ press, currentPage, totalCount }) => {
   };
 
   return (
-    <div className={`${styles.mainContainer} container pT-180`}>
-      <div className={`${styles.titleContainer}`}>
-        <p className={`${styles.titlePartyOne} ttl`}>Catena</p>
-        <p className={`${styles.titlePartyTwo} ttl`}>Press</p>
-      </div>
-      <div className={styles.bodyContainer}>
-        <Card dataArr={press} fileAdress={fileAdress} title={title} description={description} slugType='press' />
-      </div>
+    <div className={`${styles.mainContainer} pT-180`}>
+        <div className={`${styles.mainContainer} container `}>
+          <h1 className={`${styles.titleContainer}`}>
+            <p className={`${styles.titlePartyOne} ttl`}>Catena</p>
+            <p className={`${styles.titlePartyTwo} ttl`}>Press</p>
+          </h1>
+          <div className={`${styles.bodyContainer} pT-100`}>
+            <Card dataArr={press} fileAdress={fileAdress} title={title} description={description} slugType='press' />
+          </div>
+        </div>
       <TableElement
         type='pagination'
         currentPage={currentPage}
         totalCount={totalCount}
         onPageChange={page => handlePageChange(page)}
       />
-      <div className={`${styles.sourcesContainer} `}>
+      <div className={`${styles.sourcesContainer}`}>
         <h1 className='ttl font-40 container'>Sources</h1>
         <PressLogo />
       </div>
