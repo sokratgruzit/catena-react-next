@@ -6,7 +6,7 @@ export async function getServerSideProps({ query }) {
   const limit = 1;
 
   const axios = createAxiosInstance();
-  const response = await axios.get(`${process.env.NEXT_PUBLIC_URL}/careers/get-all-careers`, {
+  const response = await axios.get(`${process.env.NEXT_PUBLIC_URL}/open-positions/get-all-open-positions`, {
     params: { page: currentPage, limit: limit },
   });
   const careersData = response.data.career;

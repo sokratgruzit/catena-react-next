@@ -5,7 +5,7 @@ import styles from './Feature.module.css';
 import CopyIcon from '../../../../svg/careers/CopyIcon';
 
 
-const Feature = ({ title, showButton, careers }) => {
+const Feature = ({ title, showButton, openPosition }) => {
   const [copiedLink, setCopiedLink] = useState('');
   const [isPopupVisible, setPopupVisible] = useState(null);
 
@@ -29,7 +29,7 @@ const Feature = ({ title, showButton, careers }) => {
   };
 
 
-  console.log(careers, 'ager');
+  console.log(openPosition, 'ager');
 
   return (
     <div>
@@ -37,12 +37,12 @@ const Feature = ({ title, showButton, careers }) => {
         <h2 className={`${styles.font__51} font-40 ttl`}>{title}</h2>
         <div className='container_bordered-child'>
           <div className={`${styles.openPositionsList}`}>
-            {careers?.map((item, index) => {
+            {openPosition?.map((item, index) => {
               return (
                 <div className={styles.openPositionsListItem} key={index}>
                   <Link href={`/overview/careers/${item.slug}`}>
                     <div>
-                      <span className='ttl'>{item.title['en']['career.title']}</span>
+                      <span className='ttl'>{item.title['en']['openPosition.title']}</span>
                     </div>
                   </Link>
                   {isPopupVisible === index && (

@@ -138,13 +138,6 @@
   border-color: #0500ff;
 }
 
-.farms__tableContainer {
-  position: relative;
-  display: flex;
-  width: 100%;
-  margin-top: 10px;
-}
-
 .farms__tableInner {
   display: flex;
   padding: 20px;
