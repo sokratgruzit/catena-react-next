@@ -50,7 +50,7 @@ const PublicByYears = () => {
   }, []);
 
   return (
-    <div className={`${styles.yearsWrapper} container_bordered`}>
+    <div className={`${styles.yearsWrapper} container_bordered pT-100`}>
       <div className={styles.infoContainer}>
         <div className={styles.infContTitle}>
           <h2 className='ttl font-40'>Publics by years</h2>

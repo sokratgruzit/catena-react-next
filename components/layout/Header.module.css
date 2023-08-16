@@ -485,15 +485,17 @@
 
 .headerCornerModal>i {
   position: absolute;
-  background: #ff7152;
-  height: calc(100% + 40px);
-  top: -40px;
+  background: #a6d0dd;
+  height: 100%;
+  top: 0px;
   left: 0px;
   width: 100%;
   transform: scaleX(0);
   transform-origin: right;
   transition-delay: 0.4s;
   transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+  border-top-left-radius: 40px;
+  border-bottom-left-radius: 40px;
 }
 
 .connectWalletActive>i {
@@ -511,17 +513,17 @@
 
 .connectWalletItem {
   display: flex;
-  border: 1px solid #fff;
+  border: 1px solid #162029;
   align-items: center;
   margin-left: 10px;
-  padding: 5px 10px;
-  border-radius: 4px;
+  padding: 5px 20px;
+  border-radius: 30px;
   cursor: pointer;
   transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
 }
 
 .connectWalletItem:hover {
-  background: #fff;
+  background: #e96b6b;
 }
 
 .connectWalletItem div {
@@ -529,12 +531,12 @@
 }
 
 .connectWalletItem:hover div {
-  color: #ff7152;
+  color: #162029;
 }
 
 .connectWalletItemImg {
-  height: 50px;
-  width: 50px;
+  height: 35px;
+  width: 35px;
   background: #fff;
   border-radius: 50%;
   overflow: hidden;
@@ -542,12 +544,12 @@
   justify-content: center;
   align-items: center;
   margin-right: 10px;
-  border: 2px solid #fff;
+  border: 1px solid #fff;
   transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
 }
 
 .connectWalletItem:hover .connectWalletItemImg {
-  border-color: #ff7152;
+  border-color: #162029;
 }
 
 .connectWalletItem img {
@@ -592,7 +594,6 @@
 .headerConnectedBtn {
   display: flex;
   align-items: center;
-  padding-left: 30px;
   cursor: pointer;
 }
 
@@ -635,7 +636,7 @@
 
 .headerConnectedBtn:hover .headerConnectedBtnImg,
 .headerConnectedBtn.headerConnectedBtnActive .headerConnectedBtnImg {
-  background: #ff7152;
+  background: #e96b6b;
 }
 
 .headerConnectedBtn span {
@@ -684,7 +685,7 @@
 
 .headerConnectedModal {
   position: absolute;
-  top: 104px;
+  top: 70px;
   right: 40px;
   width: 260px;
   padding: 20px;
@@ -719,9 +720,9 @@
   position: relative;
   cursor: pointer;
   justify-content: space-between;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  padding-bottom: 30px;
-  margin-bottom: 14px;
+  border-bottom: 1px solid rgba(166, 208, 221, 1);
+  padding-bottom: 20px;
+  margin-bottom: 0px;
 }
 
 .headerConnectedModalAddress>div {
@@ -733,7 +734,7 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 105px;
+  max-width: 185px;
   transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
 }
 
@@ -744,7 +745,7 @@
 .headerConnectedModalAddress>div span:nth-child(2) {
   font-size: 13px;
   line-height: 16px;
-  opacity: 0.3;
+  opacity: 0.6;
   text-transform: capitalize;
   transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
 }
@@ -771,7 +772,7 @@
 
 .headerConnectedModalLink span {
   transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(0, 0, 0, 1);
 }
 
 .headerConnectedModalLink svg {
@@ -783,21 +784,22 @@
 }
 
 .headerConnectedModalLink:hover span {
-  color: rgba(255, 255, 255, 1);
+  color: rgba(0, 0, 0, .6);
 }
 
 .headerConnectedModalLink path {
   transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+  fill: rgba(0, 0, 0, 1);
 }
 
 .headerConnectedModalLink:hover path {
-  fill: rgba(255, 255, 255, 1);
+  fill: rgba(0, 0, 0, .6);
 }
 
 .headerConnectedModalInner>i {
   width: 100%;
   height: 1px;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(166, 208, 221, 1);
   margin-top: 16px;
 }
 
@@ -1113,6 +1115,9 @@
 
 /*Ipad 768*/
 @media (max-width: 1023px) {
+  .headerBalance span {
+    max-width: 130px;
+  }
   .headerLogoDesktop {
     display: none;
   }
@@ -1486,10 +1491,6 @@
   .headerConnectedBtnImg {
     height: 36px;
     width: 36px;
-  }
-
-  .headerConnectedBtnActive .headerConnectedBtnArrow i {
-    min-width: 65px;
   }
 
   .headerConnectedModal {
