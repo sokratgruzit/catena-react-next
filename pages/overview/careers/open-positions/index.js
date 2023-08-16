@@ -9,7 +9,7 @@ export async function getServerSideProps({ query }) {
   const response = await axios.get(`${process.env.NEXT_PUBLIC_URL}/open-positions/get-all-open-positions`, {
     params: { page: currentPage, limit: limit },
   });
-  const careersData = response.data.career;
+  const careersData = response.data.openPosition;
   const current = response.data.currentPage;
   const totalPages = response.data.totalPages;
 

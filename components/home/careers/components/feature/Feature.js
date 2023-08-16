@@ -10,6 +10,7 @@ const Feature = ({ title, showButton, openPosition }) => {
   const [isPopupVisible, setPopupVisible] = useState(null);
 
   const handlePopupClick = (index) => {
+    setCopiedLink(`${process.env.NEXT_PUBLIC_URL}/open-positions/${featureLinkList[index].id}`);
     setPopupVisible(index);
     setTimeout(() => {
       setPopupVisible(null);
