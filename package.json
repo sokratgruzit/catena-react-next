@@ -9,7 +9,7 @@
     "lint": "next lint --fix"
   },
   "dependencies": {
-    "@catena-network/catena-ui-module": "^0.0.49",
+    "@catena-network/catena-ui-module": "^0.0.51",
     "@next/font": "^13.4.10",
     "@reduxjs/toolkit": "^1.8.3",
     "@szhsin/react-menu": "^3.1.1",
@@ -25,6 +25,7 @@
     "date-fns": "^2.29.2",
     "dompurify": "^2.4.0",
     "gsap": "^3.12.2",
+    "he": "^1.2.0",
     "jszip": "^3.10.1",
     "moment": "^2.29.1",
     "nanoid": "^4.0.2",

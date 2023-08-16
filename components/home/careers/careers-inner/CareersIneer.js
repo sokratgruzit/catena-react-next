@@ -62,7 +62,7 @@ const CareersIneer = ({ item }) => {
 
   return (
     <div className='pT-180'>
-      <SeniorDesig6tdner
+      <SeniorDesigner
         teamResponsible={teamResponsible}
         head={item.title['en']['career.title']}
         title='Front-end Engineer role'

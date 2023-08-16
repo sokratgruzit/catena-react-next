@@ -1,5 +1,6 @@
-import { Input, Button } from '@catena-network/catena-ui-module';
+import { Input, Button, HelpText } from '@catena-network/catena-ui-module';
 import { useState } from 'react';
+import { useValidation } from '../../../../hooks/useValidation';
 
 import styles from './VoiceMatters.module.css';
 
@@ -12,6 +13,10 @@ const VoiceMatter = () => {
 
   const chngHandler = e => {
     const { name, value } = e.target;
+
+    if (name === "email") {
+      setEmail(value)
+    }
     setFormData(prevState => ({
       ...prevState,
       [name]: value,
@@ -21,6 +26,34 @@ const VoiceMatter = () => {
   const handleSubmit = () => {
     console.log(formData);
   };
+
+  const [email, setEmail] = useState("");
+
+  let helpTexts = {
+    email: {
+      validationType: "email",
+      success: "Email is valid",
+      failure: "Invalid email format",
+    },
+  };
+
+  const validationErrors = useValidation(
+    {
+      email: email || "",
+    },
+    helpTexts
+  );
+
+  // const changeHandler = (i, e) => {
+  //   console.log(i.target.value);
+  //   const { name, value } = i.target;
+
+  //   if (name === "amount") {
+  //     setDepositAmount(value);
+  //   } else if (name === "email") {
+  //     setEmail(value)
+  //   }
+  // };
 
   return (
     <div className={`${styles.main} container`}>
@@ -42,16 +75,26 @@ const VoiceMatter = () => {
           <form>
             <div>
               <Input
-                className={styles.llll}
-                type={'default'}
+                type={"default"}
+                name={"email"}
                 icon={false}
                 label={'EMAIL'}
-                subLabel={''}
-                placeholder={'Enter'}
-                name='email'
-                value={formData.email}
+                editable={true}
+                subLabel={""}
+                placeholder={'Enter..'}
+                validation={"email"}
+                value={email}
                 onChange={chngHandler}
-                // customStyles={{ width: '500px' }}
+                statusCard={
+                  validationErrors?.email && (
+                    <HelpText
+                      status={validationErrors.email.failure ? "error" : "success"}
+                      title={validationErrors.email.failure || validationErrors.email.success}
+                      fontSize={"font-12"}
+                      icon={true}
+                    />
+                  )
+                }
               />
             </div>
             <div>
@@ -64,7 +107,7 @@ const VoiceMatter = () => {
                 value={formData.name}
                 name='name'
                 onChange={chngHandler}
-                // customStyles={{ width: '500px' }}
+              // customStyles={{ width: '500px' }}
               />
             </div>
             <div>
