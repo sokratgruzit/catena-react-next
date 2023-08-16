@@ -188,14 +188,12 @@ const hiringProcess = [
   },
 ];
 
-const Careers = ({careers, openPosition}) => {
-  console.log(openPosition, 'ddddd');
-
+const Careers = ({careers}) => {
   return (
     <div>
       <CareersCatena />
-      <CompanyInfo careers={careers} workflow={workflow} title='How we work' />
-      <Feature openPosition={openPosition} title='Featured Jobs' showButton={true} />
+      <CompanyInfo workflow={workflow} title='How we work' />
+      <Feature careers={careers} title='Featured Jobs' showButton={true} />
       <OurValues
         iconImages={iconImages}
         title='Our Values'

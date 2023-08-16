@@ -5,7 +5,7 @@ import styles from './Feature.module.css';
 import CopyIcon from '../../../../svg/careers/CopyIcon';
 
 
-const Feature = ({ title, showButton, openPosition }) => {
+const Feature = ({ featureLinkList, title, showButton, careers }) => {
   const [copiedLink, setCopiedLink] = useState('');
   const [isPopupVisible, setPopupVisible] = useState(null);
 
@@ -29,16 +29,13 @@ const Feature = ({ title, showButton, openPosition }) => {
       });
   };
 
-
-  console.log(openPosition, 'ager');
-
   return (
     <div>
       <div className='container_bordered'>
-        <h2 className={`${styles.font__51} font-40 ttl`}>{title}</h2>
+        <h2 className={`${styles.font__51} font-40 ttl`}>Featured Jobs</h2>
         <div className='container_bordered-child'>
           <div className={`${styles.openPositionsList}`}>
-            {openPosition?.map((item, index) => {
+            {careers?.map((item, index) => {
               return (
                 <div className={styles.openPositionsListItem} key={index}>
                   <Link href={`/overview/careers/${item.slug}`}>
@@ -54,8 +51,8 @@ const Feature = ({ title, showButton, openPosition }) => {
                   <div
                     className={styles.openPositionsListItemSvg}
                     onClick={() => {
-                      handleCopy(`http://localhost:3001/overview/careers/${item.slug}`);
-                      handlePopupClick(index);
+                      // handleCopy(`http://localhost:3000/overview/careers/${item.id}`);
+                      // handlePopupClick(index);
                     }}
                   >
                     <CopyIcon />
