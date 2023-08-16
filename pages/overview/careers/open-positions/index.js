@@ -22,7 +22,7 @@ export async function getServerSideProps({ query }) {
   };
 }
 const index = ({ careers, currentPage = 1, totalCount }) => {
-  return <OpenPosition careers={careers} currentPage={currentPage} totalCount={totalCount} />
+  return <OpenPosition openPositions={careers} currentPage={currentPage} totalCount={totalCount} />
 };
 
 export default index;

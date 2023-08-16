@@ -80,13 +80,13 @@ const iconImages = [
   },
   {
     svg: (
-     <Quality />
+      <Quality />
     ),
     title: 'Quality Performance',
   },
   {
     svg: (
-     <Original />
+      <Original />
     ),
     title: 'Original Output',
   },
@@ -98,7 +98,7 @@ const iconImages = [
   },
   {
     svg: (
-     <Driven />
+      <Driven />
     ),
     title: 'Community Driven',
   },
@@ -188,12 +188,12 @@ const hiringProcess = [
   },
 ];
 
-const Careers = ({careers}) => {
+const Careers = ({ careers, openPositions }) => {
   return (
     <div>
       <CareersCatena />
       <CompanyInfo workflow={workflow} title='How we work' />
-      <Feature careers={careers} title='Featured Jobs' showButton={true} />
+      <Feature openPositions={openPositions} title='Featured Jobs' showButton={true} />
       <OurValues
         iconImages={iconImages}
         title='Our Values'

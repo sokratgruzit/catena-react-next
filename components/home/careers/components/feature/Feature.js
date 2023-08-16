@@ -5,7 +5,7 @@ import styles from './Feature.module.css';
 import CopyIcon from '../../../../svg/careers/CopyIcon';
 
 
-const Feature = ({ featureLinkList, title, showButton, careers }) => {
+const Feature = ({ featureLinkList, title, showButton, openPositions }) => {
   const [copiedLink, setCopiedLink] = useState('');
   const [isPopupVisible, setPopupVisible] = useState(null);
 
@@ -35,7 +35,8 @@ const Feature = ({ featureLinkList, title, showButton, careers }) => {
         <h2 className={`${styles.font__51} font-40 ttl`}>Featured Jobs</h2>
         <div className='container_bordered-child'>
           <div className={`${styles.openPositionsList}`}>
-            {careers?.map((item, index) => {
+            {openPositions?.map((item, index) => {
+              console.log(openPositions)
               return (
                 <div className={styles.openPositionsListItem} key={index}>
                   <Link href={`/overview/careers/${item.slug}`}>
