@@ -9,8 +9,8 @@ const CollectionsPromo = () => {
       {/* <div className={styles.CollectionsPromo__background}>
         <Image layout='fill' src='/images/nft/background/bckOfNftCollection.png' alt='' />
       </div> */}
-      <p className={`${styles.CollectionsPromo__title} font_51`}>
-        <span className={`font_51`}>NFT </span>Collections
+      <p className={`${styles.CollectionsPromo__title} font_51 ttl`}>
+        <span className={`font_51 ttl`}>NFT </span>Collections
       </p>
       <p className={styles.CollectionsPromo__teaser}>
         +10.000 amazing <span>NFT</span> Collection in our <span>CATENA</span> Market lorem ipsum moments restrictions

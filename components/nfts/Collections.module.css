@@ -13,6 +13,38 @@
   top: 0;
   z-index: -1 !important;
 }
+.pagination {
+  margin-top: 55px;
+}
+.dropdownMenu {
+  display: flex;
+  gap: 50px;
+  align-items: center;
+  background-color: #f3e4d2;
+  padding: 13px 22px;
+  border-radius: 30px;
+  border: 1px solid #16202933;
+  transition: 0.5s;
+}
+.openMenu {
+  color: #ff7152;
+}
+.rotateSvg {
+  transform: rotate(180deg);
+  transition: 0.5s;
+}
+.rotateSvg svg,
+.rotateSvg svg path {
+  transition: 0.5s;
+}
+.rotateSvg svg path {
+  stroke: #ff7152;
+}
+.rotateBack {
+  transform: rotate(0deg);
+  transition: 0.5s;
+}
+
 .NftCollections {
   display: flex;
   flex-direction: column;
@@ -56,15 +88,19 @@
 .Collection__filtres {
   display: flex;
   width: 100%;
-  padding-top: 80px;
+  padding-top: 144px;
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 40px;
 }
 .Collection__filtres ul {
   display: flex;
+  background-color: transparent;
+  right: 0px;
 }
 .Collection__filtres li {
   border-radius: 4px;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: transparent;
   padding: 4px 12px;
   margin-left: 10px;
   transition: 0.5s;
@@ -125,13 +161,15 @@
 }
 .Collection__tableWrap {
   margin-top: 30px;
-  border: 1px solid #111826;
+  border: 1px solid #16202933;
   position: relative;
+  background-color: #f3e4d2;
+  border-radius: 20px;
 }
 .gradientBck {
   position: absolute;
   z-index: -11;
-  right: calc(50% - 420px);
+  /* right: calc(50% - 420px); */
   bottom: 5%;
   width: 50%;
 }

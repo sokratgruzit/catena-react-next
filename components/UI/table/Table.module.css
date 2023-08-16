@@ -1,21 +1,20 @@
 .Table__wrap {
-    width: 100%;
-    height: auto;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    padding-top: 0px;
+  width: 100%;
+  height: auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
 }
 .Table__labels {
-    font-size: 30px;
-    width: 100%;
-    height: auto;
-    display: flex;
-    align-items: center;
-    padding: 20px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, .1);
+  font-size: 30px;
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(22, 32, 41, 0.2);
+  padding: 20px;
 }
+
 /* .Table__labels div {
     display: flex;
     align-items: center;

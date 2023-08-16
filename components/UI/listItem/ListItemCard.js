@@ -134,7 +134,7 @@ const ListItemCard = props => {
                 />
               </div>
               <div className={styles.Product__logo}>
-                <img src='/images/nft/nft_collection_items/logo.png' alt='img' />
+                <img src='/images/nft/nft_collection_items/logo1.png' alt='img' />
               </div>
               <div className={styles.Product__titles}>
                 <p>The AKC</p>
