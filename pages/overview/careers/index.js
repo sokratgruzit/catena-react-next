@@ -12,8 +12,8 @@ export const getStaticProps = async context => {
   };
 };
 
-const CareersPage = ({ careers }) => {
-  return <Careers careers={careers} />;
+const CareersPage = ({ careers, openPosition }) => {
+  return <Careers careers={careers} openPosition={openPosition} />;
 };
 
 export default CareersPage;
