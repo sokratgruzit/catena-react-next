@@ -21,8 +21,8 @@ export default function LogoVariations() {
   ];
 
   return (
-    <div className={styles.variations}>
-      <h3 className={`${styles.title} font_51`}>Logo Variations</h3>
+    <div className={`${styles.variations} pT-140`}>
+      <h3 className={`${styles.title} font-40 ttl`} data-aos="fade-up">Logo Variations</h3>
       <div className={styles.wrapper}>
         {logosVariations.map((item, index) => {
           const shouldShowSVG = window.innerWidth <= 1023 || index < 2;

@@ -1,9 +1,44 @@
 import styles from './Terms.module.css';
+import { InView } from 'react-intersection-observer';
+import { useDispatch } from 'react-redux';
+import {useEffect, useState} from "react";
 
 function TermsItem() {
+  const dispatch = useDispatch();
+  const [pageReady, setPageReady] = useState(false);
+  let microSchemes;
+  if(window.innerWidth > 1250){
+    microSchemes = [
+      [1,2,11,12,13,14,15,16,22,23,24],
+    ];
+  };
+
+  if(window.innerWidth < 1250){
+    microSchemes = [
+      [1,2,5,6,7,8,9,10,11,13,14,17,18,19,20,21,22,23,24],
+    ];
+  };
+
+  const setScheme = (num) => {
+    console.log(num);
+    dispatch({
+      type: "SET_MICHROSCHEME_ARRAY",
+      microschemeArray: microSchemes[num]
+    });
+  };
+
+  useEffect(() => {
+    setTimeout(() => {
+      setPageReady(true);
+      dispatch({
+        type: "SET_MICHROSCHEME_ARRAY",
+        microschemeArray: microSchemes[0]
+      });
+    }, 400);
+  },[]);
   return (
-    <div className={styles.terms}>
-      <h1 className={`${styles.title} font-90`}>Terms of Use</h1>
+    <div className={`${styles.terms} pT-180 tYAnimation ${pageReady ? 'animate' : ''}`}>
+      <h1 className={`${styles.title} font-90 ttl`}>Terms of Use</h1>
       <div className={styles.content}>
         <p>
           These Terms of Use apply to www.catenamultichain.com.com as well as any other affiliated sites, digital

@@ -4,6 +4,7 @@ import { Input, Button } from '@catena-network/catena-ui-module';
 import styles from '../css/AmbasdorBtn.module.css';
 
 const AmbasdorBtn = () => {
+  const [imaleValid, setImaleValid] = useState('');
   const [chng, setChng] = useState(false);
   const [formData, setFormData] = useState({
     email: '',
@@ -24,6 +25,16 @@ const AmbasdorBtn = () => {
       }));
       const remainingChars = 1000 - truncatedValue.length;
       setSuggestionLength(remainingChars);
+    } else if (name === 'email') {
+      const isValidEmail = validateEmail(value);
+      console.log(isValidEmail, 'sadwdsadqwd');
+      setImaleValid(isValidEmail);
+
+      setFormData(prevState => ({
+        ...prevState,
+        [name]: value,
+        emailValid: isValidEmail, // You can add a property to your state to track email validity.
+      }));
     } else {
       setFormData(prevState => ({
         ...prevState,
@@ -32,15 +43,25 @@ const AmbasdorBtn = () => {
     }
   };
 
+  function validateEmail(email) {
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailPattern.test(email);
+  }
+
   const handleSubmit = () => {
     console.log(formData);
-    setChng(false);
+    if (imaleValid) {
+      console.log(formData, 'success');
+      setChng(false);
+    } else {
+      console.log('isn`t valid email');
+    }
   };
 
   return (
-    <div className={`${styles.btn} container `}>
+    <div className={`${styles.btn} container `} data-aos="fade-up">
       <div className={`${styles.chnBox} ${chng ? styles.active : ''}`}>
-        <form>
+        <form id='emailForm'>
           <div>
             <Input
               className={styles.llll}
@@ -52,6 +73,7 @@ const AmbasdorBtn = () => {
               name='email'
               value={formData.email}
               onChange={changeHandler}
+              // emptyFieldErr={imaleValid}
               // customStyles={{ width: '500px' }}
             />
           </div>

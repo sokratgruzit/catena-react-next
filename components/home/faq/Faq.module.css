@@ -1,6 +1,7 @@
 .container {
   width: 100%;
   display: flex;
+  padding-top: 150px;
 }
 
 .bodyContainer {
@@ -29,6 +30,11 @@
   display: flex;
 }
 
+.number {
+  -webkit-text-stroke: 1px #162029;
+  color: #a6d0dd;
+}
+
 .maneBox {
   display: flex;
   flex-direction: column;
@@ -38,7 +44,7 @@
 .number {
   width: 25px;
   height: 25px;
-  margin: 10px 10px 10px 10px;
+  margin: 1px 20px 0px 10px;
 }
 
 .itemTitle {
@@ -92,6 +98,6 @@
 /*Mobile 320*/
 @media (max-width: 767px) {
   .number {
-    margin: 9px 10px 10px 10px;
+    margin: 0px 8px 0px 0px;
   }
 }

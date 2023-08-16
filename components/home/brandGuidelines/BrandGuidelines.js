@@ -10,30 +10,27 @@ import ProductLogos from './components/ProductLogos';
 import Typography from './components/Typography';
 import { InView } from 'react-intersection-observer';
 import { useDispatch } from 'react-redux';
-import {useEffect} from "react";
+import {useEffect,useState} from "react";
 
 function BrandGuidelines() {
-    // [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24]
     const dispatch = useDispatch();
-
+    const [pageReady, setPageReady] = useState(false);
     let microSchemes;
     if(window.innerWidth > 1250){
         microSchemes = [
-            [8,9,10,11,12,13,14,15,22,23,24],
-            [1,2,3],
-            [1,2,3,4,5,10,11,12,13,14,15,16,23,24],
-            [1,2,7,8,9,10,20,21,22,23,24],
-            [1,2,3,4,5,6,10,11,12,13,14,15,16,17,23,24]
+            [9,10,11,12,13,14,15,22,23,24],
+            [1,2,3,11,12,13,14,15,23,24],
+            [1,2,3,10,11,12,13,14,15,22,23,24],
+            [1,2,9,10,11,12,13,14,21,22,23,24],
         ];
     }
 
     if(window.innerWidth < 1250){
         microSchemes = [
-            [1,2,5,6,7,8,9,10,11,16,17,18,19,20,21,22,23,24],
-            [1,2,5,6,7,8,9,10,11,17,18,19,20,21,22,23,24],
-            [1,2,3,6,7,8,9,10,11,12,13,14,23,24],
-            [1,2,5,6,7,8,9,10,11,16,17,18,19,20,21,22,23,24],
-            [1,2,3,6,7,8,9,10,11,12,13,14,23,24]
+            [1,2,5,6,7,8,9,10,11,13,14,18,19,20,21,22,23,24],
+            [1,2,5,6,7,8,9,10,11,13,14,18,19,20,21,22,23,24],
+            [1,2,7,8,9,10,11,12,13,14,23,24],
+            [1,2,5,6,7,8,9,10,11,13,19,20,21,22,23,24],
         ];
     }
 
@@ -43,23 +40,24 @@ function BrandGuidelines() {
             type: "SET_MICHROSCHEME_ARRAY",
             microschemeArray: microSchemes[num]
         });
-        console.log(microSchemes[num])
     }
+
     useEffect(() => {
         setTimeout(() => {
+            setPageReady(true);
             dispatch({
                 type: "SET_MICHROSCHEME_ARRAY",
                 microschemeArray: microSchemes[0]
             });
-        }, 500);
+        }, 400);
     },[]);
   return (
     <div>
         <InView as="div" onChange={(inView, entry) => (inView && setScheme(0))}>
-            <IntroBanner />
-            <ClearSpace />
+            <IntroBanner animate={pageReady}/>
+            <ClearSpace animate={pageReady}/>
         </InView>
-        <InView as="div" onChange={(inView, entry) => (inView && setScheme(1),console.log(entry))}>
+        <InView as="div" onChange={(inView, entry) => (inView && setScheme(1))}>
             <ProductLogos />
             <LogoVariations />
         </InView>
@@ -70,8 +68,10 @@ function BrandGuidelines() {
         </div>
         <Partniership />
         <div className='container'>
-            <Typography />
-            <Fonts />
+            <InView as="div" onChange={(inView, entry) => (inView && setScheme(3))}>
+                <Typography />
+                <Fonts />
+            </InView>
         </div>
         <Colors />
         <Banner />

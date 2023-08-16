@@ -78,10 +78,10 @@ function Distribution() {
   ];
 
   return (
-    <div className={`${styles.pt128}`}>
-      <h2 className='font-40 ttl container'>Token Distribution</h2>
+    <div className={`pT-140 ${styles.distribution}`}>
+      <h2 className='font-40 ttl container' data-aos='fade-up'>Token Distribution</h2>
       <div className='container_bordered'>
-        <div className='container_bordered-child'>
+        <div className='container_bordered-child' data-aos='fade-up'>
           <div className={styles.distribution_container}>
             <div className={styles.distribution_teaser}>
               <p className={` ttl ${styles.orange}`}>Total Supply</p>

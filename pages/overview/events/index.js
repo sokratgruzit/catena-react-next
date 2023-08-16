@@ -2,19 +2,30 @@ import React from 'react';
 import Events from '../../../components/home/events/Events';
 import createAxiosInstance from '../../../pages/api/axios';
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async ({ query }) => {
+  const currentPage = query.page || 1;
+  const limit = 2;
+
   const axios = createAxiosInstance();
-  const { data } = await axios.get(`${process.env.NEXT_PUBLIC_URL}/event/get-all-event`);
+  const response = await axios.get(`${process.env.NEXT_PUBLIC_URL}/event/get-all-event`, {
+    params: { page: currentPage, limit: limit },
+  });
+
+  const eventsData = response.data.event;
+  const current = response.data.currentPage;
+  const totalPages = response.data.totalPages;
 
   return {
     props: {
-      events: data,
+      events: eventsData,
+      currentPage: current,
+      totalCount: totalPages,
     },
   };
 };
 
-const index = ({ events }) => {
-  return <Events events={events} />;
+const index = ({ events, currentPage = 1, totalCount }) => {
+  return <Events events={events} urrentPage={currentPage} totalCount={totalCount} />;
 };
 
 export default index;
