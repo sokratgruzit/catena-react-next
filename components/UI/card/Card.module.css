@@ -2,22 +2,31 @@
   width: 100%;
   position: relative;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
 }
 
 .pressImageCont {
   width: 100%;
   position: relative;
-  gap: 50px;
+  padding-top: 55%;
   overflow: hidden;
-  max-height: 500px;
-  height: 100%;
+  margin-bottom: 10px;
 }
 
 .pressImage {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
   /* min-height: 600px; */
+}
+
+.mapCont:hover .pressImage{
+  transform: scale(1.05);
 }
 
 .category {
