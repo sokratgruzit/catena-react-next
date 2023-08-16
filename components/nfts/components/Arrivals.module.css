@@ -10,8 +10,12 @@
 }
 .Arrivals__btn {
   display: flex;
+  gap: 18px;
   align-items: center;
-  width: 78px;
+  /* width: 78px; */
+}
+.Arrivals__btn svg {
+  padding-top: 4px;
 }
 .Arrivals__btnTxt {
   padding-right: 5px;

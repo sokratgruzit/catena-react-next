@@ -52,7 +52,7 @@ const ArrowBtn = props => {
               />
             </svg>
           </div>
-          <p>{title}</p>
+          <p className='ttl'>{title}</p>
         </div>
       </Link>
     );
@@ -61,8 +61,8 @@ const ArrowBtn = props => {
   if (props.direction === 'forward') {
     btn = (
       <Link href={route}>
-        <div className={styles.forwardBtn}>
-          {title}
+        <div className={`${styles.forwardBtn} `}>
+          <p className='ttl'> {title}</p>
           <div className={styles.svgWrapper}>
             <svg width='14' height='11' viewBox='0 0 14 11' fill='162029' xmlns='http://www.w3.org/2000/svg'>
               <path

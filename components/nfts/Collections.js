@@ -523,7 +523,6 @@ const Collections = () => {
   };
   let content = (
     <div className={styles.Collection__tableWrap}>
-      <img className={styles.gradientBck} src='/images/contribute/backgrounds/bck2.png' />
       <Table
         tableLabels={['Collection', 'Volume', 'Lowest', 'Highest', 'Items', 'Supply']}
         tableData={tableData}
@@ -634,7 +633,7 @@ const Collections = () => {
         <TableElement
           type={'pagination'}
           currentPage={currentPage}
-          totalCount={Math.ceil(tableData.length / itemsPerPage)} 
+          totalCount={Math.ceil(tableData.length / itemsPerPage)}
           onPageChange={page => setCurrentPage(page)}
           color={'#A6D0DD'}
         />

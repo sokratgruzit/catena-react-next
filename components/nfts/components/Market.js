@@ -76,14 +76,14 @@ export default function Market() {
     <div>
       <div className={`${styles.container} container`}>
         <div>
-          <p className={`${styles.title} font_51`}>
-            <span className={`font_51`}>NFT</span> Market
+          <p className={`${styles.title} font_51 ttl`}>
+            <span className={`font_51 ttl`}>NFT</span> Market
           </p>
           <p className={`${styles.titleTeaser} font_30`}>
             Buy And Sell NFT’s on <span className={`font_30`}> CATENA </span>
           </p>
           <Link href={`/overview/nfts/activity`}>
-            <div className={styles.Activity__btn}>
+            <div className={`${styles.Activity__btn} ttl`}>
               See Activities
               <svg width='14' height='11' viewBox='0 0 14 11' fill='FF7152' xmlns='http://www.w3.org/2000/svg'>
                 <path
