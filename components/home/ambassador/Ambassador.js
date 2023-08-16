@@ -56,8 +56,8 @@ const Ambassador = () => {
           <CatenaAmbassador />
           <WhatExpected />
           <AmbasdorBtn />
+            <JoinCommunity />
         </InView>
-      {/*<JoinCommunity />*/}
     </div>
   );
 };
