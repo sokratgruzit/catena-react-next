@@ -10,7 +10,7 @@ const Feature = ({ featureLinkList, title, showButton, careers }) => {
   const [isPopupVisible, setPopupVisible] = useState(null);
 
   const handlePopupClick = (index) => {
-    setCopiedLink(`${process.env.NEXT_PUBLIC_URL}/careers/${featureLinkList[index].id}`);
+    setCopiedLink(`${process.env.NEXT_PUBLIC_URL}/open-positions/${featureLinkList[index].id}`);
     setPopupVisible(index);
     setTimeout(() => {
       setPopupVisible(null);
@@ -40,7 +40,7 @@ const Feature = ({ featureLinkList, title, showButton, careers }) => {
                 <div className={styles.openPositionsListItem} key={index}>
                   <Link href={`/overview/careers/${item.slug}`}>
                     <div>
-                      <span className='ttl'>{item.title['en']['career.title']}</span>
+                      <span className='ttl'>{item.title['en']['openPosition.title']}</span>
                     </div>
                   </Link>
                   {isPopupVisible === index && (
