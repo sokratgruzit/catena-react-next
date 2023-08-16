@@ -43,7 +43,7 @@ const MakeProfile = () => {
 
   const changeHandler = e => {
     const { name, value } = e.target;
-    
+
     if (name === "mobile") {
       let mobile = `${value.flag} ${value.code} ${value.number}`;
       setMobileNumber(mobile);
@@ -95,7 +95,7 @@ const MakeProfile = () => {
     }
 
     setErrors(newErrors);
-    
+
     if (isValid) {
       axios
         .post('/user/profile', {
