@@ -112,15 +112,21 @@ const Community = () => {
     }, 400);
   },[]);
   return (
-    <div className='pT-180'>
-      <div className='container' style={{ display: 'flex', flexDirection: 'column', gap: '30px' }}>
-        <h1 className='font-90 ttl' style={{ color: '#162029' }}>
-          Community
-        </h1>
-        <RevercedTitle data={vision} />
-        <Plain data={blockchain} />
-        <RevercedTitle data={events} />
-        <RevercedTitle data={teams} />
+    <div className={`pT-180 ${styles.community}`}>
+        <InView as="div" onChange={(inView, entry) => (inView && setScheme(0))}>
+          <div className='container' >
+            <h1 className={`font-90 ttl tYAnimation ${pageReady ? 'animate' : ''}`} style={{color: "#162029"}} >Community</h1>
+          </div>
+          <RevercedTitle data={vision} animate={pageReady}/>
+          <Plain data={blockchain} />
+          <div className='pT-100'>
+            <RevercedTitle data={events} />
+          </div>
+        </InView>
+      <InView as="div" onChange={(inView, entry) => (inView && setScheme(1))}>
+        <div className='pT-100' data-aos="fade-up">
+          <RevercedTitle data={teams} />
+        </div>
         <Plain data={community} />
         <Listed titles={devCommunity} />
         <Plain data={grant} />
