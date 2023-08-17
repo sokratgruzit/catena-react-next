@@ -80,14 +80,14 @@ const Community = () => {
   const dispatch = useDispatch();
   const [pageReady, setPageReady] = useState(false);
   let microSchemes;
-  if(window.innerWidth > 1250){
+  if(window.innerWidth > 1240){
     microSchemes = [
       [8,9,10,11,12,13,14,15,22,23,24],
       [1,2,3,10,11,12,13,14,15,22,23,24],
     ];
   }
 
-  if(window.innerWidth < 1250){
+  if(window.innerWidth < 1240){
     microSchemes = [
       [1,2,3,5,6,7,8,9,10,11,12,13,14,22,23,24],
       [1,2,7,8,9,10,11,12,13,14,21,22,23,24]
