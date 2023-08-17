@@ -25,7 +25,7 @@ export const getStaticPaths = async ({ locales }) => {
     );
   } else {
     paths = locales.map((loc) => ({
-      params: { slug: `career-${loc}` },
+      params: { slug: `press-${loc}` },
       locale: loc,
     }));
   }
@@ -45,13 +45,13 @@ export const getStaticProps = async context => {
 
   return {
     props: {
-      press: foundItem
+      onePress: foundItem
     },
   };
 };
  
-const index = ({ press }) => {
-  return <Pressitem press={press} />
+const index = ({ onePress }) => {
+  return <Pressitem onePress={onePress} />
 };
 
 export default index;
