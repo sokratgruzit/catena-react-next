@@ -1,10 +1,11 @@
-import { Input, Button } from '@catena-network/catena-ui-module';
+import { Input, Button, HelpText } from '@catena-network/catena-ui-module';
 import React from 'react';
 import { Quiz } from '@catena-network/catena-ui-module';
 import { useState } from 'react';
 import styles from './SubmitAplication.module.css';
 import { lang } from 'moment';
 import createAxiosInstance from '../../../../../../pages/api/axios';
+import { useValidation } from '../../../../../../hooks/useValidation';
 
 const TEMPRORAYDATA = [
   {
@@ -25,6 +26,11 @@ const TEMPRORAYDATA = [
 ]
 
 const SubmitApplication = ({ title }) => {
+
+  const [successMessage, setSuccessMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+  const [depositAmount, setDepositAmount] = useState(5);
+  const [email, setEmail] = useState("");
 
   const axios = createAxiosInstance();
 
@@ -70,7 +76,7 @@ const SubmitApplication = ({ title }) => {
       const logoDotIndex = application.file.name.lastIndexOf(".");
       const logoExt = application.file.name.substring(logoDotIndex + 1);
       const newLogoName = Date.now() + "-application-pdf." + logoExt;
-  
+
       // formData.append("name", application.name);
       // formData.append("email", application.email);
       // formData.append("descr", application.descr);
@@ -105,14 +111,19 @@ const SubmitApplication = ({ title }) => {
                   jobId: 'jobId',
                 })
                 .then(() => {
-
+                  setSuccessMessage('Application submitted successfully!');
+                  setErrorMessage('');
                 });
             }
           });
       } catch (err) {
+        setErrorMessage('An error occurred while sending your application.');
+        setSuccessMessage('');
         console.log(err);
       }
     } else {
+      setErrorMessage('An error occurred while processing your application.');
+      setSuccessMessage('');
       console.log("Images requeired");
     }
   };
@@ -124,7 +135,6 @@ const SubmitApplication = ({ title }) => {
   };
 
   const handlerChange = (e) => {
-    // setApplication({code: e.code, number: e.number,}, e.target.value)
     if (e?.target?.name === "name") {
       setApplication((prev) => ({ ...prev, name: e.target.value }));
       console.log(application, 'name');
@@ -159,12 +169,70 @@ const SubmitApplication = ({ title }) => {
     }
   }
 
+  let helpTexts = {
+    amount: {
+      validationType: "number",
+      success: "amount is valid",
+      failure:
+        "must be a number and multiple of 5000 (e.g 5000, 10000, 15000))",
+    },
+    email: {
+      validationType: "email",
+      success: "Email is valid",
+      failure: "Invalid email format",
+    },
+  };
+
+  const validationErrors = useValidation(
+    {
+      amount: depositAmount || "",
+      email: email || "",
+    },
+    helpTexts
+  );
+
+  const changeHandler = (i, e) => {
+    console.log(i.target.value);
+    const { name, value } = i.target;
+
+    if (name === "amount") {
+      setDepositAmount(value);
+    } else if (name === "email") {
+      setEmail(value)
+    }
+  };
+
   return (
     <div className={styles.submitWrapper}>
       <div className='container_bordered'>
         <h2 className={styles.font__51}>{title}</h2>
         <div className='container_bordered-child'>
           <div className={styles.infoImport}>
+
+            <Input
+              type={"default"}
+              inputType={"text"}
+              placeholder={"0000"}
+              name={"amount"}
+              label={"Amount"}
+              onChange={changeHandler}
+              emptyFieldErr={false}
+              value={depositAmount}
+              statusCard={
+                validationErrors?.amount && (
+                  <HelpText
+                    status={validationErrors.amount.failure ? "error" : "success"}
+                    title={
+                      validationErrors.amount.failure ||
+                      validationErrors.amount.success
+                    }
+                    fontSize={"font-12"}
+                    icon={true}
+                  />
+                )
+              }
+            />
+
             <Input
               type={"default"}
               name={"name"}
@@ -184,10 +252,22 @@ const SubmitApplication = ({ title }) => {
               icon={false}
               label={'E-MAIL'}
               editable={true}
-              // value={""}
               subLabel={""}
               placeholder={'Enter..'}
-              onChange={(e) => { handlerChange(e) }}
+              validation={"email"}
+              value={email}
+              // onChange={(e) => { handlerChange(e) }}
+              onChange={changeHandler}
+              statusCard={
+                validationErrors?.email && (
+                  <HelpText
+                    status={validationErrors.email.failure ? "error" : "success"}
+                    title={validationErrors.email.failure || validationErrors.email.success}
+                    fontSize={"font-12"}
+                    icon={true}
+                  />
+                )
+              }
             />
 
             <Input
@@ -196,6 +276,19 @@ const SubmitApplication = ({ title }) => {
               name={'phone'}
               // value={''}application
               onChange={(e) => { setApplication((prev) => ({ ...prev, phone: e })); }}
+              statusCard={
+                validationErrors?.amount && (
+                  <HelpText
+                    status={validationErrors.amount.failure ? "error" : "success"}
+                    title={
+                      validationErrors.amount.failure ||
+                      validationErrors.amount.success
+                    }
+                    fontSize={"font-12"}
+                    icon={true}
+                  />
+                )
+              }
             />
 
             <Input
@@ -249,7 +342,7 @@ const SubmitApplication = ({ title }) => {
 
             <Input
               type={'default'}
-              name={"gitHub"}           
+              name={"gitHub"}
               // value={value}console.log(e.target.value);
               icon={true}
               emptyFieldErr={false}
@@ -291,7 +384,9 @@ const SubmitApplication = ({ title }) => {
               disabled={false}
               onClick={submitHandler}
             />
-            {showSuccessMessage && <div style={{color: 'green'}}>your application is sucsessful</div>}
+            {/* {showSuccessMessage && <div style={{ color: 'green' }}>your application is sucsessful</div>} */}
+            {successMessage && <div className="success-message">{successMessage}</div>}
+            {errorMessage && <div className="error-message">{errorMessage}</div>}
           </div>
         </div>
       </div>
