@@ -192,7 +192,7 @@ const Careers = ({careers}) => {
   return (
     <div>
       <CareersCatena />
-      <CompanyInfo workflow={workflow} title='How we work' />
+      <CompanyInfo careers={careers} workflow={workflow} title='How we work' />
       <Feature careers={careers} title='Featured Jobs' showButton={true} />
       <OurValues
         iconImages={iconImages}

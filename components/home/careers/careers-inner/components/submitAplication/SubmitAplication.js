@@ -58,7 +58,9 @@ const SubmitApplication = ({ title }) => {
   };
 
   const submitHandler = async (e) => {
-    if (!validationErrors?.email?.failure) {
+    e.preventDefault();
+
+    if (!validationErrors?.email?.failure && application.name && application.file && application.language && application.descr && application.email && application.phone) {
       console.log('Sending data to the backend:', application)
       setShowSuccessMessage(true);
       setTimeout(() => {
@@ -132,7 +134,7 @@ const SubmitApplication = ({ title }) => {
         console.log("Images requeired");
       }
     } else {
-      console.log('Invalid email format. Data not sent.');
+      console.log('Invalid format. Data not sent.');
     }
   };
 
