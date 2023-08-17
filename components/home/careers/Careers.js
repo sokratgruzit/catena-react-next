@@ -239,6 +239,7 @@ const Careers = ({careers}) => {
         <CompanyInfo workflow={workflow} title='How we work' animate={pageReady}/>
         <Feature careers={careers} title='Featured Jobs' showButton={true} animate={pageReady}/>
       </InView>
+      
       <InView as="div" onChange={(inView, entry) => (inView && setScheme(1))}>
         <OurValues
           iconImages={iconImages}
