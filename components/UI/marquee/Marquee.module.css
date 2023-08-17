@@ -1,118 +1,140 @@
 .Running__text {
-    width: 100%;
-    position: relative;
-    display: flex;
-    height: 100px;
+  width: 100%;
+  position: relative;
+  display: flex;
+  height: 100px;
 }
 .Running__text__first {
-    position: absolute;
-    top: 0;
-    height: 100%;
-    display: flex;
-    width: 100%;
-    left: 0;
+  position: absolute;
+  top: 0;
+  height: 100%;
+  display: flex;
+  width: 100%;
+  left: 0;
 }
 .Running__text__row {
-    width: 100%;
-    position: absolute;
-    height: 50px;
-    display: flex;
+  width: 100%;
+  position: absolute;
+  height: 50px;
+  display: flex;
 }
 .Running__text__first svg {
-    width: 15%;
+  width: 15%;
 }
 .Running__text__second svg {
-    width: 15%;
+  width: 15%;
 }
 .Running__text__second {
-    position: absolute;
-    top: 0;
-    left: 100%;
-    height: 100%;
-    display: flex;
-    width: 100%;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  height: 100%;
+  display: flex;
+  width: 100%;
 }
 .default__forward__first {
-    animation: first 10s infinite;
-    animation-timing-function: linear;
-    gap: 50px;
+  animation: first 10s infinite;
+  animation-timing-function: linear;
+  gap: 50px;
+  margin-left: 50px;
 }
 .default__forward__second {
-    animation: second 10s infinite;
-    animation-timing-function: linear;
-    gap: 50px;
+  animation: second 10s infinite;
+  animation-timing-function: linear;
+  gap: 50px;
 }
 .speed__forward__first {
-    animation: first 15s infinite;
-    animation-timing-function: linear;
-    gap: 50px;
-
+  animation: first 15s infinite;
+  animation-timing-function: linear;
+  gap: 50px;
 }
 .speed__forward__second {
-    animation: second 15s infinite;
-    animation-timing-function: linear;
-    gap: 50px;
-
+  animation: second 15s infinite;
+  animation-timing-function: linear;
+  gap: 50px;
 }
 .default__forward__reverse__first {
-    animation: firstReverse 10s infinite;
-    animation-timing-function: linear;
-    gap: 50px;
-
+  animation: firstReverse 10s infinite;
+  animation-timing-function: linear;
+  gap: 50px;
 }
 .default__forward__reverse__second {
-    animation: secondReverse 10s infinite;
-    animation-timing-function: linear;
-    gap: 50px;
+  animation: secondReverse 10s infinite;
+  animation-timing-function: linear;
+  gap: 50px;
 }
 .speed__forward__reverse__first {
-    animation: firstReverse 15s infinite;
-    animation-timing-function: linear;
-    gap: 50px;
+  animation: firstReverse 15s infinite;
+  animation-timing-function: linear;
+  gap: 50px;
 }
 .speed__forward__reverse__second {
-    animation: secondReverse 15s infinite;
-    animation-timing-function: linear;
-    gap: 50px;
+  animation: secondReverse 15s infinite;
+  animation-timing-function: linear;
+  gap: 50px;
 }
 .test {
-    width: 100%;
-    background-color: red;
+  width: 100%;
+  background-color: red;
 }
 @keyframes first {
-    0%   {top: 0px; left: 100%;}
-    100%   {top: 0px; left: 0%;}
+  0% {
+    top: 0px;
+    left: 100%;
+  }
+  100% {
+    top: 0px;
+    left: 0%;
+  }
 }
 @keyframes second {
-    0%   {top: 0px; left: 0px;}
-    100%   {top: 0px; left: -100%;}
+  0% {
+    top: 0px;
+    left: 0px;
+  }
+  100% {
+    top: 0px;
+    left: -100%;
+  }
 }
 @keyframes firstReverse {
-    100%   {top: 0px; left: 100%;}
-    0%   {top: 0px; left: 0%;}
+  100% {
+    top: 0px;
+    left: 100%;
+  }
+  0% {
+    top: 0px;
+    left: 0%;
+  }
 }
 @keyframes secondReverse {
-    100%   {top: 0px; left: 0px;}
-    0%   {top: 0px; left: -100%;}
+  100% {
+    top: 0px;
+    left: 0px;
+  }
+  0% {
+    top: 0px;
+    left: -100%;
+  }
 }
 
 @media (max-width: 1300px) {
-    .Running__text {
-        height: 55px;
-    }
+  .Running__text {
+    height: 65px;
+  }
 }
 @media (max-width: 1023px) {
-    .Running__text {
-        height: 45px;
-    }
+  .Running__text {
+    height: 60px;
+  }
 }
 @media (max-width: 767px) {
-    .Running__text {
-        height: 40px;
-    }
+  .Running__text {
+    height: 40px;
+  }
 }
 @media (max-width: 400px) {
-    .Running__text {
-        height: 35px;
-    }
+  /* .Running__text {
+    height: 35px;
+  } */
 }

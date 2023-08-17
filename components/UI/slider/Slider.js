@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import styles from './Slider.module.css';
 
-const Slider = ({ images }) => {
+const Slider = ({ images, children }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const goToNextSlide = () => {
@@ -15,25 +15,38 @@ const Slider = ({ images }) => {
 
   return (
     <div className={styles.sliderContainer}>
-      <button className={`${styles.arrowButton} ${styles.prev}`} onClick={goToPreviousSlide}>
-        <svg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'>
-          <path
-            d='M16.1829 4.99999L20.0806 8.81889L11.3107 17.3228L39.2852 17.3228L39.2852 22.6772L11.3107 22.6772L20.0806 31.1811L16.1829 35L0.713727 20L16.1829 4.99999Z'
-            fill='#0500FF'
-          />
-        </svg>
-      </button>
+      <div className={styles.wrapper}>
+        {children}
+        <div className={`${styles.mainSliderItemNav}`}>
+          <div className={styles.arrow} onClick={goToPreviousSlide}>
+            <svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
+              <path
+                d='M14.9998 19.92L8.47984 13.4C7.70984 12.63 7.70984 11.37 8.47984 10.6L14.9998 4.08002'
+                stroke='#162029'
+                strokeWidth='2'
+                strokeMiterlimit='10'
+                strokeLinecap='round'
+                strokeLinejoin='round'
+              />
+            </svg>
+          </div>
+          <div className={styles.arrow} onClick={goToNextSlide}>
+            <svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
+              <path
+                d='M9.00016 19.92L15.5202 13.4C16.2902 12.63 16.2902 11.37 15.5202 10.6L9.00016 4.08002'
+                stroke='#162029'
+                strokeWidth='2'
+                strokeMiterlimit='10'
+                strokeLinecap='round'
+                strokeLinejoin='round'
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
       <div className={styles.imageWrapper}>
         <img src={images[currentIndex]} alt={`Image ${currentIndex + 1}`} className={styles.image} />
       </div>
-      <button className={`${styles.arrowButton} ${styles.next}`} onClick={goToNextSlide}>
-        <svg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'>
-          <path
-            d='M23.8171 4.99999L19.9194 8.81889L28.6893 17.3228L0.714843 17.3228L0.714843 22.6772L28.6893 22.6772L19.9194 31.1811L23.8171 35L39.2863 20L23.8171 4.99999Z'
-            fill='#0500FF'
-          />
-        </svg>
-      </button>
     </div>
   );
 };

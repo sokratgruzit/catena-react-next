@@ -21,7 +21,7 @@
   border-radius: 4px;
   padding: 6px 12px;
   cursor: pointer;
-  margin:0 2px;
+  margin: 0 2px;
   color: #162029;
 }
 
@@ -31,9 +31,8 @@
 
 @media (max-width: 1023px) {
   .Activity__filterWrap {
-   margin: 0;
+    margin: 0;
   }
-  
 }
 
 /* @media (max-width:470px){

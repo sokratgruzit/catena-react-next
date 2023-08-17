@@ -1,52 +1,61 @@
 /* btn direction back styles */
 .backBtn {
-    display: flex;
-    align-items: center;
-    width: fit-content;
+  display: flex;
+  align-items: center;
+  width: fit-content;
+}
+.svgWrapper {
+  border: 1px solid #162029;
+  padding: 0px 8px;
+  border-radius: 45px;
+  transition: 0.5s;
 }
 .backBtn svg {
-    transform: .5s;
-    transition: .5s;
+  transform: 0.5s;
+  transition: 0.5s;
 }
 .backBtn p {
-    transition: .5s;
-    padding-left: 5px;
-    color: #FF7152;
+  transition: 0.5s;
+  padding-left: 13px;
+  color: #162029;
 }
 .backBtn:hover svg {
-    transform: translateX(-5px);
-    transition: 0.5s;
-    cursor: pointer;
+  transform: translateX(-5px);
+  transition: 0.5s;
+  cursor: pointer;
+}
+.forwardBtn:hover .svgWrapper,
+.backBtn:hover .svgWrapper {
+  border: 1px solid #ff7152;
 }
 .backBtn:hover svg path {
-    fill: #0500FF;
+  fill: #ff7152;
 }
 .backBtn:hover p {
-    color: #0500FF;
+  color: #ff7152;
 }
 /* btn direction forward styles */
 .forwardBtn {
-    margin-top: 10px;
-    color: #FF7152;
-    display: flex;
-    align-items: center;
-    width: fit-content;
-    justify-content: space-between;
-    transition: .5s;
+  margin-top: 10px;
+  color: #162029;
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  justify-content: space-between;
+  transition: 0.5s;
 }
 .forwardBtn:hover svg path {
-    fill: #0500FF;
+  fill: #ff7152;
 }
 .forwardBtn svg {
-    transition: 0.5s;
-    margin-left: 7px;
-    margin-right: 7px;
-
+  transition: 0.5s;
+  margin-left: 7px;
+  margin-right: 7px;
 }
 .forwardBtn:hover svg {
-    transform: translateX(5px);
-    transition: 0.5s;
+  transform: translateX(5px);
+  transition: 0.5s;
 }
 .forwardBtn:hover {
-    color: #0500FF
+  color: #ff7152;
 }
