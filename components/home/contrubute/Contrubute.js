@@ -1,11 +1,15 @@
 import Header from './components/Header';
-// import Botoom from './components/Botoom';
+import Bottom from './components/Bottom';
+import InformationBox from '../informationBox/InformationBox';
 
 const Contribute = () => {
   return (
-    <div>
-      <Header />
-      {/* <Botoom /> */}
+    <div style={{ display: 'flex' }}>
+      <div>
+        <Header />
+        <Bottom />
+      </div>
+      <InformationBox style={{ margin: '200px' }} />
     </div>
   );
 };

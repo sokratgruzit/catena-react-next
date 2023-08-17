@@ -1,79 +1,86 @@
 .CollectionsPromo {
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding-top: 50px;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+  padding-bottom: 50px;
+  padding-top: 144px;
+  background: #000000d1;
 }
 .CollectionsPromo__background {
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 .CollectionsPromo__title {
-    z-index: 10;
+  z-index: 10;
+  color: #fff;
+  text-align: center;
 }
 .CollectionsPromo__title span {
-    text-transform: uppercase;
+  text-transform: uppercase;
+  color: #fff;
 }
+
 .CollectionsPromo__teaser span {
-    text-transform: uppercase;
+  color: #ffffff;
 }
 .CollectionsPromo__teaser {
-    padding-top: 20px;
-    color: #FFFFFF;
-    opacity: 0.7;
+  padding-top: 20px;
+  color: #ffffff;
+  max-width: 590px;
+  text-align: center;
 }
 .CollectionsPromo__cards {
-    position: relative;
-    width: 100%;
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    height: 100vh;
-    margin: 100px;
+  position: relative;
+  width: 100%;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 70vh;
 }
 .CollectionsPromo__card1 {
-    /* position: absolute; */
-    transform: rotate(-30deg);
-    border-radius: 172px;
-    z-index: 6;
-    margin-right: 275px;
-    margin-top: 175px;
-    height: 50%;
-    width: 30%;
-    overflow: hidden;
+  position: absolute;
+  transform: rotate(-30deg);
+  border-radius: 172px;
+  z-index: 6;
+  margin-right: 225px;
+  margin-top: 273px;
+  height: 60%;
+  width: 15%;
+  overflow: hidden;
 }
 .CollectionsPromo__card2 {
-    position: absolute;
-    border-radius: 172px;
-    z-index: 7;
-    height: 50%;
-    width: 30%;
-    overflow: hidden;
+  position: absolute;
+  border-radius: 172px;
+  z-index: 7;
+  height: 60%;
+  width: 15%;
+  overflow: hidden;
 }
 .CollectionsPromo__card3 {
-    position: absolute;
-    border-radius: 172px;
-    z-index: 6;
-    transform: rotate(30deg);
-    margin-left: 275px;
-    margin-bottom: 175px;
-    height: 50%;
-    width: 30%;
-    overflow: hidden;
+  position: absolute;
+  border-radius: 172px;
+  z-index: 6;
+  transform: rotate(30deg);
+  margin-left: 252px;
+  margin-bottom: 175px;
+  height: 60%;
+  width: 15%;
+  overflow: hidden;
 }
 .CollectionsPromo__btn {
-    position: relative;
-    z-index: 10;
+  position: relative;
+  z-index: 10;
 }
 .CollectionsPromo__btn__item {
-    position: absolute;
-    top: 29%;
-    left: 29%;
-    z-index: 11;
+  position: absolute;
+  top: 29%;
+  left: 29%;
+  z-index: 11;
 }
 /* .CollectionsPromo__btn {
     position: absolute;
@@ -82,94 +89,149 @@
     left: 55%;
 } */
 .nftActivityTableFilterMenu svg {
-    margin-left: 15px;
+  margin-left: 15px;
 }
 .CollectionsPromo__btn__spin {
-    z-index: 11;
+  z-index: 11;
 }
 .CollectionsPromo__btnWrap {
-    position: absolute;
-    left: 60%;
-    top: 70%;
-    width: 126px;
-    height: 120px;
-    transition: all 1s cubic-bezier(.245,0,0,1);
-    z-index: 11;
+  position: absolute;
+  left: 60%;
+  top: 70%;
+  width: 126px;
+  height: 120px;
+  transition: all 1s cubic-bezier(0.245, 0, 0, 1);
+  z-index: 11;
 }
 @-webkit-keyframes rotating /* Safari and Chrome */ {
-    from {
-      -webkit-transform: rotate(0deg);
-      -o-transform: rotate(0deg);
-      transform: rotate(0deg);
-    }
-    to {
-      -webkit-transform: rotate(360deg);
-      -o-transform: rotate(360deg);
-      transform: rotate(360deg);
-    }
+  from {
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
   }
-  @keyframes rotating {
-    from {
-      -ms-transform: rotate(0deg);
-      -moz-transform: rotate(0deg);
-      -webkit-transform: rotate(0deg);
-      -o-transform: rotate(0deg);
-      transform: rotate(0deg);
-    }
-    to {
-      -ms-transform: rotate(360deg);
-      -moz-transform: rotate(360deg);
-      -webkit-transform: rotate(360deg);
-      -o-transform: rotate(360deg);
-      transform: rotate(360deg);
-    }
+  to {
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
   }
-  .rotating {
-    -webkit-animation: rotating 7s linear infinite;
-    -moz-animation: rotating 7s linear infinite;
-    -ms-animation: rotating 7s linear infinite;
-    -o-animation: rotating 7s linear infinite;
-    animation: rotating 7s linear infinite;
-    z-index: 11;
+}
+@keyframes rotating {
+  from {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
   }
+  to {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+.rotating {
+  -webkit-animation: rotating 7s linear infinite;
+  -moz-animation: rotating 7s linear infinite;
+  -ms-animation: rotating 7s linear infinite;
+  -o-animation: rotating 7s linear infinite;
+  animation: rotating 7s linear infinite;
+  z-index: 11;
+}
 .CollectionsPromo__btnWrap:hover {
-    transform: translate(-5%, -5%) scale(.85);
-    z-index: 11;
+  transform: translate(-5%, -5%) scale(0.85);
+  z-index: 11;
 }
 /* .CollectionsPromo__btn__item {
     position: absolute;
 } */
 /*Laptop 1440*/
-@media (max-width: 1900px) {
+@media (max-width: 1665px) {
+  .CollectionsPromo__card1,
+  .CollectionsPromo__card2,
+  .CollectionsPromo__card3 {
+    /* width: 25%; */
+    height: 50%;
+  }
 }
-/*Ipad Pro 1024*/
-@media (max-width: 1300px) {
-    .CollectionsPromo__cards {
-        width: 70%;
-    }
+@media (max-width: 1356px) {
+  .CollectionsPromo__card1,
+  .CollectionsPromo__card2,
+  .CollectionsPromo__card3 {
+    width: 20%;
+    height: 50%;
+  }
 }
-/*Ipad 768*/
 @media (max-width: 1023px) {
-    .CollectionsPromo__cards {
-        width: 40%;
-    }
+  .CollectionsPromo__card1,
+  .CollectionsPromo__card2,
+  .CollectionsPromo__card3 {
+    height: 50%;
+    width: 25%;
+  }
 }
-/*Mobile 320*/
+
 @media (max-width: 767px) {
-    .CollectionsPromo {
-        text-align: center;
-        height: 50vh;
-    }
-    .CollectionsPromo__cards {
-        width: 30%;
-        padding-top: 75px;
-    }
-    .CollectionsPromo__card1 {
-        margin-right: 100px;
-        margin-top: 75px;
-    }
-    .CollectionsPromo__card3 {
-        margin-left: 100px;
-        margin-top: 100px;
-    }
+  .CollectionsPromo__cards {
+    height: 60vh;
+  }
+
+  .CollectionsPromo__card2 {
+    width: 32%;
+    height: 55%;
+  }
+
+  .CollectionsPromo__card1 {
+    margin-right: 106px;
+    margin-top: 166px;
+    height: 55%;
+    width: 32%;
+  }
+
+  .CollectionsPromo__card3 {
+    margin-left: 155px;
+    margin-bottom: 165px;
+    height: 55%;
+    width: 32%;
+  }
+}
+
+@media (max-width: 600px) {
+  .CollectionsPromo__cards {
+    height: 45vh;
+  }
+
+  .CollectionsPromo__card2 {
+    width: 35%;
+  }
+
+  .CollectionsPromo__card1 {
+    margin-right: 83px;
+    margin-top: 143px;
+    width: 30%;
+  }
+
+  .CollectionsPromo__card3 {
+    margin-left: 101px;
+    margin-bottom: 154px;
+    width: 30%;
+  }
+}
+@media (max-width: 400px) {
+  .CollectionsPromo__cards {
+    height: 40vh;
+  }
+
+  .CollectionsPromo__card2 {
+    width: 40%;
+  }
+
+  .CollectionsPromo__card1 {
+    width: 40%;
+  }
+
+  .CollectionsPromo__card3 {
+    width: 40%;
+  }
 }

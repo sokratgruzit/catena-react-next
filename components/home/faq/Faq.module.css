@@ -44,7 +44,7 @@
 .number {
   width: 25px;
   height: 25px;
-  margin: 10px 10px 10px 10px;
+  margin: 1px 20px 0px 10px;
 }
 
 .itemTitle {
@@ -98,6 +98,6 @@
 /*Mobile 320*/
 @media (max-width: 767px) {
   .number {
-    margin: 9px 10px 10px 10px;
+    margin: 0px 8px 0px 0px;
   }
 }

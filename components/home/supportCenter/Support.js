@@ -3,7 +3,7 @@ import React from 'react';
 import SupportItem from './components/SupportItem';
 
 const Support = () => {
-  return <SupportItem />
+  return <SupportItem />;
 };
 
 export default Support;

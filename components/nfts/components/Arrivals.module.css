@@ -1,63 +1,91 @@
 .Arrivals {
-    display: flex;
-    flex-direction: column;
-    padding-top: 60px;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-top: 60px;
+  width: 100%;
 }
 .Arrivals__item {
-    padding-top: 5px;
-    padding-bottom: 50px;
+  padding-top: 5px;
+  padding-bottom: 50px;
 }
 .Arrivals__btn {
-    display: flex;
-    align-items: center;
-    width: 78px;
-}
-.Arrivals__btnTxt {
-    padding-right: 5px;
-    color: #FFFFFF;
-    transition: .5s;
-}
-.Arrivals__btn:hover svg path{
-    fill: #0500FF;
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  /* width: 78px; */
 }
 .Arrivals__btn svg {
-    transition: 0.5s;
+  padding-top: 4px;
+}
+.Arrivals__btnTxt {
+  padding-right: 5px;
+  transition: 0.5s;
+}
+
+.Arrivals__btn:hover svg path {
+  fill: #0500ff;
+}
+.Arrivals__btn svg {
+  transition: 0.5s;
 }
 .Arrivals__btn:hover svg {
-    transform: translateX(5px);
+  transform: translateX(5px);
 }
 .Arrivals__btn:hover .Arrivals__btnTxt {
-    color: #0500FF
+  color: #0500ff;
 }
 .Arrivals__itemsList {
-    display: flex;
-    align-items: center;
-    width: 80%;
-    flex-wrap: wrap;
-    margin-left: auto;
-    margin-right: auto;
-    gap: 30px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  flex-wrap: wrap;
+
+  gap: 30px;
+  padding-bottom: 89px;
+}
+.FAQSection {
+  display: flex;
+  background-color: #f5e9dc;
+  padding: 89px 39px;
+}
+
+.FAQWrapper {
+  width: 70%;
+}
+
+.centerElement {
+  width: fit-content;
+  margin: auto;
 }
 .Arrivals__newWindow {
-    display: flex;
-    align-items: center;}
+  display: flex;
+  align-items: center;
+}
 
 .Arrivals__newWindow:hover svg path {
-    fill: #FF7152;
-    transition: 0.5s;
+  fill: #ff7152;
+  transition: 0.5s;
 }
 .Arrivals__newWindow p {
-    color:#0500FF;
-    padding-right: 5px;
-    cursor: pointer;
+  color: #0500ff;
+  padding-right: 5px;
+  cursor: pointer;
 }
 .Arrivals__newWindow:hover p {
-    color: #FF7152;
-    transition: 0.5s;
+  color: #ff7152;
+  transition: 0.5s;
 }
 .Arrivals__applyTo {
-    margin-left: auto;
-    padding-top: 60px;
-    padding-bottom: 40px;
+  margin-left: auto;
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+
+@media (max-width: 767px) {
+  .FAQSection {
+    flex-direction: column;
+  }
+  .FAQWrapper {
+    width: 100%;
+  }
 }

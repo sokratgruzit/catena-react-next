@@ -14,7 +14,6 @@ const ListItemCard = props => {
   if (type === 'nft_arrivals' || type === 'nft_activity' || type === 'nft_creator') {
     obj = (
       <div key={data.id} className={styles.Arrivals__listItemWrap}>
-        <CornerDecor />
         <Link href={`/nfts/collections/buy`}>
           <a>
             <div className={styles.Arrivals__imgBlock}>
@@ -26,12 +25,14 @@ const ListItemCard = props => {
             </div>
             <div className={styles.nftArrivals__content}>
               <p className={styles.Arrivals__contentTitle}>Asking Price:</p>
-              <div className={styles.Arrivals__contentTeaserBlock}>
-                <p>
-                  <span className={styles.colored}>{data.value}</span>
-                  {data.price}
+              <div className={styles.Arrivals__contentTeaserDiv}>
+                <p className={`${styles.Arrivals__contentTeaser} ${styles.Arrivals__contentTeaserSpan} font_13`}>
+                  ({data.priceUSD})
                 </p>
-                <p className={`${styles.Arrivals__contentTeaser} font_13`}>({data.priceUSD})</p>
+                <p className={styles.price}>
+                  {data.price}
+                  <span className={styles.colored}> {data.value}</span>
+                </p>
               </div>
             </div>
           </a>
@@ -124,29 +125,32 @@ const ListItemCard = props => {
             <div className={styles.Product__content}>
               <div className={styles.Product__images}>
                 {/* <Image src={data.toReciverImg} layout='fill' alt='nft' /> */}
-                <Image src='/images/nft/nft_collection_items/fig1.png' width={30} height={30} alt='img' />
-                <Image src='/images/nft/nft_collection_items/fig2.png' width={30} height={30} alt='img' />
-                <Image src='/images/nft/nft_collection_items/fig3.png' width={30} height={30} alt='img' />
+                {/* <Image src='/images/nft/nft_collection_items/fig1.png' width={30} height={30} alt='img' />
+                <Image src='/images/nft/nft_collection_items/fig2.png' width={30} height={30} alt='img' /> */}
+                <img
+                  className={styles.Product__images__img}
+                  src='/images/nft/nft_collection_items/fig4.png'
+                  alt='img'
+                />
               </div>
               <div className={styles.Product__logo}>
-                <Image src='/images/nft/nft_collection_items/logo1.png' width={30} height={30} alt='img' />
+                <img src='/images/nft/nft_collection_items/logo1.png' alt='img' />
               </div>
               <div className={styles.Product__titles}>
-                <p>Created By</p>
                 <p>The AKC</p>
               </div>
             </div>
             <div className={styles.Product__content__inner}>
               <div className={styles.Product__volume}>
-                <p className={`font_13`}>Volume:</p>
+                <p>Volume:</p>
               </div>
               <div className={styles.Product__price}>
                 <p>
-                  <span>CMCX</span> 1.04
+                  1.04 <span>CMCX</span>
                 </p>
-                <p>
+                {/* <p>
                   <span>items</span>8.9K
-                </p>
+                </p> */}
               </div>
             </div>
           </div>

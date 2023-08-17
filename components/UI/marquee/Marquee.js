@@ -95,6 +95,9 @@ const Marquee = props => {
   if (props.label === 'propsal') {
     svgArray = [<p key={'1'}>hi</p>];
   }
+  if (props.label === 'propsal') {
+    svgArray = [<p key={'1'}>hi</p>];
+  }
   if (props.label === 'voting') {
     svgArray = [
       <ProposalsText key={'1'} />,
@@ -109,12 +112,12 @@ const Marquee = props => {
     <div className={styles.Running__text}>
       <div className={styles.Running__text__row}>
         <div className={`${styles.Running__text__first} ${custumClass}`}>
-          {svgArray.map(item => {
+          {props.svgArray.map(item => {
             return item;
           })}
         </div>
         <div className={`${styles.Running__text__second} ${custumClass2}`}>
-          {svgArray.map(item => {
+          {props.svgArray.map(item => {
             return item;
           })}
         </div>
