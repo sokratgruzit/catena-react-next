@@ -36,7 +36,6 @@ export const getStaticPaths = async ({ locales }) => {
   };
 };
 
-
 export const getStaticProps = async context => {
   const slug = context.params.slug;
   const axios = createAxiosInstance();
