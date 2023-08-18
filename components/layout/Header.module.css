@@ -240,7 +240,8 @@
 }
 
 .headerRight {
-  display: flex;
+  /*display: flex;*/
+  display: none!important;
   align-items: center;
   transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
   transition-delay: 0.4s;

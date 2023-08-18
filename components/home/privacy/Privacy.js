@@ -1,8 +1,41 @@
 import PrivacyList from './components/PrivacyList';
 
 import styles from './styles/Privacy.module.css';
+import {useDispatch} from "react-redux";
+import {useEffect, useState} from "react";
 
 export default function privacy() {
+  const dispatch = useDispatch();
+  const [pageReady, setPageReady] = useState(false);
+  let microSchemes;
+  if(window.innerWidth > 1240){
+    microSchemes = [
+      [1,2,12,13,14,15,16,17,23,24],
+    ];
+  }
+
+  if(window.innerWidth < 1240){
+    microSchemes = [
+      [1,2,5,6,7,8,9,10,11,12,13,22,23,24],
+    ];
+  }
+
+  const setScheme = (num) => {
+    dispatch({
+      type: "SET_MICHROSCHEME_ARRAY",
+      microschemeArray: microSchemes[num]
+    });
+  }
+
+  useEffect(() => {
+    setTimeout(() => {
+      setPageReady(true);
+      dispatch({
+        type: "SET_MICHROSCHEME_ARRAY",
+        microschemeArray: microSchemes[0]
+      });
+    }, 400);
+  },[]);
   const privacyList = [
     {
       title: 'Your Data',
@@ -252,13 +285,15 @@ export default function privacy() {
     },
   ];
   return (
-    <div className={`container ${styles.wrapper}`}>
-      <h1 className={styles.title}>
-        <span className='font-90 ttl'>Privacy</span>
-        <span className='font-90 ttl'>Policy</span>
-      </h1>
-      <div className={styles.content}>
-        <PrivacyList privacyList={privacyList} />
+    <div className='pT-180'>
+      <div className={`container ${styles.wrapper} tYAnimation ${pageReady ? 'animate' : ''}`}>
+        <h1 className={`${styles.title}`}>
+          <span className='font-90 ttl'>Privacy</span>
+          <span className='font-90 ttl'>Policy</span>
+        </h1>
+        <div className={styles.content}>
+          <PrivacyList privacyList={privacyList} />
+        </div>
       </div>
     </div>
   );
