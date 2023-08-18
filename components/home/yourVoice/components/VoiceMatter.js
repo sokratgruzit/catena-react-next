@@ -24,7 +24,7 @@ const VoiceMatter = () => {
   };
 
   const handleSubmit = () => {
-    if (!validationErrors.email.failure) {
+    if (!validationErrors?.email?.failure && formData.email) {
       console.log('Sending data to the backend:', formData);
       setFormData({
         email: '',
@@ -84,6 +84,7 @@ const VoiceMatter = () => {
                 validation={"email"}
                 value={email}
                 onChange={chngHandler}
+                required={false}
                 statusCard={
                   validationErrors?.email && (
                     <HelpText
