@@ -11,14 +11,14 @@ function BugBounty() {
   const dispatch = useDispatch();
   const [pageReady, setPageReady] = useState(false);
   let microSchemes;
-  if(window.innerWidth > 1250){
+  if(window.innerWidth > 1240){
     microSchemes = [
       [1,2,9,10,11,12,13,14,20,21,22,23,24],
       [1,2,10,11,12,13,14,22,23,24]
     ];
   };
 
-  if(window.innerWidth < 1250){
+  if(window.innerWidth < 1240){
     microSchemes = [
       [1,2,5,6,7,8,9,10,11,12,13,14,20,21,22,23,24],
       [1,10,11,12,13,14,22,23,24]

@@ -28,7 +28,7 @@ const Press = ({ press, currentPage, totalCount }) => {
             <p className={`${styles.titlePartyOne} ttl`}>Catena</p>
             <p className={`${styles.titlePartyTwo} ttl`}>Press</p>
           </h1>
-          <div className={`${styles.bodyContainer} pT-100`}>
+          <div className={`${styles.bodyContainer} pT-100 pB-50`}>
             <Card dataArr={press} fileAdress={fileAdress} title={title} description={description} slugType='press' />
           </div>
         </div>
@@ -38,8 +38,11 @@ const Press = ({ press, currentPage, totalCount }) => {
         totalCount={totalCount}
         onPageChange={page => handlePageChange(page)}
       />
-      <div className={`${styles.sourcesContainer}`}>
-        <h1 className='ttl font-40 container'>Sources</h1>
+      <div className={`${styles.sourcesContainer} pT-100`}>
+        <div className='pB-50'>
+         <h2 className='ttl font-40 container'>Sources</h2>
+        </div>
+        
         <PressLogo />
       </div>
       <PublicByYears />

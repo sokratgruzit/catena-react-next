@@ -1,9 +1,10 @@
+import React from 'react';
 import styles from '../styles/PrivacyList.module.css';
 
 function PrivacyList({ privacyList }) {
   const privacyHeader = [
     {
-      text: 'We are committed to protecting Your privacy. This Privacy Policy describes how We collect, use, store, share and protect the information collected through https://www.catena.com/ (the “Website”).In this Privacy Policy, "We", "Us", and "Our" refer to Catena. For more information about Us, see “Our Details” at the end of this Policy.',
+      text: 'We are committed to protecting Your privacy. This Privacy Policy describes how We collect, use, store, share and protect the information collected through https://www.catena.com/ (the “Website”). In this Privacy Policy, "We", "Us", and "Our" refer to Catena. For more information about Us, see “Our Details” at the end of this Policy.',
     },
     {
       text: 'This Privacy Policy is incorporated into and subject to Our Terms and Conditions. Capitalized words used but not defined in this Privacy Policy have the meaning given to them in the Terms and Conditions.',
@@ -13,25 +14,24 @@ function PrivacyList({ privacyList }) {
     },
     {
       span: 'PLEASE READ THIS PRIVACY POLICY CAREFULLY',
-      text: ' because it affects Your rights under the law. You confirm that You have read and agreed to be bound by this Privacy Policy. If You do not agree with this Privacy Policy, You cannot use, access, create or publish in the Website. This Privacy Policy may change as Wecontinuously improve the Website, so please check it periodically.',
+      text: ' because it affects Your rights under the law. You confirm that You have read and agreed to be bound by this Privacy Policy. If You do not agree with this Privacy Policy, You cannot use, access, create or publish in the Website. This Privacy Policy may change as We continuously improve the Website, so please check it periodically.',
     },
     {
       text: 'We reserve the right to modify or amend the Privacy Policy from time to time without notice. Your continued use of the Website following the posting of changes to these terms will mean You accept those changes. If We intend to apply the modifications or amendments to this Privacy Policy retroactively or to Personal Data already in Our possession, We will provide You with notice of the modifications or amendments.',
     },
   ];
+
   return (
     <div className={styles.listWrapper}>
       <div className={styles.intro}>
-        {privacyHeader?.map((item, index) => {
-          return (
-            <div key={index} className={styles.content}>
-              <p>
-                <span>{item.span}</span>
-                {item.text}
-              </p>
-            </div>
-          );
-        })}
+        {privacyHeader?.map((item, index) => (
+          <div key={index} className={styles.content}>
+            <p>
+              <span>{item.span}</span>
+              {item.text}
+            </p>
+          </div>
+        ))}
       </div>
       {privacyList?.map((item, i) => (
         <div key={i} className={styles.orderedList}>
@@ -41,8 +41,19 @@ function PrivacyList({ privacyList }) {
             </ol>
             {item?.title}
           </div>
-          <p className={styles.text}>{item?.text}</p>
-          {item?.link && <a href='mailto:https://www.catenamultichain.com/'>{item?.link}</a>}
+
+          <div>
+            {typeof item.text === 'string' ? (
+              <p className={styles.text}>{item.text}</p>
+            ) : (
+              item.text.map((text, textIndex) => (
+                <p className={styles.text} key={textIndex}>
+                  {text} {item?.link && <a href={`mailto:${item.link}`}>{item?.link}</a>}
+                </p>
+              ))
+            )}
+          </div>
+
           {item?.bullets && (
             <div className={`text ${styles.ul}`}>
               <ul>
@@ -52,6 +63,7 @@ function PrivacyList({ privacyList }) {
               </ul>
             </div>
           )}
+
           {item?.children &&
             item?.children?.map((child, j) => (
               <div key={j} className={styles.children}>
@@ -76,6 +88,7 @@ function PrivacyList({ privacyList }) {
                 </div>
               </div>
             ))}
+          {item.text && typeof item.text === 'string' && <p className={styles.text}>{item.text}</p>}
         </div>
       ))}
     </div>
