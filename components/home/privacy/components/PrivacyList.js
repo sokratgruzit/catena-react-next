@@ -67,15 +67,24 @@ function PrivacyList({ privacyList }) {
           {item?.children &&
             item?.children?.map((child, j) => (
               <div key={j} className={styles.children}>
-                <h3 className={`${styles.secondaryTitle}  font_20 ttl`}>
-                  <p className={`${styles.numbering}  font_20`}>
+                <h3 className={`${styles.secondaryTitle} font_20 ttl`}>
+                  <p className={`${styles.numbering} font_20`}>
                     {`${i + 1}.${j + 1} `}
                     <span className={styles.circle}></span>
                   </p>
                   {child?.title}
                 </h3>
                 <div className={styles.innerContent}>
-                  <p className={styles.teaser}>{child?.text}</p>
+                  {child?.text &&
+                    (typeof child.text === 'string' ? (
+                      <p className={styles.text}>{child.text}</p>
+                    ) : (
+                      child.text.map((text, textIndex) => (
+                        <p className={styles.text} key={textIndex}>
+                          {text} {child?.link && <a href={`mailto:${child.link}`}>{child?.link}</a>}
+                        </p>
+                      ))
+                    ))}
                   {child?.bullets && (
                     <div className={`text ${styles.ul}`}>
                       <ul>
@@ -88,7 +97,9 @@ function PrivacyList({ privacyList }) {
                 </div>
               </div>
             ))}
-          {item.text && typeof item.text === 'string' && <p className={styles.text}>{item.text}</p>}
+          {item?.textTwo && <p className={styles.text}>{item.textTwo}</p>}
+
+          {/* {item.text && typeof item.text === 'string' && <p className={styles.text}>{item.text}</p>} */}
         </div>
       ))}
     </div>

@@ -62,34 +62,20 @@ export default function privacy() {
       title: 'Sharing Of Personal Data',
       text: [
         'We may share your Personal Data with the following:',
-        "Third-Party Suppliers. We may disclose Your Enquiry Data to one or more of those selected third-party suppliers of Goods and Services identified on Our Website for the purpose of enabling them to contact You so that they can offer, market and sell relevant Goods and/or Services to You. Each such third party will act as a data controller in relation to the Enquiry Data that We supply to it; and upon contacting You, each such third party will supply to You a copy of its own privacy policy, which will govern that third party's use of Your Personal Data. The suppliers and providers with whom We may share Your information include:",
+        "Third-Party Suppliers. We may disclose Your Enquiry Data to one or more of those selected third-party suppliers of Goods and Services identified on Our Website for the purpose of enabling them to contact You so that they can offer, market and sell relevant Goods and/or Services to You. Each such third party will act as a data controller in relation to thea Enquiry Data that We supply to it; and upon contacting You, each such third party will supply to You a copy of its own privacy policy, which will govern that third party's use of Your Personal Data. The suppliers and providers with whom We may share Your information include:",
       ],
       bullets: [
         'Social networking sites',
         'Analytics services',
         'IT service providers and web hosting companies',
-        'enforcing Our Terms and Conditions;',
-        'as otherwise required or authorized by law or government agency.',
+        'Legal, auditing and other professional advisors or consultants',
+        'Billing or data storage services',
+      ],
+      textTwo: [
+        'Other Purposes. In addition to the specific disclosures of Personal Data set out in this Section, We may disclose Your Personal Data where such disclosure is necessary for compliance with a legal obligation to which We are subject, or in order to protect Our vital interests, Your vital interests, or the vital interests of another natural person. We may also disclose Your Personal Data where such disclosure is necessary for the establishment, exercise or defence of legal claims, whether in court proceedings or in an administrative or out-of-court procedure.',
       ],
     },
-    {
-      title: 'Sharing Of Personal Data',
-      children: [
-        {
-          title: 'We may share your Personal Data with the following:',
-          text: "Third-Party Suppliers. We may disclose Your Enquiry Data to one or more of those selected third-party suppliers of Goods and Services identified on Our Website for the purpose of enabling them to contact You so that they can offer, market and sell relevant Goods and/or Services to You. Each such third party will act as a data controller in relation to the Enquiry Data that We supply to it; and upon contacting You, each such third party will supply to You a copy of its own privacy policy, which will govern that third party's use of Your Personal Data. The suppliers and providers with whom We may share Your information include:",
-          bullets: [
-            'Social networking sites',
-            'Analytics services',
-            'IT service providers and web hosting companies',
-            'Legal, auditing and other professional advisors or consultants',
-            'Billing or data storage services',
-          ],
-        },
-      ],
 
-      text: 'Other Purposes. In addition to the specific disclosures of Personal Data set out in this Section, We may disclose Your Personal Data where such disclosure is necessary for compliance with a legal obligation to which We are subject, or in order to protect Our vital interests, Your vital interests, or the vital interests of another natural person. We may also disclose Your Personal Data where such disclosure is necessary for the establishment, exercise or defence of legal claims, whether in court proceedings or in an administrative or out-of-court procedure.',
-    },
     {
       title: 'Data Security',
       text: [
