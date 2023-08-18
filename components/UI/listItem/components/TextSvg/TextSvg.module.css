@@ -1,4 +1,12 @@
-.TableRow__date{
+.TableRow__date {
   display: flex;
   align-items: center;
+}
+
+.TableRow__date svg {
+  margin-left: 20px;
+}
+
+.TableRow__date p:first-child {
+  margin-right: 6px;
 }
