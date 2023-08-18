@@ -5,7 +5,7 @@ const OurValues = props => {
   return (
     <div className='container'>
       {/* <div className='container'> */}
-      <div className={styles.career_head}>
+      <div className={styles.career_head} data-aos="fade-up">
         <h2 className={`${styles.font__51} font-40 ttl`}>{title}</h2>
         <div className={styles.career_description}>
           <p>{description}</p>
@@ -13,7 +13,7 @@ const OurValues = props => {
         {/* </div> */}
       </div>
       {/* <div className='container'> */}
-      <div className={styles.career_items}>
+      <div className={styles.career_items} data-aos="fade-up">
         {iconImages.map((item, index) => {
           return (
             <div className={styles.career_item} key={index}>

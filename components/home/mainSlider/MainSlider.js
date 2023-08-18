@@ -42,10 +42,10 @@ const MainSlider = ({ trans }) => {
   useEffect(() => {
     setActiveSlide(1);
     setTimeout(() => {
-      // dispatch({
-      //   type: 'SET_MICHROSCHEME_ARRAY',
-      //   microschemeArray: microSchemes[activeSlide],
-      // });
+      dispatch({
+        type: 'SET_MICHROSCHEME_ARRAY',
+        microschemeArray: microSchemes[activeSlide],
+      });
     }, 500);
     console.log(microSchemes)
   }, []);

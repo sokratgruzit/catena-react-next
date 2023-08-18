@@ -6,8 +6,8 @@ const CurrentOpenings = props => {
   return (
     <div>
       <div className='container_bordered'>
-        <h2 className={`${styles.font__51} font-40 ttl`}>{title}</h2>
-        <div className='container_bordered-child '>
+        <h2 className={`${styles.font__51} font-40 ttl`} data-aos="fade-up">{title}</h2>
+        <div className='container_bordered-child ' data-aos="fade-up">
           <div className={styles.contSTyle}>
             {currentOpeningsList.map((item, index) => {
               return (

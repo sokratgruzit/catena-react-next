@@ -6,12 +6,12 @@ const HowWeHire = props => {
   return (
     <div className='container'>
       <div className={`${styles['hire__steps-section']}`}>
-        <div className={`${styles['hire__steps-head']}`}>
+        <div className={`${styles['hire__steps-head']}`} data-aos="fade-up">
           <h2 style={{ color: '#162029' }} className='font-40 ttl'>{title}</h2>
           <p className='font-20'>{description}</p>
         </div>
 
-        <div className={`${styles['hire__steps']}`}>
+        <div className={`${styles['hire__steps']}`} data-aos="fade-up">
           {hiringProcess.map((item, index) => {
             return (
               <div key={index} className={`${styles['hire__step']}`}>
