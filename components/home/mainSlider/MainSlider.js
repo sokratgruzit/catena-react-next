@@ -10,6 +10,7 @@ import styles from './MainSlider.module.css';
 import Image from 'next/image';
 import TaskSvg from '../../svg/mainSlider/TaskSvg';
 import SolutionSvg from '../../svg/mainSlider/SolutionSvg';
+import Link from "next/link";
 
 const MainSlider = ({ trans }) => {
   const [levels, setLevels] = useState([]);
@@ -47,7 +48,6 @@ const MainSlider = ({ trans }) => {
         microschemeArray: microSchemes[activeSlide],
       });
     }, 500);
-    console.log(microSchemes)
   }, []);
 
   // let scrollBlocker = true;
@@ -85,7 +85,6 @@ const MainSlider = ({ trans }) => {
       }, 1000);
     }
   };
-
   return (
     <>
       {/*${styles.mainSliderActive}*/}
@@ -146,10 +145,12 @@ const MainSlider = ({ trans }) => {
               </div>
               <h1 className='font-90 ttl'>A Virtual World of Interconnected Blockchains</h1>
               <div className={styles.mainSliderItemBtnOut}>
-                <a href='##' className={styles.mainSliderItemBtn}>
-                  {/*{trans[activeLang]?.slider1_slide1_join_btn}*/}
-                  Join the Community
-                </a>
+                <Link href='/overview/community' locale={activeLang}>
+                  <a className={styles.mainSliderItemBtn}>
+                    {/*{trans[activeLang]?.slider1_slide1_join_btn}*/}
+                    Join the Community
+                  </a>
+                </Link>
               </div>
               <div className={`${styles.scrollMore}`}>
                 <div

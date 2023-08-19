@@ -1457,7 +1457,7 @@ const TechnologySlider = () => {
                       slidesPerView: 1,
                     },
                     768: {
-                      slidesPerView: 2.5,
+                      slidesPerView: 2,
                     },
                     1900: {
                       slidesPerView: 3,
@@ -1616,7 +1616,7 @@ const TechnologySlider = () => {
                       slidesPerView: 1,
                     },
                     768: {
-                      slidesPerView: 2.5,
+                      slidesPerView: 2,
                     },
                     1900: {
                       slidesPerView: 3,

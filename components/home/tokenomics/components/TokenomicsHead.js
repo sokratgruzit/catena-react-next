@@ -41,18 +41,30 @@ function TokenomicsHead(props) {
     },
     {
       teaser: 'Total Supply (Genesis)',
-      text: '20,000,000,000 CXRE',
+      text: '20,000,000,000 CMCX',
     },
+    {
+      teaser: 'Total Supply (Current)',
+      text: '18,590,000,000 CMCX',
+    },
+      {
+          teaser: 'Circulating Supply (Genesis)',
+          text: '8,000,000,000 CMCX',
+      },
+      {
+          teaser: 'Circulating Supply (Current)',
+          text: '6,590,000,000 CMCX',
+      },
     {
       teaser: 'Role of Token',
       text: 'Utility',
     },
     {
       teaser: 'Pre-mined Reserve',
-      text: '8,000,000,000 CXRE',
+      text: '8,000,000,000 CMCX',
     },
     {
-      teaser: 'Ofiicial Website',
+      teaser: 'Oficial Website',
       text: 'catenamultichain.com',
     },
   ];
@@ -93,6 +105,7 @@ function TokenomicsHead(props) {
         </svg>
       ),
       link: 'ERC-20',
+      url: 'https://etherscan.io/token/0x5b685863494c33f344081f75e5430c260c224a32?a=0xb29bb1d14fd445e623790fa4060ba1584f151448',
       arrow: (
         <svg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'>
           <g opacity='0.5'>
@@ -119,6 +132,7 @@ function TokenomicsHead(props) {
       ),
       tokenIcon1: <div className={styles.placeHolder}></div>,
       link: 'TRC-20',
+      url: 'https://tronscan.org/#/token20/TKg1nGjtWYDcf1HNTSNQtwGwNAuTxd1X2A',
       arrow: (
         <svg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'>
           <g opacity='0.5'>
@@ -163,6 +177,7 @@ function TokenomicsHead(props) {
         </svg>
       ),
       link: 'BEP-20',
+      url: 'https://bscscan.com/token/0xb2343143f814639c9b1f42961c698247171df34a',
       arrow: (
         <svg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'>
           <g opacity='0.5'>
@@ -200,8 +215,8 @@ function TokenomicsHead(props) {
                 {item.tokenIcon0}
                 <span className={`${styles.flex} ${styles.overlay}`}>{item.tokenIcon1}</span>
                 <div className={styles.test}>
-                  <Link href='/'>
-                    <a className={`${styles.tokenomics_line} ${styles.link}`}>{item.link}</a>
+                  <Link href={item.url}>
+                    <a className={`${styles.tokenomics_line} ${styles.link}`} target='_blank'>{item.link}</a>
                   </Link>
                 </div>
                 <div className={styles.arrow}>{item.arrow}</div>
