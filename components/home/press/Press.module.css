@@ -36,7 +36,6 @@
 .sourcesContainer {
   display: flex;
   flex-direction: column;
-  gap: 40px;
 }
 
 .logoContainer {
@@ -168,6 +167,10 @@
 @media (max-width: 1900px) {
   .infoContainer {
     padding: 0 25px;
+  }
+  .bodyContainer {
+    column-gap: 50px;
+    row-gap: 100px;
   }
 }
 

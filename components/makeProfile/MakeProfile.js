@@ -10,7 +10,6 @@ import { socket } from '../../pages/api/socket';
 import styles from './MakeProfile.module.css';
 
 const MakeProfile = () => {
-  const ipfsClient = ipfs.create({ host: 'localhost', port: '5001', protocol: 'http' });
   const nftContractAddress = '0xDC87d42B174D70fFdC81c62414EEc8db30C9E1DB';
   const {
     library

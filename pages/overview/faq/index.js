@@ -13,7 +13,7 @@ export const getStaticProps = async context => {
 };
 
 const index = ({ faq }) => {
-  return <Faq faqs={faq} />
+  return <Faq faqs={faq} />;
 };
 
 export default index;

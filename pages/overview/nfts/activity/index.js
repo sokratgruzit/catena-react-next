@@ -5,7 +5,7 @@ let nftActivityData = [
     id: 0,
     data: [
       {
-        img: '/images/nft/nft_activity_items/item1.png',
+        img: '/images/nft/nft_activity_items/fig4.png',
         title: 'Alpha Kong #8223',
         subTitle: 'Alpha Kongs Club - AKC',
         type: 'img_text',
@@ -21,16 +21,16 @@ let nftActivityData = [
         type: 'price',
       },
       {
-        img: '/images/nft/nft_activity_items/sub_item1.png',
+        img: '/images/nft/nft_activity_items/fig4.png',
         title: 'BilanCh',
         subTitle: '0xC7...061b',
-        type: 'img_text',
+        type: 'mini-img_text',
       },
       {
-        img: '/images/nft/nft_activity_items/sub_item2.png',
+        img: '/images/nft/nft_activity_items/fig4.png',
         title: '-',
         subTitle: '0xF5...301c',
-        type: 'img_text',
+        type: 'mini-img_text',
       },
       {
         title: '4.7.2022',
@@ -47,7 +47,7 @@ let nftActivityData = [
     id: 1,
     data: [
       {
-        img: '/images/nft/nft_activity_items/item1.png',
+        img: '/images/nft/nft_activity_items/fig4.png',
         title: 'Alpha Kong #8223',
         subTitle: 'Alpha Kongs Club - AKC',
         type: 'img_text',
@@ -63,16 +63,16 @@ let nftActivityData = [
         type: 'price',
       },
       {
-        img: '/images/nft/nft_activity_items/sub_item1.png',
+        img: '/images/nft/nft_activity_items/fig4.png',
         title: 'BilanCh',
         subTitle: '0xC7...061b',
-        type: 'img_text',
+        type: 'mini-img_text',
       },
       {
-        img: '/images/nft/nft_activity_items/sub_item2.png',
+        img: '/images/nft/nft_activity_items/fig4.png',
         title: '-',
         subTitle: '0xF5...301c',
-        type: 'img_text',
+        type: 'mini-img_text',
       },
       {
         title: '4.7.2022',
@@ -89,7 +89,7 @@ let nftActivityData = [
     id: 2,
     data: [
       {
-        img: '/images/nft/nft_activity_items/item1.png',
+        img: '/images/nft/nft_activity_items/fig4.png',
         title: 'Alpha Kong #8223',
         subTitle: 'Alpha Kongs Club - AKC',
         type: 'img_text',
@@ -105,16 +105,16 @@ let nftActivityData = [
         type: 'price',
       },
       {
-        img: '/images/nft/nft_activity_items/sub_item1.png',
+        img: '/images/nft/nft_activity_items/fig4.png',
         title: 'BilanCh',
         subTitle: '0xC7...061b',
-        type: 'img_text',
+        type: 'mini-img_text',
       },
       {
-        img: '/images/nft/nft_activity_items/sub_item2.png',
+        img: '/images/nft/nft_activity_items/fig4.png',
         title: '-',
         subTitle: '0xF5...301c',
-        type: 'img_text',
+        type: 'mini-img_text',
       },
       {
         title: '4.7.2022',
@@ -131,7 +131,7 @@ let nftActivityData = [
     id: 3,
     data: [
       {
-        img: '/images/nft/nft_activity_items/item1.png',
+        img: '/images/nft/nft_activity_items/fig4.png',
         title: 'Alpha Kong #8223',
         subTitle: 'Alpha Kongs Club - AKC',
         type: 'img_text',
@@ -147,16 +147,16 @@ let nftActivityData = [
         type: 'price',
       },
       {
-        img: '/images/nft/nft_activity_items/sub_item1.png',
+        img: '/images/nft/nft_activity_items/fig4.png',
         title: 'BilanCh',
         subTitle: '0xC7...061b',
-        type: 'img_text',
+        type: 'mini-img_text',
       },
       {
-        img: '/images/nft/nft_activity_items/sub_item2.png',
+        img: '/images/nft/nft_activity_items/fig4.png',
         title: '-',
         subTitle: '0xF5...301c',
-        type: 'img_text',
+        type: 'mini-img_text',
       },
       {
         title: '4.7.2022',
@@ -173,7 +173,7 @@ let nftActivityData = [
     id: 4,
     data: [
       {
-        img: '/images/nft/nft_activity_items/item1.png',
+        img: '/images/nft/nft_activity_items/fig4.png',
         title: 'Alpha Kong #8223',
         subTitle: 'Alpha Kongs Club - AKC',
         type: 'img_text',
@@ -189,16 +189,16 @@ let nftActivityData = [
         type: 'price',
       },
       {
-        img: '/images/nft/nft_activity_items/sub_item1.png',
+        img: '/images/nft/nft_activity_items/fig4.png',
         title: 'BilanCh',
         subTitle: '0xC7...061b',
-        type: 'img_text',
+        type: 'mini-img_text',
       },
       {
-        img: '/images/nft/nft_activity_items/sub_item2.png',
+        img: '/images/nft/nft_activity_items/fig4.png',
         title: '-',
         subTitle: '0xF5...301c',
-        type: 'img_text',
+        type: 'mini-img_text',
       },
       {
         title: '4.7.2022',
@@ -215,7 +215,7 @@ let nftActivityData = [
     id: 6,
     data: [
       {
-        img: '/images/nft/nft_activity_items/item1.png',
+        img: '/images/nft/nft_activity_items/fig4.png',
         title: 'Alpha Kong #8223',
         subTitle: 'Alpha Kongs Club - AKC',
         type: 'img_text',
@@ -231,16 +231,16 @@ let nftActivityData = [
         type: 'price',
       },
       {
-        img: '/images/nft/nft_activity_items/sub_item1.png',
+        img: '/images/nft/nft_activity_items/fig4.png',
         title: 'BilanCh',
         subTitle: '0xC7...061b',
-        type: 'img_text',
+        type: 'mini-img_text',
       },
       {
-        img: '/images/nft/nft_activity_items/sub_item2.png',
+        img: '/images/nft/nft_activity_items/fig4.png',
         title: '-',
         subTitle: '0xF5...301c',
-        type: 'img_text',
+        type: 'mini-img_text',
       },
       {
         title: '4.7.2022',
@@ -257,7 +257,7 @@ let nftActivityData = [
     id: 7,
     data: [
       {
-        img: '/images/nft/nft_activity_items/item1.png',
+        img: '/images/nft/nft_activity_items/fig4.png',
         title: 'Alpha Kong #8223',
         subTitle: 'Alpha Kongs Club - AKC',
         type: 'img_text',
@@ -273,16 +273,16 @@ let nftActivityData = [
         type: 'price',
       },
       {
-        img: '/images/nft/nft_activity_items/sub_item1.png',
+        img: '/images/nft/nft_activity_items/fig4.png',
         title: 'BilanCh',
         subTitle: '0xC7...061b',
-        type: 'img_text',
+        type: 'mini-img_text',
       },
       {
-        img: '/images/nft/nft_activity_items/sub_item2.png',
+        img: '/images/nft/nft_activity_items/fig4.png',
         title: '-',
         subTitle: '0xF5...301c',
-        type: 'img_text',
+        type: 'mini-img_text',
       },
       {
         title: '4.7.2022',
@@ -299,7 +299,7 @@ let nftActivityData = [
     id: 8,
     data: [
       {
-        img: '/images/nft/nft_activity_items/item1.png',
+        img: '/images/nft/nft_activity_items/fig4.png',
         title: 'Alpha Kong #8223',
         subTitle: 'Alpha Kongs Club - AKC',
         type: 'img_text',
@@ -315,16 +315,16 @@ let nftActivityData = [
         type: 'price',
       },
       {
-        img: '/images/nft/nft_activity_items/sub_item1.png',
+        img: '/images/nft/nft_activity_items/fig4.png',
         title: 'BilanCh',
         subTitle: '0xC7...061b',
-        type: 'img_text',
+        type: 'mini-img_text',
       },
       {
-        img: '/images/nft/nft_activity_items/sub_item2.png',
+        img: '/images/nft/nft_activity_items/fig4.png',
         title: '-',
         subTitle: '0xF5...301c',
-        type: 'img_text',
+        type: 'mini-img_text',
       },
       {
         title: '4.7.2022',
@@ -341,7 +341,7 @@ let nftActivityData = [
     id: 10,
     data: [
       {
-        img: '/images/nft/nft_activity_items/item1.png',
+        img: '/images/nft/nft_activity_items/fig4.png',
         title: 'Alpha Kong #8223',
         subTitle: 'Alpha Kongs Club - AKC',
         type: 'img_text',
@@ -357,16 +357,16 @@ let nftActivityData = [
         type: 'price',
       },
       {
-        img: '/images/nft/nft_activity_items/sub_item1.png',
+        img: '/images/nft/nft_activity_items/fig4.png',
         title: 'BilanCh',
         subTitle: '0xC7...061b',
-        type: 'img_text',
+        type: 'mini-img_text',
       },
       {
-        img: '/images/nft/nft_activity_items/sub_item2.png',
+        img: '/images/nft/nft_activity_items/fig4.png',
         title: '-',
         subTitle: '0xF5...301c',
-        type: 'img_text',
+        type: 'mini-img_text',
       },
       {
         title: '4.7.2022',
@@ -383,7 +383,7 @@ let nftActivityData = [
     id: 11,
     data: [
       {
-        img: '/images/nft/nft_activity_items/item1.png',
+        img: '/images/nft/nft_activity_items/fig4.png',
         title: 'Alpha Kong #8223',
         subTitle: 'Alpha Kongs Club - AKC',
         type: 'img_text',
@@ -399,16 +399,16 @@ let nftActivityData = [
         type: 'price',
       },
       {
-        img: '/images/nft/nft_activity_items/sub_item1.png',
+        img: '/images/nft/nft_activity_items/fig4.png',
         title: 'BilanCh',
         subTitle: '0xC7...061b',
-        type: 'img_text',
+        type: 'mini-img_text',
       },
       {
-        img: '/images/nft/nft_activity_items/sub_item2.png',
+        img: '/images/nft/nft_activity_items/fig4.png',
         title: '-',
         subTitle: '0xF5...301c',
-        type: 'img_text',
+        type: 'mini-img_text',
       },
       {
         title: '4.7.2022',
@@ -425,7 +425,7 @@ let nftActivityData = [
     id: 12,
     data: [
       {
-        img: '/images/nft/nft_activity_items/item1.png',
+        img: '/images/nft/nft_activity_items/fig4.png',
         title: 'Alpha Kong #8223',
         subTitle: 'Alpha Kongs Club - AKC',
         type: 'img_text',
@@ -441,16 +441,16 @@ let nftActivityData = [
         type: 'price',
       },
       {
-        img: '/images/nft/nft_activity_items/sub_item1.png',
+        img: '/images/nft/nft_activity_items/fig4.png',
         title: 'BilanCh',
         subTitle: '0xC7...061b',
-        type: 'img_text',
+        type: 'mini-img_text',
       },
       {
-        img: '/images/nft/nft_activity_items/sub_item2.png',
+        img: '/images/nft/nft_activity_items/fig4.png',
         title: '-',
         subTitle: '0xF5...301c',
-        type: 'img_text',
+        type: 'mini-img_text',
       },
       {
         title: '4.7.2022',
@@ -467,7 +467,7 @@ let nftActivityData = [
     id: 3555,
     data: [
       {
-        img: '/images/nft/nft_activity_items/item1.png',
+        img: '/images/nft/nft_activity_items/fig4.png',
         title: 'Alpha Kong #8223',
         subTitle: 'Alpha Kongs Club - AKC',
         type: 'img_text',
@@ -483,16 +483,16 @@ let nftActivityData = [
         type: 'price',
       },
       {
-        img: '/images/nft/nft_activity_items/sub_item1.png',
+        img: '/images/nft/nft_activity_items/fig4.png',
         title: 'BilanCh',
         subTitle: '0xC7...061b',
-        type: 'img_text',
+        type: 'mini-img_text',
       },
       {
-        img: '/images/nft/nft_activity_items/sub_item2.png',
+        img: '/images/nft/nft_activity_items/fig4.png',
         title: '-',
         subTitle: '0xF5...301c',
-        type: 'img_text',
+        type: 'mini-img_text',
       },
       {
         title: '4.7.2022',
@@ -509,7 +509,7 @@ let nftActivityData = [
     id: 411,
     data: [
       {
-        img: '/images/nft/nft_activity_items/item1.png',
+        img: '/images/nft/nft_activity_items/fig4.png',
         title: 'Alpha Kong #8223',
         subTitle: 'Alpha Kongs Club - AKC',
         type: 'img_text',
@@ -525,16 +525,16 @@ let nftActivityData = [
         type: 'price',
       },
       {
-        img: '/images/nft/nft_activity_items/sub_item1.png',
+        img: '/images/nft/nft_activity_items/fig4.png',
         title: 'BilanCh',
         subTitle: '0xC7...061b',
-        type: 'img_text',
+        type: 'mini-img_text',
       },
       {
-        img: '/images/nft/nft_activity_items/sub_item2.png',
+        img: '/images/nft/nft_activity_items/fig4.png',
         title: '-',
         subTitle: '0xF5...301c',
-        type: 'img_text',
+        type: 'mini-img_text',
       },
       {
         title: '4.7.2022',
@@ -551,7 +551,7 @@ let nftActivityData = [
     id: 51,
     data: [
       {
-        img: '/images/nft/nft_activity_items/item1.png',
+        img: '/images/nft/nft_activity_items/fig4.png',
         title: 'Alpha Kong #8223',
         subTitle: 'Alpha Kongs Club - AKC',
         type: 'img_text',
@@ -567,16 +567,16 @@ let nftActivityData = [
         type: 'price',
       },
       {
-        img: '/images/nft/nft_activity_items/sub_item1.png',
+        img: '/images/nft/nft_activity_items/fig4.png',
         title: 'BilanCh',
         subTitle: '0xC7...061b',
-        type: 'img_text',
+        type: 'mini-img_text',
       },
       {
-        img: '/images/nft/nft_activity_items/sub_item2.png',
+        img: '/images/nft/nft_activity_items/fig4.png',
         title: '-',
         subTitle: '0xF5...301c',
-        type: 'img_text',
+        type: 'mini-img_text',
       },
       {
         title: '4.7.2022',
@@ -593,7 +593,7 @@ let nftActivityData = [
     id: 6343,
     data: [
       {
-        img: '/images/nft/nft_activity_items/item1.png',
+        img: '/images/nft/nft_activity_items/fig4.png',
         title: 'Alpha Kong #8223',
         subTitle: 'Alpha Kongs Club - AKC',
         type: 'img_text',
@@ -609,16 +609,16 @@ let nftActivityData = [
         type: 'price',
       },
       {
-        img: '/images/nft/nft_activity_items/sub_item1.png',
+        img: '/images/nft/nft_activity_items/fig4.png',
         title: 'BilanCh',
         subTitle: '0xC7...061b',
-        type: 'img_text',
+        type: 'mini-img_text',
       },
       {
-        img: '/images/nft/nft_activity_items/sub_item2.png',
+        img: '/images/nft/nft_activity_items/fig4.png',
         title: '-',
         subTitle: '0xF5...301c',
-        type: 'img_text',
+        type: 'mini-img_text',
       },
       {
         title: '4.7.2022',
@@ -635,7 +635,7 @@ let nftActivityData = [
     id: 72,
     data: [
       {
-        img: '/images/nft/nft_activity_items/item1.png',
+        img: '/images/nft/nft_activity_items/fig4.png',
         title: 'Alpha Kong #8223',
         subTitle: 'Alpha Kongs Club - AKC',
         type: 'img_text',
@@ -651,16 +651,16 @@ let nftActivityData = [
         type: 'price',
       },
       {
-        img: '/images/nft/nft_activity_items/sub_item1.png',
+        img: '/images/nft/nft_activity_items/fig4.png',
         title: 'BilanCh',
         subTitle: '0xC7...061b',
-        type: 'img_text',
+        type: 'mini-img_text',
       },
       {
-        img: '/images/nft/nft_activity_items/sub_item2.png',
+        img: '/images/nft/nft_activity_items/fig4.png',
         title: '-',
         subTitle: '0xF5...301c',
-        type: 'img_text',
+        type: 'mini-img_text',
       },
       {
         title: '4.7.2022',
@@ -677,7 +677,7 @@ let nftActivityData = [
     id: 999,
     data: [
       {
-        img: '/images/nft/nft_activity_items/item1.png',
+        img: '/images/nft/nft_activity_items/fig4.png',
         title: 'Alpha Kong #8223',
         subTitle: 'Alpha Kongs Club - AKC',
         type: 'img_text',
@@ -693,16 +693,16 @@ let nftActivityData = [
         type: 'price',
       },
       {
-        img: '/images/nft/nft_activity_items/sub_item1.png',
+        img: '/images/nft/nft_activity_items/fig4.png',
         title: 'BilanCh',
         subTitle: '0xC7...061b',
-        type: 'img_text',
+        type: 'mini-img_text',
       },
       {
-        img: '/images/nft/nft_activity_items/sub_item2.png',
+        img: '/images/nft/nft_activity_items/fig4.png',
         title: '-',
         subTitle: '0xF5...301c',
-        type: 'img_text',
+        type: 'mini-img_text',
       },
       {
         title: '4.7.2022',
@@ -719,7 +719,7 @@ let nftActivityData = [
     id: 15234234,
     data: [
       {
-        img: '/images/nft/nft_activity_items/item1.png',
+        img: '/images/nft/nft_activity_items/fig4.png',
         title: 'Alpha Kong #8223',
         subTitle: 'Alpha Kongs Club - AKC',
         type: 'img_text',
@@ -735,16 +735,16 @@ let nftActivityData = [
         type: 'price',
       },
       {
-        img: '/images/nft/nft_activity_items/sub_item1.png',
+        img: '/images/nft/nft_activity_items/fig4.png',
         title: 'BilanCh',
         subTitle: '0xC7...061b',
-        type: 'img_text',
+        type: 'mini-img_text',
       },
       {
-        img: '/images/nft/nft_activity_items/sub_item2.png',
+        img: '/images/nft/nft_activity_items/fig4.png',
         title: '-',
         subTitle: '0xF5...301c',
-        type: 'img_text',
+        type: 'mini-img_text',
       },
       {
         title: '4.7.2022',
@@ -761,7 +761,7 @@ let nftActivityData = [
     id: 21,
     data: [
       {
-        img: '/images/nft/nft_activity_items/item1.png',
+        img: '/images/nft/nft_activity_items/fig4.png',
         title: 'Alpha Kong #8223',
         subTitle: 'Alpha Kongs Club - AKC',
         type: 'img_text',
@@ -777,16 +777,16 @@ let nftActivityData = [
         type: 'price',
       },
       {
-        img: '/images/nft/nft_activity_items/sub_item1.png',
+        img: '/images/nft/nft_activity_items/fig4.png',
         title: 'BilanCh',
         subTitle: '0xC7...061b',
-        type: 'img_text',
+        type: 'mini-img_text',
       },
       {
-        img: '/images/nft/nft_activity_items/sub_item2.png',
+        img: '/images/nft/nft_activity_items/fig4.png',
         title: '-',
         subTitle: '0xF5...301c',
-        type: 'img_text',
+        type: 'mini-img_text',
       },
       {
         title: '4.7.2022',
@@ -803,7 +803,7 @@ let nftActivityData = [
     id: 13854345,
     data: [
       {
-        img: '/images/nft/nft_activity_items/item1.png',
+        img: '/images/nft/nft_activity_items/fig4.png',
         title: 'Alpha Kong #8223',
         subTitle: 'Alpha Kongs Club - AKC',
         type: 'img_text',
@@ -819,16 +819,16 @@ let nftActivityData = [
         type: 'price',
       },
       {
-        img: '/images/nft/nft_activity_items/sub_item1.png',
+        img: '/images/nft/nft_activity_items/fig4.png',
         title: 'BilanCh',
         subTitle: '0xC7...061b',
-        type: 'img_text',
+        type: 'mini-img_text',
       },
       {
-        img: '/images/nft/nft_activity_items/sub_item2.png',
+        img: '/images/nft/nft_activity_items/fig4.png',
         title: '-',
         subTitle: '0xF5...301c',
-        type: 'img_text',
+        type: 'mini-img_text',
       },
       {
         title: '4.7.2022',
@@ -845,7 +845,7 @@ let nftActivityData = [
     id: 4343,
     data: [
       {
-        img: '/images/nft/nft_activity_items/item1.png',
+        img: '/images/nft/nft_activity_items/fig4.png',
         title: 'Alpha Kong #8223',
         subTitle: 'Alpha Kongs Club - AKC',
         type: 'img_text',
@@ -861,16 +861,16 @@ let nftActivityData = [
         type: 'price',
       },
       {
-        img: '/images/nft/nft_activity_items/sub_item1.png',
+        img: '/images/nft/nft_activity_items/fig4.png',
         title: 'BilanCh',
         subTitle: '0xC7...061b',
-        type: 'img_text',
+        type: 'mini-img_text',
       },
       {
-        img: '/images/nft/nft_activity_items/sub_item2.png',
+        img: '/images/nft/nft_activity_items/fig4.png',
         title: '-',
         subTitle: '0xF5...301c',
-        type: 'img_text',
+        type: 'mini-img_text',
       },
       {
         title: '4.7.2022',
@@ -887,7 +887,7 @@ let nftActivityData = [
     id: 5551,
     data: [
       {
-        img: '/images/nft/nft_activity_items/item1.png',
+        img: '/images/nft/nft_activity_items/fig4.png',
         title: 'Alpha Kong #8223',
         subTitle: 'Alpha Kongs Club - AKC',
         type: 'img_text',
@@ -903,16 +903,16 @@ let nftActivityData = [
         type: 'price',
       },
       {
-        img: '/images/nft/nft_activity_items/sub_item1.png',
+        img: '/images/nft/nft_activity_items/fig4.png',
         title: 'BilanCh',
         subTitle: '0xC7...061b',
-        type: 'img_text',
+        type: 'mini-img_text',
       },
       {
-        img: '/images/nft/nft_activity_items/sub_item2.png',
+        img: '/images/nft/nft_activity_items/fig4.png',
         title: '-',
         subTitle: '0xF5...301c',
-        type: 'img_text',
+        type: 'mini-img_text',
       },
       {
         title: '4.7.2022',
@@ -929,7 +929,7 @@ let nftActivityData = [
     id: 61,
     data: [
       {
-        img: '/images/nft/nft_activity_items/item1.png',
+        img: '/images/nft/nft_activity_items/fig4.png',
         title: 'Alpha Kong #8223',
         subTitle: 'Alpha Kongs Club - AKC',
         type: 'img_text',
@@ -945,16 +945,16 @@ let nftActivityData = [
         type: 'price',
       },
       {
-        img: '/images/nft/nft_activity_items/sub_item1.png',
+        img: '/images/nft/nft_activity_items/fig4.png',
         title: 'BilanCh',
         subTitle: '0xC7...061b',
-        type: 'img_text',
+        type: 'mini-img_text',
       },
       {
-        img: '/images/nft/nft_activity_items/sub_item2.png',
+        img: '/images/nft/nft_activity_items/fig4.png',
         title: '-',
         subTitle: '0xF5...301c',
-        type: 'img_text',
+        type: 'mini-img_text',
       },
       {
         title: '4.7.2022',
@@ -971,7 +971,7 @@ let nftActivityData = [
     id: 71,
     data: [
       {
-        img: '/images/nft/nft_activity_items/item1.png',
+        img: '/images/nft/nft_activity_items/fig4.png',
         title: 'Alpha Kong #8223',
         subTitle: 'Alpha Kongs Club - AKC',
         type: 'img_text',
@@ -987,16 +987,16 @@ let nftActivityData = [
         type: 'price',
       },
       {
-        img: '/images/nft/nft_activity_items/sub_item1.png',
+        img: '/images/nft/nft_activity_items/fig4.png',
         title: 'BilanCh',
         subTitle: '0xC7...061b',
-        type: 'img_text',
+        type: 'mini-img_text',
       },
       {
-        img: '/images/nft/nft_activity_items/sub_item2.png',
+        img: '/images/nft/nft_activity_items/fig4.png',
         title: '-',
         subTitle: '0xF5...301c',
-        type: 'img_text',
+        type: 'mini-img_text',
       },
       {
         title: '4.7.2022',
