@@ -29,7 +29,7 @@ function MyApp({ Component, pageProps }) {
   const router = useRouter();
   const { setLocaleInUrl } = useLanguages();
   const [isInitialized, setIsInitialized] = useState(false);
-  const [fixedFooter, setFixedFooter] = useState(false);
+  const [fixedFooter, setFixedFooter] = useState(true);
   useEffect(() => {
     AOS.init();
     AOS.refresh();
