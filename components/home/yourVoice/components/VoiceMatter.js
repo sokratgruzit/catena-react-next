@@ -24,8 +24,18 @@ const VoiceMatter = () => {
   };
 
   const handleSubmit = () => {
-    console.log(formData);
+    if (!validationErrors?.email?.failure && formData.email) {
+      console.log('Sending data to the backend:', formData);
+      setFormData({
+        email: '',
+        name: '',
+        suggestion: '',
+      });
+    } else {
+      console.log('Invalid email format. Data not sent.');
+    }
   };
+  
 
   const [email, setEmail] = useState("");
 
@@ -43,17 +53,6 @@ const VoiceMatter = () => {
     },
     helpTexts
   );
-
-  // const changeHandler = (i, e) => {
-  //   console.log(i.target.value);
-  //   const { name, value } = i.target;
-
-  //   if (name === "amount") {
-  //     setDepositAmount(value);
-  //   } else if (name === "email") {
-  //     setEmail(value)
-  //   }
-  // };
 
   return (
     <div className={`${styles.main} container`}>
@@ -85,6 +84,7 @@ const VoiceMatter = () => {
                 validation={"email"}
                 value={email}
                 onChange={chngHandler}
+                required={false}
                 statusCard={
                   validationErrors?.email && (
                     <HelpText
@@ -107,6 +107,7 @@ const VoiceMatter = () => {
                 value={formData.name}
                 name='name'
                 onChange={chngHandler}
+                required={true}
               // customStyles={{ width: '500px' }}
               />
             </div>
@@ -144,3 +145,4 @@ const VoiceMatter = () => {
 };
 
 export default VoiceMatter;
+

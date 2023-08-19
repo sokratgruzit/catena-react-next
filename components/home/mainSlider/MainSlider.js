@@ -18,8 +18,8 @@ const MainSlider = ({ trans }) => {
   const [scrollBlocker, setScrollBlocker] = useState(true);
   const dispatch = useDispatch();
   // [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24]
-  let microSchemes;
-  if (window.innerWidth > 1250) {
+  let microSchemes = [];
+  if (window.innerWidth > 1240) {
     microSchemes = [
       [1, 2, 6, 7, 8, 9, 10, 11, 19, 20, 21, 22, 23, 24],
       [1, 2, 7, 8, 9, 10, 20, 21, 22, 23, 24],
@@ -29,7 +29,7 @@ const MainSlider = ({ trans }) => {
     ];
   }
 
-  if (window.innerWidth < 1250) {
+  if(window.innerWidth < 1240) {
     microSchemes = [
       [1, 2, 5, 6, 7, 8, 9, 10, 11, 16, 17, 18, 19, 20, 21, 22, 23, 24],
       [1, 2, 5, 6, 7, 8, 9, 10, 11, 17, 18, 19, 20, 21, 22, 23, 24],
@@ -42,11 +42,12 @@ const MainSlider = ({ trans }) => {
   useEffect(() => {
     setActiveSlide(1);
     setTimeout(() => {
-      dispatch({
-        type: 'SET_MICHROSCHEME_ARRAY',
-        microschemeArray: microSchemes[activeSlide],
-      });
+      // dispatch({
+      //   type: 'SET_MICHROSCHEME_ARRAY',
+      //   microschemeArray: microSchemes[activeSlide],
+      // });
     }, 500);
+    console.log(microSchemes)
   }, []);
 
   // let scrollBlocker = true;
