@@ -2,6 +2,7 @@ import { useRouter } from 'next/router';
 import { useState } from 'react';
 
 import ImgTextItem from './components/ImgTextItem/ImgTextItem';
+import MiniImgTextItem from './components/miniImageTextItem/MiniImgTextItem';
 import MultiTextItem from './components/multiTextItem/MultiTextItem';
 import MultiTextSvg from './components/multiTextSvg/MultiTextSvg';
 import PriceChange from './components/priceChange/PriceChange';
@@ -76,6 +77,10 @@ const ListItemRow = props => {
           return <ImgTextItem key={'img_text' + type + index} data={item} onClick={item.onClick} />;
         }
 
+        if (item.type === 'mini-img_text') {
+          return <MiniImgTextItem key={'img_text' + type + index} data={item} onClick={item.onClick} />;
+        }
+
         if (item.type === 'text') {
           return <TextItem key={'text' + type + index} data={item} />;
         }
@@ -99,7 +104,11 @@ const ListItemRow = props => {
           return <MultiTextSvg key={'multi_svg' + type + index} data={item} />;
         }
         if (item.type === 'expand_custom') {
-          return <div className={styles.vectorDiv}><VectorSvg key={index} className={`${styles.vectorSvg} ${props.expandRow && styles.vectorActive}`} /></div>
+          return (
+            <div className={styles.vectorDiv}>
+              <VectorSvg key={index} className={`${styles.vectorSvg} ${props.expandRow && styles.vectorActive}`} />
+            </div>
+          );
         }
       })}
     </div>

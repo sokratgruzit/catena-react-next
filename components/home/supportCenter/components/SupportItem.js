@@ -25,27 +25,27 @@ const SUPPORTITEMS = [
     description: 'The Bridge Between Crypto and Global Finance.',
     subLink: 'https://cmcx.io/',
   },
-  {
-    svg: <Academy />,
-    a: 'Academy',
-    arrow: <Arrow />,
-    description: 'Get a deeper understanding of the crypto industry and market.',
-    subLink: 'https://coremultichain.com/academy',
-  },
+  // {
+  //   svg: <Academy />,
+  //   a: 'Academy',
+  //   arrow: <Arrow />,
+  //   description: 'Get a deeper understanding of the crypto industry and market.',
+  //   subLink: 'https://coremultichain.com/academy',
+  // },
   {
     svg: <FAQ />,
     a: 'FAQ',
     arrow: <Arrow />,
     description: 'Any issues? Find answers to commonly asked questions.',
-    subLink: 'https://coremultichain.com/faq',
+    subLink: '/overview/faq',
   },
-  {
-    svg: <Request />,
-    a: 'Submit a request',
-    arrow: <Arrow />,
-    description: "Can't find the solution to your problem? Submit a request to support team.",
-    subLink: 'https://coremultichain.com/your-voice',
-  },
+  // {
+  //   svg: <Request />,
+  //   a: 'Submit a request',
+  //   arrow: <Arrow />,
+  //   description: "Can't find the solution to your problem? Submit a request to support team.",
+  //   subLink: 'https://coremultichain.com/your-voice',
+  // },
 ];
 
 const SupportItem = () => {

@@ -10,7 +10,7 @@ function Distribution() {
         </svg>
       ),
       teaser: 'Reserve',
-      text: '6,000,000,000 CXRE (30%)',
+      text: '6,000,000,000 CMCX (30%)',
     },
     {
       svg: (
@@ -19,7 +19,7 @@ function Distribution() {
         </svg>
       ),
       teaser: 'Marketing & Operations',
-      text: '1,000,000,0000 CXRE (10%)',
+      text: '1,000,000,0000 CMCX (5%)',
     },
     {
       svg: (
@@ -27,8 +27,9 @@ function Distribution() {
           <circle cx='10' cy='10' r='8' stroke='#817EFF' strokeWidth='4' />
         </svg>
       ),
-      teaser: 'Seed Round (Private Founders)',
-      text: '4,000,000,0000 CXRE (20%)',
+      teaser: 'Seed Round',
+      text: '4,000,000,0000 CMCX (20%)',
+      done: true
     },
     {
       svg: (
@@ -37,7 +38,7 @@ function Distribution() {
         </svg>
       ),
       teaser: 'Advisory Board',
-      text: '600,000,0000 CXRE (3%)',
+      text: '600,000,0000 CMCX (3%)',
     },
     {
       svg: (
@@ -46,7 +47,8 @@ function Distribution() {
         </svg>
       ),
       teaser: 'IEO',
-      text: '4,000,000,0000 CXRE (20%)',
+      text: '4,000,000,0000 CMCX (20%)',
+      done: true
     },
     {
       svg: (
@@ -55,7 +57,7 @@ function Distribution() {
         </svg>
       ),
       teaser: 'Strategic Acquisitions',
-      text: '400,000,0000 CXRE (2%)',
+      text: '400,000,0000 CMCX (2%)',
     },
     {
       svg: (
@@ -64,7 +66,7 @@ function Distribution() {
         </svg>
       ),
       teaser: 'Ecosystem Rewards',
-      text: '2,000,000,0000 CXRE (10%)',
+      text: '2,000,000,0000 CMCX (10%)',
     },
     {
       svg: (
@@ -73,7 +75,7 @@ function Distribution() {
         </svg>
       ),
       teaser: 'Team',
-      text: '2,000,000,0000 CXRE (10%)',
+      text: '2,000,000,0000 CMCX (10%)',
     },
   ];
 
@@ -85,7 +87,7 @@ function Distribution() {
           <div className={styles.distribution_container}>
             <div className={styles.distribution_teaser}>
               <p className={` ttl ${styles.orange}`}>Total Supply</p>
-              <p>20,000,000,000 CXRE</p>
+              <p>20,000,000,000 CMCX</p>
             </div>
             <div className={`${styles.distribution_flex}`}>
               <div className={`${styles.svgContainer}`}>
@@ -143,7 +145,7 @@ function Distribution() {
               <div className={styles.distribution_grid}>
                 {data?.map((item, i) => {
                   return (
-                    <div key={i} className={`${styles.alignItemsCenter} ${styles.flex}`}>
+                    <div key={i} className={`${styles.alignItemsCenter} ${styles.flex} ${item.done ? styles.opacity : ''}`}>
                       {item.svg}
                       <div className={styles.textWrap}>
                         <p className={`${styles.orange} ttl `}>{item.teaser}</p>

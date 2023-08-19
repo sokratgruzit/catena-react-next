@@ -13,6 +13,7 @@ const AmbasdorBtn = () => {
     name: '',
     suggestion: '',
   });
+  const [suggestionLength, setSuggestionLength] = useState(1000);
 
   const axios = createAxiosInstance();
 
@@ -107,7 +108,7 @@ const AmbasdorBtn = () => {
               resize={'none'}
               customStyles={{ width: '100%', resize: 'none' }}
             />
-            {/* <label>Limit: {suggestionLength} characters</label> */}
+            <label>Limit: {suggestionLength} characters</label>
           </div>
           <div>
             <Button
@@ -133,6 +134,7 @@ const AmbasdorBtn = () => {
           disabled={false}
           onClick={() => setChng(true)}
           className={styles.btnBlu}
+          customStyles={{ marginTop: "30px" }}
         />
       )}
     </div>

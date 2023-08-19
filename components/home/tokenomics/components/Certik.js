@@ -6,12 +6,12 @@ function Certik() {
   return (
     <div>
       <div className={`${styles.pt80}`} data-aos='fade-up'>
-        <div>
-          <p className='ttl font-20'>
-            Initial token price will be 0.05 USDT, ceiling price will be 2.00 USDT at the Seed Round. <br /> Unsold
-            Tokens will go to CATENA DAO Reserve.
-          </p>
-        </div>
+        {/*<div>*/}
+        {/*  <p className='ttl font-20'>*/}
+        {/*    Initial token price will be 0.05 USDT, ceiling price will be 2.00 USDT at the Seed Round. <br /> Unsold*/}
+        {/*    Tokens will go to CATENA DAO Reserve.*/}
+        {/*  </p>*/}
+        {/*</div>*/}
         <div className={`${styles.certik_text}`}>
           <p className='ttl'>Notice</p>
           <p>
@@ -72,8 +72,8 @@ function Certik() {
             smart contracts and blockchains. Unlike traditional security audits, Formal Verification mathematically
             proves program correctness and hacker-resistance.
           </p>
-          <Link href='/'>
-            <a className={`${styles.certik_line}`}>CATENA on CertiK Platform</a>
+          <Link href='https://skynet.certik.com/projects/coremultichain'>
+            <a className={`${styles.certik_line}`} target='_blank'>CATENA on CertiK Platform</a>
           </Link>
         </div>
       </div>
