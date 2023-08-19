@@ -11,6 +11,7 @@ import { socket } from "./api/socket";
 import Header from '../components/layout/Header';
 import Microscheme from '../components/UI/microscheme/Microscheme';
 import Wrapper from '../components/layout/Wrapper';
+import Footer from '../components/layout/Footer';
 import store, { persistor } from '../store/index';
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -28,10 +29,19 @@ function MyApp({ Component, pageProps }) {
   const router = useRouter();
   const { setLocaleInUrl } = useLanguages();
   const [isInitialized, setIsInitialized] = useState(false);
+  const [fixedFooter, setFixedFooter] = useState(false);
   useEffect(() => {
     AOS.init();
     AOS.refresh();
   }, []);
+  useEffect(() => {
+    if( router.asPath == '/' || router.asPath == '/overview/technology'){
+      setFixedFooter(true);
+    }
+    else {
+      setFixedFooter(false);
+    }
+  }, [router]);
   useEffect(() => {
     if (!isInitialized) {
       let { query } = router;
@@ -85,7 +95,7 @@ function MyApp({ Component, pageProps }) {
               <Microscheme lvl={[1, 2]} />
               <Header />
               <Component {...pageProps} />
-              {/*<Footer />*/}
+              <Footer active={!fixedFooter} fixed={fixedFooter}/>
             </Wrapper>
           </PersistGate>
         </Provider>

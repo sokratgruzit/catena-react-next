@@ -39,7 +39,7 @@ const Activity = props => {
   const [activeMenuItem, setActiveMenuItem] = useState('All');
   const [pageNumber, setPageNumber] = useState(0);
 
-  const ITEMS_PER_PAGE = 5;
+  const ITEMS_PER_PAGE = 6;
   const ITEMS_SHOWN = pageNumber * ITEMS_PER_PAGE;
   const PAGE_COUNT = Math.ceil(props.activityData.length / ITEMS_PER_PAGE);
 
@@ -86,7 +86,7 @@ const Activity = props => {
     <div className={`${styles.Activity} container`}>
       <ArrowBtn route={'nfts'} direction={'back'} />
 
-      <h1 className={`font_30 ttl`}>Activity</h1>
+      <h1 className={`font-90 ttl`}>Activity</h1>
       <TabFilter
         onClick={filterTableHandler}
         activeMenu={activeMenuItem}

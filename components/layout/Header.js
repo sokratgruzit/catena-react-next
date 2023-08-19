@@ -82,21 +82,21 @@ const Header = () => {
               title: 'Community',
               route: '/overview/community',
             },
-            {
-              id: 'about-2',
-              title: 'Careers',
-              route: '/overview/careers',
-            },
-            {
-              id: 'about-3',
-              title: 'Press',
-              route: '/overview/press',
-            },
-            {
-              id: 'about-4',
-              title: 'Events',
-              route: '/overview/events',
-            },
+            // {
+            //   id: 'about-2',
+            //   title: 'Careers',
+            //   route: '/overview/careers',
+            // },
+            // {
+            //   id: 'about-3',
+            //   title: 'Press',
+            //   route: '/overview/press',
+            // },
+            // {
+            //   id: 'about-4',
+            //   title: 'Events',
+            //   route: '/overview/events',
+            // },
             {
               id: 'about-5',
               title: 'Privacy',
@@ -118,11 +118,11 @@ const Header = () => {
               title: 'Bug Bounty',
               route: '/overview/bug-bounty',
             },
-            {
-              id: 'support-1',
-              title: 'Your Voice Matter',
-              route: '/overview/your-voice',
-            },
+            // {
+            //   id: 'support-1',
+            //   title: 'Your Voice Matter',
+            //   route: '/overview/your-voice',
+            // },
             {
               id: 'support-2',
               title: 'Support',
@@ -522,7 +522,7 @@ const Header = () => {
                 ></div>
                 <div className={styles.headerLogoTxtOuter}>
                   <span className={`${styles.headerLogoTxt} ${activeMenu !== null ? styles.headerLogoTxtHidden : ''}`}>
-                    Dashboard
+                    Overview
                   </span>
                 </div>
               </div>

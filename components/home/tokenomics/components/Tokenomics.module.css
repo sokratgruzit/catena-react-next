@@ -27,7 +27,9 @@
   padding-bottom: 32px;
   padding-right: 30px;
 }
-
+.opacity {
+  opacity: .3;
+}
 .orange {
   color: #ff6969;
 }

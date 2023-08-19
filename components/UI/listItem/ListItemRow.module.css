@@ -411,9 +411,8 @@
   display: flex;
   width: 100%;
   align-items: center;
-  border-bottom: 1px dashed #111826;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(22, 32, 41, 0.1);
+  padding: 0px 20px;
 }
 
 .nftCollectionSecondTable {

@@ -59,7 +59,7 @@ function Tokenomics() {
         </InView>
       <div className='container'>
           <InView as="div" onChange={(inView, entry) => (inView && setScheme(1))}>
-            <EventDetails />
+            {/*<EventDetails />*/}
             <Certik />
           </InView>
           <InView as="div" onChange={(inView, entry) => (inView && setScheme(2))}>

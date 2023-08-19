@@ -22,10 +22,10 @@ const Feature = ({ featureLinkList, title, showButton, openPositions }) => {
     navigator.clipboard
       .writeText(link)
       .then(() => {
-        console.log('Link copied!');
+        // console.log('Link copied!');
       })
       .catch((error) => {
-        console.error('Failed to copy link:', error);
+        // console.error('Failed to copy link:', error);
       });
   };
 
