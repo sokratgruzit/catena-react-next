@@ -46,7 +46,7 @@ const Faq = ({ faqs }) => {
             <div className={`${styles.containerTwo} delay2 tYAnimation ${pageReady ? 'animate' : ''}`}>
                 {faqs?.map((item, index) => {
                     return (
-                        <div key={item.id} className={styles.maneBox}>
+                        <div key={index} className={styles.maneBox}>
                             <div className={styles.numberBox}>
                                 <p className={`${styles.number} font-40 `}>{index + 1}.</p>
                                 <div className={`${styles.itemTitle} ttl  font-40 `}>{item.question[activeLang]['faq.question']}</div>

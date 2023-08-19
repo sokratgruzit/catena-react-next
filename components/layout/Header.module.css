@@ -1408,7 +1408,8 @@
   }
 
   .headerMobileFooterFirst {
-    display: flex;
+    /*display: flex;*/
+    display: none;
     width: 100%;
     justify-content: space-between;
     padding-bottom: 30px;
