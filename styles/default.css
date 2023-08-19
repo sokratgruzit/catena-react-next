@@ -105,7 +105,7 @@ button {
 
 /* Handle */
 *::-webkit-scrollbar-thumb {
-  background: #A6D0DD;
+  background: #a6d0dd;
 }
 .noise-parent {
   position: fixed;
@@ -383,7 +383,7 @@ button {
   width: 100%;
   max-width: 100%;
   object-fit: cover;
-  margin: 60px 0;
+  margin: 40px 0;
   height: auto;
 }
 
@@ -414,10 +414,6 @@ button {
   .custum-text h4,
   .custum-text hr {
     margin-bottom: 30px;
-  }
-
-  .custum-text img {
-    margin: 40px 0;
   }
 
   .custum-text p {
@@ -454,6 +450,16 @@ button {
   gap: 10px;
   background-color: transparent;
   margin-left: 30px;
+  padding: 0px;
+}
+
+@media (max-width: 400px) {
+  .custum-text .copy-link .year {
+    margin-right: 20px;
+  }
+  .custum-text .copy-link button {
+    margin-left: 0px;
+  }
 }
 
 form .form-control:focus {

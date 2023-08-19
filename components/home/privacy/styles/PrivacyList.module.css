@@ -51,6 +51,11 @@
   color: #162029;
   padding-top: 21px;
 }
+
+.text a {
+  font-weight: 700px;
+  word-break: break-all;
+}
 .secondaryTitle {
   display: flex;
   align-items: center;
@@ -86,6 +91,7 @@
 .ul {
   padding-left: 39px;
 }
+
 @media (max-width: 767px) {
   .listWrapper {
     padding-top: 30px;

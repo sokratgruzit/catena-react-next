@@ -5,7 +5,7 @@ import Expand from '../../UI/expand/Expand';
 
 import styles from './CommunityAuctionsFAQ.module.css';
 
-const CommunityAuctionsFAQ = () => {
+const CommunityAuctionsFAQ = ({ setToggle }) => {
   return (
     <div className={styles.faq}>
       <Expand
@@ -20,7 +20,7 @@ const CommunityAuctionsFAQ = () => {
         onChildClick={true}
         className={styles.borderBottom}
       >
-        <Question title={'Step 1: Submit application'} />
+        <Question title={'Step 1: Submit application'} setToggle={setToggle} />
       </Expand>
       <Expand
         expandContent={
@@ -39,7 +39,7 @@ const CommunityAuctionsFAQ = () => {
         onChildClick={true}
         className={styles.borderBottom}
       >
-        <Question title={'Step 2: Submit application'} />
+        <Question title={'Step 2: Await whitelisting'} setToggle={setToggle} />
       </Expand>
       <Expand
         expandContent={
@@ -57,7 +57,7 @@ const CommunityAuctionsFAQ = () => {
         onChildClick={true}
         className={styles.borderBottom}
       >
-        <Question title={'Step 3: During the auction'} />
+        <Question title={'Step 3: During the auction'} setToggle={setToggle} />
       </Expand>
       <Expand
         expandContent={
@@ -76,7 +76,7 @@ const CommunityAuctionsFAQ = () => {
         }
         onChildClick={true}
       >
-        <Question title={'Step 4: After the auction'} />
+        <Question title={'Step 4: After the auction'} setToggle={setToggle} />
       </Expand>
     </div>
   );

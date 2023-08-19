@@ -1,5 +1,3 @@
-import React from 'react';
-
 import Benefits from './components/benefits/Benefits';
 import CareersCatena from './components/careerscatena/CareersCatena';
 import CompanyInfo from './components/companyinfo/CompanyInfo';
@@ -14,6 +12,9 @@ import Quality from '../../svg/careers/Quality';
 import Original from '../../svg/careers/Original';
 import Unified from '../../svg/careers/Unified';
 import Driven from '../../svg/careers/Driven';
+import { InView } from 'react-intersection-observer';
+import { useDispatch } from 'react-redux';
+import {useEffect,useState} from "react";
 
 const workflow = [
   {
@@ -134,8 +135,16 @@ const currentOpeningsList = [
     list: ['Admin & Secretarial'],
   },
   {
-    title: 'Human Resources: Recruitment - Training: - Payroll Finance',
-    list: ['legal'],
+    title: 'Human Resources:',
+    list: ['Recruitment','Training','Payroll'],
+  },
+  {
+    title: 'Finance',
+    list: [],
+  },
+  {
+    title: 'Legal',
+    list: [],
   },
 ];
 

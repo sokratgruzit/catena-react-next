@@ -72,7 +72,7 @@ const VoiceMatter = () => {
       </div>
       <div className={`${styles.bottomBox} `}>
         <div className={`${styles.hederBox} `}>
-          <form>
+          <form className={styles.from}>
             <div>
               <Input
                 type={"default"}

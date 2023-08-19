@@ -10,13 +10,13 @@ import ProductLogos from './components/ProductLogos';
 import Typography from './components/Typography';
 import { InView } from 'react-intersection-observer';
 import { useDispatch } from 'react-redux';
-import {useEffect, useState} from "react";
+import {useEffect,useState} from "react";
 
 function BrandGuidelines() {
     const dispatch = useDispatch();
     const [pageReady, setPageReady] = useState(false);
     let microSchemes;
-    if(window.innerWidth > 1250){
+    if(window.innerWidth > 1240){
         microSchemes = [
             [9,10,11,12,13,14,15,22,23,24],
             [1,2,3,11,12,13,14,15,23,24],
@@ -25,7 +25,7 @@ function BrandGuidelines() {
         ];
     }
 
-    if(window.innerWidth < 1250){
+    if(window.innerWidth < 1240){
         microSchemes = [
             [1,2,5,6,7,8,9,10,11,13,14,18,19,20,21,22,23,24],
             [1,2,5,6,7,8,9,10,11,13,14,18,19,20,21,22,23,24],
