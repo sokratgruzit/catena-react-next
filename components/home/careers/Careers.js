@@ -81,13 +81,13 @@ const iconImages = [
   },
   {
     svg: (
-      <Quality />
+     <Quality />
     ),
     title: 'Quality Performance',
   },
   {
     svg: (
-      <Original />
+     <Original />
     ),
     title: 'Original Output',
   },
@@ -99,7 +99,7 @@ const iconImages = [
   },
   {
     svg: (
-      <Driven />
+     <Driven />
     ),
     title: 'Community Driven',
   },
@@ -197,22 +197,53 @@ const hiringProcess = [
   },
 ];
 
-const Careers = ({ careers, openPositions }) => {
+const Careers = ({careers, openPositions}) => {
+  const dispatch = useDispatch();
+  const [pageReady, setPageReady] = useState(false);
+  let microSchemes;
+  if(window.innerWidth > 1240){
+      microSchemes = [
+          [1,2,8,9,10,11,12,13,14,21,22,23,24],
+          [1,2,10,11,12,13,14,20,21,22,23,24]
+      ];
+  }
+
+  if(window.innerWidth < 1240){
+      microSchemes = [
+        [1,2,5,6,7,8,9,10,11,12,13,14,16,17,18,19,20,21,22,23,24],
+        [1,2,10,11,12,13,14,20,21,22,23,24]
+      ];
+  }
+
+  const setScheme = (num) => {
+      dispatch({
+          type: "SET_MICHROSCHEME_ARRAY",
+          microschemeArray: microSchemes[num]
+      });
+  }
+
+  useEffect(() => {
+      setTimeout(() => {
+          setPageReady(true);
+          dispatch({
+              type: "SET_MICHROSCHEME_ARRAY",
+              microschemeArray: microSchemes[0]
+          });
+      }, 400);
+  },[]);
   return (
     <div>
       <InView as="div" onChange={(inView, entry) => (inView && setScheme(0))}>
         <CareersCatena animate={pageReady}/>
-        <CompanyInfo careers={careers} workflow={workflow} title='How we work' animate={pageReady}/>
-        <Feature careers={careers} title='Featured Jobs' showButton={true} animate={pageReady}/>
+        <CompanyInfo workflow={workflow} title='How we work' animate={pageReady}/>
+        <Feature openPositions={openPositions} title='Featured Jobs' showButton={true} animate={pageReady}/>
       </InView>
       
       <InView as="div" onChange={(inView, entry) => (inView && setScheme(1))}>
         <OurValues
           iconImages={iconImages}
           title='Our Values'
-          description='
-          Our CATENA values establish the framework for our ability to create a lasting,
-          positive impact for humanity:'
+          description='Our CATENA values establish the framework for our ability to create a lasting, positive impact for humanity:'
         />
         <CoreTeam team={team} title='Qualities of' title2='a Hypercube Team' />
         <Recruitment data={data} title='Recruitment Process:' />

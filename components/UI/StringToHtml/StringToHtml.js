@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 
 export const StringToHtml = ({ data }) =>{
-  const [html, setHtml] = useState("")
+  const [html, setHtml] = useState("");
+  console.log(data, )
 
   useEffect(() => {
     setHtml(data)
