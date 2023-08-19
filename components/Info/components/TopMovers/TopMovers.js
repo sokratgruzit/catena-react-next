@@ -58,28 +58,25 @@ const TopMovers_Data = [
 
 const TopMovers = () => {
   return (
-    <>
-      <div className={styles.wrapper}>
-        <h2 className={`${styles.moversTitle} font_16`}>Top Movers</h2>
-        <div className={styles.slideWrapper}>
-          <div className={styles.slider}>
-            <div className={styles.slideTrack}>
-              {TopMovers_Data.map(item => (
-                <TopMoversSingleItem key={item.id} data={item} />
-              ))}
-              {TopMovers_Data.map(item => (
-                <TopMoversSingleItem key={item.id} data={item} />
-              ))}
+    <div className='container_bordered'>
+      <div className='container_bordered-child'>
+        <div className={styles.wrapper}>
+          <h2 className={`${styles.moversTitle} ttl`}>Top Movers</h2>
+          <div className={styles.slideWrapper}>
+            <div className={styles.slider}>
+              <div className={styles.slideTrack}>
+                {TopMovers_Data.map(item => (
+                  <TopMoversSingleItem key={item.id} data={item} />
+                ))}
+                {TopMovers_Data.map(item => (
+                  <TopMoversSingleItem key={item.id} data={item} />
+                ))}
+              </div>
             </div>
           </div>
         </div>
-        {/* <div className={styles.topMoversWrapper}>
-          {TopMovers_Data.map(item => (
-            <TopMoversSingleItem key={item.id} data={item} />
-          ))}
-        </div> */}
       </div>
-    </>
+    </div>
   );
 };
 

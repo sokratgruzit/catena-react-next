@@ -104,12 +104,7 @@ const index = props => {
   const { id } = router.query;
   // fetch data by ID
   return (
-    <div>
-      {/* <div className={styles.backgroundMain}>
-        <Image layout='responsive' objectFit='cover' quality={100} src={BackgroundImg} alt='background' />
-      </div> */}
-      <div className={styles.section}>{props.infoPoolsDetails && <PoolsSection data={props.infoPoolsDetails} />}</div>
-    </div>
+    <div className={styles.section}>{props.infoPoolsDetails && <PoolsSection data={props.infoPoolsDetails} />}</div>
   );
 };
 

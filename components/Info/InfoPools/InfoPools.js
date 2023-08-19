@@ -13,25 +13,29 @@ const InfoPools = () => {
   const router = useRouter();
   const [currentPage, setCurrentPage] = useState(1);
   return (
-    <div className={styles.section}>
-      <div className={styles.routesWrapper}>
-        <div className={styles.space}></div>
-        <InfoRoutes />
-        <div className={styles.starWrapper}>
-          <StarSvg className={styles.starSVG} onClick={() => router.push(`/home/info/pools/watchlist`)} />
-          <div className={styles.favCount}>3</div>
+    <div className='pT-180'>
+      <div className='container'>
+        <div className={styles.section}>
+          <div className={styles.routesWrapper}>
+            {/* <div className={styles.space}></div> */}
+            <InfoRoutes />
+            {/* <div className={styles.starWrapper}>
+              <StarSvg className={styles.starSVG} onClick={() => router.push(`/overview/info/pools/watchlist`)} />
+              <div className={styles.favCount}>3</div>
+            </div> */}
+          </div>
+          <div className='container'>
+            <h2 style={{ color: '#162029' }} className='font-40 ttl'>All Pools</h2>
+          </div>
+          <PoolsTable />
+            <TableElement
+              type={"pagination"}
+              currentPage={currentPage}
+              totalCount={20}
+              onPageChange={(page) => setCurrentPage(page)}
+              customStyle={{ margin: '20px 0 40px 0' }}
+            />
         </div>
-      </div>
-      <h2 style={{ color: '#162029' }} className={`${styles.tokensTitle} font-40 ttl`}>All Pools</h2>
-      <PoolsTable />
-      <div style={{marginTop: '50px'}}>
-        <TableElement
-          type={"pagination"}
-          currentPage={currentPage}
-          totalCount={20}
-          onPageChange={(page) => setCurrentPage(page)}
-        // color={"#F3E4D2"}
-        />
       </div>
     </div>
   );
