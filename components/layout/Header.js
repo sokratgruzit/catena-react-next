@@ -163,11 +163,11 @@ const Header = () => {
       title: 'Trade',
       route: '/overview',
       subNav: [
-        {
-          id: 'trade-0',
-          title: 'Swap',
-          route: '/overview',
-        },
+        // {
+        //   id: 'trade-0',
+        //   title: 'Swap',
+        //   route: '/overview',
+        // },
         {
           id: 'trade-1',
           title: 'Bridge',
@@ -239,15 +239,15 @@ const Header = () => {
           title: 'Info',
           route: '/info',
         },*/
-        {
-          id: 'more-0',
-          title: 'Voting',
-          route: '/overview/voting',
-        },
+        // {
+        //   id: 'more-0',
+        //   title: 'Voting',
+        //   route: '/overview/voting',
+        // },
         {
           id: 'more-1',
           title: 'Wallet',
-          route: 'https://wallet-landing-next-six.vercel.app',
+          route: 'https://wallet.coremultichain.com/',
         },
         /*{
           id: 15,
