@@ -20,7 +20,7 @@
 
 .routesWrapper{
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   width: 100%;
 }
 
@@ -41,15 +41,13 @@
 }
 
 .section{
-  position: relative;
-  margin-left: 40px;
-  margin-right: 40px;
-  margin-top: 10rem;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }
 
 .section h2{
-  margin: 50px auto 30px auto;
-  font-size: 30px;
+  color: #162029;
 }
 
 .starSVG{
@@ -61,12 +59,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  width: 27%;
   cursor: pointer;
-}
-
-.space{
-  width: 27%;
 }
 
 .favCount{

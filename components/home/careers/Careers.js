@@ -200,25 +200,30 @@ const hiringProcess = [
 const Careers = ({ careers, openPositions }) => {
   return (
     <div>
-      <CareersCatena />
-      <CompanyInfo workflow={workflow} title='How we work' />
-      <Feature openPositions={openPositions} title='Featured Jobs' showButton={true} />
-      <OurValues
-        iconImages={iconImages}
-        title='Our Values'
-        description='
-        Our CATENA values establish the framework for our ability to create a lasting,
-        positive impact for humanity:'
-      />
-      <CoreTeam team={team} title='Qualities of' title2='a Hypercube Team' />
-      <Recruitment data={data} title='Recruitment Process:' />
-      <CurrentOpenings currentOpeningsList={currentOpeningsList} title='Current Openings' />
-      <Benefits benefitsArr={benefitsArr} title='Benefits Available Following Recruitment:' />
-      <HowWeHire
-        hiringProcess={hiringProcess}
-        title='How We Hire'
-        description='On average 2~4 week interview process with 4 interviews.'
-      />
+      <InView as="div" onChange={(inView, entry) => (inView && setScheme(0))}>
+        <CareersCatena animate={pageReady}/>
+        <CompanyInfo careers={careers} workflow={workflow} title='How we work' animate={pageReady}/>
+        <Feature careers={careers} title='Featured Jobs' showButton={true} animate={pageReady}/>
+      </InView>
+      
+      <InView as="div" onChange={(inView, entry) => (inView && setScheme(1))}>
+        <OurValues
+          iconImages={iconImages}
+          title='Our Values'
+          description='
+          Our CATENA values establish the framework for our ability to create a lasting,
+          positive impact for humanity:'
+        />
+        <CoreTeam team={team} title='Qualities of' title2='a Hypercube Team' />
+        <Recruitment data={data} title='Recruitment Process:' />
+        <CurrentOpenings currentOpeningsList={currentOpeningsList} title='Current Openings' />
+        <Benefits benefitsArr={benefitsArr} title='Benefits Available Following Recruitment:' />
+        <HowWeHire
+          hiringProcess={hiringProcess}
+          title='How We Hire'
+          description='On average 2~4 week interview process with 4 interviews.'
+        />
+       </InView>
     </div>
   );
 };
