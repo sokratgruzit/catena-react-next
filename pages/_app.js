@@ -41,7 +41,6 @@ function MyApp({ Component, pageProps }) {
     else {
       setFixedFooter(false);
     }
-    console.log(router.asPath)
   }, [router]);
   useEffect(() => {
     if (!isInitialized) {
