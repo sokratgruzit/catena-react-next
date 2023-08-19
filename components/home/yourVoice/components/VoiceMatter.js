@@ -1,17 +1,21 @@
 import { Input, Button, HelpText } from '@catena-network/catena-ui-module';
 import { useState } from 'react';
 import { useValidation } from '../../../../hooks/useValidation';
+import createAxiosInstance from '../../../../pages/api/axios';
 
 import styles from './VoiceMatters.module.css';
 
 const VoiceMatter = () => {
+  const [email, setEmail] = useState("");
   const [formData, setFormData] = useState({
     email: '',
     name: '',
     suggestion: '',
   });
 
-  const chngHandler = e => {
+  const axios = createAxiosInstance();
+
+  const chngeHandler = e => {
     const { name, value } = e.target;
 
     if (name === "email") {
@@ -24,10 +28,14 @@ const VoiceMatter = () => {
   };
 
   const handleSubmit = () => {
-    console.log(formData);
+    axios.post(`${process.env.NEXT_PUBLIC_URL}/feedback/create-feedback`, formData)
+      .then(res => {
+        console.log(res);
+      })
+      .catch(err => {
+        console.log(err);
+      });
   };
-
-  const [email, setEmail] = useState("");
 
   let helpTexts = {
     email: {
@@ -43,17 +51,6 @@ const VoiceMatter = () => {
     },
     helpTexts
   );
-
-  // const changeHandler = (i, e) => {
-  //   console.log(i.target.value);
-  //   const { name, value } = i.target;
-
-  //   if (name === "amount") {
-  //     setDepositAmount(value);
-  //   } else if (name === "email") {
-  //     setEmail(value)
-  //   }
-  // };
 
   return (
     <div className={`${styles.main} container`}>
@@ -84,7 +81,7 @@ const VoiceMatter = () => {
                 placeholder={'Enter..'}
                 validation={"email"}
                 value={email}
-                onChange={chngHandler}
+                onChange={chngeHandler}
                 statusCard={
                   validationErrors?.email && (
                     <HelpText
@@ -106,7 +103,7 @@ const VoiceMatter = () => {
                 placeholder={'Enter'}
                 value={formData.name}
                 name='name'
-                onChange={chngHandler}
+                onChange={chngeHandler}
               // customStyles={{ width: '500px' }}
               />
             </div>
@@ -115,7 +112,7 @@ const VoiceMatter = () => {
                 type={'textarea'}
                 label={'Make a suggestion'}
                 value={formData.suggestion}
-                onChange={chngHandler}
+                onChange={chngeHandler}
                 name='suggestion'
                 rows={10}
                 cols={20}
