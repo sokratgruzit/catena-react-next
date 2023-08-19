@@ -12,7 +12,7 @@ const Market = () => {
   const [addresses, setAdresses] = useState([nftStatsData]);
 
   useEffect(() => {
-    setAdresses(Object.keys(nftStatsData));
+    setAdresses(Object.keys([]));
   }, []);
 
   const searchInputHandler = event => {
