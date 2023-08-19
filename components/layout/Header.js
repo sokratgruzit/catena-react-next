@@ -82,21 +82,21 @@ const Header = () => {
               title: 'Community',
               route: '/overview/community',
             },
-            {
-              id: 'about-2',
-              title: 'Careers',
-              route: '/overview/careers',
-            },
-            {
-              id: 'about-3',
-              title: 'Press',
-              route: '/overview/press',
-            },
-            {
-              id: 'about-4',
-              title: 'Events',
-              route: '/overview/events',
-            },
+            // {
+            //   id: 'about-2',
+            //   title: 'Careers',
+            //   route: '/overview/careers',
+            // },
+            // {
+            //   id: 'about-3',
+            //   title: 'Press',
+            //   route: '/overview/press',
+            // },
+            // {
+            //   id: 'about-4',
+            //   title: 'Events',
+            //   route: '/overview/events',
+            // },
             {
               id: 'about-5',
               title: 'Privacy',
@@ -118,11 +118,11 @@ const Header = () => {
               title: 'Bug Bounty',
               route: '/overview/bug-bounty',
             },
-            {
-              id: 'support-1',
-              title: 'Your Voice Matter',
-              route: '/overview/your-voice',
-            },
+            // {
+            //   id: 'support-1',
+            //   title: 'Your Voice Matter',
+            //   route: '/overview/your-voice',
+            // },
             {
               id: 'support-2',
               title: 'Support',
@@ -163,11 +163,11 @@ const Header = () => {
       title: 'Trade',
       route: '/overview',
       subNav: [
-        {
-          id: 'trade-0',
-          title: 'Swap',
-          route: '/overview',
-        },
+        // {
+        //   id: 'trade-0',
+        //   title: 'Swap',
+        //   route: '/overview',
+        // },
         {
           id: 'trade-1',
           title: 'Bridge',
@@ -239,15 +239,15 @@ const Header = () => {
           title: 'Info',
           route: '/info',
         },*/
-        {
-          id: 'more-0',
-          title: 'Voting',
-          route: '/overview/voting',
-        },
+        // {
+        //   id: 'more-0',
+        //   title: 'Voting',
+        //   route: '/overview/voting',
+        // },
         {
           id: 'more-1',
           title: 'Wallet',
-          route: 'https://wallet-landing-next-six.vercel.app',
+          route: 'https://wallet.coremultichain.com/',
         },
         /*{
           id: 15,
@@ -522,7 +522,7 @@ const Header = () => {
                 ></div>
                 <div className={styles.headerLogoTxtOuter}>
                   <span className={`${styles.headerLogoTxt} ${activeMenu !== null ? styles.headerLogoTxtHidden : ''}`}>
-                    Dashboard
+                    Overview
                   </span>
                 </div>
               </div>

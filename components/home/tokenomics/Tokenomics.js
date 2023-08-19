@@ -12,7 +12,7 @@ function Tokenomics() {
     const dispatch = useDispatch();
     const [pageReady, setPageReady] = useState(false);
     let microSchemes;
-    if(window.innerWidth > 1250){
+    if(window.innerWidth > 1240){
         microSchemes = [
             [1,2,7,8,9,10,11,12,13,14,20,21,22,23,24],
             [1,2,10,11,12,13,14,22,23,24],
@@ -20,7 +20,7 @@ function Tokenomics() {
         ];
     };
 
-    if(window.innerWidth < 1250){
+    if(window.innerWidth < 1240){
         microSchemes = [
             [1,2,5,6,7,8,9,10,11,12,13,14,17,18,19,20,21,22,23,24],
             [1,2,6,7,8,9,10,11,12,13,14,19,20,21,22,23,24],
@@ -59,7 +59,7 @@ function Tokenomics() {
         </InView>
       <div className='container'>
           <InView as="div" onChange={(inView, entry) => (inView && setScheme(1))}>
-            <EventDetails />
+            {/*<EventDetails />*/}
             <Certik />
           </InView>
           <InView as="div" onChange={(inView, entry) => (inView && setScheme(2))}>

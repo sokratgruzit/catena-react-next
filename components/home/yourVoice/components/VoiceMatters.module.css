@@ -25,7 +25,6 @@
 }
 
 .Title {
-  margin: 10% 0px 10% 0px;
   max-width: 70%;
 }
 
@@ -36,14 +35,29 @@
   padding: 50px;
 }
 
+.from {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
 .btnBlu {
   width: 100% !important;
   border: 1px solid #162029 !important;
   background-color: #a6d0dd !important;
+  margin-top: 30px !important;
 }
-
+/*Laptop*/
+@media (max-width: 1900px) {
+  .hederBox {
+    padding: 25px;
+  }
+}
 /*Ipad 768*/
 @media (max-width: 1023px) {
+  .hederBox {
+    padding: 15px;
+  }
   .main {
     display: flex;
     flex-direction: column;
@@ -59,6 +73,7 @@
 
   .Title {
     width: 100%;
+    margin-bottom: 30px;
   }
 
   .bottomBox {

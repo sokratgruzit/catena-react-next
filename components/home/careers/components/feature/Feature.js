@@ -5,12 +5,11 @@ import styles from './Feature.module.css';
 import CopyIcon from '../../../../svg/careers/CopyIcon';
 
 
-const Feature = ({ featureLinkList, title, showButton, careers }) => {
+const Feature = ({ title, showButton, careers }) => {
   const [copiedLink, setCopiedLink] = useState('');
   const [isPopupVisible, setPopupVisible] = useState(null);
 
   const handlePopupClick = (index) => {
-    setCopiedLink(`${process.env.NEXT_PUBLIC_URL}/careers/${featureLinkList[index].id}`);
     setPopupVisible(index);
     setTimeout(() => {
       setPopupVisible(null);
@@ -22,19 +21,20 @@ const Feature = ({ featureLinkList, title, showButton, careers }) => {
     navigator.clipboard
       .writeText(link)
       .then(() => {
-        console.log('Link copied!');
+        // console.log('Link copied!');
       })
       .catch((error) => {
-        console.error('Failed to copy link:', error);
+        // console.error('Failed to copy link:', error);
       });
   };
+
 
   return (
     <div>
       <div className='container_bordered'>
-        <h2 className={`${styles.font__51} font-40 ttl`}>Featured Jobs</h2>
+        <h2 className={`${styles.font__51} font-40 ttl`} data-aos="fade-up">{title}</h2>
         <div className='container_bordered-child'>
-          <div className={`${styles.openPositionsList}`}>
+          <div className={`${styles.openPositionsList}`} data-aos="fade-up">
             {careers?.map((item, index) => {
               return (
                 <div className={styles.openPositionsListItem} key={index}>
@@ -51,8 +51,8 @@ const Feature = ({ featureLinkList, title, showButton, careers }) => {
                   <div
                     className={styles.openPositionsListItemSvg}
                     onClick={() => {
-                      // handleCopy(`http://localhost:3000/overview/careers/${item.id}`);
-                      // handlePopupClick(index);
+                      handleCopy(`http://localhost:3001/overview/careers/${item.slug}`);
+                      handlePopupClick(index);
                     }}
                   >
                     <CopyIcon />

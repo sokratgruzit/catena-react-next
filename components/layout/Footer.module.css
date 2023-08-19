@@ -11,6 +11,10 @@
     transform: translateY(120%);
 
 }
+.footerRelative.footer {
+    position: relative;
+    margin-top: 100px;
+}
 .footer.footerActive {
     transform: translateY(0%);
     transition-delay: .4s;
@@ -68,6 +72,10 @@
         padding-top: 50px;
     }
 }
-@media (max-width: 767px) {
-
+@media (max-width: 1023px) {
+    .footerRelative.footer {
+        position: relative;
+        margin-top: 50px;
+        padding-bottom: 20px;
+    }
 }
