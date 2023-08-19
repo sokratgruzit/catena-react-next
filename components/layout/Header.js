@@ -266,10 +266,11 @@ const Header = () => {
   const changeLanguage = loc => {
     dispatch({
       type: "SET_ACTIVE_LANG",
-      activeLang: loc
+      activeLang: "en"
     });
 
-    handleLanguageChange(loc);
+    //handleLanguageChange(loc);
+    handleLanguageChange("en");
   };
 
   const openMenu = id => {
@@ -494,6 +495,15 @@ const Header = () => {
       });
     }
   }, [account, chainId, dispatch]);
+
+  useEffect(() => {
+    dispatch({
+      type: "SET_ACTIVE_LANG",
+      activeLang: "en"
+    });
+
+    handleLanguageChange("en");
+  }, []);
 
   return (
     <div>
