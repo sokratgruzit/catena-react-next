@@ -41,12 +41,12 @@
   gap: 25px;
 }
 
-.btnBlu {
+/* .btnBlu {
   width: 100% !important;
   border: 1px solid #162029 !important;
   background-color: #a6d0dd !important;
   margin-top: 30px !important;
-}
+} */
 /*Laptop*/
 @media (max-width: 1900px) {
   .hederBox {

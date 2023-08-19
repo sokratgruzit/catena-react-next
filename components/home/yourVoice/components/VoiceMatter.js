@@ -12,20 +12,20 @@ const VoiceMatter = () => {
     email: '',
     name: '',
     suggestion: '',
-  });  
+  });
 
   const dispatch = useDispatch();
   const [pageReady, setPageReady] = useState(false);
   let microSchemes;
-  if(window.innerWidth > 1240){
+  if (window.innerWidth > 1240) {
     microSchemes = [
-      [1,2,10,11,12,13,14,15,16,17,18,22,23,24],
+      [1, 2, 10, 11, 12, 13, 14, 15, 16, 17, 18, 22, 23, 24],
     ];
   }
 
-  if(window.innerWidth < 1240){
+  if (window.innerWidth < 1240) {
     microSchemes = [
-      [1,2,5,6,7,8,9,10,11,12,13,14,16,17,18,19,20,21,22,23,24],
+      [1, 2, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 16, 17, 18, 19, 20, 21, 22, 23, 24],
     ];
   }
 
@@ -44,7 +44,7 @@ const VoiceMatter = () => {
         microschemeArray: microSchemes[0]
       });
     }, 400);
-  },[]);
+  }, []);
 
   const axios = createAxiosInstance();
 
@@ -61,7 +61,7 @@ const VoiceMatter = () => {
   };
 
   const handleSubmit = () => {
-    axios.post(`${process.env.NEXT_PUBLIC_URL}/feedback/create-feedback`, formData)
+    axios.post(`${process.env.NEXT_PUBLIC_URL}/your-voice/create-feedback`, formData)
       .then(res => {
         console.log(res);
       })
@@ -155,7 +155,7 @@ const VoiceMatter = () => {
             </div>
             <div>
               <Button
-                label={'Button'}
+                label={'Submit'}
                 size={'btn-lg'}
                 type={'btn-primary'}
                 arrow={'arrow-right'}

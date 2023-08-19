@@ -30,7 +30,7 @@ const AmbasdorBtn = () => {
   };
 
   const handleSubmit = () => {
-    axios.post(`${process.env.NEXT_PUBLIC_URL}/feedback/create-feedback`, formData)
+    axios.post(`${process.env.NEXT_PUBLIC_URL}/ambassador/create-ambassador`, formData)
       .then(res => {
         console.log(res);
       })
