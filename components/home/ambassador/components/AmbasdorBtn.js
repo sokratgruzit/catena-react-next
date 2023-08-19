@@ -1,62 +1,58 @@
 import React, { useState } from 'react';
-import { Input, Button } from '@catena-network/catena-ui-module';
+import { Input, Button, HelpText } from '@catena-network/catena-ui-module';
+import createAxiosInstance from '../../../../pages/api/axios';
+import { useValidation } from "../../../../hooks/useValidation";
 
 import styles from '../css/AmbasdorBtn.module.css';
 
 const AmbasdorBtn = () => {
-  const [imaleValid, setImaleValid] = useState('');
   const [chng, setChng] = useState(false);
+  const [email, setEmail] = useState("");
   const [formData, setFormData] = useState({
     email: '',
     name: '',
     suggestion: '',
   });
-
   const [suggestionLength, setSuggestionLength] = useState(1000);
 
-  const changeHandler = e => {
+  const axios = createAxiosInstance();
+
+  const chngeHandler = e => {
     const { name, value } = e.target;
 
-    if (name === 'suggestion') {
-      const truncatedValue = value.slice(0, 1000);
-      setFormData(prevState => ({
-        ...prevState,
-        [name]: truncatedValue,
-      }));
-      const remainingChars = 1000 - truncatedValue.length;
-      setSuggestionLength(remainingChars);
-    } else if (name === 'email') {
-      const isValidEmail = validateEmail(value);
-      console.log(isValidEmail, 'sadwdsadqwd');
-      setImaleValid(isValidEmail);
-
-      setFormData(prevState => ({
-        ...prevState,
-        [name]: value,
-        emailValid: isValidEmail, // You can add a property to your state to track email validity.
-      }));
-    } else {
-      setFormData(prevState => ({
-        ...prevState,
-        [name]: value,
-      }));
+    if (name === "email") {
+      setEmail(value)
     }
+    setFormData(prevState => ({
+      ...prevState,
+      [name]: value,
+    }));
   };
-
-  function validateEmail(email) {
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailPattern.test(email);
-  }
 
   const handleSubmit = () => {
-    console.log(formData);
-    if (imaleValid) {
-      console.log(formData, 'success');
-      setChng(false);
-    } else {
-      console.log('isn`t valid email');
-    }
+    axios.post(`${process.env.NEXT_PUBLIC_URL}/feedback/create-feedback`, formData)
+      .then(res => {
+        console.log(res);
+      })
+      .catch(err => {
+        console.log(err);
+      });
   };
+
+  let helpTexts = {
+    email: {
+      validationType: "email",
+      success: "Email is valid",
+      failure: "Invalid email format",
+    },
+  };
+
+  const validationErrors = useValidation(
+    {
+      email: email || "",
+    },
+    helpTexts
+  );
 
   return (
     <div className={`${styles.btn} container `} data-aos="fade-up">
@@ -64,17 +60,26 @@ const AmbasdorBtn = () => {
         <form id='emailForm'>
           <div>
             <Input
-              className={styles.llll}
-              type={'default'}
+              type={"default"}
+              name={"email"}
               icon={false}
               label={'EMAIL'}
-              subLabel={''}
-              placeholder={'Enter'}
-              name='email'
-              value={formData.email}
-              onChange={changeHandler}
-              // emptyFieldErr={imaleValid}
-              // customStyles={{ width: '500px' }}
+              editable={true}
+              subLabel={""}
+              placeholder={'Enter..'}
+              validation={"email"}
+              value={email}
+              onChange={chngeHandler}
+              statusCard={
+                validationErrors?.email && (
+                  <HelpText
+                    status={validationErrors.email.failure ? "error" : "success"}
+                    title={validationErrors.email.failure || validationErrors.email.success}
+                    fontSize={"font-12"}
+                    icon={true}
+                  />
+                )
+              }
             />
           </div>
           <div>
@@ -84,23 +89,24 @@ const AmbasdorBtn = () => {
               label={'Name'}
               subLabel={''}
               placeholder={'Enter'}
-              name='name'
               value={formData.name}
-              onChange={changeHandler}
-              // customStyles={{ width: '500px' }}
+              name='name'
+              onChange={chngeHandler}
+            // customStyles={{ width: '500px' }}
             />
           </div>
           <div>
             <Input
               type={'textarea'}
               label={'Make a suggestion'}
-              name='suggestion'
               value={formData.suggestion}
-              onChange={changeHandler}
+              onChange={chngeHandler}
+              name='suggestion'
               rows={10}
               cols={20}
               placeholder={'Please describe your feedback in detail with corresponding screenshots'}
-              resize={'both'}
+              resize={'none'}
+              customStyles={{ width: '100%', resize: 'none' }}
             />
             <label>Limit: {suggestionLength} characters</label>
           </div>
@@ -128,6 +134,7 @@ const AmbasdorBtn = () => {
           disabled={false}
           onClick={() => setChng(true)}
           className={styles.btnBlu}
+          customStyles={{ marginTop: "30px" }}
         />
       )}
     </div>

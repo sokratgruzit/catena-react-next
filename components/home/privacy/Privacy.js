@@ -1,8 +1,41 @@
 import PrivacyList from './components/PrivacyList';
 
 import styles from './styles/Privacy.module.css';
+import {useDispatch} from "react-redux";
+import {useEffect, useState} from "react";
 
 export default function privacy() {
+  const dispatch = useDispatch();
+  const [pageReady, setPageReady] = useState(false);
+  let microSchemes;
+  if(window.innerWidth > 1240){
+    microSchemes = [
+      [1,2,12,13,14,15,16,17,23,24],
+    ];
+  }
+
+  if(window.innerWidth < 1240){
+    microSchemes = [
+      [1,2,5,6,7,8,9,10,11,12,13,22,23,24],
+    ];
+  }
+
+  const setScheme = (num) => {
+    dispatch({
+      type: "SET_MICHROSCHEME_ARRAY",
+      microschemeArray: microSchemes[num]
+    });
+  }
+
+  useEffect(() => {
+    setTimeout(() => {
+      setPageReady(true);
+      dispatch({
+        type: "SET_MICHROSCHEME_ARRAY",
+        microschemeArray: microSchemes[0]
+      });
+    }, 400);
+  },[]);
   const privacyList = [
     {
       title: 'Your Data',
@@ -62,44 +95,30 @@ export default function privacy() {
       title: 'Sharing Of Personal Data',
       text: [
         'We may share your Personal Data with the following:',
-        "Third-Party Suppliers. We may disclose Your Enquiry Data to one or more of those selected third-party suppliers of Goods and Services identified on Our Website for the purpose of enabling them to contact You so that they can offer, market and sell relevant Goods and/or Services to You. Each such third party will act as a data controller in relation to the Enquiry Data that We supply to it; and upon contacting You, each such third party will supply to You a copy of its own privacy policy, which will govern that third party's use of Your Personal Data. The suppliers and providers with whom We may share Your information include:",
+        "Third-Party Suppliers. We may disclose Your Enquiry Data to one or more of those selected third-party suppliers of Goods and Services identified on Our Website for the purpose of enabling them to contact You so that they can offer, market and sell relevant Goods and/or Services to You. Each such third party will act as a data controller in relation to thea Enquiry Data that We supply to it; and upon contacting You, each such third party will supply to You a copy of its own privacy policy, which will govern that third party's use of Your Personal Data. The suppliers and providers with whom We may share Your information include:",
       ],
       bullets: [
         'Social networking sites',
         'Analytics services',
         'IT service providers and web hosting companies',
-        'enforcing Our Terms and Conditions;',
-        'as otherwise required or authorized by law or government agency.',
+        'Legal, auditing and other professional advisors or consultants',
+        'Billing or data storage services',
+      ],
+      textTwo: [
+        'Other Purposes. In addition to the specific disclosures of Personal Data set out in this Section, We may disclose Your Personal Data where such disclosure is necessary for compliance with a legal obligation to which We are subject, or in order to protect Our vital interests, Your vital interests, or the vital interests of another natural person. We may also disclose Your Personal Data where such disclosure is necessary for the establishment, exercise or defence of legal claims, whether in court proceedings or in an administrative or out-of-court procedure.',
       ],
     },
-    {
-      title: 'Sharing Of Personal Data',
-      children: [
-        {
-          title: 'We may share your Personal Data with the following:',
-          text: "Third-Party Suppliers. We may disclose Your Enquiry Data to one or more of those selected third-party suppliers of Goods and Services identified on Our Website for the purpose of enabling them to contact You so that they can offer, market and sell relevant Goods and/or Services to You. Each such third party will act as a data controller in relation to the Enquiry Data that We supply to it; and upon contacting You, each such third party will supply to You a copy of its own privacy policy, which will govern that third party's use of Your Personal Data. The suppliers and providers with whom We may share Your information include:",
-          bullets: [
-            'Social networking sites',
-            'Analytics services',
-            'IT service providers and web hosting companies',
-            'Legal, auditing and other professional advisors or consultants',
-            'Billing or data storage services',
-          ],
-        },
-      ],
 
-      text: 'Other Purposes. In addition to the specific disclosures of Personal Data set out in this Section, We may disclose Your Personal Data where such disclosure is necessary for compliance with a legal obligation to which We are subject, or in order to protect Our vital interests, Your vital interests, or the vital interests of another natural person. We may also disclose Your Personal Data where such disclosure is necessary for the establishment, exercise or defence of legal claims, whether in court proceedings or in an administrative or out-of-court procedure.',
-    },
     {
       title: 'Data Security',
       text: [
         'We follow generally accepted industry standards to protect the information submitted to Us, both during transmission and once We receive it. We maintain appropriate administrative, technical and physical safeguards to protect Personal Data against accidental or unlawful destruction, accidental loss, unauthorised alteration, unauthorised disclosure or access, misuse, and any other unlawful form of processing of the Personal Data in Our possession. This includes, for example, firewalls, password protection and other access and authentication controls.',
         'We use HTTPS',
-        'HTTPS (Hypertext Transfer Protocol Secure) is an internet communication protocol that protects the integrity and confidentiality of data between your computer and www.catenamultichain.com/. The use of HTTPS makes sure your communication with us is:',
-        'Encrypted — The data you exchange with us is secure from eavesdroppers. That means that when you are browsing www.catenamultichain.com/, nobody can track your activities across multiple pages, or steal the data exchange between your computer and www.catenamultichain.com/.',
+        'HTTPS (Hypertext Transfer Protocol Secure) is an internet communication protocol that protects the integrity and confidentiality of data between your computer and www.catena.network. The use of HTTPS makes sure your communication with us is:',
+        'Encrypted — The data you exchange with us is secure from eavesdroppers. That means that when you are browsing www.catena.network, nobody can track your activities across multiple pages, or steal the data exchange between your computer and www.catena.network.',
         'Integral — The use of HTTPS preserves the integrity of data. Your data cannot be modified or corrupted during transfer.',
         'Authenticated — HTTPS protocol authenticates your communication with us. This ensures that you are always communicating with our servers.',
-        'However, no method of transmission over the Internet, or method of electronic storage, is 100% secure. We cannot ensure or warrant the security of any information You transmit to Us or store on the Website, and You do so at Your own risk. We also cannot guarantee that such information may not be accessed, disclosed, altered, or destroyed by breach of any of Our physical, technical, or managerial safeguards. If You believe Your Personal Data has been compromised, please contact Us at info@catenamultichain.com.',
+        'However, no method of transmission over the Internet, or method of electronic storage, is 100% secure. We cannot ensure or warrant the security of any information You transmit to Us or store on the Website, and You do so at Your own risk. We also cannot guarantee that such information may not be accessed, disclosed, altered, or destroyed by breach of any of Our physical, technical, or managerial safeguards. If You believe Your Personal Data has been compromised, please contact Us at info@catena.network.',
         'If We learn of a security systems breach, then We attempt to notify You electronically so that You can take appropriate protective steps. We may post a notice through the Website if a security breach occurs.',
       ],
     },
@@ -262,17 +281,19 @@ export default function privacy() {
       text: [
         'If you have questions or concerns regarding this policy or if you need to make a request please contact us at:',
       ],
-      link: 'info@catenamultichain.com',
+      link: 'info@catena.network',
     },
   ];
   return (
-    <div className={`container ${styles.wrapper}`}>
-      <h1 className={styles.title}>
-        <span className='font-90 ttl'>Privacy</span>
-        <span className='font-90 ttl'>Policy</span>
-      </h1>
-      <div className={styles.content}>
-        <PrivacyList privacyList={privacyList} />
+    <div className='pT-180'>
+      <div className={`container ${styles.wrapper} tYAnimation ${pageReady ? 'animate' : ''}`}>
+        <h1 className={`${styles.title}`}>
+          <span className='font-90 ttl'>Privacy</span>
+          <span className='font-90 ttl'>Policy</span>
+        </h1>
+        <div className={styles.content}>
+          <PrivacyList privacyList={privacyList} />
+        </div>
       </div>
     </div>
   );

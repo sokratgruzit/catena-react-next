@@ -3,12 +3,17 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useRouter } from 'next/router';
 import { Button, Input } from '@catena-network/catena-ui-module';
 import createAxiosInstance from '../../pages/api/axios';
+import { useConnect } from '../../hooks/use-connect';
 import { socket } from '../../pages/api/socket';
+// import NFT_ABI from '../abi/NFT_ABI.json';
 
 import styles from './MakeProfile.module.css';
-import { set } from 'date-fns';
 
 const MakeProfile = () => {
+  const nftContractAddress = '0xDC87d42B174D70fFdC81c62414EEc8db30C9E1DB';
+  const {
+    library
+  } = useConnect();
   const [mobileNumber, setMobileNumber] = useState('');
   const [show, setShow] = useState(false);
   const [user_id, setUser_id] = useState(null);
@@ -105,7 +110,7 @@ const MakeProfile = () => {
           mobile: mobileNumber,
           password: formData.password,
           dateOfBirth: formData.dateOfBirth,
-          status: true,
+          status: false,
           locale: locale
         })
         .then(res => {
@@ -146,6 +151,25 @@ const MakeProfile = () => {
       router.push('/', undefined, { locale });
     }
   }, [account]);
+
+  // useEffect(() => {
+  //   if (library && account) {
+  //     const fetchContract = async () => {
+  //       const pinataApiKey = '10862fdbcbad2741f62c';
+  //       const pinataSecretApiKey = '287293bcdfffcd3d7d4e440723d46904074bbb9f357784a3013efb5b116a2513';
+  //       const cid = 'QmRJbbGs4wi57EmJxQYCn9LmKaZpwL66TFjrfy27rWvqPp';
+  //       const node = ipfsClient.cat(cid);
+  //       //const stream = node.cat(cid);
+  //       let contract = new library.eth.Contract(NFT_ABI, nftContractAddress);
+  //       let count = await contract.methods.tokenCount().call();
+  //       let baseUri = await contract.methods.baseURI().call();
+  //       // const nftMeta = await ipfs.get(cid);
+  //       console.log(node, 'lal');
+  //     };
+
+  //     fetchContract();
+  //   }
+  // }, [library, account]);
 
   return (
     <>

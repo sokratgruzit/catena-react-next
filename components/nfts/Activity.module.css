@@ -3,6 +3,10 @@
   flex-direction: column;
   padding-top: 100px;
 }
+
+.Activity h1 {
+  margin-bottom: 145px;
+}
 .Activity__backBtn {
   display: flex;
   align-items: center;
@@ -33,12 +37,14 @@
 .Activity__listItems {
   display: flex;
   flex-direction: column;
-  border: 1px solid #111826;
+  border: 1px solid #16202933;
+  background: #f3e4d2;
   width: 100%;
-  margin-top: 10px;
-  padding-top: 20px;
+  border-top: none;
+  border-radius: 0px 0px 20px 20px;
+  /* padding-top: 20px;
   padding-left: 20px;
-  padding-right: 20px;
+  padding-right: 20px; */
 }
 .nftActivityTable__categoriesTitles ul {
   display: flex;

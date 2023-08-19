@@ -216,7 +216,6 @@ const Careers = ({careers}) => {
   }
 
   const setScheme = (num) => {
-      console.log(num);
       dispatch({
           type: "SET_MICHROSCHEME_ARRAY",
           microschemeArray: microSchemes[num]

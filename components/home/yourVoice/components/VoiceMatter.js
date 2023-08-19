@@ -1,17 +1,54 @@
 import { Input, Button, HelpText } from '@catena-network/catena-ui-module';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useValidation } from '../../../../hooks/useValidation';
+import createAxiosInstance from '../../../../pages/api/axios';
+import { useDispatch } from 'react-redux';
 
 import styles from './VoiceMatters.module.css';
 
 const VoiceMatter = () => {
+  const [email, setEmail] = useState("");
   const [formData, setFormData] = useState({
     email: '',
     name: '',
     suggestion: '',
-  });
+  });  
 
-  const chngHandler = e => {
+  const dispatch = useDispatch();
+  const [pageReady, setPageReady] = useState(false);
+  let microSchemes;
+  if(window.innerWidth > 1240){
+    microSchemes = [
+      [1,2,10,11,12,13,14,15,16,17,18,22,23,24],
+    ];
+  }
+
+  if(window.innerWidth < 1240){
+    microSchemes = [
+      [1,2,5,6,7,8,9,10,11,12,13,14,16,17,18,19,20,21,22,23,24],
+    ];
+  }
+
+  const setScheme = (num) => {
+    dispatch({
+      type: "SET_MICHROSCHEME_ARRAY",
+      microschemeArray: microSchemes[num]
+    });
+  }
+
+  useEffect(() => {
+    setTimeout(() => {
+      setPageReady(true);
+      dispatch({
+        type: "SET_MICHROSCHEME_ARRAY",
+        microschemeArray: microSchemes[0]
+      });
+    }, 400);
+  },[]);
+
+  const axios = createAxiosInstance();
+
+  const chngeHandler = e => {
     const { name, value } = e.target;
 
     if (name === "email") {
@@ -24,20 +61,14 @@ const VoiceMatter = () => {
   };
 
   const handleSubmit = () => {
-    if (!validationErrors?.email?.failure && formData.email) {
-      console.log('Sending data to the backend:', formData);
-      setFormData({
-        email: '',
-        name: '',
-        suggestion: '',
+    axios.post(`${process.env.NEXT_PUBLIC_URL}/feedback/create-feedback`, formData)
+      .then(res => {
+        console.log(res);
+      })
+      .catch(err => {
+        console.log(err);
       });
-    } else {
-      console.log('Invalid email format. Data not sent.');
-    }
   };
-  
-
-  const [email, setEmail] = useState("");
 
   let helpTexts = {
     email: {
@@ -57,11 +88,11 @@ const VoiceMatter = () => {
   return (
     <div className={`${styles.main} container`}>
       <div className={`${styles.box} `}>
-        <div className={styles.container}>
+        <h1 className={`${styles.container} pB-50 tYAnimation ${pageReady ? 'animate' : ''}`}>
           <div className={`${styles.blackTitle} font-90 ttl`}>Your Voice </div>
-          <div className={`${styles.retTitle} font-90`}> Matter</div>
-        </div>
-        <div className={styles.Title}>
+          <div className={`${styles.retTitle} font-90 ttl`}> Matter</div>
+        </h1>
+        <div className={`${styles.Title} delay1 tYAnimation ${pageReady ? 'animate' : ''}`}>
           <h2>
             Community feedback helps CATENA improve and grow. Users who provide feedback on their experience help ensure
             the growth of CATENA and lead us in the direction that the community needs to be. Please use the following
@@ -69,7 +100,7 @@ const VoiceMatter = () => {
           </h2>
         </div>
       </div>
-      <div className={`${styles.bottomBox} `}>
+      <div className={`${styles.bottomBox} tYAnimation ${pageReady ? 'animate' : ''}`}>
         <div className={`${styles.hederBox} `}>
           <form className={styles.from}>
             <div>
@@ -83,8 +114,7 @@ const VoiceMatter = () => {
                 placeholder={'Enter..'}
                 validation={"email"}
                 value={email}
-                onChange={chngHandler}
-                required={false}
+                onChange={chngeHandler}
                 statusCard={
                   validationErrors?.email && (
                     <HelpText
@@ -106,9 +136,7 @@ const VoiceMatter = () => {
                 placeholder={'Enter'}
                 value={formData.name}
                 name='name'
-                onChange={chngHandler}
-                required={true}
-              // customStyles={{ width: '500px' }}
+                onChange={chngeHandler}
               />
             </div>
             <div>
@@ -116,7 +144,7 @@ const VoiceMatter = () => {
                 type={'textarea'}
                 label={'Make a suggestion'}
                 value={formData.suggestion}
-                onChange={chngHandler}
+                onChange={chngeHandler}
                 name='suggestion'
                 rows={10}
                 cols={20}
