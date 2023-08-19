@@ -1,16 +1,19 @@
-<<<<<<< HEAD
 import { Input, Button, HelpText } from '@catena-network/catena-ui-module';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useValidation } from '../../../../hooks/useValidation';
-=======
-import { Input, Button } from '@catena-network/catena-ui-module';
-import {useEffect, useState} from 'react';
->>>>>>> 933041378a2f8638ef928eec5cc579da8cbfd296
+import createAxiosInstance from '../../../../pages/api/axios';
+import { useDispatch } from 'react-redux';
 
 import styles from './VoiceMatters.module.css';
-import {useDispatch} from "react-redux";
 
 const VoiceMatter = () => {
+  const [email, setEmail] = useState("");
+  const [formData, setFormData] = useState({
+    email: '',
+    name: '',
+    suggestion: '',
+  });  
+
   const dispatch = useDispatch();
   const [pageReady, setPageReady] = useState(false);
   let microSchemes;
@@ -43,13 +46,9 @@ const VoiceMatter = () => {
     }, 400);
   },[]);
 
-  const [formData, setFormData] = useState({
-    email: '',
-    name: '',
-    suggestion: '',
-  });
+  const axios = createAxiosInstance();
 
-  const chngHandler = e => {
+  const chngeHandler = e => {
     const { name, value } = e.target;
 
     if (name === "email") {
@@ -62,20 +61,14 @@ const VoiceMatter = () => {
   };
 
   const handleSubmit = () => {
-    if (!validationErrors?.email?.failure && formData.email) {
-      console.log('Sending data to the backend:', formData);
-      setFormData({
-        email: '',
-        name: '',
-        suggestion: '',
+    axios.post(`${process.env.NEXT_PUBLIC_URL}/feedback/create-feedback`, formData)
+      .then(res => {
+        console.log(res);
+      })
+      .catch(err => {
+        console.log(err);
       });
-    } else {
-      console.log('Invalid email format. Data not sent.');
-    }
   };
-  
-
-  const [email, setEmail] = useState("");
 
   let helpTexts = {
     email: {
@@ -121,8 +114,7 @@ const VoiceMatter = () => {
                 placeholder={'Enter..'}
                 validation={"email"}
                 value={email}
-                onChange={chngHandler}
-                required={false}
+                onChange={chngeHandler}
                 statusCard={
                   validationErrors?.email && (
                     <HelpText
@@ -144,9 +136,7 @@ const VoiceMatter = () => {
                 placeholder={'Enter'}
                 value={formData.name}
                 name='name'
-                onChange={chngHandler}
-                required={true}
-              // customStyles={{ width: '500px' }}
+                onChange={chngeHandler}
               />
             </div>
             <div>
@@ -154,7 +144,7 @@ const VoiceMatter = () => {
                 type={'textarea'}
                 label={'Make a suggestion'}
                 value={formData.suggestion}
-                onChange={chngHandler}
+                onChange={chngeHandler}
                 name='suggestion'
                 rows={10}
                 cols={20}
@@ -183,4 +173,3 @@ const VoiceMatter = () => {
 };
 
 export default VoiceMatter;
-

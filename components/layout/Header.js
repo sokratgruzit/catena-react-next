@@ -163,11 +163,11 @@ const Header = () => {
       title: 'Trade',
       route: '/overview',
       subNav: [
-        {
-          id: 'trade-0',
-          title: 'Swap',
-          route: '/overview',
-        },
+        // {
+        //   id: 'trade-0',
+        //   title: 'Swap',
+        //   route: '/overview',
+        // },
         {
           id: 'trade-1',
           title: 'Bridge',
@@ -239,15 +239,20 @@ const Header = () => {
           title: 'Info',
           route: '/info',
         },*/
-        {
-          id: 'more-0',
-          title: 'Voting',
-          route: '/overview/voting',
-        },
+        // {
+        //   id: 'more-0',
+        //   title: 'Voting',
+        //   route: '/overview/voting',
+        // },
         {
           id: 'more-1',
           title: 'Wallet',
-          route: 'https://wallet-landing-next-six.vercel.app',
+          route: 'https://wallet.coremultichain.com/',
+        },
+        {
+          id: 'more-2',
+          title: 'Explorer',
+          route: 'https://catenascan.com/',
         },
         /*{
           id: 15,
@@ -261,10 +266,11 @@ const Header = () => {
   const changeLanguage = loc => {
     dispatch({
       type: "SET_ACTIVE_LANG",
-      activeLang: loc
+      activeLang: "en"
     });
 
-    handleLanguageChange(loc);
+    //handleLanguageChange(loc);
+    handleLanguageChange("en");
   };
 
   const openMenu = id => {
@@ -489,6 +495,15 @@ const Header = () => {
       });
     }
   }, [account, chainId, dispatch]);
+
+  useEffect(() => {
+    dispatch({
+      type: "SET_ACTIVE_LANG",
+      activeLang: "en"
+    });
+
+    handleLanguageChange("en");
+  }, []);
 
   return (
     <div>

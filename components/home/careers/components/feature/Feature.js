@@ -29,10 +29,11 @@ const Feature = ({ featureLinkList, title, showButton, openPositions }) => {
       });
   };
 
+
   return (
     <div>
       <div className='container_bordered'>
-        <h2 className={`${styles.font__51} font-40 ttl`}>Featured Jobs</h2>
+        <h2 className={`${styles.font__51} font-40 ttl`} data-aos="fade-up">{title}</h2>
         <div className='container_bordered-child'>
           <div className={`${styles.openPositionsList}`}>
             {openPositions?.map((item, index) => {
