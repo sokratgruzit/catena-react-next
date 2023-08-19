@@ -35,12 +35,13 @@ function MyApp({ Component, pageProps }) {
     AOS.refresh();
   }, []);
   useEffect(() => {
-    if( router.asPath == '/' || router.asPath == '/overview/technology'){
+    if( router.asPath == '/overview/' || router.asPath == '/overview' || router.asPath == '/' || router.asPath == '/overview/technology'){
       setFixedFooter(true);
     }
     else {
       setFixedFooter(false);
     }
+    console.log(router.asPath)
   }, [router]);
   useEffect(() => {
     if (!isInitialized) {
