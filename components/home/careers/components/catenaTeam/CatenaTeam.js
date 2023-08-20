@@ -1,6 +1,6 @@
-import styles from './CoreTeam.module.css';
+import styles from './CatenaTeam.module.css';
 
-const CoreTeam = props => {
+const CatenaTeam = props => {
   const { team, title, title2 } = props;
 
   return (
@@ -19,4 +19,4 @@ const CoreTeam = props => {
   );
 };
 
-export default CoreTeam;
+export default CatenaTeam;
