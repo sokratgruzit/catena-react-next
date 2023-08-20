@@ -197,7 +197,7 @@ const hiringProcess = [
   },
 ];
 
-const Careers = ({careers}) => {
+const Careers = ({careers, openPositions}) => {
   const dispatch = useDispatch();
   const [pageReady, setPageReady] = useState(false);
   let microSchemes;
@@ -235,17 +235,15 @@ const Careers = ({careers}) => {
     <div>
       <InView as="div" onChange={(inView, entry) => (inView && setScheme(0))}>
         <CareersCatena animate={pageReady}/>
-        <CompanyInfo careers={careers} workflow={workflow} title='How we work' animate={pageReady}/>
-        <Feature careers={careers} title='Featured Jobs' showButton={true} animate={pageReady}/>
+        <CompanyInfo workflow={workflow} title='How we work' animate={pageReady}/>
+        <Feature openPositions={openPositions} title='Featured Jobs' showButton={true} animate={pageReady}/>
       </InView>
       
       <InView as="div" onChange={(inView, entry) => (inView && setScheme(1))}>
         <OurValues
           iconImages={iconImages}
           title='Our Values'
-          description='
-          Our CATENA values establish the framework for our ability to create a lasting,
-          positive impact for humanity:'
+          description='Our CATENA values establish the framework for our ability to create a lasting, positive impact for humanity:'
         />
         <CoreTeam team={team} title='Qualities of' title2='a Hypercube Team' />
         <Recruitment data={data} title='Recruitment Process:' />

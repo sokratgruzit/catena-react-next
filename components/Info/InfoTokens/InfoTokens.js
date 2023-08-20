@@ -6,7 +6,7 @@ import TableTokens from '../../Info/components/tableTokens/TableTokens'
 import TopMovers from '../components/TopMovers/TopMovers';
 import styles from '../InfoPages.module.css';
 import SearchBar from '../components/SearchBar/SearchBar';
-// import Link from 'next/link';
+import Link from 'next/link';
 import { TableElement } from '@catena-network/catena-ui-module';
 
 const InfoTokens = () => {

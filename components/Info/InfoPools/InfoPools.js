@@ -17,12 +17,12 @@ const InfoPools = () => {
       <div className='container'>
         <div className={styles.section}>
           <div className={styles.routesWrapper}>
-            {/* <div className={styles.space}></div> */}
+            <div className={styles.space}></div>
             <InfoRoutes />
-            {/* <div className={styles.starWrapper}>
+            <div className={styles.starWrapper}>
               <StarSvg className={styles.starSVG} onClick={() => router.push(`/overview/info/pools/watchlist`)} />
               <div className={styles.favCount}>3</div>
-            </div> */}
+            </div>
           </div>
           <div className='container'>
             <h2 style={{ color: '#162029' }} className='font-40 ttl'>All Pools</h2>
