@@ -1,25 +1,13 @@
-.moversTitle{
-  margin-bottom: 20px;
-}
-
-.wrapper{
-  height: 200px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
 .slideWrapper{
   display: grid;
   overflow: hidden;
   touch-action: auto;
   place-items: center;
-  /* -ms-overflow-style: none;
-  scrollbar-width: none; */
-
 }
-/* .slideWrapper::-webkit-scrollbar {
-  display: none;
-} */
+
+.moversTitle {
+  font-size: 30px;
+}
 
 .slider{
   height: 100px;

@@ -69,7 +69,6 @@ const VoiceMatter = () => {
         console.log(err);
       });
   };
-  
 
   let helpTexts = {
     email: {
@@ -174,4 +173,3 @@ const VoiceMatter = () => {
 };
 
 export default VoiceMatter;
-

@@ -1,12 +1,10 @@
 import Benefits from './components/benefits/Benefits';
 import CareersCatena from './components/careerscatena/CareersCatena';
-import CompanyInfo from './components/companyinfo/CompanyInfo';
-import CoreTeam from './components/coreteam/CoreTeam';
+import CatenaTeam from './components/catenaTeam/CatenaTeam';
 import CurrentOpenings from './components/currentopenings/CurrentOpenings';
 import Feature from './components/feature/Feature';
 import HowWeHire from './components/howwehire/HowWeHire';
 import OurValues from './components/ourvalues/OurValues';
-import Recruitment from './components/recruitment/Recruitment';
 import Destroy from '../../svg/careers/Destroy';
 import Quality from '../../svg/careers/Quality';
 import Original from '../../svg/careers/Original';
@@ -18,15 +16,15 @@ import {useEffect,useState} from "react";
 
 const workflow = [
   {
-    title:
+    value:
       'At CATENA, our remote global team works together to accomplish a common objective. Our worldwide team enables the positive impact of our technology to infiltrate every corner of the world as we utilize the experience and feedback of our remote teams to improve and spread CATENA.',
   },
   {
-    title:
+    value:
       'With team members located in over 40 different countries, CATENA recruits internationally but allows team members to work locally. Whether you live in the middle of Shenzhen or on a Miami beach, work location is limited only by imagination.',
   },
   {
-    title:
+    value:
       'On our relentless pursuit to revolutionise the blockchain and distributed ledger industry, CATENA aims to transcend the current limitations of blockchain technology and enable it to reach its true, unrealised potential. CATENA intends to drastically improve blockchain interoperability, transaction processing, sustainability, and more! To achieve this, we will destroy the boundaries of innovation and stand at the forefront of blockchain and distributed ledger technology. Our purpose is to create a better decentralised future to benefit all, without boundaries.',
   },
 ];
@@ -197,7 +195,7 @@ const hiringProcess = [
   },
 ];
 
-const Careers = ({careers}) => {
+const Careers = ({careers, openPositions}) => {
   const dispatch = useDispatch();
   const [pageReady, setPageReady] = useState(false);
   let microSchemes;
@@ -235,20 +233,18 @@ const Careers = ({careers}) => {
     <div>
       <InView as="div" onChange={(inView, entry) => (inView && setScheme(0))}>
         <CareersCatena animate={pageReady}/>
-        <CompanyInfo careers={careers} workflow={workflow} title='How we work' animate={pageReady}/>
-        <Feature careers={careers} title='Featured Jobs' showButton={true} animate={pageReady}/>
+        <CatenaTeam team={workflow} title='How we work' animate={pageReady} />
+        <Feature openPositions={openPositions} title='Featured Jobs' showButton={true} animate={pageReady}/>
       </InView>
       
       <InView as="div" onChange={(inView, entry) => (inView && setScheme(1))}>
         <OurValues
           iconImages={iconImages}
           title='Our Values'
-          description='
-          Our CATENA values establish the framework for our ability to create a lasting,
-          positive impact for humanity:'
+          description='Our CATENA values establish the framework for our ability to create a lasting, positive impact for humanity:'
         />
-        <CoreTeam team={team} title='Qualities of' title2='a Hypercube Team' />
-        <Recruitment data={data} title='Recruitment Process:' />
+        <CatenaTeam team={team} title='Qualities of' title2='a Hypercube Team' />
+        <CatenaTeam team={data} title2='Recruitment Process:'/>
         <CurrentOpenings currentOpeningsList={currentOpeningsList} title='Current Openings' />
         <Benefits benefitsArr={benefitsArr} title='Benefits Available Following Recruitment:' />
         <HowWeHire
