@@ -1,12 +1,8 @@
 import React from 'react';
-import ContributeSuccess from '../../../components/home/contributeSuccess/contributeSuccess';
+import ContributeSuccess from '../../../components/home/ContributeSuccess/ContributeSuccess';
 
-const idex = () => {
-  return (
-    <div style={{ paddingTop: '150px', backgroundColor: '#fff2e4' }}>
-      <ContributeSuccess />
-    </div>
-  );
+const index = () => {
+  return <ContributeSuccess />;
 };
 
-export default idex;
+export default index;

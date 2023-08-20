@@ -1,12 +1,8 @@
 import React from 'react';
 import Contribute from '../../../components/home/contrubute/Contrubute';
 
-const idex = () => {
-  return (
-    <div style={{ paddingTop: '150px', backgroundColor: '#fff2e4' }}>
-      <Contribute />
-    </div>
-  );
+const index = () => {
+  return <Contribute />;
 };
 
-export default idex;
+export default index;

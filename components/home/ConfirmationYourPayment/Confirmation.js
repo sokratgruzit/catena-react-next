@@ -1,12 +1,12 @@
-import ConfirmationBox from './components/ConfirmationBox';
-import InformationBox from '../../../components/home/informationBox/InformationBox';
+import ConfirmationBox from '../ConfirmationYourPayment/components/ConfirmationBox';
+import InformationBox from '../informationBox/InformationBox';
+
+import styles from './css/Confirmation.module.css';
 
 const Confirmation = () => {
   return (
-    <div style={{ display: 'flex', paddingTop: '150px', backgroundColor: '#fff2e4' }}>
-      <div>
-        <ConfirmationBox />
-      </div>
+    <div className={styles.ConfirmationBox}>
+      <ConfirmationBox />
       <InformationBox />
     </div>
   );

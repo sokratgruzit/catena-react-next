@@ -1,12 +1,7 @@
 import React from 'react';
 import PaymentProcess from '../../../components/home/PaymentProcess/PaymentProcess';
-
-const idex = () => {
-  return (
-    <div>
-      <PaymentProcess />
-    </div>
-  );
+const index = () => {
+  return <PaymentProcess />;
 };
 
-export default idex;
+export default index;
