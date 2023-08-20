@@ -107,7 +107,7 @@ const CareersIneer = ({ item }) => {
         
 
 
-        {/* <SeniorDesigner
+        <SeniorDesigner
           teamResponsible={teamResponsible}
           head={item.title['en']['openPosition.title']}
           title='Front-end Engineer role'
@@ -119,7 +119,7 @@ const CareersIneer = ({ item }) => {
           aboutRange={aboutRange}
           head='About You'
           title2='Salary Ranges'
-        /> */}
+        />
         <div className='container' style={{ margin: '50px 0' }}>
           {!showSubmit && <Button
             onClick={handleButtonClick}

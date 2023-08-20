@@ -8,6 +8,7 @@ import styles from '../css/AmbasdorBtn.module.css';
 const AmbasdorBtn = () => {
   const [chng, setChng] = useState(false);
   const [email, setEmail] = useState("");
+  const [emptyField, setEmptyField] = useState(false)
   const [formData, setFormData] = useState({
     email: '',
     name: '',
@@ -30,6 +31,7 @@ const AmbasdorBtn = () => {
   };
 
   const handleSubmit = () => {
+    if (!validationErrors?.email?.failure && formData.email && formData.name && formData.suggestion) {
     axios.post(`${process.env.NEXT_PUBLIC_URL}/feedback/create-feedback`, formData)
       .then(res => {
         console.log(res);
@@ -37,6 +39,10 @@ const AmbasdorBtn = () => {
       .catch(err => {
         console.log(err);
       });
+    } else {
+      setEmptyField(true)
+      console.log('Invalid format. Data not sent.');
+    }
   };
 
   let helpTexts = {
@@ -70,6 +76,7 @@ const AmbasdorBtn = () => {
               validation={"email"}
               value={email}
               onChange={chngeHandler}
+              emptyFieldErr={emptyField}
               statusCard={
                 validationErrors?.email && (
                   <HelpText
