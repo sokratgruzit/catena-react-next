@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import { Input, Button, HelpText } from '@catena-network/catena-ui-module';
+import { Input, Button, HelpText, HelpCard } from '@catena-network/catena-ui-module';
 import createAxiosInstance from '../../../../pages/api/axios';
 import { useValidation } from "../../../../hooks/useValidation";
 
 import styles from '../css/AmbasdorBtn.module.css';
 
 const AmbasdorBtn = () => {
+  const [active, setActive] = useState(false)
+  const [result, setResult] = useState("")
   const [chng, setChng] = useState(false);
   const [email, setEmail] = useState("");
   const [formData, setFormData] = useState({
@@ -32,11 +34,19 @@ const AmbasdorBtn = () => {
   const handleSubmit = () => {
     axios.post(`${process.env.NEXT_PUBLIC_URL}/ambassador/create-ambassador`, formData)
       .then(res => {
+        setResult("success")
         console.log(res);
       })
       .catch(err => {
+        setResult("error")
         console.log(err);
-      });
+      })
+      .then(res => {
+        setActive(true)
+        setTimeout(() => {
+          setActive(false)
+        }, 2000);
+      })
   };
 
   let helpTexts = {
@@ -56,6 +66,14 @@ const AmbasdorBtn = () => {
 
   return (
     <div className={`${styles.btn} container `} data-aos="fade-up">
+      <HelpCard
+        result={result}
+        text={
+          "your text your text your text your text your text your text your text"
+        }
+        body={"notification"}
+        active={active}
+      />
       <div className={`${styles.chnBox} ${chng ? styles.active : ''}`}>
         <form id='emailForm'>
           <div>
