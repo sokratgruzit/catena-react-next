@@ -29,18 +29,19 @@ function MyApp({ Component, pageProps }) {
   const router = useRouter();
   const { setLocaleInUrl } = useLanguages();
   const [isInitialized, setIsInitialized] = useState(false);
-  const [fixedFooter, setFixedFooter] = useState(false);
+  const [fixedFooter, setFixedFooter] = useState(true);
   useEffect(() => {
     AOS.init();
     AOS.refresh();
   }, []);
   useEffect(() => {
-    if( router.asPath == '/' || router.asPath == '/overview/technology'){
+    if( router.asPath == '/overview/' || router.asPath == '/overview' || router.asPath == '/' || router.asPath == '/overview/technology'){
       setFixedFooter(true);
     }
     else {
       setFixedFooter(false);
     }
+
   }, [router]);
   useEffect(() => {
     if (!isInitialized) {

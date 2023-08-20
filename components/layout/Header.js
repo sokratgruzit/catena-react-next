@@ -249,6 +249,11 @@ const Header = () => {
           title: 'Wallet',
           route: 'https://wallet.coremultichain.com/',
         },
+        {
+          id: 'more-2',
+          title: 'Explorer',
+          route: 'https://catenascan.com/',
+        },
         /*{
           id: 15,
           title: 'Leaderbord',

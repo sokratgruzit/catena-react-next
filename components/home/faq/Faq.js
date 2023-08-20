@@ -10,7 +10,7 @@ const Faq = ({ faqs }) => {
     let microSchemes;
     if(window.innerWidth > 1240){
         microSchemes = [
-            [1,2,11,12,13,14,15,16,17,21,22,23,24],
+            [1,2,11,12,13,14,15,16,17,23,24],
         ];
     }
 
