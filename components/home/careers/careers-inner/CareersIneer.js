@@ -6,51 +6,10 @@ import SeniorDesigner from './components/seniorDesigner/SeniorDesigner';
 import SubmitAplication from './components/submitAplication/SubmitAplication';
 import { StringToHtml } from '../../../UI/StringToHtml/StringToHtml';
 
-const teamResponsible = [
-  {
-    title:
-      'Building dynamic user interfaces to analyze the depth of information in crypto, from user education to smart contract integrations',
-  },
-  {
-    title: 'Maintaining a high bar for code quality, reusability, and readability',
-  },
-  {
-    title: 'Collaborating with product, research, and design to create a useful and delightful user experience',
-  },
-];
-
-const aboutSalary = [
-  {
-    title: '3+ years experience with modern front-end technologies including React and TypeScript',
-  },
-  {
-    title: 'A passion for shipping high-quality product that delights users',
-  },
-  {
-    title: 'Interest in building data analytical tools, and a desire to empower users to do more',
-  },
-];
-
-const aboutRange = [
-  {
-    title: 'Associate',
-    value: '$125,000 - $150,000',
-  },
-  {
-    title: 'Mid',
-    value: '$150,000 - $175,000',
-  },
-  {
-    title: 'Senior',
-    value: '$175,000 - $200,000+',
-  },
-];
-
 const CareersIneer = ({ item }) => {
   const [showSubmit, setShowSubmit] = useState(false);
   const [submitHeight, setSubmitHeight] = useState('0px');
 
-  console.log(item.responsibilities, 'ra')
   const handleButtonClick = () => {
     if (showSubmit) {
       setSubmitHeight('0px');
