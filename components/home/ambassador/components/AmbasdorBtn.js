@@ -66,14 +66,16 @@ const AmbasdorBtn = () => {
 
   return (
     <div className={`${styles.btn} container `} data-aos="fade-up">
-      <HelpCard
-        result={result}
-        text={
-          "your text your text your text your text your text your text your text"
-        }
-        body={"notification"}
-        active={active}
-      />
+      <div className={styles.helpcardWrapper} style={{ zIndex: active ? "10" : "-1" }}>
+        <HelpCard
+          result={result}
+          text={
+            "your text your text your text your text your text your text your text"
+          }
+          body={"notification"}
+          active={active}
+        />
+      </div>
       <div className={`${styles.chnBox} ${chng ? styles.active : ''}`}>
         <form id='emailForm'>
           <div>
