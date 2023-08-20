@@ -13,10 +13,8 @@ export default function Market() {
   const [addresses, setAddresses] = useState([]);
 
   useEffect(() => {
-    if (nftStatsData) {
-      setAddresses(Object.keys(nftStatsData));
-    }
-  }, [nftStatsData]);
+    setAddresses(Object.keys([]));
+  }, []);
 
   const searchInputHandler = event => {
     addresses.forEach(item => {

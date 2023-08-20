@@ -7,19 +7,19 @@ function Schedule() {
       text: '1,000,000,000',
     },
     {
-      teaser: '(TGE Event) Pre-Seed Round',
+      teaser: 'Pre-IEO',
       text: '1,000,000,000',
     },
     {
-      teaser: '(TGE Event) Pre-Seed Round',
+      teaser: 'Founders Round',
       text: '1,000,000,000',
     },
     {
-      teaser: '(TGE Event) Pre-Seed Round',
-      text: '1,000,000,000',
+      teaser: 'IEO (Launch Pad Sale)',
+      text: '4,000,000,000',
     },
     {
-      teaser: '(TGE Event) Pre-Seed Round',
+      teaser: 'Seed Round',
       text: '1,000,000,000',
     },
   ];

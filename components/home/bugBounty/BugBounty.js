@@ -135,7 +135,7 @@ function BugBounty() {
       <InView as="div" onChange={(inView, entry) => (inView && setScheme(1))}>
         <div className="container">
           <BugBountyRewards />
-          <BugBountyItem data={reportData} />
+          <BugBountyItem data={reportData} animate={pageReady} />
           <BugBountyNumList data={numList} />
         </div >
       </InView>
