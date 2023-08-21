@@ -63,22 +63,6 @@ const CareersIneer = ({ item }) => {
             <p>{item.featured}</p>
           </div>
         </div>
-        
-
-
-        {/* <SeniorDesigner
-          teamResponsible={teamResponsible}
-          head={item.title['en']['openPosition.title']}
-          title='Front-end Engineer role'
-          title2='As a member of the team,you will be responsible for'
-          description='We are looking for an experienced front-end engineer to join as a member of the core engineering team. As a front-end engineer, you will have an extensive impact over the product, the UI/UX, and the technology.'
-        />
-        <AboutYou
-          aboutSalary={aboutSalary}
-          aboutRange={aboutRange}
-          head='About You'
-          title2='Salary Ranges'
-        /> */}
         <div className='container' style={{ margin: '50px 0' }}>
           {!showSubmit && <Button
             onClick={handleButtonClick}
