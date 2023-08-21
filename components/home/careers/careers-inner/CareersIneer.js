@@ -64,10 +64,10 @@ const CareersIneer = ({ item }) => {
 
   return (
     <div className='pT-180'>
-      <div className='container' style={{ display: 'flex', flexDirection: 'column', gap: '50px' }}>
+      <div className='container' style={{ display: 'flex', flexDirection: 'column', gap: '50px', width: "90%"}}>
         <h1 style={{ color: '#162029' }} className={` font-90 ttl`}>{item.title['en']['openPosition.title']}</h1>
         <StringToHtml data={item.summary['en']['openPosition.summary']} />
-        <div style={{ display: 'flex', width: "100%", justifyContent: 'space-around' }}>
+        <div style={{ display: 'flex', width: "100%", justifyContent: 'space-between' }}>
           <div className='custum-text'>
             <h3 style={{color:"#162029"}}>Reference</h3>
             <p>{item.reference}</p>
@@ -82,7 +82,7 @@ const CareersIneer = ({ item }) => {
           </div>
         </div>
         <div className='custum-text'>
-          <h3 style={{color:"#162029"}}>Department</h3>
+          <h2 style={{color:"#162029"}}>Department</h2>
           <p>{item.department}</p>
         </div>
         <StringToHtml data={item.responsibilities['en']['openPosition.responsibilities']} />
