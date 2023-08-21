@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
-import { Input, Button, HelpText } from '@catena-network/catena-ui-module';
+import { Input, Button, HelpText, HelpCard } from '@catena-network/catena-ui-module';
 import createAxiosInstance from '../../../../pages/api/axios';
 import { useValidation } from "../../../../hooks/useValidation";
 
 import styles from '../css/AmbasdorBtn.module.css';
 
 const AmbasdorBtn = () => {
+  const [active, setActive] = useState(false)
+  const [result, setResult] = useState("")
   const [chng, setChng] = useState(false);
   const [email, setEmail] = useState("");
+  const [emptyField, setEmptyField] = useState("")
   const [formData, setFormData] = useState({
     email: '',
     name: '',
@@ -30,13 +33,44 @@ const AmbasdorBtn = () => {
   };
 
   const handleSubmit = () => {
-    axios.post(`${process.env.NEXT_PUBLIC_URL}/ambassador/create-ambassador`, formData)
-      .then(res => {
-        console.log(res);
-      })
-      .catch(err => {
-        console.log(err);
+    if (!validationErrors?.email?.failure && formData.email && formData.name && formData.suggestion) {
+      axios.post(`${process.env.NEXT_PUBLIC_URL}/ambassador/create-ambassador`, formData)
+        .then(res => {
+          setResult("success")
+          console.log(res);
+        })
+        .catch(err => {
+          setResult("error")
+          console.log(err);
+        })
+        .then(res => {
+          setActive(true)
+          setTimeout(() => {
+            setActive(false)
+          }, 2000);
+        })
+      setEmail("");
+      setFormData({
+        email: '',
+        name: '',
+        suggestion: '',
       });
+      setEmptyField(false);
+    } else {
+      setEmptyField(true);
+      if (!formData.name.trim() && !formData.email.trim() && !formData.suggestion.trim()) {
+        setFormData(prevState => ({
+          ...prevState,
+          name: "",
+          suggestion: "",
+          email: ""
+        }));
+
+        setEmptyField(true);
+      }
+      console.log('Invalid format. Data not sent.');
+
+    }
   };
 
   let helpTexts = {
@@ -56,6 +90,16 @@ const AmbasdorBtn = () => {
 
   return (
     <div className={`${styles.btn} container `} data-aos="fade-up">
+      <div className={styles.helpcardWrapper} style={{ zIndex: active ? "10" : "-1" }}>
+        <HelpCard
+          result={result}
+          text={
+            "your text your text your text your text your text your text your text"
+          }
+          body={"notification"}
+          active={active}
+        />
+      </div>
       <div className={`${styles.chnBox} ${chng ? styles.active : ''}`}>
         <form id='emailForm'>
           <div>
@@ -70,6 +114,7 @@ const AmbasdorBtn = () => {
               validation={"email"}
               value={email}
               onChange={chngeHandler}
+              emptyFieldErr={emptyField && !formData.email.trim()}
               statusCard={
                 validationErrors?.email && (
                   <HelpText
@@ -90,6 +135,7 @@ const AmbasdorBtn = () => {
               subLabel={''}
               placeholder={'Enter'}
               value={formData.name}
+              emptyFieldErr={emptyField && !formData.name.trim()}
               name='name'
               onChange={chngeHandler}
             // customStyles={{ width: '500px' }}
@@ -100,6 +146,7 @@ const AmbasdorBtn = () => {
               type={'textarea'}
               label={'Make a suggestion'}
               value={formData.suggestion}
+              emptyFieldErr={emptyField && !formData.suggestion.trim()}
               onChange={chngeHandler}
               name='suggestion'
               rows={10}

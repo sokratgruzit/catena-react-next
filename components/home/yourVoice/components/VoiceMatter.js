@@ -1,4 +1,4 @@
-import { Input, Button, HelpText } from '@catena-network/catena-ui-module';
+import { Input, Button, HelpText, HelpCard } from '@catena-network/catena-ui-module';
 import { useState, useEffect } from 'react';
 import { useValidation } from '../../../../hooks/useValidation';
 import createAxiosInstance from '../../../../pages/api/axios';
@@ -7,6 +7,8 @@ import { useDispatch } from 'react-redux';
 import styles from './VoiceMatters.module.css';
 
 const VoiceMatter = () => {
+  const [active, setActive] = useState(false)
+  const [result, setResult] = useState("")
   const [email, setEmail] = useState("");
   const [formData, setFormData] = useState({
     email: '',
@@ -63,11 +65,19 @@ const VoiceMatter = () => {
   const handleSubmit = () => {
     axios.post(`${process.env.NEXT_PUBLIC_URL}/your-voice/create-feedback`, formData)
       .then(res => {
+        setResult("success")
         console.log(res);
       })
       .catch(err => {
+        setResult("error")
         console.log(err);
-      });
+      })
+      .then(res => {
+        setActive(true)
+        setTimeout(() => {
+          setActive(false)
+        }, 2000);
+      })
   };
 
   let helpTexts = {
@@ -87,6 +97,16 @@ const VoiceMatter = () => {
 
   return (
     <div className={`${styles.main} container`}>
+      <div className={styles.helpcardWrapper} style={{zIndex: active ? "10" : "-1"}}>
+        <HelpCard
+          result={result}
+          text={
+            "your text your text your text your text your text your text your text"
+          }
+          body={"notification"}
+          active={active}
+        />
+      </div>
       <div className={`${styles.box} `}>
         <h1 className={`${styles.container} pB-50 tYAnimation ${pageReady ? 'animate' : ''}`}>
           <div className={`${styles.blackTitle} font-90 ttl`}>Your Voice </div>
