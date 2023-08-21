@@ -55,7 +55,7 @@ const AmbasdorBtn = () => {
         name: '',
         suggestion: '',
       });
-      setEmptyField(false); // Reset emptyFieldErr to false
+      setEmptyField(false);
     } else {
       setEmptyField(true);
       if (!formData.name.trim() && !formData.email.trim() && !formData.suggestion.trim()) {
