@@ -1,6 +1,8 @@
 .mane {
-  width: 100%;
-  height: 100%;
+  width: calc(70% - 20px);
+  display: flex;
+  flex-direction: column;
+  margin: auto;
 }
 
 .box {
@@ -33,8 +35,12 @@
 
 .svgg {
   display: flex;
-  width: 100%;
+  position: relative;
   height: 100%;
+}
+
+.svgImg {
+  width: 100%;
 }
 
 .itemTwo {
@@ -89,4 +95,16 @@
 
 .botoomttl {
   border-bottom: 1px solid black;
+}
+
+/*Ipad Pro 1024*/
+@media (max-width: 1365px) {
+}
+
+/*Ipad 768*/
+@media (max-width: 1023px) {
+}
+
+/*Mobile 320*/
+@media (max-width: 768px) {
 }

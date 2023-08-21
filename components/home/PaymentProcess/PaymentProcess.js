@@ -1,11 +1,11 @@
 import Component from './components/Component';
 import InformationBox from '../../../components/home/informationBox/InformationBox';
+
+import styles from './css/PaymentProcess.module.css';
 const PaymentProcess = () => {
   return (
-    <div style={{ paddingTop: '150px', backgroundColor: '#fff2e4', display: 'flex' }}>
-      <div>
-        <Component />
-      </div>
+    <div className={styles.PaymentProcessBox}>
+      <Component />
       <InformationBox />
     </div>
   );

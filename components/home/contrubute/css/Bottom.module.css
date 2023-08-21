@@ -1,5 +1,6 @@
 .containerOne {
-  margin: 0;
+  margin: 0px 0px 50px 0px;
+  width: calc(90% - 15px);
 }
 
 .ttle {
@@ -45,4 +46,20 @@
 .btnBlu {
   width: 100% !important;
   background-color: #a6d0dd !important;
+}
+
+/*Laptop 1440*/
+@media (max-width: 1900px) {
+}
+
+/*Ipad Pro 1024*/
+@media (max-width: 1365px) {
+}
+
+/*Ipad 768*/
+@media (max-width: 1023px) {
+}
+
+/*Mobile 320*/
+@media (max-width: 768px) {
 }

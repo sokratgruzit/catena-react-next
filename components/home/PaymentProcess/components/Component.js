@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Input, Button } from '@catena-network/catena-ui-module';
+import Link from 'next/link';
 
 import styles from '../css/Component.module.css';
 
@@ -30,10 +31,12 @@ const Component = () => {
   return (
     <div className={`${styles.container} container`}>
       <div className={`${styles.ttl}`}>
-        <div className={styles.btn}>
-          <img src='/images/Frame.png' />
-          <h1>Back</h1>
-        </div>
+        <Link href={`/overview/contribute`}>
+          <div className={styles.btn}>
+            <img src='/images/Frame.png' />
+            <h1>Back</h1>
+          </div>
+        </Link>
         <h1 className='ttl font-90'>Payment Process</h1>
       </div>
       <div className={`${styles.heder}`}>
@@ -83,6 +86,7 @@ const Component = () => {
             className={styles.btnBlu}
           />
         </div>
+        <div className={styles.line}></div>
         <div className={styles.bottomTitle}>
           <img className={`${styles.imgOne}`} src='/images/contribute/infocircle2.png' />
           <h2>Payment gateway may charge you a processing fees.</h2>
