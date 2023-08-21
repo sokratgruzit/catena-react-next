@@ -10,7 +10,7 @@ const AmbasdorBtn = () => {
   const [result, setResult] = useState("")
   const [chng, setChng] = useState(false);
   const [email, setEmail] = useState("");
-  const [emptyField, setEmptyField] = useState(false)
+  const [emptyField, setEmptyField] = useState("")
   const [formData, setFormData] = useState({
     email: '',
     name: '',
@@ -34,24 +34,43 @@ const AmbasdorBtn = () => {
 
   const handleSubmit = () => {
     if (!validationErrors?.email?.failure && formData.email && formData.name && formData.suggestion) {
-    axios.post(`${process.env.NEXT_PUBLIC_URL}/ambassador/create-ambassador`, formData)
-      .then(res => {
-        setResult("success")
-        console.log(res);
-      })
-      .catch(err => {
-        setResult("error")
-        console.log(err);
-      })
-      .then(res => {
-        setActive(true)
-        setTimeout(() => {
-          setActive(false)
-        }, 2000);
-      })} else {
-        setEmptyField(true)
-        console.log('Invalid format. Data not sent.');
+      axios.post(`${process.env.NEXT_PUBLIC_URL}/ambassador/create-ambassador`, formData)
+        .then(res => {
+          setResult("success")
+          console.log(res);
+        })
+        .catch(err => {
+          setResult("error")
+          console.log(err);
+        })
+        .then(res => {
+          setActive(true)
+          setTimeout(() => {
+            setActive(false)
+          }, 2000);
+        })
+      setEmail("");
+      setFormData({
+        email: '',
+        name: '',
+        suggestion: '',
+      });
+      setEmptyField(false); // Reset emptyFieldErr to false
+    } else {
+      setEmptyField(true);
+      if (!formData.name.trim() && !formData.email.trim() && !formData.suggestion.trim()) {
+        setFormData(prevState => ({
+          ...prevState,
+          name: "",
+          suggestion: "",
+          email: ""
+        }));
+
+        setEmptyField(true);
       }
+      console.log('Invalid format. Data not sent.');
+
+    }
   };
 
   let helpTexts = {
@@ -93,7 +112,7 @@ const AmbasdorBtn = () => {
               validation={"email"}
               value={email}
               onChange={chngeHandler}
-              emptyFieldErr={emptyField}
+              emptyFieldErr={emptyField && !formData.email.trim()}
               statusCard={
                 validationErrors?.email && (
                   <HelpText
@@ -114,6 +133,7 @@ const AmbasdorBtn = () => {
               subLabel={''}
               placeholder={'Enter'}
               value={formData.name}
+              emptyFieldErr={emptyField && !formData.name.trim()}
               name='name'
               onChange={chngeHandler}
             // customStyles={{ width: '500px' }}
@@ -124,6 +144,7 @@ const AmbasdorBtn = () => {
               type={'textarea'}
               label={'Make a suggestion'}
               value={formData.suggestion}
+              emptyFieldErr={emptyField && !formData.suggestion.trim()}
               onChange={chngeHandler}
               name='suggestion'
               rows={10}
