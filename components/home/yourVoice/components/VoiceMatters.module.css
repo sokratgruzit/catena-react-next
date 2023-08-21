@@ -1,7 +1,6 @@
 .main {
   display: flex;
   width: 100%;
-  /* margin: 50px 0px 100px 0px; */
 }
 
 .box {
@@ -41,12 +40,29 @@
   gap: 25px;
 }
 
-.btnBlu {
+.submitNotification {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.helpcardWrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 750px;
+  z-index: 10;
+}
+
+
+/* .btnBlu {
   width: 100% !important;
   border: 1px solid #162029 !important;
   background-color: #a6d0dd !important;
   margin-top: 30px !important;
-}
+} */
 /*Laptop*/
 @media (max-width: 1900px) {
   .hederBox {
@@ -83,6 +99,10 @@
   .img {
     width: 80%;
   }
+
+  .helpcardWrapper {
+    width: 500px;
+  }
 }
 
 /*Mobile 320*/
@@ -103,167 +123,8 @@
     width: 100%;
     max-width: 100%;
   }
+
+  .helpcardWrapper {
+    width: 350px;
+  }
 }
-
-/* .voiceBg {
-  width: 100%;
-  height: 120%;
-} */
-
-/* .voiceBg__outer {
-  overflow: hidden;
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  width: 100vw;
-  z-index: 1;
-  opacity: 0;
-  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
-} */
-
-/* .voiceBg__outer:before {
-  position: absolute;
-  bottom: 0px;
-  right: 0px;
-  width: 100%;
-  content: "";
-  z-index: 2;
-  height: 25%;
-  background: rgb(0, 5, 15);
-  background: linear-gradient(180deg, rgba(0, 5, 15, 0) 0%, rgba(0, 5, 15, 1) 100%);
-} */
-
-/* .animHead .voiceBg__outer {
-  opacity: 1;
-  transform: translateY(-38px);
-} */
-
-/* .mainContainer__description h1 {
-  display: flex;
-  flex-direction: column;
-  font-size: 100px;
-  transform: translateY(10px);
-  opacity: 0;
-  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
-  margin-top: 215px;
-} */
-
-/* .mainContainer__description h1 span {
-  font-size: inherit;
-  font-family: inherit;
-} */
-
-/* .mainContainer__description h1 span:nth-child(2) {
-  padding-left: 122px;
-} */
-/* 
-.animHead h1 {
-  transform: translateY(0px);
-  opacity: 1;
-  transition-delay: 0.5s;
-} */
-
-/* .mainContainer__description h3 {
-  font-size: 20px;
-  margin-top: 100px;
-} */
-
-/* .mainContainer__description {
-  width: 100%;
-  z-index: 5;
-  display: flex;
-  flex-direction: column;
-} */
-
-/* .left {
-  width: 50%;
-  position: relative;
-  z-index: 5;
-} */
-
-/* .mainContainer__header .left {
-  font-size: 20px;
-  line-height: 28px;
-} */
-
-/* #main {
-  position: relative;
-  width: 100%;
-  background: #00050f;
-  z-index: 2;
-} */
-
-/* Form Styles */
-/* .feedbackForm {
-  position: relative;
-  margin-top: 40px;
-  margin-bottom: 60px;
-  z-index: 10;
-} */
-
-/* .elUploadPictureCard i {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-} */
-
-/* .elIconPlus::after {
-  content: "Add file";
-  font-family: "Lack-Regular";
-  font-size: 15px;
-  color: rgba(255, 255, 255, 0.5);
-} */
-
-/* .successMsg {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: #5f9f55;
-  border-radius: 4px;
-  padding: 60px 26px;
-  height: 100%;
-  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
-  pointer-events: none;
-  opacity: 0;
-} */
-
-/* .successMsg.active {
-  pointer-events: all;
-  opacity: 1;
-} */
-
-/* .successMsg p {
-  font-size: 20px;
-  line-height: 30px;
-  margin-top: 32px;
-} */
-
-/* .closeBtn {
-  position: relative;
-  margin-top: auto;
-  cursor: pointer;
-  font-size: 14px;
-  line-height: 20px;
-} */
-/* 
-.closeBtn::after {
-  content: "";
-  width: 100%;
-  height: 1px;
-  background: #0500ff;
-  position: absolute;
-  top: 100%;
-  left: 0;
-} */
