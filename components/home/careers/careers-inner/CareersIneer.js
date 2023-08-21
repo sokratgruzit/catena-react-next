@@ -19,29 +19,30 @@ const CareersIneer = ({ item }) => {
 
     setShowSubmit(!showSubmit);
   };
+  console.log(item.responsibilities['en']['openPosition.responsibilities']);
 
   return (
     <div className='pT-180'>
-      <div className='container' style={{display: 'flex', flexDirection: 'column', gap: '80px'}}>
-        <h2 className={` font-40 ttl`}>{item.title['en']['openPosition.title']}</h2>
+      <div className='container' style={{ display: 'flex', flexDirection: 'column', gap: '50px', width: "90%"}}>
+        <h1 style={{ color: '#162029' }} className={` font-90 ttl`}>{item.title['en']['openPosition.title']}</h1>
         <StringToHtml data={item.summary['en']['openPosition.summary']} />
-        <div style={{display: 'flex', width: "100%", justifyContent: 'space-around'}}>
-          <div>
-            <h4>Reference</h4>
+        <div style={{ display: 'flex', width: "100%", justifyContent: 'space-between' }}>
+          <div className='custum-text'>
+            <h3 style={{color:"#162029"}}>Reference</h3>
             <p>{item.reference}</p>
           </div>
-          <div>
-            <h4>Job Type</h4>
+          <div className='custum-text'>
+            <h3 style={{color:"#162029"}}>Job Type</h3>
             <p>{item.type}</p>
           </div>
-          <div>
-            <h4>Remote</h4>
+          <div className='custum-text'>
+            <h3 style={{color:"#162029"}}>Remote</h3>
             <p>{item.remote}</p>
           </div>
         </div>
-        <div>
-          <h4>Department</h4>
-            <p>{item.department}</p>
+        <div className='custum-text'>
+          <h2 style={{color:"#162029"}}>Department</h2>
+          <p>{item.department}</p>
         </div>
         <StringToHtml data={item.responsibilities['en']['openPosition.responsibilities']} />
         <StringToHtml data={item.requirements['en']['openPosition.requirements']} />
@@ -49,20 +50,21 @@ const CareersIneer = ({ item }) => {
         <StringToHtml data={item.worcking_at_catena['en']['openPosition.worcking_at_catena']} />
         <StringToHtml data={item.how_we_work['en']['openPosition.how_we_work']} />
         <StringToHtml data={item.about_catena['en']['openPosition.about_catena']} />
-        <div style={{display: 'flex', flexDirection: 'column',gap: '20px', width: "100%", justifyContent: 'space-around'}}>
-          <div>
-            <h4>Job Level</h4>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', width: "100%", justifyContent: 'space-around' }}>
+          <div className='custum-text'>
+            <h3 style={{color:"#162029"}} className='ttl'>Job Level</h3>
             <p>{item.job_level}</p>
           </div>
-          <div>
-            <h4>Languages</h4>
+          <div className='custum-text'>
+            <h3 style={{color:"#162029"}} className='ttl'>Languages</h3>
             <p>{item.languages}</p>
           </div>
-          <div>
-            <h4>Featured</h4>
+          <div className='custum-text'>
+            <h3 style={{color:"#162029"}} className='ttl'>Featured</h3>
             <p>{item.featured}</p>
           </div>
         </div>
+
         <div className='container' style={{ margin: '50px 0' }}>
           {!showSubmit && <Button
             onClick={handleButtonClick}
