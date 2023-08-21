@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import { Input, Button, HelpText } from '@catena-network/catena-ui-module';
+import { Input, Button, HelpText, HelpCard } from '@catena-network/catena-ui-module';
 import createAxiosInstance from '../../../../pages/api/axios';
 import { useValidation } from "../../../../hooks/useValidation";
 
 import styles from '../css/AmbasdorBtn.module.css';
 
 const AmbasdorBtn = () => {
+  const [active, setActive] = useState(false)
+  const [result, setResult] = useState("")
   const [chng, setChng] = useState(false);
   const [email, setEmail] = useState("");
   const [emptyField, setEmptyField] = useState(false)
@@ -32,17 +34,24 @@ const AmbasdorBtn = () => {
 
   const handleSubmit = () => {
     if (!validationErrors?.email?.failure && formData.email && formData.name && formData.suggestion) {
-    axios.post(`${process.env.NEXT_PUBLIC_URL}/feedback/create-feedback`, formData)
+    axios.post(`${process.env.NEXT_PUBLIC_URL}/ambassador/create-ambassador`, formData)
       .then(res => {
+        setResult("success")
         console.log(res);
       })
       .catch(err => {
+        setResult("error")
         console.log(err);
-      });
-    } else {
-      setEmptyField(true)
-      console.log('Invalid format. Data not sent.');
-    }
+      })
+      .then(res => {
+        setActive(true)
+        setTimeout(() => {
+          setActive(false)
+        }, 2000);
+      })} else {
+        setEmptyField(true)
+        console.log('Invalid format. Data not sent.');
+      }
   };
 
   let helpTexts = {
@@ -62,6 +71,14 @@ const AmbasdorBtn = () => {
 
   return (
     <div className={`${styles.btn} container `} data-aos="fade-up">
+      <HelpCard
+        result={result}
+        text={
+          "your text your text your text your text your text your text your text"
+        }
+        body={"notification"}
+        active={active}
+      />
       <div className={`${styles.chnBox} ${chng ? styles.active : ''}`}>
         <form id='emailForm'>
           <div>

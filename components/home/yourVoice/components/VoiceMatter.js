@@ -1,4 +1,4 @@
-import { Input, Button, HelpText } from '@catena-network/catena-ui-module';
+import { Input, Button, HelpText, HelpCard } from '@catena-network/catena-ui-module';
 import { useState, useEffect } from 'react';
 import { useValidation } from '../../../../hooks/useValidation';
 import createAxiosInstance from '../../../../pages/api/axios';
@@ -7,25 +7,27 @@ import { useDispatch } from 'react-redux';
 import styles from './VoiceMatters.module.css';
 
 const VoiceMatter = () => {
+  const [active, setActive] = useState(false)
+  const [result, setResult] = useState("")
   const [email, setEmail] = useState("");
   const [formData, setFormData] = useState({
     email: '',
     name: '',
     suggestion: '',
-  });  
+  });
 
   const dispatch = useDispatch();
   const [pageReady, setPageReady] = useState(false);
   let microSchemes;
-  if(window.innerWidth > 1240){
+  if (window.innerWidth > 1240) {
     microSchemes = [
-      [1,2,10,11,12,13,14,15,16,17,18,22,23,24],
+      [1, 2, 10, 11, 12, 13, 14, 15, 16, 17, 18, 22, 23, 24],
     ];
   }
 
-  if(window.innerWidth < 1240){
+  if (window.innerWidth < 1240) {
     microSchemes = [
-      [1,2,5,6,7,8,9,10,11,12,13,14,16,17,18,19,20,21,22,23,24],
+      [1, 2, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 16, 17, 18, 19, 20, 21, 22, 23, 24],
     ];
   }
 
@@ -44,7 +46,7 @@ const VoiceMatter = () => {
         microschemeArray: microSchemes[0]
       });
     }, 400);
-  },[]);
+  }, []);
 
   const axios = createAxiosInstance();
 
@@ -61,13 +63,21 @@ const VoiceMatter = () => {
   };
 
   const handleSubmit = () => {
-    axios.post(`${process.env.NEXT_PUBLIC_URL}/feedback/create-feedback`, formData)
+    axios.post(`${process.env.NEXT_PUBLIC_URL}/your-voice/create-feedback`, formData)
       .then(res => {
+        setResult("success")
         console.log(res);
       })
       .catch(err => {
+        setResult("error")
         console.log(err);
-      });
+      })
+      .then(res => {
+        setActive(true)
+        setTimeout(() => {
+          setActive(false)
+        }, 2000);
+      })
   };
 
   let helpTexts = {
@@ -87,6 +97,14 @@ const VoiceMatter = () => {
 
   return (
     <div className={`${styles.main} container`}>
+      <HelpCard
+        result={result}
+        text={
+          "your text your text your text your text your text your text your text"
+        }
+        body={"notification"}
+        active={active}
+      />
       <div className={`${styles.box} `}>
         <h1 className={`${styles.container} pB-50 tYAnimation ${pageReady ? 'animate' : ''}`}>
           <div className={`${styles.blackTitle} font-90 ttl`}>Your Voice </div>
@@ -155,7 +173,7 @@ const VoiceMatter = () => {
             </div>
             <div>
               <Button
-                label={'Button'}
+                label={'Submit'}
                 size={'btn-lg'}
                 type={'btn-primary'}
                 arrow={'arrow-right'}
