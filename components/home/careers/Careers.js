@@ -231,13 +231,12 @@ const Careers = ({ careers, openPositions }) => {
     }, 400);
   }, []);
 
-  console.log(careers[0].inner_descr, 'data')
   return (
     <div>
       <InView as="div" onChange={(inView, entry) => (inView && setScheme(0))}>
         <CareersCatena animate={pageReady} />
         <div className='container'>
-          <StringToHtml data={careers[0].inner_descr['en']['career.inner_descr']} />
+          <StringToHtml data={careers[0]?.inner_descr['en']['career.inner_descr']} />
         </div>
         <Feature openPositions={openPositions} title='Featured Jobs' showButton={true} animate={pageReady} />
       </InView>
