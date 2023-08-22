@@ -2,7 +2,8 @@
   width: calc(70% - 20px);
   display: flex;
   flex-direction: column;
-  margin: auto;
+  /* margin: auto; */
+  margin-top: 100px;
 }
 
 .box {
@@ -107,4 +108,16 @@
 
 /*Mobile 320*/
 @media (max-width: 768px) {
+  .mane {
+    width: 100%;
+  }
+
+  .containerOne {
+    display: flex;
+  }
+
+  .containerThree {
+    display: flex;
+    flex-direction: column;
+  }
 }
