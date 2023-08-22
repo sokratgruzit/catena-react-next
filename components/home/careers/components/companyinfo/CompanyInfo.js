@@ -1,7 +1,9 @@
+import { StringToHtml } from '../../../../UI/StringToHtml/StringToHtml';
 import styles from './CompanyInfo.module.css';
 
 const CompanyInfo = props => {
-  const { workflow, title, description, name } = props;
+  const { workflow, title, description, name, careers } = props;
+  console.log(careers, 'blalalallaall');
 
   return (
     <div className='container'>
