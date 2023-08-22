@@ -1,7 +1,7 @@
 import { Input, Button, HelpText } from '@catena-network/catena-ui-module';
 import React from 'react';
 import { Quiz } from '@catena-network/catena-ui-module';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './SubmitAplication.module.css';
 import { lang } from 'moment';
 import createAxiosInstance from '../../../../../../pages/api/axios';
@@ -25,11 +25,10 @@ const TEMPRORAYDATA = [
 
 ]
 
-const SubmitApplication = ({ title }) => {
+const SubmitApplication = ({ title, handleButtonClick }) => {
 
   const [successMessage, setSuccessMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
-  const [depositAmount, setDepositAmount] = useState(5);
   const [email, setEmail] = useState("");
 
   const axios = createAxiosInstance();
@@ -58,83 +57,94 @@ const SubmitApplication = ({ title }) => {
     setSelectedAnswers(updatedAnswers);
   };
 
-  const submitHandler = async () => {
-    setShowSuccessMessage(true);
-    setTimeout(() => {
-      setShowSuccessMessage(false);
-    }, 3000);
-    console.log(application);
-    const config = {
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
-    };
+  const submitHandler = async (e) => {
+    e.preventDefault();
 
-    if (application.file) {
-      const formData = new FormData();
+    if (!validationErrors?.email?.failure
+      && application.name && application.file
+      && application.language && application.descr
+      && application.email && application.phone) {
+      console.log('Sending data to the backend:', application)
+      setShowSuccessMessage(true);
+      setTimeout(() => {
+        setShowSuccessMessage(false);
+      }, 3000);
+      const config = {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      }
 
-      const logoDotIndex = application.file.name.lastIndexOf(".");
-      const logoExt = application.file.name.substring(logoDotIndex + 1);
-      const newLogoName = Date.now() + "-application-pdf." + logoExt;
+      setEmail('')
+      setApplication({
+        name: '',
+        email: '',
+        phone: '',
+        descr: '',
+        quiz: [],
+        language: '',
+        info: '',
+        gitHub: '',
+        linkedin: '',
+        file: '',
+        jobId: '',
+      });
 
-      // formData.append("name", application.name);
-      // formData.append("email", application.email);
-      // formData.append("descr", application.descr);
-      // // formData.append("question1");
-      // // formData.append("question2");
-      // formData.append("language", application.language);
-      // formData.append("info", application.info);
-      // formData.append("gitHub", application.gitHub);
-      // formData.append("linkedin", application.linkedin);
-      formData.append("imgFolder", "application");
-      formData.append("image", application.file, newLogoName);
+      if (application.file) {
+        const formData = new FormData();
 
-      try {
-        await axios
-          .post(`${process.env.NEXT_PUBLIC_URL}/upload-many`, formData, config)
-          .then(async (res) => {
-            let status = res.data.status;
+        const logoDotIndex = application.file.name.lastIndexOf(".");
+        const logoExt = application.file.name.substring(logoDotIndex + 1);
+        const newLogoName = Date.now() + "-application-pdf." + logoExt;
 
-            if (status) {
-              await axios
-                .post(`${process.env.NEXT_PUBLIC_URL}/application/create`, {
-                  name: application.name,
-                  email: application.email,
-                  phone: application.phone,
-                  descr: application.descr,
-                  quiz: selectedAnswers,
-                  language: application.language,
-                  info: application.info,
-                  gitHub: application.gitHub,
-                  linkedin: application.linkedin,
-                  file: 'image',
-                  jobId: 'jobId',
-                })
-                .then(() => {
-                  setSuccessMessage('Application submitted successfully!');
-                  setErrorMessage('');
-                });
-            }
-          });
-      } catch (err) {
-        setErrorMessage('An error occurred while sending your application.');
+        formData.append("imgFolder", "application");
+        formData.append("image", application.file, newLogoName);
+
+        try {
+          await axios
+            .post(`${process.env.NEXT_PUBLIC_URL}/upload-many`, formData, config)
+            .then(async (res) => {
+              let status = res.data.status;
+
+              if (status) {
+                await axios
+                  .post(`${process.env.NEXT_PUBLIC_URL}/application/create`, {
+                    name: application.name,
+                    email: application.email,
+                    phone: application.phone,
+                    descr: application.descr,
+                    quiz: selectedAnswers,
+                    language: application.language,
+                    info: application.info,
+                    gitHub: application.gitHub,
+                    linkedin: application.linkedin,
+                    file: 'image',
+                    jobId: 'jobId',
+                  })
+                  .then(() => {
+                    setSuccessMessage('Application submitted successfully!');
+                    setErrorMessage('');
+                    handleButtonClick()
+                  });
+              }
+            });
+        } catch (err) {
+          setErrorMessage('An error occurred while sending your application.');
+          setSuccessMessage('');
+          console.log(err);
+        }
+      } else {
+        setErrorMessage('An error occurred while processing your application.');
         setSuccessMessage('');
-        console.log(err);
+        console.log("Images requeired");
       }
     } else {
-      setErrorMessage('An error occurred while processing your application.');
-      setSuccessMessage('');
-      console.log("Images requeired");
+      console.log('Invalid format. Data not sent.');
     }
   };
 
-  const handlerSubmit = (e) => {
-    e.preventDefault();
-
-    console.log(selectedAnswers);
-  };
-
   const handlerChange = (e) => {
+
     if (e?.target?.name === "name") {
       setApplication((prev) => ({ ...prev, name: e.target.value }));
       console.log(application, 'name');
@@ -163,19 +173,12 @@ const SubmitApplication = ({ title }) => {
       setApplication((prev) => ({ ...prev, linkedin: e.target.value }));
       console.log(application, 'linkedin');
     }
-    else {
-      setApplication((prev) => ({ ...prev, file: e }));
-      console.log(application.file, 'file');
-    }
+    setApplication((prev) => ({ ...prev, file: e }));
+    console.log(application.file, 'file');
+
   }
 
   let helpTexts = {
-    amount: {
-      validationType: "number",
-      success: "amount is valid",
-      failure:
-        "must be a number and multiple of 5000 (e.g 5000, 10000, 15000))",
-    },
     email: {
       validationType: "email",
       success: "Email is valid",
@@ -185,19 +188,15 @@ const SubmitApplication = ({ title }) => {
 
   const validationErrors = useValidation(
     {
-      amount: depositAmount || "",
       email: email || "",
     },
     helpTexts
   );
 
-  const changeHandler = (i, e) => {
-    console.log(i.target.value);
-    const { name, value } = i.target;
+  const changeHandler = (e) => {
+    const { name, value } = e.target;
 
-    if (name === "amount") {
-      setDepositAmount(value);
-    } else if (name === "email") {
+    if (name === "email") {
       setEmail(value)
     }
   };
@@ -208,35 +207,11 @@ const SubmitApplication = ({ title }) => {
         <h2 className={styles.font__51}>{title}</h2>
         <div className='container_bordered-child'>
           <div className={styles.infoImport}>
-
-            <Input
-              type={"default"}
-              inputType={"text"}
-              placeholder={"0000"}
-              name={"amount"}
-              label={"Amount"}
-              onChange={changeHandler}
-              emptyFieldErr={false}
-              value={depositAmount}
-              statusCard={
-                validationErrors?.amount && (
-                  <HelpText
-                    status={validationErrors.amount.failure ? "error" : "success"}
-                    title={
-                      validationErrors.amount.failure ||
-                      validationErrors.amount.success
-                    }
-                    fontSize={"font-12"}
-                    icon={true}
-                  />
-                )
-              }
-            />
-
             <Input
               type={"default"}
               name={"name"}
-              // value={value}
+              required={true}
+              value={application.name}
               icon={true}
               emptyFieldErr={false}
               inputType={"text"}
@@ -248,6 +223,7 @@ const SubmitApplication = ({ title }) => {
 
             <Input
               type={"default"}
+              required={true}
               name={"email"}
               icon={false}
               label={'E-MAIL'}
@@ -256,8 +232,10 @@ const SubmitApplication = ({ title }) => {
               placeholder={'Enter..'}
               validation={"email"}
               value={email}
-              // onChange={(e) => { handlerChange(e) }}
-              onChange={changeHandler}
+              onChange={(e) => {
+                handlerChange(e)
+                changeHandler(e)
+              }}
               statusCard={
                 validationErrors?.email && (
                   <HelpText
@@ -272,9 +250,10 @@ const SubmitApplication = ({ title }) => {
 
             <Input
               type={'label-input-phone-number'}
+              required={true}
               label={'PHONE NUMBER'}
               name={'phone'}
-              // value={''}application
+              value={application.phone}
               onChange={(e) => { setApplication((prev) => ({ ...prev, phone: e })); }}
               statusCard={
                 validationErrors?.amount && (
@@ -295,6 +274,7 @@ const SubmitApplication = ({ title }) => {
               type={'textarea'}
               label={'Describe any experience with cryptocurrency'}
               name={'descr'}
+              value={application.descr}
               rows={10}
               cols={20}
               placeholder={'Enter..'}
@@ -305,6 +285,7 @@ const SubmitApplication = ({ title }) => {
 
             <Quiz
               selectedAnswers={selectedAnswers}
+              required={true}
               handleOptionChange={handleOptionChange}
               quizData={TEMPRORAYDATA}
               // handlerSubmit={submitHendler}
@@ -318,8 +299,10 @@ const SubmitApplication = ({ title }) => {
 
             <Input
               type={'textarea'}
+              required={true}
               label={'Languages you can speak/write at a Business level'}
               name={'language'}
+              value={application.language}
               rows={10}
               cols={20}
               placeholder={'Enter..'}
@@ -332,6 +315,7 @@ const SubmitApplication = ({ title }) => {
               type={'textarea'}
               label={'Additional information'}
               name={'info'}
+              value={application.info}
               rows={10}
               cols={20}
               placeholder={'Enter..'}
@@ -343,7 +327,7 @@ const SubmitApplication = ({ title }) => {
             <Input
               type={'default'}
               name={"gitHub"}
-              // value={value}console.log(e.target.value);
+              value={application.gitHub}
               icon={true}
               emptyFieldErr={false}
               inputType={'text'}
@@ -356,7 +340,7 @@ const SubmitApplication = ({ title }) => {
             <Input
               type={'default'}
               name={'linkedin'}
-              // value={value}
+              value={application.linkedin}
               icon={true}
               emptyFieldErr={false}
               inputType={'text'}
@@ -368,7 +352,9 @@ const SubmitApplication = ({ title }) => {
 
             <Input
               type={"label-input-upload-document"}
+              required={true}
               name={"file"}
+              value={application.file}
               emptyFieldErr={true}
               htmlFor={""}
               customStyles={{ width: "fit-content" }}
@@ -384,7 +370,6 @@ const SubmitApplication = ({ title }) => {
               disabled={false}
               onClick={submitHandler}
             />
-            {/* {showSuccessMessage && <div style={{ color: 'green' }}>your application is sucsessful</div>} */}
             {successMessage && <div className="success-message">{successMessage}</div>}
             {errorMessage && <div className="error-message">{errorMessage}</div>}
           </div>
