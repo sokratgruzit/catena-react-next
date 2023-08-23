@@ -97,16 +97,14 @@ const VoiceMatter = () => {
 
   return (
     <div className={`${styles.main} container`}>
-      <div className={styles.helpcardWrapper} style={{zIndex: active ? "10" : "-1"}}>
-        <HelpCard
-          result={result}
-          text={
-            "your text your text your text your text your text your text your text"
-          }
-          body={"notification"}
-          active={active}
-        />
-      </div>
+      <HelpCard
+        result={result}
+        text={
+          "your text your text your text your text your text your text your text"
+        }
+        body={"notification"}
+        active={active}
+      />
       <div className={`${styles.box} `}>
         <h1 className={`${styles.container} pB-50 tYAnimation ${pageReady ? 'animate' : ''}`}>
           <div className={`${styles.blackTitle} font-90 ttl`}>Your Voice </div>
