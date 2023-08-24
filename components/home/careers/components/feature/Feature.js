@@ -5,11 +5,12 @@ import styles from './Feature.module.css';
 import CopyIcon from '../../../../svg/careers/CopyIcon';
 
 
-const Feature = ({ title, showButton, careers }) => {
+const Feature = ({ featureLinkList, title, showButton, openPositions }) => {
   const [copiedLink, setCopiedLink] = useState('');
   const [isPopupVisible, setPopupVisible] = useState(null);
 
   const handlePopupClick = (index) => {
+    setCopiedLink(`${process.env.NEXT_PUBLIC_URL}/open-positions/${featureLinkList[index].id}`);
     setPopupVisible(index);
     setTimeout(() => {
       setPopupVisible(null);
@@ -34,13 +35,14 @@ const Feature = ({ title, showButton, careers }) => {
       <div className='container_bordered'>
         <h2 className={`${styles.font__51} font-40 ttl`} data-aos="fade-up">{title}</h2>
         <div className='container_bordered-child'>
-          <div className={`${styles.openPositionsList}`} data-aos="fade-up">
-            {careers?.map((item, index) => {
+          <div className={`${styles.openPositionsList}`}>
+            {openPositions?.map((item, index) => {
+              console.log(openPositions)
               return (
                 <div className={styles.openPositionsListItem} key={index}>
                   <Link href={`/overview/careers/${item.slug}`}>
                     <div>
-                      <span className='ttl'>{item.title['en']['career.title']}</span>
+                      <span className='ttl'>{item.title['en']['openPosition.title']}</span>
                     </div>
                   </Link>
                   {isPopupVisible === index && (
@@ -51,8 +53,8 @@ const Feature = ({ title, showButton, careers }) => {
                   <div
                     className={styles.openPositionsListItemSvg}
                     onClick={() => {
-                      handleCopy(`http://localhost:3001/overview/careers/${item.slug}`);
-                      handlePopupClick(index);
+                      // handleCopy(`http://localhost:3000/overview/careers/${item.id}`);
+                      // handlePopupClick(index);
                     }}
                   >
                     <CopyIcon />

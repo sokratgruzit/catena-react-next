@@ -62,9 +62,9 @@ function Tokenomics() {
             {/*<EventDetails />*/}
             <Certik />
           </InView>
-          <InView as="div" onChange={(inView, entry) => (inView && setScheme(2))}>
-              <Download />
-          </InView>
+          {/*<InView as="div" onChange={(inView, entry) => (inView && setScheme(2))}>*/}
+          {/*    <Download />*/}
+          {/*</InView>*/}
       </div>
     </div>
   );

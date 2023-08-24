@@ -28,6 +28,7 @@ const WALLETS_DATA = [
 ];
 
 const Header = () => {
+  // Starter version
   const {
     disconnect,
     connect,
@@ -118,11 +119,11 @@ const Header = () => {
               title: 'Bug Bounty',
               route: '/overview/bug-bounty',
             },
-            // {
-            //   id: 'support-1',
-            //   title: 'Your Voice Matter',
-            //   route: '/overview/your-voice',
-            // },
+            {
+              id: 'support-1',
+              title: 'Your Voice Matter',
+              route: '/overview/your-voice',
+            },
             {
               id: 'support-2',
               title: 'Support',
@@ -248,6 +249,11 @@ const Header = () => {
           id: 'more-1',
           title: 'Wallet',
           route: 'https://wallet.coremultichain.com/',
+        },
+        {
+          id: 'more-2',
+          title: 'Explorer',
+          route: 'https://catenascan.com/',
         },
         /*{
           id: 15,
@@ -726,7 +732,7 @@ const Header = () => {
                             <div
                               style={{
                                 transitionDelay:
-                                  activeMenu === item.id ? `${(index + (device === 'desktop' ? 9 : 0)) / 20 }s` : '0s',
+                                  activeMenu === item.id ? `${(index + (device === 'desktop' ? 9 : 0)) / 40 }s` : '0s',
                               }}
                             >
                               <span>{sub.title}</span>

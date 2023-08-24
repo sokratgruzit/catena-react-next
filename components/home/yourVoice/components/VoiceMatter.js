@@ -1,22 +1,34 @@
-import { Input, Button } from '@catena-network/catena-ui-module';
-import {useEffect, useState} from 'react';
+import { Input, Button, HelpText, HelpCard } from '@catena-network/catena-ui-module';
+import { useState, useEffect } from 'react';
+import { useValidation } from '../../../../hooks/useValidation';
+import createAxiosInstance from '../../../../pages/api/axios';
+import { useDispatch } from 'react-redux';
 
 import styles from './VoiceMatters.module.css';
-import {useDispatch} from "react-redux";
 
 const VoiceMatter = () => {
+  const [active, setActive] = useState(false)
+  const [result, setResult] = useState("")
+  const [email, setEmail] = useState("");
+  const [emptyField, setEmptyField] = useState("")
+  const [formData, setFormData] = useState({
+    email: '',
+    name: '',
+    suggestion: '',
+  });
+
   const dispatch = useDispatch();
   const [pageReady, setPageReady] = useState(false);
   let microSchemes;
-  if(window.innerWidth > 1240){
+  if (window.innerWidth > 1240) {
     microSchemes = [
-      [1,2,10,11,12,13,14,15,16,17,18,22,23,24],
+      [1, 2, 10, 11, 12, 13, 14, 15, 16, 17, 18, 22, 23, 24],
     ];
   }
 
-  if(window.innerWidth < 1240){
+  if (window.innerWidth < 1240) {
     microSchemes = [
-      [1,2,5,6,7,8,9,10,11,12,13,14,16,17,18,19,20,21,22,23,24],
+      [1, 2, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 16, 17, 18, 19, 20, 21, 22, 23, 24],
     ];
   }
 
@@ -35,16 +47,16 @@ const VoiceMatter = () => {
         microschemeArray: microSchemes[0]
       });
     }, 400);
-  },[]);
+  }, []);
 
-  const [formData, setFormData] = useState({
-    email: '',
-    name: '',
-    suggestion: '',
-  });
+  const axios = createAxiosInstance();
 
-  const chngHandler = e => {
+  const chngeHandler = e => {
     const { name, value } = e.target;
+
+    if (name === "email") {
+      setEmail(value)
+    }
     setFormData(prevState => ({
       ...prevState,
       [name]: value,
@@ -52,11 +64,71 @@ const VoiceMatter = () => {
   };
 
   const handleSubmit = () => {
-    console.log(formData);
+    if (!validationErrors?.email?.failure && formData.email && formData.name && formData.suggestion) {
+      axios.post(`${process.env.NEXT_PUBLIC_URL}/your-voice/create-feedback`, formData)
+        .then(res => {
+          setResult("success")
+          console.log(res);
+        })
+        .catch(err => {
+          setResult("error")
+          console.log(err);
+        })
+        .then(res => {
+          setActive(true)
+          setTimeout(() => {
+            setActive(false)
+          }, 2000);
+        })
+      setEmail("");
+      setFormData({
+        email: '',
+        name: '',
+        suggestion: '',
+      });
+      setEmptyField(false);
+    } else {
+      setEmptyField(true);
+      if (!formData.name.trim() && !formData.email.trim() && !formData.suggestion.trim()) {
+        setFormData(prevState => ({
+          ...prevState,
+          name: "",
+          suggestion: "",
+          email: ""
+        }));
+
+        setEmptyField(true);
+      }
+      console.log('Invalid format. Data not sent.');
+    }
+
   };
+
+  let helpTexts = {
+    email: {
+      validationType: "email",
+      success: "Email is valid",
+      failure: "Invalid email format",
+    },
+  };
+
+  const validationErrors = useValidation(
+    {
+      email: email || "",
+    },
+    helpTexts
+  );
 
   return (
     <div className={`${styles.main} container`}>
+      <HelpCard
+        result={result}
+        text={
+          "your text your text your text your text your text your text your text"
+        }
+        body={"notification"}
+        active={active}
+      />
       <div className={`${styles.box} `}>
         <h1 className={`${styles.container} pB-50 tYAnimation ${pageReady ? 'animate' : ''}`}>
           <div className={`${styles.blackTitle} font-90 ttl`}>Your Voice </div>
@@ -73,59 +145,63 @@ const VoiceMatter = () => {
       <div className={`${styles.bottomBox} tYAnimation ${pageReady ? 'animate' : ''}`}>
         <div className={`${styles.hederBox} `}>
           <form className={styles.from}>
-            <div>
-              <Input
-                className={styles.llll}
-                type={'default'}
-                icon={false}
-                label={'EMAIL'}
-                subLabel={''}
-                placeholder={'Enter'}
-                name='email'
-                value={formData.email}
-                onChange={chngHandler}
-                // customStyles={{ width: '500px' }}
-              />
-            </div>
-            <div>
-              <Input
-                type={'default'}
-                icon={false}
-                label={'Name'}
-                subLabel={''}
-                placeholder={'Enter'}
-                value={formData.name}
-                name='name'
-                onChange={chngHandler}
-                // customStyles={{ width: '500px' }}
-              />
-            </div>
-            <div>
-              <Input
-                type={'textarea'}
-                label={'Make a suggestion'}
-                value={formData.suggestion}
-                onChange={chngHandler}
-                name='suggestion'
-                rows={10}
-                cols={20}
-                placeholder={'Please describe your feedback in detail with corresponding screenshots'}
-                resize={'none'}
-                customStyles={{ width: '100%', resize: 'none' }}
-              />
-            </div>
-            <div>
-              <Button
-                label={'Button'}
-                size={'btn-lg'}
-                type={'btn-primary'}
-                arrow={'arrow-right'}
-                element={'button'}
-                disabled={false}
-                onClick={handleSubmit}
-                className={styles.btnBlu}
-              />
-            </div>
+            <Input
+              type={"default"}
+              name={"email"}
+              icon={false}
+              label={'EMAIL'}
+              editable={true}
+              subLabel={""}
+              placeholder={'Enter..'}
+              validation={"email"}
+              value={email}
+              onChange={chngeHandler}
+              emptyFieldErr={emptyField && !formData.email.trim()}
+              statusCard={
+                validationErrors?.email && (
+                  <HelpText
+                    status={validationErrors.email.failure ? "error" : "success"}
+                    title={validationErrors.email.failure || validationErrors.email.success}
+                    fontSize={"font-12"}
+                    icon={true}
+                  />
+                )
+              }
+            />
+            <Input
+              type={'default'}
+              icon={false}
+              label={'Name'}
+              subLabel={''}
+              placeholder={'Enter'}
+              value={formData.name}
+              emptyFieldErr={emptyField && !formData.name.trim()}
+              name='name'
+              onChange={chngeHandler}
+            />
+            <Input
+              type={'textarea'}
+              label={'Make a suggestion'}
+              value={formData.suggestion}
+              emptyFieldErr={emptyField && !formData.suggestion.trim()}
+              onChange={chngeHandler}
+              name='suggestion'
+              rows={10}
+              cols={20}
+              placeholder={'Please describe your feedback in detail with corresponding screenshots'}
+              resize={'none'}
+              customStyles={{ width: '100%', resize: 'none' }}
+            />
+            <Button
+              label={'Submit'}
+              size={'btn-lg'}
+              type={'btn-primary'}
+              arrow={'arrow-right'}
+              element={'button'}
+              disabled={false}
+              onClick={handleSubmit}
+              className={styles.btnBlu}
+            />
           </form>
         </div>
       </div>

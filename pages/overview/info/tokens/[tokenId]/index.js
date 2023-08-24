@@ -77,20 +77,8 @@ export async function getStaticProps(context) {
 const index = props => {
   const router = useRouter();
   const { tokenId } = router.query;
-  // fetch data by ID
 
-  return (
-    // <DynamicNamespaces namespaces={['dynamic']} fallback='Loading...'>
-    <div>
-      <div className={styles.backgroundMain}>
-        <Image layout='responsive' objectFit='cover' quality={100} src={BackgroundImg} alt='background' />
-      </div>
-      <div className={styles.section}>
-        <TokenSection data={props.infoTokensDetails} />
-      </div>
-    </div>
-    // </DynamicNamespaces>
-  );
+  return <TokenSection data={props.infoTokensDetails} />
 };
 
 export default index;

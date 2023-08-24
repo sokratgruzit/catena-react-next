@@ -286,6 +286,19 @@
     }
 }
 @media (max-width: 767px) {
+    .mainSliderItemBtn {
+        margin-top: 20px;
+    }
+    .mainSliderItemTask {
+        display: none;
+    }
+    .mainSliderItemSolutionTxt {
+        font-size: 14px;
+    }
+    .mainSliderItemSolution svg {
+        height: 30px;
+        width: 80px;
+    }
     .mainSliderItemBtnOut {
         margin-left: auto;
     }

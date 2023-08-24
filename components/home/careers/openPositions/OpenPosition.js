@@ -4,7 +4,7 @@ import { TableElement } from '@catena-network/catena-ui-module';
 import OpenSearch from './components/OpenSearch';
 import Feature from '../../careers/components/feature/Feature';
 
-const OpenPosition = ({ careers, currentPage, totalCount }) => {
+const OpenPosition = ({ openPositions, currentPage, totalCount }) => {
   const router = useRouter();
   const handlePageChange = page => {
     router.push({
@@ -12,11 +12,11 @@ const OpenPosition = ({ careers, currentPage, totalCount }) => {
       query: { ...router.query, page },
     });
   };
-
+  
   return (
     <>
       <OpenSearch title='Open Positions' department='DEPARTMENT' location='LOCATION' />
-      <Feature careers={careers} />
+      <Feature openPositions={openPositions} />
       <TableElement
         type={"pagination"}
         currentPage={currentPage}
