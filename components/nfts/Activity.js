@@ -11,27 +11,27 @@ import ArrowBtn from '../UI/button/ArrowBtn';
 const tabsData = [
   {
     id: 0,
-    label: 'All',
-  },
-  {
-    id: 1,
     label: 'Collection',
   },
   {
-    id: 2,
+    id: 1,
     label: 'Listed',
   },
   {
-    id: 3,
+    id: 2,
     label: 'Delisted',
   },
   {
-    id: 4,
+    id: 3,
     label: 'Modified',
   },
   {
-    id: 5,
+    id: 4,
     label: 'Sold',
+  },
+  {
+    id: 5,
+    label: 'Clear',
   },
 ];
 
@@ -96,6 +96,8 @@ const Activity = props => {
           filter: filterStyles.Activity__filter,
           active: filterStyles.Activity__filterActive,
           item: filterStyles.Activity__filter__item,
+          wrapper: filterStyles.Activity__wrapper,
+          firstTwoItemsContainer: filterStyles.Activity__firstTwoItemsContainer,
         }}
       />
       {content}
