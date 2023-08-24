@@ -12,10 +12,10 @@ import ListItemRow from '../../UI/listItem/ListItemRow';
 import styles from './Buy.module.css';
 
 const nftItemData = {
-  imgSrc: '../../../images/nft/nft_owner_page/item1.png',
+  imgSrc: '/images/nft/nft_activity_items/fig4.png',
   title: 'Mutant Ape Yacht Club',
   value: '#314',
-  blockQuote: '10,000 unique, randomly-generated PancakeSwap NFTs from the mind of Chef Cecy Meade. Join the squad.',
+  blockQuote: '10,000 unique, randomly-generated Catena NFTs from the mind of Chef Cecy Meade. Join the squad.',
   cmcx: '0.0024',
   usd: '($1,314)',
 };
@@ -288,6 +288,11 @@ const Buy = props => {
   const [isPropertiesOpen, setIsPropertiesOpen] = useState(false);
   const [isDetailsOpen, setIsDetailsOpen] = useState(false);
   const [isInfoOpen, setIsInfoOpen] = useState(false);
+  const [activeButton, setActiveButton] = useState('BNB');
+
+  const handleButtonClick = buttonName => {
+    setActiveButton(buttonName);
+  };
 
   let web3Obj = library;
 
@@ -312,28 +317,29 @@ const Buy = props => {
   }, []);
 
   let connectButton = <p className={styles.item}>You don’t have any of this item.</p>;
-  let variableButton = (
-    <Button
-      title={'Buy'}
-      type={'blue'}
-      onClick={() => {
-        if (!isInfoOpen) {
-          setIsInfoOpen(true);
-        } else {
-          setIsInfoOpen(false);
-        }
-        // content changes function
-      }}
-      customStyles={{
-        padding: '4px 26px',
-        width: '90px',
-        margin: '0px auto',
-        transition: '.5s',
-      }}
-    />
-  );
+  // let variableButton = (
+  //   <Button
+  //     title={'Buy'}
+  //     type={'skyBlue'}
+  //     onClick={() => {
+  //       if (!isInfoOpen) {
+  //         setIsInfoOpen(true);
+  //       } else {
+  //         setIsInfoOpen(false);
+  //       }
+  //       // content changes function
+  //     }}
+  //     customStyles={{
+  //       padding: '4px 26px',
+  //       width: '90px',
+  //       margin: '0px auto',
+  //       transition: '.5s',
+  //     }}
+  //   />
+  // );
   let variableStep = (
     <div className={styles.buy__item__details}>
+      <ArrowBtn route={'back__collections'} direction={'back'} />
       <div className={styles.details__teaser}>
         <p className={'font_13'}>{nftItemData.title}</p>
         <p className={'font_30'}>{nftItemData.value}</p>
@@ -348,7 +354,7 @@ const Buy = props => {
       </div>
       <Button
         title={'Buy'}
-        type={'blue'}
+        type={'skyBlue'}
         onClick={() => {
           setStep(true);
         }}
@@ -434,31 +440,41 @@ const Buy = props => {
   }
   if (step === true) {
     variableStep = (
-      <div className={styles.buy__item__details}>
-        <p className={'font_13'}>
-          Token ID <span className={'font_13'}>{nftItemData.tokenId}321</span>
-        </p>
-        <p className={'font_30'}>{nftItemData.value}</p>
+      <div className={`${styles.buy__item__details} ${styles.details__teaser}`}>
+        <p className={`${styles.teaser} font_13`}>Mutant Ape Yacht Club</p>
+        <p className={'font_30 ttl'}>{nftItemData.value}</p>
+        <p>{nftItemData.blockQuote}</p>
         <p className={'font_13'}>Price</p>
         <div className={styles.NftBuy__itemPrices}>
-          <p className={'font_20'}>
-            <span className={'font_20'}>CMCX</span> {nftItemData.cmcx}
+          <p>
+            <span>CMCX</span> {nftItemData.cmcx}
           </p>
           <p className={'font_13'}>{nftItemData.usd}</p>
         </div>
         <div className={styles.pay}>
           <p className={'font_13'}>Pay With</p>
           <div className={styles.payBtns}>
-            <p className={styles.payBtn}>BNB</p>
-            <p className={`${styles.payBtn} ${styles.payBtn__active}`}>WBNB</p>
+            <p
+              className={`${styles.payBtn} ${activeButton === 'BNB' ? styles.payBtn__active : ''}`}
+              onClick={() => handleButtonClick('BNB')}
+            >
+              BNB
+            </p>
+            <p
+              className={`${styles.payBtn} ${activeButton === 'WBNB' ? styles.payBtn__active : ''}`}
+              onClick={() => handleButtonClick('WBNB')}
+            >
+              WBNB
+            </p>
           </div>
         </div>
         <div className={styles.pay} style={{ display: isConnected && isActive ? 'none' : 'block' }}>
           <p className={'font_13'}>WBNB in Wallet</p>
           <div className={styles.connect__wallet}>
             <Button
+              className='ttl'
               title={'Connect Wallet'}
-              type={'blue'}
+              type={'red'}
               onClick={() => {
                 handleWalletModal(true);
                 setConnected(true);
@@ -471,6 +487,7 @@ const Buy = props => {
               customStyles={{
                 padding: '2% 0',
                 width: '150px',
+                border: '1px solid #162029',
               }}
             />
           </div>
@@ -484,8 +501,18 @@ const Buy = props => {
           </p>
         </div>
         <div className={styles.checkout}>
-          <p className={styles.checkoutBtn}>Checkout</p>
-          <p className={styles.getBtn}>Get BNB or WBNB</p>
+          <Button
+            title={'Checkout'}
+            type={'black__border__transparent'}
+            customStyles={{ paddingTop: '18px', paddingBottom: '18px' }}
+            onClick={() => {}}
+          />
+          <Button
+            title={'Get BNB or WBNB'}
+            type={'black__border__transparent'}
+            customStyles={{ paddingTop: '18px', paddingBottom: '18px' }}
+            onClick={() => {}}
+          />
         </div>
       </div>
     );
@@ -493,12 +520,13 @@ const Buy = props => {
 
   return (
     <div className={`${styles.buy__outer} ${styles.container}`}>
-      <ArrowBtn route={'back__collections'} direction={'back'} />
       <div className={styles.buy__item}>
         <div className={styles.buy__img}>
-          <picture>
-            <img src={nftItemData.imgSrc} alt='nft' />
-          </picture>
+          <div className={styles.buy__img__wrap}>
+            <picture>
+              <img src={nftItemData.imgSrc} alt='nft' />
+            </picture>
+          </div>
         </div>
         {variableStep}
       </div>
@@ -701,7 +729,7 @@ const Buy = props => {
                         <p>{item.ownerAddress}</p>
                       </div>
                     </div>
-                    <div className={styles.connect__buttonWrap}>{variableButton}</div>
+                    {/* <div className={styles.connect__buttonWrap}>{variableButton}</div> */}
                   </div>
                   <div className={styles.connectWallet__info}>
                     <div className={styles.tokenId__info}>
@@ -713,8 +741,18 @@ const Buy = props => {
                     <div className={styles.payWith}>
                       <p className={'font_13'}>Pay With</p>
                       <div className={styles.payBtns}>
-                        <p className={styles.payBtn}>BNB</p>
-                        <p className={`${styles.payBtn} ${styles.payBtn__active}`}>WBNB</p>
+                        <p
+                          className={`${styles.payBtn} ${activeButton === 'BNB' ? styles.payBtn__active : ''}`}
+                          onClick={() => handleButtonClick('BNB')}
+                        >
+                          BNB
+                        </p>
+                        <p
+                          className={`${styles.payBtn} ${activeButton === 'WBNB' ? styles.payBtn__active : ''}`}
+                          onClick={() => handleButtonClick('WBNB')}
+                        >
+                          WBNB
+                        </p>
                       </div>
                     </div>
                     <div className={styles.connectWallet}>
@@ -752,8 +790,18 @@ const Buy = props => {
                     </div>
                   </div>
                   <div className={styles.checkout__info}>
-                    <p className={styles.checkoutBtn}>Checkout</p>
-                    <p className={styles.getBtn}>Get BNB or WBNB</p>
+                    <Button
+                      title={'Checkout'}
+                      type={'black__border__transparent'}
+                      customStyles={{ paddingTop: '18px', paddingBottom: '18px' }}
+                      onClick={() => {}}
+                    />
+                    <Button
+                      title={'Get BNB or WBNB'}
+                      type={'black__border__transparent'}
+                      customStyles={{ paddingTop: '18px', paddingBottom: '18px' }}
+                      onClick={() => {}}
+                    />
                   </div>
                 </div>
               );
@@ -767,8 +815,8 @@ const Buy = props => {
           <p className={'font_30'}>More From This Collection</p>
           <ArrowBtn route={'collections'} direction={'forward'} title={'viewAll'} />
         </div>
-        <div className={styles.Collections__products}>
-          <Swiper spaceBetween={30} slidesPerView={4.6}>
+        <div>
+          <Swiper spaceBetween={30} slidesPerView={4.6} className={styles.Collections__products}>
             {collectionItems.map(item => {
               return (
                 <SwiperSlide key={item.id}>

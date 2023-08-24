@@ -50,6 +50,15 @@
   color: #162029;
 }
 
+.skyBlue {
+  background-color: #a6d0dd;
+  border: 1px solid #162029;
+}
+
+.skyBlue:hover {
+  background-color: transparent;
+}
+
 .blue:hover {
   background-color: transparent;
 }
@@ -73,6 +82,16 @@
   border: 1px solid #0500ff !important;
   background-color: #0500ff !important;
   color: rgba(255, 255, 255, 1) !important;
+}
+
+.black__border__transparent {
+  border: 1px solid #162029;
+  background-color: transparent;
+}
+
+.black__border__transparent:hover {
+  background: #a6d0dd;
+  opacity: 0.6;
 }
 
 .white__border {
