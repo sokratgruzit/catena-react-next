@@ -92,9 +92,6 @@ const AmbasdorBtn = () => {
     <div className={`${styles.btn} container `} data-aos="fade-up">
       <HelpCard
         result={result}
-        text={
-          "your text your text your text your text your text your text your text"
-        }
         body={"notification"}
         active={active}
       />

@@ -28,7 +28,6 @@ const WALLETS_DATA = [
 ];
 
 const Header = () => {
-  // Starter version
   const {
     disconnect,
     connect,

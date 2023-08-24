@@ -95,16 +95,16 @@ function MyApp({ Component, pageProps }) {
         <meta property='og:url' content='https://catena.network/' />
         <meta
             property='og:image'
-            content='/og_meta_tag.jpeg'
+            content='https://catena-react-next.onrender.com/og_meta_tag.jpeg'
         />
         <meta name='twitter:card' content='summary_large_image' />
-        <meta name='twitter:title' content='CORE Multi-Chain' />
+        <meta name='twitter:title' content='Catena' />
         <meta
             name='twitter:description'
-            content='CORE Multi-Chain (Cryptographic Object Resource Engine) is a PoS blockchain 3.0 framework focused on Interoperability, Scalability, and Usability.'
+            content='Catena  is a PoS blockchain 3.0 framework focused on Interoperability, Scalability, and Usability.'
         />
-        <meta name='twitter:url' content='https://coremultichain.com/' />
-        <meta name='twitter:site' content='@COREMultichain' />
+        <meta name='twitter:url' content='https://catena.network/' />
+        <meta name='twitter:site' content='@Catena' />
         <meta
             name='twitter:image'
             content='https://wallet-landing-next.vercel.app/og_meta_tag.jpg'
