@@ -10,6 +10,7 @@ const VoiceMatter = () => {
   const [active, setActive] = useState(false)
   const [result, setResult] = useState("")
   const [email, setEmail] = useState("");
+  const [emptyField, setEmptyField] = useState("")
   const [formData, setFormData] = useState({
     email: '',
     name: '',
@@ -63,21 +64,44 @@ const VoiceMatter = () => {
   };
 
   const handleSubmit = () => {
-    axios.post(`${process.env.NEXT_PUBLIC_URL}/your-voice/create-feedback`, formData)
-      .then(res => {
-        setResult("success")
-        console.log(res);
-      })
-      .catch(err => {
-        setResult("error")
-        console.log(err);
-      })
-      .then(res => {
-        setActive(true)
-        setTimeout(() => {
-          setActive(false)
-        }, 2000);
-      })
+    if (!validationErrors?.email?.failure && formData.email && formData.name && formData.suggestion) {
+      axios.post(`${process.env.NEXT_PUBLIC_URL}/your-voice/create-feedback`, formData)
+        .then(res => {
+          setResult("success")
+          console.log(res);
+        })
+        .catch(err => {
+          setResult("error")
+          console.log(err);
+        })
+        .then(res => {
+          setActive(true)
+          setTimeout(() => {
+            setActive(false)
+          }, 2000);
+        })
+      setEmail("");
+      setFormData({
+        email: '',
+        name: '',
+        suggestion: '',
+      });
+      setEmptyField(false);
+    } else {
+      setEmptyField(true);
+      if (!formData.name.trim() && !formData.email.trim() && !formData.suggestion.trim()) {
+        setFormData(prevState => ({
+          ...prevState,
+          name: "",
+          suggestion: "",
+          email: ""
+        }));
+
+        setEmptyField(true);
+      }
+      console.log('Invalid format. Data not sent.');
+    }
+
   };
 
   let helpTexts = {
@@ -121,68 +145,63 @@ const VoiceMatter = () => {
       <div className={`${styles.bottomBox} tYAnimation ${pageReady ? 'animate' : ''}`}>
         <div className={`${styles.hederBox} `}>
           <form className={styles.from}>
-            <div>
-              <Input
-                type={"default"}
-                name={"email"}
-                icon={false}
-                label={'EMAIL'}
-                editable={true}
-                subLabel={""}
-                placeholder={'Enter..'}
-                validation={"email"}
-                value={email}
-                onChange={chngeHandler}
-                statusCard={
-                  validationErrors?.email && (
-                    <HelpText
-                      status={validationErrors.email.failure ? "error" : "success"}
-                      title={validationErrors.email.failure || validationErrors.email.success}
-                      fontSize={"font-12"}
-                      icon={true}
-                    />
-                  )
-                }
-              />
-            </div>
-            <div>
-              <Input
-                type={'default'}
-                icon={false}
-                label={'Name'}
-                subLabel={''}
-                placeholder={'Enter'}
-                value={formData.name}
-                name='name'
-                onChange={chngeHandler}
-              />
-            </div>
-            <div>
-              <Input
-                type={'textarea'}
-                label={'Make a suggestion'}
-                value={formData.suggestion}
-                onChange={chngeHandler}
-                name='suggestion'
-                rows={10}
-                cols={20}
-                placeholder={'Please describe your feedback in detail with corresponding screenshots'}
-                resize={'none'}
-                customStyles={{ width: '100%', resize: 'none' }}
-              />
-            </div>
-            <div>
-              <Button
-                label={'Submit'}
-                size={'btn-lg'}
-                type={'btn-primary'}
-                arrow={'arrow-right'}
-                element={'button'}
-                disabled={false}
-                onClick={handleSubmit}
-                className={styles.btnBlu}
-              />
-            </div>
+            <Input
+              type={"default"}
+              name={"email"}
+              icon={false}
+              label={'EMAIL'}
+              editable={true}
+              subLabel={""}
+              placeholder={'Enter..'}
+              validation={"email"}
+              value={email}
+              onChange={chngeHandler}
+              emptyFieldErr={emptyField && !formData.email.trim()}
+              statusCard={
+                validationErrors?.email && (
+                  <HelpText
+                    status={validationErrors.email.failure ? "error" : "success"}
+                    title={validationErrors.email.failure || validationErrors.email.success}
+                    fontSize={"font-12"}
+                    icon={true}
+                  />
+                )
+              }
+            />
+            <Input
+              type={'default'}
+              icon={false}
+              label={'Name'}
+              subLabel={''}
+              placeholder={'Enter'}
+              value={formData.name}
+              emptyFieldErr={emptyField && !formData.name.trim()}
+              name='name'
+              onChange={chngeHandler}
+            />
+            <Input
+              type={'textarea'}
+              label={'Make a suggestion'}
+              value={formData.suggestion}
+              emptyFieldErr={emptyField && !formData.suggestion.trim()}
+              onChange={chngeHandler}
+              name='suggestion'
+              rows={10}
+              cols={20}
+              placeholder={'Please describe your feedback in detail with corresponding screenshots'}
+              resize={'none'}
+              customStyles={{ width: '100%', resize: 'none' }}
+            />
+            <Button
+              label={'Submit'}
+              size={'btn-lg'}
+              type={'btn-primary'}
+              arrow={'arrow-right'}
+              element={'button'}
+              disabled={false}
+              onClick={handleSubmit}
+              className={styles.btnBlu}
+            />
           </form>
         </div>
       </div>
