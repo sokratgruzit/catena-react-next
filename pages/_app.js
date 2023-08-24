@@ -90,12 +90,12 @@ function MyApp({ Component, pageProps }) {
         <meta property='og:title' content='CATENA' />
         <meta
             property='og:description'
-            content='CATENA (Cryptographic Object Resource Engine) is a PoS blockchain 3.0 framework focused on Interoperability, Scalability, and Usability.'
+            content='CATENA is a PoS blockchain 3.0 framework focused on Interoperability, Scalability, and Usability.'
         />
         <meta property='og:url' content='https://catena.network/' />
         <meta
             property='og:image'
-            content='https://wallet-landing-next.vercel.app/og_meta_tag.jpg'
+            content='/og_meta_tag.jpeg'
         />
         <meta name='twitter:card' content='summary_large_image' />
         <meta name='twitter:title' content='CORE Multi-Chain' />
