@@ -25,7 +25,7 @@ const TEMPRORAYDATA = [
 
 ]
 
-const SubmitApplication = ({ title }) => {
+const SubmitApplication = ({ title, handleButtonClick }) => {
 
   const [successMessage, setSuccessMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
@@ -60,7 +60,10 @@ const SubmitApplication = ({ title }) => {
   const submitHandler = async (e) => {
     e.preventDefault();
 
-    if (!validationErrors?.email?.failure && application.name && application.file && application.language && application.descr && application.email && application.phone) {
+    if (!validationErrors?.email?.failure
+      && application.name && application.file
+      && application.language && application.descr
+      && application.email && application.phone) {
       console.log('Sending data to the backend:', application)
       setShowSuccessMessage(true);
       setTimeout(() => {
@@ -84,7 +87,8 @@ const SubmitApplication = ({ title }) => {
         gitHub: '',
         linkedin: '',
         file: '',
-        jobId: '',});
+        jobId: '',
+      });
 
       if (application.file) {
         const formData = new FormData();
@@ -120,6 +124,7 @@ const SubmitApplication = ({ title }) => {
                   .then(() => {
                     setSuccessMessage('Application submitted successfully!');
                     setErrorMessage('');
+                    handleButtonClick()
                   });
               }
             });
@@ -136,12 +141,6 @@ const SubmitApplication = ({ title }) => {
     } else {
       console.log('Invalid format. Data not sent.');
     }
-  };
-
-  const handlerSubmit = (e) => {
-    e.preventDefault();
-
-    console.log(selectedAnswers);
   };
 
   const handlerChange = (e) => {
@@ -174,14 +173,9 @@ const SubmitApplication = ({ title }) => {
       setApplication((prev) => ({ ...prev, linkedin: e.target.value }));
       console.log(application, 'linkedin');
     }
-    // if (e?.target?.name === "file") {
-    //   setApplication((prev) => ({ ...prev, file: e }));
-    //   console.log(application.file, 'file');
-    // }
-    else {
-      setApplication((prev) => ({ ...prev, file: e }));
-      console.log(application.file, 'file');
-    }
+    setApplication((prev) => ({ ...prev, file: e }));
+    console.log(application.file, 'file');
+
   }
 
   let helpTexts = {
@@ -376,8 +370,8 @@ const SubmitApplication = ({ title }) => {
               disabled={false}
               onClick={submitHandler}
             />
-            {/* {successMessage && <div className="success-message">{successMessage}</div>}
-            {errorMessage && <div className="error-message">{errorMessage}</div>} */}
+            {successMessage && <div className="success-message">{successMessage}</div>}
+            {errorMessage && <div className="error-message">{errorMessage}</div>}
           </div>
         </div>
       </div>
