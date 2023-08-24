@@ -25,11 +25,11 @@ const InfoRoutes = () => {
 
   const getCurrentLocation = loc => {
     let returnStatement = '';
-    if (loc === '/home/info') returnStatement = 'Overview';
-    if (loc === '/home/info/pools') returnStatement = 'Pools';
-    if (loc.startsWith('/home/info/pools')) returnStatement = 'Pools';
-    if (loc === '/home/info/tokens') returnStatement = 'Tokens';
-    if (loc.startsWith('/home/info/tokens/')) returnStatement = 'Tokens';
+    if (loc === '/overview/info') returnStatement = 'Overview';
+    if (loc === '/overview/info/pools') returnStatement = 'Pools';
+    if (loc.startsWith('/overview/info/pools')) returnStatement = 'Pools';
+    if (loc === '/overview/info/tokens') returnStatement = 'Tokens';
+    if (loc.startsWith('/overview/info/tokens/')) returnStatement = 'Tokens';
     return returnStatement;
   };
 
@@ -37,9 +37,9 @@ const InfoRoutes = () => {
 
   const navigationHandler = route => {
     if (route === 'Overview') {
-      router.push('/home/info');
+      router.push('/overview/info');
     } else {
-      router.push(`/home/info/${route.toLowerCase()}`);
+      router.push(`/overview/info/${route.toLowerCase()}`);
     }
     setActiveMenuItem(route);
   };

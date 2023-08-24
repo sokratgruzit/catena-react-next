@@ -1,14 +1,18 @@
 import { Input, Button } from '@catena-network/catena-ui-module';
+import Link from 'next/link';
 
 import styles from '../css/ConfirmationBox.module.css';
 
 const ConfirmationBox = () => {
   return (
     <div className={`${styles.container} container`}>
-      <div className={styles.btn}>
-        <img src='/images/Frame.png' />
-        <h1>Back</h1>
-      </div>
+      <Link href={`/overview/contribute`}>
+        <div className={styles.btn}>
+          <img src='/images/Frame.png' />
+          <h1>Back</h1>
+        </div>
+      </Link>
+
       <h1 className='ttl font-90'>Confirmation Your Payment</h1>
       <div className={styles.ttl}>
         <p>Your Order no. 4a74314464566d7674485261666b31385043324b78413d3d has been placed successfully.</p>

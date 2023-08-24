@@ -12,11 +12,7 @@ const BecomeAmbassador = (props) => {
         },
         {
             a: 'Be Part of the CATENA Extended Team',
-            p: "Join a larger community of blockchain and privacy enthusiasts in the CORE MultiChain Foundation and Ecosystem.",
-        },
-        {
-            a: 'Be Part of the CATENA Extended Team',
-            p: "Join a larger community of blockchain and privacy enthusiasts in the CORE MultiChain Foundation and Ecosystem.",
+            p: "Join a larger community of blockchain and privacy enthusiasts in the CATENA Foundation and Ecosystem.",
         },
         {
             a: "See It First",

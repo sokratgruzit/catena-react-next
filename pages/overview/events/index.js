@@ -4,7 +4,7 @@ import createAxiosInstance from '../../../pages/api/axios';
 
 export const getServerSideProps = async ({ query }) => {
   const currentPage = query.page || 1;
-  const limit = 2;
+  const limit = 3;
 
   const axios = createAxiosInstance();
   const response = await axios.get(`${process.env.NEXT_PUBLIC_URL}/event/get-all-event`, {

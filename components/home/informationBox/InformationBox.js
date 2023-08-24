@@ -1,11 +1,7 @@
 import Box from './components/Box';
 
 const InformationBox = () => {
-  return (
-    <div>
-      <Box />
-    </div>
-  );
+  return <Box />;
 };
 
 export default InformationBox;

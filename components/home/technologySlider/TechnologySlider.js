@@ -20,7 +20,7 @@ const TechnologySlider = () => {
   const swiperRefConsensus = useRef();
   const swiperRefLayers = useRef();
   let microSchemes;
-  if (window.innerWidth > 1250) {
+  if (window.innerWidth > 1240) {
     microSchemes = [
       [1, 2, 7, 8, 9, 10, 11, 13, 14, 15, 23, 24],
       [1, 2, 5, 6, 11, 13, 14, 15, 16, 17, 23, 24],
@@ -28,7 +28,7 @@ const TechnologySlider = () => {
       [1, 2, 5, 6, 13, 14, 15, 16, 17, 23, 24],
     ];
   }
-  if (window.innerWidth < 1250) {
+  if (window.innerWidth < 1240) {
     microSchemes = [
       [1, 2, 6, 7, 8, 9, 10, 11, 13, 17, 18, 19, 20, 21, 22, 23, 24],
       [1, 2, 4, 13, 14, 15, 18, 19, 20, 21, 22, 23, 24],
@@ -1457,7 +1457,7 @@ const TechnologySlider = () => {
                       slidesPerView: 1,
                     },
                     768: {
-                      slidesPerView: 2.5,
+                      slidesPerView: 2,
                     },
                     1900: {
                       slidesPerView: 3,
@@ -1616,7 +1616,7 @@ const TechnologySlider = () => {
                       slidesPerView: 1,
                     },
                     768: {
-                      slidesPerView: 2.5,
+                      slidesPerView: 2,
                     },
                     1900: {
                       slidesPerView: 3,

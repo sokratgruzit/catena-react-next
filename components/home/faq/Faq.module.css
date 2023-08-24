@@ -1,7 +1,6 @@
 .container {
   width: 100%;
   display: flex;
-  padding-top: 150px;
 }
 
 .bodyContainer {
@@ -62,7 +61,6 @@
 
 .Title {
   max-width: 50%;
-  margin-top: 30px;
 }
 
 /*Ipad Pro 1024*/
@@ -83,7 +81,7 @@
 
   .Title {
     max-width: 100%;
-    margin: 30px 0 30px 0;
+    margin-bottom: 30px;
   }
 
   .bodyContainer {

@@ -1,4 +1,6 @@
-import styles from "../css/CatenaAmbassador.module.css"
+import { useState } from 'react';
+
+import styles from '../css/CatenaAmbassador.module.css';
 
 const CatenaAmbassador = () => {
     return (
@@ -24,7 +26,7 @@ const CatenaAmbassador = () => {
                     <li>You can still become a CATENA ambassador even if you aren’t a crypto guru. Apply and tell us more about why you believe in CATENA.</li>
                 </ul>
             </div>
-        </div >
+        </div>
     );
 };
 

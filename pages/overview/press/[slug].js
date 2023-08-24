@@ -1,12 +1,12 @@
 import React from 'react';
 import createAxiosInstance from '../../api/axios';
-import CareersIneer from '../../../components/home/careers/careers-inner/CareersIneer';
+import Pressitem from "../../../components/home/press/components/pressInner/PressItem"
 
 export const getStaticPaths = async ({ locales }) => {
   const axios = createAxiosInstance();
 
-  let careers = await axios
-    .get(`${process.env.NEXT_PUBLIC_URL}/careers/get-all-careers-slug`)
+  let press = await axios
+    .get(`${process.env.NEXT_PUBLIC_URL}/press/get-all-press-slug`)
     .then(res => {
       return res?.data;
     })
@@ -16,8 +16,8 @@ export const getStaticPaths = async ({ locales }) => {
 
   let paths;
 
-  if (careers && careers.length > 0) {
-    paths = careers.flatMap((item) =>
+  if (press && press.length > 0) {
+    paths = press.flatMap((item) =>
       locales.map((loc) => ({
         params: { slug: item.slug }, 
         locale: loc,
@@ -25,7 +25,7 @@ export const getStaticPaths = async ({ locales }) => {
     );
   } else {
     paths = locales.map((loc) => ({
-      params: { slug: `career-${loc}` },
+      params: { slug: `press-${loc}` },
       locale: loc,
     }));
   }
@@ -36,23 +36,21 @@ export const getStaticPaths = async ({ locales }) => {
   };
 };
 
-
 export const getStaticProps = async context => {
   const slug = context.params.slug;
   const axios = createAxiosInstance();
-  const res = await axios.post(`${process.env.NEXT_PUBLIC_URL}/careers/get-one-career`, { slug });
+  const res = await axios.post(`${process.env.NEXT_PUBLIC_URL}/press/get-one-press`, { slug });
   const foundItem = res?.data;
-  console.log(slug, 'resdata')
 
   return {
     props: {
-      item: foundItem
+      onePress: foundItem
     },
   };
 };
  
-const index = ({ item }) => {
-  return <CareersIneer item={item} />;
+const index = ({ onePress }) => {
+  return <Pressitem onePress={onePress} />
 };
 
 export default index;

@@ -11,14 +11,14 @@ function BugBounty() {
   const dispatch = useDispatch();
   const [pageReady, setPageReady] = useState(false);
   let microSchemes;
-  if(window.innerWidth > 1250){
+  if(window.innerWidth > 1240){
     microSchemes = [
       [1,2,9,10,11,12,13,14,20,21,22,23,24],
       [1,2,10,11,12,13,14,22,23,24]
     ];
   };
 
-  if(window.innerWidth < 1250){
+  if(window.innerWidth < 1240){
     microSchemes = [
       [1,2,5,6,7,8,9,10,11,12,13,14,20,21,22,23,24],
       [1,10,11,12,13,14,22,23,24]
@@ -135,7 +135,7 @@ function BugBounty() {
       <InView as="div" onChange={(inView, entry) => (inView && setScheme(1))}>
         <div className="container">
           <BugBountyRewards />
-          <BugBountyItem data={reportData} />
+          <BugBountyItem data={reportData} animate={pageReady} />
           <BugBountyNumList data={numList} />
         </div >
       </InView>

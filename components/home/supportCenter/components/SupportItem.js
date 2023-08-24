@@ -25,40 +25,40 @@ const SUPPORTITEMS = [
     description: 'The Bridge Between Crypto and Global Finance.',
     subLink: 'https://cmcx.io/',
   },
-  {
-    svg: <Academy />,
-    a: 'Academy',
-    arrow: <Arrow />,
-    description: 'Get a deeper understanding of the crypto industry and market.',
-    subLink: 'https://coremultichain.com/academy',
-  },
+  // {
+  //   svg: <Academy />,
+  //   a: 'Academy',
+  //   arrow: <Arrow />,
+  //   description: 'Get a deeper understanding of the crypto industry and market.',
+  //   subLink: 'https://coremultichain.com/academy',
+  // },
   {
     svg: <FAQ />,
     a: 'FAQ',
     arrow: <Arrow />,
     description: 'Any issues? Find answers to commonly asked questions.',
-    subLink: 'https://coremultichain.com/faq',
+    subLink: '/overview/faq',
   },
-  {
-    svg: <Request />,
-    a: 'Submit a request',
-    arrow: <Arrow />,
-    description: "Can't find the solution to your problem? Submit a request to support team.",
-    subLink: 'https://coremultichain.com/your-voice',
-  },
+  // {
+  //   svg: <Request />,
+  //   a: 'Submit a request',
+  //   arrow: <Arrow />,
+  //   description: "Can't find the solution to your problem? Submit a request to support team.",
+  //   subLink: 'https://coremultichain.com/your-voice',
+  // },
 ];
 
 const SupportItem = () => {
   const dispatch = useDispatch();
   const [pageReady, setPageReady] = useState(false);
   let microSchemes;
-  if(window.innerWidth > 1250){
+  if(window.innerWidth > 1240){
     microSchemes = [
       [1,2,8,9,10,11,12,13,14,22,23,24],
     ];
   }
 
-  if(window.innerWidth < 1250){
+  if(window.innerWidth < 1240){
     microSchemes = [
       [1,2,4,5,6,7,8,9,10,11,13,14,18,19,20,21,22,23,24],
     ];
