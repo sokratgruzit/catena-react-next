@@ -58,6 +58,9 @@
 
 /*Ipad 768*/
 @media (max-width: 1023px) {
+  .containerOne {
+    width: 100%;
+  }
 }
 
 /*Mobile 320*/

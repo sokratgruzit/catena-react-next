@@ -132,3 +132,14 @@
     justify-content: center;
   }
 }
+
+/*Ipad 768*/
+@media (max-width: 1023px) {
+  .mane {
+    width: 100%;
+  }
+}
+
+/*Mobile 320*/
+@media (max-width: 768px) {
+}

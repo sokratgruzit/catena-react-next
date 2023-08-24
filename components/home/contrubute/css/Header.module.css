@@ -51,13 +51,13 @@
 
 /*Ipad Pro 1024*/
 @media (max-width: 1365px) {
-  .asda {
-    flex-direction: column;
-  }
 }
 
 /*Ipad 768*/
 @media (max-width: 1023px) {
+  .hederContainer {
+    width: 100%;
+  }
 }
 
 /*Mobile 320*/
