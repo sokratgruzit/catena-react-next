@@ -69,7 +69,6 @@ const AmbasdorBtn = () => {
         setEmptyField(true);
       }
       console.log('Invalid format. Data not sent.');
-
     }
   };
 
