@@ -123,9 +123,6 @@ const VoiceMatter = () => {
     <div className={`${styles.main} container`}>
       <HelpCard
         result={result}
-        text={
-          "your text your text your text your text your text your text your text"
-        }
         body={"notification"}
         active={active}
       />
