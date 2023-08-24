@@ -95,7 +95,7 @@ function MyApp({ Component, pageProps }) {
         <meta property='og:url' content='https://catena.network/' />
         <meta
             property='og:image'
-            content='/og_meta_tag.jpeg'
+            content='https://catena-react-next.onrender.com/og_meta_tag.jpeg'
         />
         <meta name='twitter:card' content='summary_large_image' />
         <meta name='twitter:title' content='Catena' />
