@@ -1,4 +1,4 @@
-import { Input, Button, HelpText } from '@catena-network/catena-ui-module';
+import { Input, Button, HelpText, HelpCard } from '@catena-network/catena-ui-module';
 import React from 'react';
 import { Quiz } from '@catena-network/catena-ui-module';
 import { useState, useEffect } from 'react';
@@ -31,6 +31,8 @@ const SubmitApplication = ({ title, handleButtonClick }) => {
   const [errorMessage, setErrorMessage] = useState('');
   const [email, setEmail] = useState("");
   const [emptyField, setEmptyField] = useState("")
+  const [active, setActive] = useState(false)
+  const [result, setResult] = useState("")
 
   const axios = createAxiosInstance();
 
@@ -121,6 +123,20 @@ const SubmitApplication = ({ title, handleButtonClick }) => {
                     linkedin: application.linkedin,
                     file: 'image',
                     jobId: 'jobId',
+                  })
+                  .then(res => {
+                    setResult("success")
+                    console.log(res);
+                  })
+                  .catch(err => {
+                    setResult("error")
+                    console.log(err);
+                  })
+                  .then(res => {
+                    setActive(true)
+                    setTimeout(() => {
+                      setActive(false)
+                    }, 2000);
                   })
                   .then(() => {
                     setSuccessMessage('Application submitted successfully!');
@@ -215,9 +231,21 @@ const SubmitApplication = ({ title, handleButtonClick }) => {
       setEmail(value)
     }
   };
+  console.log(result, 'result');
+  console.log(active, 'active');
 
   return (
     <div className={styles.submitWrapper}>
+      <div className={styles.helpcardWrapper} style={{ zIndex: active ? "10" : "-1" }}>
+        <HelpCard
+          result={result}
+          text={
+            "your text your text your text your text your text your text your text"
+          }
+          body={"notification"}
+          active={active}
+        />
+      </div>
       <div className='container_bordered'>
         <h2 className={styles.font__51}>{title}</h2>
         <div className='container_bordered-child'>
