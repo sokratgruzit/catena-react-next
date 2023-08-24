@@ -1,6 +1,6 @@
 import styles from "../css/BecomeAmbassador.module.css"
 
-const BecomeAmbassador = () => {
+const BecomeAmbassador = (props) => {
     const titleArray = [
         {
             a: "Build a Better Future",
@@ -12,11 +12,7 @@ const BecomeAmbassador = () => {
         },
         {
             a: 'Be Part of the CATENA Extended Team',
-            p: "Join a larger community of blockchain and privacy enthusiasts in the CORE MultiChain Foundation and Ecosystem.",
-        },
-        {
-            a: 'Be Part of the CATENA Extended Team',
-            p: "Join a larger community of blockchain and privacy enthusiasts in the CORE MultiChain Foundation and Ecosystem.",
+            p: "Join a larger community of blockchain and privacy enthusiasts in the CATENA Foundation and Ecosystem.",
         },
         {
             a: "See It First",
@@ -30,13 +26,13 @@ const BecomeAmbassador = () => {
 
     return (
         <div className={`${styles.box} container_bordered`} >
-            <div className="container_bordered-child">
+            <div className={`container_bordered-child delay2 tYAnimation ${props.animate ? 'animate' : ''}`}>
                 <h1 className={`${styles.ttli} ttl font-40`}>Why Become an Ambassador</h1>
                 <div>
                     {titleArray.map((item, index) => {
                         return (
                             <div key={index} className={styles.becameTitle}>
-                                <a className={`${styles.a} `}>{item.a}</a>
+                                <a className={`${styles.a} ttl`}>{item.a}</a>
                                 <p className={`${styles.p} p`}>{item.p}</p>
                             </div>
                         )

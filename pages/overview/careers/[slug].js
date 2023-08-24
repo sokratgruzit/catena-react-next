@@ -5,7 +5,7 @@ export const getStaticPaths = async ({ locales }) => {
   const axios = createAxiosInstance();
 
   let careers = await axios
-    .get(`${process.env.NEXT_PUBLIC_URL}/careers/get-all-careers-slug`)
+    .get(`${process.env.NEXT_PUBLIC_URL}/open-positions/get-all-open-positions-slug`)
     .then(res => {
       return res?.data;
     })
@@ -38,7 +38,7 @@ export const getStaticPaths = async ({ locales }) => {
 export const getStaticProps = async context => {
   const slug = context.params.slug;
   const axios = createAxiosInstance();
-  const res = await axios.post(`${process.env.NEXT_PUBLIC_URL}/careers/get-one-career`, { slug });
+  const res = await axios.post(`${process.env.NEXT_PUBLIC_URL}/open-positions/get-one-open-position`, { slug });
   const foundItem = res?.data;
 
   return {

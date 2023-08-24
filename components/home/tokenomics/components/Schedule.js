@@ -7,27 +7,27 @@ function Schedule() {
       text: '1,000,000,000',
     },
     {
-      teaser: '(TGE Event) Pre-Seed Round',
+      teaser: 'Pre-IEO',
       text: '1,000,000,000',
     },
     {
-      teaser: '(TGE Event) Pre-Seed Round',
+      teaser: 'Founders Round',
       text: '1,000,000,000',
     },
     {
-      teaser: '(TGE Event) Pre-Seed Round',
-      text: '1,000,000,000',
+      teaser: 'IEO (Launch Pad Sale)',
+      text: '4,000,000,000',
     },
     {
-      teaser: '(TGE Event) Pre-Seed Round',
+      teaser: 'Seed Round',
       text: '1,000,000,000',
     },
   ];
   return (
     <div>
-      <h2 className={` ${styles.schedule_title} font-40 ttl container`}>Token Release Schedule</h2>
+      <h2 className={` ${styles.schedule_title} font-40 ttl container`} data-aos='fade-up'>Token Release Schedule</h2>
       <div className='container_bordered'>
-        <div className='container_bordered-child'>
+        <div className='container_bordered-child' data-aos='fade-up'>
           <div className={`${styles.schedule_grid}`}>
             {data?.map((item, i) => {
               return (

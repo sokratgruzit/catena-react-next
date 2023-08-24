@@ -184,6 +184,7 @@ const farmsData = [
 const FilterData = ['hot', 'apr', 'multiplier', 'earned', 'liquidity'];
 
 const Farms = () => {
+
   const [filter, setFilter] = useState({
     open: false,
     selected: FilterData[0],
@@ -217,90 +218,54 @@ const Farms = () => {
               />
             </Link>
           </div>
-          <div className={`container_bordered-child ${styles.farms__filterInner}`}>
+          <div className='container_bordered-child'>
             {/* <CornerDecor /> */}
-            <div className={styles.Farms__filterLeftPanel}>
-              <TableFilter />
-              {/* <TableSvg /> */}
-              <div className={styles.farms__radioBtn}>
-                <div style={{ fontSize: '16px', color: '#162029' }} className='radio-btn'>
-                  <input type='checkbox' />
-                  <div className='radio-btn__inner'>
-                    {/* <div style={{ backgroundColor: '#162029' }} className='radio-btn__icon'></div> */}
-                    <Switches type={"sm-switches"} />
+            <div className={styles.farms__filterInner}>
+              <div className={styles.Farms__filterLeftPanel}>
+                <TableFilter />
+                {/* <TableSvg /> */}
+                <div className={styles.farms__radioBtn}>
+                  <div style={{ fontSize: '16px', color: '#162029' }} className='radio-btn'>
+                    <input type='checkbox' />
+                    <div className='radio-btn__inner'>
+                      {/* <div style={{ backgroundColor: '#162029' }} className='radio-btn__icon'></div> */}
+                      <Switches type={"sm-switches"} />
+                    </div>
+                    Staked only
                   </div>
-                  Staked only
                 </div>
               </div>
-            </div>
-            <div className={styles.searchDiv}>
-              <Input
-                type={"search-input"}
-                onChange={() => { console.log("search"); }}
-                // defaultData={defaultData}
-                // selectHandler={selectHandler}
-                selectLabel={"select"}
-                placeholder={"search Farms"}
-              // label={"your text"}
-              // customStyles={{ width: "70%" }}
-              />
-            </div>
-            <div className={styles.Farms__filterRightPanel}>
-              {/* <div className={styles.filterWrapper}>
-                <div
-                  ref={selectRef}
-                  className={`${styles.filters} ${filter.open && styles.filterOpen}`}
-                  onClick={() =>
-                    setFilter(prevState => ({
-                      ...prevState,
-                      open: !prevState.open,
-                    }))
-                  }
-                >
-                  <p className={styles.filterName}>
-                    {filter.selected} <VectorSvg className={`${styles.vectorSvg} ${filter.open && styles.rotate}`} />
-                  </p>
-                  {filter.open && (
-                    <>
-                      {FilterData.map((FilterName, index) => {
-                        if (FilterName === filter.selected) return false;
-                        return (
-                          <p
-                            key={FilterName}
-                            className={styles.FilterName}
-                            onClick={() => {
-                              setFilter({
-                                open: 'false',
-                                selected: FilterName,
-                              });
-                            }}
-                          >
-                            {FilterName}
-                          </p>
-                        );
-                      })}
-                    </>
-                  )}
-                </div>
-              </div> */}
-              <div className={styles.selectDiv}>
+              <div className={styles.searchDiv}>
                 <Input
-                  type={"lable-input-select"}
-                  icon={false}
-                  // selectData={selectData}
-                  emptyFieldErr={true}
+                  type={"search-input"}
+                  onChange={() => { console.log("search"); }}
                   // defaultData={defaultData}
-                  // label={"yourText"}
                   // selectHandler={selectHandler}
-                  selectLabel={"Hot"}
-                  // active={active}
-                  status={"warning"}
-                  title={"your text"}
-                  color={"#FFA726"}
-                  customStyles={{ width: "100%" }}
+                  selectLabel={"select"}
+                  placeholder={"search Farms"}
+                // label={"your text"}
+                // customStyles={{ width: "70%" }}
                 />
-                {/* <div className={styles.svgRotate}> */}
-                {/* <TableViewSvg
+              </div>
+              <div className={styles.Farms__filterRightPanel}>
+                <div className={styles.selectDiv}>
+                  <Input
+                    type={"lable-input-select"}
+                    icon={false}
+                    // selectData={selectData}
+                    emptyFieldErr={true}
+                    // defaultData={defaultData}
+                    // label={"yourText"}
+                    // selectHandler={selectHandler}
+                    selectLabel={"Hot"}
+                    // active={active}
+                    status={"warning"}
+                    title={"your text"}
+                    color={"#FFA726"}
+                    customStyles={{ width: "100%" }}
+                  />
+                  {/* <div className={styles.svgRotate}> */}
+                  {/* <TableViewSvg
                     onClick={() => setDataViewType('table')}
                     className={`${dataViewType === 'components' && styles.tableView}`}
                   />
@@ -308,49 +273,19 @@ const Farms = () => {
                     onClick={() => setDataViewType('components')}
                     className={`${dataViewType === 'components' && styles.componentsView}`}
                   /> */}
-                <Tabs type={"two-component-tabs"} />
-                {/* </div> */}
+                  <Tabs
+                    type={"two-component-tabs"} />
+                  {/* </div> */}
+                </div>
               </div>
-              {/* <div> */}
-              {/* </div> */}
-              {/* <input
-                onChange={e => setSearch(e.target.value)}
-                className={styles.searchInput}
-                type='search'
-                placeholder='Search Farms'
-              ></input> */}
             </div>
-          </div>
-        </div>
-        {dataViewType === 'table' && (
-          <div className={`${styles.farms__tableContainer}`}>
-            <div className='container_bordered'>
-              <div className='container_bordered-child'>
-                {/* <CornerDecor /> */}
-                {/* <Table
-              tableLabels={[
-                '',
-                'Earned',
-                'APR',
-                <>
-                  Liquidity
-                  <InfoIcon className={styles.infoIcon} />
-                </>,
-                <>
-                  Multiplier
-                  <InfoIcon className={styles.infoIcon} />
-                </>,
-              ]}
-              expandContent={<FarmsTableRowExpand />}
-              expandClassName={styles.borderBottom}
-              tableData={farmsData}
-              type={'earn_farms'}
-            /> */}
+            {dataViewType === 'table' && (
+              <div style={{marginTop: '50px'}}>
                 <TableFarms />
               </div>
-            </div>
+            )}
           </div>
-        )}
+        </div>
         {dataViewType === 'components' && (
           <div className={styles.componentsViewSection}>
             {farmsData

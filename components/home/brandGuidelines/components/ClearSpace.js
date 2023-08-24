@@ -1,6 +1,6 @@
 import styles from '../styles/ClearSpace.module.css';
 
-export default function ClearSpace() {
+export default function ClearSpace(props) {
   const data = [
     {
       clearSpace: 'Clear Space',
@@ -11,8 +11,8 @@ export default function ClearSpace() {
   ];
   return (
     <div className={styles.container}>
-      <img className={styles.vector} src='/images/guidelines/Vector.png' alt='' />
-      <div className={styles.logoLine}>
+      <img className={`${styles.vector} oAnimation ${props.animate ? 'animate' : ''}`} src='/images/guidelines/Vector.png' alt='' />
+      <div className={`${styles.logoLine} delay2 tYAnimation ${props.animate ? 'animate' : ''}`}>
         <svg width='35' height='23' viewBox='0 0 35 23' fill='none' xmlns='http://www.w3.org/2000/svg'>
           <g opacity='0.3'>
             <path
@@ -31,17 +31,17 @@ export default function ClearSpace() {
         </svg>
         <p className={styles.logoP}>Logo</p>
       </div>
-      <img className={styles.mainLogo} src='/images/guidelines/mainLogo.png' alt='' />
+      <img className={`${styles.mainLogo} delay3 oAnimation ${props.animate ? 'animate' : ''}`} src='/images/guidelines/mainLogo.png' alt='' />
       {data.map((item, index) => (
-        <div className={styles.wrapper} key={index}>
+        <div className={`${styles.wrapper} delay4 tYAnimation ${props.animate ? 'animate' : ''}`} key={index}>
           <div className={styles.guidlineFlex}>
             <div className={`${styles.guidlineLrgTtl} ${styles.font51}`}>
-              <span className='font_51'>{item.clearSpace}</span>
-              <span className='font_51'>{item.andPositioning}</span>
+              <span className='font-40 ttl'>{item.clearSpace}</span>
+              <span className='font-40 ttl'>{item.andPositioning}</span>
             </div>
             <div className={`${styles.guidlineParagraph} ${styles.paragraphMt}`}>{item.clearSpaceText}</div>
           </div>
-          <img className={styles.positoningLogo} src='/images/guidelines/positoningLogo.png' alt='' />
+          <img className={`${styles.positoningLogo} oAnimation ${props.animate ? 'animate' : ''}`} src='/images/guidelines/positoningLogo.png' alt='' />
         </div>
       ))}
     </div>

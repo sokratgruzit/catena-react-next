@@ -10,6 +10,7 @@ import styles from './MainSlider.module.css';
 import Image from 'next/image';
 import TaskSvg from '../../svg/mainSlider/TaskSvg';
 import SolutionSvg from '../../svg/mainSlider/SolutionSvg';
+import Link from "next/link";
 
 const MainSlider = ({ trans }) => {
   const [levels, setLevels] = useState([]);
@@ -18,8 +19,8 @@ const MainSlider = ({ trans }) => {
   const [scrollBlocker, setScrollBlocker] = useState(true);
   const dispatch = useDispatch();
   // [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24]
-  let microSchemes;
-  if (window.innerWidth > 1250) {
+  let microSchemes = [];
+  if (window.innerWidth > 1240) {
     microSchemes = [
       [1, 2, 6, 7, 8, 9, 10, 11, 19, 20, 21, 22, 23, 24],
       [1, 2, 7, 8, 9, 10, 20, 21, 22, 23, 24],
@@ -29,7 +30,7 @@ const MainSlider = ({ trans }) => {
     ];
   }
 
-  if (window.innerWidth < 1250) {
+  if(window.innerWidth < 1240) {
     microSchemes = [
       [1, 2, 5, 6, 7, 8, 9, 10, 11, 16, 17, 18, 19, 20, 21, 22, 23, 24],
       [1, 2, 5, 6, 7, 8, 9, 10, 11, 17, 18, 19, 20, 21, 22, 23, 24],
@@ -84,7 +85,6 @@ const MainSlider = ({ trans }) => {
       }, 1000);
     }
   };
-
   return (
     <>
       {/*${styles.mainSliderActive}*/}
@@ -143,11 +143,14 @@ const MainSlider = ({ trans }) => {
                   </svg>
                 </div>
               </div>
-              <h1 className='font-90 ttl'>{trans[activeLang]?.slider1_slide1_ttl}</h1>
+              <h1 className='font-90 ttl'>A Virtual World of Interconnected Blockchains</h1>
               <div className={styles.mainSliderItemBtnOut}>
-                <a href='##' className={styles.mainSliderItemBtn}>
-                  {trans[activeLang]?.slider1_slide1_join_btn}
-                </a>
+                <Link href='/overview/community' locale={activeLang}>
+                  <a className={styles.mainSliderItemBtn}>
+                    {/*{trans[activeLang]?.slider1_slide1_join_btn}*/}
+                    Join the Community
+                  </a>
+                </Link>
               </div>
               <div className={`${styles.scrollMore}`}>
                 <div
@@ -163,16 +166,16 @@ const MainSlider = ({ trans }) => {
           <div className={`container ${styles.mainSliderItem} ${activeSlide == 2 ? styles.mainSliderActive : ''}`}>
             <div className={`${styles.mainSliderItemHalf} pT-180`}>
               <div className={styles.mainSliderItemTask}>
-                <div className={styles.mainSliderItemTaskTxt}>{trans[activeLang]?.slider1_slide2_sm_sc}</div>
+                <div className={styles.mainSliderItemTaskTxt}>Task 1</div>
                 <TaskSvg />
               </div>
-              <h2 className={`font-90 ttl`}>{trans[activeLang]?.slider1_slide2_ttl}</h2>
-              <p className={`${styles.mainSliderItemHalfDesc1}`}>{trans[activeLang]?.slider1_slide2_text1}</p>
+              <h2 className={`font-90 ttl`}>Scalability</h2>
+              <p className={`${styles.mainSliderItemHalfDesc1}`}>This is one of the main reasons that blockchain technology cannot be used on a mass-adoption scale yet. Low throughput and its environmental impact are the biggest obstacles that blockchain has to overcome in order to scale.</p>
               <div className={styles.mainSliderItemSolution}>
-                <div className={styles.mainSliderItemSolutionTxt}>{trans[activeLang]?.slider1_bg_sc}</div>
+                <div className={styles.mainSliderItemSolutionTxt}>Solution</div>
                 <SolutionSvg />
               </div>
-              <p className={`font-20 ${styles.mainSliderItemHalfDesc2}`}>{trans[activeLang]?.slider1_slide2_text2}</p>
+              <p className={`font-20 ${styles.mainSliderItemHalfDesc2}`}>We combine the use of AI based PoS consensus, a scalable and secure parallel protocol for distributed ledger via sharding, side chains, and off-chain processing. These techniques allow for acceleration of block broadcasting in blockchain networks and scaling out through asynchronous consensus zones.</p>
             </div>
           </div>
           <div

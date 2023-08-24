@@ -7,7 +7,7 @@ import {useSelector} from "react-redux";
 const Copyright = props => {
   const activeLang = useSelector(state => state.settings.activeLang);
   return (
-    <footer className={`${styles.footer} ${props.active && styles.footerActive}`}>
+    <footer className={`${styles.footer} ${props.active ? styles.footerActive : ""} ${props.fixed == false ? styles.footerRelative : ''}`}>
       <div className={`${styles.footerInner} container`}>
         <div className={styles.copyright}>© 2023 Catena. All Rights Reserved.</div>
         <div className={styles.footerMenuList}>

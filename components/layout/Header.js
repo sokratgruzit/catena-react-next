@@ -79,26 +79,31 @@ const Header = () => {
             },
             {
               id: 'about-1',
-              title: 'Careers',
-              route: '/overview/careers',
+              title: 'Community',
+              route: '/overview/community',
             },
+            // {
+            //   id: 'about-2',
+            //   title: 'Careers',
+            //   route: '/overview/careers',
+            // },
+            // {
+            //   id: 'about-3',
+            //   title: 'Press',
+            //   route: '/overview/press',
+            // },
+            // {
+            //   id: 'about-4',
+            //   title: 'Events',
+            //   route: '/overview/events',
+            // },
             {
-              id: 'about-2',
-              title: 'Press',
-              route: '/overview/press',
-            },
-            {
-              id: 'about-3',
-              title: 'Events',
-              route: '/overview/events',
-            },
-            {
-              id: 'about-4',
+              id: 'about-5',
               title: 'Privacy',
               route: '/overview/privacy',
             },
             {
-              id: 'about-5',
+              id: 'about-6',
               title: 'Terms',
               route: '/overview/terms',
             }
@@ -113,11 +118,11 @@ const Header = () => {
               title: 'Bug Bounty',
               route: '/overview/bug-bounty',
             },
-            {
-              id: 'support-1',
-              title: 'Your Voice Matter',
-              route: '/overview/your-voice',
-            },
+            // {
+            //   id: 'support-1',
+            //   title: 'Your Voice Matter',
+            //   route: '/overview/your-voice',
+            // },
             {
               id: 'support-2',
               title: 'Support',
@@ -158,11 +163,11 @@ const Header = () => {
       title: 'Trade',
       route: '/overview',
       subNav: [
-        {
-          id: 'trade-0',
-          title: 'Swap',
-          route: '/overview',
-        },
+        // {
+        //   id: 'trade-0',
+        //   title: 'Swap',
+        //   route: '/overview',
+        // },
         {
           id: 'trade-1',
           title: 'Bridge',
@@ -234,15 +239,20 @@ const Header = () => {
           title: 'Info',
           route: '/info',
         },*/
-        {
-          id: 'more-0',
-          title: 'Voting',
-          route: '/overview/voting',
-        },
+        // {
+        //   id: 'more-0',
+        //   title: 'Voting',
+        //   route: '/overview/voting',
+        // },
         {
           id: 'more-1',
           title: 'Wallet',
-          route: 'https://wallet-landing-next-six.vercel.app',
+          route: 'https://wallet.coremultichain.com/',
+        },
+        {
+          id: 'more-2',
+          title: 'Explorer',
+          route: 'https://catenascan.com/',
         },
         /*{
           id: 15,
@@ -256,10 +266,11 @@ const Header = () => {
   const changeLanguage = loc => {
     dispatch({
       type: "SET_ACTIVE_LANG",
-      activeLang: loc
+      activeLang: "en"
     });
 
-    handleLanguageChange(loc);
+    //handleLanguageChange(loc);
+    handleLanguageChange("en");
   };
 
   const openMenu = id => {
@@ -485,6 +496,15 @@ const Header = () => {
     }
   }, [account, chainId, dispatch]);
 
+  useEffect(() => {
+    dispatch({
+      type: "SET_ACTIVE_LANG",
+      activeLang: "en"
+    });
+
+    handleLanguageChange("en");
+  }, []);
+
   return (
     <div>
       <header className={`${animate && styles.headerActive} ${styles.header} ${stickHead ? styles.stickHeader : ''}`}>
@@ -517,7 +537,7 @@ const Header = () => {
                 ></div>
                 <div className={styles.headerLogoTxtOuter}>
                   <span className={`${styles.headerLogoTxt} ${activeMenu !== null ? styles.headerLogoTxtHidden : ''}`}>
-                    Dashboard
+                    Overview
                   </span>
                 </div>
               </div>
@@ -1563,7 +1583,7 @@ const Header = () => {
                           fillRule='evenodd'
                           clipRule='evenodd'
                           d='M0.59467 0.223576C0.887563 -0.0693171 1.36244 -0.0693171 1.65533 0.223576L4.125 2.69325L6.59467 0.223576C6.88756 -0.0693171 7.36244 -0.0693171 7.65533 0.223576C7.94822 0.516469 7.94822 0.991343 7.65533 1.28424L5.18563 3.75393C4.60107 4.33849 3.64893 4.33849 3.06437 3.75393L0.59467 1.28424C0.301777 0.991343 0.301777 0.516469 0.59467 0.223576Z'
-                          fill='white'
+                          fill='#000'
                         />
                       </svg>
                     </div>
@@ -1594,11 +1614,11 @@ const Header = () => {
               <svg width='17' height='17' viewBox='0 0 17 17' fill='none' xmlns='http://www.w3.org/2000/svg'>
                 <path
                   d='M8.20525 16.1023H5.07966C2.16989 16.1023 0.875 14.8074 0.875 11.8976V8.77204C0.875 5.86227 2.16989 4.56738 5.07966 4.56738H8.20525C11.115 4.56738 12.4099 5.86227 12.4099 8.77204V11.8976C12.4099 14.8074 11.115 16.1023 8.20525 16.1023ZM5.07966 5.68366C2.77268 5.68366 1.99128 6.46506 1.99128 8.77204V11.8976C1.99128 14.2046 2.77268 14.986 5.07966 14.986H8.20525C10.5122 14.986 11.2936 14.2046 11.2936 11.8976V8.77204C11.2936 6.46506 10.5122 5.68366 8.20525 5.68366H5.07966Z'
-                  fill='white'
+                  fill='#000'
                 />
                 <path
                   d='M12.674 11.6374H11.8554C11.5503 11.6374 11.2972 11.3844 11.2972 11.0793V8.77232C11.2972 6.46534 10.5159 5.68394 8.20887 5.68394H5.90189C5.59677 5.68394 5.34375 5.43092 5.34375 5.1258V4.3072C5.34375 1.39743 6.63864 0.102539 9.54841 0.102539H12.674C15.5838 0.102539 16.8787 1.39743 16.8787 4.3072V7.43279C16.8787 10.3426 15.5838 11.6374 12.674 11.6374ZM12.4135 10.5212H12.674C14.981 10.5212 15.7624 9.73977 15.7624 7.43279V4.3072C15.7624 2.00022 14.981 1.21882 12.674 1.21882H9.54841C7.24143 1.21882 6.46003 2.00022 6.46003 4.3072V4.56766H8.20887C11.1186 4.56766 12.4135 5.86255 12.4135 8.77232V10.5212Z'
-                  fill='white'
+                  fill='#000'
                 />
               </svg>
             </div>

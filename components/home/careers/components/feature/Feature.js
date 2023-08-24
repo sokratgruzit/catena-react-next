@@ -5,12 +5,12 @@ import styles from './Feature.module.css';
 import CopyIcon from '../../../../svg/careers/CopyIcon';
 
 
-const Feature = ({ featureLinkList, title, showButton, careers }) => {
+const Feature = ({ featureLinkList, title, showButton, openPositions }) => {
   const [copiedLink, setCopiedLink] = useState('');
   const [isPopupVisible, setPopupVisible] = useState(null);
 
   const handlePopupClick = (index) => {
-    setCopiedLink(`${process.env.NEXT_PUBLIC_URL}/careers/${featureLinkList[index].id}`);
+    setCopiedLink(`${process.env.NEXT_PUBLIC_URL}/open-positions/${featureLinkList[index].id}`);
     setPopupVisible(index);
     setTimeout(() => {
       setPopupVisible(null);
@@ -22,25 +22,27 @@ const Feature = ({ featureLinkList, title, showButton, careers }) => {
     navigator.clipboard
       .writeText(link)
       .then(() => {
-        console.log('Link copied!');
+        // console.log('Link copied!');
       })
       .catch((error) => {
-        console.error('Failed to copy link:', error);
+        // console.error('Failed to copy link:', error);
       });
   };
+
 
   return (
     <div>
       <div className='container_bordered'>
-        <h2 className={`${styles.font__51} font-40 ttl`}>Featured Jobs</h2>
+        <h2 className={`${styles.font__51} font-40 ttl`} data-aos="fade-up">{title}</h2>
         <div className='container_bordered-child'>
           <div className={`${styles.openPositionsList}`}>
-            {careers?.map((item, index) => {
+            {openPositions?.map((item, index) => {
+              console.log(openPositions)
               return (
                 <div className={styles.openPositionsListItem} key={index}>
                   <Link href={`/overview/careers/${item.slug}`}>
                     <div>
-                      <span className='ttl'>{item.title['en']['career.title']}</span>
+                      <span className='ttl'>{item.title['en']['openPosition.title']}</span>
                     </div>
                   </Link>
                   {isPopupVisible === index && (

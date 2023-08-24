@@ -25,16 +25,16 @@ export default function Fonts() {
       {fonts.map((item, index) => {
         return (
           <div key={index}>
-            <div className={`${styles.line} font_20`}>
-              <span className='font_20'>{item.span}</span>
+            <div className={`${styles.line} font-20 ttl`} data-aos="fade-up">
+              <span className='font-20'>{item.span}</span>
               {item.teaser}
             </div>
-            <div className={styles.content}>
-              <img src={item.svg} alt='' />
+            <div className={styles.content} data-aos="fade-up">
+              <img src={item.svg} alt='svg' />
               <div className={styles.definition}>
-                <h3 className={` text  font_30${item.alignment === 'Header' ? 'ttl' : ''}`}>{item.alignment}</h3>
-                <h4 className={` text ${item.alignment === 'Header' ? 'ttl' : ''} ${styles.font}`}>{item.fonts}</h4>
-                <h4 className={`text ${item.alignment === 'Header' ? 'ttl' : ''} ${styles.num}`}>{item.num}</h4>
+                <h3 className={`text  font-40 ${item.alignment === 'Header' ? 'ttl' : ''}`}>{item.alignment}</h3>
+                <h4 className={`text font-40 ${item.alignment === 'Header' ? 'ttl' : ''} ${styles.font}`}>{item.fonts}</h4>
+                <h4 className={`text font-40 ${item.alignment === 'Header' ? 'ttl' : ''} ${styles.num}`}>{item.num}</h4>
               </div>
             </div>
           </div>

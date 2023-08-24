@@ -1,6 +1,5 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
 import Slider from '../../../../UI/slider/Slider';
+import { useSelector } from 'react-redux';
 import CopyLink from '../pressInner/CopyLink';
 import JoinCommunity from '../../../events/components/JoinCommunity';
 import PublicByYears from '../publicByYears/PublicByYears';

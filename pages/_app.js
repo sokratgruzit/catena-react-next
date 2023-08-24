@@ -6,11 +6,15 @@ import Web3 from 'web3';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import useLanguages from '../hooks/useLanguages';
+import { socket } from "./api/socket";
 
 import Header from '../components/layout/Header';
 import Microscheme from '../components/UI/microscheme/Microscheme';
 import Wrapper from '../components/layout/Wrapper';
+import Footer from '../components/layout/Footer';
 import store, { persistor } from '../store/index';
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 import '../styles/globals.css';
 import '../styles/style.css';
@@ -25,7 +29,20 @@ function MyApp({ Component, pageProps }) {
   const router = useRouter();
   const { setLocaleInUrl } = useLanguages();
   const [isInitialized, setIsInitialized] = useState(false);
+  const [fixedFooter, setFixedFooter] = useState(true);
+  useEffect(() => {
+    AOS.init();
+    AOS.refresh();
+  }, []);
+  useEffect(() => {
+    if( router.asPath == '/overview/' || router.asPath == '/overview' || router.asPath == '/' || router.asPath == '/overview/technology'){
+      setFixedFooter(true);
+    }
+    else {
+      setFixedFooter(false);
+    }
 
+  }, [router]);
   useEffect(() => {
     if (!isInitialized) {
       let { query } = router;
@@ -43,6 +60,25 @@ function MyApp({ Component, pageProps }) {
     }
   }, [isInitialized]);
 
+  useEffect(() => {
+    socket.on('connection', () => {
+      console.log('Connected to WebSocket server');
+    });
+
+    socket.emit('join', 'Hello from the client');
+
+    socket.on('message', (message) => {
+      console.log('Message received: ', message);
+    });
+
+    socket.on('disconnect', () => {
+      console.log('Disconnected from WebSocket server');
+    });
+  });
+
+  socket.on('join', (message) => {
+  }, []);
+
   return (
     <div>
       <Head>
@@ -57,10 +93,10 @@ function MyApp({ Component, pageProps }) {
               <div className='noise-parent'>
                 <div className='noise'></div>
               </div>
-              <Microscheme lvl={[1,2]}/>
+              <Microscheme lvl={[1, 2]} />
               <Header />
               <Component {...pageProps} />
-              {/*<Footer />*/}
+              <Footer active={!fixedFooter} fixed={fixedFooter}/>
             </Wrapper>
           </PersistGate>
         </Provider>

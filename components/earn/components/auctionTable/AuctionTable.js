@@ -24,13 +24,13 @@ const tableHead = [
     name: 'CMCX Bid',
     width: 15,
     id: 2,
-  }
+  },
 ];
 
 const AuctionTable = ({ tableDataArr }) => {
   const [mobileExpand, setMobileExpand] = useState(null);
   const [createStakingPopUpActive, setCreateStakingPopUpActive] = useState(false);
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
   const { width, mobile } = useMobileWidth();
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -47,7 +47,6 @@ const AuctionTable = ({ tableDataArr }) => {
   const handlePopUpOpen = () => {
     setCreateStakingPopUpActive(true);
   };
-
 
   const tableEmptyData = {
     label: 'Stake to earn Complend reward',
@@ -147,24 +146,29 @@ const AuctionTable = ({ tableDataArr }) => {
   return (
     <div className={`${styles.tableContainer} container_bordered`}>
       <div className={styles.tableTabs}>
-        <Tabs type={"two-component-tabs-with-text"} leftBtnText="Latest" rightBtnText="Archive" customStyle={{ color: "black" }} />
+        <Tabs
+          type={'two-component-tabs-with-text'}
+          leftBtnText='Latest'
+          rightBtnText='Archive'
+          customStyle={{ color: 'black' }}
+        />
       </div>
       <div className={`${styles.tyablePagination} custum-text`}>
         <div className={styles.tyablePaginationInner}>
-          <h4 style={{ marginBottom: "0" }}>Auctions</h4>
+          <h4 style={{ marginBottom: '0' }}>Auctions</h4>
           <div className={styles.pageNumber}>
-            <span style={{ opacity: ".6", fontSize: "30px" }}>#</span>
-            <span style={{ fontSize: "30px" }}>20</span>
+            <span style={{ opacity: '.6', fontSize: '30px' }}>#</span>
+            <span style={{ fontSize: '30px' }}>20</span>
           </div>
           <TableElement
-            type={"arrowPagination"}
+            type={'arrowPagination'}
             currentPage={currentPage}
             totalCount={20}
-            onPageChange={(page) => setCurrentPage(page)}
-            customStyle={{ marginLeft: "20px" }}
+            onPageChange={page => setCurrentPage(page)}
+            customStyle={{ marginLeft: '20px' }}
           />
         </div>
-        <p style={{marginBottom: "0"}}>Ended Jun 07, 2023 at 06:01 PM</p>
+        <p style={{ marginBottom: '0' }}>Ended Jun 07, 2023 at 06:01 PM</p>
       </div>
       <Table
         type={'table-version'}
@@ -174,7 +178,7 @@ const AuctionTable = ({ tableDataArr }) => {
         tableEmpty={true}
         tableEmptyData={tableEmptyData}
         loading={loading}
-        customStyles={{ border: "1px solid rgba(22, 32, 41, .2)", borderRadius: "20px", backgroundColor: "#FFF3E5" }}
+        customStyles={{ border: '1px solid rgba(22, 32, 41, .2)', borderRadius: '20px', backgroundColor: '#FFF3E5' }}
       />
     </div>
   );

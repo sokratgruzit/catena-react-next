@@ -1,20 +1,23 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useRouter } from 'next/router';
-
-import PhoneNumberSelect from './components/phoneNumberSelect/PhoneNumberSelect';
+import { Button, Input } from '@catena-network/catena-ui-module';
 import createAxiosInstance from '../../pages/api/axios';
-import FormSelectDate from '../voting/components/formDateInput/FormSelectDate';
+import { useConnect } from '../../hooks/use-connect';
+import { socket } from '../../pages/api/socket';
+// import NFT_ABI from '../abi/NFT_ABI.json';
 
 import styles from './MakeProfile.module.css';
 
 const MakeProfile = () => {
-  const account = useSelector(state => state.connect.account);
-  const dispatch = useDispatch();
-  const router = useRouter();
-
-  const axios = useMemo(() => createAxiosInstance(), []);
-  const [inputs, setInputs] = useState({
+  const nftContractAddress = '0xDC87d42B174D70fFdC81c62414EEc8db30C9E1DB';
+  const {
+    library
+  } = useConnect();
+  const [mobileNumber, setMobileNumber] = useState('');
+  const [show, setShow] = useState(false);
+  const [user_id, setUser_id] = useState(null);
+  const [formData, setFormData] = useState({
     fullname: '',
     email: '',
     mobile: '',
@@ -30,46 +33,54 @@ const MakeProfile = () => {
     password: ''
   });
 
-  const handleInputChange = event => {
-    const { name, value } = event.target;
-    let error = '';
+  socket.on('emailVerified', (userId) => {
+    setShow(true);
+    setUser_id(userId);
+    console.log(`User with ID ${userId} has verified their email`);
+  });
 
-    switch (name) {
-      case 'name':
-        error = value ? '' : 'Name is required';
-        break;
-      case 'email':
-        if (value && !/^\S+@\S+\.\S+$/.test(value)) {
-          error = 'Email is not valid';
-        }
-        break;
-      default:
-        break;
+  const account = useSelector(state => state.connect.account);
+
+  const router = useRouter();
+  const { locale } = router;
+  const dispatch = useDispatch();
+  const axios = useMemo(() => createAxiosInstance(), []);
+
+  const changeHandler = e => {
+    const { name, value } = e.target;
+
+    if (name === "mobile") {
+      let mobile = `${value.flag} ${value.code} ${value.number}`;
+      setMobileNumber(mobile);
     }
 
-    setInputs(prev => ({
-      ...prev,
+    setFormData(prevState => ({
+      ...prevState,
       [name]: value,
     }));
+  };
 
-    setErrors(prev => ({
-      ...prev,
-      [name]: error,
+  const changeCountry = (data) => {
+    let number = data.code + data.number
+    setFormData(prevState => ({
+      ...prevState,
+      mobile: number,
     }));
   };
 
   function handleCustomUpdate(name, value) {
-    handleInputChange({ target: { name: name, value } });
+    changeHandler({ target: { name: name, value } });
+    setFormData(prevState => ({
+      ...prevState,
+      [name]: value,
+    }));
   }
 
   const handleSubmit = event => {
-    event.preventDefault();
-
     let isValid = true;
     const newErrors = {};
-    const { locale } = router;
 
-    for (const [key, value] of Object.entries(inputs)) {
+    for (const [key, value] of Object.entries(formData)) {
       switch (key) {
         case 'fullname':
           newErrors[key] = value ? '' : 'Fullname is required';
@@ -92,118 +103,143 @@ const MakeProfile = () => {
 
     if (isValid) {
       axios
-      .post('/user/profile', {
-        address: account,
-        fullname: inputs.fullname,
-        email: inputs.email,
-        mobile: inputs.mobile,
-        password: inputs.password,
-        dateOfBirth: inputs.dateOfBirth,
-        status: true,
-        locale: locale
-      })
-      .then(res => {
-        dispatch({ type: 'SET_USER', payload: res.data });
-      })
-      .catch(e => console.log(e.response));
+        .post('/user/profile', {
+          address: account,
+          fullname: formData.fullname,
+          email: formData.email,
+          mobile: mobileNumber,
+          password: formData.password,
+          dateOfBirth: formData.dateOfBirth,
+          status: false,
+          locale: locale
+        })
+        .then(res => {
+          dispatch({ type: 'SET_USER', payload: res.data });
+        })
+        .catch(e => console.log(e.response));
     }
   };
 
   useEffect(() => {
     if (account) {
       axios
-      .post('/user', { address: account })
-      .then(res => {
-        let user = res?.data?.user;
-        const dateOfBirth = user.dateOfBirth ? new Date(user.dateOfBirth) : new Date();
-        
-        dispatch({ type: 'SET_USER', payload: user });
-        setInputs({
-          fullname: user.fullname,
-          email: user.email,
-          mobile: user.mobile,
-          status: user.status,
-          password: '',
-          dateOfBirth: dateOfBirth
+        .post('/user', { address: account })
+        .then(res => {
+          let user = res?.data?.user;
+          const dateOfBirth = user.dateOfBirth ? new Date(user.dateOfBirth) : new Date();
+          const mobString = user.mobile ? user.mobile.split(' ') : "US +1".split(" ");
+
+          dispatch({ type: 'SET_USER', payload: user });
+          setFormData({
+            fullname: user.fullname,
+            email: user.email,
+            mobile: {
+              flag: mobString[0],
+              code: mobString[1],
+              number: mobString[2]
+            },
+            status: user.status,
+            password: '',
+            dateOfBirth: dateOfBirth
+          });
+          setMobileNumber(user.mobile);
+        })
+        .catch(err => {
+          console.log(err.response);
         });
-      })
-      .catch(err => {
-        console.log(err.response);
-      });
+    } else {
+      router.push('/', undefined, { locale });
     }
   }, [account]);
 
-  useEffect(() => {
-    const { locale } = router;
-    
-    if (!account) router.push('/', undefined, { locale });
-  }, [account]);
+  // useEffect(() => {
+  //   if (library && account) {
+  //     const fetchContract = async () => {
+  //       const pinataApiKey = '10862fdbcbad2741f62c';
+  //       const pinataSecretApiKey = '287293bcdfffcd3d7d4e440723d46904074bbb9f357784a3013efb5b116a2513';
+  //       const cid = 'QmRJbbGs4wi57EmJxQYCn9LmKaZpwL66TFjrfy27rWvqPp';
+  //       const node = ipfsClient.cat(cid);
+  //       //const stream = node.cat(cid);
+  //       let contract = new library.eth.Contract(NFT_ABI, nftContractAddress);
+  //       let count = await contract.methods.tokenCount().call();
+  //       let baseUri = await contract.methods.baseURI().call();
+  //       // const nftMeta = await ipfs.get(cid);
+  //       console.log(node, 'lal');
+  //     };
 
-  let content = null;
+  //     fetchContract();
+  //   }
+  // }, [library, account]);
 
-  if (account) {
-    content = <div className={styles.container}>
-      <form onSubmit={handleSubmit} className={styles.makeProfileWrapper}>
-        <label>
-          Fullname:
-          <input
-            type='text'
-            name='fullname'
-            value={inputs.fullname}
-            onChange={handleInputChange}
-            className={styles.input}
+  return (
+    <>
+      {show && <div className={styles.notification}>{`User with ID ${user_id} has verified email`}</div>}
+      {account ? <div className="container">
+        <div className={`${styles.makeProfileWrapper}`}>
+          <Input
+            type={"default"}
+            editable={true}
+            name="fullname"
+            value={formData.fullname}
+            emptyFieldErr={true}
+            inputType={"text"}
+            placeholder={"Your full name"}
+            label={"Fullname"}
+            onChange={changeHandler}
           />
-          {errors.fullname && <span className='error'>{errors.fullname}</span>}
-        </label>
-        <label>
-          Password:
-          <input
-            type='password'
-            name='password'
-            value={inputs.password}
-            onChange={handleInputChange}
-            className={styles.input}
+          <Input
+            type={"default"}
+            name="email"
+            value={formData.email}
+            emptyFieldErr={true}
+            editable={true}
+            inputType={"email"}
+            placeholder={"Your email address"}
+            label={"Email"}
+            onChange={changeHandler}
           />
-          {errors.password && <span className='error'>{errors.password}</span>}
-        </label>
-        <label>
-          Email:
-          <input 
-            type='email' 
-            name='email' 
-            value={inputs.email} 
-            onChange={handleInputChange} 
-            className={styles.input} 
+          <Input
+            type={"default"}
+            name="password"
+            value={formData.password}
+            inputType={"password"}
+            editable={true}
+            emptyFieldErr={true}
+            placeholder={"New password"}
+            label={"Enter Password"}
+            onChange={changeHandler}
           />
-          {errors.email && <span className='error'>{errors.email}</span>}
-        </label>
-        <label className={styles.phoneNumberLabel}>
-          Mobile Number (Optional)
-          <PhoneNumberSelect
-            handleFullMobileNumberChange={value => handleCustomUpdate('mobile', value)}
-            value={inputs.mobile}
+          <Input
+            type={"label-input-phone-number"}
+            name="mobile"
+            value={formData.mobile}
+            placeholder={"Mobile Number"}
+            label={"Enter your mobile number"}
+            onChange={value => handleCustomUpdate('mobile', value)}
           />
-        </label>
-        <label className={styles.formSelectDateWrap}>
-          Date Of Birth:
-          <FormSelectDate
-            placeholderText='YYYY/MM/DD'
-            onChange={date => handleCustomUpdate('dateOfBirth', date)}
-            selected={inputs.dateOfBirth}
-            minDate={new Date('1900/01/01')}
-            maxDate={new Date()}
+          <Input
+            type={"date-picker-input"}
+            name="dateOfBirth"
+            value={formData.dateOfBirth}
+            editable={true}
+            placeholder={"YYYY/MM/DD"}
+            label={"Date Of Birth"}
+            onChange={value => handleCustomUpdate('dateOfBirth', value)}
           />
-        </label>
-        <button type='submit' className={styles.submit}>
-          Submit
-        </button>
-      </form>
-    </div>;
-  } else {
-    content = <div>Loading...</div>;
-  }
-
-  return content;
+          <Button
+            label={'Submit'}
+            size={'btn-lg'}
+            type={'btn-primary'}
+            arrow={'arrow-right'}
+            element={'button'}
+            disabled={false}
+            onClick={() => handleSubmit()}
+            className={styles.btnBlu}
+          />
+        </div>
+      </div> : <div className={`${styles.loadingElement}`}>Loading...</div>}
+    </>
+  );
 };
 
 export default MakeProfile;

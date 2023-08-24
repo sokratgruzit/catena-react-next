@@ -1,0 +1,27 @@
+.imgTextItem {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.imgTextItem p {
+  padding-left: 6px;
+  color: #162029;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.imgTextItem img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.imgTextItem p:last-child {
+  color: #162029;
+  font-size: 16px;
+  font-weight: 400;
+}
+.darkened {
+  opacity: 0.3;
+  color: #162029;
+}
