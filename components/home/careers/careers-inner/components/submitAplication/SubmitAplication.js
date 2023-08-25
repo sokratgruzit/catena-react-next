@@ -93,7 +93,7 @@ const SubmitApplication = ({ title, handleButtonClick }) => {
         jobId: '',
       });
 
-      if (application.file) {
+      if (application.file) { 
         const formData = new FormData();
 
         const logoDotIndex = application.file.name.lastIndexOf(".");
@@ -124,6 +124,11 @@ const SubmitApplication = ({ title, handleButtonClick }) => {
                     file: 'image',
                     jobId: 'jobId',
                   })
+                  .then(() => {
+                    setSuccessMessage('Application submitted successfully!');
+                    setErrorMessage('');
+                    // handleButtonClick()
+                  })
                   .then(res => {
                     setResult("success")
                     console.log(res);
@@ -134,15 +139,10 @@ const SubmitApplication = ({ title, handleButtonClick }) => {
                   })
                   .then(res => {
                     setActive(true)
-                    setTimeout(() => {
-                      setActive(false)
-                    }, 2000);
+                    // setTimeout(() => {
+                    //   setActive(false)
+                    // }, 2000);
                   })
-                  .then(() => {
-                    setSuccessMessage('Application submitted successfully!');
-                    setErrorMessage('');
-                    handleButtonClick()
-                  });
               }
             });
         } catch (err) {
@@ -236,16 +236,6 @@ const SubmitApplication = ({ title, handleButtonClick }) => {
 
   return (
     <div className={styles.submitWrapper}>
-      <div className={styles.helpcardWrapper} style={{ zIndex: active ? "10" : "-1" }}>
-        <HelpCard
-          result={result}
-          text={
-            "your text your text your text your text your text your text your text"
-          }
-          body={"notification"}
-          active={active}
-        />
-      </div>
       <div className='container_bordered'>
         <h2 className={styles.font__51}>{title}</h2>
         <div className='container_bordered-child'>
@@ -401,7 +391,8 @@ const SubmitApplication = ({ title, handleButtonClick }) => {
               customStyles={{ width: "fit-content" }}
               onChange={(e) => { handlerChange(e) }}
             />
-
+            <div >
+            </div>
             <Button
               label={'submit Now'}
               size={'btn-lg'}
@@ -411,8 +402,11 @@ const SubmitApplication = ({ title, handleButtonClick }) => {
               disabled={false}
               onClick={submitHandler}
             />
-            {successMessage && <div className="success-message">{successMessage}</div>}
-            {errorMessage && <div className="error-message">{errorMessage}</div>}
+              <HelpCard
+              result={result}
+              body={"notification"}
+              active={active}
+            />
           </div>
         </div>
       </div>
