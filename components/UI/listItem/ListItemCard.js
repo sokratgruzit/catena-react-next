@@ -120,7 +120,7 @@ const ListItemCard = props => {
   if (type === 'nft_collections') {
     obj = (
       <div className={styles.Collections__listItemWrap}>
-        <Link href={`/nfts/collections/${data.id}`}>
+        <Link href={`/overview/nfts/collections/${data.id}`}>
           <div className={styles.Product}>
             <div className={styles.Product__content}>
               <div className={styles.Product__images}>

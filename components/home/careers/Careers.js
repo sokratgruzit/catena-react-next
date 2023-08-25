@@ -235,9 +235,10 @@ const Careers = ({ careers, openPositions }) => {
     <div>
       <InView as="div" onChange={(inView, entry) => (inView && setScheme(0))}>
         <CareersCatena animate={pageReady} />
-        <div className='container'>
+        {/* <div className='container'>
           <StringToHtml data={careers[0]?.inner_descr['en']['career.inner_descr']} />
-        </div>
+        </div> */}
+        <CatenaTeam team={workflow} title='How we work' />
         <Feature openPositions={openPositions} title='Featured Jobs' showButton={true} animate={pageReady} />
       </InView>
 

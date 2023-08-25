@@ -19,7 +19,7 @@ function Distribution() {
         </svg>
       ),
       teaser: 'Marketing & Operations',
-      text: '1,000,000,0000 CMCX (5%)',
+      text: '1,000,000,000 CMCX (5%)',
     },
     {
       svg: (
@@ -28,7 +28,7 @@ function Distribution() {
         </svg>
       ),
       teaser: 'Seed Round',
-      text: '4,000,000,0000 CMCX (20%)',
+      text: '4,000,000,000 CMCX (20%)',
       done: true
     },
     {
@@ -38,7 +38,7 @@ function Distribution() {
         </svg>
       ),
       teaser: 'Advisory Board',
-      text: '600,000,0000 CMCX (3%)',
+      text: '600,000,000 CMCX (3%)',
     },
     {
       svg: (
@@ -47,7 +47,7 @@ function Distribution() {
         </svg>
       ),
       teaser: 'IEO',
-      text: '4,000,000,0000 CMCX (20%)',
+      text: '4,000,000,000 CMCX (20%)',
       done: true
     },
     {
@@ -57,7 +57,7 @@ function Distribution() {
         </svg>
       ),
       teaser: 'Strategic Acquisitions',
-      text: '400,000,0000 CMCX (2%)',
+      text: '400,000,000 CMCX (2%)',
     },
     {
       svg: (
@@ -66,7 +66,7 @@ function Distribution() {
         </svg>
       ),
       teaser: 'Ecosystem Rewards',
-      text: '2,000,000,0000 CMCX (10%)',
+      text: '2,000,000,000 CMCX (10%)',
     },
     {
       svg: (
@@ -75,7 +75,7 @@ function Distribution() {
         </svg>
       ),
       teaser: 'Team',
-      text: '2,000,000,0000 CMCX (10%)',
+      text: '2,000,000,000 CMCX (10%)',
     },
   ];
 
@@ -86,12 +86,12 @@ function Distribution() {
         <div className='container_bordered-child' data-aos='fade-up'>
           <div className={styles.distribution_container}>
             <div className={styles.distribution_teaser}>
-              <p className={` ttl ${styles.orange}`}>Total Supply</p>
+              <p className={` ttl ${styles.orange}`} data-aos='fade-up'>Total Supply</p>
               <p>20,000,000,000 CMCX</p>
             </div>
             <div className={`${styles.distribution_flex}`}>
               <div className={`${styles.svgContainer}`}>
-                <svg width='181' height='247' viewBox='0 0 181 247' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                <svg className='tokenomics_chart' width='181' height='247' viewBox='0 0 181 247' fill='none' xmlns='http://www.w3.org/2000/svg'>
                   <path
                     d='M4 4C99.1157 4 176.222 81.1065 176.222 176.222C176.222 199.859 171.461 222.383 162.844 242.889'
                     stroke='#0500FF'
@@ -145,7 +145,7 @@ function Distribution() {
               <div className={styles.distribution_grid}>
                 {data?.map((item, i) => {
                   return (
-                    <div key={i} className={`${styles.alignItemsCenter} ${styles.flex} ${item.done ? styles.opacity : ''}`}>
+                    <div key={i} className={`${styles.alignItemsCenter} ${styles.flex} ${item.done ? styles.opacity : ''}`} data-aos='fade-up'>
                       {item.svg}
                       <div className={styles.textWrap}>
                         <p className={`${styles.orange} ttl `}>{item.teaser}</p>
