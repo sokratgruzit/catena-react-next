@@ -10,7 +10,7 @@ const Watchlist = () => {
   return (
     <div className={styles.container}>
       <div className={styles.goBackWrapper}>
-        <div onClick={() => router.push(`/info/tokens`)} className={styles.goBackText}>
+        <div onClick={() => router.push(`/overview/info/pools`)} className={styles.goBackText}>
           <SmlArrowSvg />
           <p>Back To Tokens</p>
         </div>
