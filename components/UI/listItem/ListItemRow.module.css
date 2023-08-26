@@ -220,6 +220,7 @@
   /* padding-right: 30px; */
   padding-top: 20px;
   padding-bottom: 20px;
+  width: 20%;
 }
 
 .earn_poolsRow .td:first-child {
@@ -260,6 +261,7 @@
   line-height: 17px;
   color: rgba(255, 255, 255, 0.7);
 }
+
 .earn_poolsRow .td:nth-child(3) p:last-child {
   font-size: 12px;
   line-height: 17px;
@@ -856,9 +858,13 @@
 .buy__outer {
   display: flex;
   width: 100%;
-  border-bottom: 1px dashed #111826;
+  border-bottom: 1px solid rgba(22, 32, 41, 0.1);
   align-items: center;
-  padding: 20px 0px;
+  padding: 0 20px;
+}
+
+.buy__outer:last-child {
+  border-bottom: none;
 }
 .buy__item {
   width: 20%;

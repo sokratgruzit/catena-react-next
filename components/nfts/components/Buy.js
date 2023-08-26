@@ -12,10 +12,10 @@ import ListItemRow from '../../UI/listItem/ListItemRow';
 import styles from './Buy.module.css';
 
 const nftItemData = {
-  imgSrc: '../../../images/nft/nft_owner_page/item1.png',
+  imgSrc: '/images/nft/nft_activity_items/fig4.png',
   title: 'Mutant Ape Yacht Club',
   value: '#314',
-  blockQuote: '10,000 unique, randomly-generated PancakeSwap NFTs from the mind of Chef Cecy Meade. Join the squad.',
+  blockQuote: '10,000 unique, randomly-generated Catena NFTs from the mind of Chef Cecy Meade. Join the squad.',
   cmcx: '0.0024',
   usd: '($1,314)',
 };
@@ -24,7 +24,8 @@ const ownerItemData = [
     id: 0,
     cmcx: '0.0123',
     usd: '(~$5.028)',
-    ownerImg: '../../../images/nft/nft_buy/item2.png',
+    ownerImg: '../../../images/nft/nft_activity_items/fig4.png',
+    type: 'mini-img_text',
     ownerTitle: 'BilanCh',
     ownerAddress: '0xC7...061b',
     tokenId: '312',
@@ -45,16 +46,16 @@ const detailsTableData = [
         type: 'price',
       },
       {
-        img: '/images/nft/nft_buy/item2.png',
+        img: '/images/nft/nft_activity_items/fig4.png',
         title: 'BilanCh',
         subTitle: '0xC7...061b',
-        type: 'img_text',
+        type: 'mini-img_text',
       },
       {
-        img: '/images/nft/nft_buy/item3.png',
+        img: '/images/nft/nft_activity_items/fig4.png',
         title: '-',
         subTitle: '0xC7...062b',
-        type: 'img_text',
+        type: 'mini-img_text',
       },
       {
         title: '4.7.2022',
@@ -77,16 +78,16 @@ const detailsTableData = [
         type: 'price',
       },
       {
-        img: '/images/nft/nft_buy/item2.png',
+        img: '/images/nft/nft_activity_items/fig4.png',
         title: 'BilanCh',
         subTitle: '0xC7...061b',
-        type: 'img_text',
+        type: 'mini-img_text',
       },
       {
-        img: '/images/nft/nft_buy/item3.png',
+        img: '/images/nft/nft_activity_items/fig4.png',
         title: '-',
         subTitle: '0xC7...062b',
-        type: 'img_text',
+        type: 'mini-img_text',
       },
       {
         title: '4.7.2022',
@@ -109,16 +110,16 @@ const detailsTableData = [
         type: 'price',
       },
       {
-        img: '/images/nft/nft_buy/item2.png',
+        img: '/images/nft/nft_activity_items/fig4.png',
         title: 'BilanCh',
         subTitle: '0xC7...061b',
-        type: 'img_text',
+        type: 'mini-img_text',
       },
       {
-        img: '/images/nft/nft_buy/item3.png',
+        img: '/images/nft/nft_activity_items/fig4.png',
         title: '-',
         subTitle: '0xC7...062b',
-        type: 'img_text',
+        type: 'mini-img_text',
       },
       {
         title: '4.7.2022',
@@ -141,16 +142,16 @@ const detailsTableData = [
         type: 'price',
       },
       {
-        img: '/images/nft/nft_buy/item2.png',
+        img: '/images/nft/nft_activity_items/fig4.png',
         title: 'BilanCh',
         subTitle: '0xC7...061b',
-        type: 'img_text',
+        type: 'mini-img_text',
       },
       {
-        img: '/images/nft/nft_buy/item3.png',
+        img: '/images/nft/nft_activity_items/fig4.png',
         title: '-',
         subTitle: '0xC7...062b',
-        type: 'img_text',
+        type: 'mini-img_text',
       },
       {
         title: '4.7.2022',
@@ -288,6 +289,11 @@ const Buy = props => {
   const [isPropertiesOpen, setIsPropertiesOpen] = useState(false);
   const [isDetailsOpen, setIsDetailsOpen] = useState(false);
   const [isInfoOpen, setIsInfoOpen] = useState(false);
+  const [activeButton, setActiveButton] = useState('BNB');
+
+  const handleButtonClick = buttonName => {
+    setActiveButton(buttonName);
+  };
 
   let web3Obj = library;
 
@@ -312,28 +318,29 @@ const Buy = props => {
   }, []);
 
   let connectButton = <p className={styles.item}>You don’t have any of this item.</p>;
-  let variableButton = (
-    <Button
-      title={'Buy'}
-      type={'blue'}
-      onClick={() => {
-        if (!isInfoOpen) {
-          setIsInfoOpen(true);
-        } else {
-          setIsInfoOpen(false);
-        }
-        // content changes function
-      }}
-      customStyles={{
-        padding: '4px 26px',
-        width: '90px',
-        margin: '0px auto',
-        transition: '.5s',
-      }}
-    />
-  );
+  // let variableButton = (
+  //   <Button
+  //     title={'Buy'}
+  //     type={'skyBlue'}
+  //     onClick={() => {
+  //       if (!isInfoOpen) {
+  //         setIsInfoOpen(true);
+  //       } else {
+  //         setIsInfoOpen(false);
+  //       }
+  //       // content changes function
+  //     }}
+  //     customStyles={{
+  //       padding: '4px 26px',
+  //       width: '90px',
+  //       margin: '0px auto',
+  //       transition: '.5s',
+  //     }}
+  //   />
+  // );
   let variableStep = (
     <div className={styles.buy__item__details}>
+      <ArrowBtn route={'back__collections'} direction={'back'} />
       <div className={styles.details__teaser}>
         <p className={'font_13'}>{nftItemData.title}</p>
         <p className={'font_30'}>{nftItemData.value}</p>
@@ -348,7 +355,7 @@ const Buy = props => {
       </div>
       <Button
         title={'Buy'}
-        type={'blue'}
+        type={'skyBlue'}
         onClick={() => {
           setStep(true);
         }}
@@ -363,7 +370,6 @@ const Buy = props => {
   );
   let detailTable = (
     <div className={styles.NftBuy__infoTable}>
-      <CornerDecor />
       <div className={styles.categories}>
         <p>Event</p>
         <p>Price</p>
@@ -380,7 +386,6 @@ const Buy = props => {
   if (screeWidth < 1200) {
     detailTable = (
       <div className={styles.buy__mobile__table}>
-        <CornerDecor />
         {detailsTableData.map(item => {
           return <ListItemRow key={item.id + 'mobile'} data={item} type={'nft_buy_mobile'} />;
         })}
@@ -434,31 +439,61 @@ const Buy = props => {
   }
   if (step === true) {
     variableStep = (
-      <div className={styles.buy__item__details}>
-        <p className={'font_13'}>
-          Token ID <span className={'font_13'}>{nftItemData.tokenId}321</span>
-        </p>
-        <p className={'font_30'}>{nftItemData.value}</p>
+      <div className={`${styles.buy__item__details} ${styles.details__teaser}`}>
+        <div className={styles.introWratter}>
+          <div className={styles.intro}>
+            <p className={`${styles.teaser} font_13`}>Mutant Ape Yacht Club</p>
+            <p className={'font_30 ttl'}>{nftItemData.value}</p>
+          </div>
+          <div
+            className={styles.closeBtn}
+            onClick={() => {
+              setStep(false);
+            }}
+          >
+            Close
+            <div className={styles.closeBtnWrap}>
+              <svg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                <path
+                  d='M9.41367 7.99933L15.707 1.70759C15.8946 1.52 16 1.26557 16 1.00028C16 0.73499 15.8946 0.480564 15.707 0.292975C15.5194 0.105386 15.265 1.05158e-08 14.9997 1.05158e-08C14.7344 1.05158e-08 14.4799 0.105386 14.2923 0.292975L7.99967 6.58606L1.70766 0.292975C1.61477 0.200091 1.50449 0.126411 1.38313 0.0761418C1.26176 0.025873 1.13169 9.78699e-10 1.00032 0C0.868958 -9.78698e-10 0.73888 0.025873 0.617515 0.0761418C0.496151 0.126411 0.385876 0.200091 0.292988 0.292975C0.200099 0.38586 0.126416 0.49613 0.076145 0.61749C0.0258741 0.738849 9.57627e-09 0.868922 1.0555e-08 1.00028C1.15337e-08 1.13164 0.0258741 1.26171 0.076145 1.38307C0.126416 1.50443 0.200099 1.6147 0.292988 1.70759L6.58633 7.99933L0.292988 14.2924C0.200099 14.3853 0.126416 14.4956 0.076145 14.6169C0.0258741 14.7383 1.95748e-09 14.8684 0 14.9997C-1.95748e-09 15.1311 0.0258741 15.2612 0.076145 15.3825C0.126416 15.5039 0.200099 15.6141 0.292988 15.707C0.385876 15.7999 0.496151 15.8736 0.617515 15.9239C0.73888 15.9741 0.868958 16 1.00032 16C1.13169 16 1.26176 15.9741 1.38313 15.9239C1.50449 15.8736 1.61477 15.7999 1.70766 15.707L7.99967 9.41261L14.2923 15.7057C14.4799 15.8933 14.7344 15.9987 14.9997 15.9987C15.265 15.9987 15.5194 15.8933 15.707 15.7057C15.8946 15.5181 16 15.2637 16 14.9984C16 14.7331 15.8946 14.4787 15.707 14.2911L9.413 7.99933H9.41367Z'
+                  fill='#162029'
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+        <p>{nftItemData.blockQuote}</p>
         <p className={'font_13'}>Price</p>
         <div className={styles.NftBuy__itemPrices}>
-          <p className={'font_20'}>
-            <span className={'font_20'}>CMCX</span> {nftItemData.cmcx}
+          <p>
+            <span>CMCX</span> {nftItemData.cmcx}
           </p>
           <p className={'font_13'}>{nftItemData.usd}</p>
         </div>
         <div className={styles.pay}>
           <p className={'font_13'}>Pay With</p>
           <div className={styles.payBtns}>
-            <p className={styles.payBtn}>BNB</p>
-            <p className={`${styles.payBtn} ${styles.payBtn__active}`}>WBNB</p>
+            <p
+              className={`${styles.payBtn} ${activeButton === 'BNB' ? styles.payBtn__active : ''}`}
+              onClick={() => handleButtonClick('BNB')}
+            >
+              BNB
+            </p>
+            <p
+              className={`${styles.payBtn} ${activeButton === 'WBNB' ? styles.payBtn__active : ''}`}
+              onClick={() => handleButtonClick('WBNB')}
+            >
+              WBNB
+            </p>
           </div>
         </div>
         <div className={styles.pay} style={{ display: isConnected && isActive ? 'none' : 'block' }}>
           <p className={'font_13'}>WBNB in Wallet</p>
           <div className={styles.connect__wallet}>
             <Button
+              className='ttl'
               title={'Connect Wallet'}
-              type={'blue'}
+              type={'red'}
               onClick={() => {
                 handleWalletModal(true);
                 setConnected(true);
@@ -471,6 +506,7 @@ const Buy = props => {
               customStyles={{
                 padding: '2% 0',
                 width: '150px',
+                border: '1px solid #162029',
               }}
             />
           </div>
@@ -484,8 +520,18 @@ const Buy = props => {
           </p>
         </div>
         <div className={styles.checkout}>
-          <p className={styles.checkoutBtn}>Checkout</p>
-          <p className={styles.getBtn}>Get BNB or WBNB</p>
+          <Button
+            title={'Checkout'}
+            type={'black__border__transparent'}
+            customStyles={{ paddingTop: '18px', paddingBottom: '18px' }}
+            onClick={() => {}}
+          />
+          <Button
+            title={'Get BNB or WBNB'}
+            type={'black__border__transparent'}
+            customStyles={{ paddingTop: '18px', paddingBottom: '18px' }}
+            onClick={() => {}}
+          />
         </div>
       </div>
     );
@@ -493,18 +539,18 @@ const Buy = props => {
 
   return (
     <div className={`${styles.buy__outer} ${styles.container}`}>
-      <ArrowBtn route={'back__collections'} direction={'back'} />
-      <div className={styles.buy__item}>
+      <div className={`${styles.buy__item} ${step ? styles.vissibleItem : ''}`}>
         <div className={styles.buy__img}>
-          <picture>
-            <img src={nftItemData.imgSrc} alt='nft' />
-          </picture>
+          <div className={styles.buy__img__wrap}>
+            <picture>
+              <img src={nftItemData.imgSrc} alt='nft' />
+            </picture>
+          </div>
         </div>
         {variableStep}
       </div>
       <div className={styles.buy__tables}>
         <div className={styles.buy__manage}>
-          <CornerDecor />
           <div
             onClick={() => {
               if (!isManageOpen) {
@@ -515,7 +561,7 @@ const Buy = props => {
             }}
             className={`${styles.NftBuy__walletConnect} ${isManageOpen ? styles.opend : ''}`}
           >
-            <p className={styles.NftBuy__walletConnectTitle}>
+            <p className={`${styles.NftBuy__walletConnectTitle} font-20 ttl`}>
               Manage Yours
               <svg
                 className={`${styles.svg} ${isManageOpen ? styles.rotated : ''}`}
@@ -527,7 +573,7 @@ const Buy = props => {
               >
                 <path
                   d='M13.2788 1.0918L8.33941 6.03119C7.75608 6.61452 6.80154 6.61452 6.2182 6.03119L1.27881 1.0918'
-                  stroke='white'
+                  stroke='#162029'
                   strokeWidth='2'
                   strokeMiterlimit='10'
                   strokeLinecap='round'
@@ -535,7 +581,28 @@ const Buy = props => {
                 />
               </svg>
             </p>
-            {connectButton}
+
+            <div className={styles.manageButtonWrap}>
+              <Button
+                className='ttl'
+                title={'Connect Wallet'}
+                type={'red'}
+                onClick={() => {
+                  handleWalletModal(true);
+                  setConnected(true);
+                  window.scrollTo({
+                    top: 0,
+                    left: 0,
+                    behavior: 'smooth',
+                  });
+                }}
+                customStyles={{
+                  padding: '2% 0',
+                  width: '100% !important',
+                  border: '1px solid #162029',
+                }}
+              />
+            </div>
           </div>
           <div
             onClick={() => {
@@ -547,7 +614,7 @@ const Buy = props => {
             }}
             className={`${styles.NftBuy__properties} ${isPropertiesOpen ? styles.opendP : ''}`}
           >
-            <p className={styles.NftBuy__propertiesTitle}>
+            <p className={`${styles.NftBuy__propertiesTitle}  font-20 ttl`}>
               Properties
               <svg
                 className={`${styles.svg} ${isPropertiesOpen ? styles.rotated : ''}`}
@@ -559,7 +626,7 @@ const Buy = props => {
               >
                 <path
                   d='M13.2788 1.0918L8.33941 6.03119C7.75608 6.61452 6.80154 6.61452 6.2182 6.03119L1.27881 1.0918'
-                  stroke='white'
+                  stroke='#162029'
                   strokeWidth='2'
                   strokeMiterlimit='10'
                   strokeLinecap='round'
@@ -591,7 +658,7 @@ const Buy = props => {
             }}
             className={`${styles.NftBuy__details} ${isDetailsOpen ? styles.opendD : ''}`}
           >
-            <p className={styles.NftBuy__propertiesTitle}>
+            <p className={`${styles.NftBuy__propertiesTitle} font-20 ttl`}>
               Details
               <svg
                 className={`${styles.svg} ${isDetailsOpen ? styles.rotated : ''}`}
@@ -603,7 +670,7 @@ const Buy = props => {
               >
                 <path
                   d='M13.2788 1.0918L8.33941 6.03119C7.75608 6.61452 6.80154 6.61452 6.2182 6.03119L1.27881 1.0918'
-                  stroke='white'
+                  stroke='#162029'
                   strokeWidth='2'
                   strokeMiterlimit='10'
                   strokeLinecap='round'
@@ -619,24 +686,14 @@ const Buy = props => {
                     <p className={styles.hover}>
                       <Link href={`/sometransaction`}>0xF5...301c</Link>
                     </p>
-                    <svg width='13' height='13' viewBox='0 0 13 13' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                    <svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
                       <path
-                        fillRule='evenodd'
-                        clipRule='evenodd'
-                        d='M12.22 0.94934C12.4489 1.1739 12.4524 1.54151 12.2279 1.77043L7.78417 6.30029C7.55961 6.5292 7.192 6.53273 6.96308 6.30817C6.73417 6.08361 6.73064 5.716 6.9552 5.48709L11.3989 0.957225C11.6234 0.728311 11.9911 0.724781 12.22 0.94934Z'
-                        fill='#0500FF'
+                        d='M18.5391 15.1046C18.6735 14.9703 18.7583 14.7864 18.7583 14.5743L18.7583 5.99003C18.7572 5.7916 18.6778 5.60164 18.5375 5.46133C18.3972 5.32101 18.2072 5.24167 18.0088 5.2405L9.42452 5.2405C9.01439 5.2405 8.67498 5.57991 8.67498 5.99003C8.67498 6.40015 9.01439 6.73956 9.42452 6.73956L17.2593 6.73956L17.2593 14.5743C17.2593 14.9844 17.5987 15.3238 18.0088 15.3238C18.2139 15.3309 18.4048 15.239 18.5391 15.1046Z'
+                        fill='#162029'
                       />
                       <path
-                        fillRule='evenodd'
-                        clipRule='evenodd'
-                        d='M9.06641 0.922419C9.06641 0.60175 9.32636 0.341797 9.64703 0.341797H12.2482C12.5689 0.341797 12.8288 0.60175 12.8288 0.922419V3.57405C12.8288 3.89472 12.5689 4.15467 12.2482 4.15467C11.9275 4.15467 11.6676 3.89472 11.6676 3.57405V1.50304H9.64703C9.32636 1.50304 9.06641 1.24309 9.06641 0.922419Z'
-                        fill='#0500FF'
-                      />
-                      <path
-                        fillRule='evenodd'
-                        clipRule='evenodd'
-                        d='M1.87487 1.41351C2.64646 0.626953 3.78769 0.341797 5.20215 0.341797H6.28597C6.60664 0.341797 6.8666 0.60175 6.8666 0.922419C6.8666 1.24309 6.60664 1.50304 6.28597 1.50304H5.20215C3.90703 1.50304 3.15156 1.77031 2.70384 2.22671C2.25341 2.68587 1.98937 3.46327 1.98937 4.78938V8.10392C1.98937 9.43003 2.25341 10.2074 2.70384 10.6666C3.15156 11.123 3.90703 11.3903 5.20215 11.3903H8.45363C9.74874 11.3903 10.5042 11.123 10.9519 10.6666C11.4024 10.2074 11.6664 9.43003 11.6664 8.10392V6.99907C11.6664 6.6784 11.9264 6.41845 12.247 6.41845C12.5677 6.41845 12.8277 6.6784 12.8277 6.99907V8.10392C12.8277 9.53992 12.5498 10.696 11.7809 11.4798C11.0093 12.2663 9.86809 12.5515 8.45363 12.5515H5.20215C3.78769 12.5515 2.64646 12.2663 1.87487 11.4798C1.106 10.696 0.828125 9.53992 0.828125 8.10392V4.78938C0.828125 3.35338 1.106 2.19729 1.87487 1.41351Z'
-                        fill='#0500FF'
+                        d='M6.5184 18.5404L18.419 6.63982C18.7089 6.3499 18.7089 5.86907 18.419 5.57916C18.1291 5.28924 17.6483 5.28924 17.3583 5.57916L5.45773 17.4798C5.16782 17.7697 5.16782 18.2505 5.45773 18.5404C5.74765 18.8303 6.22848 18.8303 6.5184 18.5404Z'
+                        fill='#162029'
                       />
                     </svg>
                   </div>
@@ -647,24 +704,14 @@ const Buy = props => {
                     <a className={styles.hover} href='azuki.com'>
                       Azuki.com
                     </a>
-                    <svg width='13' height='13' viewBox='0 0 13 13' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                    <svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
                       <path
-                        fillRule='evenodd'
-                        clipRule='evenodd'
-                        d='M12.22 0.94934C12.4489 1.1739 12.4524 1.54151 12.2279 1.77043L7.78417 6.30029C7.55961 6.5292 7.192 6.53273 6.96308 6.30817C6.73417 6.08361 6.73064 5.716 6.9552 5.48709L11.3989 0.957225C11.6234 0.728311 11.9911 0.724781 12.22 0.94934Z'
-                        fill='#0500FF'
+                        d='M18.5391 15.1046C18.6735 14.9703 18.7583 14.7864 18.7583 14.5743L18.7583 5.99003C18.7572 5.7916 18.6778 5.60164 18.5375 5.46133C18.3972 5.32101 18.2072 5.24167 18.0088 5.2405L9.42452 5.2405C9.01439 5.2405 8.67498 5.57991 8.67498 5.99003C8.67498 6.40015 9.01439 6.73956 9.42452 6.73956L17.2593 6.73956L17.2593 14.5743C17.2593 14.9844 17.5987 15.3238 18.0088 15.3238C18.2139 15.3309 18.4048 15.239 18.5391 15.1046Z'
+                        fill='#162029'
                       />
                       <path
-                        fillRule='evenodd'
-                        clipRule='evenodd'
-                        d='M9.06641 0.922419C9.06641 0.60175 9.32636 0.341797 9.64703 0.341797H12.2482C12.5689 0.341797 12.8288 0.60175 12.8288 0.922419V3.57405C12.8288 3.89472 12.5689 4.15467 12.2482 4.15467C11.9275 4.15467 11.6676 3.89472 11.6676 3.57405V1.50304H9.64703C9.32636 1.50304 9.06641 1.24309 9.06641 0.922419Z'
-                        fill='#0500FF'
-                      />
-                      <path
-                        fillRule='evenodd'
-                        clipRule='evenodd'
-                        d='M1.87487 1.41351C2.64646 0.626953 3.78769 0.341797 5.20215 0.341797H6.28597C6.60664 0.341797 6.8666 0.60175 6.8666 0.922419C6.8666 1.24309 6.60664 1.50304 6.28597 1.50304H5.20215C3.90703 1.50304 3.15156 1.77031 2.70384 2.22671C2.25341 2.68587 1.98937 3.46327 1.98937 4.78938V8.10392C1.98937 9.43003 2.25341 10.2074 2.70384 10.6666C3.15156 11.123 3.90703 11.3903 5.20215 11.3903H8.45363C9.74874 11.3903 10.5042 11.123 10.9519 10.6666C11.4024 10.2074 11.6664 9.43003 11.6664 8.10392V6.99907C11.6664 6.6784 11.9264 6.41845 12.247 6.41845C12.5677 6.41845 12.8277 6.6784 12.8277 6.99907V8.10392C12.8277 9.53992 12.5498 10.696 11.7809 11.4798C11.0093 12.2663 9.86809 12.5515 8.45363 12.5515H5.20215C3.78769 12.5515 2.64646 12.2663 1.87487 11.4798C1.106 10.696 0.828125 9.53992 0.828125 8.10392V4.78938C0.828125 3.35338 1.106 2.19729 1.87487 1.41351Z'
-                        fill='#0500FF'
+                        d='M6.5184 18.5404L18.419 6.63982C18.7089 6.3499 18.7089 5.86907 18.419 5.57916C18.1291 5.28924 17.6483 5.28924 17.3583 5.57916L5.45773 17.4798C5.16782 17.7697 5.16782 18.2505 5.45773 18.5404C5.74765 18.8303 6.22848 18.8303 6.5184 18.5404Z'
+                        fill='#162029'
                       />
                     </svg>
                   </div>
@@ -675,86 +722,20 @@ const Buy = props => {
         </div>
         <div className={styles.NftBuy__tablesRightPanel}>
           <div className={styles.NftBuy__ownerTable}>
-            <CornerDecor />
-            <div className={styles.NftBuy__ownerTitle}>Owner</div>
-            <div className={styles.NftBuy__ownerFiltres}>
-              <p className={'font_13'}>Price</p>
-              <p className={'font_13'}>Owner</p>
-            </div>
             {ownerItemData.map(item => {
               return (
                 <div key={item.id} className={`${styles.infoTable__buy} ${isInfoOpen ? styles.open_buy : ''}`}>
-                  <div key={item.id} className={styles.NftBuy__ownerItem}>
-                    <div className={styles.NftBuy__ownerItemPrices}>
-                      <p>
-                        <span>CMCX</span>
-                        {item.cmcx}
-                      </p>
-                      <p className={'font_13'}>{item.usd}</p>
-                    </div>
-                    <div className={styles.NftBuy__itemOwner}>
-                      <picture>
-                        <img src={item.ownerImg} alt='ownerImg' />
-                      </picture>
-                      <div className={styles.NftBuy__itemOwnerTitles}>
-                        <p>{item.ownerTitle}</p>
-                        <p>{item.ownerAddress}</p>
-                      </div>
-                    </div>
-                    <div className={styles.connect__buttonWrap}>{variableButton}</div>
-                  </div>
-                  <div className={styles.connectWallet__info}>
-                    <div className={styles.tokenId__info}>
-                      <p className={'font_13'}>
-                        Token ID: <span>321</span>
-                      </p>
-                      <p className={'font_20'}>#314</p>
-                    </div>
-                    <div className={styles.payWith}>
-                      <p className={'font_13'}>Pay With</p>
-                      <div className={styles.payBtns}>
-                        <p className={styles.payBtn}>BNB</p>
-                        <p className={`${styles.payBtn} ${styles.payBtn__active}`}>WBNB</p>
-                      </div>
-                    </div>
-                    <div className={styles.connectWallet}>
-                      <div
-                        className={styles.wallet__inner}
-                        style={{
-                          display: isConnected && isActive ? 'none' : 'block',
-                        }}
-                      >
-                        <p className={'font_13'}>WBNB in Wallet</p>
-                        <Button
-                          title={'Connect Wallet'}
-                          type={'blue'}
-                          onClick={() => {
-                            handleWalletModal(true);
-                            setConnected(true);
-                            window.scrollTo({
-                              top: 0,
-                              left: 0,
-                              behavior: 'smooth',
-                            });
-                          }}
-                          customStyles={{
-                            padding: '2% 0',
-                            width: '100%',
-                          }}
-                        />
-                      </div>
-                      <p className={styles.font_13}>
-                        Convert between BNB and WBNB for free:
-                        <Link href={`/swap`}>
-                          <span className={styles.convert}>Convert</span>
-                        </Link>
-                      </p>
+                  <div className={styles.NftBuy__itemOwner}>
+                    <div className={`${styles.NftBuy__ownerTitle} font-20 ttl`}>Owner:</div>
+                    <picture>
+                      <img src={item.ownerImg} alt='ownerImg' />
+                    </picture>
+                    <div className={styles.NftBuy__itemOwnerTitles}>
+                      <p>{item.ownerTitle}</p>
+                      <p>{item.ownerAddress}</p>
                     </div>
                   </div>
-                  <div className={styles.checkout__info}>
-                    <p className={styles.checkoutBtn}>Checkout</p>
-                    <p className={styles.getBtn}>Get BNB or WBNB</p>
-                  </div>
+                  {/* <div className={styles.connect__buttonWrap}>{variableButton}</div> */}
                 </div>
               );
             })}
@@ -767,14 +748,13 @@ const Buy = props => {
           <p className={'font_30'}>More From This Collection</p>
           <ArrowBtn route={'collections'} direction={'forward'} title={'viewAll'} />
         </div>
-        <div className={styles.Collections__products}>
-          <Swiper spaceBetween={30} slidesPerView={4.6}>
+        <div>
+          <Swiper spaceBetween={30} slidesPerView={4.6} className={styles.Collections__products}>
             {collectionItems.map(item => {
               return (
                 <SwiperSlide key={item.id}>
                   <Link href={`/nfts/collections/buy`}>
                     <div className={styles.Collection__product}>
-                      <CornerDecor />
                       <div className={styles.Collection__product__inner}>
                         <div className={styles.Collection__product__titles}>
                           <div className={styles.Collection__product__img}>

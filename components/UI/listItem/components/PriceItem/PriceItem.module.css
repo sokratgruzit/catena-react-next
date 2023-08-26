@@ -1,6 +1,6 @@
 .TableRow__titles p:last-child {
-  font-size: 12px;
-  opacity: 0.3;
+  font-size: 14px;
+  color: rgba(22, 32, 41, 0.6);
 }
 .TableRow__titles span {
   color: #ff7152;

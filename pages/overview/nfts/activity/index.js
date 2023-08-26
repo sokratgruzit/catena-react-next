@@ -53,7 +53,7 @@ let nftActivityData = [
         type: 'img_text',
       },
       {
-        text: 'Listed',
+        text: 'Modified',
         type: 'text',
       },
       {
@@ -95,7 +95,7 @@ let nftActivityData = [
         type: 'img_text',
       },
       {
-        text: 'Listed',
+        text: 'Modified',
         type: 'text',
       },
       {
@@ -305,7 +305,7 @@ let nftActivityData = [
         type: 'img_text',
       },
       {
-        text: 'Listed',
+        text: 'Delisted',
         type: 'text',
       },
       {
@@ -431,7 +431,7 @@ let nftActivityData = [
         type: 'img_text',
       },
       {
-        text: 'Listed',
+        text: 'Delisted',
         type: 'text',
       },
       {
@@ -515,7 +515,7 @@ let nftActivityData = [
         type: 'img_text',
       },
       {
-        text: 'Listed',
+        text: 'Sold',
         type: 'text',
       },
       {

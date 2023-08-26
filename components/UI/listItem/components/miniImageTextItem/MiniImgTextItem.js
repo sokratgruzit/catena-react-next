@@ -5,7 +5,7 @@ import listStyles from '../../ListItemRow.module.css';
 
 const MiniImgTextItem = ({ data, onClick }) => {
   return (
-    <div className={` ${listStyles.imgTextItem} ${listStyles.td} ${styles.imgTextItem}`} onClick={onClick}>
+    <div className={` ${listStyles.imgTextItem} ${listStyles.td} ${styles.miniImgTextItem}`} onClick={onClick}>
       {/* <picture> */}
       <img src={data.img} alt='pic' className={styles.img} />
       {/* </picture> */}
