@@ -23,10 +23,9 @@
   color: #ff6969;
 }
 .buy__img {
-  width: 29%;
+  width: 35.5%;
   height: 100%;
   position: relative;
-  margin-top: 10px;
   border: 1px solid #162029;
   border-radius: 30px;
   padding: 20px;
@@ -47,8 +46,6 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  max-width: 533px;
-  max-height: 533px;
   padding: 10px;
 
   border-radius: 20px;
@@ -123,26 +120,47 @@
   border-bottom: 1px solid #111826;
   padding-bottom: 70px;
 }
+.vissibleItem {
+  background: #f3e4d2;
+  border: 1px solid #162029;
+  border-radius: 30px;
+  padding: 20px;
+  padding-top: 0px;
+}
+.vissibleItem .buy__img {
+  position: relative;
+  border: none;
+  padding: 0px;
+  background: transparent;
+  padding-right: 20px;
+  padding-top: 20px;
+}
 .buy__manage {
   display: flex;
-  border: 1px solid #111826;
-  width: 32.5%;
-  padding: 20px;
+  width: 38.5%;
   flex-direction: column;
   position: relative;
   height: fit-content;
+  gap: 10px;
 }
+.NftBuy__properties,
+.NftBuy__details,
 .NftBuy__walletConnect {
-  border-bottom: 2px solid #111826;
-  width: 100%;
-  max-height: 45px;
   overflow: hidden;
+  cursor: pointer;
+  width: 100%;
+  max-height: 63px;
   transition: 0.8s;
   cursor: pointer;
+  border: 1px solid #16202933;
+  border-radius: 20px;
 }
+
 .opend {
   max-height: 200px !important;
   transition: 0.8s;
+  border: 1px solid #16202933;
+  border-radius: 20px;
 }
 .rotated {
   transform: rotate(-3.142rad);
@@ -161,8 +179,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid #111826;
-  padding-bottom: 20px;
+  padding: 20px;
+  background: #f0dec9;
+  border-radius: 20px 20px 0px 0px;
+  border-bottom: 1px solid #16202933;
 }
 .NftBuy__connectBtn {
   background-color: #0500ff;
@@ -183,60 +203,54 @@
   transition: 0.5s;
   cursor: pointer;
 }
-.NftBuy__properties {
-  border-bottom: 2px solid #111826;
-  width: 100%;
-  max-height: 60px;
-  overflow: hidden;
-  transition: 0.8s;
-  cursor: pointer;
-}
 .opendP {
   max-height: 800px !important;
   transition: 0.8s;
+  border: 1px solid #16202933;
+  border-radius: 20px;
 }
 .opendD {
   max-height: 200px !important;
   transition: 0.8s;
+  border: 1px solid #16202933;
+  border-radius: 20px;
 }
 .NftBuy__propertiesTitle {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid #111826;
-  padding-bottom: 20px;
-  padding-top: 20px;
+  padding: 20px;
+  background: #f0dec9;
+  border-radius: 20px 20px 0px 0px;
+  border-bottom: 1px solid #16202933;
 }
 .NftBuy__properties__inner {
-  padding-top: 20px;
-  padding-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px;
+  background: #f3e4d2;
 }
 .NftBuy__properties__item {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 20px;
-  padding-bottom: 20px;
 }
 .NftBuy__properties__item p {
-  color: #4d5057;
+  color: #162029;
 }
 .NftBuy__properties__itemTitle {
-  color: #ffffff !important;
+  color: #162029;
   padding-right: 5px;
 }
-.NftBuy__details {
-  max-height: 45px;
-  overflow: hidden;
-  transition: 0.8s;
-  cursor: pointer;
-}
+
 .NftBuy__details__itemWrap {
   display: flex;
-  justify-content: space-between;
-  padding-top: 30px;
   flex-direction: column;
+  gap: 16px;
+  padding: 20px;
+  background: #f3e4d2;
 }
 .NftBuy__details__item {
   display: flex;
@@ -245,17 +259,17 @@
 }
 .NftBuy__details__item a {
   padding-right: 10px;
-  color: #0500ff;
+  color: #162029;
 }
 .NftBuy__details__item p {
-  color: #4d5057;
+  color: #162029;
 }
 .NftBuy__details__link {
   display: flex;
   align-items: center;
 }
 .NftBuy__details__link p {
-  color: #0500ff;
+  color: #162029;
   transition: 0.5s;
   /* padding-right: 10px; */
 }
@@ -284,19 +298,19 @@
   width: 81%;
 }
 .NftBuy__ownerTable {
-  border: 1px solid #111826;
   width: 100%;
   padding: 20px;
   display: flex;
   flex-direction: column;
   position: relative;
+  background: #f3e4d2;
+  border-radius: 20px;
+  border: 1px solid #16202933;
 }
 .NftBuy__ownerTitle {
   display: flex;
   align-items: center;
-  font-size: 16px;
-  border-bottom: 1px solid #111826;
-  padding-bottom: 20px;
+  margin-right: 10px;
 }
 .NftBuy__ownerFiltres {
   display: flex;
@@ -373,8 +387,15 @@
   display: flex;
   align-items: center;
 }
+.NftBuy__itemOwner img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: none;
+}
 .NftBuy__itemOwnerTitles {
-  padding-left: 10px;
+  padding-left: 6px;
 }
 .NftBuy__BtnBuy {
   width: auto;
@@ -396,11 +417,12 @@
 }
 .NftBuy__infoTable {
   display: flex;
-  border: 1px solid #111826;
-  padding: 20px;
-  margin-top: 30px;
+  border: 1px solid #16202933;
+  border-radius: 20px;
+  margin-top: 10px;
   flex-direction: column;
   position: relative;
+  background: #f3e4d2;
 }
 .infoTable__buy {
   display: flex;
@@ -441,16 +463,16 @@
 .categories {
   display: flex;
   width: 100%;
-  padding: 20px 0px;
-  border-bottom: 1px solid #111826;
-  font-size: 13px;
+  padding: 30px 20px;
+  border-bottom: 1px solid rgba(22, 32, 41, 0.2);
 }
 .categories p {
-  color: #0500ff;
+  color: #162029;
   width: 20%;
 }
 .categories p:last-child {
   text-align: right;
+  padding-right: 40px;
 }
 .Collections__section {
   display: flex;
@@ -564,6 +586,11 @@
   align-items: center;
   justify-content: center;
 }
+.manageButtonWrap {
+  padding: 20px;
+  width: 100%;
+  background: #f3e4d2;
+}
 .buttonWrap div:first-child {
   padding: 10px 68px !important;
   width: fit-content !important;
@@ -589,6 +616,36 @@
 }
 .convert:hover {
   color: #0500ff;
+}
+.introWratter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.closeBtn {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  transition: 0.8s;
+}
+
+.closeBtn:hover {
+  color: #ff7152;
+}
+.closeBtn:hover .closeBtnWrap {
+  border: 1px solid #ff7152;
+}
+.closeBtn:hover .closeBtnWrap svg path {
+  stroke: #ff7152;
+}
+.closeBtnWrap {
+  padding: 14px 14px 10px 14px;
+  border: 1px solid #162029;
+  border-radius: 50%;
+  transition: 0.8s;
+}
+.closeBtnWrap svg path {
+  transition: 0.8s;
 }
 .checkout {
   display: grid;
@@ -641,4 +698,25 @@
 }
 /*Mobile 320*/
 @media (max-width: 767px) {
+  .buy__item {
+    flex-direction: column;
+  }
+  .buy__img {
+    width: 100%;
+  }
+  .buy__item__details {
+    width: 100%;
+    padding: 0px;
+  }
+  .buy__tables {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .buy__manage {
+    width: 100%;
+  }
+  .NftBuy__tablesRightPanel {
+    padding: 0;
+    width: 100%;
+  }
 }

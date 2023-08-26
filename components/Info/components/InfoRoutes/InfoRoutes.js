@@ -46,17 +46,19 @@ const InfoRoutes = () => {
 
   return (
     <>
-      <TabFilter
-        onClick={navigationHandler}
-        data={tabsData}
-        activeMenu={activeMenuItem}
-        css={{
-          wrap: styles.Activity__filterWrap,
-          filter: styles.Activity__filter,
-          active: styles.Activity__filterActive,
-          item: styles.Activity__filter__item,
-        }}
-      />
+      <div className={styles.routesWrapperMain}>
+        <TabFilter
+          onClick={navigationHandler}
+          data={tabsData}
+          activeMenu={activeMenuItem}
+          css={{
+            wrap: styles.Activity__filterWrap,
+            filter: styles.Activity__filter,
+            active: styles.Activity__filterActive,
+            item: styles.Activity__filter__item,
+          }}
+        />
+      </div>
     </>
   );
 };

@@ -21,6 +21,7 @@ const CareersIneer = ({ item }) => {
   };
   console.log(item.responsibilities['en']['openPosition.responsibilities']);
 
+
   return (
     <div className='pT-180'>
       <div className='container' style={{ display: 'flex', flexDirection: 'column', gap: '50px', width: "90%"}}>
@@ -76,7 +77,7 @@ const CareersIneer = ({ item }) => {
           />}
         </div>
         <div style={{ maxHeight: submitHeight, transition: '0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99)', overflow: 'hidden', marginBottom: '50px' }}>
-          {showSubmit && <SubmitAplication title='Submit Your Application' handleButtonClick={handleButtonClick} />}
+          {showSubmit && <SubmitAplication title='Submit Your Application' />}
         </div>
       </div>
     </div>

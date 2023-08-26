@@ -1,4 +1,6 @@
-import styles from "../css/CatenaAmbassador.module.css"
+import { useState } from 'react';
+
+import styles from '../css/CatenaAmbassador.module.css';
 
 const CatenaAmbassador = () => {
     return (

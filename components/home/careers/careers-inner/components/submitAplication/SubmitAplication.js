@@ -1,4 +1,4 @@
-import { Input, Button, HelpText } from '@catena-network/catena-ui-module';
+import { Input, Button, HelpText, HelpCard } from '@catena-network/catena-ui-module';
 import React from 'react';
 import { Quiz } from '@catena-network/catena-ui-module';
 import { useState, useEffect } from 'react';
@@ -30,6 +30,9 @@ const SubmitApplication = ({ title, handleButtonClick }) => {
   const [successMessage, setSuccessMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const [email, setEmail] = useState("");
+  const [emptyField, setEmptyField] = useState("")
+  const [active, setActive] = useState(false)
+  const [result, setResult] = useState("")
 
   const axios = createAxiosInstance();
 
@@ -90,7 +93,7 @@ const SubmitApplication = ({ title, handleButtonClick }) => {
         jobId: '',
       });
 
-      if (application.file) {
+      if (application.file) { 
         const formData = new FormData();
 
         const logoDotIndex = application.file.name.lastIndexOf(".");
@@ -124,8 +127,22 @@ const SubmitApplication = ({ title, handleButtonClick }) => {
                   .then(() => {
                     setSuccessMessage('Application submitted successfully!');
                     setErrorMessage('');
-                    handleButtonClick()
-                  });
+                    // handleButtonClick()
+                  })
+                  .then(res => {
+                    setResult("success")
+                    console.log(res);
+                  })
+                  .catch(err => {
+                    setResult("error")
+                    console.log(err);
+                  })
+                  .then(res => {
+                    setActive(true)
+                    // setTimeout(() => {
+                    //   setActive(false)
+                    // }, 2000);
+                  })
               }
             });
         } catch (err) {
@@ -138,7 +155,21 @@ const SubmitApplication = ({ title, handleButtonClick }) => {
         setSuccessMessage('');
         console.log("Images requeired");
       }
+      setEmptyField(false);
     } else {
+      setEmptyField(true);
+      if (!application.name.trim() && !application.email.trim() && !application.descr.trim() && !application.language.trim() && !application.file.trim()) {
+        setApplication(prevState => ({
+          ...prevState,
+          name: "",
+          descr: "",
+          email: "",
+          language: "",
+          file: ""
+        }));
+
+        setEmptyField(true);
+      }
       console.log('Invalid format. Data not sent.');
     }
   };
@@ -200,6 +231,8 @@ const SubmitApplication = ({ title, handleButtonClick }) => {
       setEmail(value)
     }
   };
+  console.log(result, 'result');
+  console.log(active, 'active');
 
   return (
     <div className={styles.submitWrapper}>
@@ -210,10 +243,9 @@ const SubmitApplication = ({ title, handleButtonClick }) => {
             <Input
               type={"default"}
               name={"name"}
-              required={true}
+              emptyFieldErr={emptyField && !application.name.trim()}
               value={application.name}
               icon={true}
-              emptyFieldErr={false}
               inputType={"text"}
               placeholder={"Enter.."}
               label={"FULL NAME"}
@@ -223,7 +255,7 @@ const SubmitApplication = ({ title, handleButtonClick }) => {
 
             <Input
               type={"default"}
-              required={true}
+              emptyFieldErr={emptyField && !application.email.trim()}
               name={"email"}
               icon={false}
               label={'E-MAIL'}
@@ -250,7 +282,7 @@ const SubmitApplication = ({ title, handleButtonClick }) => {
 
             <Input
               type={'label-input-phone-number'}
-              required={true}
+              emptyFieldErr={emptyField && !application.phone}
               label={'PHONE NUMBER'}
               name={'phone'}
               value={application.phone}
@@ -275,6 +307,7 @@ const SubmitApplication = ({ title, handleButtonClick }) => {
               label={'Describe any experience with cryptocurrency'}
               name={'descr'}
               value={application.descr}
+              emptyFieldErr={emptyField && !application.descr.trim()}
               rows={10}
               cols={20}
               placeholder={'Enter..'}
@@ -299,7 +332,7 @@ const SubmitApplication = ({ title, handleButtonClick }) => {
 
             <Input
               type={'textarea'}
-              required={true}
+              emptyFieldErr={emptyField && !application.language.trim()}
               label={'Languages you can speak/write at a Business level'}
               name={'language'}
               value={application.language}
@@ -329,7 +362,6 @@ const SubmitApplication = ({ title, handleButtonClick }) => {
               name={"gitHub"}
               value={application.gitHub}
               icon={true}
-              emptyFieldErr={false}
               inputType={'text'}
               placeholder={'Enter..'}
               label={'Github'}
@@ -342,7 +374,6 @@ const SubmitApplication = ({ title, handleButtonClick }) => {
               name={'linkedin'}
               value={application.linkedin}
               icon={true}
-              emptyFieldErr={false}
               inputType={'text'}
               placeholder={'Enter..'}
               label={'Linkedin'}
@@ -352,15 +383,16 @@ const SubmitApplication = ({ title, handleButtonClick }) => {
 
             <Input
               type={"label-input-upload-document"}
-              required={true}
               name={"file"}
               value={application.file}
-              emptyFieldErr={true}
+              // emptyFieldErr={emptyField && !application.file.trim()}
+              // emptyFieldErr={false}
               htmlFor={""}
               customStyles={{ width: "fit-content" }}
               onChange={(e) => { handlerChange(e) }}
             />
-
+            <div >
+            </div>
             <Button
               label={'submit Now'}
               size={'btn-lg'}
@@ -370,8 +402,11 @@ const SubmitApplication = ({ title, handleButtonClick }) => {
               disabled={false}
               onClick={submitHandler}
             />
-            {successMessage && <div className="success-message">{successMessage}</div>}
-            {errorMessage && <div className="error-message">{errorMessage}</div>}
+              <HelpCard
+              result={result}
+              body={"notification"}
+              active={active}
+            />
           </div>
         </div>
       </div>

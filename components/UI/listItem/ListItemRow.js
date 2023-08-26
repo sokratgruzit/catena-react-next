@@ -80,7 +80,7 @@ const ListItemRow = props => {
           }
 
           if (item.type === 'mini-img_text') {
-            return <MiniImgTextItem key={'img_text' + type + index} data={item} onClick={item.onClick} />;
+            return <MiniImgTextItem key={'mini-img_text' + type + index} data={item} onClick={item.onClick} />;
           }
 
           if (item.type === 'text') {

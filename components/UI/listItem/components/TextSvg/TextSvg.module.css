@@ -1,6 +1,7 @@
 .TableRow__date {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
 }
 
 .TableRow__date svg {

@@ -9,6 +9,15 @@
   border-top: 1px solid #a6d0dd;
 }
 
+.helpcardWrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 750px;
+  z-index: 10;
+}
+
 .submitWrapper {
   overflow: hidden;
   height: 0;
