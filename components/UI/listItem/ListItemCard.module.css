@@ -128,6 +128,7 @@
   border-radius: 20px;
   width: calc(33.3% - 20px);
   border: 1px solid #16202933;
+  cursor: pointer;
 }
 .Collections__listItemWrap a {
   width: 100%;
@@ -262,6 +263,7 @@
   padding: 30px 20px;
   overflow: hidden;
   position: relative;
+  cursor: pointer;
 }
 .Activity__mobile__item {
   display: flex;

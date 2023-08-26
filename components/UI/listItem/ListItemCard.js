@@ -14,7 +14,7 @@ const ListItemCard = props => {
   if (type === 'nft_arrivals' || type === 'nft_activity' || type === 'nft_creator') {
     obj = (
       <div key={data.id} className={styles.Arrivals__listItemWrap}>
-        <Link href={`/nfts/collections/buy`}>
+        <Link href={`/overview/nfts/collections/${data.id}`}>
           <a>
             <div className={styles.Arrivals__imgBlock}>
               <div className={styles.imgWrap}>
