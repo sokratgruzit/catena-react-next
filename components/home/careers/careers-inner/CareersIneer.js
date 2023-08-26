@@ -77,7 +77,7 @@ const CareersIneer = ({ item }) => {
           />}
         </div>
         <div style={{ maxHeight: submitHeight, transition: '0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99)', overflow: 'hidden', marginBottom: '50px' }}>
-          {showSubmit && <SubmitAplication title='Submit Your Application' />}
+          {showSubmit && <SubmitAplication title='Submit Your Application' handleButtonClick={handleButtonClick} />}
         </div>
       </div>
     </div>
