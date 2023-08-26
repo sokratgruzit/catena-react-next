@@ -30,7 +30,7 @@ export default function Banner() {
 
   const itemData = [
     {
-      links: [{ url: '/images/guidelines/firstUsage.png', text: 'Download image 1' }],
+      links: [{ url: '/images/catena-logo-versions.zip', text: 'catena-logo-versions' }],
     },
   ];
 

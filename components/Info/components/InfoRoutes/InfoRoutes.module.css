@@ -24,3 +24,7 @@
 .Activity__filterActive {
   background-color: #ff6969!important;
 }
+.routesWrapperMain{
+  width: fit-content;
+  margin: auto;
+}

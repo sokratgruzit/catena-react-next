@@ -35,10 +35,10 @@ function TokenomicsHead(props) {
       teaser: 'Consensus Protocol',
       text: 'Practical Proof of Stake',
     },
-    {
-      teaser: 'Current Price',
-      text: '0.005 USDT',
-    },
+    // {
+    //   teaser: 'Current Price',
+    //   text: '0.005 USDT',
+    // },
     {
       teaser: 'Total Supply (Genesis)',
       text: '20,000,000,000 CMCX',
@@ -65,7 +65,7 @@ function TokenomicsHead(props) {
     },
     {
       teaser: 'Oficial Website',
-      text: 'catenamultichain.com',
+      text: 'catena.network',
     },
   ];
 
