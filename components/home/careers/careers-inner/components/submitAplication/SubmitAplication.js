@@ -127,7 +127,9 @@ const SubmitApplication = ({ title, handleButtonClick }) => {
                   .then(() => {
                     setSuccessMessage('Application submitted successfully!');
                     setErrorMessage('');
-                    // handleButtonClick()
+                    setInterval(() => {
+                      handleButtonClick()
+                    }, 2500);
                   })
                   .then(res => {
                     setResult("success")
