@@ -2,6 +2,7 @@ import Link from 'next/link';
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/swiper-bundle.min.css';
 
 import { useConnect } from '../../../hooks/use-connect';
 import ArrowBtn from '../../UI/button/ArrowBtn';
@@ -383,15 +384,16 @@ const Buy = props => {
     </div>
   );
 
-  if (screeWidth < 1200) {
-    detailTable = (
-      <div className={styles.buy__mobile__table}>
-        {detailsTableData.map(item => {
-          return <ListItemRow key={item.id + 'mobile'} data={item} type={'nft_buy_mobile'} />;
-        })}
-      </div>
-    );
-  }
+  // if (screeWidth < 1200) {
+  //   detailTable = (
+  //     <div className={styles.buy__mobile__table}>
+  //       {detailsTableData.map(item => {
+  //         return <ListItemRow key={item.id + 'mobile'} data={item} type={'nft_buy_mobile'} />;
+  //       })}
+  //     </div>
+  //   );
+  // }
+
   if (isInfoOpen) {
     variableButton = (
       <Button
@@ -745,11 +747,62 @@ const Buy = props => {
       </div>
       <div className={styles.Collections__section}>
         <div className={styles.Collections__titles}>
-          <p className={'font_30'}>More From This Collection</p>
-          <ArrowBtn route={'collections'} direction={'forward'} title={'viewAll'} />
+          <p className={'font_51 ttl'}>Newest Arrivals</p>
+          <Link href='/overview/nfts/collections'>
+            <div className={`${styles.forwardBtn} `}>
+              <p className='ttl'>View All</p>
+              <div className={styles.svgWrapper}>
+                <svg width='14' height='11' viewBox='0 0 14 11' fill='162029' xmlns='http://www.w3.org/2000/svg'>
+                  <path
+                    fillRule='evenodd'
+                    clipRule='evenodd'
+                    d='M13.6602 5.94727C13.6602 5.71707 13.5687 5.49631 13.4059 5.33354L9.27388 1.20148C8.93493 0.862529 8.38538 0.862529 8.04643 1.20148C7.70748 1.54043 7.70748 2.08998 8.04643 2.42893L11.5648 5.94727L8.04643 9.4656C7.70748 9.80455 7.70748 10.3541 8.04643 10.6931C8.38538 11.032 8.93493 11.032 9.27388 10.6931L13.4059 6.56099C13.5687 6.39822 13.6602 6.17746 13.6602 5.94727Z'
+                    fill='#162029'
+                  />
+                  <path
+                    fillRule='evenodd'
+                    clipRule='evenodd'
+                    d='M13.5469 5.94652C13.5469 5.46717 13.1583 5.07858 12.679 5.07858L1.22317 5.07858C0.743857 5.07858 0.3553 5.46717 0.3553 5.94652C0.3553 6.42586 0.743857 6.81445 1.22317 6.81445L12.679 6.81445C13.1583 6.81445 13.5469 6.42586 13.5469 5.94652Z'
+                    fill='#162029'
+                  />
+                </svg>
+              </div>
+            </div>
+          </Link>
         </div>
         <div>
-          <Swiper spaceBetween={30} slidesPerView={4.6} className={styles.Collections__products}>
+          <Swiper
+            className={styles.Collections__products}
+            spaceBetween={30}
+            slidesPerView={4}
+            pagination={{ clickable: true }}
+            mousewheel={true}
+            breakpoints={{
+              0: {
+                slidesPerView: 1.2,
+                spaceBetween: 30,
+              },
+              767: {
+                slidesPerView: 2.4,
+                spaceBetween: 30,
+              },
+              1023: {
+                slidesPerView: 2.8,
+                spaceBetween: 30,
+              },
+              1365: {
+                slidesPerView: 3.2,
+                spaceBetween: 30,
+              },
+
+              1900: {
+                slidesPerView: 4,
+                spaceBetween: 30,
+              },
+
+             
+            }}
+          >
             {collectionItems.map(item => {
               return (
                 <SwiperSlide key={item.id}>
