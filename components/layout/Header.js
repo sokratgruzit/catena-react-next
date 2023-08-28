@@ -118,11 +118,11 @@ const Header = () => {
               title: 'Bug Bounty',
               route: '/overview/bug-bounty',
             },
-            // {
-            //   id: 'support-1',
-            //   title: 'Your Voice Matter',
-            //   route: '/overview/your-voice',
-            // },
+            {
+              id: 'support-1',
+              title: 'Your Voice Matter',
+              route: '/overview/your-voice',
+            },
             {
               id: 'support-2',
               title: 'Support',
@@ -731,7 +731,7 @@ const Header = () => {
                             <div
                               style={{
                                 transitionDelay:
-                                  activeMenu === item.id ? `${(index + (device === 'desktop' ? 9 : 0)) / 20 }s` : '0s',
+                                  activeMenu === item.id ? `${(index + (device === 'desktop' ? 9 : 0)) / 40 }s` : '0s',
                               }}
                             >
                               <span>{sub.title}</span>

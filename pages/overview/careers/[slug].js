@@ -54,4 +54,3 @@ const index = ({ item }) => {
 };
 
 export default index;
-

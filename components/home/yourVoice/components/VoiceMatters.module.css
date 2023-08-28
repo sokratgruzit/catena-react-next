@@ -47,16 +47,6 @@
   transform: translate(-50%, -50%);
 }
 
-.helpcardWrapper {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 750px;
-  z-index: 10;
-}
-
-
 /* .btnBlu {
   width: 100% !important;
   border: 1px solid #162029 !important;
@@ -99,10 +89,6 @@
   .img {
     width: 80%;
   }
-
-  .helpcardWrapper {
-    width: 500px;
-  }
 }
 
 /*Mobile 320*/
@@ -122,9 +108,5 @@
   .Title {
     width: 100%;
     max-width: 100%;
-  }
-
-  .helpcardWrapper {
-    width: 350px;
   }
 }

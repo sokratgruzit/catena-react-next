@@ -1,7 +1,12 @@
 .Activity__filter {
   display: flex;
   align-items: center;
+  background: #fff3e5;
+  border: 1px solid #16202933;
+  border-radius: 30px;
+  padding: 4px;
 }
+
 .Activity__filterWrap {
   width: 100%;
   display: flex;

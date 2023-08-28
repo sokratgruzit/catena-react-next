@@ -1,22 +1,23 @@
-.imgTextItem {
+.miniImgTextItem {
   display: flex;
   align-items: center;
   position: relative;
 }
-.imgTextItem p {
+.miniImgTextItem p {
   padding-left: 6px;
   color: #162029;
   font-weight: 500;
   font-size: 16px;
 }
 
-.imgTextItem img {
+.miniImgTextItem img {
   width: 50px;
   height: 50px;
   object-fit: cover;
   border-radius: 50%;
+  border: none;
 }
-.imgTextItem p:last-child {
+.miniImgTextItem p:last-child {
   color: #162029;
   font-size: 16px;
   font-weight: 400;
