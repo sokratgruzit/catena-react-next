@@ -5,6 +5,7 @@ import CompetitionTable from './competitionTable/CompetitionTable';
 import { VectorSvg } from '../../svg/index';
 import CornerDecor from '../../UI/cornerDecor/CornerDecor';
 import TabFilter from '../../UI/filters/TabFilter';
+import { Tabs } from '@catena-network/catena-ui-module';
 
 import styles from './Rank.module.css';
 import filterStyles from '../../UI/filters/TabFilter.module.css';
@@ -35,20 +36,19 @@ const Rank = () => {
   const DetailsHendler = () => {
     setDetails(!details);
   };
+
   const changeTabHendler = status => {
     setActiveMenuItem(status);
   };
+
+  const navigationHandler = activeItem => {
+    setActiveFilter(activeItem);
+  };
+
+  const [activeFilter, setActiveFilter] = useState('Search');
   return (
     <>
       <div className={styles.rankBkPosition}>
-        <div className={styles.Rank__background}>
-          <Image
-            layout='fill'
-            src={'/images/win/background/backgroundRank.png'}
-            alt='HomeScreen'
-            objectFit={'contain'}
-          />
-        </div>
         <div className={styles.rank}>
           <div className={styles.rankCup}>
             <div>
@@ -211,6 +211,12 @@ const Rank = () => {
               active: filterStyles.Rank__filterActive,
               item: filterStyles.Rank__filter__item,
             }}
+          />
+          <Tabs
+            onClick={navigationHandler}
+            type={'two-component-tabs-with-text'}
+            leftBtnText='Search'
+            rightBtnText='Watchlist'
           />
         </div>
         <div className={`${styles.contentActve} ${details === false ? styles.content : ''}`}>

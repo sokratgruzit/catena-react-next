@@ -113,3 +113,21 @@
   border-color: #000;
   color: #fff;
 }
+/*Laptop 1440*/
+@media (max-width: 1900px) {
+}
+
+/*Ipad Pro 1024*/
+@media (max-width: 1365px) {
+  .container {
+    width: 100%;
+  }
+}
+
+/*Ipad 768*/
+@media (max-width: 1023px) {
+}
+
+/*Mobile 320*/
+@media (max-width: 768px) {
+}

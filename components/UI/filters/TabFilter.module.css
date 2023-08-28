@@ -34,6 +34,7 @@
   padding: 13px 26px;
   background-color: #f3e4d2;
   border-radius: 30px;
+
   /* gap: 44px; */
 }
 .Collections__filter__item svg path {
@@ -80,7 +81,7 @@
 }
 .Competition__filter__item {
   border-radius: 4px;
-  padding: 4px 12px;
+  /* padding: 4px 12px; */
   cursor: pointer;
   margin: 0 5px;
 }
@@ -103,7 +104,7 @@
 }
 .Prediction__filter__item {
   border-radius: 4px;
-  padding: 4px 12px;
+  /* padding: 4px 12px; */
   cursor: pointer;
   margin: 0 5px;
 }
@@ -116,13 +117,14 @@
 .Rank__filterWrap {
   padding: 4px 0;
   margin: 20px 0;
+  width: 30%;
 }
 .Rank__filterActive {
   background-color: rgba(255, 255, 255, 0.1);
 }
 .Rank__filter__item {
   border-radius: 4px;
-  padding: 4px 12px;
+  /* padding: 4px 12px; */
   cursor: pointer;
   margin: 0 5px;
 }
@@ -147,7 +149,7 @@
 /* FinishedRounds styles */
 .FinishedRounds__filter__item {
   border-radius: 4px;
-  padding: 4px 12px;
+  /* padding: 4px 12px; */
   cursor: pointer;
   margin: 0 5px;
   font-size: 13px;

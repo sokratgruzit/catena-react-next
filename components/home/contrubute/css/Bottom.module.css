@@ -54,6 +54,9 @@
 
 /*Ipad Pro 1024*/
 @media (max-width: 1365px) {
+  .containerOne {
+    width: 100%;
+  }
 }
 
 /*Ipad 768*/

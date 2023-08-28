@@ -1,8 +1,7 @@
-.tradesTab { 
+.tradesTab {
   display: flex;
   align-items: center;
-  border-bottom: 1px dashed #ffffff10;
-
+  border-top: 1px solid rgb(33, 33, 33);
 }
 .tradesTab div:nth-child(1) {
   width: 40%;
@@ -23,23 +22,23 @@
   border-top: 1px solid #ffffff10;
 }
 .numbering {
-  white-space: nowrap; 
-  width: 50px; 
+  white-space: nowrap;
+  width: 50px;
   overflow: hidden;
-  text-overflow: ellipsis; 
-  color: #0500ff;
+  text-overflow: ellipsis;
+  color: #0a0a18;
 }
 .nickName {
-  white-space: nowrap; 
-  width: 100px; 
+  white-space: nowrap;
+  width: 100px;
   overflow: hidden;
-  text-overflow: ellipsis; 
+  text-overflow: ellipsis;
   font-size: 15px;
   line-height: 20px;
   color: #ffffff;
   opacity: 0.7;
 }
-.icone  {
+.icone {
   position: relative;
   padding-top: 12%;
   width: 20%;

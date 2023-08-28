@@ -16,7 +16,7 @@ const tradersDataTotal = [
     price: '$11,034,9435,000,000,000',
     nickName: '0x72a55b0x72a55b0x7255b0x72a55b0x72a55b0x7255b',
     img: '/images/win/iconestorme.png',
-    numbering: '#23333333',
+    numbering: '#2',
   },
   {
     id: 2,

@@ -93,12 +93,20 @@
   margin-right: 10px;
 }
 
-.botoomttl {
+/* .botoomttl {
   border-bottom: 1px solid black;
-}
+} */
 
 /*Ipad Pro 1024*/
 @media (max-width: 1365px) {
+  .mane {
+    width: 100%;
+  }
+  .boxmane {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 /*Ipad 768*/
@@ -131,15 +139,9 @@
     align-items: center;
     justify-content: center;
   }
-}
 
-/*Ipad 768*/
-@media (max-width: 1023px) {
-  .mane {
-    width: 100%;
+  .svgImg {
+    width: 80% !important;
+    margin: 10px 0;
   }
-}
-
-/*Mobile 320*/
-@media (max-width: 768px) {
 }

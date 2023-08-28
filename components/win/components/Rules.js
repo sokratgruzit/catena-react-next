@@ -202,17 +202,6 @@ const Rules = () => {
         </div>
       </div>
       <div className={styles.finishedRules}>
-        <div className={styles.Rules__background}>
-          <Image objectFit={'contain'} layout='fill' alt='rulesBk' src='/images/win/background/rulesBackground.png' />
-        </div>
-        <div>
-          <div className={styles.planetFinish}>
-            <Image layout='fill' objectFit={'contain'} src={'/images/win/planet.png'} alt='planet' />
-          </div>
-          <div className={styles.asteroidFinish}>
-            <Image layout='fill' objectFit={'contain'} src={'/images/win/asteroid.png'} alt='asteroid' />
-          </div>
-        </div>
         <div className={styles.faqCompetition}>
           <FAQ type={'rules'} />
         </div>
@@ -221,9 +210,7 @@ const Rules = () => {
                 <Marquee label={"win"} direction={"reverse"}/> */}
         </div>
         <Finished />
-        <div className={styles.spaceShipMeteorFinish}>
-          <Image layout='fill' objectFit={'contain'} src={'/images/win/spaceShipMeteor.png'} alt='spaceShipMeteor' />
-        </div>
+        <div className={styles.spaceShipMeteorFinish}></div>
       </div>
     </>
   );

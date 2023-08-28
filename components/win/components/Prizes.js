@@ -33,9 +33,6 @@ const Prizes = () => {
   return (
     <>
       <div className={styles.prizesBkPosition}>
-        <div className={styles.sky}>
-          <Image layout='fill' objectFit={'contain'} src={'/images/win/sky.png'} alt='sky' />
-        </div>
         <div className={styles.prizes}>
           <div>
             <svg width='27' height='31' viewBox='0 0 27 31' fill='none' xmlns='http://www.w3.org/2000/svg'>
@@ -156,9 +153,6 @@ const Prizes = () => {
         </div>
       </div>
       <div className={styles.backgrounPrizes}>
-        <div className={styles.Prizes__background}>
-          <Image layout='fill' src={'/images/win/background/prizesBackground.png'} alt='time' objectFit={'contain'} />
-        </div>
         <div className={styles.spaceBoySection}>
           <div>
             <div className={styles.prizesDescription}>
@@ -169,9 +163,6 @@ const Prizes = () => {
                 competition period.
               </p>
             </div>
-          </div>
-          <div className={styles.cosmonavtPrizes}>
-            <Image layout='fill' objectFit={'contain'} src={'/images/win/cosmonavtPrizes.png'} alt='cosmonavtPrizes' />
           </div>
         </div>
         <div className={`${styles.prizesBorder}`}>

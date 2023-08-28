@@ -2,34 +2,51 @@
   position: relative;
   margin-top: 300px;
 }
+
 .Rank__background {
   position: absolute;
   top: -60%;
   left: 0;
   z-index: -10;
-  padding-top: 100% ;
+  padding-top: 100%;
   width: 100%;
   height: 100%;
 }
+
 .rank {
   text-align: center;
 }
+
 .rankCup {
   position: relative;
   display: flex;
   align-items: baseline;
   justify-content: center;
 }
+
 .cup {
   padding-top: 6%;
+  width: 3%;
 }
+
+.cupImg {
+  min-height: 80% !important;
+}
+
 .svgImg {
   margin-right: 80px;
 }
+
+.rankImg {
+  min-height: 80% !important;
+}
+
 .rankTitle p {
   font-size: 30px;
   line-height: 42px;
+  margin-top: 20px;
 }
+
 .rankPosition {
   position: relative;
   display: flex;
@@ -37,67 +54,82 @@
   margin: 50px 0 10px 0;
   padding-top: 15%;
 }
+
 .rankVolume {
   display: flex;
   justify-content: center;
   gap: 10px;
 }
+
 .volume {
   font-size: 10px;
   line-height: 14px;
   text-align: center;
-  color: #627eea;
+  color: #ff6969;
   margin-bottom: 30px;
 }
+
 .rankBorder {
   position: relative;
   margin: auto;
   width: 55%;
-  padding: 20px;
- 
 }
+
 .content {
   max-height: 440px;
   overflow: hidden;
 }
+/* 
 .contentActve {
   max-width: 800px;
-}
+} */
+
 .rankTrades {
   border-bottom: 1px solid #ffffff10;
+  background-color: #f0dec9;
+  width: 100%;
+  padding: 20px;
 }
+
 .rankTrades h5 {
   font-size: 16px;
   line-height: 24px;
 }
+
 .rankTrades p {
   font-size: 13px;
   line-height: 18px;
   color: #babbbe;
   margin-bottom: 20px;
 }
+
 .borderCorner {
   position: relative;
 }
+
 .price {
-  white-space: nowrap; 
-  width: 100px; 
+  white-space: nowrap;
+  width: 100px;
   overflow: hidden;
-  text-overflow: ellipsis; 
+  text-overflow: ellipsis;
 }
+
 .buttonShowMore {
   text-align: center;
 }
+
 .buttonShowMore button {
   font-size: 15px;
   line-height: 20px;
   margin-right: 5px;
   color: #0500ff;
 }
-.vectorSvg{
-  stroke: #0500FF;
-  transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+
+.vectorSvg {
+  stroke: #0500ff;
+  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
 }
+
 .rotate {
   transform: rotateZ(-180deg);
 }
@@ -106,7 +138,7 @@
 @media (max-width: 1300px) {
   .rankPosition {
     padding-top: 20%;
-  } 
+  }
 }
 /*Ipad 768*/
 @media (max-width: 1023px) {
