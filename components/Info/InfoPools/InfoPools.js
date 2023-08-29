@@ -1,12 +1,10 @@
 import React from 'react';
-import { useState } from 'react';
-import { useRouter } from 'next/router';
-
 import InfoRoutes from '../components/InfoRoutes/InfoRoutes';
 import TableTokens from '../../Info/components/tableTokens/TableTokens'
 
 import styles from '../InfoPages.module.css';
 import { StarSvg } from '../../svg/index';
+import Link from 'next/link';
 
 const tableHead = [
   {
@@ -83,7 +81,6 @@ const stakersRecord = [
 ];
 
 const InfoPools = () => {
-  const router = useRouter();
   return (
     <div className='pT-180'>
       <div className='container'>
@@ -91,10 +88,12 @@ const InfoPools = () => {
           <div className={styles.routesWrapper}>
             <div className={styles.space}></div>
             <InfoRoutes />
-            <div className={styles.starWrapper}>
-              <StarSvg className={styles.starSVG} onClick={() => router.push(`/overview/info/pools/watchlist`)} />
-              <div className={styles.favCount}>3</div>
-            </div>
+            <Link href={`/overview/info/pools/watchlist`}>
+              <div className={styles.starWrapper}>
+                <StarSvg className={styles.starSVG}/>
+                <div className={styles.favCount}>3</div>
+              </div>
+            </Link>
           </div>
           <TableTokens title="All Pools" tableInfo={stakersRecord} tableHead={tableHead} />
         </div>

@@ -14,6 +14,7 @@ import TransactionTable from '../InfoTables/TransactionTable';
 import SearchBar from '../SearchBar/SearchBar';
 
 import styles from './TokenSection.module.css';
+import Link from 'next/link';
 
 const TokenSection = ({ data }) => {
   const router = useRouter();
@@ -32,10 +33,12 @@ const TokenSection = ({ data }) => {
               </div>
             </div>
             <InfoRoutes />
-            <div className={styles.starWrapper}>
-              <StarSvg className={styles.starSVG} onClick={() => router.push(`/info/tokens/watchlist`)} />
-              {favTokens.length > 0 && <div className={styles.favCount}>{favTokens.length}</div>}
-            </div>
+            <Link href={`/info/tokens/watchlist`}>
+              <div className={styles.starWrapper}>
+                <StarSvg className={styles.starSVG}/>
+                {favTokens.length > 0 && <div className={styles.favCount}>{favTokens.length}</div>}
+              </div>
+            </Link>
           </div>
           <SearchBar />
           <div className={styles.titleRow}>

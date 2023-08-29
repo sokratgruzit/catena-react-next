@@ -1,6 +1,4 @@
 import React from 'react';
-import { useState } from 'react';
-
 import InfoRoutes from '../components/InfoRoutes/InfoRoutes';
 import TableTokens from '../../Info/components/tableTokens/TableTokens'
 import TopMovers from '../components/TopMovers/TopMovers';
@@ -8,6 +6,7 @@ import SearchBar from '../components/SearchBar/SearchBar';
 
 import styles from '../InfoPages.module.css';
 import { StarSvg } from '../../svg';
+import Link from 'next/link';
 
 const tableHead = [
   {
@@ -91,10 +90,12 @@ const InfoTokens = () => {
         <div className={styles.routesWrapper}>
             <div className={styles.space}></div>
             <InfoRoutes />
-            <div className={styles.starWrapper}>
-              <StarSvg className={styles.starSVG} onClick={() => router.push(`/overview/info/pools/watchlist`)} />
-              <div className={styles.favCount}>3</div>
-            </div>
+            <Link href={'/overview/info/pools/watchlist'}>
+              <div className={styles.starWrapper}>
+                <StarSvg className={styles.starSVG} />
+                <div className={styles.favCount}>3</div>
+              </div>
+            </Link>
           </div>
           <SearchBar />
           <TopMovers />

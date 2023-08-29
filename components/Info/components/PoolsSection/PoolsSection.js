@@ -13,6 +13,7 @@ import TransactionTable from '../InfoTables/TransactionTable';
 import SearchBar from '../SearchBar/SearchBar';
 
 import styles from './PoolsSection.module.css';
+import Link from 'next/link';
 
 const PoolsSection = ({ data }) => {
   const router = useRouter();
@@ -26,10 +27,12 @@ const PoolsSection = ({ data }) => {
           </div>
         </div>
         <InfoRoutes />
-        <div className={styles.starWrapper}>
-          <StarSvg className={styles.starSVG} onClick={() => router.push(`/info/pools/watchlist`)} />
-          <div className={styles.favCount}>3</div>
-        </div>
+        <Link href={`/info/pools/watchlist`}>
+          <div className={styles.starWrapper}>
+            <StarSvg className={styles.starSVG}/>
+            <div className={styles.favCount}>3</div>
+          </div>
+        </Link>
       </div>
       <SearchBar />
       <div className={styles.titleRow}>

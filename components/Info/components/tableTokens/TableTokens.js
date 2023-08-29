@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useMobileWidth } from '../../../../hooks/useMobileWidth';
 
 import { Table, Button, TableElement } from '@catena-network/catena-ui-module';
-import CornerDecor from '../../../UI/cornerDecor/CornerDecor';
 import { ArrowSvg } from '../../../svg';
 import ArrowDownSvg from '../../../svg/ArrowDownSvg';
 
@@ -144,10 +143,9 @@ const TableFarms = ({ title, tableInfo, tableHead, Table__Types }) => {
         ));
 
     return (
-        <div>
-            <div className='container'>
-                <h2 className='ttl font-40'>{title}</h2>
-            </div>
+            <div className='container_bordered'>
+                <h2 style={{marginBottom: "20px"}} className='ttl font-40'>{title}</h2>
+           <div className='container_bordered-child'>
             <Table
                 type={'table-version'}
                 tableHeadMore={tableHeadMore}
@@ -158,6 +156,7 @@ const TableFarms = ({ title, tableInfo, tableHead, Table__Types }) => {
                 tableEmptyData={tableEmptyData}
                 loading={loading}
             />
+            </div>
             <TableElement
                 type={"pagination"}
                 currentPage={currentPage}
@@ -165,7 +164,7 @@ const TableFarms = ({ title, tableInfo, tableHead, Table__Types }) => {
                 onPageChange={(page) => setCurrentPage(page)}
                 customStyle={{ margin: '20px 0 40px 0' }}
             />
-        </div>
+             </div>
     );
 }
 
