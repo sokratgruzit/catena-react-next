@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import React from 'react';
 
-import ChartBlock from './ChartBlock/ChartBlock';
+import ChartBlock from './chart-block/ChartBlock';
 import FirstBlock from './FirstBlock/FirstBlock';
 import SecondBlock from './SecondBlock/SecondBlock';
 import { OpenSvg, StarSvg, SmlArrowSvg } from '../../../svg';

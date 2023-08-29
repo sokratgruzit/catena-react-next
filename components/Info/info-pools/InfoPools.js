@@ -1,6 +1,6 @@
 import React from 'react';
-import InfoRoutes from '../components/InfoRoutes/InfoRoutes';
-import TableTokens from '../../Info/components/tableTokens/TableTokens'
+import InfoRoutes from '../components/info-routes/InfoRoutes';
+import TableTokens from '../components/table-tokens/TableTokens'
 
 import styles from '../InfoPages.module.css';
 import { StarSvg } from '../../svg/index';

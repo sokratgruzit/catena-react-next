@@ -1,8 +1,8 @@
 import React from 'react';
-import InfoRoutes from '../components/InfoRoutes/InfoRoutes';
-import TableTokens from '../../Info/components/tableTokens/TableTokens'
-import TopMovers from '../components/TopMovers/TopMovers';
-import SearchBar from '../components/SearchBar/SearchBar';
+import InfoRoutes from '../components/info-routes/InfoRoutes';
+import TableTokens from '../components/table-tokens/TableTokens'
+import TopMovers from '../components/top-movers/TopMovers';
+import SearchBar from '../components/search-bar/SearchBar';
 
 import styles from '../InfoPages.module.css';
 import { StarSvg } from '../../svg';

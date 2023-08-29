@@ -1,10 +1,10 @@
 import React from 'react';
 import { useState } from 'react';
 
-import InfoCharts from '../components/InfoCharts/InfoCharts';
-import InfoRoutes from '../components/InfoRoutes/InfoRoutes';
-import SearchBar from '../components/SearchBar/SearchBar';
-import TableTokens from '../components/tableTokens/TableTokens'
+import InfoCharts from '../components/info-charts/InfoCharts';
+import InfoRoutes from '../components/info-routes/InfoRoutes';
+import SearchBar from '../components/search-bar/SearchBar';
+import TableTokens from '../components/table-tokens/TableTokens'
 
 import styles from '../InfoPages.module.css';
 
