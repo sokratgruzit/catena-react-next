@@ -84,26 +84,6 @@ const TableFarms = ({ title, tableInfo, tableHead, Table__Types }) => {
                                 </span>
                             </div>
                         ))}
-                        {width > 940 &&
-                            tableHead.slice(5, 7).map((i, index) => (
-                                <div
-                                    key={index}
-                                    className={`td col ${i.position} ${i.mobileWidth ? true : false}`}
-                                    style={{
-                                        width: `${mobile ? i.mobileWidth : i.width}%`,
-                                        marginRight: `${width < 1450 ? '10px' : '0'}`,
-                                    }}
-                                >
-                                    <Button
-                                        element={'staking-button'}
-                                        label={index === 0 ? 'Unstake' : 'Harvest'}
-                                        active={index === 0}
-                                        customStyles={{ borderRadius: '32px' }}
-                                        onClick={() => i.onClick(index)}
-                                        disabled={index === 0 ? item.unstaked : item.withdrawan}
-                                    />
-                                </div>
-                            ))}
                     </div>
                     <div className='table-more' />
                     <div className='icon-place'>
@@ -121,22 +101,6 @@ const TableFarms = ({ title, tableInfo, tableHead, Table__Types }) => {
                                     </span>
                                 </div>
                             ))}
-                            {width <= 940 && (
-                                <div className='table-buttons'>
-                                    {[5, 6].map(index => (
-                                        <div className='td' key={index}>
-                                            <Button
-                                                element='staking-button'
-                                                label={index === 5 ? 'Unstake' : 'Harvest'}
-                                                active={index === 5}
-                                                customStyles={{ borderRadius: '32px' }}
-                                                onClick={() => tableHead[index].onClick(index)}
-                                                disabled={index === 5 ? item.unstaked : item.withdrawan}
-                                            />
-                                        </div>
-                                    ))}
-                                </div>
-                            )}
                         </div>
                     </div>
                 </div>
