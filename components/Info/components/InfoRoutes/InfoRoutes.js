@@ -12,51 +12,50 @@ const InfoRoutes = () => {
     {
       title: "Overview",
       id: 0,
+      onClick: () => handleTab(0),
     },
     {
       title: "Pools",
       id: 1,
+      onClick: () => handleTab(1),
     },
     {
       title: "Tokens",
       id: 2,
+      onClick: () => handleTab(2),
     },
   ];
+  
 
-  const handleTabChange = (id) => {
+  const handleTab = (id) => {
     setActiveTab(id);
-    switch (id) {
-      case 0:
-        router.push("/overview/info");
-        break;
-      case 1:
-        router.push("/overview/info/pools");
-        break;
-      case 2:
-        router.push("/overview/info/tokens");
-        break;
-      default:
-        break;
+  
+    if (id === 0) {
+      router.push("/overview/info");
+    } else if (id === 1) {
+      router.push("/overview/info/pools");
+    } else if (id === 2) {
+      router.push("/overview/info/tokens");
     }
   };
 
   useEffect(() => {
-    // Map the current pathname to the active tab
-    const pathToTabId = {
-      "/overview/info": 0,
-      "/overview/info/pools": 1,
-      "/overview/info/tokens": 2,
-    };
-    setActiveTab(pathToTabId[router.pathname] || 0);
+    if (router.pathname === "/overview/info") {
+      setActiveTab(0);
+    } else if (router.pathname === "/overview/info/pools") {
+      setActiveTab(1);
+    } else if (router.pathname === "/overview/info/tokens") {
+      setActiveTab(2);
+    }
   }, [router.pathname]);
 
   return (
     <div className={styles.routesWrapperMain}>
       <Tabs
-        type="dynamic-tabs"
+        type={"dynamic-tabs"}
         tabsData={tabsData}
         activeTab={activeTab}
-        onClick={handleTabChange}
+        // onClick={(id) => handleTab(id)}
       />
     </div>
   );
