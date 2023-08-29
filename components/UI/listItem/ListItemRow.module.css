@@ -1260,6 +1260,15 @@
   }
 }
 
+@media (max-width: 767px) {
+  .th_activity:nth-child(6),
+  .nft_activity_table .td:nth-child(6) {
+    margin-right: 0;
+    margin-left: auto;
+    width: fit-content;
+    padding-right: 0;
+  }
+}
 @media (max-width: 600px) {
   .InfoTokensRowItem .td:nth-child(3),
   .th_info_tokens:nth-child(3) {
@@ -1280,6 +1289,18 @@
     overflow: hidden;
     white-space: nowrap;
     display: inline-block;
+  }
+  .th_activity:nth-child(6),
+  .nft_activity_table .td:nth-child(6) {
+    display: none;
+  }
+  .th_activity:nth-child(1),
+  .nft_activity_table .td:nth-child(1) {
+    width: 100%;
+    flex-direction: column;
+  }
+  .nft_activity_table {
+    padding: 0;
   }
   .earn_farmsRow .td:first-child,
   .th_earn_farms:first-child {

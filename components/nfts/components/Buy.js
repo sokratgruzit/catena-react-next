@@ -770,7 +770,7 @@ const Buy = props => {
             </div>
           </Link>
         </div>
-        <div>
+        <div className={styles.swiperWrapper}>
           <Swiper
             className={styles.Collections__products}
             spaceBetween={30}
@@ -779,7 +779,7 @@ const Buy = props => {
             mousewheel={true}
             breakpoints={{
               0: {
-                slidesPerView: 1.2,
+                slidesPerView: 1,
                 spaceBetween: 30,
               },
               767: {
@@ -799,8 +799,6 @@ const Buy = props => {
                 slidesPerView: 4,
                 spaceBetween: 30,
               },
-
-             
             }}
           >
             {collectionItems.map(item => {
@@ -816,15 +814,16 @@ const Buy = props => {
                             </picture>
                           </div>
                           <p className={`${'font_13'} ${styles.Collection__product__title}`}>{item.title}</p>
-                          <p className={'font_13'}>{item.subTitle}</p>
+                          <p className={'font_20'}>{item.subTitle}</p>
                         </div>
-                        <p className={`${'font_13'} ${styles.Collection__product__askingPrice}`}>Asking Price:</p>
-                        <div className={styles.Collection__prices}>
-                          <p>
-                            <span>CMCX</span>
-                            {item.priceCmcx}
-                          </p>
-                          <p className={`${'font_13'} ${styles.Collection__price}`}>{item.priceUsd}</p>
+                        <div className={styles.bottomContent}>
+                          <p className={` ${styles.Collection__product__askingPrice}`}>Asking Price:</p>
+                          <div className={styles.Collection__prices}>
+                            <p className={`${'font_13'} ${styles.Collection__price}`}>{item.priceUsd}</p>
+                            <p className={`${styles.Collection__price__cmcx} font-20`}>
+                              <span className='font-20'>{item.priceCmcx}</span> CMCX
+                            </p>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -833,6 +832,7 @@ const Buy = props => {
               );
             })}
           </Swiper>
+          <div className={styles.line}></div>
         </div>
       </div>
     </div>

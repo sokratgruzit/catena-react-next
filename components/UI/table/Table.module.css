@@ -87,3 +87,14 @@
     width: auto;
     margin-left: auto;
 } */
+
+@media (max-width: 767px) {
+  .Table__labels {
+    display: flex;
+    justify-content: space-between;
+  }
+  .Table__labels div:last-child {
+    margin-right: 0px;
+    margin-left: auto;
+  }
+}

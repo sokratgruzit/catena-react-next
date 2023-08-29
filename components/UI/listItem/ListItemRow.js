@@ -73,49 +73,47 @@ const ListItemRow = props => {
     cs = styles.proposal_votes_row;
   }
   obj = (
-    <Link href={`/overview/nfts/collections/${data.id}`}>
-      <div className={`${cs} ${styles.rowItem}`} onClick={props?.toggleExpand}>
-        {data.data.map((item, index) => {
-          if (item.type === 'img_text') {
-            return <ImgTextItem key={'img_text' + type + index} data={item} onClick={item.onClick} />;
-          }
+    <div className={`${cs} ${styles.rowItem}`} onClick={props?.toggleExpand}>
+      {data.data.map((item, index) => {
+        if (item.type === 'img_text') {
+          return <ImgTextItem key={'img_text' + type + index} data={item} onClick={item.onClick} />;
+        }
 
-          if (item.type === 'mini-img_text') {
-            return <MiniImgTextItem key={'mini-img_text' + type + index} data={item} onClick={item.onClick} />;
-          }
+        if (item.type === 'mini-img_text') {
+          return <MiniImgTextItem key={'mini-img_text' + type + index} data={item} onClick={item.onClick} />;
+        }
 
-          if (item.type === 'text') {
-            return <TextItem key={'text' + type + index} data={item} />;
-          }
+        if (item.type === 'text') {
+          return <TextItem key={'text' + type + index} data={item} />;
+        }
 
-          if (item.type === 'multi_text') {
-            return <MultiTextItem key={'multi_text' + type + index} data={item} />;
-          }
+        if (item.type === 'multi_text') {
+          return <MultiTextItem key={'multi_text' + type + index} data={item} />;
+        }
 
-          if (item.type === 'price') {
-            return <PriceItem key={'price' + type + index} data={item} />;
-          }
+        if (item.type === 'price') {
+          return <PriceItem key={'price' + type + index} data={item} />;
+        }
 
-          if (item.type === 'svg') {
-            return <TextSvg key={'svg' + type + index} data={item} />;
-          }
+        if (item.type === 'svg') {
+          return <TextSvg key={'svg' + type + index} data={item} />;
+        }
 
-          if (item.type === 'price_change') {
-            return <PriceChange key={'price_change' + type + index} data={item} />;
-          }
-          if (item.type === 'multi_svg') {
-            return <MultiTextSvg key={'multi_svg' + type + index} data={item} />;
-          }
-          if (item.type === 'expand_custom') {
-            return (
-              <div className={styles.vectorDiv}>
-                <VectorSvg key={index} className={`${styles.vectorSvg} ${props.expandRow && styles.vectorActive}`} />
-              </div>
-            );
-          }
-        })}
-      </div>
-    </Link>
+        if (item.type === 'price_change') {
+          return <PriceChange key={'price_change' + type + index} data={item} />;
+        }
+        if (item.type === 'multi_svg') {
+          return <MultiTextSvg key={'multi_svg' + type + index} data={item} />;
+        }
+        if (item.type === 'expand_custom') {
+          return (
+            <div className={styles.vectorDiv}>
+              <VectorSvg key={index} className={`${styles.vectorSvg} ${props.expandRow && styles.vectorActive}`} />
+            </div>
+          );
+        }
+      })}
+    </div>
   );
 
   return obj;
