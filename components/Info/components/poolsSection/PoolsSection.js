@@ -2,13 +2,13 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import React from 'react';
 
-import ChartBlock from './chart-block/ChartBlock';
-import FirstBlock from './FirstBlock/FirstBlock';
-import SecondBlock from './SecondBlock/SecondBlock';
+import ChartBlock from './chartBlock/ChartBlock';
+import FirstBlock from './firstBlock/FirstBlock';
+import SecondBlock from './secondBlock/SecondBlock';
 import { OpenSvg, StarSvg, SmlArrowSvg } from '../../../svg';
 import Button from '../../../UI/button/Button';
-import InfoRoutes from '../InfoRoutes/InfoRoutes';
-import SearchBar from '../SearchBar/SearchBar';
+import InfoRoutes from '../infoRoutes/InfoRoutes';
+import SearchBar from '../searchBar/SearchBar';
 
 import styles from './PoolsSection.module.css';
 import Link from 'next/link';

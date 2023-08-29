@@ -3,13 +3,13 @@ import { useRouter } from 'next/router';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import ChartBlock from './ChartBlock/ChartBlock';
+import ChartBlock from './chartBlock/ChartBlock';
 import { OpenSvg, StarSvg, SmlArrowSvg, PriceUp, PriceDown } from '../../../svg';
 import Button from '../../../UI/button/Button';
 import CornerDecor from '../../../UI/cornerDecor/CornerDecor';
 import { formatCurrency } from '../../../utils/formatCurrency';
-import InfoRoutes from '../InfoRoutes/InfoRoutes';
-import SearchBar from '../SearchBar/SearchBar';
+import InfoRoutes from '../infoRoutes/InfoRoutes';
+import SearchBar from '../searchBar/SearchBar';
 
 import styles from './TokenSection.module.css';
 import Link from 'next/link';

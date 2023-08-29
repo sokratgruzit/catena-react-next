@@ -1,37 +1,57 @@
 import React from 'react';
-import InfoRoutes from '../components/info-routes/InfoRoutes';
-import TableTokens from '../components/table-tokens/TableTokens'
+import { useState } from 'react';
+
+import InfoCharts from '../components/infoCharts/InfoCharts';
+import InfoRoutes from '../components/infoRoutes/InfoRoutes';
+import SearchBar from '../components/searchBar/SearchBar';
+import TableTokens from '../components/tableTokens/TableTokens';
 
 import styles from '../InfoPages.module.css';
-import { StarSvg } from '../../svg/index';
-import Link from 'next/link';
+
+const Table__Types = [
+  {
+    type: 'All',
+  },
+  {
+    type: 'Swaps',
+  },
+  {
+    type: 'Adds',
+  },
+  {
+    type: 'Removes',
+  },
+];
 
 const tableHead = [
   {
     name: 'Staked Amount',
     width: 15,
-    mobileWidth: 45,
+    mobileWidth: 15,
     id: 0,
   },
   {
     name: 'Stake Date ',
+    mobileWidth: 15,
     width: 15,
     id: 1,
   },
   {
     name: 'Unstake Date',
+    mobileWidth: 15,
     width: 15,
     id: 2,
   },
   {
     name: 'Earn Reward',
+    mobileWidth: 15,
     width: 15,
     id: 3,
   },
   {
     name: 'Harvest',
     width: 15,
-    mobileWidth: 45,
+    mobileWidth: 15,
     id: 4,
   },
 ];
@@ -62,26 +82,22 @@ const stakersRecord = [
   },
 ];
 
-const InfoPools = () => {
+const InfoOverview = () => {
   return (
     <div className='pT-180'>
       <div className='container'>
         <div className={styles.section}>
-          <div className={styles.routesWrapper}>
-            <div className={styles.space}></div>
-            <InfoRoutes />
-            <Link href={`/overview/info/pools/watchlist`}>
-              <div className={styles.starWrapper}>
-                <StarSvg className={styles.starSVG}/>
-                <div className={styles.favCount}>3</div>
-              </div>
-            </Link>
-          </div>
-          <TableTokens title="All Pools" tableInfo={stakersRecord} tableHead={tableHead} />
+          <InfoRoutes />
+          <SearchBar />
+          <InfoCharts />
+          <TableTokens title="Top Tokens" tableInfo={stakersRecord} tableHead={tableHead} />
+          <TableTokens title="Top Pools" tableInfo={stakersRecord} tableHead={tableHead} />
+          <TableTokens title="Transaction" tableInfo={stakersRecord} tableHead={tableHead} Table__Types={Table__Types} />
+          {/* <TransactionTable tableHead={tableHead} tableInfo={stakersRecord}/> */}
         </div>
       </div>
     </div>
   );
 };
 
-export default InfoPools;
+export default InfoOverview;

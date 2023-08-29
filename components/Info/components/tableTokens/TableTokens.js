@@ -5,7 +5,7 @@ import { Table, Button, TableElement } from '@catena-network/catena-ui-module';
 import { ArrowSvg } from '../../../svg';
 import ArrowDownSvg from '../../../svg/ArrowDownSvg';
 
-import styles from '../info-tables/InfoTables.module.css'
+import styles from '../infoTables/InfoTables.module.css'
 
 const TableFarms = ({ title, tableInfo, tableHead, Table__Types }) => {
     const [currentPage, setCurrentPage] = useState(1);

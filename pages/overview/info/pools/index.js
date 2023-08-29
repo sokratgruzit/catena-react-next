@@ -1,5 +1,5 @@
 import React from 'react';
-import InfoPools from '../../../../components/Info/info-pools/InfoPools';
+import InfoPools from '../../../../components/info/infoPools/InfoPools';
 
 const index = () => {
   return <InfoPools />;

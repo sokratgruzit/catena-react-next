@@ -1,57 +1,39 @@
 import React from 'react';
-import { useState } from 'react';
-
-import InfoCharts from '../components/info-charts/InfoCharts';
-import InfoRoutes from '../components/info-routes/InfoRoutes';
-import SearchBar from '../components/search-bar/SearchBar';
-import TableTokens from '../components/table-tokens/TableTokens'
+import InfoRoutes from '../components/infoRoutes/InfoRoutes';
+import TableTokens from '../components/tableTokens/TableTokens'
+import TopMovers from '../components/topMovers/TopMovers';
+import SearchBar from '../components/searchBar/SearchBar';
 
 import styles from '../InfoPages.module.css';
-
-const Table__Types = [
-  {
-    type: 'All',
-  },
-  {
-    type: 'Swaps',
-  },
-  {
-    type: 'Adds',
-  },
-  {
-    type: 'Removes',
-  },
-];
+import { StarSvg } from '../../svg';
+import Link from 'next/link';
 
 const tableHead = [
   {
-    name: 'Staked Amount',
+    name: 'Name',
     width: 15,
-    mobileWidth: 15,
+    mobileWidth: 45,
     id: 0,
   },
   {
-    name: 'Stake Date ',
-    mobileWidth: 15,
+    name: 'Price',
     width: 15,
     id: 1,
   },
   {
-    name: 'Unstake Date',
-    mobileWidth: 15,
+    name: 'PriceChange',
     width: 15,
     id: 2,
   },
   {
-    name: 'Earn Reward',
-    mobileWidth: 15,
+    name: 'Reward fees',
     width: 15,
     id: 3,
   },
   {
-    name: 'Harvest',
+    name: 'Reward',
     width: 15,
-    mobileWidth: 15,
+    mobileWidth: 45,
     id: 4,
   },
 ];
@@ -82,22 +64,28 @@ const stakersRecord = [
   },
 ];
 
-const InfoOverview = () => {
+const InfoTokens = () => {
   return (
     <div className='pT-180'>
       <div className='container'>
         <div className={styles.section}>
-          <InfoRoutes />
+        <div className={styles.routesWrapper}>
+            <div className={styles.space}></div>
+            <InfoRoutes />
+            <Link href={'/overview/info/pools/watchlist'}>
+              <div className={styles.starWrapper}>
+                <StarSvg className={styles.starSVG} />
+                <div className={styles.favCount}>3</div>
+              </div>
+            </Link>
+          </div>
           <SearchBar />
-          <InfoCharts />
+          <TopMovers />
           <TableTokens title="Top Tokens" tableInfo={stakersRecord} tableHead={tableHead} />
-          <TableTokens title="Top Pools" tableInfo={stakersRecord} tableHead={tableHead} />
-          <TableTokens title="Transaction" tableInfo={stakersRecord} tableHead={tableHead} Table__Types={Table__Types} />
-          {/* <TransactionTable tableHead={tableHead} tableInfo={stakersRecord}/> */}
         </div>
       </div>
     </div>
   );
 };
 
-export default InfoOverview;
+export default InfoTokens;

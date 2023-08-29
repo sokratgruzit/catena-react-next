@@ -1,10 +1,7 @@
 import { useRouter } from 'next/router';
 import React from 'react';
 
-import TokenSection from '../../../../../components/Info/components/TokensSection/TokenSection';
-import BackgroundImg from '../../../../../public/images/Info/background/background.png';
-
-import styles from '../../../../../components/Info/InfoPages.module.css';
+import TokenSection from '../../../../../components/info/components/tokensSection/TokenSection';
 
 const InfoTokensInngerPage_Data = {
   id: 1,
