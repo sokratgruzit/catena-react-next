@@ -34,24 +34,6 @@ const tableHead = [
     mobileWidth: 45,
     id: 4,
   },
-  {
-    name: '',
-    width: 10,
-    id: 5,
-    mobileWidth: 35,
-    position: 'right',
-    className: 'buttons-th',
-    onClick: index => console.log(index),
-  },
-  {
-    name: '',
-    width: 7,
-    id: 6,
-    mobileWidth: 20,
-    position: 'right',
-    className: 'buttons-th',
-    onClick: index => console.log(index),
-  },
 ];
 const stakersRecord = [
   {

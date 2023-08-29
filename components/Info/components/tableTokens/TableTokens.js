@@ -59,7 +59,7 @@ const TableFarms = ({ title, tableInfo, tableHead, Table__Types }) => {
                     className={`table-parent ${mobileExpand === index ? 'active' : ''}`}
                     key={index}
                     onClick={() => {
-                        mobileExpandFunc(index);
+                        // mobileExpandFunc(index);
                     }}
                 >
 
@@ -67,7 +67,7 @@ const TableFarms = ({ title, tableInfo, tableHead, Table__Types }) => {
                         {tableHead?.slice(0, 5).map((i, index) => (
                             <div
                                 key={index}
-                                className={`td col ${i.mobileWidth ? true : false}`}
+                                className={`td col ${i.mobileWidth ? true : true}`}
                                 style={{ width: `${mobile ? i.mobileWidth : i.width}%` }}
                             >
                                 <span>
@@ -84,23 +84,16 @@ const TableFarms = ({ title, tableInfo, tableHead, Table__Types }) => {
                             </div>
                         ))}
                         {width > 940 &&
-                            tableHead.slice(5, 7).map((i, index) => (
+                            tableHead.slice(6).map((i, index) => (
                                 <div
                                     key={index}
-                                    className={`td col ${i.position} ${i.mobileWidth ? true : false}`}
+                                    className={`td col ${i.position} ${i.mobileWidth ? true : true}`}
                                     style={{
                                         width: `${mobile ? i.mobileWidth : i.width}%`,
                                         marginRight: `${width < 1450 ? '10px' : '0'}`,
                                     }}
                                 >
-                                    <Button
-                                        element={'staking-button'}
-                                        label={index === 0 ? 'Unstake' : 'Harvest'}
-                                        active={index === 0}
-                                        customStyles={{ borderRadius: '32px' }}
-                                        onClick={() => i.onClick(index)}
-                                        disabled={index === 0 ? item.unstaked : item.withdrawan}
-                                    />
+                                    <div>kkkkkk</div>
                                 </div>
                             ))}
                     </div>
@@ -124,14 +117,6 @@ const TableFarms = ({ title, tableInfo, tableHead, Table__Types }) => {
                                 <div className='table-buttons'>
                                     {[5, 6].map(index => (
                                         <div className='td' key={index}>
-                                            <Button
-                                                element='staking-button'
-                                                label={index === 5 ? 'Unstake' : 'Harvest'}
-                                                active={index === 5}
-                                                customStyles={{ borderRadius: '32px' }}
-                                                onClick={() => tableHead[index].onClick(index)}
-                                                disabled={index === 5 ? item.unstaked : item.withdrawan}
-                                            />
                                         </div>
                                     ))}
                                 </div>

@@ -10,49 +10,31 @@ import Link from 'next/link';
 
 const tableHead = [
   {
-    name: 'Staked Amount',
+    name: 'Name',
     width: 15,
     mobileWidth: 45,
     id: 0,
   },
   {
-    name: 'Stake Date ',
+    name: 'Price',
     width: 15,
     id: 1,
   },
   {
-    name: 'Unstake Date',
+    name: 'PriceChange',
     width: 15,
     id: 2,
   },
   {
-    name: 'Earn Reward',
+    name: 'Reward fees',
     width: 15,
     id: 3,
   },
   {
-    name: 'Harvest',
+    name: 'Reward',
     width: 15,
     mobileWidth: 45,
     id: 4,
-  },
-  {
-    name: '',
-    width: 10,
-    id: 5,
-    mobileWidth: 35,
-    position: 'right',
-    className: 'buttons-th',
-    onClick: index => console.log(index),
-  },
-  {
-    name: '',
-    width: 7,
-    id: 6,
-    mobileWidth: 20,
-    position: 'right',
-    className: 'buttons-th',
-    onClick: index => console.log(index),
   },
 ];
 const stakersRecord = [

@@ -67,10 +67,10 @@ const SearchBar = () => {
                       <p>Liquidity</p>
                     </div>
                   </div>
-                  <p style={{color: "#162029"}} className={styles.Search__beforeResult}></p>
+                  <p style={{color: "#162029"}} className={styles.Search__beforeResult}>hghhghgh</p>
                 </div>
                 <div>
-                  <div style={{margin: "45px 0 25px 20px"}} className={styles.Search__resultsRow}>
+                  <div style={{margin: "30px 0 25px 20px"}} className={styles.Search__resultsRow}>
                     <p>Pools</p>
                     <div className={styles.Search__resultsDiv}>
                       <p>Volume 24H</p>
