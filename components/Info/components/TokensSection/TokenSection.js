@@ -9,8 +9,6 @@ import Button from '../../../UI/button/Button';
 import CornerDecor from '../../../UI/cornerDecor/CornerDecor';
 import { formatCurrency } from '../../../utils/formatCurrency';
 import InfoRoutes from '../InfoRoutes/InfoRoutes';
-import PoolsTable from '../InfoTables/PoolsTable';
-import TransactionTable from '../InfoTables/TransactionTable';
 import SearchBar from '../SearchBar/SearchBar';
 
 import styles from './TokenSection.module.css';
@@ -144,11 +142,9 @@ const TokenSection = ({ data }) => {
           </div>
           <div>
             <h2 className={styles.tableName}>Pools</h2>
-            <PoolsTable itemsPerPage={5} />
           </div>
           <div>
             <h2 className={styles.tableName}>Transaction</h2>
-            <TransactionTable />
           </div>
         </div>
       )}

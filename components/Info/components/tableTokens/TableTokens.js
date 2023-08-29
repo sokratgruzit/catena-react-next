@@ -83,19 +83,6 @@ const TableFarms = ({ title, tableInfo, tableHead, Table__Types }) => {
                                 </span>
                             </div>
                         ))}
-                        {width > 940 &&
-                            tableHead.slice(6).map((i, index) => (
-                                <div
-                                    key={index}
-                                    className={`td col ${i.position} ${i.mobileWidth ? true : true}`}
-                                    style={{
-                                        width: `${mobile ? i.mobileWidth : i.width}%`,
-                                        marginRight: `${width < 1450 ? '10px' : '0'}`,
-                                    }}
-                                >
-                                    <div>kkkkkk</div>
-                                </div>
-                            ))}
                     </div>
                     <div className='table-more' />
                     <div className='icon-place'>
@@ -113,14 +100,6 @@ const TableFarms = ({ title, tableInfo, tableHead, Table__Types }) => {
                                     </span>
                                 </div>
                             ))}
-                            {width <= 940 && (
-                                <div className='table-buttons'>
-                                    {[5, 6].map(index => (
-                                        <div className='td' key={index}>
-                                        </div>
-                                    ))}
-                                </div>
-                            )}
                         </div>
                     </div>
                 </div>
