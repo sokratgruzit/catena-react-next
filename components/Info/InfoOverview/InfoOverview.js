@@ -27,28 +27,31 @@ const tableHead = [
   {
     name: 'Staked Amount',
     width: 15,
-    mobileWidth: 45,
+    mobileWidth: 15,
     id: 0,
   },
   {
     name: 'Stake Date ',
+    mobileWidth: 15,
     width: 15,
     id: 1,
   },
   {
     name: 'Unstake Date',
+    mobileWidth: 15,
     width: 15,
     id: 2,
   },
   {
     name: 'Earn Reward',
+    mobileWidth: 15,
     width: 15,
     id: 3,
   },
   {
     name: 'Harvest',
     width: 15,
-    mobileWidth: 45,
+    mobileWidth: 15,
     id: 4,
   },
 ];
