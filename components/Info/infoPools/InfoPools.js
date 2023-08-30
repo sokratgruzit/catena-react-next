@@ -5,33 +5,37 @@ import TableTokens from '../components/tableTokens/TableTokens'
 import styles from '../InfoPages.module.css';
 import { StarSvg } from '../../svg/index';
 import Link from 'next/link';
+import SearchBar from '../components/searchBar/SearchBar';
 
 const tableHead = [
   {
     name: 'Staked Amount',
     width: 15,
-    mobileWidth: 45,
+    mobileWidth: 15,
     id: 0,
   },
   {
     name: 'Stake Date ',
     width: 15,
+    mobileWidth: 15,
     id: 1,
   },
   {
     name: 'Unstake Date',
     width: 15,
+    mobileWidth: 15,
     id: 2,
   },
   {
     name: 'Earn Reward',
     width: 15,
+    mobileWidth: 15,
     id: 3,
   },
   {
     name: 'Harvest',
     width: 15,
-    mobileWidth: 45,
+    mobileWidth: 15,
     id: 4,
   },
 ];
@@ -77,6 +81,7 @@ const InfoPools = () => {
               </div>
             </Link>
           </div>
+          <SearchBar />
           <TableTokens title="All Pools" tableInfo={stakersRecord} tableHead={tableHead} />
         </div>
       </div>

@@ -107,19 +107,19 @@ const TableFarms = ({ title, tableInfo, tableHead, Table__Types }) => {
         ));
 
     return (
-            <div className='container_bordered'>
-                <h2 style={{marginBottom: "20px"}} className='ttl font-40'>{title}</h2>
-           <div className='container_bordered-child'>
-            <Table
-                type={'table-version'}
-                tableHeadMore={tableHeadMore}
-                tableHead={tableHead}
-                mobile={mobile}
-                tableData={tableInfo?.length ? tableData : false}
-                tableEmpty={true}
-                tableEmptyData={tableEmptyData}
-                loading={loading}
-            />
+        <div>
+            <h2 style={{ marginBottom: "20px" }} className='ttl font-40'>{title}</h2>
+            <div style={{ backgroundColor: "rgba(243, 228, 210,0.8)" }}>
+                <Table
+                    stype={'table-version'}
+                    tableHeadMore={tableHeadMore}
+                    tableHead={tableHead}
+                    mobile={mobile}
+                    tableData={tableInfo?.length ? tableData : false}
+                    tableEmpty={true}
+                    tableEmptyData={tableEmptyData}
+                    loading={loading}
+                />
             </div>
             <TableElement
                 type={"pagination"}
@@ -128,7 +128,7 @@ const TableFarms = ({ title, tableInfo, tableHead, Table__Types }) => {
                 onPageChange={(page) => setCurrentPage(page)}
                 customStyle={{ margin: '20px 0 40px 0' }}
             />
-             </div>
+        </div>
     );
 }
 
