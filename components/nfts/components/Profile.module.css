@@ -34,32 +34,6 @@
   margin-bottom: 34px;
 }
 
-.collected {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  justify-content: center;
-  align-items: center;
-  width: 50%;
-  margin: 0 auto;
-  text-align: center;
-  margin-top: 34px;
-  border: 1px solid #16202933;
-  border-radius: 20px;
-  background: #f3e4d2;
-  padding: 20px;
-}
-
-.collected p {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  gap: 6px;
-}
-
-.collected p:first-child,
-.collected p:nth-child(2) {
-  border-right: 1px solid rgba(22, 32, 41, 0.2);
-}
 .table {
   border: 1px solid #16202933;
   border-radius: 20px;
@@ -173,9 +147,6 @@
   .itemsList {
     grid-template-columns: 1fr 1fr;
   }
-  .collected {
-    width: 70%;
-  }
 }
 @media (max-width: 767px) {
   .bgImg {
@@ -193,9 +164,6 @@
     bottom: -30px;
     left: calc(50% - 40px);
   }
-  .collected {
-    width: 100%;
-  }
 }
 
 @media (max-width: 400px) {
@@ -205,20 +173,5 @@
   }
   .achivementsItem > div {
     text-align: center;
-  }
-  .collected {
-    display: flex;
-    flex-direction: column;
-    padding: 0 10px;
-  }
-  .collected p:first-child,
-  .collected p:nth-child(2) {
-    border-bottom: 1px solid rgba(22, 32, 41, 0.2);
-    border-right: none;
-    width: 70%;
-  }
-
-  .collected p {
-    padding: 20px 0;
   }
 }

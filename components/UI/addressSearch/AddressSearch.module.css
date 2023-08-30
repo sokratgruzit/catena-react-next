@@ -1,0 +1,93 @@
+/* market type */
+.Market__searchBar {
+  padding-top: 60px;
+  position: relative;
+  width: 445px;
+}
+.Market__searchBtn {
+  width: 96px;
+  height: 40px;
+  background-color: #0500ff;
+  border-radius: 32px;
+  position: absolute;
+  top: 65px;
+  right: 0;
+  transition: 0.5s;
+  cursor: pointer;
+  text-align: center;
+  padding: 8px;
+  margin-right: 5px;
+}
+.Market__searchBtn__disabled {
+  width: 96px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 32px;
+  position: absolute;
+  pointer-events: none;
+  top: 65px;
+  right: 0;
+  transition: 0.5s;
+  text-align: center;
+  padding: 8px;
+  cursor: not-allowed;
+  margin-right: 5px;
+}
+.Market__searchBtnWrap {
+  width: 100%;
+}
+.Market__searchInput {
+  width: 445px;
+  height: 50px;
+  border-radius: 34px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  background-color: rgba(255, 255, 255, 0.04);
+  padding-left: 20px;
+  padding-top: 14.5px;
+  padding-bottom: 14.5px;
+  padding-right: 120px;
+}
+/* creator type */
+.Creator__searchBar input {
+  background-color: #f3e4d2;
+  border: none;
+  width: 750px;
+  height: 60px;
+  padding: 21px 7px 21px 16px;
+  border-radius: 30px;
+  border: 1px solid #16202933;
+  position: relative;
+}
+.Creator__searchBar {
+  position: relative;
+  margin-left: calc(50% - 507px);
+}
+
+.creatorBtn {
+  position: absolute;
+  top: 6px;
+  right: 7px;
+}
+.icon {
+  position: absolute;
+  left: 93%;
+  top: 30%;
+}
+.Creator__searchIcon svg path {
+  fill: #ff7152;
+}
+.Creator__searchIcon__disabled {
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+@media (max-width: 767px) {
+  .Market__searchBar,
+  .Market__searchInput {
+    width: 100%;
+  }
+  .Creator__searchBar input,
+  .Creator__searchBar {
+    width: 100%;
+  }
+}

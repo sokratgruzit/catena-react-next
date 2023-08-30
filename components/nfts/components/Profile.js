@@ -6,6 +6,7 @@ import styles from './Profile.module.css';
 import TabFilter from '../../UI/filters/TabFilter';
 import filterStyles from '../../UI/filters/TabFilter.module.css';
 import ListItemCard from '../../UI/listItem/ListItemCard';
+import DataBox from '../../UI/dataBox/DataBox';
 
 export default function Profile({ nftArrivalsData, achivements }) {
   const router = useRouter();
@@ -74,17 +75,8 @@ export default function Profile({ nftArrivalsData, achivements }) {
           transition: '.5s',
         }}
       />
-      <div className={styles.collected}>
-        <p>
-          NFT Collected <span className='font_30'>10</span>
-        </p>
-        <p>
-          Points <span className='font_30'>35</span>
-        </p>
-        <p>
-          Achievements <span className='font_30'>5</span>
-        </p>
-      </div>
+      <DataBox type={'statistics'} items={3} />
+
       <TabFilter
         onClick={switchTabModeHandler}
         activeMenu={activeMenuItem}
