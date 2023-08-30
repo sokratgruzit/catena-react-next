@@ -1,58 +1,58 @@
 import React from 'react';
 import { useState } from 'react';
-import { useRouter } from 'next/router';
 
-import InfoRoutes from '../components/InfoRoutes/InfoRoutes';
-import TableTokens from '../../Info/components/tableTokens/TableTokens'
+import InfoCharts from '../components/infoCharts/InfoCharts';
+import InfoRoutes from '../components/infoRoutes/InfoRoutes';
+import SearchBar from '../components/searchBar/SearchBar';
+import TableTokens from '../components/tableTokens/TableTokens';
 
 import styles from '../InfoPages.module.css';
-import { StarSvg } from '../../svg/index';
+
+const Table__Types = [
+  {
+    type: 'All',
+  },
+  {
+    type: 'Swaps',
+  },
+  {
+    type: 'Adds',
+  },
+  {
+    type: 'Removes',
+  },
+];
 
 const tableHead = [
   {
     name: 'Staked Amount',
     width: 15,
-    mobileWidth: 45,
+    mobileWidth: 15,
     id: 0,
   },
   {
     name: 'Stake Date ',
+    mobileWidth: 15,
     width: 15,
     id: 1,
   },
   {
     name: 'Unstake Date',
+    mobileWidth: 15,
     width: 15,
     id: 2,
   },
   {
     name: 'Earn Reward',
+    mobileWidth: 15,
     width: 15,
     id: 3,
   },
   {
     name: 'Harvest',
     width: 15,
-    mobileWidth: 45,
+    mobileWidth: 15,
     id: 4,
-  },
-  {
-    name: '',
-    width: 10,
-    id: 5,
-    mobileWidth: 35,
-    position: 'right',
-    className: 'buttons-th',
-    onClick: index => console.log(index),
-  },
-  {
-    name: '',
-    width: 7,
-    id: 6,
-    mobileWidth: 20,
-    position: 'right',
-    className: 'buttons-th',
-    onClick: index => console.log(index),
   },
 ];
 const stakersRecord = [
@@ -82,25 +82,22 @@ const stakersRecord = [
   },
 ];
 
-const InfoPools = () => {
-  const router = useRouter();
+const InfoOverview = () => {
   return (
     <div className='pT-180'>
       <div className='container'>
         <div className={styles.section}>
-          <div className={styles.routesWrapper}>
-            <div className={styles.space}></div>
-            <InfoRoutes />
-            <div className={styles.starWrapper}>
-              <StarSvg className={styles.starSVG} onClick={() => router.push(`/overview/info/pools/watchlist`)} />
-              <div className={styles.favCount}>3</div>
-            </div>
-          </div>
-          <TableTokens title="All Pools" tableInfo={stakersRecord} tableHead={tableHead} />
+          <InfoRoutes />
+          <SearchBar />
+          <InfoCharts />
+          <TableTokens title="Top Tokens" tableInfo={stakersRecord} tableHead={tableHead} />
+          <TableTokens title="Top Pools" tableInfo={stakersRecord} tableHead={tableHead} />
+          <TableTokens title="Transaction" tableInfo={stakersRecord} tableHead={tableHead} Table__Types={Table__Types} />
+          {/* <TransactionTable tableHead={tableHead} tableInfo={stakersRecord}/> */}
         </div>
       </div>
     </div>
   );
 };
 
-export default InfoPools;
+export default InfoOverview;

@@ -200,26 +200,18 @@ const Rank = () => {
           <h5 className='ttl'>Top Traders</h5>
           <p>Since start of the competition</p>
         </div>
-        <div>
-          <div className={styles.tab}>
-            {/* <TabFilter
-              onClick={changeTabHendler}
-              activeMenu={activeMenuItem}
-              data={tabsData}
-              css={{
-                wrap: filterStyles.Rank__filterWrap,
-                filter: filterStyles.Activity__filter,
-                active: filterStyles.Rank__filterActive,
-                item: filterStyles.Rank__filter__item,
-              }}
-            /> */}
-            <Tabs
-              onClick={navigationHandler}
-              type={'two-component-tabs-with-text'}
-              leftBtnText='Search'
-              rightBtnText='Watchlist'
-            />
-          </div>
+        <div className={styles.tab}>
+          <TabFilter
+            onClick={changeTabHendler}
+            activeMenu={activeMenuItem}
+            data={tabsData}
+            css={{
+              wrap: filterStyles.Rank__filterWrap,
+              filter: filterStyles.Activity__filter,
+              active: filterStyles.Rank__filterActive,
+              item: filterStyles.Rank__filter__item,
+            }}
+          />
         </div>
         <div className={`${styles.contentActve} ${details === false ? styles.content : ''}`}>
           <CompetitionTable activeMenuItem={activeMenuItem} />

@@ -173,18 +173,17 @@ const Prizes = () => {
             <p>Higher trading volume = higher rank!</p>
           </div>
           <div className={styles.tabFilterBorder}>
-            {/* <TabFilter
+            <TabFilter
               onClick={changeTabHendler}
               activeMenu={activeMenuItem}
               data={tabsData}
               css={{
-                wrap: filterStyles.Prizes__filterWrap,
+                wrap: filterStyles.Rank__filterWrap,
                 filter: filterStyles.Activity__filter,
                 active: filterStyles.Rank__filterActive,
                 item: filterStyles.Rank__filter__item,
               }}
-            /> */}
-            <Tabs type={'two-component-tabs-with-text'} leftBtnText='Search' rightBtnText='Watchlist' />
+            />
           </div>
           <div className={styles.slider}>
             <div className={styles.teamDescription}>

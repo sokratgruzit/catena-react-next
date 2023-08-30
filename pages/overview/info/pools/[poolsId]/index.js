@@ -2,10 +2,10 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import React from 'react';
 
-import PoolsSection from '../../../../../components/Info/components/PoolsSection/PoolsSection';
 import BackgroundImg from '../../../../../public/images/Info/background/background.png';
 
 import styles from '../../../../../components/Info/InfoPages.module.css';
+import PoolsSection from '../../../../../components/info/components/poolsSection/PoolsSection';
 
 const InfoTPoolsInngerPage_Data = {
   id: 1,
@@ -104,7 +104,7 @@ const index = props => {
   const { id } = router.query;
   // fetch data by ID
   return (
-    <div className={styles.section}>{props.infoPoolsDetails && <PoolsSection data={props.infoPoolsDetails} />}</div>
+    <div className={styles.section}>{props.infoPoolsDetails && <PoolsSection data={props.infoPoolsDetails} /> }</div>
   );
 };
 

@@ -2,17 +2,16 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import React from 'react';
 
-import ChartBlock from './ChartBlock/ChartBlock';
-import FirstBlock from './FirstBlock/FirstBlock';
-import SecondBlock from './SecondBlock/SecondBlock';
+import ChartBlock from './chartBlock/ChartBlock';
+import FirstBlock from './firstBlock/FirstBlock';
+import SecondBlock from './secondBlock/SecondBlock';
 import { OpenSvg, StarSvg, SmlArrowSvg } from '../../../svg';
 import Button from '../../../UI/button/Button';
-import InfoRoutes from '../InfoRoutes/InfoRoutes';
-// import TokensTable from '../InfoTables/TokensTable';
-import TransactionTable from '../InfoTables/TransactionTable';
-import SearchBar from '../SearchBar/SearchBar';
+import InfoRoutes from '../infoRoutes/InfoRoutes';
+import SearchBar from '../searchBar/SearchBar';
 
 import styles from './PoolsSection.module.css';
+import Link from 'next/link';
 
 const PoolsSection = ({ data }) => {
   const router = useRouter();
@@ -26,10 +25,12 @@ const PoolsSection = ({ data }) => {
           </div>
         </div>
         <InfoRoutes />
-        <div className={styles.starWrapper}>
-          <StarSvg className={styles.starSVG} onClick={() => router.push(`/info/pools/watchlist`)} />
-          <div className={styles.favCount}>3</div>
-        </div>
+        <Link href={`/info/pools/watchlist`}>
+          <div className={styles.starWrapper}>
+            <StarSvg className={styles.starSVG}/>
+            <div className={styles.favCount}>3</div>
+          </div>
+        </Link>
       </div>
       <SearchBar />
       <div className={styles.titleRow}>
@@ -89,11 +90,9 @@ const PoolsSection = ({ data }) => {
       </div>
       <div>
         <h2 className={styles.tableName}>Tokens</h2>
-        {/* <TokensTable itemsPerPage={5} /> */}
       </div>
       <div>
         <h2 className={styles.tableName}>Transaction</h2>
-        <TransactionTable />
       </div>
     </div>
   );

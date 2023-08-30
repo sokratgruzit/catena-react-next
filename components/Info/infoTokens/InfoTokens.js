@@ -1,59 +1,40 @@
 import React from 'react';
-import { useState } from 'react';
-
-import InfoRoutes from '../components/InfoRoutes/InfoRoutes';
-import TableTokens from '../../Info/components/tableTokens/TableTokens'
-import TopMovers from '../components/TopMovers/TopMovers';
-import SearchBar from '../components/SearchBar/SearchBar';
+import InfoRoutes from '../components/infoRoutes/InfoRoutes';
+import TableTokens from '../components/tableTokens/TableTokens'
+import TopMovers from '../components/topMovers/TopMovers';
+import SearchBar from '../components/searchBar/SearchBar';
 
 import styles from '../InfoPages.module.css';
 import { StarSvg } from '../../svg';
+import Link from 'next/link';
 
 const tableHead = [
   {
-    name: 'Staked Amount',
+    name: 'Name',
     width: 15,
     mobileWidth: 45,
     id: 0,
   },
   {
-    name: 'Stake Date ',
+    name: 'Price',
     width: 15,
     id: 1,
   },
   {
-    name: 'Unstake Date',
+    name: 'PriceChange',
     width: 15,
     id: 2,
   },
   {
-    name: 'Earn Reward',
+    name: 'Reward fees',
     width: 15,
     id: 3,
   },
   {
-    name: 'Harvest',
+    name: 'Reward',
     width: 15,
     mobileWidth: 45,
     id: 4,
-  },
-  {
-    name: '',
-    width: 10,
-    id: 5,
-    mobileWidth: 35,
-    position: 'right',
-    className: 'buttons-th',
-    onClick: index => console.log(index),
-  },
-  {
-    name: '',
-    width: 7,
-    id: 6,
-    mobileWidth: 20,
-    position: 'right',
-    className: 'buttons-th',
-    onClick: index => console.log(index),
   },
 ];
 const stakersRecord = [
@@ -91,10 +72,12 @@ const InfoTokens = () => {
         <div className={styles.routesWrapper}>
             <div className={styles.space}></div>
             <InfoRoutes />
-            <div className={styles.starWrapper}>
-              <StarSvg className={styles.starSVG} onClick={() => router.push(`/overview/info/pools/watchlist`)} />
-              <div className={styles.favCount}>3</div>
-            </div>
+            <Link href={'/overview/info/pools/watchlist'}>
+              <div className={styles.starWrapper}>
+                <StarSvg className={styles.starSVG} />
+                <div className={styles.favCount}>3</div>
+              </div>
+            </Link>
           </div>
           <SearchBar />
           <TopMovers />

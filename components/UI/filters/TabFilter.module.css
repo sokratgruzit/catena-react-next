@@ -1,34 +1,29 @@
 .Activity__filter {
   display: flex;
-  align-items: center;
-  background: #fff3e5;
-  border: 1px solid #16202933;
-  border-radius: 30px;
-  padding: 4px;
 }
 
-.Activity__filterWrap {
-  width: 100%;
+.Rank__filterWrap {
   display: flex;
-  margin-top: 41.5px;
-  padding: 20px;
-  border-bottom: 1px solid #16202933;
-  overflow: hidden;
-  background: #f0dec9;
-  border-radius: 20px 20px 0px 0px;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 4px;
+  border: 1px solid rgba(22, 32, 41, 0.2);
+  border-radius: 20px;
+  background-color: #fff3e5;
+  width: min-content;
 }
-.Activity__filter__item {
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 4px;
+.Rank__filter__item {
+  border-radius: 20px;
   padding: 4px 12px;
   cursor: pointer;
-  margin: 0 5px;
+  margin: 0 2px;
+  color: #162029;
 }
 /* here */
-.Activity__filterActive {
+.Rank__filterActive {
   background-color: #ff6969 !important;
   border: 1px solid #162029;
-  border-radius: 45px;
 }
 .Collections__filterWrap {
   display: flex;
@@ -38,9 +33,6 @@
   border: 1px solid #16202933;
   padding: 13px 26px;
   background-color: #f3e4d2;
-  border-radius: 30px;
-
-  /* gap: 44px; */
 }
 .Collections__filter__item svg path {
   opacity: 0.6;
@@ -118,29 +110,7 @@
     font-size: 13px;
   }
 }
-/* Rank styles */
-.Rank__filterWrap {
-  padding: 4px 0;
-  margin: 20px 0;
-  width: 30%;
-}
-.Rank__filterActive {
-  background-color: rgba(255, 255, 255, 0.1);
-}
-.Rank__filter__item {
-  border-radius: 4px;
-  /* padding: 4px 12px; */
-  cursor: pointer;
-  margin: 0 5px;
-}
 @media (max-width: 1023px) {
-  .Rank__filterWrap {
-    display: flex;
-    padding: 4px 0;
-    text-align: left;
-    gap: 50px;
-    margin: 20px auto;
-  }
 }
 /* End Rank styles */
 

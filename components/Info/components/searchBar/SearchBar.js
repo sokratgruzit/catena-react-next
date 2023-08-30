@@ -1,20 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
 
 import { SearchIcon } from '../../../svg';
-import TabFilter from '../../../UI/filters/TabFilter';
+import { Tabs } from "@catena-network/catena-ui-module";
 
 import styles from './SearchBar.module.css';
-
-let tabsData = [
-  {
-    id: 0,
-    label: 'Search',
-  },
-  {
-    id: 1,
-    label: 'Watchlist',
-  },
-];
 
 function useOutsideAlerter(ref, setOpenSearchResults) {
   useEffect(() => {
@@ -23,10 +12,8 @@ function useOutsideAlerter(ref, setOpenSearchResults) {
         setOpenSearchResults(false);
       }
     }
-    // Bind the event listener
     document.addEventListener('mousedown', handleClickOutside);
     return () => {
-      // Unbind the event listener on clean up
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [ref, setOpenSearchResults]);
@@ -35,18 +22,14 @@ function useOutsideAlerter(ref, setOpenSearchResults) {
 const SearchBar = () => {
   const [searchValue, setSearchValue] = useState('');
   const [openSearchResults, setOpenSearchResults] = useState(false);
-  const [searchMode, setSearchMode] = useState('Search');
+  const [activeFilter, setActiveFilter] = useState('Search');
 
   const wrapperRef = useRef(null);
   useOutsideAlerter(wrapperRef, setOpenSearchResults);
 
-  const handleSearchModeChange = type => {
-    setSearchMode(type);
+  const navigationHandler = activeItem => {
+    setActiveFilter(activeItem);
   };
-
-  // useEffect(() => {
-  //   console.log(searchValue);
-  // }, [searchValue]);
 
   return (
     <>
@@ -68,17 +51,12 @@ const SearchBar = () => {
               <div className={styles.background}></div>
               <div className={styles.Search__results}>
                 <div className={styles.title}>
-                  <TabFilter
-                    data={tabsData}
-                    onClick={handleSearchModeChange}
-                    activeMenu={searchMode}
-                    css={{
-                      wrap: styles.Activity__filterWrap,
-                      filter: styles.Activity__filter,
-                      active: styles.Activity__filterActive,
-                      item: styles.Activity__filter__item,
-                    }}
-                  />
+                <Tabs 
+                  onClick={navigationHandler}
+                  type={"two-component-tabs-with-text"} 
+                  leftBtnText="Search" 
+                  rightBtnText="Watchlist"
+                />
                 </div>
                 <div className={styles.Search__resultsBorder}>
                   <div className={styles.Search__resultsRow}>
@@ -89,10 +67,10 @@ const SearchBar = () => {
                       <p>Liquidity</p>
                     </div>
                   </div>
-                  <p className={styles.Search__beforeResult}>Search Pools or Tokens</p>
+                  <p style={{color: "#162029"}} className={styles.Search__beforeResult}>hghhghgh</p>
                 </div>
                 <div>
-                  <div className={styles.Search__resultsRow}>
+                  <div style={{margin: "30px 0 25px 20px"}} className={styles.Search__resultsRow}>
                     <p>Pools</p>
                     <div className={styles.Search__resultsDiv}>
                       <p>Volume 24H</p>
@@ -102,7 +80,7 @@ const SearchBar = () => {
                   </div>
                   <p className={styles.Search__beforeResult}>Search Pools or Tokens</p>
                 </div>
-                {searchMode === 'Watchlist' && <div>haha</div>}
+                {activeFilter === 'Watchlist' && <div>haha</div>}
               </div>
             </>
           )}

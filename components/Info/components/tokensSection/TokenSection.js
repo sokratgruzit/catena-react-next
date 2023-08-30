@@ -3,17 +3,16 @@ import { useRouter } from 'next/router';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import ChartBlock from './ChartBlock/ChartBlock';
+import ChartBlock from './chartBlock/ChartBlock';
 import { OpenSvg, StarSvg, SmlArrowSvg, PriceUp, PriceDown } from '../../../svg';
 import Button from '../../../UI/button/Button';
 import CornerDecor from '../../../UI/cornerDecor/CornerDecor';
 import { formatCurrency } from '../../../utils/formatCurrency';
-import InfoRoutes from '../InfoRoutes/InfoRoutes';
-import PoolsTable from '../InfoTables/PoolsTable';
-import TransactionTable from '../InfoTables/TransactionTable';
-import SearchBar from '../SearchBar/SearchBar';
+import InfoRoutes from '../infoRoutes/InfoRoutes';
+import SearchBar from '../searchBar/SearchBar';
 
 import styles from './TokenSection.module.css';
+import Link from 'next/link';
 
 const TokenSection = ({ data }) => {
   const router = useRouter();
@@ -32,10 +31,12 @@ const TokenSection = ({ data }) => {
               </div>
             </div>
             <InfoRoutes />
-            <div className={styles.starWrapper}>
-              <StarSvg className={styles.starSVG} onClick={() => router.push(`/info/tokens/watchlist`)} />
-              {favTokens.length > 0 && <div className={styles.favCount}>{favTokens.length}</div>}
-            </div>
+            <Link href={`/info/tokens/watchlist`}>
+              <div className={styles.starWrapper}>
+                <StarSvg className={styles.starSVG}/>
+                {favTokens.length > 0 && <div className={styles.favCount}>{favTokens.length}</div>}
+              </div>
+            </Link>
           </div>
           <SearchBar />
           <div className={styles.titleRow}>
@@ -141,11 +142,9 @@ const TokenSection = ({ data }) => {
           </div>
           <div>
             <h2 className={styles.tableName}>Pools</h2>
-            <PoolsTable itemsPerPage={5} />
           </div>
           <div>
             <h2 className={styles.tableName}>Transaction</h2>
-            <TransactionTable />
           </div>
         </div>
       )}
