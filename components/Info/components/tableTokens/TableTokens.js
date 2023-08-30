@@ -59,7 +59,7 @@ const TableFarms = ({ title, tableInfo, tableHead, Table__Types }) => {
                     className={`table-parent ${mobileExpand === index ? 'active' : ''}`}
                     key={index}
                     onClick={() => {
-                        // mobileExpandFunc(index);
+                        mobileExpandFunc(index);
                     }}
                 >
 
