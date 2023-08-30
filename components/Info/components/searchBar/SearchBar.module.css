@@ -24,7 +24,8 @@
   position: relative;
   width: fit-content;
   margin: auto;
-  border: 1px solid #162029;
+  background-color: #F3E4D2;
+  border: 1px solid rgba(22,32,41,.2);
   border-radius: 20px;
   z-index: 101;
 }
@@ -140,7 +141,7 @@
 
 @media (max-width: 1024px) {
   .SearchBar__input{
-    width: 703px;
+    width: 650px;
     height: 44px;
   }
   .Search__results{

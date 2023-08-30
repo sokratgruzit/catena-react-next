@@ -2,8 +2,8 @@
   display: flex;
   align-items: center;
   background: #fff3e5;
-  border: 1px solid #16202933;
-  border-radius: 30px;
+  border: 10px solid #16202933;
+  border-radius: 10px;
   padding: 4px;
 }
 
