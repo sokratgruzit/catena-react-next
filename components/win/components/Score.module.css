@@ -11,6 +11,7 @@
   display: flex;
   justify-content: center;
   align-items: baseline;
+  z-index: 999;
 }
 .scoreContent svg {
   margin: 0 40px;
@@ -20,6 +21,7 @@
   width: 665px;
   height: 240px;
   margin: auto;
+  background-color: #f3e4d2;
 }
 
 .buttonWrapper {
@@ -47,6 +49,7 @@
 .btn {
   background: #a6d0dd;
   padding: 15px 50px !important;
+  border: 1px solid black;
 }
 
 /*Ipad Pro 1024*/

@@ -26,9 +26,6 @@ const Bottom = () => {
           subLabel={''}
           placeholder={'Enter'}
           name='email'
-          // value={formData.email}
-          // onChange={changeHandler}
-          // customStyles={{ width: '500px' }}
         />
       </div>
       <div>
@@ -40,9 +37,6 @@ const Bottom = () => {
           subLabel={''}
           placeholder={'Enter'}
           name='email'
-          // value={formData.email}
-          // onChange={changeHandler}
-          // customStyles={{ width: '500px' }}
         />
       </div>
       <div className={styles.items}>
@@ -64,10 +58,8 @@ const Bottom = () => {
           label={'Purchase Tokens'}
           size={'btn-lg'}
           type={'btn-primary'}
-          // arrow={'arrow-right'}
           element={'button'}
           disabled={false}
-          // onClick={() => setChng(true)}
           className={styles.btnBlu}
         />
       </div>

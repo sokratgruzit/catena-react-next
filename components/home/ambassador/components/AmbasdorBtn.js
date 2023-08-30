@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import { Input, Button, HelpText, HelpCard } from '@catena-network/catena-ui-module';
 import createAxiosInstance from '../../../../pages/api/axios';
-import { useValidation } from "../../../../hooks/useValidation";
+import { useValidation } from '../../../../hooks/useValidation';
 
 import styles from '../css/AmbasdorBtn.module.css';
 
 const AmbasdorBtn = () => {
-  const [active, setActive] = useState(false)
-  const [result, setResult] = useState("")
+  const [active, setActive] = useState(false);
+  const [result, setResult] = useState('');
   const [chng, setChng] = useState(false);
-  const [email, setEmail] = useState("");
-  const [emptyField, setEmptyField] = useState("")
+  const [email, setEmail] = useState('');
+  const [emptyField, setEmptyField] = useState('');
   const [formData, setFormData] = useState({
     email: '',
     name: '',
@@ -23,8 +23,8 @@ const AmbasdorBtn = () => {
   const chngeHandler = e => {
     const { name, value } = e.target;
 
-    if (name === "email") {
-      setEmail(value)
+    if (name === 'email') {
+      setEmail(value);
     }
     setFormData(prevState => ({
       ...prevState,
@@ -34,22 +34,23 @@ const AmbasdorBtn = () => {
 
   const handleSubmit = () => {
     if (!validationErrors?.email?.failure && formData.email && formData.name && formData.suggestion) {
-      axios.post(`${process.env.NEXT_PUBLIC_URL}/ambassador/create-ambassador`, formData)
+      axios
+        .post(`${process.env.NEXT_PUBLIC_URL}/ambassador/create-ambassador`, formData)
         .then(res => {
-          setResult("success")
+          setResult('success');
           console.log(res);
         })
         .catch(err => {
-          setResult("error")
+          setResult('error');
           console.log(err);
         })
         .then(res => {
-          setActive(true)
+          setActive(true);
           setTimeout(() => {
-            setActive(false)
+            setActive(false);
           }, 2000);
-        })
-      setEmail("");
+        });
+      setEmail('');
       setFormData({
         email: '',
         name: '',
@@ -61,9 +62,9 @@ const AmbasdorBtn = () => {
       if (!formData.name.trim() && !formData.email.trim() && !formData.suggestion.trim()) {
         setFormData(prevState => ({
           ...prevState,
-          name: "",
-          suggestion: "",
-          email: ""
+          name: '',
+          suggestion: '',
+          email: '',
         }));
 
         setEmptyField(true);
@@ -74,46 +75,42 @@ const AmbasdorBtn = () => {
 
   let helpTexts = {
     email: {
-      validationType: "email",
-      success: "Email is valid",
-      failure: "Invalid email format",
+      validationType: 'email',
+      success: 'Email is valid',
+      failure: 'Invalid email format',
     },
   };
 
   const validationErrors = useValidation(
     {
-      email: email || "",
+      email: email || '',
     },
-    helpTexts
+    helpTexts,
   );
 
   return (
-    <div className={`${styles.btn} container `} data-aos="fade-up">
-      <HelpCard
-        result={result}
-        body={"notification"}
-        active={active}
-      />
+    <div className={`${styles.btn} container `} data-aos='fade-up'>
+      <HelpCard result={result} body={'notification'} active={active} />
       <div className={`${styles.chnBox} ${chng ? styles.active : ''}`}>
         <form id='emailForm'>
           <Input
-            type={"default"}
-            name={"email"}
+            type={'default'}
+            name={'email'}
             icon={false}
             label={'EMAIL'}
             editable={true}
-            subLabel={""}
+            subLabel={''}
             placeholder={'Enter..'}
-            validation={"email"}
+            validation={'email'}
             value={email}
             onChange={chngeHandler}
             emptyFieldErr={emptyField && !formData.email.trim()}
             statusCard={
               validationErrors?.email && (
                 <HelpText
-                  status={validationErrors.email.failure ? "error" : "success"}
+                  status={validationErrors.email.failure ? 'error' : 'success'}
                   title={validationErrors.email.failure || validationErrors.email.success}
-                  fontSize={"font-12"}
+                  fontSize={'font-12'}
                   icon={true}
                 />
               )
@@ -166,7 +163,7 @@ const AmbasdorBtn = () => {
           disabled={false}
           onClick={() => setChng(true)}
           className={styles.btnBlu}
-          customStyles={{ marginTop: "30px" }}
+          customStyles={{ marginTop: '30px' }}
         />
       )}
     </div>

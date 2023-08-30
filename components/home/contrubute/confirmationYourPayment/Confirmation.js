@@ -1,5 +1,5 @@
 import ConfirmationBox from '../ConfirmationYourPayment/components/ConfirmationBox';
-import InformationBox from '../informationBox/InformationBox';
+import InformationBox from '../../informationBox/InformationBox';
 
 import styles from './css/Confirmation.module.css';
 

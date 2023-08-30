@@ -6,17 +6,14 @@ const Finished = () => {
   return (
     <>
       <div className={`${styles.blur}`}>
+        <img className={styles.img} src='/images/win/background/background.png' />
         <div className={styles.mainContent}>
-          <h3>Finished!</h3>
+          <h3 className={styles.ttl}>Finished Competition</h3>
           <div className={styles.content}>
-            {/* <div className={styles.wallet}>
-              <a href='#'>Connect Wallet</a>
-            </div> */}
             <Button
               label={'Connect Wallet'}
               size={'btn-lg'}
               type={'btn-primary'}
-              // arrow={'arrow-right'}
               element={'button'}
               disabled={false}
               onClick={() => setChng(true)}
@@ -25,7 +22,6 @@ const Finished = () => {
             />
           </div>
         </div>
-        <p>ttl ttl ttl ttl tt ltt ltlt lttl tlt llt lltltl ltl tlt </p>
       </div>
     </>
   );

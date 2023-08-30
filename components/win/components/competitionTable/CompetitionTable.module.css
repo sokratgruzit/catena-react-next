@@ -1,10 +1,14 @@
+.mane {
+  margin-top: 15px;
+}
+
 .tradesTab {
   display: flex;
   align-items: center;
-  border-top: 1px solid rgb(33, 33, 33);
+  border-top: 1px solid #f0dec9;
 }
 .tradesTab div:nth-child(1) {
-  width: 40%;
+  width: 200px;
 }
 .tradesTab div:nth-child(2) {
   width: 58%;
@@ -27,6 +31,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   color: #0a0a18;
+  margin: 0px 25px;
 }
 .nickName {
   white-space: nowrap;
@@ -35,7 +40,7 @@
   text-overflow: ellipsis;
   font-size: 15px;
   line-height: 20px;
-  color: #ffffff;
+  color: #181515;
   opacity: 0.7;
 }
 .icone {
@@ -44,4 +49,13 @@
   width: 20%;
   border-radius: 50%;
   opacity: 0.5;
+  margin: 0px 25px;
+}
+
+.image {
+  border-radius: 50%;
+  min-width: 80% !important;
+  max-width: 80% !important;
+  min-height: 64% !important;
+  max-height: 70% !important;
 }

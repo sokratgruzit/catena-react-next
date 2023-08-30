@@ -1,5 +1,5 @@
 import React from 'react';
-import PaymentProcess from '../../../components/home/PaymentProcess/PaymentProcess';
+import PaymentProcess from '../../../../components/home/contrubute/paymentProcess/PaymentProcess';
 const index = () => {
   return <PaymentProcess />;
 };

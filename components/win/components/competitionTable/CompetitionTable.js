@@ -51,7 +51,7 @@ const tradersDataTotal = [
     price: '$11,034,9435',
     nickName: '0x72...a55b',
     img: '/images/win/iconestorme.png',
-    numbering: '#23333333',
+    numbering: '#2',
   },
   {
     id: 7,
@@ -86,7 +86,7 @@ const tradersDataTotal = [
     price: '$11,034,9435',
     nickName: '0x72...a55b',
     img: '/images/win/iconestorme.png',
-    numbering: '#23333333',
+    numbering: '#2',
   },
   {
     id: 12,
@@ -107,7 +107,7 @@ const tradersDataTotal = [
     price: '$11,034,9435',
     nickName: '0x72...a55b',
     img: '/images/win/iconetab.png',
-    numbering: '#16',
+    numbering: '#1',
   },
 ];
 const tradersDataStorm = [
@@ -233,20 +233,20 @@ const CompetitionTable = ({ activeMenuItem }) => {
   }, [activeMenuItem]);
 
   return (
-    <div>
+    <div className={styles.mane}>
       {tableData.map((item, index) => (
         <div key={index} className={styles.tradesTab}>
           <div>
-            <p className={styles.numbering}>{item.numbering}</p>
+            <p className={`${styles.numbering} ttl`}>{item.numbering}</p>
           </div>
           <div>
-            <p>{item.price}</p>
+            <p className='ttl'>{item.price}</p>
           </div>
           <div>
             <p className={styles.nickName}>{item.nickName}</p>
           </div>
           <div className={styles.icone}>
-            <Image layout='fill' src={item.img} alt='HomeScreen' objectFit={'contain'} />
+            <Image layout='fill' className={styles.image} src={item.img} alt='HomeScreen' objectFit={'contain'} />
           </div>
         </div>
       ))}

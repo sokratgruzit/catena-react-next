@@ -15,6 +15,7 @@
 
 .rank {
   text-align: center;
+  margin: 140px 0px;
 }
 
 .rankCup {
@@ -58,7 +59,7 @@
 .rankVolume {
   display: flex;
   justify-content: center;
-  gap: 10px;
+  gap: 30px;
 }
 
 .volume {
@@ -72,11 +73,12 @@
 .rankBorder {
   position: relative;
   margin: auto;
-  width: 55%;
+  width: 65%;
+  background-color: #fff3e5;
 }
 
 .content {
-  max-height: 440px;
+  max-height: 740px;
   overflow: hidden;
 }
 /* 
@@ -99,7 +101,6 @@
 .rankTrades p {
   font-size: 13px;
   line-height: 18px;
-  color: #babbbe;
   margin-bottom: 20px;
 }
 
@@ -116,18 +117,25 @@
 
 .buttonShowMore {
   text-align: center;
+  padding: 20px 20px;
+}
+
+.btn {
+  padding: 10px 40px !important;
+}
+
+.tab {
+  padding: 20px 20px;
 }
 
 .buttonShowMore button {
   font-size: 15px;
   line-height: 20px;
   margin-right: 5px;
-  color: #0500ff;
-}
-
-.vectorSvg {
-  stroke: #0500ff;
-  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+  color: black;
+  border: 1px solid black;
+  padding: 10px 30px;
+  border-radius: 20px;
 }
 
 .rotate {

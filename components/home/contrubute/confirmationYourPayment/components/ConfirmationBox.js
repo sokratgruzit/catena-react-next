@@ -12,7 +12,6 @@ const ConfirmationBox = () => {
           <h1>Back</h1>
         </div>
       </Link>
-
       <h1 className='ttl font-90'>Confirmation Your Payment</h1>
       <div className={styles.ttl}>
         <p>Your Order no. 4a74314464566d7674485261666b31385043324b78413d3d has been placed successfully.</p>
@@ -95,7 +94,6 @@ const ConfirmationBox = () => {
           </div>
         </div>
       </div>
-
       <div className={styles.bottom}>
         <div className={styles.border}></div>
         <div className={styles.bottomBox}>

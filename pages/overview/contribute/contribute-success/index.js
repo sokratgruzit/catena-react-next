@@ -1,5 +1,5 @@
 import React from 'react';
-import ContributeSuccess from '../../../components/home/ContributeSuccess/ContributeSuccess';
+import ContributeSuccess from '../../../../components/home/contrubute/contributeSuccess/ContributeSuccess';
 
 const index = () => {
   return <ContributeSuccess />;

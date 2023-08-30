@@ -173,7 +173,7 @@ const Rank = () => {
             </div>
           </div>
           <div className={styles.rankTitle}>
-            <p>Team Ranks</p>
+            <p className='ttl'>Team Ranks</p>
           </div>
         </div>
         <div className={styles.rankPosition}>
@@ -197,38 +197,41 @@ const Rank = () => {
       <div className={styles.rankBorder}>
         <CornerDecor />
         <div className={styles.rankTrades}>
-          <h5>Top Traders</h5>
+          <h5 className='ttl'>Top Traders</h5>
           <p>Since start of the competition</p>
         </div>
         <div>
-          <TabFilter
-            onClick={changeTabHendler}
-            activeMenu={activeMenuItem}
-            data={tabsData}
-            css={{
-              wrap: filterStyles.Rank__filterWrap,
-              filter: filterStyles.Activity__filter,
-              active: filterStyles.Rank__filterActive,
-              item: filterStyles.Rank__filter__item,
-            }}
-          />
-          <Tabs
-            onClick={navigationHandler}
-            type={'two-component-tabs-with-text'}
-            leftBtnText='Search'
-            rightBtnText='Watchlist'
-          />
+          <div className={styles.tab}>
+            {/* <TabFilter
+              onClick={changeTabHendler}
+              activeMenu={activeMenuItem}
+              data={tabsData}
+              css={{
+                wrap: filterStyles.Rank__filterWrap,
+                filter: filterStyles.Activity__filter,
+                active: filterStyles.Rank__filterActive,
+                item: filterStyles.Rank__filter__item,
+              }}
+            /> */}
+            <Tabs
+              onClick={navigationHandler}
+              type={'two-component-tabs-with-text'}
+              leftBtnText='Search'
+              rightBtnText='Watchlist'
+            />
+          </div>
         </div>
         <div className={`${styles.contentActve} ${details === false ? styles.content : ''}`}>
           <CompetitionTable activeMenuItem={activeMenuItem} />
         </div>
         <div className={styles.buttonShowMore}>
           <button
+            className={styles.btn}
             onClick={() => {
               DetailsHendler();
             }}
           >
-            {details === false ? 'Show More' : 'Hidden'}
+            {details === false ? 'Load More' : 'Hidden'}
           </button>
           <VectorSvg className={`${styles.vectorSvg} ${details ? styles.rotate : ''}`} />
         </div>
