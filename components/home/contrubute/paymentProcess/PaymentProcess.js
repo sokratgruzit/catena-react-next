@@ -1,5 +1,5 @@
 import Component from './components/Component';
-import InformationBox from '../../informationBox/InformationBox';
+import InformationBox from '../informationBox/InformationBox';
 
 import styles from './css/PaymentProcess.module.css';
 const PaymentProcess = () => {
