@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { Button } from '@catena-network/catena-ui-module';
 import { useRouter } from 'next/router';
 
-import createAxiosInstance from '../api/axios';
+import createAxiosInstance from '../../api/axios';
 import styles from './Verify.module.css';
 
 const index = () => {
