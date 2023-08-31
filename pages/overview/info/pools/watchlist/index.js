@@ -1,5 +1,5 @@
 import React from 'react';
-import Watchlist from '../../../../../components/Info/components/Watchlist/Watchlist';
+import Watchlist from '../../../../../components/info/components/Watchlist/Watchlist';
 
 const index = () => {
   return <Watchlist route={'pools'} />

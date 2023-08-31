@@ -5,7 +5,7 @@ import TokenSection from '../../../../../components/info/components/tokensSectio
 
 const InfoTokensInngerPage_Data = {
   id: 1,
-  imgSrc: '/images/Info/TopTokens/2.png',
+  imgSrc: '/images/info/TopTokens/2.png',
   name: 'BUSD Token (BUSD)',
   price: 1.0,
   price_change: -4.06,
