@@ -1,5 +1,5 @@
 import Faq from '../../../components/home/faq/Faq';
-import createAxiosInstance from '../../../pages/api/axios';
+import createAxiosInstance from '../../api/axios';
 
 export const getStaticProps = async context => {
   const axios = createAxiosInstance();

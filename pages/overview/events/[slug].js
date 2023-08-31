@@ -1,5 +1,5 @@
 import React from 'react';
-import createAxiosInstance from '../../../pages/api/axios';
+import createAxiosInstance from '../../api/axios';
 import EventsItem from '../../../components/home/events/EventsItem';
 
 export const getStaticPaths = async ({ locales }) => {
