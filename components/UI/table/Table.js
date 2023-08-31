@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 
 import Expand from '../expand/Expand';
 import ListItemRow from '../listItem/ListItemRow';
@@ -10,29 +11,29 @@ const Table = props => {
   let custom_th = '';
   let custom_th_text = '';
 
-  if (props.type == 'nft_activity') {
+  if (props.type === 'nft_activity') {
     custom_th = listStyles.th_activity;
   }
-  if (props.type == 'nft_collections') {
+  if (props.type === 'nft_collections') {
     custom_th = listStyles.th_collections;
   }
-  if (props.type == 'dashboard') {
+  if (props.type === 'dashboard') {
     custom_th = listStyles.th_dashboard;
   }
-  if (props.type == 'info_table_tokens') {
+  if (props.type === 'info_table_tokens') {
     custom_th = listStyles.th_info_tokens;
     custom_th_text = listStyles.th_info_tokens_text;
   }
-  if (props.type == 'info_table_pools') {
+  if (props.type === 'info_table_pools') {
     custom_th = listStyles.th_info_pools;
   }
-  if (props.type == 'info_table_transactions') {
+  if (props.type === 'info_table_transactions') {
     custom_th = listStyles.th_info_transactions;
   }
-  if (props.type == 'earn_farms') {
+  if (props.type === 'earn_farms') {
     custom_th = listStyles.th_earn_farms;
   }
-  if (props.type == 'proposal_votes') {
+  if (props.type === 'proposal_votes') {
     custom_th = listStyles.th_proposal_votes;
   }
   const IdentifyOnClick = props.onClick !== undefined ? props.onClick : null;
@@ -42,7 +43,7 @@ const Table = props => {
       <div className={styles.Table__labels}>
         {props.tableLabels.map((label, index) => {
           return (
-            <div key={'unique' + index} className={`${custom_th}`} onClick={IdentifyOnClick}>
+            <div key={'label_' + label} className={`${custom_th}`} onClick={IdentifyOnClick}>
               <div className={`${styles.th} ${custom_th_text}`}>{label}</div>
             </div>
           );
@@ -59,18 +60,45 @@ const Table = props => {
               }
               return child;
             });
-            return (
-              <Expand className={props.expandClassName} expandContent={childrenWithProps} key={index}>
+
+            // Conditionally wrap ListItemRow with Link based on props.type
+            const isNftActivity = props.type === 'nft_activity';
+            const rowContent = isNftActivity ? (
+              <Link href={`/overview/nfts/activity/${item.id}`} key={item.id}>
+                <a>
+                  <Expand className={props.expandClassName} expandContent={childrenWithProps}>
+                    <ListItemRow data={item} type={props.type} />
+                  </Expand>
+                </a>
+              </Link>
+            ) : (
+              // If not 'nft_activity', render ListItemRow without Link
+              <Expand className={props.expandClassName} expandContent={childrenWithProps} key={item.id}>
                 <ListItemRow data={item} type={props.type} />
               </Expand>
             );
+
+            return rowContent;
           })}
         </div>
       )}
       {!props.expandContent && (
         <div className={styles.Table__content}>
           {props.tableData.map(item => {
-            return <ListItemRow key={item.id + 'hash' + props.type} data={item} type={props.type} />;
+            // Conditionally wrap ListItemRow with Link based on props.type
+            const isNftActivity = props.type === 'nft_activity';
+            const rowContent = isNftActivity ? (
+              <Link href={`/overview/nfts/activity/${item.id}`} key={item.id}>
+                <a>
+                  <ListItemRow data={item} type={props.type} />
+                </a>
+              </Link>
+            ) : (
+              // If not 'nft_activity', render ListItemRow without Link
+              <ListItemRow key={item.id + '_hash_' + props.type} data={item} type={props.type} />
+            );
+
+            return rowContent;
           })}
         </div>
       )}

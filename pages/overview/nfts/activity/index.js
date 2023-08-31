@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import Activity from '../../../../components/nfts/Activity';
 
 let nftActivityData = [
@@ -1010,9 +1011,14 @@ let nftActivityData = [
     supply: '7777',
   },
 ];
+const ActivityPage = () => {
+  const [activeTab, setActiveTab] = useState('Listed');
 
-const ActivityPage = props => {
-  return <Activity {...props} />;
+  const handleTabClick = tabName => {
+    setActiveTab(tabName);
+  };
+
+  return <Activity activityData={nftActivityData} activeTab={activeTab} onTabClick={handleTabClick} />;
 };
 
 export async function getStaticProps() {
@@ -1022,5 +1028,4 @@ export async function getStaticProps() {
     },
   };
 }
-
 export default ActivityPage;

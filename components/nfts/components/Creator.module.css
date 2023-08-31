@@ -1,0 +1,352 @@
+.Creator {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+.Creator__inner {
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+.Creator__backBtn {
+  display: flex;
+  width: 175px;
+  align-items: center;
+  transition: 0.5s;
+  cursor: pointer;
+}
+.Creator__backBtn p {
+  padding-left: 5px;
+  color: #ff7152;
+  transition: 0.5s;
+}
+.Creator__backBtn:hover svg path {
+  fill: #0500ff;
+  transition: 0.5s;
+}
+.Creator__backBtn svg path {
+  transition: 0.5s;
+}
+.Creator__backBtn svg {
+  transition: 0.5s;
+}
+.Creator__backBtn:hover svg {
+  transform: translateX(-5px);
+  transition: 0.5s;
+}
+.Creator__backBtn:hover p {
+  color: #0500ff;
+  transition: 0.5s;
+}
+.nftCreatorPageTitle {
+  color: #ff7152;
+  padding-left: 7px;
+}
+.Creator__imgs {
+  width: 100%;
+  margin-top: 20px;
+  position: relative;
+}
+.Creator__cover {
+  width: 100%;
+  border-radius: 20px;
+}
+.Creator__logo {
+  position: absolute;
+  max-width: 120px;
+  max-height: 120px;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  top: 86%;
+  left: calc(50% - 60px);
+  border: 1px solid;
+  border-image-source: linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
+}
+.Creator__hotLink p {
+  transition: 0.5s;
+}
+.Creator__hotLink:hover p {
+  color: #0500ff;
+}
+.Creator__hotLink svg path {
+  transition: 0.5s;
+}
+.Creator__hotLink:hover svg path {
+  fill: #0500ff;
+}
+.Creator__info {
+  padding-top: 73px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.Creator__hotLink a {
+  display: flex;
+  align-items: center;
+}
+.Creator__hotLink p {
+  color: #ff7152;
+  padding-right: 4px;
+}
+.nftCreator__infoTeaser {
+  max-width: 594px;
+  text-align: center;
+}
+.Activity__wrap {
+  padding-top: 10px;
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  overflow: hidden;
+}
+.nftCreatorPage__infoTeaser {
+  padding-top: 20px;
+  color: #ffffff;
+  opacity: 0.7;
+  text-align: center;
+}
+.Creator__filter {
+  display: flex;
+  width: 100%;
+  padding-top: 89px;
+  padding-bottom: 22px;
+}
+.Creator__filter__inner {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  border-bottom: 1px solid #111826;
+  padding-bottom: 10px;
+  width: 100%;
+}
+.Creator__filter__inner ul {
+  display: flex;
+  border: 1px solid #111826;
+  /* width: 15%; */
+  padding: 5px;
+  border-radius: 4px;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: space-between;
+  align-items: center;
+}
+.Creator__active__filter {
+  background-color: #545963;
+  border-radius: 4px;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+.Creator__deactive__filter {
+  border-radius: 4px;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+.Creator__activity {
+  display: flex;
+  width: 100%;
+  padding: 20px;
+  border: 1px solid #111826;
+}
+.nftCreatorPageWrapper {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.nftCreatorPageWrapper {
+  display: flex;
+  flex-direction: column;
+}
+.Creator__itemsSum {
+  padding-top: 30px;
+}
+.Creator__itemsSum p {
+  color: #545963;
+}
+.Creator__productsWrap {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  flex-wrap: wrap;
+  margin-right: auto;
+  gap: 30px;
+  margin-bottom: 150px;
+  padding-top: 30px;
+}
+.Creator__traits {
+  display: flex;
+  width: 95%;
+  margin-top: 30px;
+  border-bottom: 1px solid #111826;
+  padding-bottom: 30px;
+  flex-direction: column;
+}
+.Traits__name {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  max-height: 50px;
+  overflow: hidden;
+  transition: 0.5s;
+  cursor: pointer;
+  border-bottom: 1px solid #111826;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+}
+.Traits__svg {
+  transform: rotate(-3.142rad);
+  transition: 0.5s;
+  transform: 0.5s;
+}
+.Traits__svg__default {
+  transition: 0.5s;
+  transform: 0.5s;
+}
+.Traits__svg path {
+  fill: #ff7152;
+}
+.opend {
+  max-height: 1000px;
+  transition: 0.5;
+}
+.Traits__name__title {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+.Traits__name__title p {
+  color: #ff7152;
+}
+.Traits__tableWrap {
+  padding-top: 30px;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+.Traits__table__rarity {
+  display: flex;
+}
+.Traits__header {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  border-bottom: 1px solid #111826;
+  padding-bottom: 16px;
+}
+.Traits__header p {
+  color: #627eea;
+}
+.Traits__header p:first-child {
+  width: 75%;
+}
+.Traits__header p:nth-child(2) {
+  width: 15%;
+}
+.Traits__table__rarity {
+  width: auto;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+.Traits__table__rarity p {
+  padding-right: 10px;
+}
+.Traits__itemsWrap {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+.Traits__item {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  padding: 20px 0px;
+  border-bottom: 1px dashed #111826;
+}
+.Traits__item p:first-child {
+  width: 75%;
+}
+.Traits__item p:nth-child(2) {
+  width: 15%;
+}
+.Traits__item p:last-child {
+  width: auto;
+  margin-left: auto;
+}
+.TableRow {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  padding: 20px;
+  border: 1px solid #111826;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+}
+.TableRow__header {
+  display: flex;
+  width: 100%;
+  align-content: center;
+  border-bottom: 1px solid #111826;
+  padding-bottom: 20px;
+}
+.TableRow__header p {
+  color: #627eea;
+}
+.TableRow__header p:first-child {
+  width: 20%;
+}
+.TableRow__header p:nth-child(2) {
+  width: 13%;
+}
+.TableRow__header p:nth-child(3) {
+  width: 16%;
+}
+.TableRow__header p:nth-child(4) {
+  width: 18%;
+}
+.TableRow__header p:nth-child(5) {
+  width: 16%;
+}
+.TableRow__header p:nth-child(6) {
+  width: 16%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/*Laptop 1440*/
+@media (max-width: 1900px) {
+}
+/*Ipad Pro 1024*/
+@media (max-width: 1300px) {
+}
+/*Ipad 768*/
+@media (max-width: 1023px) {
+  .Creator__logo {
+    position: absolute;
+    top: 77%;
+    left: calc(100vw - 56%);
+  }
+}
+/*Mobile 320*/
+@media (max-width: 767px) {
+  .Creator__inner {
+    align-items: flex-start;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+  .Creator__backBtn {
+    margin-bottom: 30px;
+  }
+  .Creator__logo {
+    left: calc(100vw - 62%);
+  }
+}
