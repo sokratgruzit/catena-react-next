@@ -5,30 +5,64 @@
   justify-content: center;
   align-items: center;
   padding: 4px;
-  border: 1px solid rgba(22,32,41,.2);
+  border: 1px solid rgba(22, 32, 41, .2);
   border-radius: 20px;
   margin: auto;
   background-color: #F3E4D2;
+}
+
+.routeContainer {
+  display: flex;
+}
+
+.starSVG {
+  width: 30px;
+  height: 30px;
+}
+
+.starWrapper {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  margin-left: 60%;
+  cursor: pointer;
+}
+
+.favCount {
+  width: 20px;
+  height: 20px;
+  padding: 3px;
+  border-radius: 50%;
+  background-color: #FF7152;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  margin-left: 20px;
+  margin-bottom: 12px;
+  pointer-events: none;
 }
 
 .Activity__filter {
   display: flex;
   flex-direction: row;
 }
+
 .Activity__filter__item {
   border-radius: 20px;
   padding: 4px 12px;
   cursor: pointer;
-  margin:0 2px;
+  margin: 0 2px;
   color: #162029;
 }
 
 .Activity__filterActive {
-  background-color: #ff6969!important;
+  background-color: #ff6969 !important;
   border: 1px solid #162029;
   /* transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99); */
 }
-.routesWrapperMain{
+
+.routesWrapperMain {
   width: fit-content;
   margin: auto;
 }
