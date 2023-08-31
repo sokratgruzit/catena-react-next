@@ -39,18 +39,18 @@ const PoolsSection = ({ data, tableHead, Table__Types, stakersRecord }) => {
           <div className={styles.titleTopRow}>
             {/* <Image width={30} height={30} className={styles.logo} src={data.imgSrc1} alt='logo1' />
             <Image width={30} height={30} className={styles.logo} src={data.imgSrc2} alt='logo2' /> */}
-            <p>{data.name}</p>
+            <p>{data?.name}</p>
           </div>
         </div>
         <div className={styles.view}>
           <div className={styles.titleBottomRow}>
             {/* <Image width={25} height={25} className={styles.logoSm} src={data.imgSrc1} alt='logo1' /> */}
             <p>
-              1 {data.name1} = {data.rate1} {data.name2}
+              1 {data?.name1} = {data?.rate1} {data?.name2}
             </p>
             {/* <Image width={25} height={25} className={styles.logoSm} src={data.imgSrc2} alt='logo2' /> */}
             <p>
-              1 {data.name2} = {data.rate2} {data.name1}
+              1 {data?.name2} = {data?.rate2} {data?.name1}
             </p>
           </div>
           <div className={styles.buttons}>
