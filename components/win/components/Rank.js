@@ -200,7 +200,6 @@ const Rank = () => {
           <h5>Top Traders</h5>
           <p>Since start of the competition</p>
         </div>
-        <div>
           <TabFilter
             onClick={changeTabHendler}
             activeMenu={activeMenuItem}
@@ -212,7 +211,6 @@ const Rank = () => {
               item: filterStyles.Rank__filter__item,
             }}
           />
-        </div>
         <div className={`${styles.contentActve} ${details === false ? styles.content : ''}`}>
           <CompetitionTable activeMenuItem={activeMenuItem} />
         </div>
