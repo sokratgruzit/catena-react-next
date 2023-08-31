@@ -1,5 +1,5 @@
 import Benefits from './components/benefits/Benefits';
-import CareersCatena from './components/careerscatena/CareersCatena';
+import CareersCatena from './components/careers/CareersCatena';
 import CatenaTeam from './components/catenaTeam/CatenaTeam';
 import CurrentOpenings from './components/currentopenings/CurrentOpenings';
 import Feature from './components/feature/Feature';
