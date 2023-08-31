@@ -2,15 +2,15 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import React from 'react';
 
-import BackgroundImg from '../../../../../public/images/Info/background/background.png';
+import BackgroundImg from '../../../../../public/images/info/background/background.png';
 
 import styles from '../../../../../components/info/InfoPages.module.css';
 import PoolsSection from '../../../../../components/info/components/poolsSection/PoolsSection';
 
 const InfoTPoolsInngerPage_Data = {
   id: 1,
-  imgSrc1: '/images/Info/TopTokens/4.png',
-  imgSrc2: '/images/Info/TopTokens/1.png',
+  imgSrc1: '/images/info/TopTokens/4.png',
+  imgSrc2: '/images/info/TopTokens/1.png',
   name: 'USDC/WBNB',
   name1: 'USDC',
   name2: 'WBNB',
