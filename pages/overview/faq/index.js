@@ -1,10 +1,10 @@
 import Faq from '../../../components/home/faq/Faq';
 import createAxiosInstance from '../../api/axios';
 
-export const getStaticProps = async context => {
+export const getStaticProps = async () => {
   const axios = createAxiosInstance();
   const { data } = await axios.get(`${process.env.NEXT_PUBLIC_URL}/faq/get-all-faq`);
-
+  
   return {
     props: {
       faq: data,

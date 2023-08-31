@@ -14,7 +14,7 @@ const useLanguages = () => {
   };
 
   const setLocaleInUrl = (loc) => {
-    const { pathname, asPath, locale } = router;
+    const { pathname, asPath } = router;
     //const updatedQuery = { ...query, lang: locale };
     //router.push({ pathname, query: updatedQuery }, asPath, { shallow: true });
     router.push(pathname, asPath, { locale: loc });

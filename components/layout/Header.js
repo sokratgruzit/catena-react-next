@@ -495,15 +495,6 @@ const Header = () => {
     }
   }, [account, chainId, dispatch]);
 
-  useEffect(() => {
-    dispatch({
-      type: "SET_ACTIVE_LANG",
-      activeLang: "en"
-    });
-
-    handleLanguageChange("en");
-  }, []);
-
   return (
     <div>
       <header className={`${animate && styles.headerActive} ${styles.header} ${stickHead ? styles.stickHeader : ''}`}>
