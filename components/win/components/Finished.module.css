@@ -1,109 +1,34 @@
 .blur {
   position: relative;
-  margin: 280px auto 150px auto;
-  text-align: center;
-  width: 50%;
-}
-.Finished__background {
-  position: absolute;
-  width: 100%;
-  height: 125%;
-  top: -130%;
-  left: 0;
-  z-index: -1;
-}
-.mainContent {
-  position: relative;
-  top: -150px;
   display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 300px;
+  text-align: center;
   flex-direction: column;
 }
-.blurContent {
+
+.mainContent {
   display: flex;
-  justify-content: center;
-  padding-top: 30px;
-}
-.blurTitle h3 {
-  margin: 0 20px 20px 20px;
-  font-weight: 400;
-  font-size: 30px;
-  line-height: 42px;
-}
-.wallet a {
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 22px;
-  color: #ffffff;
-  opacity: 0.2;
-  z-index: 1;
-  border: 0px solid #ffffff11;
-  background-color: #ffffff11;
-  border-radius: 4px;
-  padding: 10px 17px;
+  flex-direction: column;
+  z-index: 999999;
 }
 
-.Rules__background {
+.img {
   position: absolute;
-  bottom: -30%;
-  left: 0;
-  z-index: -1;
+  background-color: black;
 }
-.rulesIcones {
-  margin-top: 200px;
-  display: flex;
-  justify-content: center;
-  align-items: baseline;
+
+.marqueeContainer {
+  margin-top: 150px;
 }
-.rulesIcones img {
-  margin: 0 10px;
+
+.ttl {
+  color: white;
 }
-.rulesTitle h3 {
-  margin-bottom: 80px;
-  font-size: 30px;
-  line-height: 42px;
-  text-align: center;
-}
-.rulesDescription {
-  display: flex;
-  gap: 100px;
-  padding: 0 40px;
-}
-.rulesDescription div {
-  margin-top: 3%;
-  width: 100%;
-}
-.rulesDescription h4 {
-  margin-bottom: 10px;
-  font-size: 16px;
-  line-height: 24px;
-  color: #ff7152;
-}
-.rulesDescription p {
-  font-size: 13px;
-  line-height: 18px;
-  color: #ffffff;
-  opacity: 0.7;
-}
-/* Finished Rules Styless  */
-.finishedRules {
-  margin-top: 200px;
-  position: relative;
-}
-.planetFinish {
-  position: absolute;
-  margin-bottom: 3%;
-  left: 65%;
-  top: -45%;
-}
-.asteroidFinish {
-  position: absolute;
-  left: 24%;
-  top: 10%;
-}
-.spaceShipMeteorFinish {
-  position: absolute;
-  left: 35%;
-  margin-top: -5%;
+
+.btnBlu {
+  background: #a6d0dd !important;
 }
 
 /* responsive */

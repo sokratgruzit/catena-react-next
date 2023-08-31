@@ -1,3 +1,9 @@
+.main {
+  background-color: #f5e9dc;
+  padding: 50px 50px;
+  margin-top: 100px;
+}
+
 .Rules__background {
   position: absolute;
   bottom: -400%;
@@ -32,7 +38,7 @@
 .rulesDescription {
   display: flex;
   gap: 100px;
-  padding: 0 40px;
+  padding: 0 100px;
 }
 .rulesDescription div {
   margin-top: 3%;
@@ -42,12 +48,10 @@
   margin-bottom: 10px;
   font-size: 16px;
   line-height: 24px;
-  color: #ff7152;
 }
 .rulesDescription p {
   font-size: 13px;
   line-height: 18px;
-  color: #ffffff;
   opacity: 0.7;
 }
 .runningLine {
@@ -115,7 +119,6 @@
 }
 /*Ipad 768*/
 @media (max-width: 1023px) {
-
   .rulesDescription div {
     margin-top: 5%;
   }
@@ -127,7 +130,6 @@
   .lines {
     margin: 0 20px;
   }
-
 }
 /*Mobile 320*/
 @media (max-width: 767px) {

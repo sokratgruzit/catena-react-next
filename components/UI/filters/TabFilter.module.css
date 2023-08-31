@@ -8,16 +8,16 @@
   justify-content: center;
   align-items: center;
   padding: 4px;
-  border: 1px solid rgba(22,32,41,.2);
+  border: 1px solid rgba(22, 32, 41, 0.2);
   border-radius: 20px;
-  background-color: #FFF3E5;
+  background-color: #fff3e5;
   width: min-content;
 }
 .Rank__filter__item {
   border-radius: 20px;
   padding: 4px 12px;
   cursor: pointer;
-  margin:0 2px;
+  margin: 0 2px;
   color: #162029;
 }
 /* here */
@@ -78,7 +78,7 @@
 }
 .Competition__filter__item {
   border-radius: 4px;
-  padding: 4px 12px;
+  /* padding: 4px 12px; */
   cursor: pointer;
   margin: 0 5px;
 }
@@ -101,7 +101,7 @@
 }
 .Prediction__filter__item {
   border-radius: 4px;
-  padding: 4px 12px;
+  /* padding: 4px 12px; */
   cursor: pointer;
   margin: 0 5px;
 }
@@ -110,7 +110,6 @@
     font-size: 13px;
   }
 }
-
 @media (max-width: 1023px) {
 }
 /* End Rank styles */
@@ -125,7 +124,7 @@
 /* FinishedRounds styles */
 .FinishedRounds__filter__item {
   border-radius: 4px;
-  padding: 4px 12px;
+  /* padding: 4px 12px; */
   cursor: pointer;
   margin: 0 5px;
   font-size: 13px;

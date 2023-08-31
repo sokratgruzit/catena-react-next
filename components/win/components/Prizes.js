@@ -4,6 +4,7 @@ import { useState } from 'react';
 import PrizesTable from './prizesTable/PrizesTable';
 import CornerDecor from '../../UI/cornerDecor/CornerDecor';
 import TabFilter from '../../UI/filters/TabFilter';
+import { Tabs } from '@catena-network/catena-ui-module';
 
 import styles from './Prizes.module.css';
 import filterStyles from '../../UI/filters/TabFilter.module.css';
@@ -33,9 +34,6 @@ const Prizes = () => {
   return (
     <>
       <div className={styles.prizesBkPosition}>
-        <div className={styles.sky}>
-          <Image layout='fill' objectFit={'contain'} src={'/images/win/sky.png'} alt='sky' />
-        </div>
         <div className={styles.prizes}>
           <div>
             <svg width='27' height='31' viewBox='0 0 27 31' fill='none' xmlns='http://www.w3.org/2000/svg'>
@@ -155,29 +153,23 @@ const Prizes = () => {
           <h3>Prizes</h3>
         </div>
       </div>
-      <div className={styles.backgrounPrizes}>
-        <div className={styles.Prizes__background}>
-          <Image layout='fill' src={'/images/win/background/prizesBackground.png'} alt='time' objectFit={'contain'} />
-        </div>
+      <div className={`${styles.backgrounPrizes} container`}>
         <div className={styles.spaceBoySection}>
           <div>
             <div className={styles.prizesDescription}>
               <p>Every eligible participant will win prizes at the end of the competition.</p>
-              <h5>The better your team performs, the better prizes you will get!</h5>
+              <h5 className='ttl'>The better your team performs, the better prizes you will get!</h5>
               <p>
                 The final winning team will be the team with the highest total volume score at the end of the
                 competition period.
               </p>
             </div>
           </div>
-          <div className={styles.cosmonavtPrizes}>
-            <Image layout='fill' objectFit={'contain'} src={'/images/win/cosmonavtPrizes.png'} alt='cosmonavtPrizes' />
-          </div>
         </div>
-        <div className={`${styles.prizesBorder}`}>
-          <CornerDecor />
-          <div className={styles.prizesTeam}>
-            <h6>Prizes by Team</h6>
+        <div className={`${styles.prizesBorder} container_bordered-child `}>
+          {/* <CornerDecor /> */}
+          <div className={`${styles.prizesTeam} `}>
+            <h6 className='ttl'>Prizes by Team</h6>
             <p>Higher trading volume = higher rank!</p>
           </div>
           <div className={styles.tabFilterBorder}>
@@ -186,7 +178,7 @@ const Prizes = () => {
               activeMenu={activeMenuItem}
               data={tabsData}
               css={{
-                wrap: filterStyles.Prizes__filterWrap,
+                wrap: filterStyles.Rank__filterWrap,
                 filter: filterStyles.Activity__filter,
                 active: filterStyles.Rank__filterActive,
                 item: filterStyles.Rank__filter__item,
@@ -195,22 +187,16 @@ const Prizes = () => {
           </div>
           <div className={styles.slider}>
             <div className={styles.teamDescription}>
-              <p>
-                RANK IN <br /> TEAM
-              </p>
-              <p>TIER</p>
-              <p>
-                TOKEN PRIZES
-                <br />
-                {` (SPLIT)`}
-              </p>
-              <p>ACHIEVEMENTS</p>
-              <p>NFT</p>
+              <p className='ttl'>RANK IN TEAM</p>
+              <p className='ttl'>TIER</p>
+              <p className='ttl'>TOKEN PRIZE{` (SPLIT)`}</p>
+              <p className='ttl'>ACHIEVEMENTS</p>
+              <p className='ttl'>NFT</p>
             </div>
             <PrizesTable activeMenuItem={activeMenuItem} />
           </div>
           <div className={styles.descriptionP}>
-            <p>
+            <p className='ttl'>
               Prizes to be distributed in CAKE, LAZIO, PORTO and SANTOS in a distribution of 3:1:1:1 and shared by all
               members of each respective tier. The price of token prizes {`(CAKE, LAZIO, PORTO and SANTOS)`} in USD will
               be determined as per their BUSD pair price during the tally period.

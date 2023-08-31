@@ -127,16 +127,18 @@ const Score = () => {
         <div className={`${styles.scoreBorder}`}>
           <CornerDecor />
           <div className={styles.scoreTitle}>
-            <h3>Your Score</h3>
+            <div className={styles.ttle}>
+              <h3 className='ttl'>Your Score</h3>
+            </div>
             <div>
-              <h4>Check Your Rank</h4>
-              <p>Connect wallet to view</p>
+              <h4 className='ttl'>Check Your Rank</h4>
+              <p className={styles.TiTle}>Connect wallet to view</p>
             </div>
           </div>
           <div className={styles.buttonWrapper}>
             <Button
               title={'Connect Wallet'}
-              type={'blue'}
+              className={styles.btn}
               customStyles={{
                 width: '100%',
                 padding: '7px 20px',
@@ -145,17 +147,6 @@ const Score = () => {
                 marginTop: 'auto',
               }}
             />
-          </div>
-        </div>
-        <div className={styles.spaceImgs}>
-          <div className={styles.spaceShip}>
-            <Image src={'/images/win/spaceShip.png'} layout='fill' objectFit={'contain'} alt='spaceShip' />
-          </div>
-          <div className={styles.dimond}>
-            <Image src={'/images/win/dimond.png'} layout='fill' objectFit={'contain'} alt='dimond' />
-          </div>
-          <div className={styles.planet}>
-            <Image src={'/images/win/planet.png'} layout='fill' objectFit={'contain'} alt='palnet' />
           </div>
         </div>
       </div>
