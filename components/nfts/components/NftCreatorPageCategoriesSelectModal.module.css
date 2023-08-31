@@ -1,0 +1,82 @@
+.nftCreatorPage__categoriesSelectModalFilter {
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px;
+}
+.nftCreatorPage__categoriesSelectModalFilter__item {
+  display: flex;
+  padding: 10px 10px;
+  border-radius: 4px;
+  align-items: center;
+}
+.nftCreatorPage__categoriesSelectModalFilter__item svg {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.nftCreatorPage__categoriesSelectModalFilter__itemHover {
+  background: rgba(255, 255, 255, 0.04);
+}
+.nftCreatorPage__categoriesSelectModalFilter__itemTitle {
+  display: flex;
+  align-items: center;
+  padding-left: 7px;
+}
+.nftCreatorPage__categoriesSelectModalFilter__itemTitleNumb {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+.nftCreatorPage__categoriesSelectModalFilter__itemActived {
+  display: flex;
+  padding: 10px 10px;
+  border-radius: 4px;
+  align-items: center;
+}
+.nftCreatorPage__categoriesSelectModal {
+  position: absolute;
+
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  box-shadow: 0px 4px 8px 0px #00000033;
+  border: 1px solid #16202980;
+  z-index: 10;
+  background-color: #f3e4d2;
+  border-radius: 16px;
+}
+.nftCreatorPage__categoriesSelectModalSearchBar input {
+  position: relative;
+  border: 1px solid #16202933;
+  background: #fff3e5;
+  border-radius: 30px;
+  font-size: 16px;
+  padding: 14px 40px;
+  color: rgba(22, 32, 41, 0.3);
+}
+.nftCreatorPage__categoriesSelectModalSearchIcon {
+  position: absolute;
+  left: 25px;
+  top: 29px;
+}
+.nftCreatorPage__categoriesSelectModalSelected {
+  padding-top: 10px;
+  border-bottom: 1px solid rgba(17, 24, 38, 0.2);
+  padding-bottom: 10px;
+}
+.nftCreatorPage__categoriesSelectModalSelectedTitle {
+  color: #162029;
+}
+
+.nftCreatorPage__categoriesSelectModalSelectedTitleFiltred {
+  padding: 4px 8px;
+  display: flex;
+  align-items: center;
+  border: 1px solid #162029;
+  width: fit-content;
+  border-radius: 45px;
+  background: #fff3e5;
+  margin-top: 4px;
+  gap: 6px;
+  text-transform: capitalize;
+}

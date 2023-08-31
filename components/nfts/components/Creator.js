@@ -16,7 +16,7 @@ const Creator = props => {
       id: 0,
       title: 'Alpha Kongs Club - AKC',
       subTitle: 'Alpha Kong #8223',
-      imgSrc: '../../images/nft/arrivals/fig1.png',
+      imgSrc: '/images/nft/arrivals/fig1.png',
       value: 'CMCX',
       price: '10.24',
       priceUSD: '10.301',
@@ -26,7 +26,7 @@ const Creator = props => {
       id: 1,
       title: 'Alpha Kongs Club - AKC',
       subTitle: 'Alpha Kong #8223',
-      imgSrc: '../../images/nft/arrivals/fig1.png',
+      imgSrc: '/images/nft/arrivals/fig1.png',
       value: 'CMCX',
       price: '10.24',
       priceUSD: '10.301',
@@ -36,7 +36,7 @@ const Creator = props => {
       id: 2,
       title: 'Alpha Kongs Club - AKC',
       subTitle: 'Alpha Kong #8223',
-      imgSrc: '../../images/nft/arrivals/fig1.png',
+      imgSrc: '/images/nft/arrivals/fig1.png',
       value: 'CMCX',
       price: '10.24',
       priceUSD: '10.301',
@@ -46,7 +46,7 @@ const Creator = props => {
       id: 3,
       title: 'Alpha Kongs Club - AKC',
       subTitle: 'Alpha Kong #8223',
-      imgSrc: '../../images/nft/arrivals/fig1.png',
+      imgSrc: '/images/nft/arrivals/fig1.png',
       value: 'CMCX',
       price: '10.24',
       priceUSD: '10.301',
@@ -56,7 +56,7 @@ const Creator = props => {
       id: 4,
       title: 'Alpha Kongs Club - AKC',
       subTitle: 'Alpha Kong #8223',
-      imgSrc: '../../images/nft/arrivals/fig1.png',
+      imgSrc: '/images/nft/arrivals/fig1.png',
       value: 'CMCX',
       price: '10.24',
       priceUSD: '10.301',
@@ -65,7 +65,7 @@ const Creator = props => {
       id: 5,
       title: 'Alpha Kongs Club - AKC',
       subTitle: 'Alpha Kong #8223',
-      imgSrc: '../../images/nft/arrivals/fig1.png',
+      imgSrc: '/images/nft/arrivals/fig1.png',
       value: 'CMCX',
       price: '10.24',
       priceUSD: '10.301',
@@ -75,7 +75,7 @@ const Creator = props => {
       id: 6,
       title: 'Alpha Kongs Club - AKC',
       subTitle: 'Alpha Kong #8223',
-      imgSrc: '../../images/nft/arrivals/fig1.png',
+      imgSrc: '/images/nft/arrivals/fig1.png',
       value: 'CMCX',
       price: '10.24',
       priceUSD: '10.301',
@@ -84,7 +84,7 @@ const Creator = props => {
       id: 7,
       title: 'Alpha Kongs Club - AKC',
       subTitle: 'Alpha Kong #8223',
-      imgSrc: '../../images/nft/arrivals/fig1.png',
+      imgSrc: '/images/nft/arrivals/fig1.png',
       value: 'CMCX',
       price: '10.24',
       priceUSD: '10.301',
@@ -93,7 +93,7 @@ const Creator = props => {
       id: 8,
       title: 'Alpha Kongs Club - AKC',
       subTitle: 'Alpha Kong #8223',
-      imgSrc: '../../images/nft/arrivals/fig1.png',
+      imgSrc: '/images/nft/arrivals/fig1.png',
       value: 'CMCX',
       price: '10.24',
       priceUSD: '10.301',
@@ -102,7 +102,7 @@ const Creator = props => {
       id: 9,
       title: 'Alpha Kongs Club - AKC',
       subTitle: 'Alpha Kong #8223',
-      imgSrc: '../../images/nft/arrivals/fig1.png',
+      imgSrc: '/images/nft/arrivals/fig1.png',
       value: 'CMCX',
       price: '10.24',
       priceUSD: '10.301',
@@ -774,12 +774,8 @@ const Creator = props => {
   }
   if (activeTab === 'items') {
     content = (
-      <div className={` container ${styles.nftCreatorWrapper}`}>
+      <div className={`  ${styles.nftCreatorWrapper}`}>
         <DropDownFilter />
-        {/* <DropDown /> */}
-        <div className={styles.Creator__itemsSum}>
-          <p>12,203 Items</p>
-        </div>
         <div className={styles.Creator__productsWrap}>
           {azukiItems.map(item => {
             return <ListItemCard key={item.id} data={item} type={'nft_creator'} />;
