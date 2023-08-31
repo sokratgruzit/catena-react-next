@@ -1,4 +1,3 @@
-import { StringToHtml } from '../../../UI/StringToHtml/StringToHtml';
 import styles from './CompanyInfo.module.css';
 
 const CompanyInfo = props => {
