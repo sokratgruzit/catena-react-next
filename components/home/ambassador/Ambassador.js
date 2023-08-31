@@ -8,7 +8,7 @@ import AmbasdorBtn from './components/AmbasdorBtn';
 import JoinCommunity from '../events/components/JoinCommunity';
 import { InView } from 'react-intersection-observer';
 import { useDispatch } from 'react-redux';
-import {useEffect, useState} from "react";
+import { useEffect, useState } from 'react';
 
 const Ambassador = () => {
   return (

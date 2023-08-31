@@ -1,8 +1,8 @@
 import React from 'react';
-import InfoTokens from '../../../../components/Info/InfoTokens/InfoTokens';
+import InfoTokens from '../../../../components/info/infoTokens/InfoTokens';
 
 const index = () => {
-  return <InfoTokens />
+  return <InfoTokens />;
 };
 
 export default index;

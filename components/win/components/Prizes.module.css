@@ -10,10 +10,15 @@
   height: 100%;
   padding-top: 100%;
 }
+.spaceBoySection {
+  max-width: 24%;
+}
 .backgrounPrizes {
   position: relative;
   display: flex;
-  padding: 80px 40px 0 40px;
+  padding: 80px 140px 0 140px;
+  justify-content: center;
+  gap: 300px;
 }
 .prizesMedal {
   position: relative;
@@ -49,14 +54,12 @@
 .prizesDescription p {
   font-size: 15px;
   line-height: 24px;
-  color: #ffffff;
   opacity: 0.7;
 }
 .prizesDescription h5 {
   margin: 16px 0;
   font-size: 20px;
   line-height: 28px;
-  color: #ffffff;
 }
 .cosmonavtPrizes {
   position: absolute;
@@ -66,8 +69,13 @@
 }
 .prizesBorder {
   position: relative;
-  padding: 20px;
-  width: 100%;
+  width: 40%;
+  padding: 0px 0px;
+}
+
+.prizesTeam {
+  padding: 10px;
+  border-bottom: 1px solid rgba(22, 32, 41, 0.2);
 }
 .prizesTeam h6 {
   font-size: 16px;
@@ -77,15 +85,15 @@
   margin-bottom: 20px;
   font-size: 13px;
   line-height: 18px;
-  color: #babbbe;
 }
 .tabFilterBorder {
-  border-bottom: 1px solid #ffffff10;
-  border-top: 1px solid #ffffff10;
+  padding: 20px 20px;
+  border-bottom: 1px solid rgba(22, 32, 41, 0.2);
 }
 .teamDescription {
   padding: 20px 0;
   display: flex;
+  padding: 10px 10px;
 }
 .teamDescription p:nth-child(1) {
   width: 24%;
@@ -105,14 +113,12 @@
 .teamDescription p {
   font-size: 13px;
   line-height: 22px;
-  color: #627eea;
 }
 .descriptionP {
   margin-top: 50px;
   font-size: 15px;
   line-height: 24px;
-  color: #ffffff;
-  opacity: 0.7;
+  margin: 50px 20px 10px 20px;
 }
 /*Ipad Pro 1024*/
 @media (max-width: 1300px) {

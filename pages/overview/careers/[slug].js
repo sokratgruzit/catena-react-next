@@ -1,5 +1,5 @@
 import createAxiosInstance from '../../api/axios';
-import CareersIneer from '../../../components/home/careers/careers-inner/CareersIneer';
+import CareersIneer from '../../../components/home/careers/careersInner/CareersIneer';
 
 export const getStaticPaths = async ({ locales }) => {
   const axios = createAxiosInstance();

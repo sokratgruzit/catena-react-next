@@ -8,7 +8,7 @@ import styles from './Rules.module.css';
 const Rules = () => {
   return (
     <>
-      <div>
+      <div className={styles.main}>
         <div className={styles.rulesIcones}>
           <div>
             <svg width='27' height='31' viewBox='0 0 27 31' fill='none' xmlns='http://www.w3.org/2000/svg'>
@@ -130,7 +130,7 @@ const Rules = () => {
         <div className={styles.rulesDescription}>
           <div className={styles.rules}>
             <div>
-              <h4>Trade to increase your rank</h4>
+              <h4 className='ttl'>Trade to increase your rank</h4>
               <p>
                 Eligible pairs: SANTOS/BNB, PORTO/BNB, LAZIO/BNB, SANTOS/BUSD, PORTO/BUSD, LAZIO/BUSD, CMCX/BNB and
                 CMCX/BUSD
@@ -165,7 +165,7 @@ const Rules = () => {
           </span>
           <div className={styles.rules}>
             <div>
-              <h4>Play as a team</h4>
+              <h4 className='ttl'>Play as a team</h4>
               <p>The higher your team’s rank, the better your prizes!</p>
             </div>
           </div>
@@ -196,35 +196,18 @@ const Rules = () => {
             </svg>
           </span>
           <div>
-            <h4 className={styles.everyone}>Everyone’s a winner!</h4>
+            <h4 className={`${styles.everyone} ttl`}>Everyone’s a winner!</h4>
             <p>Sign up for battle and you’re guaranteed a prize!</p>
           </div>
         </div>
       </div>
       <div className={styles.finishedRules}>
-        <div className={styles.Rules__background}>
-          <Image objectFit={'contain'} layout='fill' alt='rulesBk' src='/images/win/background/rulesBackground.png' />
-        </div>
-        <div>
-          <div className={styles.planetFinish}>
-            <Image layout='fill' objectFit={'contain'} src={'/images/win/planet.png'} alt='planet' />
-          </div>
-          <div className={styles.asteroidFinish}>
-            <Image layout='fill' objectFit={'contain'} src={'/images/win/asteroid.png'} alt='asteroid' />
-          </div>
-        </div>
         <div className={styles.faqCompetition}>
           <FAQ type={'rules'} />
         </div>
-        <div className={styles.runningLine}>
-          {/* <Marquee label={"win"} direction={"forward"}/>
-                <Marquee label={"win"} direction={"reverse"}/> */}
-        </div>
-        <Finished />
-        <div className={styles.spaceShipMeteorFinish}>
-          <Image layout='fill' objectFit={'contain'} src={'/images/win/spaceShipMeteor.png'} alt='spaceShipMeteor' />
-        </div>
+        <div className={styles.spaceShipMeteorFinish}></div>
       </div>
+      <div className={styles.runningLine}>asads M</div>
     </>
   );
 };

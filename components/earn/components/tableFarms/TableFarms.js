@@ -5,7 +5,6 @@ import { Table, Button } from '@catena-network/catena-ui-module';
 
 import { ArrowSvg } from '../../../svg';
 
-// import styles from './AuctionTable.module.css';
 import ArrowDownSvg from '../../../svg/ArrowDownSvg';
 
 const tableHead = [

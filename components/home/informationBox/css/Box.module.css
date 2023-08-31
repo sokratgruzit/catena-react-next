@@ -93,12 +93,20 @@
   margin-right: 10px;
 }
 
-.botoomttl {
+/* .botoomttl {
   border-bottom: 1px solid black;
-}
+} */
 
 /*Ipad Pro 1024*/
 @media (max-width: 1365px) {
+  .mane {
+    width: 100%;
+  }
+  .boxmane {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 /*Ipad 768*/
@@ -130,5 +138,10 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+  }
+
+  .svgImg {
+    width: 80% !important;
+    margin: 10px 0;
   }
 }

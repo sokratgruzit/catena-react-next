@@ -511,25 +511,25 @@ input:focus:-ms-input-placeholder {
   stroke-dashoffset: 0px;
 }
 .tokenomics_chart path:nth-child(1) {
-  transition-delay: .1s;
+  transition-delay: 0.1s;
 }
 .tokenomics_chart path:nth-child(2) {
-  transition-delay: .2s;
+  transition-delay: 0.2s;
 }
 .tokenomics_chart path:nth-child(3) {
-  transition-delay: .3s;
+  transition-delay: 0.3s;
 }
 .tokenomics_chart path:nth-child(4) {
-  transition-delay: .4s;
+  transition-delay: 0.4s;
 }
 .tokenomics_chart path:nth-child(5) {
-  transition-delay: .5s;
+  transition-delay: 0.5s;
 }
 .tokenomics_chart path:nth-child(6) {
-  transition-delay: .6s;
+  transition-delay: 0.6s;
 }
 .tokenomics_chart path:nth-child(7) {
-  transition-delay: .7s;
+  transition-delay: 0.7s;
 }
 /* IE 10+ */
 /*Laptop 1440*/

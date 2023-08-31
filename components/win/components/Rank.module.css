@@ -2,34 +2,52 @@
   position: relative;
   margin-top: 300px;
 }
+
 .Rank__background {
   position: absolute;
   top: -60%;
   left: 0;
   z-index: -10;
-  padding-top: 100% ;
+  padding-top: 100%;
   width: 100%;
   height: 100%;
 }
+
 .rank {
   text-align: center;
+  margin: 140px 0px;
 }
+
 .rankCup {
   position: relative;
   display: flex;
   align-items: baseline;
   justify-content: center;
 }
+
 .cup {
   padding-top: 6%;
+  width: 3%;
 }
+
+.cupImg {
+  min-height: 80% !important;
+}
+
 .svgImg {
   margin-right: 80px;
 }
+
+.rankImg {
+  min-height: 80% !important;
+}
+
 .rankTitle p {
   font-size: 30px;
   line-height: 42px;
+  margin-top: 20px;
 }
+
 .rankPosition {
   position: relative;
   display: flex;
@@ -37,67 +55,89 @@
   margin: 50px 0 10px 0;
   padding-top: 15%;
 }
+
 .rankVolume {
   display: flex;
   justify-content: center;
-  gap: 10px;
+  gap: 30px;
 }
+
 .volume {
   font-size: 10px;
   line-height: 14px;
   text-align: center;
-  color: #627eea;
+  color: #ff6969;
   margin-bottom: 30px;
 }
+
 .rankBorder {
   position: relative;
   margin: auto;
-  width: 55%;
-  padding: 20px;
- 
+  width: 65%;
+  background-color: #fff3e5;
 }
+
 .content {
-  max-height: 440px;
+  max-height: 740px;
   overflow: hidden;
 }
+/* 
 .contentActve {
   max-width: 800px;
-}
+} */
+
 .rankTrades {
   border-bottom: 1px solid #ffffff10;
+  background-color: #f0dec9;
+  width: 100%;
+  padding: 20px;
 }
+
 .rankTrades h5 {
   font-size: 16px;
   line-height: 24px;
 }
+
 .rankTrades p {
   font-size: 13px;
   line-height: 18px;
-  color: #babbbe;
   margin-bottom: 20px;
 }
+
 .borderCorner {
   position: relative;
 }
+
 .price {
-  white-space: nowrap; 
-  width: 100px; 
+  white-space: nowrap;
+  width: 100px;
   overflow: hidden;
-  text-overflow: ellipsis; 
+  text-overflow: ellipsis;
 }
+
 .buttonShowMore {
   text-align: center;
+  padding: 20px 20px;
 }
+
+.btn {
+  padding: 10px 40px !important;
+}
+
+.tab {
+  padding: 20px 20px;
+}
+
 .buttonShowMore button {
   font-size: 15px;
   line-height: 20px;
   margin-right: 5px;
-  color: #0500ff;
+  color: black;
+  border: 1px solid black;
+  padding: 10px 30px;
+  border-radius: 20px;
 }
-.vectorSvg{
-  stroke: #0500FF;
-  transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
-}
+
 .rotate {
   transform: rotateZ(-180deg);
 }
@@ -106,7 +146,7 @@
 @media (max-width: 1300px) {
   .rankPosition {
     padding-top: 20%;
-  } 
+  }
 }
 /*Ipad 768*/
 @media (max-width: 1023px) {

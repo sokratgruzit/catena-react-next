@@ -1,6 +1,7 @@
 import React from 'react';
 
-import Confirmation from '../../../components/home/confirmationYourPayment/Confirmation';
+import Confirmation from '../../../components/home/ConfirmationYourPayment/Confirmation';
+
 const index = () => {
   return <Confirmation />;
 };

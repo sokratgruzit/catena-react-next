@@ -2,11 +2,10 @@ import React, { useState } from 'react';
 import { useMobileWidth } from '../../../../hooks/useMobileWidth';
 
 import { Table, Button, TableElement } from '@catena-network/catena-ui-module';
-import CornerDecor from '../../../UI/cornerDecor/CornerDecor';
 import { ArrowSvg } from '../../../svg';
 import ArrowDownSvg from '../../../svg/ArrowDownSvg';
 
-import styles from '../InfoTables/InfoTables.module.css'
+import styles from '../infoTables/InfoTables.module.css'
 
 const TableFarms = ({ title, tableInfo, tableHead, Table__Types }) => {
     const [currentPage, setCurrentPage] = useState(1);
@@ -68,7 +67,7 @@ const TableFarms = ({ title, tableInfo, tableHead, Table__Types }) => {
                         {tableHead?.slice(0, 5).map((i, index) => (
                             <div
                                 key={index}
-                                className={`td col ${i.mobileWidth ? true : false}`}
+                                className={`td col ${i.mobileWidth ? true : true}`}
                                 style={{ width: `${mobile ? i.mobileWidth : i.width}%` }}
                             >
                                 <span>
@@ -84,26 +83,6 @@ const TableFarms = ({ title, tableInfo, tableHead, Table__Types }) => {
                                 </span>
                             </div>
                         ))}
-                        {width > 940 &&
-                            tableHead.slice(5, 7).map((i, index) => (
-                                <div
-                                    key={index}
-                                    className={`td col ${i.position} ${i.mobileWidth ? true : false}`}
-                                    style={{
-                                        width: `${mobile ? i.mobileWidth : i.width}%`,
-                                        marginRight: `${width < 1450 ? '10px' : '0'}`,
-                                    }}
-                                >
-                                    <Button
-                                        element={'staking-button'}
-                                        label={index === 0 ? 'Unstake' : 'Harvest'}
-                                        active={index === 0}
-                                        customStyles={{ borderRadius: '32px' }}
-                                        onClick={() => i.onClick(index)}
-                                        disabled={index === 0 ? item.unstaked : item.withdrawan}
-                                    />
-                                </div>
-                            ))}
                     </div>
                     <div className='table-more' />
                     <div className='icon-place'>
@@ -121,22 +100,6 @@ const TableFarms = ({ title, tableInfo, tableHead, Table__Types }) => {
                                     </span>
                                 </div>
                             ))}
-                            {width <= 940 && (
-                                <div className='table-buttons'>
-                                    {[5, 6].map(index => (
-                                        <div className='td' key={index}>
-                                            <Button
-                                                element='staking-button'
-                                                label={index === 5 ? 'Unstake' : 'Harvest'}
-                                                active={index === 5}
-                                                customStyles={{ borderRadius: '32px' }}
-                                                onClick={() => tableHead[index].onClick(index)}
-                                                disabled={index === 5 ? item.unstaked : item.withdrawan}
-                                            />
-                                        </div>
-                                    ))}
-                                </div>
-                            )}
                         </div>
                     </div>
                 </div>
@@ -144,10 +107,9 @@ const TableFarms = ({ title, tableInfo, tableHead, Table__Types }) => {
         ));
 
     return (
-        <div>
-            <div className='container'>
-                <h2 className='ttl font-40'>{title}</h2>
-            </div>
+            <div className='container_bordered'>
+                <h2 style={{marginBottom: "20px"}} className='ttl font-40'>{title}</h2>
+           <div style={{backgroundColor: "rgba(243, 228, 210,0.8)"}}>
             <Table
                 type={'table-version'}
                 tableHeadMore={tableHeadMore}
@@ -158,6 +120,7 @@ const TableFarms = ({ title, tableInfo, tableHead, Table__Types }) => {
                 tableEmptyData={tableEmptyData}
                 loading={loading}
             />
+            </div>
             <TableElement
                 type={"pagination"}
                 currentPage={currentPage}
@@ -165,7 +128,7 @@ const TableFarms = ({ title, tableInfo, tableHead, Table__Types }) => {
                 onPageChange={(page) => setCurrentPage(page)}
                 customStyle={{ margin: '20px 0 40px 0' }}
             />
-        </div>
+             </div>
     );
 }
 
