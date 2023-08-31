@@ -14,7 +14,7 @@ import { useMobileWidth } from '../../hooks/useMobileWidth';
 import { BlocksIcon, DashboardIcon, DocsIcon, ProfileIcon, RewardsCalcIcon, ValidatorsListIcon } from '../svg';
 
 import styles from './Dashboard.module.css';
-//
+
 const Dashboard = () => {
   const [sortBy, setSortBy] = useState('Validated Blocks');
   const [animate, setAnimate] = useState(false);
