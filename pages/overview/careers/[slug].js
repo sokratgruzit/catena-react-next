@@ -13,7 +13,7 @@ export const getStaticPaths = async ({ locales }) => {
       console.log(err?.response);
     });
 
-  let paths;
+  let paths = [];
 
   if (careers && careers.length > 0) {
     paths = careers.flatMap((item) =>
@@ -22,12 +22,7 @@ export const getStaticPaths = async ({ locales }) => {
         locale: loc,
       }))
     );
-  } else {
-    paths = locales.map((loc) => ({
-      params: { slug: `career-${loc}` },
-      locale: loc,
-    }));
-  }
+  } 
 
   return {
     paths,
