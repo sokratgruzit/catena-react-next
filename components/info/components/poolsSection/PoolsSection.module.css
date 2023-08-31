@@ -1,141 +1,165 @@
-.section{
+.section {
   margin-top: 40px;
 }
 
-.titleRow{
+.titleRow {
+  margin-top: 40px;
   display: flex;
+  flex-direction: column;
+  gap: 30px;
   justify-content: space-between;
 }
 
-.title{
+.title {
   display: flex;
   flex-direction: column;
 }
 
-.starSVG{
-  width: 20px;
-  height: 20px;
-  margin-left: 10px;
+.starSVG {
+  width: 16px;
+  height: 16px;
+  margin-right: 10px;
+}
+
+.name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
   cursor: pointer;
 }
 
-.name{
+.name1 {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
+  height: 100%;
+  margin-right: 20px;
 }
 
 .name:hover {
   text-decoration: underline;
-  text-decoration-color: #0500FF ;
+  text-decoration-color: #0500FF;
 }
 
-.name p{
+.name p {
   font-size: 16px;
   line-height: 13px;
   color: #0500FF;
 }
 
-.buttons{
+.buttons {
   display: flex;
+  gap: 20px;
   justify-content: space-between;
+  width: 70%;
 }
-
-.view{
+.flex {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 205px;
+  gap: 5px;
 }
 
-.name p{
+.view {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.name p {
   margin-bottom: 8px;
   margin-right: 5px;
 }
 
-.logo{
+.logo {
   width: 50px;
 }
 
-.titleTopRow{
+.titleTopRow {
   display: flex;
   align-items: center;
 
 }
-.titleTopRow p{
+
+.titleTopRow p {
   font-size: 30px;
-line-height: 13px;
+  line-height: 13px;
 }
 
-.titleBottomRow{
+.titleBottomRow {
   display: flex;
-  flex-direction: row ;
+  flex-direction: row;
   align-items: center;
-  margin-top: 10px;
+  width: 30%;
 }
 
 .titleBottomRow p {
   margin-left: 5px;
 }
 
-.titleBottomRow p:nth-child(2){
+.titleBottomRow p:nth-child(2) {
   margin-right: 30px;
 }
 
-.logoSm{
+.logoSm {
   width: 30px;
   height: 30px;
   margin-right: 5px;
 }
 
-.displayPoolsSection{
+.displayPoolsSection {
   display: flex;
   justify-content: space-between;
   margin-top: 50px;
+  margin-bottom: 60px;
 }
 
-.tableName{
-  margin-top:50px;
+.tableName {
+  margin-top: 50px;
   margin-bottom: 30px;
   font-size: 30px;
   line-height: 13px;
 }
 
-.goBackWrapper{
+.goBackWrapper {
   width: 27%;
   align-self: center;
 }
-.goBackText:hover{
+
+.goBackText:hover {
   text-decoration: underline;
   text-decoration-color: #FF7152;
 }
-.goBackText{
+
+.goBackText {
   cursor: pointer;
   width: fit-content;
   align-items: center;
   display: flex;
 }
 
-.goBackText p{
+.goBackText p {
   font-size: 15px;
   line-height: 21px;
   color: #FF7152;
   margin-left: 5px;
 }
 
-.starSVG{
+.starSVG {
   width: 30px;
   height: 30px;
 }
 
-.starWrapper{
+.starWrapper {
   display: flex;
   align-items: center;
   justify-content: flex-end;
   width: 27%;
 }
 
-.favCount{
+.favCount {
   width: 20px;
   height: 20px;
   padding: 3px;
@@ -150,54 +174,60 @@ line-height: 13px;
   pointer-events: none;
 }
 
-.topSectionWrapper{
+.topSectionWrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 @media (max-width: 896px) {
-  .displayPoolsSection{
+  .displayPoolsSection {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-top: 50px;
   }
-  .titleRow{
+
+  .titleRow {
     flex-direction: column;
     align-items: center;
     justify-content: center;
   }
-  .title{
+
+  .title {
     align-items: center;
   }
-  .view{
+
+  .view {
     align-items: center;
     margin-top: 20px;
   }
-  .buttons div:nth-child(1){
+
+  .buttons div:nth-child(1) {
     margin-right: 10px;
   }
 }
 
 @media (max-width: 768px) {
-  .dataBlockWrapper{
-     flex-direction: column;
-     align-items: center;
+  .dataBlockWrapper {
+    flex-direction: column;
+    align-items: center;
   }
 }
 
-@media (max-width:600px){
-  .topSectionWrapper{
+@media (max-width:600px) {
+  .topSectionWrapper {
     flex-wrap: wrap;
   }
-   .goBackWrapper{
+
+  .goBackWrapper {
     align-self: flex-start;
     width: 100%;
     margin-bottom: 20px;
-   }
-   .starWrapper{
+  }
+
+  .starWrapper {
     width: fit-content;
-   }
+  }
 }

@@ -7,7 +7,7 @@ import ArrowDownSvg from '../../../svg/ArrowDownSvg';
 
 import styles from '../infoTables/InfoTables.module.css'
 
-const TableFarms = ({ title, tableInfo, tableHead, Table__Types }) => {
+const TableTokens = ({ title, tableInfo, tableHead, Table__Types }) => {
     const [currentPage, setCurrentPage] = useState(1);
     const [mobileExpand, setMobileExpand] = useState(null);
     const [dataType, setDataType] = useState('All');
@@ -132,4 +132,4 @@ const TableFarms = ({ title, tableInfo, tableHead, Table__Types }) => {
     );
 }
 
-export default TableFarms
+export default TableTokens
