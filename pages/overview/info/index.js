@@ -1,5 +1,5 @@
 import React from 'react';
-import InfoOverview from '../../../components/home/info/infoOverview/InfoOverview.js';
+import InfoOverview from '../../../components/info/infoOverview/InfoOverview';
 
 const index = () => {
   //comment
