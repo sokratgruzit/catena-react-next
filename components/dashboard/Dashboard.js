@@ -1,15 +1,15 @@
 import { useRouter } from 'next/router';
 import React, { useState, useEffect } from 'react';
 
-import BalanceCard from './components/BalanceCard/BalanceCard';
-import BlockchainProvingTimeChart from './components/BlockchainProvingTimeChart/BlockchainProvingTimeChart';
-import BlocksProducedChart from './components/BlocksProducedChart/BlocksProducedChart';
-import CurrentRanking from './components/CurrentStats/CurrentRanking';
-import CurrentVotes from './components/CurrentStats/CurrentVotes';
-import HardwareStatus from './components/HardwareStatus/HardwareStatus';
-import NodeDetails from './components/NodeDetails/NodeDetails';
-import SoftwareStatus from './components/SoftwareStatus/SoftwareStatus';
-import Table from './components/Table/Table';
+import BalanceCard from './components/balanceCard/BalanceCard';
+import BlockchainProvingTimeChart from './components/blockchainProvingTimeChart/BlockchainProvingTimeChart';
+import BlocksProducedChart from './components/blocksProducedChart/BlocksProducedChart';
+import CurrentRanking from './components/currentStats/CurrentRanking';
+import CurrentVotes from './components/currentStats/CurrentVotes';
+import HardwareStatus from './components/hardwareStatus/HardwareStatus';
+import NodeDetails from './components/nodeDetails/NodeDetails';
+import SoftwareStatus from './components/softwareStatus/SoftwareStatus';
+import Table from './components/table/Table';
 import { useMobileWidth } from '../../hooks/useMobileWidth';
 import { BlocksIcon, DashboardIcon, DocsIcon, ProfileIcon, RewardsCalcIcon, ValidatorsListIcon } from '../svg';
 
