@@ -82,21 +82,21 @@ const Header = () => {
               title: 'Community',
               route: '/overview/community',
             },
-            // {
-            //   id: 'about-2',
-            //   title: 'Careers',
-            //   route: '/overview/careers',
-            // },
-            // {
-            //   id: 'about-3',
-            //   title: 'Press',
-            //   route: '/overview/press',
-            // },
-            // {
-            //   id: 'about-4',
-            //   title: 'Events',
-            //   route: '/overview/events',
-            // },
+            {
+              id: 'about-2',
+              title: 'Careers',
+              route: '/overview/careers',
+            },
+            {
+              id: 'about-3',
+              title: 'Press',
+              route: '/overview/press',
+            },
+            {
+              id: 'about-4',
+              title: 'Events',
+              route: '/overview/events',
+            },
             {
               id: 'about-5',
               title: 'Privacy',
@@ -269,8 +269,7 @@ const Header = () => {
       activeLang: "en"
     });
 
-    //handleLanguageChange(loc);
-    handleLanguageChange("en");
+    handleLanguageChange(loc);
   };
 
   const openMenu = id => {
