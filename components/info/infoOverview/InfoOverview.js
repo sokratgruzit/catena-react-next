@@ -93,7 +93,8 @@ const InfoOverview = () => {
           <TableTokens title="Top Tokens" tableInfo={stakersRecord} tableHead={tableHead} />
           <TableTokens title="Top Pools" tableInfo={stakersRecord} tableHead={tableHead} />
           <TableTokens title="Transaction" tableInfo={stakersRecord} tableHead={tableHead} Table__Types={Table__Types} />
-          {/* <TransactionTable tableHead={tableHead} tableInfo={stakersRecord}/> */}
+          {/* <PoolsSection /> */}
+
         </div>
       </div>
     </div>

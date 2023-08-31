@@ -4,7 +4,7 @@ import React from 'react';
 
 import BackgroundImg from '../../../../../public/images/Info/background/background.png';
 
-import styles from '../../../../../components/Info/InfoPages.module.css';
+import styles from '../../../../../components/info/InfoPages.module.css';
 import PoolsSection from '../../../../../components/info/components/poolsSection/PoolsSection';
 
 const InfoTPoolsInngerPage_Data = {
