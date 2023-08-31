@@ -21,6 +21,7 @@ const BalanceCard = () => {
       value: '-',
     },
   ];
+  
   return (
     <div className={styles.cardWrapper}>
       <div className={styles.liner} />
