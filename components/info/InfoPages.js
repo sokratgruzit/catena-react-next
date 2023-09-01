@@ -8,6 +8,7 @@ import TableTokens from './components/tableTokens/TableTokens';
 
 import styles from './InfoPages.module.css';
 import TopMovers from './components/topMovers/TopMovers';
+import Section from './components/section/Section';
 
 const Table__Types = [
   {
@@ -83,7 +84,7 @@ const stakersRecord = [
   },
 ];
 
-const InfoPages = ({ page }) => {
+const InfoPages = ({ page, data }) => {
   return (
     <div className='pT-180'>
       <div className='container'>
@@ -105,6 +106,7 @@ const InfoPages = ({ page }) => {
             </>
           }
           {page === 'pools' && <TableTokens title="Top Pools" tableInfo={stakersRecord} tableHead={tableHead} />}
+          {page === 'section' && <Section title="Top Pools" data={data}  tableInfo={stakersRecord} tableHead={tableHead} Table__Types={Table__Types} />}
 
         </div>
       </div>
