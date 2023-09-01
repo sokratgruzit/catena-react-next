@@ -96,7 +96,7 @@ const TableTokens = ({ title, tableInfo, tableHead, Table__Types }) => {
                             active={rowToggles[index]}
                             onClick={() => {
                                 const newToggles = Array(tableInfo.length).fill(false);
-                                newToggles[index] = !newToggles[index];
+                                newToggles[index] = !rowToggles[index];
                                 setRowToggles(newToggles);
                             }}
                         />
