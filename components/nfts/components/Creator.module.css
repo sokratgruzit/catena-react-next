@@ -200,6 +200,7 @@
   font-size: 30px;
 }
 .Creator__traits > div > div > div > div > div {
+  border-top: 1px solid #ff6969;
   right: 20px;
 }
 .Traits__name {
@@ -345,27 +346,36 @@
 @media (max-width: 1900px) {
 }
 /*Ipad Pro 1024*/
-@media (max-width: 1300px) {
+@media (max-width: 1365px) {
+  .Creator__logo {
+    width: 100px;
+    top: 82%;
+    left: calc(50% - 50px);
+    height: 100px;
+  }
 }
 /*Ipad 768*/
-@media (max-width: 1023px) {
-  .Creator__logo {
-    position: absolute;
-    top: 77%;
-    left: calc(100vw - 56%);
-  }
-}
+
 /*Mobile 320*/
 @media (max-width: 767px) {
-  .Creator__inner {
-    align-items: flex-start;
-    flex-direction: column;
-    margin-bottom: 20px;
-  }
-  .Creator__backBtn {
-    margin-bottom: 30px;
+  .Creator__cover {
+    height: 100%;
   }
   .Creator__logo {
-    left: calc(100vw - 62%);
+    width: 80px;
+    height: 80px;
+    left: calc(50% - 40px);
+    top: 75%;
+  }
+}
+@media (max-width: 400px) {
+  .Creator__cover {
+    height: 100%;
+  }
+  .Creator__logo {
+    width: 50px;
+    height: 50px;
+    left: calc(50% - 25px);
+    top: 65%;
   }
 }
