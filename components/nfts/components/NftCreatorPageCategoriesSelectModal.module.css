@@ -8,6 +8,13 @@
   padding: 10px 10px;
   border-radius: 4px;
   align-items: center;
+  transition: 0.5s;
+  border: 1px solid transparent;
+  border-radius: 30px;
+  position: relative;
+}
+.nftCreatorPage__categoriesSelectModalFilter__item p {
+  color: rgba(22, 32, 41, 0.6);
 }
 .nftCreatorPage__categoriesSelectModalFilter__item svg {
   display: flex;
@@ -15,7 +22,9 @@
   justify-content: flex-start;
 }
 .nftCreatorPage__categoriesSelectModalFilter__itemHover {
-  background: rgba(255, 255, 255, 0.04);
+  background: #fff3e5;
+  border-radius: 30px;
+  border: 1px solid #16202933;
 }
 .nftCreatorPage__categoriesSelectModalFilter__itemTitle {
   display: flex;
@@ -54,10 +63,23 @@
   padding: 14px 40px;
   color: rgba(22, 32, 41, 0.3);
 }
+.nftCreatorPage__categoriesSelectModalFilter__itemActive > .circle {
+  stroke: #162029;
+  fill: red;
+}
+.checked {
+  transform: rotate(0deg) !important;
+  position: absolute;
+  left: 16px;
+}
+.nftCreatorPage__categoriesSelectModalFilter__itemActive > p {
+  color: #162029;
+}
 .nftCreatorPage__categoriesSelectModalSearchIcon {
   position: absolute;
   left: 25px;
   top: 29px;
+  transform: rotate(0deg) !important;
 }
 .nftCreatorPage__categoriesSelectModalSelected {
   padding-top: 10px;

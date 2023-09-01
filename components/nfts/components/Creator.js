@@ -9,6 +9,9 @@ import AddressSearch from '../../UI/AddressSearch/AddressSearch';
 import DropDown from '../../UI/dropDown/DropDown';
 import DataBox from '../../UI/dataBox/DataBox.js';
 import ArrowBtn from '../../UI/button/ArrowBtn';
+import ActivityTable from './ActivityTable';
+import Expand from '../../UI/expand/Expand';
+import Question from './Question';
 
 const Creator = props => {
   const azukiItems = [
@@ -268,20 +271,41 @@ const Creator = props => {
   let nftActivityData = [
     {
       id: 0,
-      itemImg: '../../images/nft/nft_activity_items/item1.png',
-      itemTitle: 'Alpha Kong #8223',
-      itemSubTitle: 'Alpha Kongs Club - AKC',
-      event: 'Listed',
-      priceInCmcx: '0.0123',
-      priceInDollar: '(~$51.028)',
-      fromImg: '../../images/nft/nft_activity_items/sub_item1.png',
-      from: 'BilanCh',
-      fromAddress: '0xC7...061b',
-      toReciverImg: '../../images/nft/nft_activity_items/sub_item2.png',
-      toReciver: '-',
-      toReciverAddress: '0xF5...301c',
-      dateDay: '4.7.2022',
-      dateTime: '6:28 PM',
+      data: [
+        {
+          img: '/images/nft/nft_activity_items/fig4.png',
+          title: 'Alpha Kong #8223',
+          subTitle: 'Alpha Kongs Club - AKC',
+          type: 'img_text',
+        },
+        {
+          text: 'Listed',
+          type: 'text',
+        },
+        {
+          symbol: 'CMCX',
+          priceInCmcx: '0.0123',
+          priceInDollar: '(~$51.028)',
+          type: 'price',
+        },
+        {
+          img: '/images/nft/nft_activity_items/fig4.png',
+          title: 'BilanCh',
+          subTitle: '0xC7...061b',
+          type: 'mini-img_text',
+        },
+        {
+          img: '/images/nft/nft_activity_items/fig4.png',
+          title: '-',
+          subTitle: '0xF5...301c',
+          type: 'mini-img_text',
+        },
+        {
+          title: '4.7.2022',
+          subTitle: '6:28 PM',
+          type: 'svg',
+        },
+      ],
       lowestPrice: '0.198',
       hightestPrice: '10,000',
       items: '895',
@@ -289,20 +313,41 @@ const Creator = props => {
     },
     {
       id: 1,
-      itemImg: '../../images/nft/nft_activity_items/item1.png',
-      itemTitle: 'Alpha Kong #8223',
-      itemSubTitle: 'Alpha Kongs Club - AKC',
-      event: 'Sold',
-      priceInCmcx: '0.0123',
-      priceInDollar: '(~$51.028)',
-      fromImg: '../../images/nft/nft_activity_items/sub_item1.png',
-      from: 'BilanCh',
-      fromAddress: '0xC7...061b',
-      toReciverImg: '../../images/nft/nft_activity_items/sub_item2.png',
-      toReciver: '-',
-      toReciverAddress: '0xF5...301c',
-      dateDay: '4.7.2022',
-      dateTime: '6:28 PM',
+      data: [
+        {
+          img: '/images/nft/nft_activity_items/fig4.png',
+          title: 'Alpha Kong #8223',
+          subTitle: 'Alpha Kongs Club - AKC',
+          type: 'img_text',
+        },
+        {
+          text: 'Modified',
+          type: 'text',
+        },
+        {
+          symbol: 'CMCX',
+          priceInCmcx: '0.0123',
+          priceInDollar: '(~$51.028)',
+          type: 'price',
+        },
+        {
+          img: '/images/nft/nft_activity_items/fig4.png',
+          title: 'BilanCh',
+          subTitle: '0xC7...061b',
+          type: 'mini-img_text',
+        },
+        {
+          img: '/images/nft/nft_activity_items/fig4.png',
+          title: '-',
+          subTitle: '0xF5...301c',
+          type: 'mini-img_text',
+        },
+        {
+          title: '4.7.2022',
+          subTitle: '6:28 PM',
+          type: 'svg',
+        },
+      ],
       lowestPrice: '0.198',
       hightestPrice: '10,000',
       items: '895',
@@ -310,20 +355,41 @@ const Creator = props => {
     },
     {
       id: 2,
-      itemImg: '../../images/nft/nft_activity_items/item1.png',
-      itemTitle: 'Alpha Kong #8223',
-      itemSubTitle: 'Alpha Kongs Club - AKC',
-      event: 'Delisted',
-      priceInCmcx: '0.0123',
-      priceInDollar: '(~$51.028)',
-      fromImg: '../../images/nft/nft_activity_items/sub_item1.png',
-      from: 'BilanCh',
-      fromAddress: '0xC7...061b',
-      toReciverImg: '../../images/nft/nft_activity_items/sub_item2.png',
-      toReciver: '-',
-      toReciverAddress: '0xF5...301c',
-      dateDay: '4.7.2022',
-      dateTime: '6:28 PM',
+      data: [
+        {
+          img: '/images/nft/nft_activity_items/fig4.png',
+          title: 'Alpha Kong #8223',
+          subTitle: 'Alpha Kongs Club - AKC',
+          type: 'img_text',
+        },
+        {
+          text: 'Modified',
+          type: 'text',
+        },
+        {
+          symbol: 'CMCX',
+          priceInCmcx: '0.0123',
+          priceInDollar: '(~$51.028)',
+          type: 'price',
+        },
+        {
+          img: '/images/nft/nft_activity_items/fig4.png',
+          title: 'BilanCh',
+          subTitle: '0xC7...061b',
+          type: 'mini-img_text',
+        },
+        {
+          img: '/images/nft/nft_activity_items/fig4.png',
+          title: '-',
+          subTitle: '0xF5...301c',
+          type: 'mini-img_text',
+        },
+        {
+          title: '4.7.2022',
+          subTitle: '6:28 PM',
+          type: 'svg',
+        },
+      ],
       lowestPrice: '0.198',
       hightestPrice: '10,000',
       items: '895',
@@ -331,20 +397,41 @@ const Creator = props => {
     },
     {
       id: 3,
-      itemImg: '../../images/nft/nft_activity_items/item1.png',
-      itemTitle: 'Alpha Kong #8223',
-      itemSubTitle: 'Alpha Kongs Club - AKC',
-      event: 'Modified',
-      priceInCmcx: '0.0123',
-      priceInDollar: '(~$51.028)',
-      fromImg: '../../images/nft/nft_activity_items/sub_item1.png',
-      from: 'BilanCh',
-      fromAddress: '0xC7...061b',
-      toReciverImg: '../../images/nft/nft_activity_items/sub_item2.png',
-      toReciver: '-',
-      toReciverAddress: '0xF5...301c',
-      dateDay: '4.7.2022',
-      dateTime: '6:28 PM',
+      data: [
+        {
+          img: '/images/nft/nft_activity_items/fig4.png',
+          title: 'Alpha Kong #8223',
+          subTitle: 'Alpha Kongs Club - AKC',
+          type: 'img_text',
+        },
+        {
+          text: 'Listed',
+          type: 'text',
+        },
+        {
+          symbol: 'CMCX',
+          priceInCmcx: '0.0123',
+          priceInDollar: '(~$51.028)',
+          type: 'price',
+        },
+        {
+          img: '/images/nft/nft_activity_items/fig4.png',
+          title: 'BilanCh',
+          subTitle: '0xC7...061b',
+          type: 'mini-img_text',
+        },
+        {
+          img: '/images/nft/nft_activity_items/fig4.png',
+          title: '-',
+          subTitle: '0xF5...301c',
+          type: 'mini-img_text',
+        },
+        {
+          title: '4.7.2022',
+          subTitle: '6:28 PM',
+          type: 'svg',
+        },
+      ],
       lowestPrice: '0.198',
       hightestPrice: '10,000',
       items: '895',
@@ -352,41 +439,41 @@ const Creator = props => {
     },
     {
       id: 4,
-      itemImg: '../../images/nft/nft_activity_items/item1.png',
-      itemTitle: 'Alpha Kong #8223',
-      itemSubTitle: 'Alpha Kongs Club - AKC',
-      event: 'Collection',
-      priceInCmcx: '0.0123',
-      priceInDollar: '(~$51.028)',
-      fromImg: '../../images/nft/nft_activity_items/sub_item1.png',
-      from: 'BilanCh',
-      fromAddress: '0xC7...061b',
-      toReciverImg: '../../images/nft/nft_activity_items/sub_item2.png',
-      toReciver: '-',
-      toReciverAddress: '0xF5...301c',
-      dateDay: '4.7.2022',
-      dateTime: '6:28 PM',
-      lowestPrice: '0.198',
-      hightestPrice: '10,000',
-      items: '895',
-      supply: '7777',
-    },
-    {
-      id: 5,
-      itemImg: '../../images/nft/nft_activity_items/item1.png',
-      itemTitle: 'Alpha Kong #8223',
-      itemSubTitle: 'Alpha Kongs Club - AKC',
-      event: 'Listed',
-      priceInCmcx: '0.0123',
-      priceInDollar: '(~$51.028)',
-      fromImg: '../../images/nft/nft_activity_items/sub_item1.png',
-      from: 'BilanCh',
-      fromAddress: '0xC7...061b',
-      toReciverImg: '../../images/nft/nft_activity_items/sub_item2.png',
-      toReciver: '-',
-      toReciverAddress: '0xF5...301c',
-      dateDay: '4.7.2022',
-      dateTime: '6:28 PM',
+      data: [
+        {
+          img: '/images/nft/nft_activity_items/fig4.png',
+          title: 'Alpha Kong #8223',
+          subTitle: 'Alpha Kongs Club - AKC',
+          type: 'img_text',
+        },
+        {
+          text: 'Listed',
+          type: 'text',
+        },
+        {
+          symbol: 'CMCX',
+          priceInCmcx: '0.0123',
+          priceInDollar: '(~$51.028)',
+          type: 'price',
+        },
+        {
+          img: '/images/nft/nft_activity_items/fig4.png',
+          title: 'BilanCh',
+          subTitle: '0xC7...061b',
+          type: 'mini-img_text',
+        },
+        {
+          img: '/images/nft/nft_activity_items/fig4.png',
+          title: '-',
+          subTitle: '0xF5...301c',
+          type: 'mini-img_text',
+        },
+        {
+          title: '4.7.2022',
+          subTitle: '6:28 PM',
+          type: 'svg',
+        },
+      ],
       lowestPrice: '0.198',
       hightestPrice: '10,000',
       items: '895',
@@ -394,20 +481,41 @@ const Creator = props => {
     },
     {
       id: 6,
-      itemImg: '../../images/nft/nft_activity_items/item1.png',
-      itemTitle: 'Alpha Kong #8223',
-      itemSubTitle: 'Alpha Kongs Club - AKC',
-      event: 'Modified',
-      priceInCmcx: '0.0123',
-      priceInDollar: '(~$51.028)',
-      fromImg: '../../images/nft/nft_activity_items/sub_item1.png',
-      from: 'BilanCh',
-      fromAddress: '0xC7...061b',
-      toReciverImg: '../../images/nft/nft_activity_items/sub_item2.png',
-      toReciver: '-',
-      toReciverAddress: '0xF5...301c',
-      dateDay: '4.7.2022',
-      dateTime: '6:28 PM',
+      data: [
+        {
+          img: '/images/nft/nft_activity_items/fig4.png',
+          title: 'Alpha Kong #8223',
+          subTitle: 'Alpha Kongs Club - AKC',
+          type: 'img_text',
+        },
+        {
+          text: 'Listed',
+          type: 'text',
+        },
+        {
+          symbol: 'CMCX',
+          priceInCmcx: '0.0123',
+          priceInDollar: '(~$51.028)',
+          type: 'price',
+        },
+        {
+          img: '/images/nft/nft_activity_items/fig4.png',
+          title: 'BilanCh',
+          subTitle: '0xC7...061b',
+          type: 'mini-img_text',
+        },
+        {
+          img: '/images/nft/nft_activity_items/fig4.png',
+          title: '-',
+          subTitle: '0xF5...301c',
+          type: 'mini-img_text',
+        },
+        {
+          title: '4.7.2022',
+          subTitle: '6:28 PM',
+          type: 'svg',
+        },
+      ],
       lowestPrice: '0.198',
       hightestPrice: '10,000',
       items: '895',
@@ -415,83 +523,209 @@ const Creator = props => {
     },
     {
       id: 7,
-      itemImg: '../../images/nft/nft_activity_items/item1.png',
-      itemTitle: 'Alpha Kong #8223',
-      itemSubTitle: 'Alpha Kongs Club - AKC',
-      event: 'Sold',
-      priceInCmcx: '0.0123',
-      priceInDollar: '(~$51.028)',
-      fromImg: '../../images/nft/nft_activity_items/sub_item1.png',
-      from: 'BilanCh',
-      fromAddress: '0xC7...061b',
-      toReciverImg: '../../images/nft/nft_activity_items/sub_item2.png',
-      toReciver: '-',
-      toReciverAddress: '0xF5...301c',
-      dateDay: '4.7.2022',
-      dateTime: '6:28 PM',
+      data: [
+        {
+          img: '/images/nft/nft_activity_items/fig4.png',
+          title: 'Alpha Kong #8223',
+          subTitle: 'Alpha Kongs Club - AKC',
+          type: 'img_text',
+        },
+        {
+          text: 'Listed',
+          type: 'text',
+        },
+        {
+          symbol: 'CMCX',
+          priceInCmcx: '0.0123',
+          priceInDollar: '(~$51.028)',
+          type: 'price',
+        },
+        {
+          img: '/images/nft/nft_activity_items/fig4.png',
+          title: 'BilanCh',
+          subTitle: '0xC7...061b',
+          type: 'mini-img_text',
+        },
+        {
+          img: '/images/nft/nft_activity_items/fig4.png',
+          title: '-',
+          subTitle: '0xF5...301c',
+          type: 'mini-img_text',
+        },
+        {
+          title: '4.7.2022',
+          subTitle: '6:28 PM',
+          type: 'svg',
+        },
+      ],
       lowestPrice: '0.198',
       hightestPrice: '10,000',
       items: '895',
       supply: '7777',
     },
     {
-      id: 12312323,
-      itemImg: '../../images/nft/nft_activity_items/item1.png',
-      itemTitle: 'Alpha Kong #8223',
-      itemSubTitle: 'Alpha Kongs Club - AKC',
-      event: 'Listed',
-      priceInCmcx: '0.0123',
-      priceInDollar: '(~$51.028)',
-      fromImg: '../../images/nft/nft_activity_items/sub_item1.png',
-      from: 'BilanCh',
-      fromAddress: '0xC7...061b',
-      toReciverImg: '../../images/nft/nft_activity_items/sub_item2.png',
-      toReciver: '-',
-      toReciverAddress: '0xF5...301c',
-      dateDay: '4.7.2022',
-      dateTime: '6:28 PM',
+      id: 8,
+      data: [
+        {
+          img: '/images/nft/nft_activity_items/fig4.png',
+          title: 'Alpha Kong #8223',
+          subTitle: 'Alpha Kongs Club - AKC',
+          type: 'img_text',
+        },
+        {
+          text: 'Delisted',
+          type: 'text',
+        },
+        {
+          symbol: 'CMCX',
+          priceInCmcx: '0.0123',
+          priceInDollar: '(~$51.028)',
+          type: 'price',
+        },
+        {
+          img: '/images/nft/nft_activity_items/fig4.png',
+          title: 'BilanCh',
+          subTitle: '0xC7...061b',
+          type: 'mini-img_text',
+        },
+        {
+          img: '/images/nft/nft_activity_items/fig4.png',
+          title: '-',
+          subTitle: '0xF5...301c',
+          type: 'mini-img_text',
+        },
+        {
+          title: '4.7.2022',
+          subTitle: '6:28 PM',
+          type: 'svg',
+        },
+      ],
       lowestPrice: '0.198',
       hightestPrice: '10,000',
       items: '895',
       supply: '7777',
     },
     {
-      id: 13232,
-      itemImg: '../../images/nft/nft_activity_items/item1.png',
-      itemTitle: 'Alpha Kong #8223',
-      itemSubTitle: 'Alpha Kongs Club - AKC',
-      event: 'Sold',
-      priceInCmcx: '0.0123',
-      priceInDollar: '(~$51.028)',
-      fromImg: '../../images/nft/nft_activity_items/sub_item1.png',
-      from: 'BilanCh',
-      fromAddress: '0xC7...061b',
-      toReciverImg: '../../images/nft/nft_activity_items/sub_item2.png',
-      toReciver: '-',
-      toReciverAddress: '0xF5...301c',
-      dateDay: '4.7.2022',
-      dateTime: '6:28 PM',
+      id: 10,
+      data: [
+        {
+          img: '/images/nft/nft_activity_items/fig4.png',
+          title: 'Alpha Kong #8223',
+          subTitle: 'Alpha Kongs Club - AKC',
+          type: 'img_text',
+        },
+        {
+          text: 'Listed',
+          type: 'text',
+        },
+        {
+          symbol: 'CMCX',
+          priceInCmcx: '0.0123',
+          priceInDollar: '(~$51.028)',
+          type: 'price',
+        },
+        {
+          img: '/images/nft/nft_activity_items/fig4.png',
+          title: 'BilanCh',
+          subTitle: '0xC7...061b',
+          type: 'mini-img_text',
+        },
+        {
+          img: '/images/nft/nft_activity_items/fig4.png',
+          title: '-',
+          subTitle: '0xF5...301c',
+          type: 'mini-img_text',
+        },
+        {
+          title: '4.7.2022',
+          subTitle: '6:28 PM',
+          type: 'svg',
+        },
+      ],
       lowestPrice: '0.198',
       hightestPrice: '10,000',
       items: '895',
       supply: '7777',
     },
     {
-      id: 22222,
-      itemImg: '../../images/nft/nft_activity_items/item1.png',
-      itemTitle: 'Alpha Kong #8223',
-      itemSubTitle: 'Alpha Kongs Club - AKC',
-      event: 'Delisted',
-      priceInCmcx: '0.0123',
-      priceInDollar: '(~$51.028)',
-      fromImg: '../../images/nft/nft_activity_items/sub_item1.png',
-      from: 'BilanCh',
-      fromAddress: '0xC7...061b',
-      toReciverImg: '../../images/nft/nft_activity_items/sub_item2.png',
-      toReciver: '-',
-      toReciverAddress: '0xF5...301c',
-      dateDay: '4.7.2022',
-      dateTime: '6:28 PM',
+      id: 11,
+      data: [
+        {
+          img: '/images/nft/nft_activity_items/fig4.png',
+          title: 'Alpha Kong #8223',
+          subTitle: 'Alpha Kongs Club - AKC',
+          type: 'img_text',
+        },
+        {
+          text: 'Listed',
+          type: 'text',
+        },
+        {
+          symbol: 'CMCX',
+          priceInCmcx: '0.0123',
+          priceInDollar: '(~$51.028)',
+          type: 'price',
+        },
+        {
+          img: '/images/nft/nft_activity_items/fig4.png',
+          title: 'BilanCh',
+          subTitle: '0xC7...061b',
+          type: 'mini-img_text',
+        },
+        {
+          img: '/images/nft/nft_activity_items/fig4.png',
+          title: '-',
+          subTitle: '0xF5...301c',
+          type: 'mini-img_text',
+        },
+        {
+          title: '4.7.2022',
+          subTitle: '6:28 PM',
+          type: 'svg',
+        },
+      ],
+      lowestPrice: '0.198',
+      hightestPrice: '10,000',
+      items: '895',
+      supply: '7777',
+    },
+    {
+      id: 12,
+      data: [
+        {
+          img: '/images/nft/nft_activity_items/fig4.png',
+          title: 'Alpha Kong #8223',
+          subTitle: 'Alpha Kongs Club - AKC',
+          type: 'img_text',
+        },
+        {
+          text: 'Delisted',
+          type: 'text',
+        },
+        {
+          symbol: 'CMCX',
+          priceInCmcx: '0.0123',
+          priceInDollar: '(~$51.028)',
+          type: 'price',
+        },
+        {
+          img: '/images/nft/nft_activity_items/fig4.png',
+          title: 'BilanCh',
+          subTitle: '0xC7...061b',
+          type: 'mini-img_text',
+        },
+        {
+          img: '/images/nft/nft_activity_items/fig4.png',
+          title: '-',
+          subTitle: '0xF5...301c',
+          type: 'mini-img_text',
+        },
+        {
+          title: '4.7.2022',
+          subTitle: '6:28 PM',
+          type: 'svg',
+        },
+      ],
       lowestPrice: '0.198',
       hightestPrice: '10,000',
       items: '895',
@@ -499,20 +733,41 @@ const Creator = props => {
     },
     {
       id: 3555,
-      itemImg: '../../images/nft/nft_activity_items/item1.png',
-      itemTitle: 'Alpha Kong #8223',
-      itemSubTitle: 'Alpha Kongs Club - AKC',
-      event: 'Modified',
-      priceInCmcx: '0.0123',
-      priceInDollar: '(~$51.028)',
-      fromImg: '../../images/nft/nft_activity_items/sub_item1.png',
-      from: 'BilanCh',
-      fromAddress: '0xC7...061b',
-      toReciverImg: '../../images/nft/nft_activity_items/sub_item2.png',
-      toReciver: '-',
-      toReciverAddress: '0xF5...301c',
-      dateDay: '4.7.2022',
-      dateTime: '6:28 PM',
+      data: [
+        {
+          img: '/images/nft/nft_activity_items/fig4.png',
+          title: 'Alpha Kong #8223',
+          subTitle: 'Alpha Kongs Club - AKC',
+          type: 'img_text',
+        },
+        {
+          text: 'Listed',
+          type: 'text',
+        },
+        {
+          symbol: 'CMCX',
+          priceInCmcx: '0.0123',
+          priceInDollar: '(~$51.028)',
+          type: 'price',
+        },
+        {
+          img: '/images/nft/nft_activity_items/fig4.png',
+          title: 'BilanCh',
+          subTitle: '0xC7...061b',
+          type: 'mini-img_text',
+        },
+        {
+          img: '/images/nft/nft_activity_items/fig4.png',
+          title: '-',
+          subTitle: '0xF5...301c',
+          type: 'mini-img_text',
+        },
+        {
+          title: '4.7.2022',
+          subTitle: '6:28 PM',
+          type: 'svg',
+        },
+      ],
       lowestPrice: '0.198',
       hightestPrice: '10,000',
       items: '895',
@@ -520,20 +775,41 @@ const Creator = props => {
     },
     {
       id: 411,
-      itemImg: '../../images/nft/nft_activity_items/item1.png',
-      itemTitle: 'Alpha Kong #8223',
-      itemSubTitle: 'Alpha Kongs Club - AKC',
-      event: 'Collection',
-      priceInCmcx: '0.0123',
-      priceInDollar: '(~$51.028)',
-      fromImg: '../../images/nft/nft_activity_items/sub_item1.png',
-      from: 'BilanCh',
-      fromAddress: '0xC7...061b',
-      toReciverImg: '../../images/nft/nft_activity_items/sub_item2.png',
-      toReciver: '-',
-      toReciverAddress: '0xF5...301c',
-      dateDay: '4.7.2022',
-      dateTime: '6:28 PM',
+      data: [
+        {
+          img: '/images/nft/nft_activity_items/fig4.png',
+          title: 'Alpha Kong #8223',
+          subTitle: 'Alpha Kongs Club - AKC',
+          type: 'img_text',
+        },
+        {
+          text: 'Sold',
+          type: 'text',
+        },
+        {
+          symbol: 'CMCX',
+          priceInCmcx: '0.0123',
+          priceInDollar: '(~$51.028)',
+          type: 'price',
+        },
+        {
+          img: '/images/nft/nft_activity_items/fig4.png',
+          title: 'BilanCh',
+          subTitle: '0xC7...061b',
+          type: 'mini-img_text',
+        },
+        {
+          img: '/images/nft/nft_activity_items/fig4.png',
+          title: '-',
+          subTitle: '0xF5...301c',
+          type: 'mini-img_text',
+        },
+        {
+          title: '4.7.2022',
+          subTitle: '6:28 PM',
+          type: 'svg',
+        },
+      ],
       lowestPrice: '0.198',
       hightestPrice: '10,000',
       items: '895',
@@ -541,20 +817,41 @@ const Creator = props => {
     },
     {
       id: 51,
-      itemImg: '../../images/nft/nft_activity_items/item1.png',
-      itemTitle: 'Alpha Kong #8223',
-      itemSubTitle: 'Alpha Kongs Club - AKC',
-      event: 'Listed',
-      priceInCmcx: '0.0123',
-      priceInDollar: '(~$51.028)',
-      fromImg: '../../images/nft/nft_activity_items/sub_item1.png',
-      from: 'BilanCh',
-      fromAddress: '0xC7...061b',
-      toReciverImg: '../../images/nft/nft_activity_items/sub_item2.png',
-      toReciver: '-',
-      toReciverAddress: '0xF5...301c',
-      dateDay: '4.7.2022',
-      dateTime: '6:28 PM',
+      data: [
+        {
+          img: '/images/nft/nft_activity_items/fig4.png',
+          title: 'Alpha Kong #8223',
+          subTitle: 'Alpha Kongs Club - AKC',
+          type: 'img_text',
+        },
+        {
+          text: 'Listed',
+          type: 'text',
+        },
+        {
+          symbol: 'CMCX',
+          priceInCmcx: '0.0123',
+          priceInDollar: '(~$51.028)',
+          type: 'price',
+        },
+        {
+          img: '/images/nft/nft_activity_items/fig4.png',
+          title: 'BilanCh',
+          subTitle: '0xC7...061b',
+          type: 'mini-img_text',
+        },
+        {
+          img: '/images/nft/nft_activity_items/fig4.png',
+          title: '-',
+          subTitle: '0xF5...301c',
+          type: 'mini-img_text',
+        },
+        {
+          title: '4.7.2022',
+          subTitle: '6:28 PM',
+          type: 'svg',
+        },
+      ],
       lowestPrice: '0.198',
       hightestPrice: '10,000',
       items: '895',
@@ -562,20 +859,41 @@ const Creator = props => {
     },
     {
       id: 6343,
-      itemImg: '../../images/nft/nft_activity_items/item1.png',
-      itemTitle: 'Alpha Kong #8223',
-      itemSubTitle: 'Alpha Kongs Club - AKC',
-      event: 'Modified',
-      priceInCmcx: '0.0123',
-      priceInDollar: '(~$51.028)',
-      fromImg: '../../images/nft/nft_activity_items/sub_item1.png',
-      from: 'BilanCh',
-      fromAddress: '0xC7...061b',
-      toReciverImg: '../../images/nft/nft_activity_items/sub_item2.png',
-      toReciver: '-',
-      toReciverAddress: '0xF5...301c',
-      dateDay: '4.7.2022',
-      dateTime: '6:28 PM',
+      data: [
+        {
+          img: '/images/nft/nft_activity_items/fig4.png',
+          title: 'Alpha Kong #8223',
+          subTitle: 'Alpha Kongs Club - AKC',
+          type: 'img_text',
+        },
+        {
+          text: 'Listed',
+          type: 'text',
+        },
+        {
+          symbol: 'CMCX',
+          priceInCmcx: '0.0123',
+          priceInDollar: '(~$51.028)',
+          type: 'price',
+        },
+        {
+          img: '/images/nft/nft_activity_items/fig4.png',
+          title: 'BilanCh',
+          subTitle: '0xC7...061b',
+          type: 'mini-img_text',
+        },
+        {
+          img: '/images/nft/nft_activity_items/fig4.png',
+          title: '-',
+          subTitle: '0xF5...301c',
+          type: 'mini-img_text',
+        },
+        {
+          title: '4.7.2022',
+          subTitle: '6:28 PM',
+          type: 'svg',
+        },
+      ],
       lowestPrice: '0.198',
       hightestPrice: '10,000',
       items: '895',
@@ -583,20 +901,41 @@ const Creator = props => {
     },
     {
       id: 72,
-      itemImg: '../../images/nft/nft_activity_items/item1.png',
-      itemTitle: 'Alpha Kong #8223',
-      itemSubTitle: 'Alpha Kongs Club - AKC',
-      event: 'Sold',
-      priceInCmcx: '0.0123',
-      priceInDollar: '(~$51.028)',
-      fromImg: '../../images/nft/nft_activity_items/sub_item1.png',
-      from: 'BilanCh',
-      fromAddress: '0xC7...061b',
-      toReciverImg: '../../images/nft/nft_activity_items/sub_item2.png',
-      toReciver: '-',
-      toReciverAddress: '0xF5...301c',
-      dateDay: '4.7.2022',
-      dateTime: '6:28 PM',
+      data: [
+        {
+          img: '/images/nft/nft_activity_items/fig4.png',
+          title: 'Alpha Kong #8223',
+          subTitle: 'Alpha Kongs Club - AKC',
+          type: 'img_text',
+        },
+        {
+          text: 'Listed',
+          type: 'text',
+        },
+        {
+          symbol: 'CMCX',
+          priceInCmcx: '0.0123',
+          priceInDollar: '(~$51.028)',
+          type: 'price',
+        },
+        {
+          img: '/images/nft/nft_activity_items/fig4.png',
+          title: 'BilanCh',
+          subTitle: '0xC7...061b',
+          type: 'mini-img_text',
+        },
+        {
+          img: '/images/nft/nft_activity_items/fig4.png',
+          title: '-',
+          subTitle: '0xF5...301c',
+          type: 'mini-img_text',
+        },
+        {
+          title: '4.7.2022',
+          subTitle: '6:28 PM',
+          type: 'svg',
+        },
+      ],
       lowestPrice: '0.198',
       hightestPrice: '10,000',
       items: '895',
@@ -604,41 +943,167 @@ const Creator = props => {
     },
     {
       id: 999,
-      itemImg: '../../images/nft/nft_activity_items/item1.png',
-      itemTitle: 'Alpha Kong #8223',
-      itemSubTitle: 'Alpha Kongs Club - AKC',
-      event: 'Listed',
-      priceInCmcx: '0.0123',
-      priceInDollar: '(~$51.028)',
-      fromImg: '../../images/nft/nft_activity_items/sub_item1.png',
-      from: 'BilanCh',
-      fromAddress: '0xC7...061b',
-      toReciverImg: '../../images/nft/nft_activity_items/sub_item2.png',
-      toReciver: '-',
-      toReciverAddress: '0xF5...301c',
-      dateDay: '4.7.2022',
-      dateTime: '6:28 PM',
+      data: [
+        {
+          img: '/images/nft/nft_activity_items/fig4.png',
+          title: 'Alpha Kong #8223',
+          subTitle: 'Alpha Kongs Club - AKC',
+          type: 'img_text',
+        },
+        {
+          text: 'Listed',
+          type: 'text',
+        },
+        {
+          symbol: 'CMCX',
+          priceInCmcx: '0.0123',
+          priceInDollar: '(~$51.028)',
+          type: 'price',
+        },
+        {
+          img: '/images/nft/nft_activity_items/fig4.png',
+          title: 'BilanCh',
+          subTitle: '0xC7...061b',
+          type: 'mini-img_text',
+        },
+        {
+          img: '/images/nft/nft_activity_items/fig4.png',
+          title: '-',
+          subTitle: '0xF5...301c',
+          type: 'mini-img_text',
+        },
+        {
+          title: '4.7.2022',
+          subTitle: '6:28 PM',
+          type: 'svg',
+        },
+      ],
       lowestPrice: '0.198',
       hightestPrice: '10,000',
       items: '895',
       supply: '7777',
     },
     {
-      id: 15,
-      itemImg: '../../images/nft/nft_activity_items/item1.png',
-      itemTitle: 'Alpha Kong #8223',
-      itemSubTitle: 'Alpha Kongs Club - AKC',
-      event: 'Sold',
-      priceInCmcx: '0.0123',
-      priceInDollar: '(~$51.028)',
-      fromImg: '../../images/nft/nft_activity_items/sub_item1.png',
-      from: 'BilanCh',
-      fromAddress: '0xC7...061b',
-      toReciverImg: '../../images/nft/nft_activity_items/sub_item2.png',
-      toReciver: '-',
-      toReciverAddress: '0xF5...301c',
-      dateDay: '4.7.2022',
-      dateTime: '6:28 PM',
+      id: 15234234,
+      data: [
+        {
+          img: '/images/nft/nft_activity_items/fig4.png',
+          title: 'Alpha Kong #8223',
+          subTitle: 'Alpha Kongs Club - AKC',
+          type: 'img_text',
+        },
+        {
+          text: 'Listed',
+          type: 'text',
+        },
+        {
+          symbol: 'CMCX',
+          priceInCmcx: '0.0123',
+          priceInDollar: '(~$51.028)',
+          type: 'price',
+        },
+        {
+          img: '/images/nft/nft_activity_items/fig4.png',
+          title: 'BilanCh',
+          subTitle: '0xC7...061b',
+          type: 'mini-img_text',
+        },
+        {
+          img: '/images/nft/nft_activity_items/fig4.png',
+          title: '-',
+          subTitle: '0xF5...301c',
+          type: 'mini-img_text',
+        },
+        {
+          title: '4.7.2022',
+          subTitle: '6:28 PM',
+          type: 'svg',
+        },
+      ],
+      lowestPrice: '0.198',
+      hightestPrice: '10,000',
+      items: '895',
+      supply: '7777',
+    },
+    {
+      id: 21,
+      data: [
+        {
+          img: '/images/nft/nft_activity_items/fig4.png',
+          title: 'Alpha Kong #8223',
+          subTitle: 'Alpha Kongs Club - AKC',
+          type: 'img_text',
+        },
+        {
+          text: 'Listed',
+          type: 'text',
+        },
+        {
+          symbol: 'CMCX',
+          priceInCmcx: '0.0123',
+          priceInDollar: '(~$51.028)',
+          type: 'price',
+        },
+        {
+          img: '/images/nft/nft_activity_items/fig4.png',
+          title: 'BilanCh',
+          subTitle: '0xC7...061b',
+          type: 'mini-img_text',
+        },
+        {
+          img: '/images/nft/nft_activity_items/fig4.png',
+          title: '-',
+          subTitle: '0xF5...301c',
+          type: 'mini-img_text',
+        },
+        {
+          title: '4.7.2022',
+          subTitle: '6:28 PM',
+          type: 'svg',
+        },
+      ],
+      lowestPrice: '0.198',
+      hightestPrice: '10,000',
+      items: '895',
+      supply: '7777',
+    },
+    {
+      id: 13854345,
+      data: [
+        {
+          img: '/images/nft/nft_activity_items/fig4.png',
+          title: 'Alpha Kong #8223',
+          subTitle: 'Alpha Kongs Club - AKC',
+          type: 'img_text',
+        },
+        {
+          text: 'Listed',
+          type: 'text',
+        },
+        {
+          symbol: 'CMCX',
+          priceInCmcx: '0.0123',
+          priceInDollar: '(~$51.028)',
+          type: 'price',
+        },
+        {
+          img: '/images/nft/nft_activity_items/fig4.png',
+          title: 'BilanCh',
+          subTitle: '0xC7...061b',
+          type: 'mini-img_text',
+        },
+        {
+          img: '/images/nft/nft_activity_items/fig4.png',
+          title: '-',
+          subTitle: '0xF5...301c',
+          type: 'mini-img_text',
+        },
+        {
+          title: '4.7.2022',
+          subTitle: '6:28 PM',
+          type: 'svg',
+        },
+      ],
       lowestPrice: '0.198',
       hightestPrice: '10,000',
       items: '895',
@@ -646,20 +1111,41 @@ const Creator = props => {
     },
     {
       id: 4343,
-      itemImg: '../../images/nft/nft_activity_items/item1.png',
-      itemTitle: 'Alpha Kong #8223',
-      itemSubTitle: 'Alpha Kongs Club - AKC',
-      event: 'Collection',
-      priceInCmcx: '0.0123',
-      priceInDollar: '(~$51.028)',
-      fromImg: '../../images/nft/nft_activity_items/sub_item1.png',
-      from: 'BilanCh',
-      fromAddress: '0xC7...061b',
-      toReciverImg: '../../images/nft/nft_activity_items/sub_item2.png',
-      toReciver: '-',
-      toReciverAddress: '0xF5...301c',
-      dateDay: '4.7.2022',
-      dateTime: '6:28 PM',
+      data: [
+        {
+          img: '/images/nft/nft_activity_items/fig4.png',
+          title: 'Alpha Kong #8223',
+          subTitle: 'Alpha Kongs Club - AKC',
+          type: 'img_text',
+        },
+        {
+          text: 'Listed',
+          type: 'text',
+        },
+        {
+          symbol: 'CMCX',
+          priceInCmcx: '0.0123',
+          priceInDollar: '(~$51.028)',
+          type: 'price',
+        },
+        {
+          img: '/images/nft/nft_activity_items/fig4.png',
+          title: 'BilanCh',
+          subTitle: '0xC7...061b',
+          type: 'mini-img_text',
+        },
+        {
+          img: '/images/nft/nft_activity_items/fig4.png',
+          title: '-',
+          subTitle: '0xF5...301c',
+          type: 'mini-img_text',
+        },
+        {
+          title: '4.7.2022',
+          subTitle: '6:28 PM',
+          type: 'svg',
+        },
+      ],
       lowestPrice: '0.198',
       hightestPrice: '10,000',
       items: '895',
@@ -667,20 +1153,41 @@ const Creator = props => {
     },
     {
       id: 5551,
-      itemImg: '../../images/nft/nft_activity_items/item1.png',
-      itemTitle: 'Alpha Kong #8223',
-      itemSubTitle: 'Alpha Kongs Club - AKC',
-      event: 'Listed',
-      priceInCmcx: '0.0123',
-      priceInDollar: '(~$51.028)',
-      fromImg: '../../images/nft/nft_activity_items/sub_item1.png',
-      from: 'BilanCh',
-      fromAddress: '0xC7...061b',
-      toReciverImg: '../../images/nft/nft_activity_items/sub_item2.png',
-      toReciver: '-',
-      toReciverAddress: '0xF5...301c',
-      dateDay: '4.7.2022',
-      dateTime: '6:28 PM',
+      data: [
+        {
+          img: '/images/nft/nft_activity_items/fig4.png',
+          title: 'Alpha Kong #8223',
+          subTitle: 'Alpha Kongs Club - AKC',
+          type: 'img_text',
+        },
+        {
+          text: 'Listed',
+          type: 'text',
+        },
+        {
+          symbol: 'CMCX',
+          priceInCmcx: '0.0123',
+          priceInDollar: '(~$51.028)',
+          type: 'price',
+        },
+        {
+          img: '/images/nft/nft_activity_items/fig4.png',
+          title: 'BilanCh',
+          subTitle: '0xC7...061b',
+          type: 'mini-img_text',
+        },
+        {
+          img: '/images/nft/nft_activity_items/fig4.png',
+          title: '-',
+          subTitle: '0xF5...301c',
+          type: 'mini-img_text',
+        },
+        {
+          title: '4.7.2022',
+          subTitle: '6:28 PM',
+          type: 'svg',
+        },
+      ],
       lowestPrice: '0.198',
       hightestPrice: '10,000',
       items: '895',
@@ -688,20 +1195,41 @@ const Creator = props => {
     },
     {
       id: 61,
-      itemImg: '../../images/nft/nft_activity_items/item1.png',
-      itemTitle: 'Alpha Kong #8223',
-      itemSubTitle: 'Alpha Kongs Club - AKC',
-      event: 'Modified',
-      priceInCmcx: '0.0123',
-      priceInDollar: '(~$51.028)',
-      fromImg: '../../images/nft/nft_activity_items/sub_item1.png',
-      from: 'BilanCh',
-      fromAddress: '0xC7...061b',
-      toReciverImg: '../../images/nft/nft_activity_items/sub_item2.png',
-      toReciver: '-',
-      toReciverAddress: '0xF5...301c',
-      dateDay: '4.7.2022',
-      dateTime: '6:28 PM',
+      data: [
+        {
+          img: '/images/nft/nft_activity_items/fig4.png',
+          title: 'Alpha Kong #8223',
+          subTitle: 'Alpha Kongs Club - AKC',
+          type: 'img_text',
+        },
+        {
+          text: 'Listed',
+          type: 'text',
+        },
+        {
+          symbol: 'CMCX',
+          priceInCmcx: '0.0123',
+          priceInDollar: '(~$51.028)',
+          type: 'price',
+        },
+        {
+          img: '/images/nft/nft_activity_items/fig4.png',
+          title: 'BilanCh',
+          subTitle: '0xC7...061b',
+          type: 'mini-img_text',
+        },
+        {
+          img: '/images/nft/nft_activity_items/fig4.png',
+          title: '-',
+          subTitle: '0xF5...301c',
+          type: 'mini-img_text',
+        },
+        {
+          title: '4.7.2022',
+          subTitle: '6:28 PM',
+          type: 'svg',
+        },
+      ],
       lowestPrice: '0.198',
       hightestPrice: '10,000',
       items: '895',
@@ -709,20 +1237,41 @@ const Creator = props => {
     },
     {
       id: 71,
-      itemImg: '../../images/nft/nft_activity_items/item1.png',
-      itemTitle: 'Alpha Kong #8223',
-      itemSubTitle: 'Alpha Kongs Club - AKC',
-      event: 'Sold',
-      priceInCmcx: '0.0123',
-      priceInDollar: '(~$51.028)',
-      fromImg: '../../images/nft/nft_activity_items/sub_item1.png',
-      from: 'BilanCh',
-      fromAddress: '0xC7...061b',
-      toReciverImg: '../../images/nft/nft_activity_items/sub_item2.png',
-      toReciver: '-',
-      toReciverAddress: '0xF5...301c',
-      dateDay: '4.7.2022',
-      dateTime: '6:28 PM',
+      data: [
+        {
+          img: '/images/nft/nft_activity_items/fig4.png',
+          title: 'Alpha Kong #8223',
+          subTitle: 'Alpha Kongs Club - AKC',
+          type: 'img_text',
+        },
+        {
+          text: 'Listed',
+          type: 'text',
+        },
+        {
+          symbol: 'CMCX',
+          priceInCmcx: '0.0123',
+          priceInDollar: '(~$51.028)',
+          type: 'price',
+        },
+        {
+          img: '/images/nft/nft_activity_items/fig4.png',
+          title: 'BilanCh',
+          subTitle: '0xC7...061b',
+          type: 'mini-img_text',
+        },
+        {
+          img: '/images/nft/nft_activity_items/fig4.png',
+          title: '-',
+          subTitle: '0xF5...301c',
+          type: 'mini-img_text',
+        },
+        {
+          title: '4.7.2022',
+          subTitle: '6:28 PM',
+          type: 'svg',
+        },
+      ],
       lowestPrice: '0.198',
       hightestPrice: '10,000',
       items: '895',
@@ -733,23 +1282,19 @@ const Creator = props => {
   const [activeTab, setActiveTab] = useState('items');
   const [activeItem, setActiveItem] = useState(null);
   const [screeWidth, setScreenWidth] = useState(window.innerWidth);
+  const [activityActiveTab, setactivityActiveTab] = useState('Listed');
+  const [toggle, setToggle] = useState(false);
+
+  const handleToggleClick = () => {
+    setToggle(!toggle);
+  };
+
+  const handleTabClick = tabName => {
+    setActiveTab(tabName);
+  };
 
   let content = '';
-  let listItemType = (
-    <div className={`${styles.TableRow} container }`}>
-      <div className={styles.TableRow__header}>
-        <p>Name</p>
-        <p>Event</p>
-        <p>Price</p>
-        <p>From</p>
-        <p>To</p>
-        <p>Date</p>
-      </div>
-      {nftActivityData.map(item => {
-        return <ListItemRow key={item.id} data={item} type={'nft_creator_activity'} />;
-      })}
-    </div>
-  );
+  let listItemType = <ActivityTable activityData={nftActivityData} activeTab={activeTab} onTabClick={handleTabClick} />;
 
   let openItem = id => {
     if (activeItem === id) {
@@ -763,15 +1308,6 @@ const Creator = props => {
     setScreenWidth(window.innerWidth);
   }, []);
 
-  if (screeWidth < 1200) {
-    listItemType = (
-      <div className={styles.Activity__wrap}>
-        {nftActivityData.map(item => {
-          return <ListItemCard key={item.id + 'mobile'} data={item} type={'nft_creator_mobile'} />;
-        })}
-      </div>
-    );
-  }
   if (activeTab === 'items') {
     content = (
       <div className={`  ${styles.nftCreatorWrapper}`}>
@@ -786,106 +1322,98 @@ const Creator = props => {
   }
   if (activeTab === 'traits') {
     content = (
-      <div className={`${styles.Creator__traits} container }`}>
-        {azukiTraits.map(itemTraits => {
+      <div className={`${styles.Creator__traits} }`}>
+        {azukiTraits.map((item, index) => {
           return (
-            <div
-              onClick={() => {
-                openItem(itemTraits.id);
-              }}
-              key={itemTraits.id}
-              className={`${styles.Traits__name} ${activeItem === itemTraits.id ? styles.opend : ''}`}
-            >
-              <div className={styles.Traits__name__title}>
-                <p className='font_20'>{itemTraits.name}</p>
-                <svg
-                  className={activeItem === itemTraits.id ? styles.Traits__svg : styles.Traits__svg__default}
-                  width='15'
-                  height='9'
-                  viewBox='0 0 15 9'
-                  fill='none'
-                  xmlns='http://www.w3.org/2000/svg'
-                >
-                  <path
-                    fillRule='evenodd'
-                    clipRule='evenodd'
-                    d='M0.862229 1.16985C1.25275 0.779322 1.88592 0.779322 2.27644 1.16985L7.21584 6.10924C7.40865 6.30205 7.73003 6.30205 7.92283 6.10924L12.8622 1.16985C13.2528 0.779322 13.8859 0.779322 14.2764 1.16985C14.667 1.56037 14.667 2.19354 14.2764 2.58406L9.33705 7.52345C8.36319 8.49731 6.77548 8.49731 5.80162 7.52345L0.862229 2.58406C0.471705 2.19354 0.471705 1.56037 0.862229 1.16985Z'
-                    fill='white'
-                  />
-                </svg>
-              </div>
-              <div className={styles.Traits__tableWrap}>
-                <div className={styles.Traits__header}>
-                  <p className='font_13'>Name</p>
-                  <p className='font_13'>Count</p>
-                  <div className={styles.Traits__table__rarity}>
-                    <p className='font_13'>Rarity</p>
-                    <svg width='13' height='14' viewBox='0 0 13 14' fill='none' xmlns='http://www.w3.org/2000/svg'>
-                      <path
-                        fillRule='evenodd'
-                        clipRule='evenodd'
-                        d='M5.17562 12.9563C4.87029 13.2622 4.37476 13.2627 4.06883 12.9574L0.798952 9.694C0.493014 9.38867 0.49252 8.89314 0.797849 8.5872C1.10318 8.28126 1.59871 8.28077 1.90464 8.5861L5.17452 11.8495C5.48046 12.1548 5.48095 12.6503 5.17562 12.9563Z'
-                        fill='#627EEA'
-                      />
-                      <path
-                        fillRule='evenodd'
-                        clipRule='evenodd'
-                        d='M4.62167 0.546875C5.0539 0.546875 5.4043 0.897268 5.4043 1.3295L5.4043 12.4028C5.4043 12.835 5.0539 13.1854 4.62167 13.1854C4.18944 13.1854 3.83905 12.835 3.83905 12.4028L3.83905 1.3295C3.83905 0.897267 4.18944 0.546875 4.62167 0.546875Z'
-                        fill='#627EEA'
-                      />
-                      <path
-                        fillRule='evenodd'
-                        clipRule='evenodd'
-                        d='M12.3407 5.14571C12.0353 5.45164 11.5398 5.45214 11.2339 5.14681L7.96399 1.88345C7.65805 1.57812 7.65756 1.08259 7.96289 0.776652C8.26822 0.470714 8.76375 0.47022 9.06968 0.775549L12.3396 4.03891C12.6455 4.34424 12.646 4.83977 12.3407 5.14571Z'
-                        fill='#627EEA'
-                      />
-                      <path
-                        fillRule='evenodd'
-                        clipRule='evenodd'
-                        d='M8.51718 0.546875C8.94941 0.546875 9.2998 0.897268 9.2998 1.3295L9.2998 12.4028C9.2998 12.835 8.94941 13.1854 8.51718 13.1854C8.08495 13.1854 7.73456 12.835 7.73456 12.4028L7.73456 1.3295C7.73456 0.897267 8.08495 0.546875 8.51718 0.546875Z'
-                        fill='#627EEA'
-                      />
-                    </svg>
+            <div key={index}>
+              <Expand
+                expandContent={
+                  <div>
+                    <div className={styles.Traits__tableWrap}>
+                      <div className={styles.Traits__header}>
+                        <p>Name</p>
+                        <p>Count</p>
+                        <div className={styles.Traits__table__rarity}>
+                          <p>Rarity</p>
+                          <svg
+                            width='16'
+                            height='16'
+                            viewBox='0 0 16 16'
+                            fill='none'
+                            xmlns='http://www.w3.org/2000/svg'
+                          >
+                            <path
+                              fillRule='evenodd'
+                              clipRule='evenodd'
+                              d='M6.64216 15.7084C6.25564 16.0957 5.62835 16.0963 5.24106 15.7098L1.1017 11.5787C0.714411 11.1922 0.713786 10.5649 1.1003 10.1776C1.48682 9.79031 2.11412 9.78968 2.50141 10.1762L6.64076 14.3073C7.02805 14.6938 7.02868 15.3211 6.64216 15.7084Z'
+                              fill='#162029'
+                            />
+                            <path
+                              fillRule='evenodd'
+                              clipRule='evenodd'
+                              d='M5.94091 -4.33061e-08C6.48808 -1.93888e-08 6.93164 0.443565 6.93164 0.990729L6.93164 15.0085C6.93164 15.5556 6.48808 15.9992 5.94091 15.9992C5.39375 15.9992 4.95018 15.5556 4.95018 15.0085L4.95018 0.990729C4.95018 0.443564 5.39375 -6.72235e-08 5.94091 -4.33061e-08Z'
+                              fill='#162029'
+                            />
+                            <path
+                              fillRule='evenodd'
+                              clipRule='evenodd'
+                              d='M15.7105 5.82169C15.324 6.20898 14.6967 6.20961 14.3094 5.82309L10.1701 1.69198C9.78277 1.30546 9.78214 0.678166 10.1687 0.290876C10.5552 -0.0964129 11.1825 -0.0970383 11.5698 0.289479L15.7091 4.42059C16.0964 4.80711 16.097 5.43441 15.7105 5.82169Z'
+                              fill='#162029'
+                            />
+                            <path
+                              fillRule='evenodd'
+                              clipRule='evenodd'
+                              d='M10.8706 -4.33061e-08C11.4178 -1.93888e-08 11.8613 0.443565 11.8613 0.990729L11.8613 15.0085C11.8613 15.5556 11.4178 15.9992 10.8706 15.9992C10.3234 15.9992 9.87987 15.5556 9.87987 15.0085L9.87987 0.990729C9.87987 0.443564 10.3234 -6.72235e-08 10.8706 -4.33061e-08Z'
+                              fill='#162029'
+                            />
+                          </svg>
+                        </div>
+                      </div>
+                      <div className={styles.Traits__itemsWrap}>
+                        <div className={styles.Traits__item}>
+                          <p>{item.title1}</p>
+                          <p>{item.count1}</p>
+                          <p>{item.rarity1}</p>
+                        </div>
+                        <div className={styles.Traits__item}>
+                          <p>{item.title2}</p>
+                          <p>{item.count2}</p>
+                          <p>{item.rarity2}</p>
+                        </div>
+                        <div className={styles.Traits__item}>
+                          <p>{item.title3}</p>
+                          <p>{item.count3}</p>
+                          <p>{item.rarity3}</p>
+                        </div>
+                        <div className={styles.Traits__item}>
+                          <p>{item.title4}</p>
+                          <p>{item.count4}</p>
+                          <p>{item.rarity4}</p>
+                        </div>
+                        <div className={styles.Traits__item}>
+                          <p>{item.title5}</p>
+                          <p>{item.count5}</p>
+                          <p>{item.rarity5}</p>
+                        </div>
+                        <div className={styles.Traits__item}>
+                          <p>{item.title5}</p>
+                          <p>{item.count5}</p>
+                          <p>{item.rarity5}</p>
+                        </div>
+                        <div className={styles.Traits__item}>
+                          <p>{item.title6}</p>
+                          <p>{item.count6}</p>
+                          <p>{item.rarity6}</p>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                </div>
-                <div className={styles.Traits__itemsWrap}>
-                  <div className={styles.Traits__item}>
-                    <p>{itemTraits.title1}</p>
-                    <p>{itemTraits.count1}</p>
-                    <p>{itemTraits.rarity1}</p>
-                  </div>
-                  <div className={styles.Traits__item}>
-                    <p>{itemTraits.title2}</p>
-                    <p>{itemTraits.count2}</p>
-                    <p>{itemTraits.rarity2}</p>
-                  </div>
-                  <div className={styles.Traits__item}>
-                    <p>{itemTraits.title3}</p>
-                    <p>{itemTraits.count3}</p>
-                    <p>{itemTraits.rarity3}</p>
-                  </div>
-                  <div className={styles.Traits__item}>
-                    <p>{itemTraits.title4}</p>
-                    <p>{itemTraits.count4}</p>
-                    <p>{itemTraits.rarity4}</p>
-                  </div>
-                  <div className={styles.Traits__item}>
-                    <p>{itemTraits.title5}</p>
-                    <p>{itemTraits.count5}</p>
-                    <p>{itemTraits.rarity5}</p>
-                  </div>
-                  <div className={styles.Traits__item}>
-                    <p>{itemTraits.title5}</p>
-                    <p>{itemTraits.count5}</p>
-                    <p>{itemTraits.rarity5}</p>
-                  </div>
-                  <div className={styles.Traits__item}>
-                    <p>{itemTraits.title6}</p>
-                    <p>{itemTraits.count6}</p>
-                    <p>{itemTraits.rarity6}</p>
-                  </div>
-                </div>
-              </div>
+                }
+                onChildClick={true}
+                className={styles.borderBottom}
+              >
+                <Question title={item.name} setToggle={setToggle} />
+              </Expand>
             </div>
           );
         })}
@@ -967,5 +1495,11 @@ const Creator = props => {
     </div>
   );
 };
-
+export async function getStaticProps() {
+  return {
+    props: {
+      activityData: nftActivityData.slice(0, 20),
+    },
+  };
+}
 export default Creator;

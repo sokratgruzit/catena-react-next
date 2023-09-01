@@ -7,50 +7,56 @@ const dropdownData = [
   {
     category: 'Background',
     filterItems: [
-      { title: 'Tan', count: 830 },
-      { title: 'Punk Blue', count: 540 },
+      { title: 'Tan', count: 820 },
+      { title: 'Punk Blue', count: 629 },
+      { title: 'Pink', count: 292 },
+      { title: 'Orange', count: 723 },
+      { title: 'Mint Green', count: 635 },
     ],
   },
   {
     category: 'Base',
     filterItems: [
-      { title: 'Tan', count: 830 },
-      { title: 'Punk Blue', count: 540 },
+      { title: 'White and brown', count: 10 },
+      { title: 'Lavender', count: 13 },
+      { title: 'Bicolour', count: 14 },
+      { title: 'White', count: 28 },
+      { title: 'Banana', count: 32 },
     ],
   },
   {
     category: 'Clothing',
     filterItems: [
-      { title: 'Tan', count: 830 },
-      { title: 'Punk Blue', count: 540 },
+      { title: 'Shorts', count: 83 },
+      { title: 'Tiger Warriors', count: 540 },
     ],
   },
   {
     category: 'Eyes',
     filterItems: [
-      { title: 'Tan', count: 830 },
-      { title: 'Punk Blue', count: 540 },
+      { title: 'blue', count: 90 },
+      { title: 'silver', count: 500 },
     ],
   },
   {
     category: 'Hat',
     filterItems: [
-      { title: 'Tan', count: 830 },
-      { title: 'Punk Blue', count: 540 },
+      { title: 'none', count: 0 },
+      { title: 'smthn', count: 540 },
     ],
   },
   {
     category: 'Mouth',
     filterItems: [
-      { title: 'Tan', count: 830 },
-      { title: 'Punk Blue', count: 540 },
+      { title: 'full', count: 60 },
+      { title: 'Heart Shape', count: 40 },
     ],
   },
   {
     category: 'Prop',
     filterItems: [
-      { title: 'Tan', count: 830 },
-      { title: 'Punk Blue', count: 540 },
+      { title: 'fast', count: 830 },
+      { title: 'invisible', count: 540 },
     ],
   },
 ];

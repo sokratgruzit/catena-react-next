@@ -1,0 +1,41 @@
+/* .faq p {} */
+
+.faq li {
+  list-style-type: disc;
+}
+
+.questionWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  cursor: pointer;
+  margin-top: 30px;
+}
+
+.title {
+  font-size: 20px;
+  line-height: 24px;
+  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+}
+
+.vectorSvg {
+  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+  width: 12px;
+  height: 6px;
+  margin-right: 10px;
+}
+
+.rotate {
+  transform: rotateZ(-180deg);
+  stroke: #ff7152;
+}
+
+.brighten {
+  color: #ff7152 !important;
+}
+
+.borderBottom {
+  padding-bottom: 4px;
+  border-bottom: 1px solid #d3d6d9;
+}

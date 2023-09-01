@@ -1,9 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './NftCreatorPageCategoriesSelectModal.module.css';
 
 function NftCreatorPageCategoriesSelectModal(props) {
   const { searchPlaceholder, selectedTitle, selectedCategory, filterItems } = props;
+  const [selectedItems, setSelectedItems] = useState([]);
+  const [hoveredIndex, setHoveredIndex] = useState(null);
 
+  const handleMouseEnter = index => {
+    setHoveredIndex(index);
+  };
+
+  const handleMouseLeave = () => {
+    setHoveredIndex(null);
+  };
+  const toggleItem = index => {
+    if (selectedItems.includes(index)) {
+      setSelectedItems(selectedItems.filter(item => item !== index));
+    } else {
+      setSelectedItems([...selectedItems, index]);
+    }
+  };
   return (
     <div className={styles.nftCreatorPage__categoriesSelectModal}>
       <div className={styles.nftCreatorPage__categoriesSelectModalSearchBar}>
@@ -63,11 +79,40 @@ function NftCreatorPageCategoriesSelectModal(props) {
         {filterItems.map((item, index) => (
           <div
             key={index}
-            className={`${styles.nftCreatorPage__categoriesSelectModalFilter__item} ${styles.nftCreatorPage__categoriesSelectModalFilter__itemHover}`}
+            className={`${styles.nftCreatorPage__categoriesSelectModalFilter__item} ${
+              selectedItems.includes(index) ? styles.nftCreatorPage__categoriesSelectModalFilter__itemActive : ''
+            } ${hoveredIndex === index ? styles.nftCreatorPage__categoriesSelectModalFilter__itemHover : ''}`}
+            onMouseEnter={() => handleMouseEnter(index)}
+            onMouseLeave={handleMouseLeave}
+            onClick={() => toggleItem(index)}
           >
-            <svg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'>
+            <svg
+              className={styles.circle}
+              width='20'
+              height='20'
+              viewBox='0 0 20 20'
+              fill='none'
+              xmlns='http://www.w3.org/2000/svg'
+            >
               <circle opacity='0.6' cx='10' cy='10' r='9.25' stroke='#162029' strokeWidth='1.5' />
             </svg>
+            {selectedItems.includes(index) && (
+              <svg
+                className={styles.checked}
+                width='8'
+                height='6'
+                viewBox='0 0 8 6'
+                fill='none'
+                xmlns='http://www.w3.org/2000/svg'
+              >
+                <path
+                  fill-rule='evenodd'
+                  clip-rule='evenodd'
+                  d='M7.82464 0.176111C8.05875 0.410632 8.05841 0.790531 7.82389 1.02464L3.28789 5.55264C3.05351 5.7866 2.6739 5.78643 2.43974 5.55226L0.175736 3.28826C-0.0585786 3.05395 -0.0585786 2.67405 0.175736 2.43974C0.410051 2.20542 0.789949 2.20542 1.02426 2.43974L2.86437 4.27985L6.97611 0.175362C7.21063 -0.058746 7.59053 -0.0584107 7.82464 0.176111Z'
+                  fill='#162029'
+                />
+              </svg>
+            )}
             <p className={styles.nftCreatorPage__categoriesSelectModalFilter__itemTitle}>{item.title}</p>
             <p className={styles.nftCreatorPage__categoriesSelectModalFilter__itemTitleNumb}>{item.count}</p>
           </div>

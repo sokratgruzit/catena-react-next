@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 import ListItemCard from '../../UI/listItem/ListItemCard';
 import styles from './Arrivals.module.css';
-import CommunityAuctionsFAQ from '../../faqOld/communityAuctionsFAQ/CommunityAuctionsFAQ';
+import CommunityAuctionsFAQ from './CommunityAuctionsFAQ';
 
 const Arrivals = props => {
   const [showWhiteListedWallets, setShowWhiteListedWallets] = useState(false);
