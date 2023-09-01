@@ -39,13 +39,13 @@ const tableHead = [
   },
   {
     name: 'Unstake Date',
-    mobileWidth: 15,
+    // mobileWidth: 15,
     width: 15,
     id: 2,
   },
   {
     name: 'Earn Reward',
-    mobileWidth: 15,
+    // mobileWidth: 15,
     width: 15,
     id: 3,
   },
