@@ -1,4 +1,4 @@
-import styles from '../css/BecomeAmbassador.module.css';
+import styles from '../BecomeAmbassador.module.css';
 
 const BecomeAmbassador = props => {
   const titleArray = [

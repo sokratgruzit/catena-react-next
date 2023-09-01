@@ -1,6 +1,6 @@
 import React from 'react';
 import Events from '../../../components/home/events/Events';
-import createAxiosInstance from '../../../pages/api/axios';
+import createAxiosInstance from '../../api/axios';
 
 export const getServerSideProps = async ({ query }) => {
   const currentPage = query.page || 1;

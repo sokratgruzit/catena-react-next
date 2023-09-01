@@ -1,6 +1,4 @@
-import { useState } from 'react';
-
-import styles from '../css/WhatExpected.module.css';
+import styles from '../WhatExpected.module.css';
 
 const WhatExpected = () => {
   const Tlt = [

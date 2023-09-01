@@ -1,9 +1,11 @@
 import { useRouter } from 'next/router';
 import React, { useState } from 'react';
+import Link from 'next/link';
 
 import TabFilter from '../../../UI/filters/TabFilter';
 
 import styles from './InfoRoutes.module.css';
+import { StarSvg } from '../../../svg';
 
 let tabsData = [
   {
@@ -45,7 +47,7 @@ const InfoRoutes = () => {
   };
 
   return (
-    <>
+    <div className={styles.routeContainer}>
       <TabFilter
         onClick={navigationHandler}
         data={tabsData}
@@ -57,7 +59,13 @@ const InfoRoutes = () => {
           item: styles.Activity__filter__item,
         }}
       />
-    </>
+      <Link href={'/overview/info/pools/watchlist'}>
+        <div className={styles.starWrapper}>
+          <StarSvg className={styles.starSVG} />
+          <div className={styles.favCount}>3</div>
+        </div>
+      </Link>
+    </div>
   );
 };
 

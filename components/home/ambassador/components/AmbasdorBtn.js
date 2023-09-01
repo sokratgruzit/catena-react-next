@@ -3,7 +3,7 @@ import { Input, Button, HelpText, HelpCard } from '@catena-network/catena-ui-mod
 import createAxiosInstance from '../../../../pages/api/axios';
 import { useValidation } from '../../../../hooks/useValidation';
 
-import styles from '../css/AmbasdorBtn.module.css';
+import styles from '../AmbasdorBtn.module.css';
 
 const AmbasdorBtn = () => {
   const [active, setActive] = useState(false);

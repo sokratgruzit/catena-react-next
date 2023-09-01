@@ -27,33 +27,36 @@ function getLibrary(provider, connector) {
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
-  const { setLocaleInUrl } = useLanguages();
+  const { handleLanguageChange } = useLanguages();
   const [isInitialized, setIsInitialized] = useState(false);
   const [fixedFooter, setFixedFooter] = useState(true);
+
   useEffect(() => {
     AOS.init();
     AOS.refresh();
   }, []);
+
   useEffect(() => {
-    if( router.asPath == '/overview/' || router.asPath == '/overview' || router.asPath == '/' || router.asPath == '/overview/technology'){
+    if(router.asPath == '/overview/' || router.asPath == '/overview' || router.asPath == '/' || router.asPath == '/overview/technology'){
       setFixedFooter(true);
-    }
-    else {
+    } else {
       setFixedFooter(false);
     }
-
   }, [router]);
+
   useEffect(() => {
     if (!isInitialized) {
-      let { query } = router;
+      let { query, locale } = router;
 
       if (query.lang) {
         store.dispatch({
           type: "SET_ACTIVE_LANG",
           activeLang: query.lang
         });
+      } else if (locale) {
+        handleLanguageChange(locale);
       } else {
-        setLocaleInUrl('en');
+        handleLanguageChange('en');
       }
 
       setIsInitialized(true);
@@ -74,6 +77,10 @@ function MyApp({ Component, pageProps }) {
     socket.on('disconnect', () => {
       console.log('Disconnected from WebSocket server');
     });
+
+    let { query, locale } = router;
+
+    console.log(query, locale);
   });
 
   socket.on('join', (message) => {

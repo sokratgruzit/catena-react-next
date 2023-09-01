@@ -1,4 +1,4 @@
-import styles from '../css/Title.module.css';
+import styles from '../Title.module.css';
 
 const Title = props => {
   return (

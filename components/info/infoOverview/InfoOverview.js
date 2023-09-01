@@ -7,6 +7,7 @@ import SearchBar from '../components/searchBar/SearchBar';
 import TableTokens from '../components/tableTokens/TableTokens';
 
 import styles from '../InfoPages.module.css';
+import TopMovers from '../components/topMovers/TopMovers';
 
 const Table__Types = [
   {
@@ -82,18 +83,28 @@ const stakersRecord = [
   },
 ];
 
-const InfoOverview = () => {
+const InfoOverview = ({ page }) => {
   return (
     <div className='pT-180'>
       <div className='container'>
         <div className={styles.section}>
           <InfoRoutes />
           <SearchBar />
-          <InfoCharts />
-          <TableTokens title="Top Tokens" tableInfo={stakersRecord} tableHead={tableHead} />
-          <TableTokens title="Top Pools" tableInfo={stakersRecord} tableHead={tableHead} />
-          <TableTokens title="Transaction" tableInfo={stakersRecord} tableHead={tableHead} Table__Types={Table__Types} />
-          {/* <PoolsSection /> */}
+          {!page &&
+            <>
+              <InfoCharts />
+              <TableTokens title="Top Tokens" tableInfo={stakersRecord} tableHead={tableHead} />
+              <TableTokens title="Top Pools" tableInfo={stakersRecord} tableHead={tableHead} />
+              <TableTokens title="Transaction" tableInfo={stakersRecord} tableHead={tableHead} Table__Types={Table__Types} />
+            </>
+          }
+          {page === 'tokens' &&
+            <>
+              <TopMovers />
+              <TableTokens title="All Tokens" tableInfo={stakersRecord} tableHead={tableHead} />
+            </>
+          }
+          {page === 'pools' && <TableTokens title="Top Pools" tableInfo={stakersRecord} tableHead={tableHead} />}
 
         </div>
       </div>

@@ -42,19 +42,19 @@ const SecondBlock = ({ data }) => {
       <div className={styles.bottomRow}>
         <div>
           <h4>Volume {activeMenuItem}</h4>
-          <p className='font_20'>$ {activeMenuItem === '24H' ? data.volume_24h : data.volume_7d} M</p>
+          <p className='font_20'>$ {activeMenuItem === '24H' ? data?.volume_24h : data?.volume_7d} M</p>
           <p>up down</p>
         </div>
         <div>
           <h4>LP REWARD FEES {activeMenuItem}</h4>
           <p className='font_20'>
-            {activeMenuItem === '24H' ? '$' + data.lp_reward_fee_24h + 'M' : '$' + data.lp_reward_fee_7d + 'M'}
+            {activeMenuItem === '24H' ? '$' + data?.lp_reward_fee_24h + 'M' : '$' + data?.lp_reward_fee_7d + 'M'}
           </p>
           <p className={styles.lpRewardTotal}>
             Out of{' '}
             {activeMenuItem === '24H'
-              ? '$' + data.lp_reward_fee_total_24h + 'M'
-              : '$' + data.lp_reward_fee_total_7d + 'M'}{' '}
+              ? '$' + data?.lp_reward_fee_total_24h + 'M'
+              : '$' + data?.lp_reward_fee_total_7d + 'M'}{' '}
             total fees
           </p>
         </div>

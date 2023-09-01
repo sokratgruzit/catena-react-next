@@ -14,7 +14,7 @@ export const getStaticPaths = async ({ locales }) => {
       console.log(err?.response);
     });
 
-  let paths;
+  let paths = [];
 
   if (press && press.length > 0) {
     paths = press.flatMap((item) =>
@@ -23,11 +23,6 @@ export const getStaticPaths = async ({ locales }) => {
         locale: loc,
       }))
     );
-  } else {
-    paths = locales.map((loc) => ({
-      params: { slug: `press-${loc}` },
-      locale: loc,
-    }));
   }
 
   return {
@@ -40,7 +35,7 @@ export const getStaticProps = async context => {
   const slug = context.params.slug;
   const axios = createAxiosInstance();
   const res = await axios.post(`${process.env.NEXT_PUBLIC_URL}/press/get-one-press`, { slug });
-  const foundItem = res?.data;
+  const foundItem = res?.data ? res?.data : {};
 
   return {
     props: {

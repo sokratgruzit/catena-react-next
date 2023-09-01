@@ -2,7 +2,7 @@ import React from 'react';
 import { useRouter } from 'next/router';
 import { TableElement } from '@catena-network/catena-ui-module';
 import OpenSearch from './components/OpenSearch';
-import Feature from '../../careers/components/feature/Feature';
+import Feature from '../components/feature/Feature';
 
 const OpenPosition = ({ openPositions, currentPage, totalCount }) => {
   const router = useRouter();
