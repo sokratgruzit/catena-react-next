@@ -1,16 +1,16 @@
-import Header from './components/Header';
-import Bottom from './components/Bottom';
-import InformationBox from '../informationBox/InformationBox';
+import SetAmount from './components/setAmount/SetAmount';
+import SelectPayment from './components/selectPayment/SelectPayment';
+import Information from './components/information/Information';
 
-import styles from './css/Contribute.module.css';
+import styles from './Contribute.module.css';
 const Contribute = () => {
   return (
     <div className={styles.ContributeBox}>
       <div>
-        <Header />
-        <Bottom />
+        <SelectPayment />
+        <SetAmount />
       </div>
-      <InformationBox />
+      <Information />
     </div>
   );
 };

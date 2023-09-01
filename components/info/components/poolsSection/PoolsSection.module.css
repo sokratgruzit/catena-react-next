@@ -1,0 +1,233 @@
+.section {
+  margin-top: 40px;
+}
+
+.titleRow {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  justify-content: space-between;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+}
+
+.starSVG {
+  width: 16px;
+  height: 16px;
+  margin-right: 10px;
+}
+
+.name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  cursor: pointer;
+}
+
+.name1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  height: 100%;
+  margin-right: 20px;
+}
+
+.name:hover {
+  text-decoration: underline;
+  text-decoration-color: #0500FF;
+}
+
+.name p {
+  font-size: 16px;
+  line-height: 13px;
+  color: #0500FF;
+}
+
+.buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  width: 70%;
+}
+.flex {
+  display: flex;
+  gap: 5px;
+}
+
+.view {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.name p {
+  margin-bottom: 8px;
+  margin-right: 5px;
+}
+
+.logo {
+  width: 50px;
+}
+
+.titleTopRow {
+  display: flex;
+  align-items: center;
+
+}
+
+.titleTopRow p {
+  font-size: 30px;
+  line-height: 13px;
+}
+
+.titleBottomRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 30%;
+}
+
+.titleBottomRow p {
+  margin-left: 5px;
+}
+
+.titleBottomRow p:nth-child(2) {
+  margin-right: 30px;
+}
+
+.logoSm {
+  width: 30px;
+  height: 30px;
+  margin-right: 5px;
+}
+
+.displayPoolsSection {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+  margin-bottom: 60px;
+}
+
+.tableName {
+  margin-top: 50px;
+  margin-bottom: 30px;
+  font-size: 30px;
+  line-height: 13px;
+}
+
+.goBackWrapper {
+  width: 27%;
+  align-self: center;
+}
+
+.goBackText:hover {
+  text-decoration: underline;
+  text-decoration-color: #FF7152;
+}
+
+.goBackText {
+  cursor: pointer;
+  width: fit-content;
+  align-items: center;
+  display: flex;
+}
+
+.goBackText p {
+  font-size: 15px;
+  line-height: 21px;
+  color: #FF7152;
+  margin-left: 5px;
+}
+
+.starSVG {
+  width: 30px;
+  height: 30px;
+}
+
+.starWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 27%;
+}
+
+.favCount {
+  width: 20px;
+  height: 20px;
+  padding: 3px;
+  border-radius: 50%;
+  background-color: #FF7152;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  margin-left: 20px;
+  margin-bottom: 12px;
+  pointer-events: none;
+}
+
+.topSectionWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media (max-width: 896px) {
+  .displayPoolsSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+  }
+
+  .titleRow {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .title {
+    align-items: center;
+  }
+
+  .view {
+    align-items: center;
+    margin-top: 20px;
+  }
+
+  .buttons div:nth-child(1) {
+    margin-right: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .dataBlockWrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width:600px) {
+  .topSectionWrapper {
+    flex-wrap: wrap;
+  }
+
+  .goBackWrapper {
+    align-self: flex-start;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .starWrapper {
+    width: fit-content;
+  }
+}

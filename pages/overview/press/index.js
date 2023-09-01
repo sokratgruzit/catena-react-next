@@ -1,4 +1,4 @@
-import createAxiosInstance from '../../../pages/api/axios';
+import createAxiosInstance from '../../api/axios';
 import Press from '../../../components/home/press/Press';
 
 export async function getServerSideProps({ query }) {

@@ -10,8 +10,6 @@ const Competition = () => {
     <>
       <TradingCompetition />
       <Finished />
-      {/* <Marquee label={"win"} direction={"forward"}/>
-      <Marquee label={"win"} direction={"reverse"}/> */}
       <Score />
       <Rank />
       <Prizes />

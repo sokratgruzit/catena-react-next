@@ -1,10 +1,10 @@
 import Benefits from './components/benefits/Benefits';
-import CareersCatena from './components/careerscatena/CareersCatena';
+import CareersCatena from './components/careersCatena/CareersCatena';
 import CatenaTeam from './components/catenaTeam/CatenaTeam';
-import CurrentOpenings from './components/currentopenings/CurrentOpenings';
+import CurrentOpenings from './components/currentOpenings/CurrentOpenings';
 import Feature from './components/feature/Feature';
-import HowWeHire from './components/howwehire/HowWeHire';
-import OurValues from './components/ourvalues/OurValues';
+import HowWeHire from './components/howWeHire/HowWeHire';
+import OurValues from './components/ourValues/OurValues';
 import Destroy from '../../svg/careers/Destroy';
 import Quality from '../../svg/careers/Quality';
 import Original from '../../svg/careers/Original';
@@ -235,9 +235,10 @@ const Careers = ({ careers, openPositions }) => {
     <div>
       <InView as="div" onChange={(inView, entry) => (inView && setScheme(0))}>
         <CareersCatena animate={pageReady} />
-        <div className='container'>
+        {/* <div className='container'>
           <StringToHtml data={careers[0]?.inner_descr['en']['career.inner_descr']} />
-        </div>
+        </div> */}
+        <CatenaTeam team={workflow} title='How we work' />
         <Feature openPositions={openPositions} title='Featured Jobs' showButton={true} animate={pageReady} />
       </InView>
 

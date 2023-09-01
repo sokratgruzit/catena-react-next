@@ -82,21 +82,21 @@ const Header = () => {
               title: 'Community',
               route: '/overview/community',
             },
-            // {
-            //   id: 'about-2',
-            //   title: 'Careers',
-            //   route: '/overview/careers',
-            // },
-            // {
-            //   id: 'about-3',
-            //   title: 'Press',
-            //   route: '/overview/press',
-            // },
-            // {
-            //   id: 'about-4',
-            //   title: 'Events',
-            //   route: '/overview/events',
-            // },
+            {
+              id: 'about-2',
+              title: 'Careers',
+              route: '/overview/careers',
+            },
+            {
+              id: 'about-3',
+              title: 'Press',
+              route: '/overview/press',
+            },
+            {
+              id: 'about-4',
+              title: 'Events',
+              route: '/overview/events',
+            },
             {
               id: 'about-5',
               title: 'Privacy',
@@ -118,11 +118,11 @@ const Header = () => {
               title: 'Bug Bounty',
               route: '/overview/bug-bounty',
             },
-            // {
-            //   id: 'support-1',
-            //   title: 'Your Voice Matter',
-            //   route: '/overview/your-voice',
-            // },
+            {
+              id: 'support-1',
+              title: 'Your Voice Matter',
+              route: '/overview/your-voice',
+            },
             {
               id: 'support-2',
               title: 'Support',
@@ -269,8 +269,7 @@ const Header = () => {
       activeLang: "en"
     });
 
-    //handleLanguageChange(loc);
-    handleLanguageChange("en");
+    handleLanguageChange(loc);
   };
 
   const openMenu = id => {
@@ -495,15 +494,6 @@ const Header = () => {
       });
     }
   }, [account, chainId, dispatch]);
-
-  useEffect(() => {
-    dispatch({
-      type: "SET_ACTIVE_LANG",
-      activeLang: "en"
-    });
-
-    handleLanguageChange("en");
-  }, []);
 
   return (
     <div>
@@ -731,7 +721,7 @@ const Header = () => {
                             <div
                               style={{
                                 transitionDelay:
-                                  activeMenu === item.id ? `${(index + (device === 'desktop' ? 9 : 0)) / 20 }s` : '0s',
+                                  activeMenu === item.id ? `${(index + (device === 'desktop' ? 9 : 0)) / 40 }s` : '0s',
                               }}
                             >
                               <span>{sub.title}</span>

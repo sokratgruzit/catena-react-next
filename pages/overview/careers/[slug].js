@@ -1,5 +1,5 @@
 import createAxiosInstance from '../../api/axios';
-import CareersIneer from '../../../components/home/careers/careers-inner/CareersIneer';
+import CareersIneer from '../../../components/home/careers/careersInner/CareersIneer';
 
 export const getStaticPaths = async ({ locales }) => {
   const axios = createAxiosInstance();
@@ -13,7 +13,7 @@ export const getStaticPaths = async ({ locales }) => {
       console.log(err?.response);
     });
 
-  let paths;
+  let paths = [];
 
   if (careers && careers.length > 0) {
     paths = careers.flatMap((item) =>
@@ -22,12 +22,7 @@ export const getStaticPaths = async ({ locales }) => {
         locale: loc,
       }))
     );
-  } else {
-    paths = locales.map((loc) => ({
-      params: { slug: `career-${loc}` },
-      locale: loc,
-    }));
-  }
+  } 
 
   return {
     paths,
@@ -54,4 +49,3 @@ const index = ({ item }) => {
 };
 
 export default index;
-

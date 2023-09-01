@@ -2,15 +2,88 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import React from 'react';
 
-import PoolsSection from '../../../../../components/Info/components/PoolsSection/PoolsSection';
-import BackgroundImg from '../../../../../public/images/Info/background/background.png';
+import styles from '../../../../../components/info/InfoPages.module.css';
+import PoolsSection from '../../../../../components/info/components/poolsSection/PoolsSection';
 
-import styles from '../../../../../components/Info/InfoPages.module.css';
+const Table__Types = [
+  {
+    type: 'All',
+  },
+  {
+    type: 'Swaps',
+  },
+  {
+    type: 'Adds',
+  },
+  {
+    type: 'Removes',
+  },
+];
+
+const tableHead = [
+  {
+    name: 'Staked Amount',
+    width: 15,
+    mobileWidth: 15,
+    id: 0,
+  },
+  {
+    name: 'Stake Date ',
+    mobileWidth: 15,
+    width: 15,
+    id: 1,
+  },
+  {
+    name: 'Unstake Date',
+    mobileWidth: 15,
+    width: 15,
+    id: 2,
+  },
+  {
+    name: 'Earn Reward',
+    mobileWidth: 15,
+    width: 15,
+    id: 3,
+  },
+  {
+    name: 'Harvest',
+    width: 15,
+    mobileWidth: 15,
+    id: 4,
+  },
+];
+
+const stakersRecord = [
+  {
+    id: 12123,
+    amount: '1,220,000.2',
+    staketime: '01.02.2023 10:00AM',
+    unstaketime: '01.02.2023 08:15PM',
+    CML: 'CML',
+    realtimeRewardPerBlock: '1,132,000.1',
+  },
+  {
+    id: 2121234,
+    amount: '1,220,000.2',
+    staketime: '01.02.2023 10:00AM',
+    unstaketime: '01.02.2023 08:15PM',
+    CML: 'CML',
+    realtimeRewardPerBlock: '1,132,000.1',
+  },
+  {
+    id: 1221235,
+    amount: '1,220,000.2',
+    staketime: '01.02.2023 10:00AM',
+    unstaketime: '01.02.2023 08:15PM',
+    CML: 'CML',
+    realtimeRewardPerBlock: '1,132,000.1',
+  },
+];
 
 const InfoTPoolsInngerPage_Data = {
   id: 1,
-  imgSrc1: '/images/Info/TopTokens/4.png',
-  imgSrc2: '/images/Info/TopTokens/1.png',
+  imgSrc1: '/images/info/TopTokens/4.png',
+  imgSrc2: '/images/info/TopTokens/1.png',
   name: 'USDC/WBNB',
   name1: 'USDC',
   name2: 'WBNB',
@@ -50,27 +123,28 @@ export async function getStaticPaths(context) {
 }
 
 export async function getStaticProps(context) {
-  const poolsData = {
-    imgSrc1: '',
-    imgSrc2: '',
-    name: '',
-    name1: '',
-    name2: '',
-    rate1: '',
-    rate2: '',
-    total_tokens1: '',
-    total_tokens2: '',
-    liquidity: '',
-    volume_24h: '',
-    volume_24h_change: '',
-    lp_reward_apr: '',
-    lp_reward_fee_24h: '',
-    lp_reward_fee_total_24h: '',
-    lp_reward_fee_7d: '',
-    lp_reward_fee_total_7d: '',
-    volume_7d: '',
-    volume_7d_change: '',
-  };
+  const poolsData = InfoTPoolsInngerPage_Data
+  // {
+  //   imgSrc1: '',
+  //   imgSrc2: '',
+  //   name: '',
+  //   name1: '',
+  //   name2: '',
+  //   rate1: '',
+  //   rate2: '',
+  //   total_tokens1: '',
+  //   total_tokens2: '',
+  //   liquidity: '',
+  //   volume_24h: '',
+  //   volume_24h_change: '',
+  //   lp_reward_apr: '',
+  //   lp_reward_fee_24h: '',
+  //   lp_reward_fee_total_24h: '',
+  //   lp_reward_fee_7d: '',
+  //   lp_reward_fee_total_7d: '',
+  //   volume_7d: '',
+  //   volume_7d_change: '',
+  // };
 
   return {
     props: {
@@ -104,7 +178,7 @@ const index = props => {
   const { id } = router.query;
   // fetch data by ID
   return (
-    <div className={styles.section}>{props.infoPoolsDetails && <PoolsSection data={props.infoPoolsDetails} />}</div>
+    <PoolsSection data={props.infoPoolsDetails} Table__Types={Table__Types} tableHead={tableHead} stakersRecord={stakersRecord} />
   );
 };
 

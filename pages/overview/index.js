@@ -1,5 +1,5 @@
 import MainSlider from '../../components/home/mainSlider/MainSlider';
-import createAxiosInstance from './api/axios';
+import createAxiosInstance from '../api/axios';
 
 export const getStaticProps = async () => {
   const axios = createAxiosInstance();

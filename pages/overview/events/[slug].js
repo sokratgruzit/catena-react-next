@@ -1,5 +1,5 @@
 import React from 'react';
-import createAxiosInstance from '../../../pages/api/axios';
+import createAxiosInstance from '../../api/axios';
 import EventsItem from '../../../components/home/events/EventsItem';
 
 export const getStaticPaths = async ({ locales }) => {
@@ -14,7 +14,7 @@ export const getStaticPaths = async ({ locales }) => {
     console.log(err?.response);
   });
 
-  let paths;
+  let paths = [];
 
   if (events && events.length > 0) {
     paths = events.flatMap((item) =>
@@ -23,11 +23,6 @@ export const getStaticPaths = async ({ locales }) => {
         locale: loc,
       }))
     );
-  } else {
-    paths = locales.map((loc) => ({
-      params: { slug: `event-${loc}` },
-      locale: loc,
-    }));
   }
 
   return {

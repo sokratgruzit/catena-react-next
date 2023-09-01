@@ -20,7 +20,7 @@ function Certik() {
           </p>
         </div>
       </div>
-      <div className={`${styles.certik_grid}`}>
+      <div className={`${styles.certik_grid}`} data-aos='fade-up'>
         <div>
           <svg
             className={`${styles.certik_logo}`}

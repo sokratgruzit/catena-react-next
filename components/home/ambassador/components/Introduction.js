@@ -1,4 +1,4 @@
-import styles from "../css/Introduction.module.css"
+import styles from "../Introduction.module.css"
 
 const Introduction = (props) => {
     return (
