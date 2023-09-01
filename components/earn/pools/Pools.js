@@ -1,8 +1,6 @@
-import Image from 'next/image';
 import React, { useState, useRef } from 'react';
 
 import { useWindowDimension } from '../../../hooks/useWindowDimension';
-import background from '../../../public/images/earn/background.png';
 import {
   ClockSvg,
   ComponentViewSvg,
@@ -309,12 +307,8 @@ const Pools = () => {
 
   return (
     <>
-      {/* <div className={styles.background}>
-        <Image src={background} alt='' />
-      </div> */}
       <div className={`container ${styles.pools__container} `}>
         <div className={styles.routesWrapper}>
-          {/* <EarnRoutes /> */}
         </div>
         <h1 className='font_30'>
           Just stake some tokens to earn.
