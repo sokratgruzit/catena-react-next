@@ -2,7 +2,6 @@ import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { Button, Input, HelpText } from '@catena-network/catena-ui-module';
 import Link from 'next/link';
-// import CommunityAuctionsFAQ from '../../faqOld/communityAuctionsFAQ/CommunityAuctionsFAQ';
 import { CatenaLogo } from '../../svg';
 import Expand from '../../UI/expand/Expand';
 import ExpandButton from '../../UI/expand/ExpandButton';
@@ -146,7 +145,6 @@ const CommunityAuctions = props => {
         <h2>Frequently Asked Questions</h2>
         <div className={`${styles.FAQWrapper} custum-text`}>
           <h4>How does it work?</h4>
-          {/* <CommunityAuctionsFAQ /> */}
         </div>
       </div>
     </main>
