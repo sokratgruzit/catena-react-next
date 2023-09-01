@@ -28,7 +28,7 @@ const TradingCompetition = () => {
         <div className={styles.mainContent}>
           <div className={styles.leftSideContent}>
             <p className={styles.day}>MAY 14-20, 2022</p>
-            <h1 className='ttl font-90'>CATENA Fan Token Trading Competition</h1>
+            <h1 className={`${styles.mainTitle} ttl font-90`}>CATENA Fan Token Trading Competition</h1>
             <h4 className={styles.prizes}>$300,000 in Prizes!</h4>
             <p>Compete with other teams for the highest trading volume!</p>
             <div className={styles.voutingBox}>
@@ -130,7 +130,7 @@ const TradingCompetition = () => {
               </div>
             </div>
             <div className={styles.allCompetition}>
-              <div className='font-40'>See all finished competition</div>
+              <div className='ttl'>See all finished competition</div>
               <div className={styles.boxArrow}>
                 <img className={styles.arrow} src='/images/win/arrow.png' />
               </div>

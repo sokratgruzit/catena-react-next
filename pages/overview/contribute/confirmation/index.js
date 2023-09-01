@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Confirmation from '../../../../components/home/contrubute/confirmationYourPayment/Confirmation';
+import Confirmation from '../../../../components/home/contrubute/components/confirmation/Confirmation';
 const index = () => {
   return <Confirmation />;
 };

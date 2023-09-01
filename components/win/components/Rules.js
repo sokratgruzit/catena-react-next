@@ -1,11 +1,210 @@
 import Image from 'next/image';
+import { useState } from 'react';
 
 import Finished from './Finished';
 import FAQ from '../../faqOld/FAQ';
+// import { Table } from '@catena-network/catena-ui-module';
+// import { useMobileWidth } from '../../../hooks/useMobileWidth';
 
 import styles from './Rules.module.css';
 
 const Rules = () => {
+  // const { tableFilterData, mobile, mobileExpand, mobileExpandFunc } = useMobileWidth();
+  // const [tableExpand, setTableExpand] = useState(null);
+
+  // let th = [
+  //   {
+  //     name: 'Staked Amount',
+  //     width: 14.2,
+  //     mobileWidth: 33.3,
+  //     id: 0,
+  //   },
+  //   {
+  //     name: 'Stake Date',
+  //     width: 14.2,
+  //     mobileWidth: 33.3,
+  //     id: 1,
+  //   },
+  //   {
+  //     name: 'Unstake Date',
+  //     width: 14.2,
+  //     mobileWidth: 33.3,
+  //     id: 2,
+  //   },
+  //   {
+  //     name: 'Earn Reward',
+  //     width: 14.2,
+  //     mobileSlide: true,
+  //     id: 3,
+  //   },
+  //   {
+  //     name: 'Harvest',
+  //     width: 14.2,
+  //     mobileSlide: true,
+  //     id: 4,
+  //   },
+  //   {
+  //     name: 'Action 1',
+  //     width: 14.2,
+  //     mobileSlide: true,
+  //     id: 5,
+  //   },
+  //   {
+  //     name: 'Action 2',
+  //     width: 14.2,
+  //     mobileSlide: true,
+  //     id: 6,
+  //   },
+  // ];
+
+  // let td = [
+  //   {
+  //     id: 12123,
+  //     stakeAmout: '123123123123',
+  //     stakeDate: '01.02.2023',
+  //     unStakeDate: '01.02.2333',
+  //     earnReward: '200',
+  //     harvest: '200',
+  //     withdrawan: false,
+  //     unstaked: true,
+  //   },
+  //   {
+  //     id: 12,
+  //     stakeAmout: '123123123123',
+  //     stakeDate: '01.02.2023',
+  //     unStakeDate: '01.02.2333',
+  //     earnReward: '200',
+  //     harvest: '200',
+  //     withdrawan: true,
+  //     unstaked: false,
+  //   },
+  // ];
+
+  // const tableExpandFunc = id => {
+  //   if (id !== tableExpand) {
+  //     setTableExpand(id);
+  //   } else {
+  //     setTableExpand(null);
+  //   }
+  // };
+
+  // let tableData;
+  // tableData = td.map((item, index) => {
+  //   return (
+  //     <div className={`table-parent ${mobileExpand == item.id ? 'active' : ''}`} key={index}>
+  //       <div className='table more'>
+  //         <div
+  //           className={`td col ${th[0].mobileWidth ? true : false}`}
+  //           style={{ width: `${mobile ? th[0].mobileWidth : th[0].width}%` }}
+  //         >
+  //           {/* <span>{item.id}</span> */}
+  //           <span>{item.stakeAmout}</span>
+  //         </div>
+  //         <div
+  //           onClick={() => {
+  //             //   tableExpandFunc(item.id);
+  //           }}
+  //           className={`td expand ${tableExpand == item.id ? 'active' : ''} ${th[1].mobileWidth ? true : false}`}
+  //           style={{ width: `${mobile ? th[1].mobileWidth : th[1].width}%` }}
+  //         >
+  //           <span>{item.stakeDate}</span>
+  //         </div>
+  //         <div
+  //           className={`td ${th[2].mobileWidth ? true : false}`}
+  //           style={{ width: `${mobile ? th[2].mobileWidth : th[2].width}%` }}
+  //         >
+  //           <span>{item.unStakeDate}</span>
+  //         </div>
+  //         <div
+  //           className={`td ${th[3].mobileWidth ? true : false}`}
+  //           style={{ width: `${mobile ? th[3].mobileWidth : th[3].width}%` }}
+  //         >
+  //           <span>{item.earnReward}</span>
+  //         </div>
+  //         <div
+  //           className={`td ${th[4].mobileWidth ? true : false}`}
+  //           style={{ width: `${mobile ? th[4].mobileWidth : th[4].width}%` }}
+  //         >
+  //           <span>{item.harvest}</span>
+  //         </div>
+  //         <div
+  //           className={`td col ${th[5].mobileWidth ? true : false}`}
+  //           style={{ width: `${mobile ? th[5].mobileWidth : th[5].width}%` }}
+  //         >
+  //           <span>{item.withdrawan ? 'harvesst' : 'harvestred'}</span>
+  //         </div>
+  //         <div
+  //           className={`td ${th[6].mobileWidth ? true : false}`}
+  //           style={{ width: `${mobile ? th[6].mobileWidth : th[6].width}%` }}
+  //         >
+  //           <span
+  //             className={`alert-status-box
+  //                               ${item.type === 'All Deposit' && 'alert-blue'}
+  //                               ${item.type === 'Withdraw' && 'alert-yellow'}
+  //                               ${item.type === 'Transfer' && 'alert-green'}
+  //                               font-14`}
+  //           >
+  //             {item.unstaked ? 'stake' : 'staked'}
+  //           </span>
+  //         </div>
+  //       </div>
+  //       <div
+  //         onClick={() => {
+  //           mobileExpandFunc(item.id);
+  //         }}
+  //         className={`${'table-icon-place'}
+  //               `}
+  //       >
+  //         <svg width='12' height='7' viewBox='0 0 12 7' fill='none' xmlns='http://www.w3.org/2000/svg'>
+  //           <path
+  //             d='M10.299 1.33325L6.47141 5.16089C6.01937 5.61293 5.27968 5.61293 4.82764 5.16089L1 1.33325'
+  //             stroke='#162029'
+  //             u
+  //             strokeWidth='1.5'
+  //             strokeMiterlimit='10'
+  //             strokeLinecap='round'
+  //             strokeLinejoin='round'
+  //           />
+  //         </svg>
+  //       </div>
+  //       <div className={`table-mobile`}>
+  //         <div className='table-mobile-content'>
+  //           <div className='td'>
+  //             <div className='mobile-ttl'>{th[3].name}</div>
+  //             <span>{item.earnReward}</span>
+  //           </div>
+  //           <div className='td'>
+  //             <div className='mobile-ttl'>{th[4].name}</div>
+  //             <span>{item.harvest}</span>
+  //           </div>
+  //           <div className='td type'>
+  //             <div className='mobile-ttl'>{th[5].name}</div>
+  //             <span
+  //               className={`alert-status-box
+  //                 ${item.type === 'All Deposit' && 'alert-status-blue'}
+  //                 ${item.type === 'Withdraw' && 'alert-status-yellow'}
+  //                 ${item.type === 'Transfer' && 'alert-status-green'}
+  //                 font-14`}
+  //             >
+  //               {item.withdrawan ? 'harvest' : 'harvested'}
+  //             </span>
+  //             <div className='mobile-ttl'>{th[6].name}</div>
+  //             <span
+  //               className={`alert-status-box
+  //                 ${item.type === 'All Deposit' && 'alert-status-blue'}
+  //                 ${item.type === 'Withdraw' && 'alert-status-yellow'}
+  //                 ${item.type === 'Transfer' && 'alert-status-green'}
+  //                 font-14`}
+  //             >
+  //               {item.unstaked ? 'stake' : 'staked'}
+  //             </span>
+  //           </div>
+  //         </div>
+  //       </div>
+  //     </div>
+  //   );
+  // });
+
   return (
     <>
       <div className={styles.main}>
@@ -207,7 +406,9 @@ const Rules = () => {
         </div>
         <div className={styles.spaceShipMeteorFinish}></div>
       </div>
-      <div className={styles.runningLine}>asads M</div>
+      <div className={styles.runningLine}>
+        {/* <Table type={'table-version'} tableHead={th} mobile={mobile} tableData={tableData} /> */}
+      </div>
     </>
   );
 };
