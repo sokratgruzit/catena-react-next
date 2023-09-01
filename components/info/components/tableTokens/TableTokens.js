@@ -95,7 +95,7 @@ const TableTokens = ({ title, tableInfo, tableHead, Table__Types }) => {
                             element={"dropDown-Button"}
                             active={rowToggles[index]}
                             onClick={() => {
-                                const newToggles = [...rowToggles];
+                                const newToggles = Array(tableInfo.length).fill(false);
                                 newToggles[index] = !newToggles[index];
                                 setRowToggles(newToggles);
                             }}
@@ -104,7 +104,7 @@ const TableTokens = ({ title, tableInfo, tableHead, Table__Types }) => {
                     <div className='table-mobile'>
                         <div className='table-mobile-content'>
                             {[2, 3].map(index => (
-                                <div className='td' key={index}>
+                                <div style={{flexDirection: "row", gap: "40px"}} className='td' key={index}>
                                     <div className='mobile-ttl'>{tableHead[index].name}</div>
                                     <span>
                                         {/* {index === 1 && item.staketime} */}
