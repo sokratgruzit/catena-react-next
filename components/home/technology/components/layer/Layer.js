@@ -1,4 +1,4 @@
-import styles from '../styles/Layer.module.css';
+import styles from './Layer.module.css';
 
 function Layer() {
   const layersData = [

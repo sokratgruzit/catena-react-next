@@ -1,4 +1,4 @@
-import styles from '../styles/Cart.module.css';
+import styles from './Cart.module.css';
 
 const Cart = ({ items, titpeSpanOne, titpeSpanTwo }) => {
   const data = [

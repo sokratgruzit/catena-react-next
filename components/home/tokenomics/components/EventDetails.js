@@ -1,4 +1,4 @@
-import styles from './Tokenomics.module.css';
+import styles from '../Tokenomics.module.css';
 
 function EventDetails() {
   let data = [

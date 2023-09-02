@@ -1,8 +1,8 @@
-import PrivacyList from './components/PrivacyList';
-
-import styles from './styles/Privacy.module.css';
-import {useDispatch} from "react-redux";
 import {useEffect, useState} from "react";
+import {useDispatch} from "react-redux";
+import PrivacyList from './components/privacyList/PrivacyList';
+
+import styles from './Privacy.module.css';
 
 export default function privacy() {
   const dispatch = useDispatch();

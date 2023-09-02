@@ -1,7 +1,7 @@
 import Listed from './components/listed/Listed';
 import Plain from './components/plain/Plain';
 import RevercedTitle from './components/revercedTitle/RevercedTitle';
-import JoinCommunity from '../events/components/JoinCommunity';
+import JoinCommunity from '../events/components/joinComunity/JoinCommunity';
 import styles from './Community.module.css';
 import { InView } from 'react-intersection-observer';
 import { useDispatch } from 'react-redux';

@@ -1,10 +1,10 @@
 import React from 'react';
 import { useRouter } from 'next/router';
-import Card from '../../UI/card/Card';
-import JoinCommunity from './components/JoinCommunity';
 import { TableElement } from '@catena-network/catena-ui-module';
+import Card from '../../UI/card/Card';
+import JoinCommunity from './components/joinComunity/JoinCommunity';
 
-import styles from './css/Events.module.css';
+import styles from './Events.module.css';
 
 const Events = ({ events, currentPage, totalCount }) => {
   const fileAdress = `${process.env.NEXT_PUBLIC_URL}/uploads/events/`;

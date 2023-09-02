@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from '../styles/Token.module.css';
+import styles from './Token.module.css';
 
 export default function Token() {
   const tokenArray = [

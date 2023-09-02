@@ -1,7 +1,7 @@
-import Cart from './components/Cart';
+import Cart from './components/cart/Cart';
 import Features from './components/Features';
-import Layer from './components/Layer';
-import Promo from './components/Promo';
+import Layer from './components/layer/Layer';
+import Promo from './components/promo/Promo';
 import Tabs from './components/Tabs';
 import Token from './components/Token';
 
