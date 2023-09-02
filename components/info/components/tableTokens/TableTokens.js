@@ -63,11 +63,10 @@ const TableTokens = ({ title, tableInfo, tableHead, Table__Types }) => {
                         mobileExpandFunc(index);
                     }}
                 >
-
                     <div className={'table'}>
-                        {tableHead?.slice(0, 5).map((i, index) => (
+                        {tableHead?.slice(0, 5).map((i, ind) => (
                             <div
-                                key={index}
+                                key={ind}
                                 className={`td col ${i.mobileWidth ? true : false}`}
                                 style={{ width: `${mobile ? i.mobileWidth : i.width}%` }}
                             >
@@ -79,7 +78,7 @@ const TableTokens = ({ title, tableInfo, tableHead, Table__Types }) => {
                                             item.unstaketime,
                                             'CML',
                                             parseFloat(item.realtimeRewardPerBlock).toFixed(10),
-                                        ][index]
+                                        ][ind]
                                     }
                                 </span>
                             </div>
@@ -93,12 +92,20 @@ const TableTokens = ({ title, tableInfo, tableHead, Table__Types }) => {
                             size={"btn-lg"}
                             type={"dropDown-Button"}
                             element={"dropDown-Button"}
-                            active={rowToggles[index]}
                             onClick={() => {
-                                const newToggles = Array(tableInfo.length).fill(false);
-                                newToggles[index] = !rowToggles[index];
-                                setRowToggles(newToggles);
+                                const newToggles = rowToggles;
+                                if( rowToggles[index] ) {
+                                    newToggles[index] = false;
+                                    setRowToggles(newToggles);
+                                    console.log(newToggles, 'true')
+                                }
+                                if( !rowToggles[index] ) {
+                                    newToggles[index] = true;
+                                    setRowToggles(newToggles);
+                                }
                             }}
+                            active={rowToggles[index]}
+                            // disabled={!rowToggles[index]}
                         />
                     </div>
                     <div className='table-mobile'>
