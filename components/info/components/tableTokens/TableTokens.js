@@ -3,7 +3,6 @@ import { useMobileWidth } from '../../../../hooks/useMobileWidth';
 
 import { Table, Button, TableElement } from '@catena-network/catena-ui-module';
 import { ArrowSvg } from '../../../svg';
-import ArrowDownSvg from '../../../svg/ArrowDownSvg';
 
 import styles from '../infoTables/InfoTables.module.css'
 
