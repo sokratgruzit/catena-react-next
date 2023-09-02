@@ -1,4 +1,4 @@
-import styles from '../styles/Promo.module.css';
+import styles from './Promo.module.css';
 
 export default function Promo() {
   const PROMO = [

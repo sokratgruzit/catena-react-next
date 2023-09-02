@@ -1,4 +1,4 @@
-import styles from '../css/JoinCommunity.module.css';
+import styles from './JoinCommunity.module.css';
 
 const JoinCommunity = () => {
   return (

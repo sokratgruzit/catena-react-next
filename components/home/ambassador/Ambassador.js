@@ -5,7 +5,7 @@ import BecomeAmbassador from './components/BecomeAmbassador';
 import CatenaAmbassador from './components/CatenaAmbassador';
 import WhatExpected from './components/WhatExpected';
 import AmbasdorBtn from './components/AmbasdorBtn';
-import JoinCommunity from '../events/components/JoinCommunity';
+import JoinCommunity from '../events/components/joinComunity/JoinCommunity';
 
 const Ambassador = () => {
   return (

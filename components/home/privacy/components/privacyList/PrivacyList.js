@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../styles/PrivacyList.module.css';
+import styles from './PrivacyList.module.css';
 
 function PrivacyList({ privacyList }) {
   const privacyHeader = [

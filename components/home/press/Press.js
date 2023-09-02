@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import { TableElement } from '@catena-network/catena-ui-module';
 import Card from '../../UI/card/Card';
-import JoinCommunity from '../events/components/JoinCommunity';
+import JoinCommunity from '../events/components/joinComunity/JoinCommunity';
 import PublicByYears from './components/publicByYears/PublicByYears';
 import PressLogo from './components/pressLogoContainer/PressLogo';
 

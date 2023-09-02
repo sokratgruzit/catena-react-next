@@ -3,7 +3,7 @@ import Distribution from './components/Distribution';
 import Download from './components/Download';
 import EventDetails from './components/EventDetails';
 import Schedule from './components/Schedule';
-import TokenomicsHead from './components/TokenomicsHead';
+import TokenomicsHead from './components/tokenomicsHear/TokenomicsHead';
 import {useDispatch} from "react-redux";
 import { InView } from 'react-intersection-observer';
 import {useEffect, useState} from "react";
