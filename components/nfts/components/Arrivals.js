@@ -1,12 +1,31 @@
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
+
+import { useNftMarket } from '../../../hooks/useNftMarket';
+
 import ListItemCard from '../../UI/listItem/ListItemCard';
+import FAQ from '../../home/faq/Faq';
+
 import styles from './Arrivals.module.css';
 
 const Arrivals = props => {
   const [showWhiteListedWallets, setShowWhiteListedWallets] = useState(false);
   const [toggle, setToggle] = useState(false);
+
+  const { account, fetchNftData, fetchContract } = useNftMarket();
+
+  useEffect(() => {
+    if (account) {
+      const fetchData = async () => {
+        let contract = await fetchContract();
+        let nftData = await fetchNftData();
+        console.log(nftData);
+      };
+  
+      fetchData();
+    }
+  }, [account]);
 
   const handleToggleClick = () => {
     setToggle(!toggle);
@@ -71,6 +90,7 @@ const Arrivals = props => {
         <div className={`${styles.FAQWrapper} custum-text`}>
           <div className='container'>
             <h4 className='ttl'>How does it work?</h4>
+            <FAQ />
           </div>
         </div>
       </div>
