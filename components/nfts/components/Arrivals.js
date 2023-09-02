@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 import ListItemCard from '../../UI/listItem/ListItemCard';
 import styles from './Arrivals.module.css';
-import CommunityAuctionsFAQ from '../../faqOld/communityAuctionsFAQ/CommunityAuctionsFAQ';
 
 const Arrivals = props => {
   const [showWhiteListedWallets, setShowWhiteListedWallets] = useState(false);
@@ -72,7 +71,6 @@ const Arrivals = props => {
         <div className={`${styles.FAQWrapper} custum-text`}>
           <div className='container'>
             <h4 className='ttl'>How does it work?</h4>
-            <CommunityAuctionsFAQ setToggle={setToggle} />
           </div>
         </div>
       </div>

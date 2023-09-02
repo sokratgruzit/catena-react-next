@@ -1,9 +1,9 @@
 import React from 'react';
-import InfoOverview from '../../../components/info/infoOverview/InfoOverview';
+import InfoPages from '../../../components/info/InfoPages';
 
 const index = () => {
   //comment
-  return <InfoOverview />;
+  return <InfoPages />;
 };
 
 export default index;

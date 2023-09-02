@@ -11,10 +11,10 @@ import InfoRoutes from '../infoRoutes/InfoRoutes';
 import TableTokens from '../tableTokens/TableTokens';
 import SearchBar from '../searchBar/SearchBar';
 
-import styles from './PoolsSection.module.css';
+import styles from './Section.module.css';
 import Link from 'next/link';
 
-const PoolsSection = ({ data, tableHead, Table__Types, stakersRecord }) => {
+const Section = ({ data, tableHead, Table__Types, tableInfo }) => {
   const router = useRouter();
   return (
     <div className={styles.section}>
@@ -25,15 +25,7 @@ const PoolsSection = ({ data, tableHead, Table__Types, stakersRecord }) => {
             <p>Back To Pools</p>
           </div>
         </div>
-        <InfoRoutes />
-        <Link href={`/info/pools/watchlist`}>
-          <div className={styles.starWrapper}>
-            <StarSvg className={styles.starSVG} />
-            <div className={styles.favCount}>3</div>
-          </div>
-        </Link>
       </div>
-      <SearchBar />
       <div className={styles.titleRow}>
         <div className={styles.title}>
           <div className={styles.titleTopRow}>
@@ -96,10 +88,10 @@ const PoolsSection = ({ data, tableHead, Table__Types, stakersRecord }) => {
         </div>
         <ChartBlock />
       </div>
-      <TableTokens title="Top Tokens" tableInfo={stakersRecord} tableHead={tableHead} />
-      <TableTokens title="Transaction" tableInfo={stakersRecord} tableHead={tableHead} Table__Types={Table__Types} />
+      <TableTokens title="Top Tokens" tableInfo={tableInfo} tableHead={tableHead} />
+      <TableTokens title="Transaction" tableInfo={tableInfo} tableHead={tableHead} Table__Types={Table__Types} />
     </div>
   );
 };
 
-export default PoolsSection;
+export default Section;

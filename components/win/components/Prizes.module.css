@@ -16,9 +16,8 @@
 .backgrounPrizes {
   position: relative;
   display: flex;
-  padding: 80px 140px 0 140px;
+  padding: 80px 100px 0 100px;
   justify-content: center;
-  gap: 300px;
 }
 .prizesMedal {
   position: relative;
@@ -69,7 +68,7 @@
 }
 .prizesBorder {
   position: relative;
-  width: 40%;
+  width: 100%;
   padding: 0px 0px;
 }
 
@@ -153,7 +152,6 @@
   .backgrounPrizes {
     position: relative;
     display: flex;
-    padding: 10px 15px 0 15px;
   }
   .Prizes__background {
     position: absolute;
@@ -164,9 +162,6 @@
   }
   .backgrounPrizes {
     display: block;
-  }
-  .prizesDescription {
-    width: 65%;
   }
   .slider {
     -webkit-overflow-scrolling: touch;

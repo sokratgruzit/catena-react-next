@@ -14,6 +14,7 @@ const TableTokens = ({ title, tableInfo, tableHead, Table__Types }) => {
     const [createStakingPopUpActive, setCreateStakingPopUpActive] = useState(false);
     const [loading, setLoading] = useState(false)
     const { width, mobile } = useMobileWidth();
+    const [rowToggles, setRowToggles] = useState(Array(tableInfo.length).fill(false));
 
     let mobileExpandFunc = id => {
         if (!mobile) {
@@ -67,7 +68,7 @@ const TableTokens = ({ title, tableInfo, tableHead, Table__Types }) => {
                         {tableHead?.slice(0, 5).map((i, index) => (
                             <div
                                 key={index}
-                                className={`td col ${i.mobileWidth ? true : true}`}
+                                className={`td col ${i.mobileWidth ? true : false}`}
                                 style={{ width: `${mobile ? i.mobileWidth : i.width}%` }}
                             >
                                 <span>
@@ -85,16 +86,28 @@ const TableTokens = ({ title, tableInfo, tableHead, Table__Types }) => {
                         ))}
                     </div>
                     <div className='table-more' />
-                    <div className='icon-place'>
-                        <ArrowDownSvg />
+                    <div style={{ top: "0" }} onClick={() => {
+                        mobileExpandFunc(item.id);
+                    }} className={`${"table-icon-place"} `}>
+                        <Button
+                            size={"btn-lg"}
+                            type={"dropDown-Button"}
+                            element={"dropDown-Button"}
+                            active={rowToggles[index]}
+                            onClick={() => {
+                                const newToggles = Array(tableInfo.length).fill(false);
+                                newToggles[index] = !rowToggles[index];
+                                setRowToggles(newToggles);
+                            }}
+                        />
                     </div>
                     <div className='table-mobile'>
                         <div className='table-mobile-content'>
-                            {[1, 2, 3].map(index => (
-                                <div className='td' key={index}>
+                            {[2, 3].map(index => (
+                                <div style={{flexDirection: "row", gap: "40px"}} className='td' key={index}>
                                     <div className='mobile-ttl'>{tableHead[index].name}</div>
                                     <span>
-                                        {index === 1 && item.staketime}
+                                        {/* {index === 1 && item.staketime} */}
                                         {index === 2 && item.unstaketime}
                                         {index === 3 && 'CML'}
                                     </span>
@@ -107,19 +120,19 @@ const TableTokens = ({ title, tableInfo, tableHead, Table__Types }) => {
         ));
 
     return (
-            <div className='container_bordered'>
-                <h2 style={{marginBottom: "20px"}} className='ttl font-40'>{title}</h2>
-           <div style={{backgroundColor: "rgba(243, 228, 210,0.8)"}}>
-            <Table
-                type={'table-version'}
-                tableHeadMore={tableHeadMore}
-                tableHead={tableHead}
-                mobile={mobile}
-                tableData={tableInfo?.length ? tableData : false}
-                tableEmpty={true}
-                tableEmptyData={tableEmptyData}
-                loading={loading}
-            />
+        <div className='container_bordered'>
+            <h2 style={{ marginBottom: "20px" }} className='ttl font-40'>{title}</h2>
+            <div style={{ backgroundColor: "rgba(243, 228, 210,0.8)" }}>
+                <Table
+                    type={'table-version'}
+                    tableHeadMore={tableHeadMore}
+                    tableHead={tableHead}
+                    mobile={mobile}
+                    tableData={tableInfo?.length ? tableData : false}
+                    tableEmpty={true}
+                    tableEmptyData={tableEmptyData}
+                    loading={loading}
+                />
             </div>
             <TableElement
                 type={"pagination"}
@@ -128,7 +141,7 @@ const TableTokens = ({ title, tableInfo, tableHead, Table__Types }) => {
                 onPageChange={(page) => setCurrentPage(page)}
                 customStyle={{ margin: '20px 0 40px 0' }}
             />
-             </div>
+        </div>
     );
 }
 

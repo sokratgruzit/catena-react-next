@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { useState } from 'react';
 
 import Finished from './Finished';
-import FAQ from '../../faqOld/FAQ';
+// import FAQ from '../../faqOld/FAQ';
 // import { Table } from '@catena-network/catena-ui-module';
 // import { useMobileWidth } from '../../../hooks/useMobileWidth';
 
@@ -402,7 +402,7 @@ const Rules = () => {
       </div>
       <div className={styles.finishedRules}>
         <div className={styles.faqCompetition}>
-          <FAQ type={'rules'} />
+          {/* <FAQ type={'rules'} /> */}
         </div>
         <div className={styles.spaceShipMeteorFinish}></div>
       </div>

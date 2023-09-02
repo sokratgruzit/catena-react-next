@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import React from 'react';
 
 import styles from '../../../../../components/info/InfoPages.module.css';
-import PoolsSection from '../../../../../components/info/components/poolsSection/PoolsSection';
+import Section from '../../../../../components/info/components/section/Section';
 
 const Table__Types = [
   {
@@ -82,8 +82,8 @@ const stakersRecord = [
 
 const InfoTPoolsInngerPage_Data = {
   id: 1,
-  imgSrc1: '/images/info/TopTokens/4.png',
-  imgSrc2: '/images/info/TopTokens/1.png',
+  imgSrc1: '',
+  imgSrc2: '',
   name: 'USDC/WBNB',
   name1: 'USDC',
   name2: 'WBNB',
@@ -178,7 +178,7 @@ const index = props => {
   const { id } = router.query;
   // fetch data by ID
   return (
-    <PoolsSection data={props.infoPoolsDetails} Table__Types={Table__Types} tableHead={tableHead} stakersRecord={stakersRecord} />
+    <Section data={props.infoPoolsDetails} Table__Types={Table__Types} tableHead={tableHead} stakersRecord={stakersRecord} />
   );
 };
 
