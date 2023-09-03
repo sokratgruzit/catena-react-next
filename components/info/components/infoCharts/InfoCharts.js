@@ -25,7 +25,7 @@ const InfoCharts = () => {
             <Line type="monotone" dataKey="value" stroke="#8884d8" />
           </LineChart>
         </div>
-        <div className={styles.Chart}>
+        <div className={styles.Chart} style={{padding: '10px'}}>
           <BarChart width={width / 2.2} height={511} data={data}>
             <XAxis dataKey="value" tick={{ fill: 'balck' }} />
             <Tooltip contentStyle={{ backgroundColor: 'lightgray', color: 'black' }} />
