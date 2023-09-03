@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.min.css';
 
-import { useConnect } from '../../../hooks/use-connect';
+import { useConnect } from '../../../hooks/useConnect';
 import ArrowBtn from '../../UI/button/ArrowBtn';
 import Button from '../../UI/button/Button';
 import CornerDecor from '../../UI/cornerDecor/CornerDecor';

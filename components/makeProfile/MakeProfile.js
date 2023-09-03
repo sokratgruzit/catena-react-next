@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useRouter } from 'next/router';
 import { Button, Input } from '@catena-network/catena-ui-module';
 import createAxiosInstance from '../../pages/api/axios';
-import { useConnect } from '../../hooks/use-connect';
+import { useConnect } from '../../hooks/useConnect';
 import { socket } from '../../pages/api/socket';
 // import NFT_ABI from '../abi/NFT_ABI.json';
 
