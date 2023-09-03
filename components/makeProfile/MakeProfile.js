@@ -11,12 +11,8 @@ import styles from './MakeProfile.module.css';
 
 const MakeProfile = () => {
   const nftContractAddress = '0xDC87d42B174D70fFdC81c62414EEc8db30C9E1DB';
-  const {
-    library
-  } = useConnect();
+
   const [mobileNumber, setMobileNumber] = useState('');
-  const [show, setShow] = useState(false);
-  const [user_id, setUser_id] = useState(null);
   const [formData, setFormData] = useState({
     fullname: '',
     email: '',
@@ -33,18 +29,45 @@ const MakeProfile = () => {
     password: ''
   });
 
-  socket.on('emailVerified', (userId) => {
-    setShow(true);
-    setUser_id(userId);
-    console.log(`User with ID ${userId} has verified their email`);
-  });
-
   const account = useSelector(state => state.connect.account);
 
   const router = useRouter();
   const { locale } = router;
-  const dispatch = useDispatch();
   const axios = useMemo(() => createAxiosInstance(), []);
+  const dispatch = useDispatch();
+  const { library } = useConnect();
+
+  useEffect(() => {
+    if (account) {
+      axios
+        .post('/user', { address: account })
+        .then(res => {
+          let user = res?.data?.user;
+          const dateOfBirth = user.dateOfBirth ? new Date(user.dateOfBirth) : new Date();
+          const mobString = user.mobile ? user.mobile.split(' ') : "US +1".split(" ");
+
+          dispatch({ type: 'SET_USER', payload: user });
+          setFormData({
+            fullname: user.fullname,
+            email: user.email,
+            mobile: {
+              flag: mobString[0],
+              code: mobString[1],
+              number: mobString[2]
+            },
+            status: user.status,
+            password: '',
+            dateOfBirth: dateOfBirth
+          });
+          setMobileNumber(user.mobile);
+        })
+        .catch(err => {
+          console.log(err.response);
+        });
+    } else {
+      router.push('/', undefined, { locale });
+    }
+  }, [account]);
 
   const changeHandler = e => {
     const { name, value } = e.target;
@@ -120,37 +143,9 @@ const MakeProfile = () => {
     }
   };
 
-  useEffect(() => {
-    if (account) {
-      axios
-        .post('/user', { address: account })
-        .then(res => {
-          let user = res?.data?.user;
-          const dateOfBirth = user.dateOfBirth ? new Date(user.dateOfBirth) : new Date();
-          const mobString = user.mobile ? user.mobile.split(' ') : "US +1".split(" ");
-
-          dispatch({ type: 'SET_USER', payload: user });
-          setFormData({
-            fullname: user.fullname,
-            email: user.email,
-            mobile: {
-              flag: mobString[0],
-              code: mobString[1],
-              number: mobString[2]
-            },
-            status: user.status,
-            password: '',
-            dateOfBirth: dateOfBirth
-          });
-          setMobileNumber(user.mobile);
-        })
-        .catch(err => {
-          console.log(err.response);
-        });
-    } else {
-      router.push('/', undefined, { locale });
-    }
-  }, [account]);
+  socket.on('emailVerified', (userId) => {
+    console.log(`User with ID ${userId} has verified their email`);
+  });
 
   // useEffect(() => {
   //   if (library && account) {
@@ -173,7 +168,6 @@ const MakeProfile = () => {
 
   return (
     <>
-      {show && <div className={styles.notification}>{`User with ID ${user_id} has verified email`}</div>}
       {account ? <div className="container">
         <div className={`${styles.makeProfileWrapper}`}>
           <Input

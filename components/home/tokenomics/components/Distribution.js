@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import styles from './Tokenomics.module.css';
+import styles from '../Tokenomics.module.css';
 
 function Distribution() {
   let data = [

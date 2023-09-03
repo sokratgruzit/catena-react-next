@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-key */
 import Link from 'next/link';
 
-import styles from './Tokenomics.module.css';
+import styles from '../../Tokenomics.module.css';
 
 function TokenomicsHead(props) {
   let data = [

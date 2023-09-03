@@ -4,10 +4,10 @@ import CopyLink from '../press/components/pressInner/CopyLink';
 import { useSelector } from 'react-redux';
 import createAxiosInstance from '../../../pages/api/axios';
 import Card from '../../UI/card/Card';
-import styles from './css/EventsItem.module.css';
-import JoinCommunity from './components/JoinCommunity';
+import styles from './css/EventsInner.module.css';
+import JoinCommunity from '../joinComunity/JoinCommunity';
 
-const EventsItem = ({ item, slug }) => {
+const EventsInner = ({ item, slug }) => {
   const [activeYear, setActiveYear] = useState('');
   const [allEvent, setAllEvent] = useState([]);
   const fileAdress = `${process.env.NEXT_PUBLIC_URL}/uploads/events/`;
@@ -121,4 +121,4 @@ const EventsItem = ({ item, slug }) => {
   );
 };
 
-export default EventsItem;
+export default EventsInner;
