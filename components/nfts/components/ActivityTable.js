@@ -54,10 +54,10 @@ const ActivityTable = ({ activityData }) => {
 
   return (
     <div className={`${styles.Activity} `}>
-      <div key={activeMenuItem} className={styles.activityTable}>
+      <div className={styles.activityTable}>
         <TabFilter
           onClick={handleTabClick}
-          activeMenu={activeMenuItem}
+          activeMenu={activeMenuItem} // Pass the active menu as a prop
           data={tabsData}
           css={{
             wrap: filterStyles.Activity__filterWrap,
