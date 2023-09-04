@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 import FormErrorsText from './FormErrorsText';
 import { getFormErrors, mergeDateAndTime } from './helpers';
-import useConnect from '../../../hooks/use-connect';
+import useConnect from '../../../hooks/useConnect';
 import { OpenSvg, SmlArrowSvg } from '../../svg';
 import Button from '../../UI/button/Button';
 import FormChoice from '../components/formChoice/FormChoice';
