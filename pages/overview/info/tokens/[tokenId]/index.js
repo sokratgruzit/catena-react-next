@@ -2,7 +2,6 @@ import React from 'react';
 import { useRouter } from 'next/router';
 
 import Section from '../../../../../components/info/components/section/Section';
-import InfoPages from '../../../../../components/info/InfoPages';
 
 const Table__Types = [
   {
@@ -123,28 +122,6 @@ export async function getStaticPaths(context) {
 
 export async function getStaticProps(context) {
   const poolsData = InfoTPoolsInngerPage_Data
-  // {
-  //   imgSrc1: '',
-  //   imgSrc2: '',
-  //   name: '',
-  //   name1: '',
-  //   name2: '',
-  //   rate1: '',
-  //   rate2: '',
-  //   total_tokens1: '',
-  //   total_tokens2: '',
-  //   liquidity: '',
-  //   volume_24h: '',
-  //   volume_24h_change: '',
-  //   lp_reward_apr: '',
-  //   lp_reward_fee_24h: '',
-  //   lp_reward_fee_total_24h: '',
-  //   lp_reward_fee_7d: '',
-  //   lp_reward_fee_total_7d: '',
-  //   volume_7d: '',
-  //   volume_7d_change: '',
-  // };
-
   return {
     props: {
       infoPoolsDetails: {
