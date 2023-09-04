@@ -84,8 +84,7 @@
 }
 @media (max-width: 460px) {
   .section{
-    margin-left: 20px;
-    margin-right: 20px;
+    align-items: flex-start;
   }
 }
 

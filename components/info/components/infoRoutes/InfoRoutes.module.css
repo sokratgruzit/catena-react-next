@@ -13,6 +13,7 @@
 
 .routeContainer {
   display: flex;
+  align-items: center;
 }
 
 .starSVG {
@@ -24,7 +25,7 @@
   display: flex;
   align-items: center;
   position: absolute;
-  margin-left: 60%;
+  right: 45px;
   cursor: pointer;
 }
 
