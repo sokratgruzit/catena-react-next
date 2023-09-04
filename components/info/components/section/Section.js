@@ -79,10 +79,7 @@ const Section = ({ data, tableHead, Table__Types, tableInfo }) => {
         </div>
       </div>
       <div className={styles.displayPoolsSection}>
-        <div>
-          <FirstBlock data={data} />
-          <SecondBlock data={data} />
-        </div>
+        <FirstBlock data={data} />
         <ChartBlock />
       </div>
       <TableTokens title="Top Tokens" tableInfo={tableInfo} tableHead={tableHead} />

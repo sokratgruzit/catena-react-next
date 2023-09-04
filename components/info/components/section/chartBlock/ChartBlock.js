@@ -25,7 +25,6 @@ const ChartBlock = () => {
 
   return (
     <div className={styles.wrapper}>
-      <CornerDecor />
       <TabFilter
         onClick={navigationHandler}
         data={tabsData}
