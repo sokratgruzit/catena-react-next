@@ -250,26 +250,12 @@ export async function getStaticPaths() {
   return {
     fallback: true,
     paths: [
-      {
-        params: {
-          buyId: '62c48170c86d95e8a1871733',
-        },
-        params: {
-          buyId: '1',
-        },
-        params: {
-          buyId: '2',
-        },
-        params: {
-          buyId: '3',
-        },
-        params: {
-          buyId: '4',
-        },
-        params: {
-          buyId: '5',
-        },
-      },
+      { params: { buyId: '62c48170c86d95e8a1871733' } },
+      { params: { buyId: '1' } },
+      { params: { buyId: '2' } },
+      { params: { buyId: '3' } },
+      { params: { buyId: '4' } },
+      { params: { buyId: '5' } },
     ],
   };
 }

@@ -7,7 +7,7 @@ const Activity = ({ activityData }) => {
   return (
     <div className={`${styles.Activity} container`}>
       <ArrowBtn route={'nfts'} direction={'back'} />
-      <h1 className={`font-90 ttl`}>Activity</h1>
+      <h1 className={` ttl`}>Activity</h1>
       <ActivityTable activityData={activityData} />
     </div>
   );

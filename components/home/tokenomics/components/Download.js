@@ -1,7 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
-import Link from "next/link";
-import styles from './Tokenomics.module.css';
 import { useState } from "react";
+import Link from "next/link";
+
+import styles from '../Tokenomics.module.css';
 
 function Download() {
   const [isPlaying, setIsPlaying] = useState(false);

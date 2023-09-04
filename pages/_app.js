@@ -37,7 +37,12 @@ function MyApp({ Component, pageProps }) {
   }, []);
 
   useEffect(() => {
-    if(router.asPath == '/overview/' || router.asPath == '/overview' || router.asPath == '/' || router.asPath == '/overview/technology'){
+    if (
+      router.asPath == '/overview/' || 
+      router.asPath == '/overview' || 
+      router.asPath == '/' || 
+      router.asPath == '/overview/technology' 
+    ) {
       setFixedFooter(true);
     } else {
       setFixedFooter(false);
@@ -77,10 +82,6 @@ function MyApp({ Component, pageProps }) {
     socket.on('disconnect', () => {
       console.log('Disconnected from WebSocket server');
     });
-
-    let { query, locale } = router;
-
-    console.log(query, locale);
   });
 
   socket.on('join', (message) => {

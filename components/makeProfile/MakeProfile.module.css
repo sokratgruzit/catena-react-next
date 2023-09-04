@@ -1,13 +1,12 @@
 .makeProfileWrapper {
   display: flex;
   flex-direction: column;
+  margin-top: 150px;
   gap: 10px;
-  width: 800px;
-  z-index: 9999;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, 50%);
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  position: relative;
 }
 
 .formSelectDateWrap input {

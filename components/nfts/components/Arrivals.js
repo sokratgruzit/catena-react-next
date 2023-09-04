@@ -66,14 +66,10 @@ const Arrivals = props => {
         </div>
       </div>
       <div className={`${styles.FAQSection} custum-text`}>
-        <div className='container'>
-          <h2 className='ttl'>Frequently Asked Questions</h2>
-        </div>
+        <h2 className='ttl'>Frequently Asked Questions</h2>
         <div className={`${styles.FAQWrapper} custum-text`}>
-          <div className='container'>
-            <h4 className='ttl'>How does it work?</h4>
-            <CommunityAuctionsFAQ setToggle={setToggle} />
-          </div>
+          <h4 className='ttl'>How does it work?</h4>
+          <CommunityAuctionsFAQ setToggle={setToggle} />
         </div>
       </div>
     </div>

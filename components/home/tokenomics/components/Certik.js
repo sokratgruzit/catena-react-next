@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import styles from './Tokenomics.module.css';
+import styles from '../Tokenomics.module.css';
 
 function Certik() {
   return (
