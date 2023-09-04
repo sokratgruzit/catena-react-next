@@ -176,7 +176,8 @@ const index = props => {
   const router = useRouter();
   const { id } = router.query;
 
-  return <InfoPages page={'section'} data={props.infoPoolsDetails} Table__Types={Table__Types} tableHead={tableHead} stakersRecord={stakersRecord} />
+  // return <InfoPages page={'section'} data={props.infoPoolsDetails} Table__Types={Table__Types} tableHead={tableHead} stakersRecord={stakersRecord} />
+  return <Section title="Top Pools" data={props.infoPoolsDetails} tableInfo={stakersRecord} tableHead={tableHead} Table__Types={Table__Types} />
 };
 
 export default index;
