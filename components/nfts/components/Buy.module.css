@@ -364,6 +364,18 @@
   text-decoration: underline;
   padding-left: 3px;
 }
+.line {
+  height: 4px;
+  background: rgba(22, 32, 41, 0.1);
+  position: absolute;
+  width: 100%;
+  bottom: 2px;
+  border-radius: 2px;
+}
+.swiperWrapper {
+  width: 100%;
+  position: relative;
+}
 .convert:hover {
   color: #0500ff;
 }
@@ -483,55 +495,88 @@
 .Collections__products {
   display: flex;
   width: 100%;
-  padding-top: 50px;
+  padding-top: 55px;
   align-items: center;
   justify-content: space-between;
   overflow-x: scroll;
 }
+.swiper-scrollbar {
+  width: 4px;
+  background-color: #007bff;
+  border-radius: 2px;
+}
 
+.swiper-pagination {
+  background: #ff5722;
+  border-radius: 2px;
+}
 .Collections__products > :first-child {
   width: 100%;
   display: flex !important;
+  margin-bottom: 30px;
 }
 .Collection__product {
-  border: 1px solid #111826;
-  padding: 5px;
-  max-width: 320px;
+  background: #f3e4d2;
+  border: 1px solid #16202933;
+  padding: 10px;
+  max-width: 420px;
+  min-width: 300px;
+  width: 100%;
   cursor: pointer;
   position: relative;
+  border-radius: 20px;
 }
 .Collection__product__titles {
-  padding-top: 5px;
-  padding-left: 5px;
-  padding-right: 5px;
-  padding-bottom: 7px;
-  background-color: #0a0f18;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 20px;
+  background-color: #fff3e5;
+  border-radius: 20px;
+  position: relative;
 }
 .Collection__product__title {
-  opacity: 0.3;
-  padding-bottom: 7px;
+  padding: 10px 0;
+  color: #162029;
+}
+.Collection__product__titles p:nth-child(2) {
+  color: #162029;
+  font-weight: 500;
+}
+.Collection__price__cmcx {
+  color: #ff7152;
 }
 .Collection__product__img img {
-  max-width: 310px;
-  max-height: 280px;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
 }
 .Collection__product__askingPrice {
-  padding-top: 16px;
-  color: #0500ff;
+  color: #162029;
+}
+.bottomContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+  padding-bottom: 10px;
 }
 .Collection__prices {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 4px;
+}
+.Collection__price__cmcx span {
+  color: #162029;
+}
+.Collection__price {
+  color: rgba(22, 32, 41, 0.6);
 }
 
 .Collection__prices span {
-  color: #ff7152;
   padding-right: 3px;
 }
-.Collection__price {
-  opacity: 0.7;
-}
+
 /* .but__secStep {
     padding-left: 20px;
     display: flex;
@@ -687,6 +732,12 @@
   margin-top: 30px;
   position: relative;
 }
+.forwardBtn {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  padding-top: 21px;
+}
 /*Laptop 1440*/
 @media (max-width: 1900px) {
 }
@@ -718,5 +769,33 @@
   .NftBuy__tablesRightPanel {
     padding: 0;
     width: 100%;
+  }
+}
+
+@media (max-width: 1365px) {
+  .categories p:nth-child(2),
+  .categories p:nth-child(3),
+  .categories p:nth-child(4),
+  .NftBuy__infoTable > div > div:nth-child(2),
+  .NftBuy__infoTable > div > div:nth-child(3),
+  .NftBuy__infoTable > div > div:nth-child(4) {
+    display: none;
+  }
+  .NftBuy__infoTable > div > div:nth-child(5) {
+    position: relative;
+  }
+
+  .NftBuy__infoTable > div > div:nth-child(5) > p:nth-child(2) {
+    margin-right: 30px;
+  }
+  .NftBuy__infoTable > div > div:nth-child(5) > svg {
+    position: absolute;
+  }
+  .categories p:last-child {
+    padding-right: 0px;
+  }
+  .categories,
+  .NftBuy__infoTable > div {
+    justify-content: space-between;
   }
 }
