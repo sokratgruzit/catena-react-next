@@ -22,21 +22,21 @@ const MainSlider = ({ trans }) => {
   let microSchemes = [];
   if (window.innerWidth > 1240) {
     microSchemes = [
-      [1, 2, 6, 7, 8, 9, 10, 11, 19, 20, 21, 22, 23, 24],
-      [1, 2, 7, 8, 9, 10, 20, 21, 22, 23, 24],
-      [1, 2, 3, 4, 5, 10, 11, 12, 13, 14, 15, 16, 23, 24],
-      [1, 2, 7, 8, 9, 10, 20, 21, 22, 23, 24],
-      [1, 2, 3, 4, 5, 6, 10, 11, 12, 13, 14, 15, 16, 17, 23, 24],
+      [5,6,9,10,11,12],
+      [5,6,10,11,12],
+      [1,2,6,7,8,9],
+      [5,6,10,11,12],
+      [1,2,6,7,8,9],
     ];
   }
 
   if(window.innerWidth < 1240) {
     microSchemes = [
-      [1, 2, 5, 6, 7, 8, 9, 10, 11, 16, 17, 18, 19, 20, 21, 22, 23, 24],
-      [1, 2, 5, 6, 7, 8, 9, 10, 11, 17, 18, 19, 20, 21, 22, 23, 24],
-      [1, 2, 6, 7, 8, 9, 10, 11, 12, 13, 14, 23, 24],
-      [1, 2, 5, 6, 7, 8, 9, 10, 11, 16, 17, 18, 19, 20, 21, 22, 23, 24],
-      [1, 2, 6, 7, 8, 9, 10, 11, 12, 13, 14, 23, 24],
+      [5,6,8,9,10,11],
+      [5,6,8,9,10,11],
+      [2,8,9],
+      [8,9,10,11],
+      [2,3,8,9],
     ];
   }
 
@@ -90,6 +90,15 @@ const MainSlider = ({ trans }) => {
       {/*${styles.mainSliderActive}*/}
       <ReactScrollWheelHandler upHandler={e => slideScrollUp()} downHandler={e => slideScrollDown()}>
         <div className={`${styles.mainSlider}`}>
+          <div className={`${styles.scrollMore} ${activeSlide == 1 ? styles.active : ''}`}>
+            <div
+                onClick={() => {
+                  slideScrollDown();
+                }}
+            >
+              <p>Scroll</p>
+            </div>
+          </div>
           <div className={`container ${styles.mainSliderItem} ${activeSlide == 1 ? styles.mainSliderActive : ''}`}>
             {/*<Image src='/images/mainSliderBg.png' width={300} height={300} alt='img' />*/}
             <div className={styles.mainSliderItemDescription}>
@@ -152,15 +161,7 @@ const MainSlider = ({ trans }) => {
                   </a>
                 </Link>
               </div>
-              <div className={`${styles.scrollMore}`}>
-                <div
-                  onClick={() => {
-                    slideScrollDown();
-                  }}
-                >
-                  <p>Scroll</p>
-                </div>
-              </div>
+
             </div>
           </div>
           <div className={`container ${styles.mainSliderItem} ${activeSlide == 2 ? styles.mainSliderActive : ''}`}>
