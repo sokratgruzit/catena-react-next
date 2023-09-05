@@ -1,8 +1,8 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 
-import PoolsSection from '../../../../../components/info/components/poolsSection/PoolsSection';
-import TokenSection from '../../../../../components/info/components/tokensSection/TokenSection';
+import Section from '../../../../../components/info/components/section/Section';
+import InfoPages from '../../../../../components/info/InfoPages';
 
 const Table__Types = [
   {
@@ -81,8 +81,8 @@ const stakersRecord = [
 
 const InfoTPoolsInngerPage_Data = {
   id: 1,
-  imgSrc1: '/images/info/TopTokens/4.png',
-  imgSrc2: '/images/info/TopTokens/1.png',
+  imgSrc1: '',
+  imgSrc2: '',
   name: 'USDC/WBNB',
   name1: 'USDC',
   name2: 'WBNB',
@@ -176,10 +176,7 @@ const index = props => {
   const router = useRouter();
   const { id } = router.query;
 
-  return (
-    <PoolsSection data={props.infoPoolsDetails} Table__Types={Table__Types} tableHead={tableHead} stakersRecord={stakersRecord} />
-    // <TokenSection data={props.infoPoolsDetails} Table__Types={Table__Types} tableHead={tableHead} stakersRecord={stakersRecord} />
-  );
+  return <InfoPages page={'section'} data={props.infoPoolsDetails} Table__Types={Table__Types} tableHead={tableHead} stakersRecord={stakersRecord} />
 };
 
 export default index;

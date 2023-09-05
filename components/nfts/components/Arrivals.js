@@ -1,32 +1,18 @@
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
-
-import { useNftMarket } from '../../../hooks/useNftMarket';
+import { useState } from 'react';
+import { useSelector } from "react-redux";
 
 import ListItemCard from '../../UI/listItem/ListItemCard';
 import FAQ from '../../home/faq/Faq';
 
 import styles from './Arrivals.module.css';
 
-const Arrivals = props => {
+const Arrivals = () => {
   const [showWhiteListedWallets, setShowWhiteListedWallets] = useState(false);
   const [toggle, setToggle] = useState(false);
 
-  const { account, fetchNftData, fetchContract } = useNftMarket();
-
-  useEffect(() => {
-    if (account) {
-      const fetchData = async () => {
-        let contract = await fetchContract();
-        let nftData = await fetchNftData();
-        console.log(nftData);
-      };
+  const newArrivals = useSelector(state => state.nftsState.newArrivals);
   
-      fetchData();
-    }
-  }, [account]);
-
   const handleToggleClick = () => {
     setToggle(!toggle);
   };
@@ -77,8 +63,8 @@ const Arrivals = props => {
             </div>
           </div>
           <div className={`${styles.Arrivals__itemsList} container`}>
-            {props.arrivals.map(item => {
-              return <ListItemCard key={item.id} data={item} type={'nft_arrivals'} />;
+            {newArrivals && newArrivals.map(item => {
+              return <ListItemCard key={item.tokenId} data={item} type={'nft_arrivals'} />;
             })}
           </div>
         </div>

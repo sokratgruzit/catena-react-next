@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import { useConnect } from '../../../hooks/use-connect';
 import ArrowBtn from '../../UI/button/ArrowBtn';
 import Button from '../../UI/button/Button';
 import CornerDecor from '../../UI/cornerDecor/CornerDecor';
@@ -19,6 +18,7 @@ const nftItemData = {
   cmcx: '0.0024',
   usd: '($1,314)',
 };
+
 const ownerItemData = [
   {
     id: 0,
@@ -31,6 +31,7 @@ const ownerItemData = [
     tokenId: '312',
   },
 ];
+
 const detailsTableData = [
   {
     id: 0,
@@ -161,6 +162,7 @@ const detailsTableData = [
     ],
   },
 ];
+
 const collectionItems = [
   {
     id: 0,
@@ -227,6 +229,7 @@ const collectionItems = [
     priceUsd: '($10,314)',
   },
 ];
+
 const manageTable = [
   {
     id: 0,
@@ -278,43 +281,31 @@ const manageTable = [
   },
 ];
 
-const Buy = props => {
+const Buy = ({ ownerId, nftId }) => {
+  console.log(ownerId, nftId)
   const [screeWidth, setScreenWidth] = useState(window.innerWidth);
   const [step, setStep] = useState(false);
-  const { connect, disconnect, account, isActive, library, handleWalletModal } = useConnect();
-  const isConnected = useSelector(state => state.connect.isConnected);
-  const [balance, setBalance] = useState(0);
-  const [connected, setConnected] = useState(false);
   const [isManageOpen, setIsManageOpen] = useState(false);
   const [isPropertiesOpen, setIsPropertiesOpen] = useState(false);
   const [isDetailsOpen, setIsDetailsOpen] = useState(false);
   const [isInfoOpen, setIsInfoOpen] = useState(false);
   const [activeButton, setActiveButton] = useState('BNB');
+  const [nft, setNft] = useState({});
+  
+  const nfts = useSelector(state => state.nftsState.nfts);
+  const isConnected = useSelector(state => state.connect.isConnected);
 
   const handleButtonClick = buttonName => {
     setActiveButton(buttonName);
   };
 
-  let web3Obj = library;
-
-  //   const getBalance = async () => {
-  //     if (web3Obj !== undefined) {
-  //       web3Obj.eth.getBalance(account).then(res => {
-  //         setBalance(res);
-  //       });
-  //     }
-  //   };
-
-  //   useEffect(() => {
-  //     if (isActive || isConnected) {
-  //       getBalance();
-  //     } else {
-  //       setBalance(0);
-  //     }
-  //   }, [isActive, account]);
-
   useEffect(() => {
     setScreenWidth(window.innerWidth);
+
+    if (ownerId && nftId) {
+      let found = nfts.find(item => item.owner === ownerId && item.tokenId.toString() === nftId.toString());
+      setNft(found);
+    }
   }, []);
 
   let connectButton = <p className={styles.item}>You don’t have any of this item.</p>;
@@ -414,7 +405,7 @@ const Buy = props => {
       />
     );
   }
-  if (isConnected === false && isActive === false) {
+  if (isConnected === false) {
     connectButton = (
       <div className={styles.buttonWrap}>
         <Button
@@ -487,7 +478,7 @@ const Buy = props => {
             </p>
           </div>
         </div>
-        <div className={styles.pay} style={{ display: isConnected && isActive ? 'none' : 'block' }}>
+        <div className={styles.pay} style={{ display: isConnected ? 'none' : 'block' }}>
           <p className={'font_13'}>WBNB in Wallet</p>
           <div className={styles.connect__wallet}>
             <Button

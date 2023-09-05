@@ -1,7 +1,6 @@
 import Card from './components/cards/Card';
-import ExchangesCards from './components/exchangesCards/ExchangesCardes';
+import ExchangesCards from './components/exchangesCards/ExchangesCards';
 import Title from './components/title/Title';
-import JoinCommunity from '../events/components/JoinCommunity';
 
 const Ecosystem = ({ exchanges }) => {
   return (
