@@ -2,7 +2,7 @@ import { useEffect, useMemo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { injected, walletConnect } from '../../hooks/connector';
-import { useConnect } from '../../hooks/use-connect';
+import { useConnect } from '../../hooks/useConnect';
 import createAxiosInstance from '../../pages/api/axios';
 
 const Wrapper = ({ children }) => {

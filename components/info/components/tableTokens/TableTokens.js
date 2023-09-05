@@ -58,15 +58,12 @@ const TableTokens = ({ title, tableInfo, tableHead, Table__Types }) => {
                 <div
                     className={`table-parent ${mobileExpand === index ? 'active' : ''}`}
                     key={index}
-                    onClick={() => {
-                        mobileExpandFunc(index);
-                    }}
+                    // onClick={() => { mobileExpandFunc(index); }}
                 >
-
                     <div className={'table'}>
-                        {tableHead?.slice(0, 5).map((i, index) => (
+                        {tableHead?.slice(0, 5).map((i, ind) => (
                             <div
-                                key={index}
+                                key={ind}
                                 className={`td col ${i.mobileWidth ? true : false}`}
                                 style={{ width: `${mobile ? i.mobileWidth : i.width}%` }}
                             >
@@ -78,32 +75,42 @@ const TableTokens = ({ title, tableInfo, tableHead, Table__Types }) => {
                                             item.unstaketime,
                                             'CML',
                                             parseFloat(item.realtimeRewardPerBlock).toFixed(10),
-                                        ][index]
+                                        ][ind]
                                     }
                                 </span>
                             </div>
                         ))}
                     </div>
                     <div className='table-more' />
-                    <div style={{ top: "0" }} onClick={() => {
-                        mobileExpandFunc(item.id);
-                    }} className={`${"table-icon-place"} `}>
+                    <div
+                        style={{ top: "0" }}
+                        // onClick={() => { mobileExpandFunc(item.id); }}
+                        className={`${"table-icon-place"} `}>
                         <Button
                             size={"btn-lg"}
                             type={"dropDown-Button"}
                             element={"dropDown-Button"}
-                            active={rowToggles[index]}
                             onClick={() => {
-                                const newToggles = Array(tableInfo.length).fill(false);
-                                newToggles[index] = !rowToggles[index];
-                                setRowToggles(newToggles);
+                                mobileExpandFunc(index);
+                                let newToggles = Array(tableInfo.length).fill(false);
+                                if (rowToggles[index]) {
+                                    newToggles[index] = false;
+                                    setRowToggles(newToggles);
+                                    console.log(newToggles, 'true')
+                                }
+                                if (!rowToggles[index]) {
+                                    newToggles[index] = true;
+                                    setRowToggles(newToggles);
+                                }
                             }}
+                            active={rowToggles[index]}
+                        // disabled={!rowToggles[index]}
                         />
                     </div>
                     <div className='table-mobile'>
                         <div className='table-mobile-content'>
                             {[2, 3].map(index => (
-                                <div style={{flexDirection: "row", gap: "40px"}} className='td' key={index}>
+                                <div style={{ flexDirection: "row", gap: "40px" }} className='td' key={index}>
                                     <div className='mobile-ttl'>{tableHead[index].name}</div>
                                     <span>
                                         {/* {index === 1 && item.staketime} */}

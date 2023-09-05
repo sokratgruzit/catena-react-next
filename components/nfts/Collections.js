@@ -574,6 +574,7 @@ const Collections = () => {
       />
     </svg>
   );
+
   return (
     <div className={`${styles.NftCollections} ${styles.container} container`}>
       <ArrowBtn route={'nfts'} direction={'back'} />
@@ -590,6 +591,9 @@ const Collections = () => {
               active: filterStyles.Collections__filterActive,
               item: filterStyles.Collections__filter__item,
             }}
+            showCloseButton={false}
+            allowMultipleTabs={false}
+            showClearButton={false}
           />
         </div>
         <Menu

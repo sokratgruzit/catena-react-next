@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import useLanguages from '../../hooks/useLanguages';
 import { gsap, Linear } from 'gsap';
 import { injected, walletConnect } from '../../hooks/connector';
-import { useConnect } from '../../hooks/use-connect';
+import { useConnect } from '../../hooks/useConnect';
 import createAxiosInstance from '../../pages/api/axios';
 import Button from '../UI/button/Button';
 import Tooltip from '../UI/tooltip/Tooltip';

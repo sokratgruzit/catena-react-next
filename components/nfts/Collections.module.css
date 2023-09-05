@@ -168,6 +168,7 @@
   background-color: #f3e4d2;
   border-radius: 20px;
 }
+
 .gradientBck {
   position: absolute;
   z-index: -11;
@@ -199,4 +200,23 @@
 }
 /*Mobile 320*/
 @media (max-width: 767px) {
+  .Collection__tableWrap > div > div:nth-child(2) > div {
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+  }
+  .Collection__tableWrap > div > div:nth-child(2) > div > div:first-child {
+    flex-direction: column;
+    gap: 10px;
+    padding: 0;
+  }
+  .Collection__tableWrap > div > div:nth-child(2) > div > div:first-child > div p:first-child {
+    padding: 0;
+  }
+  .Collection__tableWrap > div > div:nth-child(2) > div > div:nth-child(2) {
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
 }
