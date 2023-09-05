@@ -5,14 +5,14 @@ import styles from './Finished.module.css';
 
 const Finished = () => {
   const svgArray = [
-    <svg key={0} width='142' height='40' viewBox='0 0 142 50' fill='none' xmlns='http://www.w3.org/2000/svg'>
+    <svg key={0} width='142' height='30' viewBox='0 0 142 30' fill='none' xmlns='http://www.w3.org/2000/svg'>
       <path
         opacity='0.4'
         d='M16.2925 48.7643L16.4018 49.1159H16.77H25.66H26.0383L26.1412 48.7518L36.0216 13.7697L45.9691 48.7527L46.0723 49.1159H46.45H55.27H55.6382L55.7475 48.7643L70.5175 1.23431L70.719 0.585938H70.04H61.36H60.9796L60.8781 0.952574L50.8584 37.1571L40.7717 0.951749L40.6697 0.585938H40.29H31.75H31.3696L31.2681 0.952574L21.2484 37.1571L11.1617 0.951749L11.0597 0.585938H10.68H2H1.32104L1.52252 1.23431L16.2925 48.7643ZM78.0226 48.6159V49.1159H78.5226H86.1526H86.6526V48.6159V1.08594V0.585938H86.1526H78.5226H78.0226V1.08594V48.6159ZM98.257 48.6159V49.1159H98.757H106.317H106.817V48.6159V13.6069L131.246 48.9005L131.395 49.1159H131.657H140.127H140.627V48.6159V1.08594V0.585938H140.127H132.567H132.067V1.08594V35.4732L107.917 0.800171L107.768 0.585938H107.507H98.757H98.257V1.08594V48.6159Z'
         stroke='#162029'
       />
     </svg>,
-    <svg key={0} width='426' height='40' viewBox='0 0 426 52' fill='none' xmlns='http://www.w3.org/2000/svg'>
+    <svg key={0} width='426' height='30' viewBox='0 0 426 52' fill='none' xmlns='http://www.w3.org/2000/svg'>
       <g opacity='0.9'>
         <path
           opacity='0.9'
@@ -56,7 +56,7 @@ const Finished = () => {
   ];
   return (
     <div>
-      <div className={`${styles.blur}`}>
+      <div className={`${styles.blur} container`}>
         <img className={styles.img} src='/images/win/background/background.png' />
         <div className={styles.mainContent}>
           <h3 className={styles.ttl}>Finished Competition</h3>
@@ -75,8 +75,8 @@ const Finished = () => {
         </div>
       </div>
       <div className={styles.marqueeContainer}>
-        <Marquee direction='voting' speed={0} label='overview' svgArray={svgArray} />
-        <Marquee direction='forward' speed={0} label='overview' svgArray={svgArray} />
+        <Marquee className={styles.marqe} direction='voting' speed={0} label='overview' svgArray={svgArray} />
+        <Marquee className={styles.marqe} direction='forward' speed={0} label='overview' svgArray={svgArray} />
       </div>
     </div>
   );

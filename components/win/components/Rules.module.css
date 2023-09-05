@@ -4,6 +4,14 @@
   margin-top: 100px;
 }
 
+.asads {
+  background-color: red !important;
+}
+
+.asa {
+  height: 0px !important;
+}
+
 .Rules__background {
   position: absolute;
   bottom: -400%;
@@ -55,8 +63,22 @@
   opacity: 0.7;
 }
 .runningLine {
+  display: flex;
+  position: relative;
   margin: 200px 0;
 }
+
+.opened {
+  display: flex;
+  position: relative;
+  align-items: center !important;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+}
+
 /* Finished Rules Styless  */
 .everyone {
   margin-top: 10px;
@@ -86,6 +108,11 @@
   padding-top: 15%;
   width: 15%;
 }
+
+.ttl {
+  max-width: 18%;
+}
+
 /* responsive */
 
 /*Ipad Pro 1024*/

@@ -21,6 +21,14 @@
 
 .marqueeContainer {
   margin-top: 150px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.marqe {
+  width: 100%;
+  position: relative;
+  display: flex;
 }
 
 .ttl {
