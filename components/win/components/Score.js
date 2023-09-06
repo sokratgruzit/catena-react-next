@@ -7,7 +7,7 @@ import styles from './Score.module.css';
 
 const Score = () => {
   return (
-    <>
+    <div className='container'>
       <div className={styles.score}>
         <div className={styles.scoreContent}>
           <div>
@@ -150,7 +150,7 @@ const Score = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

@@ -119,6 +119,9 @@
   }
 }
 @media (max-width: 767px) {
+  .voutingBox {
+    width: 100%;
+  }
   .borderTab {
     margin-top: 160px;
   }
@@ -150,15 +153,15 @@
     font-size: 24px;
     line-height: 34px;
   }
-  .competition h5 {
+  /* .competition h5 {
     margin-top: -30px;
-  }
+  } */
   .mainContent {
     padding: 0 25px;
   }
-  .competition {
+  /* .competition {
     padding: 50px 40px;
-  }
+  } */
   .hourglass {
     left: -6%;
     top: -27%;
