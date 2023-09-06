@@ -1,5 +1,5 @@
-.firstBlock{
-  width: 50%;
+.firstBlock {
+  width: 45%;
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -11,12 +11,12 @@
 }
 
 
-.poolsTopRow{
+.poolsTopRow {
   display: flex;
   justify-content: space-between;
 }
 
-.poolsTopRow div{
+.poolsTopRow div {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -34,51 +34,48 @@
   color: #162029;
 }
 
-.poolsTopRow div:nth-child(2){
+.poolsTopRow div:nth-child(2) {
   margin-right: 50px;
 }
-.totalTokens{
+
+.totalTokens {
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 393px;
-  /* height: 104px; */
-  /* position: relative; */
 }
 
-.totalTokensRow{
+.totalTokensRow {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-left:20px;
+  padding-left: 20px;
   padding-right: 20px;
 }
-.totalTokensRow div:nth-child(1){
+
+.totalTokensRow div:nth-child(1) {
   display: flex;
   margin: 5px;
 }
-.totalTokensRow div:nth-child(1) p:nth-child(2){
+
+.totalTokensRow div:nth-child(1) p:nth-child(2) {
   margin-left: 10px;
 }
 
-.totalTokensTitle{
+.totalTokensTitle {
   margin-bottom: 18px;
 }
 
 
 
 @media (max-width: 1200px) {
-  .firstBlock{
-    width: 100%;
-  }
-
-  .totalTokens{
+  .totalTokens {
     max-width: 100%;
   }
 }
 
-@media(max-width:896px){
-  .firstBlock{
-    max-width: none;
+@media(max-width:896px) {
+  .firstBlock {
+    width: 100%;
   }
 }
