@@ -1,152 +1,30 @@
 import Image from 'next/image';
 import { useState } from 'react';
-import { Button } from '@catena-network/catena-ui-module';
-import { Table } from '@catena-network/catena-ui-module';
-import { useMobileWidth } from '../../../../catena-ui-module/src/hooks/useMobileWidth';
+import { Dropdown } from '@catena-network/catena-ui-module';
 
 import styles from './Rules.module.css';
 
 const Rules = () => {
-  // const [mobileExpand, setMobileExpand] = useState(null);
-  // const { mobile } = useMobileWidth();
-  // const [isActiveExpand, setIsActiveExpand] = useState(false);
-  // const [tableExpand, setTableExpand] = useState(null);
-  // const [toggle, setToggle] = useState(false);
-
-  // const dropDown = [
-  //   {
-  //     ttl: 'Step 1: Submit application',
-  //     p: 'Projects can submit an application to sponsor a yield farm and/or pool on PancakeSwap via the Application Form',
-  //   },
-  //   {
-  //     ttl: 'Step 2: Await whitelisting',
-  //     p: 'Projects can submit an application to sponsor a yield farm and/or pool on PancakeSwap via the Application Form',
-  //   },
-  //   {
-  //     ttl: 'Step 3: During the auction',
-  //     p: 'Projects can submit an application to sponsor a yield farm and/or pool on PancakeSwap via the Application Form',
-  //   },
-  //   {
-  //     ttl: 'Step 4: After the auction',
-  //     p: 'Projects can submit an application to sponsor a yield farm and/or pool on PancakeSwap via the Application Form',
-  //   },
-  // ];
-
-  // const mobileExpandFunc = id => {
-  //   if (window.innerWidth <= 1300) {
-  //     if (id !== mobileExpand) {
-  //       setMobileExpand(id);
-  //     } else {
-  //       setMobileExpand(null);
-  //     }
-  //   }
-  // };
-
-  // const tableExpandFunc = id => {
-  //   if (id !== tableExpand) {
-  //     setTableExpand(id);
-  //   } else {
-  //     setTableExpand(null);
-  //   }
-  // };
-
-  // let th = [
-  //   {
-  //     name: 'Staked Amount',
-  //     width: 14.2,
-  //     mobileWidth: 33.3,
-  //     id: 0,
-  //   },
-  //   {
-  //     name: 'Stake Date',
-  //     width: 14.2,
-  //     mobileWidth: 33.3,
-  //     id: 1,
-  //   },
-  //   {
-  //     name: 'Unstake Date',
-  //     width: 14.2,
-  //     mobileWidth: 33.3,
-  //     id: 2,
-  //   },
-  //   {
-  //     name: 'Earn Reward',
-  //     width: 14.2,
-  //     mobileSlide: true,
-  //     id: 3,
-  //   },
-  //   {
-  //     name: 'Harvest',
-  //     width: 14.2,
-  //     mobileSlide: true,
-  //     id: 4,
-  //   },
-  //   {
-  //     name: 'Action 1',
-  //     width: 14.2,
-  //     mobileSlide: true,
-  //     id: 5,
-  //   },
-  //   {
-  //     name: 'Action 2',
-  //     width: 14.2,
-  //     mobileSlide: true,
-  //     id: 6,
-  //   },
-  // ];
-
-  // let td = [
-  //   {
-  //     id: 0,
-  //     title: 'Step 1: Submit application',
-  //     p: '200',
-  //   },
-  //   {
-  //     id: 1,
-  //     title: 'Step 1: Submit application',
-  //     p: '200',
-  //   },
-  // ];
-
-  // let tableData;
-  // tableData = td.map((item, index) => {
-  //   return (
-  //     <div className={`table-parent ${mobileExpand == item.id ? 'active' : ''}`} key={index}>
-  //       <div className='table more'>
-  //         <div
-  //           className={`td col ${th[0].mobileWidth ? true : false}`}
-  //           style={{ width: `${mobile ? th[0].mobileWidth : th[0].width}%` }}
-  //         >
-  //           <span>{item.title}</span>
-  //         </div>
-  //       </div>
-  //       <div
-  //         onClick={() => {
-  //           mobileExpandFunc(item.id);
-  //         }}
-  //         className={`${styles.asa} table-icon-place `}
-  //       >
-  //         <Button
-  //           size={'btn-lg'}
-  //           type={'dropDown-Button'}
-  //           element={'dropDown-Button'}
-  //           active={toggle}
-  //           onClick={() => setToggle(prevState => !prevState)}
-  //         />
-  //       </div>
-  //       <div className={`table-mobile`}>
-  //         <div className='table-mobile-content'>
-  //           <div className='td'>
-  //             <span>{item.p}</span>
-  //           </div>
-  //         </div>
-  //       </div>
-  //     </div>
-  //   );
-  // });
-
+  let samedata = [
+    {
+      title: 'Step 1: Submit application',
+      p: 'Projects can submit an application to sponsor a yield farm and/or pool on PancakeSwap via the Application Form',
+    },
+    {
+      title: 'Step 2: Await whitelisting',
+      p: 'Projects can submit an application to sponsor a yield farm and/or pool on PancakeSwap via the Application Form',
+    },
+    {
+      title: 'Step 3: During the auction',
+      p: 'Projects can submit an application to sponsor a yield farm and/or pool on PancakeSwap via the Application Form',
+    },
+    {
+      title: 'Step 4: After the auction',
+      p: 'Projects can submit an application to sponsor a yield farm and/or pool on PancakeSwap via the Application Form',
+    },
+  ];
   return (
-    <>
+    <div className='container'>
       <div className={styles.main}>
         <div className={styles.rulesIcones}>
           <div>
@@ -340,17 +218,18 @@ const Rules = () => {
           </div>
         </div>
       </div>
-      <div className={styles.finishedRules}>
-        <div className={`${styles.ttl} ttl font-40`}>Frequently Asked Questions</div>
-      </div>
-      <div className={styles.runningLine}>
-        <div>How does it work?</div>
-        <div className={styles.opened}>
-          {/* <Table type={'table-version'} mobile={mobile} tableData={tableData} customStyles={{ border: 'none' }} /> */}
-          hi
+      <div className={styles.tearDown}>
+        <div className={styles.finishedRules}>
+          <div className={`${styles.ttl} ttl font-40`}>Frequently Asked Questions</div>
+        </div>
+        <div className={styles.dropdDown}>
+          <div className='ttl font-20'>How does it work?</div>
+          <div className={styles.opened}>
+            <Dropdown type={'same-dropdown'} data={samedata} />
+          </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

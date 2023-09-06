@@ -16,9 +16,9 @@
 .backgrounPrizes {
   position: relative;
   display: flex;
-  padding: 80px 100px 0 100px;
+  margin-top: 80px;
   justify-content: center;
-  gap: 500px;
+  gap: 200px;
 }
 .prizesMedal {
   position: relative;
@@ -125,6 +125,9 @@
   .spaceBoySection {
     margin-right: 10%;
   }
+  .backgrounPrizes {
+    gap: 100px;
+  }
 }
 /*Ipad 768*/
 @media (max-width: 1023px) {
@@ -147,12 +150,18 @@
     left: -2%;
     z-index: -10;
   }
+  .backgrounPrizes {
+    gap: 100px;
+  }
 }
+
 /*Mobile 320*/
 @media (max-width: 767px) {
   .backgrounPrizes {
     position: relative;
     display: flex;
+    flex-direction: column;
+    width: 100%;
   }
   .Prizes__background {
     position: absolute;
@@ -180,6 +189,7 @@
   .spaceBoySection {
     display: flex;
     margin-bottom: 10%;
+    max-width: 100% !important;
   }
   .teamDescription {
     width: 600px;

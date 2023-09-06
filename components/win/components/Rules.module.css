@@ -62,16 +62,9 @@
   line-height: 18px;
   opacity: 0.7;
 }
-.runningLine {
-  display: flex;
-  position: relative;
-  margin: 200px 0;
-}
 
 .opened {
-  display: flex;
   position: relative;
-  align-items: center !important;
 }
 
 .box {
@@ -79,10 +72,21 @@
   flex-direction: column;
 }
 
+.dropdDown {
+  width: 50%;
+}
+
 /* Finished Rules Styless  */
 .everyone {
   margin-top: 10px;
 }
+
+.tearDown {
+  display: flex;
+  width: 100%;
+  margin-top: 100px;
+}
+
 .finishedRules {
   position: relative;
 }
@@ -107,6 +111,10 @@
   margin-top: -5%;
   padding-top: 15%;
   width: 15%;
+}
+.dropDown {
+  display: flex;
+  margin: 200px 0;
 }
 
 .ttl {
@@ -177,5 +185,22 @@
     position: absolute;
     left: 25%;
     margin-top: -100px;
+  }
+
+  .tearDown {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .finishedRules {
+    margin: 50px 0px;
+  }
+
+  .ttl {
+    max-width: 100% !important;
+  }
+
+  .dropdDown {
+    width: 100%;
   }
 }
