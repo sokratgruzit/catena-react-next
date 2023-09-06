@@ -1,26 +1,37 @@
 .mane {
+  display: flex;
+  flex-direction: column;
   margin-top: 15px;
 }
 
 .tradesTab {
   display: flex;
-  align-items: center;
   border-top: 1px solid #f0dec9;
 }
 .tradesTab div:nth-child(1) {
   width: 200px;
+  display: flex;
+  align-items: center;
 }
 .tradesTab div:nth-child(2) {
   width: 58%;
+  display: flex;
+  align-items: center;
 }
 .tradesTab div:nth-child(3) {
   width: 60%;
+  display: flex;
+  align-items: center;
 }
 .tradesTab div:nth-child(4) {
   width: 15%;
+  display: flex;
+  align-items: center;
 }
 .tradesTab:nth-last-child(1) {
   border-bottom: none;
+  display: flex;
+  align-items: center;
 }
 .tradesTab:nth-last-child(5) {
   border-top: 1px solid #ffffff10;
@@ -58,4 +69,29 @@
   max-width: 80% !important;
   min-height: 64% !important;
   max-height: 70% !important;
+}
+
+@media (max-width: 1023px) {
+  /* .mane {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .tradesTab {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  .numbering { 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  } */
+
+  .mane {
+    display: flex;
+    flex-direction: column;
+    width: 900px;
+  }
 }

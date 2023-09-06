@@ -47,7 +47,7 @@ const Rank = () => {
 
   const [activeFilter, setActiveFilter] = useState('Search');
   return (
-    <>
+    <div className='container'>
       <div className={styles.rankBkPosition}>
         <div className={styles.rank}>
           <div className={styles.rankCup}>
@@ -228,7 +228,7 @@ const Rank = () => {
           <VectorSvg className={`${styles.vectorSvg} ${details ? styles.rotate : ''}`} />
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
