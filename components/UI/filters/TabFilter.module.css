@@ -27,12 +27,14 @@
   border: 1px solid transparent;
   display: flex;
   align-items: center;
+  color: rgba(22, 32, 41, 0.6);
 }
 /* here */
 .Activity__filterActive {
   background-color: #ff6969 !important;
   border: 1px solid #162029;
   border-radius: 45px;
+  color: #162029;
   gap: 12px;
   padding: 2px 12px;
 }
@@ -67,12 +69,14 @@
   cursor: pointer;
   margin: 0 5px;
   border: 1px solid transparent;
+  color: rgba(22, 32, 41, 0.6);
 }
 /* here */
 .activity__filterActive {
   background-color: #ff6969 !important;
   border: 1px solid #162029;
   border-radius: 45px;
+  color: #162029;
   display: flex;
   align-items: center;
   gap: 12px;

@@ -26,16 +26,13 @@
   line-height: 21px;
 }
 .getSuggestInner p:nth-child(2) {
-  margin-bottom: 30px;
+  margin-bottom: 21px;
 }
 .getSuggestInner h1 {
-  margin-bottom: 30px;
-  font-size: 20px;
-  line-height: 28px;
+  margin-bottom: 21px;
+  text-align: center;
 }
-.getSuggestInner p {
-  opacity: 0.7;
-}
+
 .chatCloud {
   position: absolute;
   top: -20px;
@@ -48,7 +45,7 @@
   justify-content: center;
   align-items: center;
   height: 400px;
-  margin-top: 100px;
+  margin-top: 233px;
   margin-bottom: 200px;
 }
 /* sergos btn */

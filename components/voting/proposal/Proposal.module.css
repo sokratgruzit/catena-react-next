@@ -1,4 +1,4 @@
-/* .form button {
+/* /* .form button {
   width: 100%;
   justify-content: center;
 }
@@ -318,7 +318,7 @@
 /*Laptop 1440*/
 @media (max-width: 1900px) {
 }
-@media (max-width:1500px) {
+@media (max-width: 1500px) {
   .backBtn {
     margin-bottom: 40px;
   }
@@ -331,7 +331,7 @@
   .ProposalInfo {
     display: block;
   }
-  .proposalSection{
+  .proposalSection {
     padding-bottom: 0px;
     margin-bottom: 0px;
   }
@@ -344,7 +344,7 @@
   .blockquote {
     width: 80%;
   }
-  .proposalSection{
+  .proposalSection {
     width: 100%;
   }
   .details {
@@ -353,25 +353,25 @@
     width: 100%;
     height: 244px;
   }
-  .proposalSection{
+  .proposalSection {
     border-bottom: none;
   }
-  .gradient{
+  .gradient {
     width: 702px;
     height: 702px;
     top: 50%;
     right: 50%;
-    transform: translate(50%,-50%);
+    transform: translate(50%, -50%);
   }
   .detailsWrapper {
     display: flex;
     flex-direction: column-reverse;
     height: fit-content;
   }
-  .result{
+  .result {
     width: 100%;
   }
-  .borderBottom{
+  .borderBottom {
     padding-bottom: 0;
     margin-bottom: 10px;
     border-bottom: none;
@@ -379,7 +379,8 @@
   .backBtn {
     margin-bottom: 30px;
   }
-} */
+}
+
 /*Mobile 320*/
 @media (max-width: 767px) {
   .ProposalInfo {
