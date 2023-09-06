@@ -82,14 +82,15 @@ const MainContainer = ({ active, setActive }) => {
   ];
   return (
     <div className='container'>
-      <div className={styles.mainContainerBg}>
-        <Image layout='fill' objectFit='contain' src={'/images/voting/main-bg.png'} quality={100} alt='' />
-      </div>
       <div className={styles.inner}>
         <div className={styles.leftContainer}>
-          <h1>Voting</h1>
-          <p>
-            Have your say in the future of the <a href='##'>CATENA</a> Ecosystem
+          <h1 className='ttl'>Voting</h1>
+          <p className='font_30'>
+            Have your say in the future of the
+            <a className='font_30' href='##'>
+              CATENA
+            </a>
+            Ecosystem
           </p>
           <Button
             label={'Make a proposal'}
@@ -99,6 +100,8 @@ const MainContainer = ({ active, setActive }) => {
             element={'button'}
             disabled={false}
             onClick={() => setActive()}
+            customStyles={{ background: '#A6D0DD', border: '1px solid #162029' }}
+            className={styles.button}
           />
         </div>
         {active && (
@@ -120,23 +123,6 @@ const MainContainer = ({ active, setActive }) => {
             headerCustomStyles={{ background: '#272C57' }}
           />
         )}
-        <div className={styles.rightContainer}>
-          <div className={styles.whiteBall}>
-            <Image layout='fill' objectFit='contain' src={'/images/voting/whiteBall.png'} quality={100} alt='' />
-          </div>
-          <div className={styles.group}>
-            <Image layout='fill' objectFit='contain' src={'/images/voting/Group.png'} quality={100} alt='' />
-          </div>
-          <div className={styles.blueBall}>
-            <Image layout='fill' objectFit='contain' src={'/images/voting/blue-circle.png'} quality={100} alt='' />
-          </div>
-          <div className={styles.rocket}>
-            <Image layout='fill' objectFit='contain' src={'/images/voting/rocket.png'} quality={100} alt='' />
-          </div>
-          <div className={styles.astro}>
-            <Image layout='fill' objectFit='contain' src={'/images/voting/astro.png'} quality={100} alt='' />
-          </div>
-        </div>
       </div>
     </div>
   );

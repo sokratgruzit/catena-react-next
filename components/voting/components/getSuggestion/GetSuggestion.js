@@ -6,7 +6,7 @@ const GetSuggestion = ({ setActive }) => {
   return (
     <div className={`container ${styles.getSuggestContainer}`}>
       <div className={styles.getSuggestInner}>
-        <h1 className={styles.title}>Got a Suggetion?</h1>
+        <h1 className='font_51 ttl'>Got a Suggetion?</h1>
         <p>Community proposals are a great way to see how the community feels about your ideas.</p>
         <p>
           They won&#39;t necessarily be implemented if the community votes successful, but suggestions with a lot of
@@ -20,6 +20,7 @@ const GetSuggestion = ({ setActive }) => {
           element={'button'}
           disabled={false}
           onClick={() => setActive()}
+          customStyles={{ marginTop: '55px' }}
         />
       </div>
     </div>

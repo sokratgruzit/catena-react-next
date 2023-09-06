@@ -14,6 +14,9 @@ const RunningText = () => {
         <ProposalsText opacity={0.8} />
         <ProposalsText opacity={0.6} />
         <ProposalsText opacity={0.3} />
+        <ProposalsText opacity={0.8} />
+        <ProposalsText opacity={0.6} />
+        <ProposalsText opacity={0.3} />
       </div>
     </div>
   );

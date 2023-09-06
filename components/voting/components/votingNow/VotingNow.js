@@ -1,5 +1,4 @@
 import { useState } from 'react';
-
 import {
   CloseTag,
   CommunitySign,
@@ -14,6 +13,7 @@ import CornerDecor from '../../../UI/cornerDecor/CornerDecor';
 import TabFilter from '../../../UI/filters/TabFilter';
 import RunningText from '../runningText/RunningText';
 import VotingNowTable from '../votingNowTable/VotingNowTable';
+import filterStyles from '../../../UI/filters/TabFilter.module.css';
 
 import styles from './VotingNow.module.css';
 
@@ -162,24 +162,22 @@ const votingData2 = votingData.map((item, index) => {
 const dataDisplayOptions = [
   {
     id: 0,
-    label: 'CATENA',
-    svg: <CoreCheck />,
+    label: 'All',
+  },
+  {
+    id: 2,
+    label: 'Core',
   },
   {
     id: 1,
     label: 'Community',
-    svg: <CommunitySign />,
-  },
-  {
-    id: 2,
-    label: 'All',
   },
 ];
 
 const dataTimeframeOptions = [
   {
     id: 0,
-    label: 'Vote Now',
+    label: 'Activity',
   },
   {
     id: 1,
@@ -210,26 +208,30 @@ const VotingNow = props => {
             data={dataDisplayOptions}
             activeMenu={activeTab}
             css={{
-              wrap: styles.filterWrap,
-              filter: styles.filter,
-              active: styles.filterActive,
-              item: styles.filter__item,
+              wrap: filterStyles.activity__filterWrap,
+              filter: filterStyles.activity__filter,
+              active: filterStyles.activity__filterActive,
+              item: filterStyles.activity__filter__item,
             }}
+            showCloseButton={false}
+            allowMultipleTabs={false}
+            showClearButton={false}
           />
         </div>
         <div className={styles.container}>
-          <CornerDecor />
-          <div className={styles.gradient}></div>
           <TabFilter
-            onClick={e => setActiveTimeframe(e)}
+            onClick={e => setActiveTab(e)}
             data={dataTimeframeOptions}
             activeMenu={activeTimeframe}
             css={{
-              wrap: styles.frame__filterWrap,
-              filter: styles.filter,
-              active: styles.frame__filterActive,
-              item: styles.frame__filter__item,
+              wrap: filterStyles.Activity__filterWrap,
+              filter: filterStyles.Activity__filter,
+              active: filterStyles.Activity__filterActive,
+              item: filterStyles.Activity__filter__item,
             }}
+            showCloseButton={false}
+            allowMultipleTabs={false}
+            showClearButton={false}
           />
           <VotingNowTable
             key={activeTab + activeTimeframe}

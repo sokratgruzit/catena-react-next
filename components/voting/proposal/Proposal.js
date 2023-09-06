@@ -1,24 +1,15 @@
 // import React, { useState } from 'react';
 // import { useRouter } from 'next/router';
 // import DOMPurify from 'dompurify';
-
 // import ChoiceItemRow from '../components/choiceItem/ChoiceItemRow';
 // import ChoiceItemResult from '../components/choiceItem/ChoiceItemResult';
 // import CountdownItem from '../components/countdownItem/CountdownItem';
 // import VotingData from '../components/votingData/VotingData';
 // import Button from '../../UI/button/Button';
 
-// import {
-//   CloseTag,
-//   CommunityTag,
-//   CoreTagLight,
-//   OpenSvg,
-//   SmlArrowSvg,
-//   SoonTag,
-//   VoteNowTag,
-// } from '../../svg/index';
+// import { CloseTag, CommunityTag, CoreTagLight, OpenSvg, SmlArrowSvg, SoonTag, VoteNowTag } from '../../svg/index';
 
-// import useConnect from '../../../hooks/use-connect';
+// import { useConnect } from '../../../../catena-react-admin-module/src/hooks/useConnect';
 // import { useWindowDimension } from '../../../hooks/useWindowDimension';
 
 // import styles from './Proposal.module.css';
@@ -73,10 +64,7 @@
 //       <div className={`container ${styles.wrapper}`}>
 //         <main className={styles.ProposalInfo}>
 //           <section className={styles.proposalSection}>
-//             <nav
-//               onClick={() => router.push('/voting')}
-//               className={styles.backBtn}
-//             >
+//             <nav onClick={() => router.push('/voting')} className={styles.backBtn}>
 //               <SmlArrowSvg className={styles.arrowSvg} />
 //               <p className={styles.blueHover}>Back</p>
 //             </nav>
@@ -149,18 +137,10 @@
 //                 <span className={styles.border}></span>
 //                 <form onSubmit={handleFormSubmit} className={styles.form}>
 //                   {votingItem?.choices?.map((choice, index) => (
-//                     <ChoiceItemRow
-//                       key={index}
-//                       index={index}
-//                       choice={choice}
-//                       setVotingChoice={setVotingChoice}
-//                     />
+//                     <ChoiceItemRow key={index} index={index} choice={choice} setVotingChoice={setVotingChoice} />
 //                   ))}
 //                   {isActive ? (
-//                     <button
-//                       className={`btn btnBlue ${styles.voteButton}`}
-//                       disabled={votingChoice === null}
-//                     >
+//                     <button className={`btn btnBlue ${styles.voteButton}`} disabled={votingChoice === null}>
 //                       Vote
 //                     </button>
 //                   ) : (
@@ -174,25 +154,15 @@
 //                     />
 //                   )}
 
-//                   <p
-//                     className={styles.seeMore}
-//                     onClick={() => setActiveVoteWindow('see result')}
-//                   >
+//                   <p className={styles.seeMore} onClick={() => setActiveVoteWindow('see result')}>
 //                     See Result
 //                   </p>
 //                 </form>
 //               </div>
 //             ) : (
-//               <div
-//                 className={`${styles.result} ${
-//                   activeVoteWindow && styles.resultActive
-//                 }`}
-//               >
+//               <div className={`${styles.result} ${activeVoteWindow && styles.resultActive}`}>
 //                 {activeVoteWindow === 'see result' ? (
-//                   <div
-//                     className={styles.resultHeader}
-//                     onClick={() => setActiveVoteWindow('cast')}
-//                   >
+//                   <div className={styles.resultHeader} onClick={() => setActiveVoteWindow('cast')}>
 //                     <SmlArrowSvg />
 //                     <h3>Results</h3>
 //                   </div>

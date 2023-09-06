@@ -19,7 +19,9 @@
 .container {
   position: relative;
   width: 100%;
-  margin-top: 25px;
+  margin-top: 21px;
+  border-radius: 20px;
+  border: 1px solid #16202933;
 }
 
 .votingNow__bar p:nth-child(2) {
@@ -28,7 +30,6 @@
 .votingNow__category svg {
   margin: 0px 5px -1px 0;
 }
-
 
 /* .marqueeContainer svg {
   margin-right: 50px;
@@ -51,9 +52,9 @@
 .filter {
   display: flex;
   justify-content: space-between;
-  width:100%;
+  width: 100%;
 }
-.filter__item{
+.filter__item {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -68,9 +69,9 @@
   gap: 2px;
 }
 .filterActive {
-  background-color: rgba(255, 255, 255, 0.1)!important;
+  background-color: rgba(255, 255, 255, 0.1) !important;
 }
-.frame__filterWrap{
+.frame__filterWrap {
   margin: 10px auto;
   padding: 0 10px;
   width: fit-content;
@@ -83,7 +84,7 @@
   width: 261px;
   height: 44px;
 }
-.frame__filter__item{
+.frame__filter__item {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -92,22 +93,11 @@
   margin: 0 3px;
   height: 34px;
   width: fit-content;
-  color:rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.7);
 }
 .frame__filterActive {
-  border-bottom: 2px solid #FFF;
-  color: #FFF;
-}
-
-.gradient{
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 310px;
-  height: 310px;
-  top: -80px;
-  z-index: -3;
-  background: radial-gradient(50% 50% at 50% 50%, #000F2E 0%, rgba(0, 5, 15, 0) 100%);
+  border-bottom: 2px solid #fff;
+  color: #fff;
 }
 
 /*Laptop 1440*/
@@ -115,7 +105,6 @@
 }
 /*Ipad Pro 1024*/
 @media (max-width: 1300px) {
-
 }
 /*Ipad 768*/
 @media (max-width: 1023px) {
@@ -123,4 +112,3 @@
 /*Mobile 320*/
 @media (max-width: 767px) {
 }
-
