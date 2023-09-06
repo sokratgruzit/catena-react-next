@@ -22,18 +22,18 @@ const TechnologySlider = () => {
   let microSchemes;
   if (window.innerWidth > 1240) {
     microSchemes = [
-      [1, 2, 7, 8, 9, 10, 11, 13, 14, 15, 23, 24],
-      [1, 2, 5, 6, 11, 13, 14, 15, 16, 17, 23, 24],
-      [1, 2, 11, 13, 14, 20, 21, 22, 23, 24],
-      [1, 2, 5, 6, 13, 14, 15, 16, 17, 23, 24],
+      [4,5,6,7,8,12],
+      [6,7,8,9,12],
+      [6,10,11,12],
+      [6,7,8,9],
     ];
   }
   if (window.innerWidth < 1240) {
     microSchemes = [
-      [1, 2, 6, 7, 8, 9, 10, 11, 13, 17, 18, 19, 20, 21, 22, 23, 24],
-      [1, 2, 4, 13, 14, 15, 18, 19, 20, 21, 22, 23, 24],
-      [1, 2, 6, 7, 10, 11, 13, 14, 16, 17, 18, 19, 20, 21, 22, 23, 24],
-      [1, 2, 4, 13, 14, 15, 18, 19, 20, 21, 22, 23, 24],
+        [6,7,8,9,12],
+        [6,7,8,9,12],
+        [6,10,11,12],
+        [6,7,8,9]
     ];
   }
 
@@ -1324,32 +1324,6 @@ const TechnologySlider = () => {
       <ReactScrollWheelHandler upHandler={e => slideScrollUp()} downHandler={e => slideScrollDown()}>
         <div className={`${styles.mainSlider}`}>
           <div className={`container ${styles.mainSliderItem} ${activeSlide == 1 ? styles.mainSliderActive : ''}`}>
-            <div className={`${styles.mainSliderItemNav}`}>
-              <div onClick={() => swiperRefPromo.current?.slidePrev()}>
-                <svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
-                  <path
-                    d='M14.9998 19.92L8.47984 13.4C7.70984 12.63 7.70984 11.37 8.47984 10.6L14.9998 4.08002'
-                    stroke='#162029'
-                    strokeWidth='2'
-                    strokeMiterlimit='10'
-                    strokeLinecap='round'
-                    strokeLinejoin='round'
-                  />
-                </svg>
-              </div>
-              <div onClick={() => swiperRefPromo.current?.slideNext()}>
-                <svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
-                  <path
-                    d='M9.00016 19.92L15.5202 13.4C16.2902 12.63 16.2902 11.37 15.5202 10.6L9.00016 4.08002'
-                    stroke='#162029'
-                    strokeWidth='2'
-                    strokeMiterlimit='10'
-                    strokeLinecap='round'
-                    strokeLinejoin='round'
-                  />
-                </svg>
-              </div>
-            </div>
             <div className={`${styles.mainSliderItemDescription} pT-180`}>
               <h1 className='font-90 ttl'>Technology</h1>
               <p className={`font-20 ${styles.mainSliderItemDescriptionTxt}`}>
@@ -1401,6 +1375,32 @@ const TechnologySlider = () => {
                 </div>
               </div>
             </div>
+            <div className={`${styles.mainSliderItemNav}`}>
+                  <div onClick={() => swiperRefPromo.current?.slidePrev()}>
+                      <svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                          <path
+                              d='M14.9998 19.92L8.47984 13.4C7.70984 12.63 7.70984 11.37 8.47984 10.6L14.9998 4.08002'
+                              stroke='#162029'
+                              strokeWidth='2'
+                              strokeMiterlimit='10'
+                              strokeLinecap='round'
+                              strokeLinejoin='round'
+                          />
+                      </svg>
+                  </div>
+                  <div onClick={() => swiperRefPromo.current?.slideNext()}>
+                      <svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                          <path
+                              d='M9.00016 19.92L15.5202 13.4C16.2902 12.63 16.2902 11.37 15.5202 10.6L9.00016 4.08002'
+                              stroke='#162029'
+                              strokeWidth='2'
+                              strokeMiterlimit='10'
+                              strokeLinecap='round'
+                              strokeLinejoin='round'
+                          />
+                      </svg>
+                  </div>
+              </div>
           </div>
           <div
             className={`container ${styles.mainSliderItem} ${styles.mainSliderItemFlex} ${
@@ -1408,10 +1408,10 @@ const TechnologySlider = () => {
             }`}
           >
             <div className={`${styles.mainSliderItemHalf} pT-180`}>
-              <h1 className={`font-90 ttl ${styles.mainSliderSecondTtl}`}>
+              <h2 className={`font-90 ttl ${styles.mainSliderSecondTtl}`}>
                 Network <br />
                 Structure
-              </h1>
+              </h2>
               <div className={`${styles.mainSliderItemNavOut}`}>
                 <div className={`${styles.mainSliderItemNav}`}>
                   <div onClick={() => swiperRefNetwork.current?.slidePrev()}>
@@ -1485,9 +1485,9 @@ const TechnologySlider = () => {
             } ${activeSlide == 3 ? styles.mainSliderActive : ''}`}
           >
             <div className={`${styles.mainSliderItemHalf} pT-180`}>
-              <h1 className={`font-90 ttl ${styles.mainSliderSecondTtl}`}>
+              <h2 className={`font-90 ttl ${styles.mainSliderSecondTtl}`}>
                 CATENA <br /> Layer
-              </h1>
+              </h2>
               <div className={`${styles.mainSliderItemNavOut}`}>
                 <div className={`${styles.mainSliderItemNav} ${styles.mainSliderItemNavRotated}`}>
                   <div onClick={() => swiperRefLayers.current?.slidePrev()}>
@@ -1567,10 +1567,10 @@ const TechnologySlider = () => {
             }`}
           >
             <div className={`${styles.mainSliderItemHalf} pT-180`}>
-              <h1 className={`font-90 ttl ${styles.mainSliderSecondTtl}`}>
+              <h2 className={`font-90 ttl ${styles.mainSliderSecondTtl}`}>
                 Consensus <br />
                 Structure
-              </h1>
+              </h2>
               <div className={`${styles.mainSliderItemNavOut}`}>
                 <div className={`${styles.mainSliderItemNav} ${styles.mainSliderItemNavRotated}`}>
                   <div onClick={() => swiperRefConsensus.current?.slidePrev()}>
