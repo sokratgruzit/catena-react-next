@@ -65,7 +65,7 @@ const Score = () => {
               </defs>
             </svg>
           </div>
-          <div>
+          <div className={styles.img}>
             <Image layout='fill' src={'/images/win/spaceBoy.png'} alt='spaceBoy' objectFit={'contain'} />
           </div>
           <div>
