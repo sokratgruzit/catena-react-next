@@ -1,4 +1,4 @@
-import styles from '../WhatExpected.module.css';
+import styles from './WhatExpected.module.css';
 
 const WhatExpected = () => {
   const Tlt = [

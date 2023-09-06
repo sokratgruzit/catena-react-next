@@ -1,10 +1,10 @@
 import React from 'react';
-import Title from './components/Title';
-import Introduction from './components/Introduction';
-import BecomeAmbassador from './components/BecomeAmbassador';
-import CatenaAmbassador from './components/CatenaAmbassador';
-import WhatExpected from './components/WhatExpected';
-import AmbasdorBtn from './components/AmbasdorBtn';
+import Title from './components/title/Title';
+import Introduction from './components/introduction/Introduction';
+import BecomeAmbassador from './components/becomeAmbassador/BecomeAmbassador';
+import CatenaAmbassador from './components/catenaAmbassador/CatenaAmbassador';
+import WhatExpected from './components/whatExpected/WhatExpected';
+import AmbassadorForm from './components/ambassadorForm/AmbasdorForm';
 import JoinCommunity from '../events/components/joinComunity/JoinCommunity';
 
 const Ambassador = () => {
@@ -15,7 +15,7 @@ const Ambassador = () => {
       <BecomeAmbassador />
       <CatenaAmbassador />
       <WhatExpected />
-      <AmbasdorBtn />
+      <AmbassadorForm />
       <JoinCommunity />
     </div>
   );

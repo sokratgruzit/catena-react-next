@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { Input, Button, HelpText, HelpCard } from '@catena-network/catena-ui-module';
-import createAxiosInstance from '../../../../pages/api/axios';
-import { useValidation } from '../../../../hooks/useValidation';
+import createAxiosInstance from '../../../../../pages/api/axios';
+import { useValidation } from '../../../../../hooks/useValidation';
 
-import styles from '../AmbasdorBtn.module.css';
+import styles from './AmbasdorForm.module.css';
 
-const AmbasdorBtn = () => {
+const AmbasdorForm = () => {
   const [active, setActive] = useState(false);
   const [result, setResult] = useState('');
   const [chng, setChng] = useState(false);
@@ -170,4 +170,4 @@ const AmbasdorBtn = () => {
   );
 };
 
-export default AmbasdorBtn;
+export default AmbasdorForm;
