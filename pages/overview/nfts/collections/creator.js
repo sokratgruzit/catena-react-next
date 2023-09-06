@@ -1,7 +1,8 @@
 import React from 'react';
+import Creator from '../../../../components/nfts/components/Creator';
 
-const Creator = () => {
-  return <div>Creator</div>;
+const index = () => {
+  return <Creator />;
 };
 
-export default Creator;
+export default index;

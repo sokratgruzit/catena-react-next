@@ -106,7 +106,7 @@ const InfoPages = ({ page, data }) => {
             </>
           }
           {page === 'pools' && <TableTokens title="Top Pools" tableInfo={stakersRecord} tableHead={tableHead} />}
-          {page === 'section' && <Section title="Top Pools" data={data}  tableInfo={stakersRecord} tableHead={tableHead} Table__Types={Table__Types} />}
+          {page === 'section' && <Section title="Top Pools" data={data} tableInfo={stakersRecord} tableHead={tableHead} Table__Types={Table__Types} />}
 
         </div>
       </div>

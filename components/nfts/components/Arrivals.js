@@ -3,9 +3,8 @@ import { useState } from 'react';
 import { useSelector } from "react-redux";
 
 import ListItemCard from '../../UI/listItem/ListItemCard';
-import FAQ from '../../home/faq/Faq';
-
 import styles from './Arrivals.module.css';
+import CommunityAuctionsFAQ from './CommunityAuctionsFAQ';
 
 const Arrivals = () => {
   const [showWhiteListedWallets, setShowWhiteListedWallets] = useState(false);
@@ -70,14 +69,10 @@ const Arrivals = () => {
         </div>
       </div>
       <div className={`${styles.FAQSection} custum-text`}>
-        <div className='container'>
-          <h2 className='ttl'>Frequently Asked Questions</h2>
-        </div>
+        <h2 className='ttl'>Frequently Asked Questions</h2>
         <div className={`${styles.FAQWrapper} custum-text`}>
-          <div className='container'>
-            <h4 className='ttl'>How does it work?</h4>
-            <FAQ />
-          </div>
+          <h4 className='ttl'>How does it work?</h4>
+          <CommunityAuctionsFAQ setToggle={setToggle} />
         </div>
       </div>
     </div>

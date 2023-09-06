@@ -86,6 +86,8 @@
 .Collection__title {
   padding-top: 10px;
   text-transform: capitalize;
+  font-size: 100px;
+  line-height: 120px;
 }
 .Collection__filtres {
   display: flex;
@@ -168,6 +170,7 @@
   background-color: #f3e4d2;
   border-radius: 20px;
 }
+
 .gradientBck {
   position: absolute;
   z-index: -11;
@@ -184,19 +187,39 @@
   padding-top: 30px;
   position: relative;
 }
-/* .collections__mobile img:first-child {
-    position: absolute;
-    z-index: -11;
-} */
-/*Laptop 1440*/
-@media (max-width: 1900px) {
-}
-/*Ipad Pro 1024*/
 @media (max-width: 1300px) {
+  .Collection__title {
+    font-size: 60px;
+  }
+  .Collection__filtres {
+    padding-top: 100px;
+  }
 }
-/*Ipad 768*/
-@media (max-width: 1023px) {
-}
-/*Mobile 320*/
+
 @media (max-width: 767px) {
+  .Collection__filtres {
+    padding-top: 50px;
+  }
+  .Collection__title {
+    font-size: 40px;
+  }
+  .Collection__tableWrap > div > div:nth-child(2) > div {
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+  }
+  .Collection__tableWrap > div > div:nth-child(2) > div > div:first-child {
+    flex-direction: column;
+    gap: 10px;
+    padding: 0;
+  }
+  .Collection__tableWrap > div > div:nth-child(2) > div > div:first-child > div p:first-child {
+    padding: 0;
+  }
+  .Collection__tableWrap > div > div:nth-child(2) > div > div:nth-child(2) {
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
 }

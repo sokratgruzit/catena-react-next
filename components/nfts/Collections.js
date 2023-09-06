@@ -574,10 +574,11 @@ const Collections = () => {
       />
     </svg>
   );
+
   return (
     <div className={`${styles.NftCollections} ${styles.container} container`}>
       <ArrowBtn route={'nfts'} direction={'back'} />
-      <p className={`${styles.Collection__title} ttl font-90`}>Collections</p>
+      <p className={`${styles.Collection__title} ttl`}>Collections</p>
       <div className={styles.Collection__filtres}>
         <div className={styles.Collection__rightPanel}>
           <TabFilter
@@ -590,6 +591,9 @@ const Collections = () => {
               active: filterStyles.Collections__filterActive,
               item: filterStyles.Collections__filter__item,
             }}
+            showCloseButton={false}
+            allowMultipleTabs={false}
+            showClearButton={false}
           />
         </div>
         <Menu

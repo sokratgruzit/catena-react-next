@@ -1,39 +1,95 @@
 .Activity__filter {
   display: flex;
+  align-items: center;
+  background: #fff3e5;
+  border: 1px solid #16202933;
+  border-radius: 30px;
+  padding: 4px;
+  flex-wrap: wrap;
 }
 
-.Rank__filterWrap {
+.Activity__filterWrap {
+  width: 100%;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 4px;
-  border: 1px solid rgba(22, 32, 41, 0.2);
-  border-radius: 20px;
-  background-color: #fff3e5;
-  width: max-content;
+  padding: 20px;
+  border-bottom: 1px solid #16202933;
+  overflow: hidden;
+  background: #f0dec9;
+  border-radius: 20px 20px 0px 0px;
 }
-.Rank__filter__item {
-  border-radius: 20px;
-  padding: 4px 12px;
+
+.Activity__filter__item {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 45px;
+  padding: 8px 12px;
   cursor: pointer;
-  margin: 0 2px;
-  color: #162029;
+  margin: 0 5px;
+  border: 1px solid transparent;
+  display: flex;
+  align-items: center;
 }
 /* here */
-.Rank__filterActive {
+.Activity__filterActive {
   background-color: #ff6969 !important;
   border: 1px solid #162029;
+  border-radius: 45px;
+  gap: 12px;
+  padding: 2px 12px;
 }
+.Activity__closeButton {
+  padding-top: 6px;
+}
+.Activity__clearButton {
+  color: #ff6969;
+  margin-left: 16px;
+}
+.activity__filter {
+  display: flex;
+  align-items: center;
+  background: #fff3e5;
+  border: 1px solid #16202933;
+  border-radius: 30px;
+  padding: 4px;
+}
+
+.activity__filterWrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 89px;
+  overflow: hidden;
+}
+.activity__filter__item {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  padding: 14px 20px;
+  cursor: pointer;
+  margin: 0 5px;
+  border: 1px solid transparent;
+}
+/* here */
+.activity__filterActive {
+  background-color: #ff6969 !important;
+  border: 1px solid #162029;
+  border-radius: 45px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 20px;
+}
+
 .Collections__filterWrap {
   display: flex;
 }
 .Collections__filter {
   display: flex;
   border: 1px solid #16202933;
-  padding: 13px 26px;
+  padding: 4px;
   background-color: #f3e4d2;
+  border-radius: 30px;
 }
+
 .Collections__filter__item svg path {
   opacity: 0.6;
 }
@@ -78,7 +134,7 @@
 }
 .Competition__filter__item {
   border-radius: 4px;
-  /* padding: 4px 12px; */
+  padding: 4px 12px;
   cursor: pointer;
   margin: 0 5px;
 }
@@ -101,7 +157,7 @@
 }
 .Prediction__filter__item {
   border-radius: 4px;
-  /* padding: 4px 12px; */
+  padding: 4px 12px;
   cursor: pointer;
   margin: 0 5px;
 }
@@ -110,7 +166,28 @@
     font-size: 13px;
   }
 }
+/* Rank styles */
+.Rank__filterWrap {
+  padding: 4px 0;
+  margin: 20px 0;
+}
+.Rank__filterActive {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.Rank__filter__item {
+  border-radius: 4px;
+  padding: 4px 12px;
+  cursor: pointer;
+  margin: 0 5px;
+}
 @media (max-width: 1023px) {
+  .Rank__filterWrap {
+    display: flex;
+    padding: 4px 0;
+    text-align: left;
+    gap: 50px;
+    margin: 20px auto;
+  }
 }
 /* End Rank styles */
 
@@ -124,7 +201,7 @@
 /* FinishedRounds styles */
 .FinishedRounds__filter__item {
   border-radius: 4px;
-  /* padding: 4px 12px; */
+  padding: 4px 12px;
   cursor: pointer;
   margin: 0 5px;
   font-size: 13px;

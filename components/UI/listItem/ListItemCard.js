@@ -17,11 +17,12 @@ const ListItemCard = props => {
         <Link href={`/overview/nfts/collections/${data.owner}/${data.tokenId}`}>
           <a>
             <div className={styles.Arrivals__imgBlock}>
+            <p className={`${styles.nftArrivals__imgBlockTitle} font_30`}>#{data.tokenId}</p>
               <div className={styles.imgWrap}>
                 <img src={data.image} alt={data.name} />
               </div>
-              <p className={`${styles.nftArrivals__imgBlockTitle} font_13`}>{data.title}</p>
-              <p className={`${styles.nftArrivals__imgBlockTeaser} font_13`}>{data.subTitle}</p>
+              <p className={`${styles.nftArrivals__imgBlockTitle} font_20`}>{data.name}</p>
+              <p className={`${styles.nftArrivals__imgBlockTeaser} font_13`}>{data.description}</p>
             </div>
             <div className={styles.nftArrivals__content}>
               <p className={styles.Arrivals__contentTitle}>Asking Price:</p>

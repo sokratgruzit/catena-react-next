@@ -1260,6 +1260,15 @@
   }
 }
 
+@media (max-width: 767px) {
+  .th_activity:nth-child(6),
+  .nft_activity_table .td:nth-child(6) {
+    margin-right: 0;
+    margin-left: auto;
+    width: fit-content;
+    padding-right: 0;
+  }
+}
 @media (max-width: 600px) {
   .InfoTokensRowItem .td:nth-child(3),
   .th_info_tokens:nth-child(3) {
@@ -1280,6 +1289,18 @@
     overflow: hidden;
     white-space: nowrap;
     display: inline-block;
+  }
+  .th_activity:nth-child(6),
+  .nft_activity_table .td:nth-child(6) {
+    display: none;
+  }
+  .th_activity:nth-child(1),
+  .nft_activity_table .td:nth-child(1) {
+    width: 100%;
+    flex-direction: column;
+  }
+  .nft_activity_table {
+    padding: 0;
   }
   .earn_farmsRow .td:first-child,
   .th_earn_farms:first-child {
@@ -1334,4 +1355,86 @@
   .voting_row .td:first-child {
     width: 100%;
   }
+}
+.Activity__mobile__itemWrap {
+  display: flex;
+  flex-direction: column;
+  width: 49%;
+  margin-bottom: 10px !important;
+  justify-content: space-between;
+  border: 1px solid #111826;
+  padding: 30px 20px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+}
+.Activity__mobile__item {
+  display: flex;
+  border-bottom: 1px solid #111826;
+  padding-bottom: 30px;
+}
+.Activity__item__titles {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.Activity__item__titles svg:hover path {
+  fill: #ff7152;
+}
+.Activity__item__titles p {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 10px;
+}
+.Activity__item__titles p:last-child {
+  opacity: 0.3;
+  padding-top: 5px;
+}
+.Activity__item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border-bottom: 1px dashed #111826;
+  /* padding: 30px 0px; */
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+.Activity__mob__item__title {
+  color: #0500ff;
+}
+.Activity__item__event {
+  margin-left: 100px;
+}
+.Activity__from {
+  margin-left: 120px;
+  display: flex;
+  align-items: center;
+}
+.Activity__item__event span {
+  color: #ff7152;
+}
+.Activity__item__event p:last-child {
+  opacity: 0.7;
+}
+.Activity__item__inner {
+  display: flex;
+  align-items: center;
+  margin-left: 100px;
+}
+.Activity__item__from {
+  display: flex;
+  flex-direction: column;
+  padding-left: 10px;
+}
+.Activity__item__inner img {
+  width: 31px;
+  height: 31px;
+}
+.Activity__item__date {
+  display: flex;
+  gap: 5px;
+  margin-left: 100px;
 }
