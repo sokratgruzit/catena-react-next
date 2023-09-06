@@ -171,10 +171,6 @@
 }
 
 @media (max-width:600px){
-  .SearchBar{
-    margin-left: 0;
-    margin-top: 20px;
-  }
   .SearchBar__input{
     max-width: 90vw;
   }

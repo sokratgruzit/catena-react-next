@@ -126,7 +126,7 @@ const TableTokens = ({ title, tableInfo, tableHead, Table__Types }) => {
         ));
 
     return (
-        <div className='container_bordered'>
+        <div style={{padding: "0"}} className='container_bordered'>
             <h2 style={{ marginBottom: "20px" }} className='ttl font-40'>{title}</h2>
             <div style={{ backgroundColor: "rgba(243, 228, 210,0.8)" }}>
                 <Table

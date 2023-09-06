@@ -3,6 +3,9 @@
   max-width: 55vw;
   display: flex;
   position: relative;
+  background-color: #cecece;
+  border-radius: 20px;
+  border: 1px solid #162029;
 }
 
 .Activity__filterWrap {
