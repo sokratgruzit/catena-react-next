@@ -361,8 +361,6 @@ const Buy = props => {
           setStep(true);
         }}
         customStyles={{
-          padding: '10px 160px',
-          width: '350px',
           margin: '50px 0px',
           transition: '.5s',
         }}
@@ -422,15 +420,6 @@ const Buy = props => {
         <Button
           title={'Connect Wallet'}
           type={'blue'}
-          onClick={() => {
-            handleWalletModal(true);
-            setConnected(true);
-            window.scrollTo({
-              top: 0,
-              left: 0,
-              behavior: 'smooth',
-            });
-          }}
           customStyles={{
             padding: '2% 0',
             width: '150px',
@@ -496,15 +485,6 @@ const Buy = props => {
               className='ttl'
               title={'Connect Wallet'}
               type={'red'}
-              onClick={() => {
-                handleWalletModal(true);
-                setConnected(true);
-                window.scrollTo({
-                  top: 0,
-                  left: 0,
-                  behavior: 'smooth',
-                });
-              }}
               customStyles={{
                 padding: '2% 0',
                 width: '150px',
@@ -589,15 +569,6 @@ const Buy = props => {
                 className='ttl'
                 title={'Connect Wallet'}
                 type={'red'}
-                onClick={() => {
-                  handleWalletModal(true);
-                  setConnected(true);
-                  window.scrollTo({
-                    top: 0,
-                    left: 0,
-                    behavior: 'smooth',
-                  });
-                }}
                 customStyles={{
                   padding: '2% 0',
                   width: '100% !important',
@@ -804,7 +775,7 @@ const Buy = props => {
             {collectionItems.map(item => {
               return (
                 <SwiperSlide key={item.id}>
-                  <Link href={`/nfts/collections/buy`}>
+                  <Link href={`/overview/nfts/collections/${item.id}`}>
                     <div className={styles.Collection__product}>
                       <div className={styles.Collection__product__inner}>
                         <div className={styles.Collection__product__titles}>

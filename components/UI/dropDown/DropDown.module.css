@@ -1,77 +1,19 @@
-.nftCreatorPage__categoriesSelectModalFilter {
-    display: flex;
-    flex-direction: column;
-    padding-top: 10px;
+.Creator__categories {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  position: relative;
 }
-.nftCreatorPage__categoriesSelectModalFilter__item {
-    display: flex;
-    padding: 10px 10px;
-    border-radius: 4px;
-    align-items: center;
+
+.dropDownLabel {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  gap: 13px;
 }
-.nftCreatorPage__categoriesSelectModalFilter__item svg {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-}
-.nftCreatorPage__categoriesSelectModalFilter__itemHover {
-    background: rgba(255, 255, 255, 0.04);
-}
-.nftCreatorPage__categoriesSelectModalFilter__itemTitle {
-    display: flex;
-    align-items: center;
-    padding-left: 7px;
-}
-.nftCreatorPage__categoriesSelectModalFilter__itemTitleNumb {
-    display: flex;
-    align-items: center;
-    margin-left: auto;
-}
-.nftCreatorPage__categoriesSelectModalFilter__itemActived {
-    display: flex;
-    padding: 10px 10px;
-    border-radius: 4px;
-    align-items: center;
-}
-.nftCreatorPage__categoriesSelectModal {
-    position: absolute;
-    top: 100px;
-    left: 18%;
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
-    background-color: #0A0F18;
-    border-radius: 4px;
-    z-index: 10;
-}
-.nftCreatorPage__categoriesSelectModalSearchBar input{
-    position: relative;
-    background-color: #05080D;
-    border-radius: 4px;
-    border: none;
-    padding: 5px 25px
-}
-.nftCreatorPage__categoriesSelectModalSearchIcon {
-    position: absolute;
-    left: 15px;
-    top: 20px;
-}
-.nftCreatorPage__categoriesSelectModalSelected {
-    padding-top: 10px;
-    border-bottom: 1px solid #111826;
-    padding-bottom: 10px;
-}
-.nftCreatorPage__categoriesSelectModalSelectedTitle {
-    color: #FFFFFF;
-    opacity: 0.3;
-    font-size: 10px;
-}
-.nftCreatorPage__categoriesSelectModalSelectedTitleFiltred {
-    display: flex;
-    border-radius: 10px;
-    align-items: center;
-    background: rgba(255, 255, 255, 0.04);
-    padding: 5px 10px;
-    justify-content: space-between;
-    width: 55%;
+
+.dropdownContent {
+  position: absolute;
+  top: 48px;
+  z-index: 999;
 }
