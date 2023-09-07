@@ -14,24 +14,25 @@ const ListItemCard = props => {
   if (type === 'nft_arrivals' || type === 'nft_activity' || type === 'nft_creator') {
     obj = (
       <div key={data.id} className={styles.Arrivals__listItemWrap}>
-        <Link href={`/overview/nfts/collections/${data.id}`}>
+        <Link href={`/overview/nfts/collections/${data.owner}/${data.tokenId}`}>
           <a>
             <div className={styles.Arrivals__imgBlock}>
+            <p className={`${styles.nftArrivals__imgBlockTitle} font_30`}>#{data.tokenId}</p>
               <div className={styles.imgWrap}>
-                <img src={data.imgSrc} />
+                <img src={data.image} alt={data.name} />
               </div>
-              <p className={`${styles.nftArrivals__imgBlockTitle} font_13`}>{data.title}</p>
-              <p className={`${styles.nftArrivals__imgBlockTeaser} font_13`}>{data.subTitle}</p>
+              <p className={`${styles.nftArrivals__imgBlockTitle} font_20`}>{data.name}</p>
+              <p className={`${styles.nftArrivals__imgBlockTeaser} font_13`}>{data.description}</p>
             </div>
             <div className={styles.nftArrivals__content}>
               <p className={styles.Arrivals__contentTitle}>Asking Price:</p>
               <div className={styles.Arrivals__contentTeaserDiv}>
                 <p className={`${styles.Arrivals__contentTeaser} ${styles.Arrivals__contentTeaserSpan} font_13`}>
-                  ({data.priceUSD})
+                  ({data.price * 1633} USD)
                 </p>
                 <p className={styles.price}>
                   {data.price}
-                  <span className={styles.colored}> {data.value}</span>
+                  <span className={styles.colored}> ETH</span>
                 </p>
               </div>
             </div>

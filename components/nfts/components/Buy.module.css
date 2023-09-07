@@ -267,6 +267,10 @@
 .NftBuy__details__link {
   display: flex;
   align-items: center;
+  white-space: nowrap;       
+  overflow: hidden;          
+  text-overflow: ellipsis;   
+  max-width: 65%;
 }
 .NftBuy__details__link p {
   color: #162029;
