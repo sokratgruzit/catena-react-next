@@ -15,7 +15,7 @@ const TradePage = ({ page, data }) => {
               rame1
             </>
           }
-          {page === 'rame2' &&
+          {page === 'staking' &&
             <>
              rame2
             </>

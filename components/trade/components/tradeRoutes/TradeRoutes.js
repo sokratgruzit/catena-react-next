@@ -1,11 +1,8 @@
-import { useRouter } from 'next/router';
 import React, { useState } from 'react';
-import Link from 'next/link';
-
-import TabFilter from '../../../UI/filters/TabFilter';
+import { useRouter } from 'next/router';
 
 import styles from './TradeRoutes.module.css';
-import { StarSvg } from '../../../svg';
+import TabFilter from '../../../UI/filters/TabFilter';
 
 let tabsData = [
   {
@@ -25,10 +22,12 @@ const TradeRoutes = () => {
     let returnStatement = '';
     if (loc === '/overview/trade') returnStatement = 'Trade';
     if (loc === '/overview/trade/staking') returnStatement = 'Staking';
+    if (loc.startsWith('/overview/trade/staking')) returnStatement = 'Staking';
     return returnStatement;
   };
 
   const [activeMenuItem, setActiveMenuItem] = useState(getCurrentLocation(router.pathname));
+  console.log(activeMenuItem, 'activeMenuItem')
 
   const navigationHandler = route => {
     if (route === 'Trade') {

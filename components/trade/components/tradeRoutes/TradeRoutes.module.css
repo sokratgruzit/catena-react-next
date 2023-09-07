@@ -16,19 +16,6 @@
   align-items: center;
 }
 
-.starSVG {
-  width: 30px;
-  height: 30px;
-}
-
-.starWrapper {
-  display: flex;
-  align-items: center;
-  position: absolute;
-  right: 45px;
-  cursor: pointer;
-}
-
 .favCount {
   width: 20px;
   height: 20px;
