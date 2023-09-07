@@ -173,6 +173,15 @@
 }
 
 @media (max-width: 767px) {
+  .rotating,
+  .CollectionsPromo__btnWrap {
+    width: 100px;
+    height: 100px;
+  }
+  .CollectionsPromo__btn__item {
+    height: 40px;
+    width: 40px;
+  }
   .CollectionsPromo__cards {
     height: 60vh;
   }
@@ -219,6 +228,15 @@
   }
 }
 @media (max-width: 400px) {
+  .rotating,
+  .CollectionsPromo__btnWrap {
+    width: 80px;
+    height: 80px;
+  }
+  .CollectionsPromo__btn__item {
+    height: 30px;
+    width: 30px;
+  }
   .CollectionsPromo__cards {
     height: 40vh;
   }

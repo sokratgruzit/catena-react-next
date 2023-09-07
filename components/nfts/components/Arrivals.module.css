@@ -44,13 +44,11 @@
   padding-bottom: 89px;
 }
 .FAQSection {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
   background-color: #f5e9dc;
   padding: 89px 39px;
-}
-
-.FAQWrapper {
-  width: 70%;
+  gap: 30px;
 }
 
 .centerElement {
@@ -81,11 +79,19 @@
   padding-bottom: 40px;
 }
 
+@media (max-width: 1023px) {
+  .FAQSection {
+    grid-template-columns: 1fr 1fr;
+  }
+}
 @media (max-width: 767px) {
   .FAQSection {
     flex-direction: column;
   }
   .FAQWrapper {
     width: 100%;
+  }
+  .FAQSection {
+    grid-template-columns: 1fr;
   }
 }
