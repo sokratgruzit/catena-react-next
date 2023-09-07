@@ -1,7 +1,8 @@
 import React from 'react';
+import TradePage from '../../../components/trade/TradePage';
 
-const tride = () => {
-  return <div> tride</div>;
+const index = () => {
+  return <TradePage />;
 };
 
-export default tride;
+export default index;
