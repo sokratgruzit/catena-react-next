@@ -2,11 +2,14 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { React, useState, useEffect, useMemo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import useLanguages from '../../hooks/useLanguages';
 import { gsap, Linear } from 'gsap';
+import { ethers } from 'ethers';
+
+import useLanguages from '../../hooks/useLanguages';
 import { injected, walletConnect } from '../../hooks/connector';
 import { useConnect } from '../../hooks/useConnect';
 import createAxiosInstance from '../../pages/api/axios';
+
 import Button from '../UI/button/Button';
 import Tooltip from '../UI/tooltip/Tooltip';
 
@@ -28,22 +31,6 @@ const WALLETS_DATA = [
 ];
 
 const Header = () => {
-  const {
-    disconnect,
-    connect,
-    chainId,
-    account,
-    MetaMaskEagerlyConnect,
-    WalletConnectEagerly
-  } = useConnect();
-  const axios = useMemo(() => createAxiosInstance(), []);
-  const locales = useSelector(state => state.settings.locales);
-  const activeLang = useSelector(state => state.settings.activeLang);
-  const address = useSelector(state => state.connect.account);
-  const balance = useSelector(state => state.connect.balance);
-  const triedReconnect = useSelector(state => state.appState.triedReconnect);
-  const providerType = useSelector(state => state.connect.providerType);
-
   const [activeMenu, setActiveMenu] = useState(null);
   const [activeLangs, setActiveLangs] = useState(false);
   const [activeSettings, setActiveSettings] = useState(false);
@@ -53,13 +40,29 @@ const Header = () => {
   const [connectBtnColor, setConnectBtnColor] = useState('red');
   const [device, setDevice] = useState(null);
   const [walletModal, setWalletModal] = useState(false);
-  const isConnected = useSelector(state => state.connect.isConnected);
-  const slippage = useSelector(state => state.settings.slippage);
   const [stickHead, setStickHead] = useState(false);
   const [animate, setAnimate] = useState(false);
 
+  const locales = useSelector(state => state.settings.locales);
+  const activeLang = useSelector(state => state.settings.activeLang);
+  const address = useSelector(state => state.connect.account);
+  const balance = useSelector(state => state.connect.balance);
+  const triedReconnect = useSelector(state => state.appState.triedReconnect);
+  const providerType = useSelector(state => state.connect.providerType);
+  const isConnected = useSelector(state => state.connect.isConnected);
+  const slippage = useSelector(state => state.settings.slippage);
+
   const dispatch = useDispatch();
   const { handleLanguageChange } = useLanguages();
+  const {
+    disconnect,
+    connect,
+    chainId,
+    account,
+    MetaMaskEagerlyConnect,
+    WalletConnectEagerly
+  } = useConnect();
+  const axios = useMemo(() => createAxiosInstance(), []);
 
   const NAV_DATA = [
     {
@@ -324,20 +327,21 @@ const Header = () => {
   const openLangs = state => {
     closeAll();
     setActiveLangs(state);
-    console.log(state)
-   setTimeout(() => {
-     gsap.to(`.navCircleLangs`, {
-       opacity: 1,
-       // strokeDasharray: 900,
-       duration: 1, // Adjust the duration as needed
-       ease: Linear.easeNone
-     });
-     gsap.to(`.navLineLangs`, {
-       strokeDashoffset: 0,
-       duration: 4, // Adjust the duration as needed
-       ease: Linear.easeNone
-     });
-   },800)
+    
+    setTimeout(() => {
+      gsap.to(`.navCircleLangs`, {
+        opacity: 1,
+        // strokeDasharray: 900,
+        duration: 1, // Adjust the duration as needed
+        ease: Linear.easeNone
+      });
+      gsap.to(`.navLineLangs`, {
+        strokeDashoffset: 0,
+        duration: 4, // Adjust the duration as needed
+        ease: Linear.easeNone
+      });
+    },800);
+    
     if (device === 'mobile') {
       if (state === true) {
         setConnectBtnColor('white');
@@ -484,7 +488,7 @@ const Header = () => {
     if (account && triedReconnect) {
       axios
       .post('/auth/register-wallet-address', { address: account })
-      .then(res => console.log(res))
+      .then(res => console.log(res.data))
       .catch(() => {});
 
       dispatch({
@@ -790,7 +794,7 @@ const Header = () => {
                           fill='#A6D0DD'
                       />
                     </svg>
-                    ${balance}
+                    CMCX {ethers.utils.formatEther(balance)}
                   </div>
                   <div
                     onClick={() => {
@@ -907,7 +911,7 @@ const Header = () => {
                     fill='#A6D0DD'
                   />
                 </svg>
-                <span>${address && triedReconnect ? balance : 0}</span>
+                <span>CMCX {address && triedReconnect ? ethers.utils.formatEther(balance) : 0}</span>
               </div>
               <div className={`${styles.headerLangs}`}>
                 <div className={`${styles.headerLangNow} ${activeLangs ? styles.headerLangNowActive : ''}`}>

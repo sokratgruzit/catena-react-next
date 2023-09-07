@@ -1,14 +1,17 @@
 import Link from 'next/link';
 import { useState } from 'react';
-import { useRouter } from 'next/router';
+import { useSelector } from "react-redux";
+
 import ListItemCard from '../../UI/listItem/ListItemCard';
 import styles from './Arrivals.module.css';
 import CommunityAuctionsFAQ from './CommunityAuctionsFAQ';
 
-const Arrivals = props => {
+const Arrivals = () => {
   const [showWhiteListedWallets, setShowWhiteListedWallets] = useState(false);
   const [toggle, setToggle] = useState(false);
 
+  const newArrivals = useSelector(state => state.nftsState.newArrivals);
+  
   const handleToggleClick = () => {
     setToggle(!toggle);
   };
@@ -38,8 +41,8 @@ const Arrivals = props => {
             </div>
           </div>
           <div className={`${styles.Arrivals__itemsList} container`}>
-            {props.arrivals.map(item => {
-              return <ListItemCard key={item.id} data={item} type={'nft_arrivals'} />;
+            {newArrivals && newArrivals.map(item => {
+              return <ListItemCard key={item.tokenId} data={item} type={'nft_arrivals'} />;
             })}
           </div>
         </div>

@@ -32,7 +32,7 @@ const Prizes = () => {
   };
 
   return (
-    <>
+    <div className='container'>
       <div className={styles.prizesBkPosition}>
         <div className={styles.prizes}>
           <div>
@@ -204,7 +204,7 @@ const Prizes = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

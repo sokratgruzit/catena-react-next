@@ -7,6 +7,7 @@ import appStateReducer from './appStateReducer';
 import connectReducer from './connectReducer';
 import favoritesReducer from './favoritesReducer';
 import settingsReducer from './settingsReducer';
+import nftsReducer from './nftsReducer';
 
 const persistConfig = {
   key: 'root',
@@ -19,6 +20,7 @@ const rootReducer = combineReducers({
   favorites: persistReducer(persistConfig, favoritesReducer),
   settings: persistReducer(persistConfig, settingsReducer),
   appState: appStateReducer,
+  nftsState: persistReducer(persistConfig, nftsReducer)
 });
 
 const store = configureStore({

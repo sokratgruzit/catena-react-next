@@ -3,7 +3,7 @@ import Careers from '../../../components/home/careers/Careers';
 
 export const getStaticProps = async context => {
   const axios = createAxiosInstance();
-  const openPositions = await axios.get(`${process.env.NEXT_PUBLIC_URL}/open-positions/get-all-open-positions`);
+  const openPositions = await axios.get(`${process.env.NEXT_PUBLIC_URL}/open-positions/get-featured-open-positions`);
   // const careers = await axios.get(`${process.env.NEXT_PUBLIC_URL}/careers/get-all-careers`);
 
   return {

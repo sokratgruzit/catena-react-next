@@ -4,6 +4,14 @@
   margin-top: 100px;
 }
 
+.asads {
+  background-color: red !important;
+}
+
+.asa {
+  height: 0px !important;
+}
+
 .Rules__background {
   position: absolute;
   bottom: -400%;
@@ -54,13 +62,31 @@
   line-height: 18px;
   opacity: 0.7;
 }
-.runningLine {
-  margin: 200px 0;
+
+.opened {
+  position: relative;
 }
+
+.box {
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdDown {
+  width: 50%;
+}
+
 /* Finished Rules Styless  */
 .everyone {
   margin-top: 10px;
 }
+
+.tearDown {
+  display: flex;
+  width: 100%;
+  margin-top: 100px;
+}
+
 .finishedRules {
   position: relative;
 }
@@ -86,6 +112,15 @@
   padding-top: 15%;
   width: 15%;
 }
+.dropDown {
+  display: flex;
+  margin: 200px 0;
+}
+
+.ttl {
+  max-width: 18%;
+}
+
 /* responsive */
 
 /*Ipad Pro 1024*/
@@ -150,5 +185,22 @@
     position: absolute;
     left: 25%;
     margin-top: -100px;
+  }
+
+  .tearDown {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .finishedRules {
+    margin: 50px 0px;
+  }
+
+  .ttl {
+    max-width: 100% !important;
+  }
+
+  .dropdDown {
+    width: 100%;
   }
 }

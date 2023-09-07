@@ -1,19 +1,22 @@
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import ListItemCard from '../../UI/listItem/ListItemCard';
-import styles from './Creator.module.css';
-import ListItemRow from '../../UI/listItem/ListItemRow';
 
+import { useNftMarket } from '../../../hooks/useNftMarket';
+
+import ListItemCard from '../../UI/listItem/ListItemCard';
+import ListItemRow from '../../UI/listItem/ListItemRow';
 import DropDownFilter from '../../UI/filters/DropDownFilter';
 import AddressSearch from '../../UI/AddressSearch/AddressSearch';
-import DropDown from '../../UI/dropDown/DropDown';
 import DataBox from '../../UI/dataBox/DataBox.js';
 import ArrowBtn from '../../UI/button/ArrowBtn';
 import ActivityTable from './ActivityTable';
 import Expand from '../../UI/expand/Expand';
 import Question from './Question';
 
-const Creator = props => {
+import styles from './Creator.module.css';
+
+const Creator = () => {
+  let content = '';
   const azukiItems = [
     {
       id: 0,
@@ -1284,6 +1287,13 @@ const Creator = props => {
   const [screeWidth, setScreenWidth] = useState(window.innerWidth);
   const [activityActiveTab, setactivityActiveTab] = useState('Listed');
   const [toggle, setToggle] = useState(false);
+  const [myNfts, setMyNfts] = useState([]);
+  const [nfts, setNfts] = useState([]);
+
+  const { 
+    account,
+    fetchMyNFTsOrListedNFTs,
+  } = useNftMarket();
 
   const handleToggleClick = () => {
     setToggle(!toggle);
@@ -1293,7 +1303,6 @@ const Creator = props => {
     setActiveTab(tabName);
   };
 
-  let content = '';
   let listItemType = <ActivityTable activityData={nftActivityData} activeTab={activeTab} onTabClick={handleTabClick} />;
 
   let openItem = id => {
@@ -1306,20 +1315,40 @@ const Creator = props => {
 
   useEffect(() => {
     setScreenWidth(window.innerWidth);
-  }, []);
+
+    if (account) {
+      fetchMyNFTsOrListedNFTs("fetchItemsListed")
+      .then(items => {
+        setNfts(items);
+      });
+  
+      fetchMyNFTsOrListedNFTs("fetchMyNfts")
+      .then(items => {
+        setMyNfts(items);
+      });
+    }
+  }, [account]);
+
+  console.log(myNfts, nfts)
 
   if (activeTab === 'items') {
     content = (
       <div className={`  ${styles.nftCreatorWrapper}`}>
         <DropDownFilter />
         <div className={styles.Creator__productsWrap}>
-          {azukiItems.map(item => {
-            return <ListItemCard key={item.id} data={item} type={'nft_creator'} />;
+          {myNfts?.map(item => {
+            return <ListItemCard key={item?.tokenId} data={item} type={'nft_creator'} />;
+          })}
+        </div>
+        <div className={styles.Creator__productsWrap}>
+          {nfts?.map(item => {
+            return <ListItemCard key={item?.tokenId} data={item} type={'nft_creator'} />;
           })}
         </div>
       </div>
     );
   }
+
   if (activeTab === 'traits') {
     content = (
       <div className={`${styles.Creator__traits} }`}>
@@ -1420,6 +1449,7 @@ const Creator = props => {
       </div>
     );
   }
+
   if (activeTab === 'activity') {
     content = listItemType;
   }
@@ -1495,11 +1525,5 @@ const Creator = props => {
     </div>
   );
 };
-export async function getStaticProps() {
-  return {
-    props: {
-      activityData: nftActivityData.slice(0, 20),
-    },
-  };
-}
+
 export default Creator;

@@ -78,7 +78,7 @@
 }
 
 .content {
-  max-height: 740px;
+  max-height: 625px;
   overflow: hidden;
 }
 /* 
@@ -147,6 +147,10 @@
   .rankPosition {
     padding-top: 20%;
   }
+
+  .content {
+    max-height: 490px;
+  }
 }
 /*Ipad 768*/
 @media (max-width: 1023px) {
@@ -162,9 +166,22 @@
     width: 80%;
     padding: 20px;
   }
+
+  .content {
+    max-height: 440px;
+    overflow: hidden;
+    -webkit-overflow-scrolling: touch;
+    justify-content: flex-start;
+    margin-top: 55px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+  }
 }
 /*Mobile 320*/
 @media (max-width: 767px) {
+  .rank {
+    margin-top: 70px !important;
+  }
   .cup {
     padding-top: 7%;
   }
@@ -174,7 +191,7 @@
   .rankBorder {
     position: relative;
     margin: auto;
-    width: 90%;
+    width: 100%;
     padding: 20px;
   }
   .sliderWidth {
