@@ -57,7 +57,7 @@ const ActivityTable = ({ activityData }) => {
       <div className={styles.activityTable}>
         <TabFilter
           onClick={handleTabClick}
-          activeMenu={activeMenuItem} 
+          activeMenu={activeMenuItem}
           data={tabsData}
           css={{
             wrap: filterStyles.Activity__filterWrap,

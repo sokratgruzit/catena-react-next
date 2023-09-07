@@ -91,21 +91,26 @@ const InfoPages = ({ page, data }) => {
         <div className={styles.section}>
           <InfoRoutes />
           <SearchBar />
-          {!page &&
+          {!page && (
             <>
               <InfoCharts />
-              <TableTokens title="Top Tokens" tableInfo={stakersRecord} tableHead={tableHead} />
-              <TableTokens title="Top Pools" tableInfo={stakersRecord} tableHead={tableHead} />
-              <TableTokens title="Transaction" tableInfo={stakersRecord} tableHead={tableHead} Table__Types={Table__Types} />
+              <TableTokens title='Top Tokens' tableInfo={stakersRecord} tableHead={tableHead} />
+              <TableTokens title='Top Pools' tableInfo={stakersRecord} tableHead={tableHead} />
+              <TableTokens
+                title='Transaction'
+                tableInfo={stakersRecord}
+                tableHead={tableHead}
+                Table__Types={Table__Types}
+              />
             </>
-          }
-          {page === 'tokens' &&
+          )}
+          {page === 'tokens' && (
             <>
               <TopMovers />
-              <TableTokens title="All Tokens" tableInfo={stakersRecord} tableHead={tableHead} />
+              <TableTokens title='All Tokens' tableInfo={stakersRecord} tableHead={tableHead} />
             </>
-          }
-          {page === 'pools' && <TableTokens title="Top Pools" tableInfo={stakersRecord} tableHead={tableHead} />}
+          )}
+          {page === 'pools' && <TableTokens title='Top Pools' tableInfo={stakersRecord} tableHead={tableHead} />}
         </div>
       </div>
     </div>
