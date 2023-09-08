@@ -6,6 +6,7 @@
   border-radius: 30px;
   padding: 4px;
   flex-wrap: wrap;
+  width: max-content;
 }
 
 .Activity__filterWrap {
@@ -30,7 +31,7 @@
 }
 /* here */
 .Activity__filterActive {
-  background-color: #ff6969 !important;
+  background-color: #ff6969;
   border: 1px solid #162029;
   border-radius: 45px;
   gap: 12px;
