@@ -22,6 +22,12 @@ export const useConnect = (props) => {
           .then((isAuthorized) => {
             if (isAuthorized && isConnected) {
               connect(providerType, injected);
+              dispatch({
+                type: "UPDATE_STATE",
+                account: account,
+                isConnected: true,
+                providerType: providerType,
+              });
             } else {
               dispatch({
                 type: "UPDATE_STATE",
@@ -49,6 +55,12 @@ export const useConnect = (props) => {
         if (isConnected) {
           setTimeout(() => {
             connect(providerType, walletConnect);
+            dispatch({
+              type: "UPDATE_STATE",
+              account: account,
+              isConnected: true,
+              providerType: providerType,
+            });
           }, 0);
         } else {
           dispatch({
