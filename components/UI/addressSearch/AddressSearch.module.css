@@ -68,6 +68,7 @@
   top: 6px;
   right: 7px;
 }
+
 .icon {
   position: absolute;
   left: 93%;
@@ -81,13 +82,27 @@
   cursor: not-allowed;
 }
 
-@media (max-width: 767px) {
-  .Market__searchBar,
-  .Market__searchInput {
-    width: 100%;
+@media (max-width: 1023px) {
+  .Creator__searchBar input {
+    width: 500px;
   }
-  .Creator__searchBar input,
   .Creator__searchBar {
-    width: 100%;
+    margin-left: auto;
+    margin-right: 0;
+  }
+}
+@media (max-width: 767px) {
+  .Creator__searchBar input {
+    width: 187px;
+    padding: 4px;
+    height: auto;
+    transition: 0.5s;
+  }
+  .creatorBtn {
+    top: 2px;
+    right: 2px;
+  }
+  .creatorBtn > div {
+    padding: 2px 4px !important;
   }
 }

@@ -578,7 +578,7 @@ const Collections = () => {
   return (
     <div className={`${styles.NftCollections} ${styles.container} container`}>
       <ArrowBtn route={'nfts'} direction={'back'} />
-      <p className={`${styles.Collection__title} ttl font-90`}>Collections</p>
+      <p className={`${styles.Collection__title} ttl`}>Collections</p>
       <div className={styles.Collection__filtres}>
         <div className={styles.Collection__rightPanel}>
           <TabFilter
