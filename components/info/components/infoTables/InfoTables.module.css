@@ -79,8 +79,8 @@
   position: absolute;
   top: 0;
   left: 0;
-  height: 25px;
-  width: 25px;
+  height: 23px;
+  width: 23px;
   /* background: #ff6969; */
   border: 1px solid #162029;
   border-radius: 50%;
@@ -114,8 +114,8 @@
 
 /* Style the indicator (dot/circle) */
 .radioContainer .radioCheckmark:after {
-	width: 18px;
-	height: 18px;
+	width: 16px;
+	height: 16px;
 	border-radius: 50%;
   background: #162029;
 }
