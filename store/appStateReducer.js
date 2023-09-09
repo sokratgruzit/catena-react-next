@@ -18,6 +18,17 @@ const appStateReducer = (state = INIT_STATE, action) => {
     };
   }
 
+  if (action.type === 'SET_STEP') {
+    let curState = { ...state };
+    let newUser = { ...curState.user };
+    let step = action.payload;
+    
+    newUser.step = step;
+    curState.user = newUser;
+    state = curState;
+    return state;
+  }
+
   return state;
 };
 

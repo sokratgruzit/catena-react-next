@@ -474,6 +474,11 @@ const Header = () => {
     }
 
     getLocales();
+
+    if (address) {
+      if (providerType === "walletConnect") connect("walletConnect", walletConnect);
+      if (providerType === "metaMask") connect("metaMask", injected);
+    }
   }, []);
 
   useEffect(() => {
@@ -488,7 +493,9 @@ const Header = () => {
     if (account && triedReconnect) {
       axios
       .post('/auth/register-wallet-address', { address: account })
-      .then(res => console.log(res.data))
+      .then(res => {
+        console.log(res.data);
+      })
       .catch(() => {});
 
       dispatch({
@@ -911,7 +918,7 @@ const Header = () => {
                     fill='#A6D0DD'
                   />
                 </svg>
-                <span>CMCX {address && triedReconnect ? ethers.utils.formatEther(balance) : 0}</span>
+                <span>CMCX {account && triedReconnect ? ethers.utils.formatEther(balance) : 0}</span>
               </div>
               <div className={`${styles.headerLangs}`}>
                 <div className={`${styles.headerLangNow} ${activeLangs ? styles.headerLangNowActive : ''}`}>
@@ -1537,7 +1544,7 @@ const Header = () => {
                 </div>
               </div>
               <div
-                className={`${address && triedReconnect ? styles.headerNotConnected : ''} ${
+                className={`${account && triedReconnect ? styles.headerNotConnected : ''} ${
                   styles.headerConnectBtnContainer
                 } ${activeSettings ? styles.transformRight : ''}`}
               >
@@ -1554,7 +1561,7 @@ const Header = () => {
                 />
               </div>
               <div
-                className={`${styles.headerConnected} ${address && triedReconnect ? '' : styles.headerNotConnected} ${
+                className={`${styles.headerConnected} ${account && triedReconnect ? '' : styles.headerNotConnected} ${
                   activeSettings ? styles.transformRight : ''
                 }`}
               >
@@ -1568,7 +1575,7 @@ const Header = () => {
                     <Image src={`/images/meta.png`} alt='avatar' layout='fill' />
                     <i></i>
                   </div>
-                  <span>{address && triedReconnect ? address : ''}</span>
+                  <span>{account && triedReconnect ? account : ''}</span>
                   <div className={styles.headerConnectedBtnArrow}>
                     <i></i>
                     <div className={styles.headerConnectedBtnArrowSvg}>
@@ -1602,7 +1609,7 @@ const Header = () => {
           <div className={styles.headerConnectedModalInner}>
             <div className={styles.headerConnectedModalAddress}>
               <div>
-                <span>{address && triedReconnect ? address : ''}</span>
+                <span>{account && triedReconnect ? account : ''}</span>
                 <span>metamask</span>
               </div>
               <svg width='17' height='17' viewBox='0 0 17 17' fill='none' xmlns='http://www.w3.org/2000/svg'>
@@ -1656,7 +1663,7 @@ const Header = () => {
                 </svg>
               </a>
             </Link>
-            {address && <Link href='/overview/make-profile' locale={activeLang}>
+            {account && <Link href='/profile/create' locale={activeLang}>
               <a className={styles.headerConnectedModalLink}>
                 <span>Make a Profile</span>
                 <svg width='5' height='9' viewBox='0 0 5 9' fill='none' xmlns='http://www.w3.org/2000/svg'>
@@ -1675,6 +1682,9 @@ const Header = () => {
               onClick={() => {
                 closeAll();
                 disconnect();
+                dispatch({
+                  type: "LOGOUT"
+                });
               }}
             >
               <span>Disconnect Wallet</span>
@@ -1710,11 +1720,19 @@ const Header = () => {
                   }}
                   onClick={() => {
                     closeAll();
+                    
                     if (item.type === 'walletConnect') {
                       connect(item.type, walletConnect);
                     } else {
                       connect(item.type, injected);
                     }
+
+                    dispatch({
+                      type: "UPDATE_STATE",
+                      account: account,
+                      isConnected: true,
+                      providerType: providerType,
+                    });
                   }}
                 >
                   <div className={styles.connectWalletItem}>

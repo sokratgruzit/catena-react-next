@@ -1,5 +1,6 @@
 import createAxiosInstance from '../../../../api/axios';
 
+import ProtectedRoute from '../../../../../components/layout/ProtectedRoute';
 import Buy from '../../../../../components/nfts/components/Buy';
 
 export const getStaticPaths = async ({ locales }) => {
@@ -38,7 +39,11 @@ export const getStaticProps = async context => {
 };
 
 const index = ({ nftId, ownerId }) => {
-  return <Buy nftId={nftId} ownerId={ownerId} />;
+  return (
+    <ProtectedRoute>
+      <Buy nftId={nftId} ownerId={ownerId} />
+    </ProtectedRoute>
+  );
 };
 
 export default index;

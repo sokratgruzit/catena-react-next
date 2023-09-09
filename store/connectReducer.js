@@ -10,6 +10,19 @@ const INIT_STATE = {
 };
 
 const connectReducer = (state = INIT_STATE, action) => {
+  if (action.type === 'LOGOUT') {
+    return {
+      isConnected: false,
+      providerType: '',
+      walletModalOpen: false,
+      account: '',
+      chainId: undefined,
+      otpEnabled: false,
+      connectionError: '',
+      balance: 0
+    };
+  }
+
   if (action.type === 'TOGGLE_WALLET_CONNECT_MODAL') {
     return {
       ...state,
