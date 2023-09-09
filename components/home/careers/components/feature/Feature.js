@@ -60,7 +60,7 @@ const Feature = ({ featureLinkList, title, showButton, openPositions }) => {
                     <CopyIcon />
                   </div>
                   <p className='ttl' key={index} style={{ display: "flex", gap: '10px' }}>
-                    <span>{item?.department} {item?.type && "/"}</span>
+                    <span>{item?.department['en']["department.departmentName"]} {item?.type && "/"}</span>
                     <span> {item?.type} {item?.remote && "/"}</span>
                     <span>{item?.remote === "Yes" ? "Remote" : ""}</span>
                   </p>

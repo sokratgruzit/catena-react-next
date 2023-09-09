@@ -195,7 +195,6 @@ const Rank = () => {
         </div>
       </div>
       <div className={styles.rankBorder}>
-        <CornerDecor />
         <div className={styles.rankTrades}>
           <h5 className='ttl'>Top Traders</h5>
           <p>Since start of the competition</p>
