@@ -5,6 +5,7 @@ const INIT_STATE = {
   account: '',
   chainId: undefined,
   otpEnabled: false,
+  connectionError: '',
   balance: 0
 };
 
@@ -34,6 +35,13 @@ const connectReducer = (state = INIT_STATE, action) => {
     return {
       ...state,
       ...action,
+    };
+  }
+
+  if (action.type === 'CONNECTION_ERROR') {
+    return {
+      ...state,
+      connectionError: action.payload,
     };
   }
 

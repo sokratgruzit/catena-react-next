@@ -1,7 +1,41 @@
 import React from 'react';
+import { useRouter } from 'next/router';
 import Profile from '../../../../../components/nfts/components/Profile';
 
-function profile() {
+export async function getStaticPaths() {
+  return {
+    fallback: true,
+    paths: [
+      { params: { profileId: 'some-profile-id-1' } },
+      { params: { profileId: 'some-profile-id-2' } },
+      { params: { profileId: 'some-profile-id-3' } },
+      { params: { profileId: 'some-profile-id-4' } },
+      { params: { profileId: 'some-profile-id-5' } },
+      { params: { profileId: 'some-profile-id-6' } },
+    ],
+  };
+}
+
+export async function getStaticProps(context) {
+  return {
+    props: {
+      buyDetails: {
+        imgSrc: '',
+        title: '',
+        value: '',
+        blockQuote: '',
+        cmcx: '',
+        usd: '',
+        id: '',
+      },
+      ownerItems: '',
+      detailsItems: '',
+      collectionsItems: '',
+    },
+  };
+}
+
+const index = props => {
   let nftArrivalsData = [
     {
       id: 0,
@@ -127,12 +161,13 @@ function profile() {
       text: 'Joined Catena during the first year of our journey!',
     },
   ];
+  const router = useRouter();
 
-  return (
-    <div>
-      <Profile nftArrivalsData={nftArrivalsData} achivements={achivements} />
-    </div>
-  );
-}
+  if (router.isFallback) {
+    return <h1>Loading...</h1>;
+  }
 
-export default profile;
+  return <Profile nftArrivalsData={nftArrivalsData} achivements={achivements} {...props} />;
+};
+
+export default index;

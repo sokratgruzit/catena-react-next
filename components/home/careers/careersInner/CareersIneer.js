@@ -43,12 +43,12 @@ const CareersIneer = ({ item }) => {
         </div>
         <div className='custum-text'>
           <h2 style={{color:"#162029"}}>Department</h2>
-          <p>{item.department}</p>
+          <p>{item.department['en']["department.departmentName"]}</p>
         </div>
         <StringToHtml data={item.responsibilities['en']['openPosition.responsibilities']} />
         <StringToHtml data={item.requirements['en']['openPosition.requirements']} />
         <StringToHtml data={item.benefits['en']['openPosition.benefits']} />
-        <StringToHtml data={item.worcking_at_catena['en']['openPosition.worcking_at_catena']} />
+        <StringToHtml data={item.working_at_catena['en']['openPosition.working_at_catena']} />
         <StringToHtml data={item.how_we_work['en']['openPosition.how_we_work']} />
         <StringToHtml data={item.about_catena['en']['openPosition.about_catena']} />
         <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', width: "100%", justifyContent: 'space-around' }}>

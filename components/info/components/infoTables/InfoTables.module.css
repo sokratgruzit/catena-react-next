@@ -79,10 +79,10 @@
   position: absolute;
   top: 0;
   left: 0;
-  height: 25px;
-  width: 25px;
-  background: rgba(0, 5, 15, .7);
-  border: 1px solid #4D5057;
+  height: 23px;
+  width: 23px;
+  /* background: #ff6969; */
+  border: 1px solid #162029;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -96,7 +96,8 @@
 
 /* When the radio button is checked, add a blue background */
 .radioContainer input:checked ~ .radioCheckmark {
-  border: 1px solid #0500FF;  
+  /* border: 1px solid red; */
+  background-color: #ff6969;
 }
 
 /* Create the indicator (the dot/circle - hidden when not checked) */
@@ -113,11 +114,10 @@
 
 /* Style the indicator (dot/circle) */
 .radioContainer .radioCheckmark:after {
-	width: 21px;
-	height: 21px;
+	width: 16px;
+	height: 16px;
 	border-radius: 50%;
-
-  background: #0500FF;
+  background: #162029;
 }
 
 @media (max-width:600px){
