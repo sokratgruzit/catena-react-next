@@ -1,236 +1,261 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { Button, Input } from '@catena-network/catena-ui-module';
+import { ethers } from 'ethers';
+
 import createAxiosInstance from '../../pages/api/axios';
 import { useConnect } from '../../hooks/useConnect';
 import { socket } from '../../pages/api/socket';
-// import NFT_ABI from '../abi/NFT_ABI.json';
+import { useNftMarket } from '../../hooks/useNftMarket';
 
 import styles from './MakeProfile.module.css';
 
 const MakeProfile = () => {
-  const nftContractAddress = '0xDC87d42B174D70fFdC81c62414EEc8db30C9E1DB';
+  const teams = [
+    {
+      id: 0,
+      img: 'anarchy.jpg',
+      name: 'Catena Anarchy'
+    },
+    {
+      id: 1,
+      img: 'chaos.jpg',
+      name: 'Catena Chaos'
+    },
+    {
+      id: 2,
+      img: 'mentors.png',
+      name: 'Catena Mentors'
+    }
+  ];
 
-  const [mobileNumber, setMobileNumber] = useState('');
-  const [formData, setFormData] = useState({
-    fullname: '',
-    email: '',
-    mobile: '',
-    password: '',
-    status: true,
-    dateOfBirth: new Date()
-  });
-
-  const [errors, setErrors] = useState({
-    fullname: '',
-    email: '',
-    mobile: '',
-    password: ''
-  });
+  const [profileNfts, setProfileNfts] = useState([]);
+  const [selectedAvatar, setSelectedAvatar] = useState({});
+  const [activeAvatar, setActiveAvatar] = useState(null);
+  const [activeTeam, setActiveTeam] = useState(null);
+  const [nick, setNick] = useState("");
+  const [selectedTeam, setSelectedTeam] = useState("");
+  const [error, setError] = useState("At least 1 CMCX required");
 
   const account = useSelector(state => state.connect.account);
+  const balance = useSelector(state => state.connect.balance);
+  const userData = useSelector(state => state.appState.user);
 
   const router = useRouter();
   const { locale } = router;
   const axios = useMemo(() => createAxiosInstance(), []);
   const dispatch = useDispatch();
   const { library } = useConnect();
+  const { 
+    fetchNFTs,
+    fetchMyNFTsOrListedNFTs,
+    buyNFT
+  } = useNftMarket();
 
   useEffect(() => {
     if (account) {
       axios
         .post('/user', { address: account })
         .then(res => {
-          let user = res?.data?.user;
-          const dateOfBirth = user.dateOfBirth ? new Date(user.dateOfBirth) : new Date();
-          const mobString = user.mobile ? user.mobile.split(' ') : "US +1".split(" ");
+          let user = res?.data;
 
           dispatch({ type: 'SET_USER', payload: user });
-          setFormData({
-            fullname: user.fullname,
-            email: user.email,
-            mobile: {
-              flag: mobString[0],
-              code: mobString[1],
-              number: mobString[2]
-            },
-            status: user.status,
-            password: '',
-            dateOfBirth: dateOfBirth
-          });
-          setMobileNumber(user.mobile);
         })
         .catch(err => {
           console.log(err.response);
         });
+      
+      // fetchMyNFTsOrListedNFTs("fetchItemsListed", "profile").then(items => {
+      //   console.log(items)
+      // });
+  
+      fetchNFTs("profile").then(items => {
+        setProfileNfts(items);
+      });
     } else {
       router.push('/', undefined, { locale });
     }
   }, [account]);
 
-  const changeHandler = e => {
-    const { name, value } = e.target;
-
-    if (name === "mobile") {
-      let mobile = `${value.flag} ${value.code} ${value.number}`;
-      setMobileNumber(mobile);
-    }
-
-    setFormData(prevState => ({
-      ...prevState,
-      [name]: value,
-    }));
-  };
-
-  const changeCountry = (data) => {
-    let number = data.code + data.number
-    setFormData(prevState => ({
-      ...prevState,
-      mobile: number,
-    }));
-  };
-
-  function handleCustomUpdate(name, value) {
-    changeHandler({ target: { name: name, value } });
-    setFormData(prevState => ({
-      ...prevState,
-      [name]: value,
-    }));
-  }
-
-  const handleSubmit = event => {
-    let isValid = true;
-    const newErrors = {};
-
-    for (const [key, value] of Object.entries(formData)) {
-      switch (key) {
-        case 'fullname':
-          newErrors[key] = value ? '' : 'Fullname is required';
-          break;
-        case 'email':
-          if (value && !/^\S+@\S+\.\S+$/.test(value)) {
-            newErrors[key] = 'Email is not valid';
-          }
-          break;
-
-        default:
-          break;
-      }
-      if (newErrors[key]) {
-        isValid = false;
-      }
-    }
-
-    setErrors(newErrors);
-
-    if (isValid) {
-      axios
-        .post('/user/profile', {
+  const handleSubmit = async event => {
+    if (account) {
+      if (!userData.step) {
+        await axios.post('/user/profile', {
           address: account,
-          fullname: formData.fullname,
-          email: formData.email,
-          mobile: mobileNumber,
-          password: formData.password,
-          dateOfBirth: formData.dateOfBirth,
-          status: false,
-          locale: locale
+          avatar: selectedAvatar,
+          avatarLocked: false,
+          locale: locale,
+          step: 0
         })
         .then(res => {
           dispatch({ type: 'SET_USER', payload: res.data });
         })
-        .catch(e => console.log(e.response));
+        .catch(e => setError(e.response.data));
+      }
+
+      if (userData.step === 1) {
+        buyNFT(userData.avatar, true);
+      }
+
+      if (userData.step === 2) {
+        await axios.post('/user/profile', {
+          address: account,
+          team: selectedTeam,
+          nick: nick,
+          locale: locale,
+          step: 3
+        })
+        .then(res => {
+          dispatch({ type: 'SET_USER', payload: res.data });
+          router.push(`/profile/${account}`, undefined, { locale });
+        })
+        .catch(e => setError(e.response.data));
+      }
     }
+  };
+
+  const handleStep = async (avatarId) => {
+    if (!userData.step && avatarId !== "back") {
+      setActiveAvatar(avatarId);
+      let selected = profileNfts.find(nft => nft.tokenId == avatarId);
+      setSelectedAvatar(selected);
+    }
+
+    if (avatarId === "back") dispatch({ type: 'SET_STEP', payload: 0 });
   };
 
   socket.on('emailVerified', (userId) => {
     console.log(`User with ID ${userId} has verified their email`);
   });
-
-  // useEffect(() => {
-  //   if (library && account) {
-  //     const fetchContract = async () => {
-  //       const pinataApiKey = '10862fdbcbad2741f62c';
-  //       const pinataSecretApiKey = '287293bcdfffcd3d7d4e440723d46904074bbb9f357784a3013efb5b116a2513';
-  //       const cid = 'QmRJbbGs4wi57EmJxQYCn9LmKaZpwL66TFjrfy27rWvqPp';
-  //       const node = ipfsClient.cat(cid);
-  //       //const stream = node.cat(cid);
-  //       let contract = new library.eth.Contract(NFT_ABI, nftContractAddress);
-  //       let count = await contract.methods.tokenCount().call();
-  //       let baseUri = await contract.methods.baseURI().call();
-  //       // const nftMeta = await ipfs.get(cid);
-  //       console.log(node, 'lal');
-  //     };
-
-  //     fetchContract();
-  //   }
-  // }, [library, account]);
-
+console.log(userData)
   return (
     <>
       {account ? <div className="container">
-        <div className={`${styles.makeProfileWrapper}`}>
-          <Input
-            type={"default"}
-            editable={true}
-            name="fullname"
-            value={formData.fullname}
-            emptyFieldErr={true}
-            inputType={"text"}
-            placeholder={"Your full name"}
-            label={"Fullname"}
-            onChange={changeHandler}
-          />
-          <Input
-            type={"default"}
-            name="email"
-            value={formData.email}
-            emptyFieldErr={true}
-            editable={true}
-            inputType={"email"}
-            placeholder={"Your email address"}
-            label={"Email"}
-            onChange={changeHandler}
-          />
-          <Input
-            type={"default"}
-            name="password"
-            value={formData.password}
-            inputType={"password"}
-            editable={true}
-            emptyFieldErr={true}
-            placeholder={"New password"}
-            label={"Enter Password"}
-            onChange={changeHandler}
-          />
-          <Input
-            type={"label-input-phone-number"}
-            name="mobile"
-            value={formData.mobile}
-            placeholder={"Mobile Number"}
-            label={"Enter your mobile number"}
-            onChange={value => handleCustomUpdate('mobile', value)}
-          />
-          <Input
-            type={"date-picker-input"}
-            name="dateOfBirth"
-            value={formData.dateOfBirth}
-            editable={true}
-            placeholder={"YYYY/MM/DD"}
-            label={"Date Of Birth"}
-            onChange={value => handleCustomUpdate('dateOfBirth', value)}
-          />
+        {!userData?.step && <div className={styles.makeProfileWrapper}>
+          {profileNfts?.map(item => (
+            <div 
+              key={item.tokenId} 
+              className={styles.avatarCard}
+              style={activeAvatar === item.tokenId ? 
+                {
+                  background: "#ff6969"
+                } : {}
+              }
+              onClick={() => handleStep(item.tokenId)}
+            >
+              <div className={styles.avatarImg}>
+                <Image src={item.image} alt={item.name} width={50} height={50} />
+                <p>{item.name}</p>
+              </div>
+              <span 
+                className={styles.radio}
+                style={activeAvatar === item.tokenId ? 
+                  {
+                    background: "#0500ff",
+                    opacity: ".5"
+                  } : {}
+                }
+              ></span>
+            </div>
+          ))}
+          {Number(ethers.utils.formatEther(balance)) < 1 && <div>{error}</div>}
           <Button
-            label={'Submit'}
+            label={'Confirm'}
             size={'btn-lg'}
             type={'btn-primary'}
-            arrow={'arrow-right'}
+            arrow={'arrow-none'}
             element={'button'}
-            disabled={false}
-            onClick={() => handleSubmit()}
+            disabled={() => Number(ethers.utils.formatEther(balance)) >= 1 ? false : true}
+            onClick={() => Number(ethers.utils.formatEther(balance)) >= 1 ? handleSubmit() : null}
             className={styles.btnBlu}
           />
-        </div>
+        </div>}
+        {userData?.step === 1 && <div className={styles.makeProfileWrapper}>
+          <div 
+            onClick={() => handleStep("back")}
+            style={{
+              cursor: "pointer",
+              color: "#ff6969"
+            }}
+          >&larr; Previous Step</div>
+          <div className={styles.avatarCard}>
+            <div className={styles.avatarImg}>
+              <Image width={50} height={50} src={userData?.avatar?.image} alt={userData?.avatar?.name} />
+              <p>{userData?.avatar?.name}</p>
+            </div>
+            <Button
+              label={'Lock Avatar'}
+              size={'btn-lg'}
+              type={'btn-primary'}
+              arrow={'arrow-none'}
+              element={'button'}
+              disabled={() => Number(ethers.utils.formatEther(balance)) >= 1 ? false : true}
+              onClick={() => Number(ethers.utils.formatEther(balance)) >= 1 ? handleSubmit() : null}
+              className={styles.btnBlu}
+            />
+            </div>
+        </div>}
+        {userData?.step === 2 && <div className={styles.makeProfileWrapper}>
+          <Input
+            type={"default"}
+            editable={true}
+            name="nick"
+            value={nick}
+            emptyFieldErr={true}
+            inputType={"text"}
+            placeholder={"Your nick name"}
+            label={"Nick Name"}
+            onChange={e => setNick(e.target.value)}
+          />
+          <p style={{ color: "#ff6969" }}>Nick name can't be changed</p>
+          {teams?.map(item => (
+            <div 
+              key={item.id} 
+              className={styles.avatarCard}
+              style={activeTeam === item.id ? 
+                {
+                  background: "#ff6969"
+                } : {}
+              }
+              onClick={() => {
+                setActiveTeam(item.id);
+                setSelectedTeam(item.name);
+              }}
+            >
+              <div className={styles.avatarImg}>
+                <Image src={`/images/${item.img}`} alt={item.name} width={50} height={50} />
+                <p>{item.name}</p>
+              </div>
+              <span 
+                className={styles.radio}
+                style={activeTeam === item.id ? 
+                  {
+                    background: "#0500ff",
+                    opacity: ".5"
+                  } : {}
+                }
+              ></span>
+            </div>
+          ))}
+          <Button
+            label={'Select Team'}
+            size={'btn-lg'}
+            type={'btn-primary'}
+            arrow={'arrow-none'}
+            element={'button'}
+            disabled={() => Number(ethers.utils.formatEther(balance)) >= 1 &&
+              nick &&
+              selectedTeam
+              ? false : true}
+            onClick={() => Number(ethers.utils.formatEther(balance)) >= 1 &&
+              nick &&
+              selectedTeam
+              ? handleSubmit() : null}
+            className={styles.btnBlu}
+          />
+        </div>}
       </div> : <div className={`${styles.loadingElement}`}>Loading...</div>}
     </>
   );

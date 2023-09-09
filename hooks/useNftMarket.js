@@ -1,6 +1,6 @@
 import { useMemo, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useWeb3React } from '@web3-react/core';
 import { create as ipfsHttpClient } from 'ipfs-http-client';
 import { ethers } from 'ethers';
@@ -31,6 +31,7 @@ export const useNftMarket = () => {
   const axios = createAxiosInstance();
   const { account, library } = useWeb3React();
   const router = useRouter();
+  const dispatch = useDispatch();
 
   const uploadToIPFS = async file => {
     try {
@@ -88,7 +89,7 @@ export const useNftMarket = () => {
     }
   };
 
-  const fetchNFTs = async () => {
+  const fetchNFTs = async cat => {
     try {
       const contract = await connectToContract();
       const data = await contract.methods.fetchMarketItem().call();
@@ -108,15 +109,15 @@ export const useNftMarket = () => {
             tokenId,
           });
 
-          const image = data.data.image;
-          const description = data.data.description;
-          const name = data.data.name;
-          const social = data.data.social;
-          const fileSize = data.data.fileSize;
-          const royalties = data.data.royalties;
-          const property = data.data.property;
-          const category = data.data.category;
-          const website = data.data.website;
+          const image = data.image;
+          const description = data.description;
+          const name = data.name;
+          const social = data.social;
+          const fileSize = data.fileSize;
+          const royalties = data.royalties;
+          const property = data.property;
+          const category = data.category;
+          const website = data.website;
           const price = ethers.utils.formatUnits(unformattedPrice, 'ether').toString();
 
           return {
@@ -137,6 +138,11 @@ export const useNftMarket = () => {
           };
         }),
       );
+
+      if (cat?.toLowerCase() === 'profile')
+        items = items.filter(
+          (item, index, self) => item.category.toLowerCase() === cat.toLowerCase() && self.indexOf(item) === index,
+        );
 
       return items;
     } catch (e) {
@@ -164,15 +170,15 @@ export const useNftMarket = () => {
             tokenId,
           });
 
-          const image = data.data.image;
-          const description = data.data.description;
-          const name = data.data.name;
-          const social = data.data.social;
-          const fileSize = data.data.fileSize;
-          const royalties = data.data.royalties;
-          const property = data.data.property;
-          const category = data.data.category;
-          const website = data.data.website;
+          const image = data.image;
+          const description = data.description;
+          const name = data.name;
+          const social = data.social;
+          const fileSize = data.fileSize;
+          const royalties = data.royalties;
+          const property = data.property;
+          const category = data.category;
+          const website = data.website;
           const price = ethers.utils.formatUnits(unformattedPrice, 'ether').toString();
 
           return {
@@ -204,7 +210,7 @@ export const useNftMarket = () => {
     }
   };
 
-  const fetchMyNFTsOrListedNFTs = async type => {
+  const fetchMyNFTsOrListedNFTs = async (type, cat) => {
     try {
       const contract = await connectToContract();
       const data =
@@ -228,15 +234,15 @@ export const useNftMarket = () => {
             tokenId,
           });
 
-          const image = data.data.image;
-          const description = data.data.description;
-          const name = data.data.name;
-          const social = data.data.social;
-          const fileSize = data.data.fileSize;
-          const royalties = data.data.royalties;
-          const property = data.data.property;
-          const category = data.data.category;
-          const website = data.data.website;
+          const image = data.image;
+          const description = data.description;
+          const name = data.name;
+          const social = data.social;
+          const fileSize = data.fileSize;
+          const royalties = data.royalties;
+          const property = data.property;
+          const category = data.category;
+          const website = data.website;
           const price = ethers.utils.formatUnits(unformattedPrice, 'ether').toString();
 
           return {
@@ -258,21 +264,38 @@ export const useNftMarket = () => {
         }),
       );
 
+      if (cat?.toLowerCase() === 'profile')
+        items = items.filter(
+          (item, index, self) => item.category.toLowerCase() === cat.toLowerCase() && self.indexOf(item) === index,
+        );
+
       return items;
     } catch (e) {
       console.log(e);
     }
   };
 
-  const buyNFT = async nft => {
+  const buyNFT = async (nft, profile) => {
     try {
-      const contract = await connectToContract();
-      const price = ethers.utils.parseUnits(nft.price, 'ether').toString();
-      const transaction = await contract.methods.createMarketSale(nft.tokenId).send({ from: account, value: price });
+      // const contract = await connectToContract();
+      // const price = ethers.utils.parseUnits(nft.price, "ether").toString();
+      // const transaction = await contract.methods.createMarketSale(nft.tokenId).send({ from: account, value: price });
 
-      router.push('/overview/nfts/collections/creator');
+      if (!profile) router.push('/overview/nfts/collections/creator');
 
-      await transaction.wait();
+      if (profile) {
+        await axios
+          .post('/user/profile', {
+            address: account,
+            avatarLocked: true,
+            step: 2,
+          })
+          .then(res => {
+            dispatch({ type: 'SET_USER', payload: res.data });
+          })
+          .catch(e => console.log(e.response.data));
+      }
+      //await transaction.wait();
     } catch (e) {
       console.log(e);
     }
