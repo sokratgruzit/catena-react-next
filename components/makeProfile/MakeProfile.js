@@ -73,7 +73,7 @@ const MakeProfile = () => {
         setProfileNfts(data);
       });
     } else {
-      router.push('/', undefined, { locale });
+      router.push('/', undefined, { locale, address: account });
     }
   }, [account]);
 
@@ -118,7 +118,7 @@ const MakeProfile = () => {
         })
         .then(res => {
           dispatch({ type: 'SET_USER', payload: res.data });
-          router.push(`/profile/${account}`, undefined, { locale });
+          router.push(`/profile/${account}`, undefined, { locale, address: account });
         })
         .catch(e => setError(e.response.data));
       }

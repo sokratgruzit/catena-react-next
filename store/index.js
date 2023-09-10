@@ -19,7 +19,7 @@ const rootReducer = combineReducers({
   connect: persistReducer(persistConfig, connectReducer),
   favorites: persistReducer(persistConfig, favoritesReducer),
   settings: persistReducer(persistConfig, settingsReducer),
-  appState: appStateReducer,
+  appState: persistReducer(persistConfig, appStateReducer),
   nftsState: persistReducer(persistConfig, nftsReducer)
 });
 

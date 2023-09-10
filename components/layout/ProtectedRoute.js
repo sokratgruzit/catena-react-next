@@ -1,15 +1,18 @@
 import { useRouter } from 'next/router';
+import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { useConnect } from '../../hooks/useConnect';
 
 const ProtectedRoute = ({ children }) => {
     const router = useRouter();
-    const { locale, address } = router;
     const { account } = useConnect();
+    const { locale, query } = router;
+    const address = useSelector(state => state.connect.account);
+    const checkConnection = address || account;
 
     useEffect(() => {
-        if (!account) {
-            router.push('/', undefined, { locale });
+        if (!checkConnection) {
+            router.push('/', undefined, { ...query, locale });
         }
     }, []);
 

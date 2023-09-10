@@ -28,6 +28,7 @@ function getLibrary(provider, connector) {
 function MyApp({ Component, pageProps }) {
   const [isInitialized, setIsInitialized] = useState(false);
   const [fixedFooter, setFixedFooter] = useState(true);
+  const [routerReady, setRouterReady] = useState(false);
   
   const router = useRouter();
   const { handleLanguageChange } = useLanguages();
@@ -48,6 +49,7 @@ function MyApp({ Component, pageProps }) {
     } else {
       setFixedFooter(false);
     }
+    if (router.isReady) setRouterReady(true);
   }, [router]);
 
   useEffect(() => {
@@ -122,7 +124,7 @@ function MyApp({ Component, pageProps }) {
       <Web3ReactProvider getLibrary={getLibrary}>
         <Provider store={store}>
           <PersistGate loading={null} persistor={persistor}>
-            <Wrapper>
+            {routerReady && <Wrapper>
               <div className='noise-parent'>
                 <div className='noise'></div>
               </div>
@@ -130,7 +132,7 @@ function MyApp({ Component, pageProps }) {
               <Header />
               <Component {...pageProps} />
               <Footer active={!fixedFooter} fixed={fixedFooter}/>
-            </Wrapper>
+            </Wrapper>} 
           </PersistGate>
         </Provider>
       </Web3ReactProvider>

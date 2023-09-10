@@ -1,11 +1,12 @@
 import { useRouter } from 'next/router';
-import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useMemo } from 'react';
 import store from '../store/index';
 
 const getDefaultLanguage = () => 'en'; // Change this to your default language
 
 const useLanguages = () => {
+  const routerQuery = store.getState().appState.routerQuery;
   const router = useRouter();
 
   const getLocaleFromUrl = () => {
@@ -14,10 +15,8 @@ const useLanguages = () => {
   };
 
   const setLocaleInUrl = (loc) => {
-    const { pathname, asPath } = router;
-    //const updatedQuery = { ...query, lang: locale };
-    //router.push({ pathname, query: updatedQuery }, asPath, { shallow: true });
-    router.push(pathname, asPath, { locale: loc });
+    const { pathname, asPath, query } = router;
+    router.push(pathname, asPath, { ...query, locale: loc });
   };
 
   const handleLanguageChange = (locale) => {

@@ -3,15 +3,21 @@ import { useRouter } from 'next/router';
 
 import createAxiosInstance from '../../api/axios';
 
-import EventsItem from '../../../components/home/events/EventsItem';
+import EventsItem from '../../../components/home/events/components/eventsInner/EventsInner';
 
-const index = () => {
+const index = async () => {
   const router = useRouter();
   const { slug } = router;
   const axios = createAxiosInstance();
-  const { data } = await axios.post(`${process.env.NEXT_PUBLIC_URL}/event/get-one-event`, { slug });
+
+  const fetchData = async () => {
+    const { data } = await axios.post(`${process.env.NEXT_PUBLIC_URL}/event/get-one-event`, { slug });
+    return data;
+  };
   
-  return <EventsItem item={data} />;
+  const event = fetchData();
+
+  return <EventsItem event={event} slug={slug} />;
 };
 
 export default index;
