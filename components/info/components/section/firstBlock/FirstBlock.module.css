@@ -1,71 +1,81 @@
-.firstBlock{
-  width: 433px;
-  height: 304px;
+.firstBlock {
+  width: 45%;
   padding: 20px;
-  margin-bottom: 50px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   position: relative;
+  background-color: #cecece;
+  border-radius: 20px;
+  border: 1px solid #162029;
 }
 
 
-.poolsTopRow{
+.poolsTopRow {
   display: flex;
   justify-content: space-between;
 }
 
-.firstBlock h4 {
-  font-weight: 400;
-  font-size: 13px;
-  line-height: 18px;
-  color: #627EEA;
+.poolsTopRow div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 80px;
+  border-bottom: 1px solid #162029;
 }
 
-.poolsTopRow div:nth-child(2){
+.poolsTopRow div p {
+  color: #162029;
+  font-size: 16px;
+}
+
+.firstBlock h4 {
+  color: #162029;
+}
+
+.poolsTopRow div:nth-child(2) {
   margin-right: 50px;
 }
-.totalTokens{
+
+.totalTokens {
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 393px;
-  height: 104px;
-  position: relative;
 }
 
-.totalTokensRow{
+.totalTokensRow {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-left:20px;
+  padding-left: 20px;
   padding-right: 20px;
 }
-.totalTokensRow div:nth-child(1){
+
+.totalTokensRow div:nth-child(1) {
   display: flex;
   margin: 5px;
 }
-.totalTokensRow div:nth-child(1) p:nth-child(2){
+
+.totalTokensRow div:nth-child(1) p:nth-child(2) {
   margin-left: 10px;
 }
 
-.totalTokensTitle{
+.totalTokensTitle {
   margin-bottom: 18px;
 }
 
 
 
 @media (max-width: 1200px) {
-  .firstBlock{
-    max-width: 35vw;
-  }
-  .totalTokens{
+  .totalTokens {
     max-width: 100%;
   }
 }
 
-@media(max-width:896px){
-  .firstBlock{
-    max-width: none;
+@media(max-width:896px) {
+  .firstBlock {
+    width: 100%;
   }
 }

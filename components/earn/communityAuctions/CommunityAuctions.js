@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router';
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { Button, Input, HelpText } from '@catena-network/catena-ui-module';
 import Link from 'next/link';
 import { CatenaLogo } from '../../svg';
@@ -46,13 +47,15 @@ const stakersRecord = [
 const CommunityAuctions = props => {
   const [showWhiteListedWallets, setShowWhiteListedWallets] = useState(false);
   const [toggle, setToggle] = useState(false);
+  const activeLang = useSelector(state => state.settings.activeLang);
+
 
   const router = useRouter();
 
   return (
     <main className={`container ${styles.auction__container}`}>
       <div className={`${styles.auction__head} custum-text`}>
-        <Link href={`/overview/earn/farms`}>
+        <Link href={`/overview/earn/farms`} locale={activeLang}>
           <div className={styles.backToFarmButton} >
             <ArrowWithBorderSvg className={styles.arrowSvgHover} />
             Back Farm

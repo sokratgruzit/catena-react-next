@@ -9,6 +9,7 @@ const AddressSearch = props => {
   const [addresses, setAddresses] = useState([]);
   const [matchedAddress, setMatchedAddress] = useState(null);
   const [btnActive, setActiveBtn] = useState(false);
+  const activeLang = useSelector(state => state.settings.activeLang);
 
   useEffect(() => {
     if (nftStatsData) {
@@ -42,6 +43,7 @@ const AddressSearch = props => {
         <Link
           href={`/nfts/${matchedAddress}`}
           className={`${btnActive === true ? styles.Market__searchBtn : styles.Market__searchBtn__disabled}`}
+          locale={activeLang}
         >
           Search
         </Link>
@@ -55,6 +57,7 @@ const AddressSearch = props => {
         <Link
           className={`${btnActive === true ? styles.Creator__searchIcon : styles.Creator__searchIcon__disabled}`}
           href={`/nfts/${matchedAddress}`}
+          locale={activeLang}
         >
           <div className={`${styles.creatorBtn} ttl`}>
             <Button

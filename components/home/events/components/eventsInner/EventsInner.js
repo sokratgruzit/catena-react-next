@@ -1,10 +1,10 @@
 import React, { useEffect, useState, useMemo } from 'react';
-import Slider from '../../UI/slider/Slider';
-import CopyLink from '../press/components/pressInner/CopyLink';
+import Slider from '../../../../UI/slider/Slider';
+import CopyLink from '../../../press/components/pressInner/CopyLink';
 import { useSelector } from 'react-redux';
-import createAxiosInstance from '../../../pages/api/axios';
-import Card from '../../UI/card/Card';
-import styles from './css/EventsInner.module.css';
+import createAxiosInstance from '../../../../../pages/api/axios';
+import Card from '../../../../UI/card/Card';
+import styles from './EventsInner.module.css';
 import JoinCommunity from '../joinComunity/JoinCommunity';
 
 const EventsInner = ({ event, slug }) => {

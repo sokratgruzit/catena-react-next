@@ -10,6 +10,7 @@ const nextConfig = {
     domains: [
       'assets.coingecko.com', 
       'localhost', 
+      'newgate.infura-ipfs.io',
       'sokrat-nfts.infura-ipfs.io',
       'infura-ipfs.io'
     ],
