@@ -51,7 +51,7 @@ const MakeProfile = () => {
   const { 
     fetchNFTs,
     fetchMyNFTsOrListedNFTs,
-    buyNFT
+    createNFT
   } = useNftMarket();
 
   useEffect(() => {
@@ -66,13 +66,11 @@ const MakeProfile = () => {
         .catch(err => {
           console.log(err.response);
         });
-      
-      // fetchMyNFTsOrListedNFTs("fetchItemsListed", "profile").then(items => {
-      //   console.log(items)
-      // });
-  
-      fetchNFTs("profile").then(items => {
-        setProfileNfts(items);
+
+      axios.get("/user/profile-images").then(res => {
+        let data = res.data;
+
+        setProfileNfts(data);
       });
     } else {
       router.push('/', undefined, { locale });
@@ -96,7 +94,18 @@ const MakeProfile = () => {
       }
 
       if (userData.step === 1) {
-        buyNFT(userData.avatar, true);
+        createNFT(
+          userData.avatar.name,
+          userData.avatar.price,
+          userData.avatar.url,
+          userData.avatar.description,
+          userData.avatar.website,
+          userData.avatar.royalties,
+          userData.avatar.fileSize,
+          userData.avatar.category,
+          userData.avatar.property,
+          userData.avatar.social
+        );
       }
 
       if (userData.step === 2) {
@@ -119,39 +128,39 @@ const MakeProfile = () => {
   const handleStep = async (avatarId) => {
     if (!userData.step && avatarId !== "back") {
       setActiveAvatar(avatarId);
-      let selected = profileNfts.find(nft => nft.tokenId == avatarId);
+      let selected = profileNfts.find(nft => nft.id == avatarId);
       setSelectedAvatar(selected);
     }
 
     if (avatarId === "back") dispatch({ type: 'SET_STEP', payload: 0 });
   };
 
-  socket.on('emailVerified', (userId) => {
-    console.log(`User with ID ${userId} has verified their email`);
-  });
-console.log(userData)
+  // socket.on('emailVerified', (userId) => {
+  //   console.log(`User with ID ${userId} has verified their email`);
+  // });
+
   return (
     <>
       {account ? <div className="container">
         {!userData?.step && <div className={styles.makeProfileWrapper}>
           {profileNfts?.map(item => (
             <div 
-              key={item.tokenId} 
+              key={item.id} 
               className={styles.avatarCard}
-              style={activeAvatar === item.tokenId ? 
+              style={activeAvatar === item.id ? 
                 {
                   background: "#ff6969"
                 } : {}
               }
-              onClick={() => handleStep(item.tokenId)}
+              onClick={() => handleStep(item.id)}
             >
               <div className={styles.avatarImg}>
-                <Image src={item.image} alt={item.name} width={50} height={50} />
+                <Image src={item.img} alt={item.name} width={80} height={80} />
                 <p>{item.name}</p>
               </div>
               <span 
                 className={styles.radio}
-                style={activeAvatar === item.tokenId ? 
+                style={activeAvatar === item.id ? 
                   {
                     background: "#0500ff",
                     opacity: ".5"
@@ -182,7 +191,7 @@ console.log(userData)
           >&larr; Previous Step</div>
           <div className={styles.avatarCard}>
             <div className={styles.avatarImg}>
-              <Image width={50} height={50} src={userData?.avatar?.image} alt={userData?.avatar?.name} />
+              <Image width={80} height={80} src={userData?.avatar?.img} alt={userData?.avatar?.name} />
               <p>{userData?.avatar?.name}</p>
             </div>
             <Button

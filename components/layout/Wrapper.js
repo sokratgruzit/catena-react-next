@@ -29,25 +29,11 @@ const Wrapper = ({ children }) => {
   };
 
   useEffect(() => {
-    MetaMaskEagerlyConnect(injected, () => {
-      dispatch({ type: 'SET_TRIED_RECONNECT', payload: true });
-    });
-
-    WalletConnectEagerly(walletConnect, () => {
-      dispatch({ type: 'SET_TRIED_RECONNECT', payload: true });
-    });
-
-    if (!providerType) {
-      dispatch({ type: 'SET_TRIED_RECONNECT', payload: true });
-    } 
-  }, []);
-
-  useEffect(() => {
     if (account && triedReconnect) {
       axios
       .post('/user', { address: account })
       .then(res => {
-        dispatch({ type: 'SET_USER', payload: res.data?.user });
+        dispatch({ type: 'SET_USER', payload: res?.data });
         dispatch({
           type: "UPDATE_STATE",
           account: account.toLocaleLowerCase()
@@ -58,6 +44,18 @@ const Wrapper = ({ children }) => {
       });
 
       getBalance();
+    } else {
+      MetaMaskEagerlyConnect(injected, () => {
+        dispatch({ type: 'SET_TRIED_RECONNECT', payload: true });
+      });
+  
+      WalletConnectEagerly(walletConnect, () => {
+        dispatch({ type: 'SET_TRIED_RECONNECT', payload: true });
+      });
+  
+      if (!providerType) {
+        dispatch({ type: 'SET_TRIED_RECONNECT', payload: true });
+      } 
     }
   }, [account, triedReconnect]);
 
