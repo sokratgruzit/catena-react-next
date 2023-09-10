@@ -50,6 +50,7 @@
 
 .ChartDateControle {
   display: flex;
+  margin-top: 20px;
   gap: 10px;
 }
 
