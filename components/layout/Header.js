@@ -48,6 +48,7 @@ const Header = () => {
   const address = useSelector(state => state.connect.account);
   const balance = useSelector(state => state.connect.balance);
   const triedReconnect = useSelector(state => state.appState.triedReconnect);
+  const user = useSelector(state => state.appState.user);
   const providerType = useSelector(state => state.connect.providerType);
   const isConnected = useSelector(state => state.connect.isConnected);
   const slippage = useSelector(state => state.settings.slippage);
@@ -58,9 +59,7 @@ const Header = () => {
     disconnect,
     connect,
     chainId,
-    account,
-    MetaMaskEagerlyConnect,
-    WalletConnectEagerly
+    account
   } = useConnect();
   const axios = useMemo(() => createAxiosInstance(), []);
 
@@ -275,6 +274,8 @@ const Header = () => {
     handleLanguageChange(loc);
   };
 
+  console.log(user)
+
   const openMenu = id => {
     if (window.innerWidth >= 1024) {
       closeAll();
@@ -461,24 +462,7 @@ const Header = () => {
     if (window.innerWidth <= 767) {
     }
 
-    MetaMaskEagerlyConnect(injected, () => {
-      dispatch({ type: 'SET_TRIED_RECONNECT', payload: true });
-    });
-
-    WalletConnectEagerly(walletConnect, () => {
-      dispatch({ type: 'SET_TRIED_RECONNECT', payload: true });
-    });
-
-    if (!providerType) {
-      dispatch({ type: 'SET_TRIED_RECONNECT', payload: true });
-    }
-
     getLocales();
-
-    if (address) {
-      if (providerType === "walletConnect") connect("walletConnect", walletConnect);
-      if (providerType === "metaMask") connect("metaMask", injected);
-    }
   }, []);
 
   useEffect(() => {
@@ -1663,9 +1647,9 @@ const Header = () => {
                 </svg>
               </a>
             </Link>
-            {account && <Link href='/profile/create' locale={activeLang}>
+            {account && <Link href={user?.step !== 3 ? '/profile/create' : !account ? '/' : `/profile/${address}`} locale={activeLang}>
               <a className={styles.headerConnectedModalLink}>
-                <span>Make a Profile</span>
+                <span>{user?.step !== 3 ? 'Make a Profile' : 'Profile'}</span>
                 <svg width='5' height='9' viewBox='0 0 5 9' fill='none' xmlns='http://www.w3.org/2000/svg'>
                   <path
                     fillRule='evenodd'
@@ -1720,7 +1704,7 @@ const Header = () => {
                   }}
                   onClick={() => {
                     closeAll();
-                    
+
                     if (item.type === 'walletConnect') {
                       connect(item.type, walletConnect);
                     } else {
