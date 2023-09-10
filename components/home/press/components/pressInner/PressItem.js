@@ -1,7 +1,7 @@
 import Slider from '../../../../UI/slider/Slider';
 import { useSelector } from 'react-redux';
-import CopyLink from '../pressInner/CopyLink';
-import JoinCommunity from '../../../events/components/JoinCommunity';
+import CopyLink from '../../../../UI/copyLink/CopyLink';
+import JoinCommunity from '../../../events/components/joinComunity/JoinCommunity';
 import PublicByYears from '../publicByYears/PublicByYears';
 
 import styles from '../../Press.module.css';

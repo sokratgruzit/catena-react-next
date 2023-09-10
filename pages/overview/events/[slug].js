@@ -1,27 +1,27 @@
 import React from 'react';
 import createAxiosInstance from '../../api/axios';
-import EventsItem from '../../../components/home/events/EventsItem';
+import EventsInner from '../../../components/home/events/components/eventsInner/EventsInner';
 
 export const getStaticPaths = async ({ locales }) => {
   const axios = createAxiosInstance();
 
   let events = await axios
-  .get(`${process.env.NEXT_PUBLIC_URL}/event/get-all-event-slug`)
-  .then(res => {
-    return res?.data;
-  })
-  .catch(err => {
-    console.log(err?.response);
-  });
+    .get(`${process.env.NEXT_PUBLIC_URL}/event/get-all-event-slug`)
+    .then(res => {
+      return res?.data;
+    })
+    .catch(err => {
+      console.log(err?.response);
+    });
 
   let paths = [];
 
   if (events && events.length > 0) {
-    paths = events.flatMap((item) =>
-      locales.map((loc) => ({
+    paths = events.flatMap(item =>
+      locales.map(loc => ({
         params: { slug: item.slug },
         locale: loc,
-      }))
+      })),
     );
   }
 
@@ -39,13 +39,13 @@ export const getStaticProps = async context => {
 
   return {
     props: {
-      item: foundItem
+      item: foundItem,
     },
   };
 };
 
 const index = ({ item }) => {
-  return <EventsItem item={item} />;
+  return <EventsInner item={item} />;
 };
 
 export default index;

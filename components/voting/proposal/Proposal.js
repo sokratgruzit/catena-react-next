@@ -10,19 +10,29 @@ export default function Proposal() {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
   const [time, setTime] = useState('');
-  const { quill, quillRef } = useQuill();
-  const [value, setValue] = useState();
+  const [editorContent, setEditorContent] = useState(''); // Store Quill content
+  const [choices, setChoices] = useState(['']); // Initialize with one choice
 
-  React.useEffect(() => {
-    if (quill) {
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      // This code will only run on the client-side
+      const Quill = require('quill'); // Import Quill dynamically on the client-side
+
+      // Initialize the Quill editor
+      const quill = new Quill('#editor', {
+        theme: 'snow',
+        modules: {
+          toolbar: [['bold', 'italic'], [{ header: '1' }], [{ list: 'bullet' }, { list: 'ordered' }], ['link']],
+        },
+      });
+
+      // Add a text-change event listener to update the content
       quill.on('text-change', () => {
-        console.log(quillRef.current.firstChild.innerHTML);
-        setValue(quillRef.current.firstChild.innerHTML);
+        const content = quill.root.innerHTML;
+        setEditorContent(content);
       });
     }
-  }, [quill]);
-
-  console.log(value, 'this is quill editor');
+  }, []);
 
   const handleInputChange = event => {
     const inputTime = event.target.value;
@@ -41,6 +51,17 @@ export default function Proposal() {
   const handleInputChanges = event => {
     console.log('hi');
   };
+
+  const addChoice = () => {
+    setChoices([...choices, '']); // Add an empty choice to the array
+  };
+
+  const updateChoice = (index, value) => {
+    const updatedChoices = [...choices];
+    updatedChoices[index] = value;
+    setChoices(updatedChoices);
+  };
+
   return (
     <div className={`${styles.main} `}>
       <div className={styles.proposalWrapper}>
@@ -54,7 +75,6 @@ export default function Proposal() {
         <div className={`${styles.bottomBox}`}>
           <form className={styles.form}>
             <Input
-              className={styles.llll}
               type={'default'}
               icon={false}
               label={'title'}
@@ -63,35 +83,48 @@ export default function Proposal() {
               name='text'
               onChange={handleInputChanges}
             />
-            <Input
-              className={styles.llll}
-              type={'default'}
-              icon={false}
-              label={'Content'}
-              subLabel={'Tip: Write in Markdown!'}
-              placeholder={'Enter'}
-              name='text'
-              onChange={handleInputChanges}
-            />
+
             <div className={styles.content}>
               <label className={styles.label}>Content</label>
               <label className={styles.subLabel}>Tip: Write in Markdown!</label>
               <div className={styles.contentTextarea}>
-                <div ref={quillRef} />
+                <div id='editor' />
               </div>
             </div>
-
-            <Input
-              className={styles.llll}
-              type={'default'}
-              icon={false}
-              label={'Choices'}
-              subLabel={''}
-              placeholder={'Enter'}
-              name='text'
-              onChange={handleInputChanges}
-            />
-
+            <div className={styles.choices}>
+              {choices.map((choice, index) => (
+                <div key={index}>
+                  <Input
+                    type='default'
+                    icon={false}
+                    label={index === 0 ? 'Choices' : ''}
+                    subLabel={index === 0 ? '' : ''}
+                    value={choice}
+                    onChange={e => updateChoice(index, e.target.value)}
+                    placeholder={`Enter Choice ${index + 1}`}
+                  />
+                </div>
+              ))}
+              <button className={styles.btn} onClick={addChoice}>
+                Add Choice
+                <svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                  <path
+                    d='M6 12H18'
+                    stroke='#212121'
+                    stroke-width='1.5'
+                    stroke-linecap='round'
+                    stroke-linejoin='round'
+                  />
+                  <path
+                    d='M12 18V6'
+                    stroke='#212121'
+                    stroke-width='1.5'
+                    stroke-linecap='round'
+                    stroke-linejoin='round'
+                  />
+                </svg>
+              </button>
+            </div>
             <div className={styles.inputContainer}>
               <label className={styles.label}>Date</label>
               <label className={styles.subLabel}>Start Date</label>
