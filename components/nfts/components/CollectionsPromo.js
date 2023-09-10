@@ -1,9 +1,12 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { useSelector } from 'react-redux';
 
 import styles from './CollectionsPromo.module.css';
 
 const CollectionsPromo = () => {
+  const activeLang = useSelector(state => state.settings.activeLang);
+
   return (
     <div className={`${styles.CollectionsPromo} container`}>
       {/* <div className={styles.CollectionsPromo__background}>
@@ -25,7 +28,7 @@ const CollectionsPromo = () => {
         <div className={styles.CollectionsPromo__card3}>
           <Image layout='fill' src='/images/nft/cards/cardright.png' alt='' />
         </div>
-        <Link href={`/overview/nfts/collections`}>
+        <Link href={`/overview/nfts/collections`} locale={activeLang}>
           <div className={styles.CollectionsPromo__btnWrap}>
             <div className={styles.CollectionsPro1mo__btn}>
               <svg

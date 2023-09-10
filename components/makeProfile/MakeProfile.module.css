@@ -1,12 +1,58 @@
-.makeProfileWrapper {
+.contHead {
   display: flex;
   flex-direction: column;
-  margin-top: 150px;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.contStep {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.contStep p {
+  color: #162029;
+}
+
+.Line {
+  background-color: #162029;
+  height: 1px;
+  width: 100%;
+  margin: 40px 0;
+}
+
+.contHead h2 {
+  padding-bottom: 15px;
+  color: #162029;
+}
+
+.contHead p {
+  color: #162029;
+  text-align: center;
+}
+
+.tabHead {
+  width: 100%;
+  background-color: #F0DEC9;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 7px 35px;
+}
+
+.makeProfileWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
   gap: 30px;
   width: 100%;
   height: 100%;
-  z-index: 100;
-  position: relative;
+  padding: 20px 35px 25px 35px;
 }
 
 .formSelectDateWrap input {
@@ -48,24 +94,26 @@
 
 .avatarCard {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  background-color: rgba(0, 0, 0, .2);
+  background-color: #FFF3E5;
   transition: .5s;
-  border-radius: 10px;
+  border-radius: 20px;
   cursor: pointer;
-  padding: 10px;
+  padding: 15px 100px;
 }
 
 .avatarCard:hover {
-  background-color: rgba(0, 0, 0, .4);
+  background-color: #A6D0DD;
 }
 
 .avatarImg {
   display: flex;
+  flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  gap: 30px;
+  gap: 5px;
 }
 
 .avatarImg img {
@@ -73,9 +121,22 @@
   height: 50px;
 }
 
-.radio {
+.confirmBtn {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 25px 35px;
+}
+
+.table {
+  border: 1px solid #162029;
+  border-radius: 20px;
+  background-color: #F3E4D2;
+}
+
+/* .radio {
   width: 20px;
   height: 20px;
   border-radius: 50%;
   background-color: #ff6969;
-}
+} */

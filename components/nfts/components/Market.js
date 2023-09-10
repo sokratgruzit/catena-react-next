@@ -11,6 +11,7 @@ export default function Market() {
   const [matchedAddress, setMatchedAddress] = useState(null);
   const nftStatsData = useSelector(state => state.connect.nftStatisticsData);
   const [addresses, setAddresses] = useState([]);
+  const activeLang = useSelector(state => state.settings.activeLang);
 
   useEffect(() => {
     setAddresses(Object.keys([]));
@@ -80,7 +81,7 @@ export default function Market() {
           <p className={`${styles.titleTeaser} font_30`}>
             Buy And Sell NFT’s on <span className={`font_30`}> CATENA </span>
           </p>
-          <Link href={`/overview/nfts/activity`}>
+          <Link href={`/overview/nfts/activity`} locale={activeLang}>
             <div className={`${styles.Activity__btn} ttl`}>
               See Activities
               <svg width='14' height='11' viewBox='0 0 14 11' fill='FF7152' xmlns='http://www.w3.org/2000/svg'>

@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router';
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import Link from 'next/link';
 
 import TabFilter from '../../../UI/filters/TabFilter';
@@ -24,6 +25,7 @@ let tabsData = [
 
 const InfoRoutes = () => {
   const router = useRouter();
+  const activeLang = useSelector(state => state.settings.activeLang);
 
   const getCurrentLocation = loc => {
     let returnStatement = '';
@@ -59,7 +61,7 @@ const InfoRoutes = () => {
           item: styles.Activity__filter__item,
         }}
       />
-      <Link href={'/overview/info/pools/watchlist'}>
+      <Link href={'/overview/info/pools/watchlist'} locale={activeLang}>
         <div className={styles.starWrapper}>
           <StarSvg className={styles.starSVG} />
           <div className={styles.favCount}>3</div>

@@ -3,7 +3,7 @@ import OpenPosition from '../../../../components/home/careers/openPositions/Open
 
 export async function getServerSideProps({ query }) {
   const currentPage = query.page || 1;
-  const limit = 1;
+  const limit = 10;
 
   const axios = createAxiosInstance();
   const response = await axios.get(`${process.env.NEXT_PUBLIC_URL}/open-positions/get-all-open-positions`, {

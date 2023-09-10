@@ -73,11 +73,7 @@
 .input[type='time']::-webkit-calendar-picker-indicator {
   background: none;
 }
-.input[type='time']:not(:valid):before {
-  content: '00:00';
-  margin-right: 0.6em;
-  color: #9d9d9d;
-}
+
 .content {
   display: flex;
   flex-direction: column;
@@ -150,6 +146,17 @@
   align-items: center;
   gap: 7px;
 }
+@media (max-width: 1665px) {
+  .proposalWrapper {
+    grid-template-columns: 4fr 3fr;
+  }
+}
+@media (max-width: 1365px) {
+  .proposalWrapper {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
 @media (max-width: 1300px) {
   .proposalIntro h1 {
     font-size: 60px;
@@ -159,5 +166,12 @@
 @media (max-width: 767px) {
   .proposalIntro h1 {
     font-size: 40px;
+  }
+  .bottomBox {
+    border-radius: 0px;
+  }
+  .proposalWrapper {
+    grid-template-columns: 1fr;
+    gap: 50px;
   }
 }

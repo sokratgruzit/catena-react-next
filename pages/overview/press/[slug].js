@@ -1,51 +1,24 @@
 import React from 'react';
+import { useRouter } from 'next/router';
+
 import createAxiosInstance from '../../api/axios';
+
 import Pressitem from "../../../components/home/press/components/pressInner/PressItem"
 
-export const getStaticPaths = async ({ locales }) => {
+export const getServerSideProps = async context => {
+  const { slug } = context.query;
   const axios = createAxiosInstance();
-
-  let press = await axios
-    .get(`${process.env.NEXT_PUBLIC_URL}/press/get-all-press-slug`)
-    .then(res => {
-      return res?.data;
-    })
-    .catch(err => {
-      console.log(err?.response);
-    });
-
-  let paths = [];
-
-  if (press && press.length > 0) {
-    paths = press.flatMap((item) =>
-      locales.map((loc) => ({
-        params: { slug: item.slug }, 
-        locale: loc,
-      }))
-    );
-  }
-
-  return {
-    paths,
-    fallback: false,
-  };
-};
-
-export const getStaticProps = async context => {
-  const slug = context.params.slug;
-  const axios = createAxiosInstance();
-  const res = await axios.post(`${process.env.NEXT_PUBLIC_URL}/press/get-one-press`, { slug });
-  const foundItem = res?.data ? res?.data : {};
+  const { data } = await axios.post(`${process.env.NEXT_PUBLIC_URL}/press/get-one-press`, { slug });
 
   return {
     props: {
-      onePress: foundItem
+      press: data || {}
     },
   };
 };
- 
-const index = ({ onePress }) => {
-  return <Pressitem onePress={onePress} />
+
+const index = ({ press }) => {
+  return <Pressitem onePress={press} />
 };
 
 export default index;

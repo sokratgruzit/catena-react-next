@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 
 import FormErrorsText from './FormErrorsText';
 import { getFormErrors, mergeDateAndTime } from './helpers';
@@ -30,6 +31,8 @@ const Form = () => {
   const [editedField, setEditedField] = useState();
 
   const formErrors = getFormErrors(formData);
+
+  const activeLang = useSelector(state => state.settings.activeLang);
 
   const handleOnFormSubmit = e => {
     e.preventDefault();
@@ -75,7 +78,7 @@ const Form = () => {
       <div className={styles.gradient}></div>
       <div className={styles.ProposalForm}>
         <div className={styles.header}>
-          <Link href='/voting'>
+          <Link href='/voting' locale={activeLang}>
             <div className={styles.backBtn}>
               <SmlArrowSvg className={styles.arrowSvg} />
               <p>Back Voting</p>

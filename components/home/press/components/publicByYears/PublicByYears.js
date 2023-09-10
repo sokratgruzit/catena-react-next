@@ -70,7 +70,7 @@ const PublicByYears = () => {
         {filterData ? (
           filterData.map((item, index) => {
             return (
-              <Link key={index} href={`/overview/press/${item.slug}`}>
+              <Link key={index} href={`/overview/press/${item.slug}`} locale={activeLang}>
                 <div className={styles.icCont}>
                   <img
                     src={`${process.env.NEXT_PUBLIC_URL}/uploads/press/${item?.logo_image}`}

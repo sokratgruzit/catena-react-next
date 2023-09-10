@@ -5,6 +5,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { useQuill } from 'react-quilljs';
 import 'quill/dist/quill.snow.css';
 import styles from './Proposal.module.css';
+// import FormSelectTime from '../components/formDateInput/FormSelectTime';
 
 export default function Proposal() {
   const [startDate, setStartDate] = useState(null);
@@ -33,7 +34,6 @@ export default function Proposal() {
 
   const handleInputChange = event => {
     const inputTime = event.target.value;
-
     setTime(inputTime);
   };
 
@@ -110,16 +110,9 @@ export default function Proposal() {
                 </svg>
               </button>
             </div>
-            <div className={styles.inputContainer}>
-              <label className={styles.label}>Date</label>
-              <label className={styles.subLabel}>Start Date</label>
-              <DatePicker
-                selected={startDate}
-                onChange={handleStartDateChange}
-                dateFormat='MM/dd/yyyy'
-                className={styles.datePicker}
-              />
-            </div>
+
+            {/* <FormSelectTime selected={startDate} onChange={handleStartDateChange} /> */}
+
             <div className={styles.inputContainer}>
               <label className={styles.subLabel}>End Date</label>
               <DatePicker
@@ -139,6 +132,7 @@ export default function Proposal() {
               <input placeholder='00:00' type='time' required className={styles.input} />
             </div>
           </form>
+
           <div className={styles.snapshot}>
             <p>Snapshot:</p>
             <p>
@@ -161,7 +155,7 @@ export default function Proposal() {
             type={'btn-primary'}
             element={'button'}
             disabled={false}
-            onClick={console.log('hi')}
+            onClick={console.log('Connect Wallet')}
             className={styles.btnBlu}
             customStyles={{ background: '#A6D0DD', border: '1px solid #162029', width: '100%' }}
           />

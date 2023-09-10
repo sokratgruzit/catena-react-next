@@ -9,6 +9,7 @@ import Link from 'next/link';
 import styles from './SupportItem.module.css';
 import { useDispatch } from 'react-redux';
 import {useEffect, useState} from "react";
+import { useSelector } from 'react-redux';
 
 const SUPPORTITEMS = [
   {
@@ -49,6 +50,7 @@ const SUPPORTITEMS = [
 ];
 
 const SupportItem = () => {
+  const activeLang = useSelector(state => state.settings.activeLang);
   const dispatch = useDispatch();
   const [pageReady, setPageReady] = useState(false);
   let microSchemes;
@@ -93,7 +95,7 @@ const SupportItem = () => {
               <div className={styles.boxSvg}>{item.svg} </div>
               <div className={`${styles.boxTwo}`}>
                 <div className={styles.boxHover}>
-                  <Link href={`${item.subLink}`} key={item.id}>
+                  <Link href={`${item.subLink}`} key={item.id} locale={activeLang}>
                     <a className={`${styles.BoxTitle} ttl font-40`}>
                       {item.a}
                       <div className={styles.border}></div>

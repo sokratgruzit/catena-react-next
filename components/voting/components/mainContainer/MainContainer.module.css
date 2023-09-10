@@ -22,6 +22,16 @@
   line-height: 120px;
   color: #162029;
 }
+.button {
+  background: #a6d0dd;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border: 1px solid #162029;
+  padding: 16px 34px;
+  border-radius: 61px;
+  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+}
 .button:hover {
   background-color: transparent !important;
 }

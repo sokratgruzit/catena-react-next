@@ -76,6 +76,151 @@
   margin-bottom: 12px;
   pointer-events: none;
 }
+
+
+.auction__tableContainer {
+  position: relative;
+  display: flex;
+  gap: 25px;
+}
+
+.auction__leftPanel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  width: 35%;
+  border-radius: 20px;
+  border: 1px solid rgba(22, 32, 41, .2);
+  background-color: #F3E4D2;
+  height: fit-content;
+}
+
+.tableContainer {
+  width: 65%;
+}
+
+
+.centerElement {
+  width: fit-content;
+  margin: auto;
+}
+
+.allWallets {
+  border: 1px solid rgba(22, 32, 41, .2);
+  background-color: #F3E4D2;
+  border-radius: 20px;
+  z-index: 111;
+  width: 35%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: fit-content;
+}
+
+.wallets {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(22, 32, 41, .2);
+  padding-bottom: 5px;
+}
+
+.addressAndArrow {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.auction__leftPanel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  width: 35%;
+  border-radius: 20px;
+  border: 1px solid rgba(22, 32, 41, .2);
+  background-color: #F3E4D2;
+  height: fit-content;
+}
+
+.allWalletsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(22, 32, 41, .2);
+  padding-bottom: 15px;
+}
+
+.auction__details {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  cursor: pointer;
+}
+.auction__nextDate {
+  margin-bottom: 20px;
+}
+
+.auction__borderBottom {
+  width: 100%;
+  display: flex;
+  border-bottom: 1px solid #dfe0e2;
+}
+
+.auction__schedule {
+  margin: 30px 0 20px 0;
+  color: #ff6969;
+}
+
+.auction__leftPanelInner {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #dfe0e2;
+  padding: 20px;
+}
+
+.auction__leftPanelInner>div {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+
+.auction__leftPanelInner div:nth-child(1) {
+  padding-bottom: 20px;
+}
+
+/* .auction__leftPanelInner>div p {
+  color: #b2b4b7;
+} */
+
+.auction__panelQuestion {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 30px 0;
+}
+
+.auction__panelQuestion svg {
+  margin-left: 10px;
+}
+
+.questionMarkWrapper {
+  width: fit-content;
+  height: 20px;
+}
+
+
+
+
+
+
+
+
 @media (max-width: 768px) {
   .section{
     margin-left: 30px;

@@ -1,6 +1,7 @@
 import React from 'react';
 
 import styles from './TextSvg.module.css';
+import { useSelector } from 'react-redux';
 import listStyles from '../../ListItemRow.module.css';
 
 const TextSvg = ({ data }) => {

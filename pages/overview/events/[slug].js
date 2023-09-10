@@ -1,21 +1,22 @@
 import React from 'react';
-import { useRouter } from 'next/router';
 
 import createAxiosInstance from '../../api/axios';
 import EventsInner from '../../../components/home/events/components/eventsInner/EventsInner';
 
-const index = async () => {
-  const router = useRouter();
-  const { slug } = router;
+export const getServerSideProps = async context => {
+  const { slug } = context.query;
   const axios = createAxiosInstance();
+  const { data } = await axios.post(`${process.env.NEXT_PUBLIC_URL}/event/get-one-event`, { slug });
 
-  const fetchData = async () => {
-    const { data } = await axios.post(`${process.env.NEXT_PUBLIC_URL}/event/get-one-event`, { slug });
-    return data;
+  return {
+    props: {
+      event: data || {},
+      slug,
+    },
   };
+};
 
-  const event = fetchData();
-
+const index = ({ event, slug }) => {
   return <EventsInner event={event} slug={slug} />;
 };
 
