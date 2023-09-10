@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 const TabFilter = props => {
-  const [activeFilters, setActiveFilters] = useState([]);
+  const [activeFilters, setActiveFilters] = useState([props.activeMenu]);
 
   const toggleActiveFilter = label => {
     if (props.allowMultipleTabs) {

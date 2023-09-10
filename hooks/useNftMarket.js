@@ -1,6 +1,6 @@
 import { useMemo, useEffect } from "react";
 import { useRouter } from 'next/router';
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useWeb3React } from "@web3-react/core";
 import { create as ipfsHttpClient } from "ipfs-http-client";
 import { ethers } from "ethers";
@@ -15,14 +15,14 @@ export const useNftMarket = () => {
   const apiKey = process.env.NEXT_PUBLIC_INFURA_API_KEY;
   const secret = process.env.NEXT_PUBLIC_INFURA_API_SECRET;
   const subdomain = process.env.NEXT_PUBLIC_INFURA_SUB_DOMAIN;
-  const auth = `Basic ${Buffer.from(`${apiKey}:${secret}`).toString("base64")}`;
+  const auth = `Basic ${Buffer.from(`${apiKey}:${secret}`).toString('base64')}`;
   const client = ipfsHttpClient({
-    host: "infura-ipfs.io",
+    host: 'infura-ipfs.io',
     port: 5001,
-    protocol: "https",
+    protocol: 'https',
     headers: {
-      authorization: auth
-    }
+      authorization: auth,
+    },
   });
 
   const isConnected = useSelector(state => state.connect.isConnected);
@@ -31,8 +31,9 @@ export const useNftMarket = () => {
   const axios = createAxiosInstance();
   const { account, library } = useWeb3React();
   const router = useRouter();
+  const dispatch = useDispatch();
 
-  const uploadToIPFS = async (file) => {
+  const uploadToIPFS = async file => {
     try {
       const added = await client.add({ content: file });
       const url = `${subdomain}/ipfs/${added.path}`;
@@ -44,7 +45,7 @@ export const useNftMarket = () => {
 
   const createNFT = async (name, price, image, description) => {
     try {
-      if (!name || !description || !price || !image) return console.log("Data missing");
+      if (!name || !description || !price || !image) return console.log('Data missing');
 
       const data = JSON.stringify({ name, description, image });
 
@@ -62,15 +63,11 @@ export const useNftMarket = () => {
   };
 
   const connectToContract = async () => {
-    if (account && isConnected && providerType === "metaMask") {
+    if (account && isConnected && providerType === 'metaMask') {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       const signer = provider.getSigner();
-      
-      const contract = new library.eth.Contract(
-        NFT_MARKET_ABI_HARDHAT.abi, 
-        NFT_CONTRACT_ADDRESS_RSK,
-        signer
-      );
+
+      const contract = new library.eth.Contract(NFT_MARKET_ABI_HARDHAT.abi, NFT_CONTRACT_ADDRESS_RSK, signer);
 
       return contract;
     }
@@ -78,13 +75,13 @@ export const useNftMarket = () => {
 
   const createSale = async (url, formInputPrice, isReselling, id) => {
     try {
-      const price = ethers.utils.parseUnits(formInputPrice, "ether").toString();
+      const price = ethers.utils.parseUnits(formInputPrice, 'ether').toString();
       const contract = await connectToContract();
       let listingPrice = await contract.methods.getListingPrice().call();
       listingPrice = listingPrice.toString();
-      const transaction = !isReselling 
-      ? await contract.methods.createToken(url, price).send({ from: account, value: listingPrice }) 
-      : await contract.methods.reSellToken(url, price).send({ from: account, value: listingPrice });
+      const transaction = !isReselling
+        ? await contract.methods.createToken(url, price).send({ from: account, value: listingPrice })
+        : await contract.methods.reSellToken(url, price).send({ from: account, value: listingPrice });
 
       await transaction.wait();
     } catch (e) {
@@ -92,35 +89,35 @@ export const useNftMarket = () => {
     }
   };
 
-  const fetchNFTs = async () => {
+  const fetchNFTs = async (cat) => {
     try {
       const contract = await connectToContract();
       const data = await contract.methods.fetchMarketItem().call();
       const items = await Promise.all(
-        data.map(async ({ tokenId, seller, owner, price: unformattedPrice}) => {
+        data.map(async ({ tokenId, seller, owner, price: unformattedPrice }) => {
           let tokenURI = await contract.methods.tokenURI(tokenId).call();
-          
+
           // Because old NFTs was created with old gateway we need to directly access it
-          const searchString = "https://infura-ipfs.io/ipfs";
-          const customSearchString = "https://sokrat-nfts.infura-ipfs.io";
-          
+          const searchString = 'https://infura-ipfs.io/ipfs';
+          const customSearchString = 'https://sokrat-nfts.infura-ipfs.io';
+
           if (tokenURI.includes(customSearchString)) tokenURI = tokenURI.replace(customSearchString, searchString);
-          
-          const { data } = await axios.post("admin/get-nft-url", {
+
+          const { data } = await axios.post('admin/get-nft-url', {
             url: tokenURI,
             owner,
-            tokenId
+            tokenId,
           });
 
-          const image = data.data.image;
-          const description = data.data.description;
-          const name = data.data.name;
-          const social = data.data.social;
-          const fileSize = data.data.fileSize;
-          const royalties = data.data.royalties;
-          const property = data.data.property;
-          const category = data.data.category;
-          const website = data.data.website;
+          const image = data.image;
+          const description = data.description;
+          const name = data.name;
+          const social = data.social;
+          const fileSize = data.fileSize;
+          const royalties = data.royalties;
+          const property = data.property;
+          const category = data.category;
+          const website = data.website;
           const price = ethers.utils.formatUnits(unformattedPrice, "ether").toString();
 
           return {
@@ -137,10 +134,12 @@ export const useNftMarket = () => {
             property,
             category,
             website,
-            tokenURI
+            tokenURI,
           };
-        })
+        }),
       );
+
+      if (cat?.toLowerCase() === 'profile') items = items.filter((item, index, self) => item.category.toLowerCase() === cat.toLowerCase() && self.indexOf(item) === index);
 
       return items;
     } catch (e) {
@@ -153,30 +152,30 @@ export const useNftMarket = () => {
       const contract = await connectToContract();
       const data = await contract.methods.fetchMarketItem().call();
       const items = await Promise.all(
-        data.map(async ({ tokenId, seller, owner, price: unformattedPrice}) => {
+        data.map(async ({ tokenId, seller, owner, price: unformattedPrice }) => {
           let tokenURI = await contract.methods.tokenURI(tokenId).call();
-          
+
           // Because old NFTs was created with old gateway we need to directly access it
-          const searchString = "https://infura-ipfs.io/ipfs";
-          const customSearchString = "https://sokrat-nfts.infura-ipfs.io";
-          
+          const searchString = 'https://infura-ipfs.io/ipfs';
+          const customSearchString = 'https://sokrat-nfts.infura-ipfs.io';
+
           if (tokenURI.includes(customSearchString)) tokenURI = tokenURI.replace(customSearchString, searchString);
-          
-          const { data } = await axios.post("admin/get-nft-url", {
+
+          const { data } = await axios.post('admin/get-nft-url', {
             url: tokenURI,
             owner,
-            tokenId
+            tokenId,
           });
 
-          const image = data.data.image;
-          const description = data.data.description;
-          const name = data.data.name;
-          const social = data.data.social;
-          const fileSize = data.data.fileSize;
-          const royalties = data.data.royalties;
-          const property = data.data.property;
-          const category = data.data.category;
-          const website = data.data.website;
+          const image = data.image;
+          const description = data.description;
+          const name = data.name;
+          const social = data.social;
+          const fileSize = data.fileSize;
+          const royalties = data.royalties;
+          const property = data.property;
+          const category = data.category;
+          const website = data.website;
           const price = ethers.utils.formatUnits(unformattedPrice, "ether").toString();
           
           return {
@@ -193,12 +192,12 @@ export const useNftMarket = () => {
             property,
             category,
             website,
-            tokenURI
+            tokenURI,
           };
-        })
+        }),
       );
 
-      if (items. length > 3) {
+      if (items.length > 3) {
         items = items.slice(-3);
       }
 
@@ -208,38 +207,38 @@ export const useNftMarket = () => {
     }
   };
 
-  const fetchMyNFTsOrListedNFTs = async (type) => {
+  const fetchMyNFTsOrListedNFTs = async (type, cat) => {
     try {
       const contract = await connectToContract();
       const data = type === "fetchItemsListed" ? 
       await contract.methods.fetchItemsListed().call() :
       await contract.methods.fetchMyNFT().call();
-
+      
       const items = await Promise.all(
-        data.map(async ({ tokenId, seller, owner, price: unformattedPrice}) => {
+        data.map(async ({ tokenId, seller, owner, price: unformattedPrice }) => {
           let tokenURI = await contract.methods.tokenURI(tokenId).call();
 
           // Because old NFTs was created with old gateway we need to directly access it
-          const searchString = "https://infura-ipfs.io/ipfs";
-          const customSearchString = "https://sokrat-nfts.infura-ipfs.io";
-          
+          const searchString = 'https://infura-ipfs.io/ipfs';
+          const customSearchString = 'https://sokrat-nfts.infura-ipfs.io';
+
           if (tokenURI.includes(customSearchString)) tokenURI = tokenURI.replace(customSearchString, searchString);
-          
-          const { data } = await axios.post("admin/get-nft-url", {
+
+          const { data } = await axios.post('admin/get-nft-url', {
             url: tokenURI,
             owner,
-            tokenId
+            tokenId,
           });
-          
-          const image = data.data.image;
-          const description = data.data.description;
-          const name = data.data.name;
-          const social = data.data.social;
-          const fileSize = data.data.fileSize;
-          const royalties = data.data.royalties;
-          const property = data.data.property;
-          const category = data.data.category;
-          const website = data.data.website;
+
+          const image = data.image;
+          const description = data.description;
+          const name = data.name;
+          const social = data.social;
+          const fileSize = data.fileSize;
+          const royalties = data.royalties;
+          const property = data.property;
+          const category = data.category;
+          const website = data.website;
           const price = ethers.utils.formatUnits(unformattedPrice, "ether").toString();
 
           return {
@@ -256,10 +255,12 @@ export const useNftMarket = () => {
             property,
             category,
             website,
-            tokenURI
+            tokenURI,
           };
-        })
+        }),
       );
+
+      if (cat?.toLowerCase() === 'profile') items = items.filter((item, index, self) => item.category.toLowerCase() === cat.toLowerCase() && self.indexOf(item) === index);
 
       return items;
     } catch (e) {
@@ -267,15 +268,26 @@ export const useNftMarket = () => {
     }
   };
 
-  const buyNFT = async (nft) => {
+  const buyNFT = async (nft, profile) => {
     try {
-      const contract = await connectToContract();
-      const price = ethers.utils.parseUnits(nft.price, "ether").toString();
-      const transaction = await contract.methods.createMarketSale(nft.tokenId).send({ from: account, value: price });
+      // const contract = await connectToContract();
+      // const price = ethers.utils.parseUnits(nft.price, "ether").toString();
+      // const transaction = await contract.methods.createMarketSale(nft.tokenId).send({ from: account, value: price });
       
-      router.push('/overview/nfts/collections/creator');
+      if (!profile) router.push('/overview/nfts/collections/creator');
 
-      await transaction.wait();
+      if (profile) {
+        await axios.post('/user/profile', {
+          address: account,
+          avatarLocked: true,
+          step: 2
+        })
+        .then(res => {
+          dispatch({ type: 'SET_USER', payload: res.data });
+        })
+        .catch(e => console.log(e.response.data));
+      }
+      //await transaction.wait();
     } catch (e) {
       console.log(e);
     }
@@ -299,16 +311,16 @@ export const useNftMarket = () => {
       fetchNewArrivals
     }),
     [
-      account, 
-      library, 
-      uploadToIPFS, 
-      createSale, 
-      createNFT, 
-      fetchNFTs, 
+      account,
+      library,
+      uploadToIPFS,
+      createSale,
+      createNFT,
+      fetchNFTs,
       fetchMyNFTsOrListedNFTs,
       buyNFT,
       connectToContract,
-      fetchNewArrivals
+      fetchNewArrivals,
     ],
   );
 

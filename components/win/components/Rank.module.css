@@ -75,6 +75,7 @@
   margin: auto;
   width: 65%;
   background-color: #fff3e5;
+  border-radius: 15px;
 }
 
 .content {
@@ -91,6 +92,7 @@
   background-color: #f0dec9;
   width: 100%;
   padding: 20px;
+  border-radius: 15px;
 }
 
 .rankTrades h5 {
@@ -164,7 +166,6 @@
     position: relative;
     margin: auto;
     width: 80%;
-    padding: 20px;
   }
 
   .content {
@@ -192,7 +193,6 @@
     position: relative;
     margin: auto;
     width: 100%;
-    padding: 20px;
   }
   .sliderWidth {
     width: 1000px;

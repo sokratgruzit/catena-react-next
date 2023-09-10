@@ -7,7 +7,11 @@ const nextConfig = {
 		locales: ['en', 'ru', 'ka']
   },
   images: {
-    domains: ['assets.coingecko.com', 'localhost'],
+    domains: [
+      'assets.coingecko.com', 
+      'localhost', 
+      'sokrat-nfts.infura-ipfs.io'
+    ],
   },
 };
 

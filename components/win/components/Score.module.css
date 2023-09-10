@@ -7,7 +7,7 @@
   position: absolute;
   width: 100%;
   padding-top: 2%;
-  top: -25%;
+  top: -20%;
   display: flex;
   justify-content: center;
   align-items: baseline;
@@ -16,6 +16,11 @@
 .scoreContent svg {
   margin: 0 40px;
 }
+
+/* .img {
+    margin-top: 10px;
+  } */
+
 .scoreBorder {
   position: relative;
   width: 665px;

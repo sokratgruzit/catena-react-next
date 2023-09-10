@@ -7,13 +7,13 @@ export const getStaticProps = async () => {
 
   return {
     props: {
-      translates: data,
+      translates: data || [],
     },
   };
 };
 
 const mainSlider = ({ translates }) => {
-  let homePage = translates.find(t => t.page === 'main-slider');
+  let homePage = translates.find(t => t.page === 'main-slider') || {};
 
   return <MainSlider test='test' trans={homePage.translates} />;
 };
