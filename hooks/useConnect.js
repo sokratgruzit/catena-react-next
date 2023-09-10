@@ -1,6 +1,7 @@
 import { useState, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useWeb3React } from "@web3-react/core";
+import { useRouter } from "next/router";
 
 // import { WalletConnectConnector } from "@web3-react/walletconnect-connector";
 
@@ -11,6 +12,7 @@ export const useConnect = (props) => {
   const [connectionLoading, setConnectionLoading] = useState(false);
 
   const dispatch = useDispatch();
+  const router = useRouter();
   const isConnected = useSelector((state) => state.connect.isConnected);
   const providerType = useSelector((state) => state.connect.providerType);
 
@@ -32,8 +34,7 @@ export const useConnect = (props) => {
               dispatch({
                 type: "UPDATE_STATE",
                 account: "",
-                isConnected: false,
-                providerType: "",
+                isConnected: false
               });
               dispatch({ type: "SET_TRIED_RECONNECT", payload: true });
             }
@@ -66,8 +67,7 @@ export const useConnect = (props) => {
           dispatch({
             type: "UPDATE_STATE",
             account: "",
-            isConnected: false,
-            providerType: "",
+            isConnected: false
           });
           dispatch({ type: "SET_TRIED_RECONNECT", payload: true });
         }
@@ -169,14 +169,12 @@ export const useConnect = (props) => {
       if (library && library.provider && library.provider.close) {
         await library.provider.close();
       }
+
       deactivate();
       dispatch({ type: 'SET_USER', payload: null });
-      dispatch({
-        type: "UPDATE_STATE",
-        account: "",
-        providerType: "",
-        balance: 0
-      });
+      dispatch({ type: "LOGOUT" });
+      const { locale, query } = router;
+      router.push('/', undefined, { ...query, locale });
     } catch (error) {
       console.log("Error on disconnect: ", error);
     }

@@ -43,17 +43,52 @@ export const useNftMarket = () => {
     }
   };
 
-  const createNFT = async (name, price, image, description) => {
+  const createNFT = async (
+    name, 
+    price, 
+    image, 
+    description, 
+    website,
+    royalties,
+    fileSize,
+    category,
+    property,
+    social
+  ) => {
     try {
-      if (!name || !description || !price || !image) return console.log('Data missing');
+      if (
+        !name || 
+        !description || 
+        !price || 
+        !image 
+      ) return console.log("Data missing");
 
-      const data = JSON.stringify({ name, description, image });
+      const data = JSON.stringify({ 
+        name, 
+        description, 
+        image, 
+        website, 
+        royalties,
+        fileSize,
+        category,
+        property,
+        social 
+      });
 
       try {
         const added = await client.add(data);
         const url = `https://infura-ipfs.io/ipfs/${added.path}`;
 
         await createSale(url, price);
+        await axios.post('/user/profile', {
+          address: account,
+          avatarLocked: true,
+          step: 2
+        })
+        .then(res => {
+          dispatch({ type: 'SET_USER', payload: res.data });
+        })
+        .catch(e => console.log(e.response.data));
       } catch (e) {
         console.log(e);
       }

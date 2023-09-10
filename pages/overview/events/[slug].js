@@ -1,51 +1,22 @@
 import React from 'react';
+import { useRouter } from 'next/router';
+
 import createAxiosInstance from '../../api/axios';
 import EventsInner from '../../../components/home/events/components/eventsInner/EventsInner';
 
-export const getStaticPaths = async ({ locales }) => {
+const index = async () => {
+  const router = useRouter();
+  const { slug } = router;
   const axios = createAxiosInstance();
 
-  let events = await axios
-    .get(`${process.env.NEXT_PUBLIC_URL}/event/get-all-event-slug`)
-    .then(res => {
-      return res?.data;
-    })
-    .catch(err => {
-      console.log(err?.response);
-    });
-
-  let paths = [];
-
-  if (events && events.length > 0) {
-    paths = events.flatMap(item =>
-      locales.map(loc => ({
-        params: { slug: item.slug },
-        locale: loc,
-      })),
-    );
-  }
-
-  return {
-    paths,
-    fallback: false,
+  const fetchData = async () => {
+    const { data } = await axios.post(`${process.env.NEXT_PUBLIC_URL}/event/get-one-event`, { slug });
+    return data;
   };
-};
 
-export const getStaticProps = async context => {
-  const slug = context.params.slug;
-  const axios = createAxiosInstance();
-  const res = await axios.post(`${process.env.NEXT_PUBLIC_URL}/event/get-one-event`, { slug });
-  const foundItem = res?.data;
+  const event = fetchData();
 
-  return {
-    props: {
-      item: foundItem,
-    },
-  };
-};
-
-const index = ({ item }) => {
-  return <EventsInner item={item} />;
+  return <EventsInner event={event} slug={slug} />;
 };
 
 export default index;

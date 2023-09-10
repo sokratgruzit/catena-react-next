@@ -10,15 +10,13 @@ export default function Proposal() {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
   const [time, setTime] = useState('');
-  const [editorContent, setEditorContent] = useState(''); // Store Quill content
-  const [choices, setChoices] = useState(['']); // Initialize with one choice
+  const [editorContent, setEditorContent] = useState('');
+  const [choices, setChoices] = useState(['']);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      // This code will only run on the client-side
-      const Quill = require('quill'); // Import Quill dynamically on the client-side
+      const Quill = require('quill');
 
-      // Initialize the Quill editor
       const quill = new Quill('#editor', {
         theme: 'snow',
         modules: {
@@ -26,7 +24,6 @@ export default function Proposal() {
         },
       });
 
-      // Add a text-change event listener to update the content
       quill.on('text-change', () => {
         const content = quill.root.innerHTML;
         setEditorContent(content);
@@ -53,7 +50,7 @@ export default function Proposal() {
   };
 
   const addChoice = () => {
-    setChoices([...choices, '']); // Add an empty choice to the array
+    setChoices([...choices, '']);
   };
 
   const updateChoice = (index, value) => {
@@ -108,20 +105,8 @@ export default function Proposal() {
               <button className={styles.btn} onClick={addChoice}>
                 Add Choice
                 <svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
-                  <path
-                    d='M6 12H18'
-                    stroke='#212121'
-                    stroke-width='1.5'
-                    stroke-linecap='round'
-                    stroke-linejoin='round'
-                  />
-                  <path
-                    d='M12 18V6'
-                    stroke='#212121'
-                    stroke-width='1.5'
-                    stroke-linecap='round'
-                    stroke-linejoin='round'
-                  />
+                  <path d='M6 12H18' stroke='#212121' strokeWidth='1.5' strokeLinecap='round' strokeLinejoin='round' />
+                  <path d='M12 18V6' stroke='#212121' strokeWidth='1.5' strokeLinecap='round' strokeLinejoin='round' />
                 </svg>
               </button>
             </div>
@@ -154,6 +139,32 @@ export default function Proposal() {
               <input placeholder='00:00' type='time' required className={styles.input} />
             </div>
           </form>
+          <div className={styles.snapshot}>
+            <p>Snapshot:</p>
+            <p>
+              16672898
+              <svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                <path
+                  d='M18.5399 15.1046C18.6742 14.9703 18.7591 14.7864 18.7591 14.5743L18.7591 5.99003C18.7579 5.7916 18.6785 5.60164 18.5382 5.46133C18.3979 5.32101 18.208 5.24167 18.0095 5.2405L9.42525 5.2405C9.01513 5.2405 8.67571 5.57991 8.67571 5.99003C8.67571 6.40015 9.01513 6.73956 9.42525 6.73956L17.26 6.73956L17.26 14.5743C17.26 14.9844 17.5994 15.3238 18.0095 15.3238C18.2146 15.3309 18.4055 15.239 18.5399 15.1046Z'
+                  fill='#212121'
+                />
+                <path
+                  d='M6.51864 18.5404L18.4192 6.63982C18.7092 6.3499 18.7092 5.86907 18.4192 5.57916C18.1293 5.28924 17.6485 5.28924 17.3586 5.57916L5.45798 17.4798C5.16806 17.7697 5.16806 18.2505 5.45798 18.5404C5.74789 18.8303 6.22872 18.8303 6.51864 18.5404Z'
+                  fill='#212121'
+                />
+              </svg>
+            </p>
+          </div>
+          <Button
+            label={'Connect Wallet'}
+            size={'btn-lg'}
+            type={'btn-primary'}
+            element={'button'}
+            disabled={false}
+            onClick={console.log('hi')}
+            className={styles.btnBlu}
+            customStyles={{ background: '#A6D0DD', border: '1px solid #162029', width: '100%' }}
+          />
         </div>
       </div>
     </div>

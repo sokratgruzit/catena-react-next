@@ -26,11 +26,13 @@ function getLibrary(provider, connector) {
 }
 
 function MyApp({ Component, pageProps }) {
-  const router = useRouter();
-  const { handleLanguageChange } = useLanguages();
   const [isInitialized, setIsInitialized] = useState(false);
   const [fixedFooter, setFixedFooter] = useState(true);
-
+  const [routerReady, setRouterReady] = useState(false);
+  
+  const router = useRouter();
+  const { handleLanguageChange } = useLanguages();
+  
   useEffect(() => {
     AOS.init();
     AOS.refresh();
@@ -47,6 +49,7 @@ function MyApp({ Component, pageProps }) {
     } else {
       setFixedFooter(false);
     }
+    if (router.isReady) setRouterReady(true);
   }, [router]);
 
   useEffect(() => {
@@ -82,9 +85,6 @@ function MyApp({ Component, pageProps }) {
     socket.on('disconnect', () => {
       console.log('Disconnected from WebSocket server');
     });
-  });
-
-  socket.on('join', (message) => {
   }, []);
 
   return (
@@ -124,7 +124,7 @@ function MyApp({ Component, pageProps }) {
       <Web3ReactProvider getLibrary={getLibrary}>
         <Provider store={store}>
           <PersistGate loading={null} persistor={persistor}>
-            <Wrapper>
+            {routerReady && <Wrapper>
               <div className='noise-parent'>
                 <div className='noise'></div>
               </div>
@@ -132,7 +132,7 @@ function MyApp({ Component, pageProps }) {
               <Header />
               <Component {...pageProps} />
               <Footer active={!fixedFooter} fixed={fixedFooter}/>
-            </Wrapper>
+            </Wrapper>} 
           </PersistGate>
         </Provider>
       </Web3ReactProvider>
