@@ -1,5 +1,6 @@
 /* eslint-disable react/jsx-key */
 import Link from 'next/link';
+import { useSelector } from 'react-redux';
 
 import styles from '../../Tokenomics.module.css';
 
@@ -191,6 +192,8 @@ function TokenomicsHead(props) {
     },
   ];
 
+  const activeLang = useSelector(state => state.settings.activeLang);
+
   return (
     <div className={`pT-180`}>
       <h1 className={`font-90 ttl ${styles.space} tYAnimation ${props.animate ? 'animate' : ''}`}>Tokenomics</h1>
@@ -215,7 +218,7 @@ function TokenomicsHead(props) {
                 {item.tokenIcon0}
                 <span className={`${styles.flex} ${styles.overlay}`}>{item.tokenIcon1}</span>
                 <div className={styles.test}>
-                  <Link href={item.url}>
+                  <Link href={item.url} locale={activeLang}>
                     <a className={`${styles.tokenomics_line} ${styles.link}`} target='_blank'>{item.link}</a>
                   </Link>
                 </div>

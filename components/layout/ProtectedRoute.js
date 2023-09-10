@@ -4,7 +4,7 @@ import { useConnect } from '../../hooks/useConnect';
 
 const ProtectedRoute = ({ children }) => {
     const router = useRouter();
-    const { locale } = router;
+    const { locale, address } = router;
     const { account } = useConnect();
 
     useEffect(() => {

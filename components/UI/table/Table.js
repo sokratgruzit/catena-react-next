@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import { useSelector } from 'react-redux';
 
 import Expand from '../expand/Expand';
 import ListItemRow from '../listItem/ListItemRow';
@@ -10,6 +11,7 @@ import listStyles from '../listItem/ListItemRow.module.css';
 const Table = props => {
   let custom_th = '';
   let custom_th_text = '';
+  const activeLang = useSelector(state => state.settings.activeLang);
 
   if (props.type === 'nft_activity') {
     custom_th = listStyles.th_activity;
@@ -63,7 +65,7 @@ const Table = props => {
 
             const isNftActivity = props.type === 'nft_activity';
             const rowContent = isNftActivity ? (
-              <Link href={`/overview/nfts/activity/${item.id}`} key={item.id}>
+              <Link href={`/overview/nfts/activity/${item.id}`} key={item.id} locale={activeLang}>
                 <a>
                   <Expand className={props.expandClassName} expandContent={childrenWithProps}>
                     <ListItemRow data={item} type={props.type} />
@@ -85,7 +87,7 @@ const Table = props => {
           {props.tableData.map(item => {
             const isNftActivity = props.type === 'nft_activity';
             const rowContent = isNftActivity ? (
-              <Link href={`/overview/nfts/activity/${item.id}`} key={item.id}>
+              <Link href={`/overview/nfts/activity/${item.id}`} key={item.id} locale={activeLang}>
                 <a>
                   <ListItemRow data={item} type={props.type} />
                 </a>

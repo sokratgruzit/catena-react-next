@@ -1,8 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
-
-import CornerDecor from '../../UI/cornerDecor/CornerDecor';
+import { useSelector } from 'react-redux';
 
 import styles from './ListItemCard.module.css';
 
@@ -10,11 +9,12 @@ const ListItemCard = props => {
   let data = props.data;
   let type = props.type;
   let obj = null;
+  const activeLang = useSelector(state => state.settings.activeLang);
 
   if (type === 'nft_arrivals' || type === 'nft_activity' || type === 'nft_creator') {
     obj = (
       <div key={data.id} className={styles.Arrivals__listItemWrap}>
-        <Link href={`/overview/nfts/collections/${data.owner}/${data.tokenId}`}>
+        <Link href={`/overview/nfts/collections/${data.owner}/${data.tokenId}`} locale={activeLang}>
           <a>
             <div className={styles.Arrivals__imgBlock}>
             <p className={`${styles.nftArrivals__imgBlockTitle} font_30`}>#{data.tokenId}</p>
@@ -50,7 +50,7 @@ const ListItemCard = props => {
           <div className={styles.Activity__item__titles}>
             <p>
               {data.itemTitle}
-              <Link href={`/sometransaction`}>
+              <Link href={`/sometransaction`} locale={activeLang}>
                 <svg width='15' height='15' viewBox='0 0 15 15' fill='none' xmlns='http://www.w3.org/2000/svg'>
                   <path
                     fillRule='evenodd'
@@ -121,7 +121,7 @@ const ListItemCard = props => {
   if (type === 'nft_collections') {
     obj = (
       <div className={styles.Collections__listItemWrap}>
-        <Link href={`/overview/nfts/collections/${data.id}`}>
+        <Link href={`/overview/nfts/collections/${data.id}`} locale={activeLang}>
           <div className={styles.Product}>
             <div className={styles.Product__content}>
               <div className={styles.Product__images}>

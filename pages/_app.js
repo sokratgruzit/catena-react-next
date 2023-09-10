@@ -26,11 +26,12 @@ function getLibrary(provider, connector) {
 }
 
 function MyApp({ Component, pageProps }) {
-  const router = useRouter();
-  const { handleLanguageChange } = useLanguages();
   const [isInitialized, setIsInitialized] = useState(false);
   const [fixedFooter, setFixedFooter] = useState(true);
-
+  
+  const router = useRouter();
+  const { handleLanguageChange } = useLanguages();
+  
   useEffect(() => {
     AOS.init();
     AOS.refresh();
@@ -82,9 +83,6 @@ function MyApp({ Component, pageProps }) {
     socket.on('disconnect', () => {
       console.log('Disconnected from WebSocket server');
     });
-  });
-
-  socket.on('join', (message) => {
   }, []);
 
   return (

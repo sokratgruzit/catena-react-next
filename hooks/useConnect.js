@@ -32,8 +32,7 @@ export const useConnect = (props) => {
               dispatch({
                 type: "UPDATE_STATE",
                 account: "",
-                isConnected: false,
-                providerType: "",
+                isConnected: false
               });
               dispatch({ type: "SET_TRIED_RECONNECT", payload: true });
             }
@@ -66,8 +65,7 @@ export const useConnect = (props) => {
           dispatch({
             type: "UPDATE_STATE",
             account: "",
-            isConnected: false,
-            providerType: "",
+            isConnected: false
           });
           dispatch({ type: "SET_TRIED_RECONNECT", payload: true });
         }
@@ -171,12 +169,7 @@ export const useConnect = (props) => {
       }
       deactivate();
       dispatch({ type: 'SET_USER', payload: null });
-      dispatch({
-        type: "UPDATE_STATE",
-        account: "",
-        providerType: "",
-        balance: 0
-      });
+      dispatch({ type: "LOGOUT" });
     } catch (error) {
       console.log("Error on disconnect: ", error);
     }

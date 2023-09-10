@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import { Input, Button } from '@catena-network/catena-ui-module';
 import Information from '../information/Information';
+import { useSelector } from 'react-redux';
 
 import Link from 'next/link';
 
 import styles from './PaymentProcess.module.css';
 
 const PaymentProcess = () => {
+  const activeLang = useSelector(state => state.settings.activeLang);
+
   const imgBox = [
     {
       img: '/images/contribute/tokens/tok1.png',
@@ -34,7 +37,7 @@ const PaymentProcess = () => {
     <div className={`${styles.container} container`}>
       <div>
         <div className={`${styles.ttl}`}>
-          <Link href={`/overview/contribute/contribute`}>
+          <Link href={`/overview/contribute/contribute`} locale={activeLang}>
             <div className={styles.btn}>
               <img src='/images/Frame.png' />
               <h1>Back</h1>

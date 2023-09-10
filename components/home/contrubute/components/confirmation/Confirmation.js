@@ -1,14 +1,17 @@
 import { Input, Button } from '@catena-network/catena-ui-module';
 import Link from 'next/link';
 import Information from '../information/Information';
+import { useSelector } from 'react-redux';
 
 import styles from './Confirmation.module.css';
 
 const Confirmation = () => {
+  const activeLang = useSelector(state => state.settings.activeLang);
+
   return (
     <div className={`${styles.container} container`}>
       <div>
-        <Link href={`/overview/contribute/contribute`}>
+        <Link href={`/overview/contribute/contribute`} locale={activeLang}>
           <div className={styles.btn}>
             <img src='/images/Frame.png' />
             <h1>Back</h1>
