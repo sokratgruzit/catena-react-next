@@ -73,7 +73,7 @@ const MakeProfile = () => {
         setProfileNfts(data);
       });
     } else {
-      router.push('/', undefined, { locale });
+      router.push('/', undefined, { locale, address: account });
     }
   }, [account]);
 
@@ -116,11 +116,19 @@ const MakeProfile = () => {
           locale: locale,
           step: 3
         })
+<<<<<<< HEAD
           .then(res => {
             dispatch({ type: 'SET_USER', payload: res.data });
             router.push(`/profile/${account}`, undefined, { locale });
           })
           .catch(e => setError(e.response.data));
+=======
+        .then(res => {
+          dispatch({ type: 'SET_USER', payload: res.data });
+          router.push(`/profile/${account}`, undefined, { locale, address: account });
+        })
+        .catch(e => setError(e.response.data));
+>>>>>>> 39e701b8206cf46808a226459d50fe76d10eb44f
       }
     }
   };

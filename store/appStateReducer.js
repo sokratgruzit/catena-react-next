@@ -1,6 +1,7 @@
 const INIT_STATE = {
   triedReconnect: false,
   user: null,
+  routerQuery: {}
 };
 
 const appStateReducer = (state = INIT_STATE, action) => {
@@ -8,6 +9,13 @@ const appStateReducer = (state = INIT_STATE, action) => {
     return {
       ...state,
       triedReconnect: action.payload,
+    };
+  }
+
+  if (action.type === 'SET_ROUTER_QUERY') {
+    return {
+      ...state,
+      routerQuery: action.payload
     };
   }
 

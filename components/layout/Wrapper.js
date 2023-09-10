@@ -1,5 +1,6 @@
 import { useEffect, useMemo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useRouter } from 'next/router';
 
 import { injected, walletConnect } from '../../hooks/connector';
 import { useConnect } from '../../hooks/useConnect';
@@ -14,8 +15,10 @@ const Wrapper = ({ children }) => {
   } = useConnect();
   const triedReconnect = useSelector(state => state.appState.triedReconnect);
   const providerType = useSelector(state => state.connect.providerType);
+
   const axios = useMemo(() => createAxiosInstance(), []);
   const dispatch = useDispatch();
+  const router = useRouter();
 
   const getBalance = async () => {
     if (library !== undefined) {
@@ -57,7 +60,7 @@ const Wrapper = ({ children }) => {
         dispatch({ type: 'SET_TRIED_RECONNECT', payload: true });
       } 
     }
-  }, [account, triedReconnect]);
+  }, [account, triedReconnect, router]);
 
   return children;
 };

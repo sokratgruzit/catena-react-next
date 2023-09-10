@@ -10,17 +10,17 @@ import filterStyles from '../../UI/filters/TabFilter.module.css';
 import ListItemCard from '../../UI/listItem/ListItemCard';
 import DataBox from '../../UI/dataBox/DataBox';
 
-export default function Profile({ address}) {
+export default function Profile({ address }) {
   const [activeMenuItem, setActiveMenuItem] = useState('NFTs');
   const [activeTab, setActiveTab] = useState('Items');
   const [itemsList, setItemsList] = useState([]);
   
-  const router = useRouter();
-  const { profileId } = router.query;
   const { 
     account,
     fetchNFTs,
   } = useNftMarket();
+  const router = useRouter();
+  const { profileId } = router.query;
 
   const switchTabModeHandler = mode => {
     setActiveMenuItem(mode);
