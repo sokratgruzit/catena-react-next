@@ -48,7 +48,7 @@ const MakeProfile = () => {
   const axios = useMemo(() => createAxiosInstance(), []);
   const dispatch = useDispatch();
   const { library } = useConnect();
-  const { 
+  const {
     fetchNFTs,
     fetchMyNFTsOrListedNFTs,
     createNFT
@@ -87,10 +87,10 @@ const MakeProfile = () => {
           locale: locale,
           step: 0
         })
-        .then(res => {
-          dispatch({ type: 'SET_USER', payload: res.data });
-        })
-        .catch(e => setError(e.response.data));
+          .then(res => {
+            dispatch({ type: 'SET_USER', payload: res.data });
+          })
+          .catch(e => setError(e.response.data));
       }
 
       if (userData.step === 1) {
@@ -116,11 +116,11 @@ const MakeProfile = () => {
           locale: locale,
           step: 3
         })
-        .then(res => {
-          dispatch({ type: 'SET_USER', payload: res.data });
-          router.push(`/profile/${account}`, undefined, { locale });
-        })
-        .catch(e => setError(e.response.data));
+          .then(res => {
+            dispatch({ type: 'SET_USER', payload: res.data });
+            router.push(`/profile/${account}`, undefined, { locale });
+          })
+          .catch(e => setError(e.response.data));
       }
     }
   };
@@ -142,52 +142,74 @@ const MakeProfile = () => {
   return (
     <div className='pT-180'>
       {account ? <div className="container">
-        <h2 className='font-40 ttl'>Profile Setup</h2>
-        <p>Show off your stats and collectibles with your unique profile</p>
-        <p>Total cost:</p>
-        <p>1.5</p>
-        <span>CMCX</span>
-        {!userData?.step && <div className={styles.makeProfileWrapper}>
-          {profileNfts?.map(item => (
-            <div 
-              key={item.id} 
-              className={styles.avatarCard}
-              style={activeAvatar === item.id ? 
-                {
-                  background: "#ff6969"
-                } : {}
-              }
-              onClick={() => handleStep(item.id)}
-            >
-              <div className={styles.avatarImg}>
-                <Image src={item.img} alt={item.name} width={80} height={80} />
-                <p>{item.name}</p>
+        <div className={styles.contHead}>
+          <h2 className='font-40 ttl'>Profile Setup</h2>
+          <p>Show off your stats and collectibles with your unique profile</p>
+          <div style={{ display: 'flex', gap: '5px' }}>
+            <p style={{ color: '#162029' }}>Total cost:</p>
+            <p style={{ color: '#162029' }}>1.5</p>
+            <span style={{ color: '#FF6969' }}>CMCX</span>
+          </div>
+          <div style={{ width: '60%', height: '80px', marginTop: '40px', borderRadius: '57px', border: '1px solid #162029' }}></div>
+          <div className={styles.Line}></div>
+        </div>
+        <div className={styles.contStep}>
+          <span style={{ color: '#ff6969' }}>Step 1</span>
+          <p style={{ paddingBottom: '20px' }} className='font-20 ttl'>Get Starter Collectible</p>
+          <p style={{textAlign: 'center'}} className='ttl'>Every profile starts by making a “starter” collectible (NFT).</p>
+          <p style={{textAlign: 'center'}} className='ttl'>This starter will also become your first profile picture.</p>
+          <p style={{marginBottom: '20px', textAlign: 'center'}} className='ttl'>You can change your profile picture later if you get another approved CoreMultiChain Collectible.</p>
+        </div>
+        <div>
+          {!userData?.step &&
+            <div style={{padding: '0'}} className='container_bordered-child'>
+              <div className={styles.tabHead}>
+                <div>
+                  <p className='font-20 ttl'>Choose your Starter!</p>
+                  <p style={{color: '#162029'}}>Choose wisely: you can only ever make one starter collectible!</p>
+                </div>
+                <div style={{display: 'flex', gap: '5px'}}>
+                  <p>Cost:</p>
+                  <p>1.0</p>
+                  <span style={{color: '#ff6969'}}>CMCX</span>
+                </div>
               </div>
-              <span 
-                className={styles.radio}
-                style={activeAvatar === item.id ? 
-                  {
-                    background: "#0500ff",
-                    opacity: ".5"
-                  } : {}
-                }
-              ></span>
-            </div>
-          ))}
-          {Number(ethers.utils.formatEther(balance)) < 1 && <div>{error}</div>}
-          <Button
-            label={'Confirm'}
-            size={'btn-lg'}
-            type={'btn-primary'}
-            arrow={'arrow-none'}
-            element={'button'}
-            disabled={() => Number(ethers.utils.formatEther(balance)) >= 1 ? false : true}
-            onClick={() => Number(ethers.utils.formatEther(balance)) >= 1 ? handleSubmit() : null}
-            className={styles.btnBlu}
-          />
-        </div>}
+              <div className={styles.makeProfileWrapper}>
+                {profileNfts?.map(item => (
+                  <div
+                    key={item.id}
+                    className={styles.avatarCard}
+                    style={activeAvatar === item.id ?
+                      {
+                        background: "#ff6969"
+                      } : {}
+                    }
+                    onClick={() => handleStep(item.id)}
+                  >
+                    <div className={styles.avatarImg}>
+                      <Image src={item.img} alt={item.name} width={80} height={80} />
+                      <p>{item.name}</p>
+                    </div>
+                  </div>
+                ))}
+                {Number(ethers.utils.formatEther(balance)) < 1 && <div>{error}</div>}
+              </div>
+              <div className={styles.confirmBtn}>
+                <Button
+                  label={'Confirm'}
+                  size={'btn-lg'}
+                  type={'btn-primary'}
+                  arrow={'arrow-none'}
+                  element={'button'}
+                  disabled={() => Number(ethers.utils.formatEther(balance)) >= 1 ? false : true}
+                  onClick={() => Number(ethers.utils.formatEther(balance)) >= 1 ? handleSubmit() : null}
+                  className={styles.btnBlu}
+                />
+              </div>
+            </div>}
+        </div>
         {userData?.step === 1 && <div className={styles.makeProfileWrapper}>
-          <div 
+          <div
             onClick={() => handleStep("back")}
             style={{
               cursor: "pointer",
@@ -209,7 +231,7 @@ const MakeProfile = () => {
               onClick={() => Number(ethers.utils.formatEther(balance)) >= 1 ? handleSubmit() : null}
               className={styles.btnBlu}
             />
-            </div>
+          </div>
         </div>}
         {userData?.step === 2 && <div className={styles.makeProfileWrapper}>
           <Input
@@ -225,10 +247,10 @@ const MakeProfile = () => {
           />
           <p style={{ color: "#ff6969" }}>Nick name can't be changed</p>
           {teams?.map(item => (
-            <div 
-              key={item.id} 
+            <div
+              key={item.id}
               className={styles.avatarCard}
-              style={activeTeam === item.id ? 
+              style={activeTeam === item.id ?
                 {
                   background: "#ff6969"
                 } : {}
@@ -242,9 +264,9 @@ const MakeProfile = () => {
                 <Image src={`/images/${item.img}`} alt={item.name} width={50} height={50} />
                 <p>{item.name}</p>
               </div>
-              <span 
+              <span
                 className={styles.radio}
-                style={activeTeam === item.id ? 
+                style={activeTeam === item.id ?
                   {
                     background: "#0500ff",
                     opacity: ".5"

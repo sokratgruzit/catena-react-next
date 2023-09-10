@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router';
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { Button, Input, HelpText } from '@catena-network/catena-ui-module';
 import Link from 'next/link';
 import { CatenaLogo } from '../../svg';
@@ -54,7 +55,7 @@ const CommunityAuctions = props => {
   return (
     <main className={`container ${styles.auction__container}`}>
       <div className={`${styles.auction__head} custum-text`}>
-        <Link href={`/overview/earn/farms`} locale={activeLang} >
+        <Link href={`/overview/earn/farms`} locale={activeLang}>
           <div className={styles.backToFarmButton} >
             <ArrowWithBorderSvg className={styles.arrowSvgHover} />
             Back Farm

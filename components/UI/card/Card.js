@@ -8,7 +8,7 @@ const Card = ({ dataArr, fileAdress, title, description, slugType }) => {
   return (
     <>
       {dataArr.map(item => (
-        <Link key={item._id} href={`/overview/${slugType}/${item.slug}`}>
+        <Link key={item._id} href={`/overview/${slugType}/${item.slug}`} locale={activeLang}>
           <div key={item._id} className={`${styles.mapCont} aos-init`}>
             <div className={styles.pressImageCont}>
               <img src={`${fileAdress}${item?.image}`} alt={`Image`} className={styles.pressImage} />

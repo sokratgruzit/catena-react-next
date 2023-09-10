@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useState, useRef } from 'react';
+import { useSelector } from 'react-redux';
 
 import background from '../../../public/images/earn/background.png';
 import {
@@ -192,6 +193,7 @@ const Farms = () => {
   const [search, setSearch] = useState('');
   const [dataViewType, setDataViewType] = useState('table');
   const [toggle, setToggle] = useState('')
+  const activeLang = useSelector(state => state.settings.activeLang);
 
   const router = useRouter();
   const selectRef = useRef();
@@ -206,7 +208,7 @@ const Farms = () => {
           <h1 style={{ paddingBottom: '20px' }} className={`font-90 ttl ${styles.resTitle}`}>Farms</h1>
           <h2 className={`font-40 ttl ${styles.resTitle}`}>Stake LP tokens to earn.</h2>
           <div className={styles.communityAuctions}>
-            <Link href={'/overview/earn/farms/auction'}>
+            <Link href={'/overview/earn/farms/auction'} locale={activeLang}>
               <Button
                 label={"Community Auctions"}
                 size={"btn-lg"}

@@ -168,6 +168,7 @@ const Buy = ({ ownerId, nftId }) => {
   const [nft, setNft] = useState({});
   const [collection, setCollection] = useState([]);
   const [nftOwner, setNftOwner] = useState('seller');
+  const activeLang = useSelector(state => state.settings.activeLang);
   
   const nfts = useSelector(state => state.nftsState.nfts);
   const isConnected = useSelector(state => state.connect.isConnected);
@@ -326,7 +327,7 @@ const Buy = ({ ownerId, nftId }) => {
         <div className={styles.covnert}>
           <p>
             Convert between CMCX and ETH for free:
-            <Link href={`/swap`}>
+            <Link href={`/swap`} locale={activeLang}>
               <span className={styles.convert}>Convert</span>
             </Link>
           </p>
@@ -584,7 +585,7 @@ const Buy = ({ ownerId, nftId }) => {
       <div className={styles.Collections__section}>
         <div className={styles.Collections__titles}>
           <p className={'font_51 ttl'}>Other NFTs in {nft?.category} collection</p>
-          <Link href='/overview/nfts/collections'>
+          <Link href='/overview/nfts/collections' locale={activeLang}>
             <div className={`${styles.forwardBtn} `}>
               <p className='ttl'>View All</p>
               <div className={styles.svgWrapper}>
@@ -640,7 +641,7 @@ const Buy = ({ ownerId, nftId }) => {
             {collection.map(item => {
               return (
                 <SwiperSlide key={item.owner + item.tokenId}>
-                  <Link href={`/overview/nfts/collections/${item.owner}/${item.tokenId}`}>
+                  <Link href={`/overview/nfts/collections/${item.owner}/${item.tokenId}`} locale={activeLang}>
                     <div className={styles.Collection__product}>
                       <div className={styles.Collection__product__inner}>
                         <div className={styles.Collection__product__titles}>

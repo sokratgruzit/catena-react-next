@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { Button } from '@catena-network/catena-ui-module';
 import Link from 'next/link';
 import styles from './Feature.module.css';
@@ -8,6 +9,7 @@ import CopyIcon from '../../../../svg/careers/CopyIcon';
 const Feature = ({ featureLinkList, title, showButton, openPositions }) => {
   const [copiedLink, setCopiedLink] = useState('');
   const [isPopupVisible, setPopupVisible] = useState(null);
+  const activeLang = useSelector(state => state.settings.activeLang);
 
   const handlePopupClick = (index) => {
     setCopiedLink(`${process.env.NEXT_PUBLIC_URL}/open-positions/${featureLinkList[index].id}`);
@@ -40,7 +42,7 @@ const Feature = ({ featureLinkList, title, showButton, openPositions }) => {
               console.log(openPositions)
               return (
                 <div className={styles.openPositionsListItem} key={index}>
-                  <Link href={`/overview/careers/${item.slug}`}>
+                  <Link href={`/overview/careers/${item.slug}`} locale={activeLang}>
                     <div>
                       <span className='ttl'>{item.title['en']['openPosition.title']}</span>
                     </div>
@@ -69,7 +71,7 @@ const Feature = ({ featureLinkList, title, showButton, openPositions }) => {
             })}
           </div>
           {showButton && (
-            <Link href={'careers/open-positions'}>
+            <Link href={'careers/open-positions'} locale={activeLang}>
               <Button
                 label={'View all open position'}
                 size={'btn-lg'}

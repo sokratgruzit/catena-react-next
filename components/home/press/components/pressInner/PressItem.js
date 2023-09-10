@@ -1,7 +1,7 @@
 import Slider from '../../../../UI/slider/Slider';
 import { useSelector } from 'react-redux';
 import CopyLink from '../pressInner/CopyLink';
-import JoinCommunity from '../../../events/components/JoinCommunity';
+import JoinCommunity from '../../../events/components/joinComunity/JoinCommunity';
 import PublicByYears from '../publicByYears/PublicByYears';
 
 import styles from '../../Press.module.css';
@@ -24,7 +24,7 @@ const PressonePress = ({ onePress }) => {
       ) : (
         <>
           <div className='custum-text'>
-            <h1>{onePress.title['en']['press.title']}</h1>
+            {/* <h1>{onePress.title['en']['press.title']}</h1>
             <CopyLink
               data={[
                 {
@@ -54,7 +54,7 @@ const PressonePress = ({ onePress }) => {
               currentPageURL={getCurrentPageURL}
               showDetails={true}
               showCopyButton={true}
-            />
+            /> */}
           </div>
         </>
       )}

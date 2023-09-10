@@ -9,6 +9,7 @@ import CommunityAuctionsFAQ from './CommunityAuctionsFAQ';
 const Arrivals = () => {
   const [showWhiteListedWallets, setShowWhiteListedWallets] = useState(false);
   const [toggle, setToggle] = useState(false);
+  const activeLang = useSelector(state => state.settings.activeLang);
 
   const newArrivals = useSelector(state => state.nftsState.newArrivals);
   
@@ -23,7 +24,7 @@ const Arrivals = () => {
           <div className={styles.Arrivals__item}>
             <p className={`font_51 container ttl`}>Newest Arrivals</p>
             <div className={styles.Arrivals__btn}>
-              <Link href='/overview/nfts/activity'>
+              <Link href='/overview/nfts/activity' locale={activeLang}>
                 <p className={`ttl ${styles.Arrivals__btnTxt} container `}>
                   View All{' '}
                   <svg width='20' height='14' viewBox='0 0 20 14' fill='none' xmlns='http://www.w3.org/2000/svg'>
