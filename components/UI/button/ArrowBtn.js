@@ -1,8 +1,11 @@
 import Link from 'next/link';
+import { useSelector } from 'react-redux';
 
 import styles from './ArrowBtn.module.css';
 
 const ArrowBtn = props => {
+  const activeLang = useSelector(state => state.settings.activeLang);
+
   let title = '';
   let route = '';
   let btn = '';
@@ -60,7 +63,7 @@ const ArrowBtn = props => {
 
   if (props.direction === 'forward') {
     btn = (
-      <Link href={route}>
+      <Link href={route} locale={activeLang}>
         <div className={`${styles.forwardBtn} `}>
           <p className='ttl'> {title}</p>
           <div className={styles.svgWrapper}>

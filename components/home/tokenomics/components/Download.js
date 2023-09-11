@@ -1,11 +1,13 @@
 /* eslint-disable @next/next/no-img-element */
 import { useState } from "react";
+import { useSelector } from 'react-redux';
 import Link from "next/link";
 
 import styles from '../Tokenomics.module.css';
 
 function Download() {
   const [isPlaying, setIsPlaying] = useState(false);
+  const activeLang = useSelector(state => state.settings.activeLang);
 
   const play = () => {
     setIsPlaying(!isPlaying);
@@ -20,7 +22,7 @@ function Download() {
         Download <img className={`${styles.tronlink_logo}`} src='/images/tronlink.svg' alt='logo' /> Tronlink App
       </h2>
       <div className={`${styles.flex} ${styles.downloadIcons}`}>
-        <Link href="https://play.google.com/store/apps/details?id=com.tronlinkpro.wallet&hl=en&gl=US" target="_blank">
+        <Link href="https://play.google.com/store/apps/details?id=com.tronlinkpro.wallet&hl=en&gl=US" target="_blank" locale={activeLang}>
           <svg width='170' height='56' viewBox='0 0 170 56' fill='none' xmlns='http://www.w3.org/2000/svg'>
             <rect x='0.0214844' width='169.91' height='56' rx='7' fill='#162029' fillOpacity='0.05' />
             <rect x='0.521484' y='0.5' width='168.91' height='55' rx='6.5' stroke='#162029' strokeOpacity='0.05' />
@@ -136,7 +138,7 @@ function Download() {
             </defs>
           </svg>
         </Link>
-        <Link href="https://apps.apple.com/us/app/tronlink-trx-btt-wallet/id1453530188">
+        <Link href="https://apps.apple.com/us/app/tronlink-trx-btt-wallet/id1453530188" locale={activeLang}>
           <svg width='164' height='56' viewBox='0 0 164 56' fill='none' xmlns='http://www.w3.org/2000/svg'>
             <rect x='0.931641' width='162.56' height='56' rx='7' fill='#162029' fillOpacity='0.05' />
             <rect x='1.43164' y='0.5' width='161.56' height='55' rx='6.5' stroke='#162029' strokeOpacity='0.05' />

@@ -1,13 +1,13 @@
 import React, { useEffect, useState, useMemo } from 'react';
-import Slider from '../../UI/slider/Slider';
-import CopyLink from '../press/components/pressInner/CopyLink';
+import Slider from '../../../../UI/slider/Slider';
+import CopyLink from '../../../press/components/pressInner/CopyLink';
 import { useSelector } from 'react-redux';
-import createAxiosInstance from '../../../pages/api/axios';
-import Card from '../../UI/card/Card';
-import styles from './css/EventsInner.module.css';
+import createAxiosInstance from '../../../../../pages/api/axios';
+import Card from '../../../../UI/card/Card';
+import styles from './EventsInner.module.css';
 import JoinCommunity from '../joinComunity/JoinCommunity';
 
-const EventsInner = ({ item, slug }) => {
+const EventsInner = ({ event, slug }) => {
   const [activeYear, setActiveYear] = useState('');
   const [allEvent, setAllEvent] = useState([]);
   const fileAdress = `${process.env.NEXT_PUBLIC_URL}/uploads/events/`;
@@ -19,8 +19,8 @@ const EventsInner = ({ item, slug }) => {
 
   const handleYearClick = year => {
     setActiveYear(year);
-    const data = allEvent.filter(item => {
-      const itemYear = item.createdAt.substring(0, 4);
+    const data = allEvent.filter(event => {
+      const itemYear = event.createdAt.substring(0, 4);
       return itemYear === year;
     });
     setFilterData(data);
@@ -46,8 +46,8 @@ const EventsInner = ({ item, slug }) => {
   }, [allEvent]);
 
   const sliderImages = [
-    `${process.env.NEXT_PUBLIC_URL}/uploads/events/${item?.image}`,
-    `${process.env.NEXT_PUBLIC_URL}/uploads/events/${item?.logo_image}`,
+    `${process.env.NEXT_PUBLIC_URL}/uploads/events/${event?.image}`,
+    `${process.env.NEXT_PUBLIC_URL}/uploads/events/${event?.logo_image}`,
   ];
 
   const data = [
@@ -68,7 +68,7 @@ const EventsInner = ({ item, slug }) => {
       .get(`http://localhost:4003/event/get-all-event`)
       .then(res => {
         const allEvents = res?.data || [];
-        const filteredEvents = allEvents.filter(event => event._id !== item?._id);
+        const filteredEvents = allEvents.filter(ev => ev._id !== event?._id);
         for (let i = filteredEvents.length - 1; i > 0; i--) {
           const j = Math.floor(Math.random() * (i + 1));
           [filteredEvents[i], filteredEvents[j]] = [filteredEvents[j], filteredEvents[i]];
@@ -79,20 +79,20 @@ const EventsInner = ({ item, slug }) => {
       .catch(err => {
         console.log(err?.response);
       });
-  }, [item]);
+  }, [event]);
 
   return (
     <div className='pT-180 container'>
       <div className='custum-text'>
-        <h1>{item?.title['en']['event.title']}</h1>
+        <h1>{event?.title['en']['event.title']}</h1>
         <span>
           <button>Digital</button>
           <CopyLink data={data} currentPageURL={getCurrentPageURL} showDetails={false} showCopyButton={true} />
         </span>
         <Slider images={sliderImages} />
-        <div>{item?.description && <p>{item?.inner_descr['en']['event.description']}</p>}</div>
-        <p>{item?.text['en']['event.text']}</p>
-        <p>{item?.inner_descr['en']['event.description']}</p>
+        <div>{event?.description && <p>{event?.inner_descr['en']['event.description']}</p>}</div>
+        <p>{event?.text['en']['event.text']}</p>
+        <p>{event?.inner_descr['en']['event.description']}</p>
         <span>
           <button>Digital</button>
           <CopyLink data={data} currentPageURL={getCurrentPageURL} showDetails={false} showCopyButton={true} />
@@ -102,10 +102,10 @@ const EventsInner = ({ item, slug }) => {
       <div className={styles.items}>
         <h2 className='ttl font_51'>Other Events</h2>
         <div className={styles.item}>
-          {relatedEvents.map(event => (
+          {relatedEvents.map(ev => (
             <Card
-              key={item._id}
-              dataArr={event}
+              key={ev._id}
+              dataArr={ev}
               fileAdress={fileAdress}
               title={title}
               description={description}

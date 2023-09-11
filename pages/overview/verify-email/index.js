@@ -38,7 +38,7 @@ const index = () => {
         customStyles={{ 
           margin: "0"
         }}
-        onClick={() => router.push('/overview/make-profile', undefined, { locale })}
+        onClick={() => router.push('/profile/create', undefined, { locale })}
       />}
       {!verified && <div>Something went wrong</div>}
     </div>

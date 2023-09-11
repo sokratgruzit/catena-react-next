@@ -1,17 +1,20 @@
 import { Button } from '@catena-network/catena-ui-module';
 import Image from 'next/image';
+import { useSelector } from 'react-redux';
 
 import styles from './Card.module.css';
 import Link from 'next/link';
 
 const Card = ({ title }) => {
+  const activeLang = useSelector(state => state.settings.activeLang);
+
   return (
     <div className={styles.container}>
       <div className={styles.card}>
         <Image src='/Mask Group.png' width={606} height={400} alt='Picture of the author' />
         <div className={styles.title}>Join the CORE Ecosystem Now</div>
         <div className={styles.button}>
-        <Link href="/home/yourVoice">
+        <Link href="/home/yourVoice" locale={activeLang}>
             <Button
               label={'explore'}
               size={'btn-lg'}
@@ -31,7 +34,7 @@ const Card = ({ title }) => {
         <Image src='/Mask Group (2).png' width={436} height={400} alt='Picture of the author' />
         <div className={styles.title}>Submit your project</div>
         <div className={styles.button}>
-        <Link href="/home/yourVoice">
+        <Link href="/home/yourVoice" locale={activeLang}>
           <Button
             label={'explore'}
             size={'btn-lg'}

@@ -2,17 +2,25 @@ import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Button from '../../UI/button/Button';
 
+import { useNftMarket } from '../../../hooks/useNftMarket';
+
 import styles from './Profile.module.css';
 import TabFilter from '../../UI/filters/TabFilter';
 import filterStyles from '../../UI/filters/TabFilter.module.css';
 import ListItemCard from '../../UI/listItem/ListItemCard';
 import DataBox from '../../UI/dataBox/DataBox';
 
-export default function Profile({ nftArrivalsData, achivements }) {
-  const router = useRouter();
-  const { profileId } = router.query;
+export default function Profile({ address }) {
   const [activeMenuItem, setActiveMenuItem] = useState('NFTs');
   const [activeTab, setActiveTab] = useState('Items');
+  const [itemsList, setItemsList] = useState([]);
+  
+  const { 
+    account,
+    fetchNFTs,
+  } = useNftMarket();
+  const router = useRouter();
+  const { profileId } = router.query;
 
   const switchTabModeHandler = mode => {
     setActiveMenuItem(mode);
@@ -21,12 +29,6 @@ export default function Profile({ nftArrivalsData, achivements }) {
   const switchTableModeHandler = mode => {
     setActiveTab(mode);
   };
-
-  const [itemsList, setItemsList] = useState(
-    nftArrivalsData.map(item => {
-      return <ListItemCard key={item.id} data={item} type={'nft_arrivals'} />;
-    }),
-  );
 
   let tabsRightData = [{ label: 'NFTs' }, { label: 'Achievements' }];
   let tabsData = [{ label: 'Items' }, { label: 'Activity' }];
@@ -39,9 +41,17 @@ export default function Profile({ nftArrivalsData, achivements }) {
       }
     }
   }, [router.isReady, router.query]);
-  function refreshPage() {
-    window.location.reload();
-  }
+
+  useEffect(() => {
+    if (account) {
+      fetchNFTs().then(items => {
+        setItemsList(items?.map(item => {
+          return <ListItemCard key={item.tokenURI} data={item} type={'nft_arrivals'} />;
+        }))
+      });
+    }
+  }, [account]);
+  
   return (
     <div className={`${styles.profile} container`}>
       <div className={styles.profileWrapper}>
@@ -67,7 +77,7 @@ export default function Profile({ nftArrivalsData, achivements }) {
         className='ttl'
         title={'Activate Profile'}
         type={'skyBlue'}
-        onClick={refreshPage}
+        onClick={() => {}}
         customStyles={{
           padding: '11px 34px',
           width: 'fit-content',
@@ -138,7 +148,7 @@ export default function Profile({ nftArrivalsData, achivements }) {
           <div className={styles.achivements}>
             <div className={`${styles.tableHeader} font_30 ttl`}>Achievements</div>
             <div className={styles.tableBody}>
-              {achivements.map((item, index) => {
+              {/* {achivements.map((item, index) => {
                 return (
                   <div key={item.id} className={styles.achivementsItem}>
                     <img src={item.img} alt='img' />
@@ -148,7 +158,7 @@ export default function Profile({ nftArrivalsData, achivements }) {
                     </div>
                   </div>
                 );
-              })}
+              })} */}
             </div>
           </div>
         </div>

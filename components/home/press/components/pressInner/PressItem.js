@@ -1,12 +1,13 @@
 import Slider from '../../../../UI/slider/Slider';
 import { useSelector } from 'react-redux';
 import CopyLink from '../pressInner/CopyLink';
-import JoinCommunity from '../../../events/components/JoinCommunity';
+import JoinCommunity from '../../../events/components/joinComunity/JoinCommunity';
 import PublicByYears from '../publicByYears/PublicByYears';
 
 import styles from '../../Press.module.css';
 
-const PressonePress = ({ onePress }) => {
+const PressItem = ({ onePress }) => {
+  console.log(onePress)
   const activeLang = useSelector(state => state.settings.activeLang);
   const sliderImages = [
     `${process.env.NEXT_PUBLIC_URL}/uploads/press/${onePress.image}`,
@@ -64,4 +65,4 @@ const PressonePress = ({ onePress }) => {
   );
 };
 
-export default PressonePress;
+export default PressItem;

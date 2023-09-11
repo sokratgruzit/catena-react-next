@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 
 import { useNftMarket } from '../../../hooks/useNftMarket';
 
@@ -17,6 +18,7 @@ import styles from './Creator.module.css';
 
 const Creator = () => {
   let content = '';
+
   const azukiItems = [
     {
       id: 0,
@@ -1289,6 +1291,7 @@ const Creator = () => {
   const [toggle, setToggle] = useState(false);
   const [myNfts, setMyNfts] = useState([]);
   const [nfts, setNfts] = useState([]);
+  const activeLang = useSelector(state => state.settings.activeLang);
 
   const { 
     account,
@@ -1457,7 +1460,7 @@ const Creator = () => {
   return (
     <div className={`${styles.Creator} container`}>
       <div className={`${styles.Creator__inner} `}>
-        <Link href={`/nfts/collections`}>
+        <Link href={`/nfts/collections`} locale={activeLang}>
           <div className={styles.Creator__backBtn}>
             <ArrowBtn route={'back__collections'} direction={'back'} />
           </div>
