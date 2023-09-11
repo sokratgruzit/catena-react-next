@@ -20,6 +20,16 @@ const ArrowBtn = props => {
     title = 'Back';
   }
 
+  if (props.route === 'voting') {
+    route = '/overview/voting';
+    title = 'Back';
+  }
+
+  if (props.route === 'back__collections') {
+    route = '/overview/nfts/collections';
+    title = 'Back';
+  }
+
   if (props.route === 'activity') {
     route = `/overview/nfts/activity`;
     title = `See Activities`;

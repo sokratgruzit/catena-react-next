@@ -1,0 +1,90 @@
+.proposalInner {
+  padding-top: 98px;
+}
+.InnerWrapper {
+  margin-top: 55px;
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+}
+
+.InnerWrapper h1 {
+  margin: 21px 0 31px 0;
+}
+
+.InnerWrapper h1 span {
+  text-transform: uppercase;
+}
+
+.InnerWrapper img {
+  width: 100%;
+  max-width: 100%;
+  object-fit: cover;
+}
+
+.desctiption {
+  margin: 34px 0 55px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.teaser,
+.rewardsTeaser,
+.stake {
+  margin-bottom: 10px;
+}
+
+.listTeaser {
+  margin: 23px 0 10px 0;
+}
+
+.desctiption p span {
+  text-transform: uppercase;
+}
+
+.stake,
+.stake span {
+  color: rgba(22, 32, 41, 0.7);
+}
+.list {
+  margin-bottom: 32px;
+}
+.list li span {
+  color: #16202999;
+  margin-left: 3px;
+}
+
+.list li::after {
+  border: none !important;
+}
+
+.p {
+  margin-bottom: 10px;
+}
+
+.des {
+  font-weight: 500;
+}
+
+.rewardsTeaser {
+  margin-top: 32px;
+}
+.desctiption a {
+  color: #ff6969 !important;
+  text-decoration: underline !important;
+  text-decoration-color: #ff6969 !important;
+}
+
+.warning {
+  margin-top: 32px;
+  text-shadow: 0px 0px 20px #ffa800b2;
+  color: #ffa800b2;
+  margin-bottom: 4px;
+}
+
+.desctiption .des:last-child {
+  margin-top: 10px;
+}
+
+.table {
+  margin-top: 56px;
+}
