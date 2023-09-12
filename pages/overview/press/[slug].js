@@ -5,19 +5,20 @@ import createAxiosInstance from '../../api/axios';
 
 import Pressitem from "../../../components/home/press/components/pressInner/PressItem"
 
-const index = () => {
-  const router = useRouter();
-  const { slug } = router.query;
+export const getServerSideProps = async context => {
+  const { slug } = context.query;
   const axios = createAxiosInstance();
+  const { data } = await axios.post(`${process.env.NEXT_PUBLIC_URL}/press/get-one-press`, { slug });
 
-  const fetchData = async () => {
-    const { data } = await axios.post(`${process.env.NEXT_PUBLIC_URL}/press/get-one-press`, { slug });
-    return data;
+  return {
+    props: {
+      press: data || {}
+    },
   };
+};
 
-  const data = fetchData();
-  
-  return <Pressitem onePress={data} />
+const index = ({ press }) => {
+  return <Pressitem onePress={press} />
 };
 
 export default index;

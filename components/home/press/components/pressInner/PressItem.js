@@ -6,7 +6,8 @@ import PublicByYears from '../publicByYears/PublicByYears';
 
 import styles from '../../Press.module.css';
 
-const PressonePress = ({ onePress }) => {
+const PressItem = ({ onePress }) => {
+  console.log(onePress)
   const activeLang = useSelector(state => state.settings.activeLang);
   const sliderImages = [
     `${process.env.NEXT_PUBLIC_URL}/uploads/press/${onePress.image}`,
@@ -24,7 +25,7 @@ const PressonePress = ({ onePress }) => {
       ) : (
         <>
           <div className='custum-text'>
-            {/* <h1>{onePress.title['en']['press.title']}</h1>
+            <h1>{onePress.title['en']['press.title']}</h1>
             <CopyLink
               data={[
                 {
@@ -54,7 +55,7 @@ const PressonePress = ({ onePress }) => {
               currentPageURL={getCurrentPageURL}
               showDetails={true}
               showCopyButton={true}
-            /> */}
+            />
           </div>
         </>
       )}
@@ -64,4 +65,4 @@ const PressonePress = ({ onePress }) => {
   );
 };
 
-export default PressonePress;
+export default PressItem;
