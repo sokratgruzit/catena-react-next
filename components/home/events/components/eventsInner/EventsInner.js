@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useMemo } from 'react';
 import Slider from '../../../../UI/slider/Slider';
-import CopyLink from '../../../press/components/pressInner/CopyLink';
+import CopyLink from '../../../../UI/copyLink/CopyLink';
 import { useSelector } from 'react-redux';
 import createAxiosInstance from '../../../../../pages/api/axios';
 import Card from '../../../../UI/card/Card';

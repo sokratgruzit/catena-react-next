@@ -1,192 +1,166 @@
-// import React, { useState } from 'react';
-// import { useRouter } from 'next/router';
-// import DOMPurify from 'dompurify';
-// import ChoiceItemRow from '../components/choiceItem/ChoiceItemRow';
-// import ChoiceItemResult from '../components/choiceItem/ChoiceItemResult';
-// import CountdownItem from '../components/countdownItem/CountdownItem';
-// import VotingData from '../components/votingData/VotingData';
-// import Button from '../../UI/button/Button';
+import React, { useState, useEffect } from 'react';
+import { Input, Button } from '@catena-network/catena-ui-module';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+import { useQuill } from 'react-quilljs';
+import 'quill/dist/quill.snow.css';
+import styles from './Proposal.module.css';
+// import FormSelectTime from '../components/formDateInput/FormSelectTime';
 
-// import { CloseTag, CommunityTag, CoreTagLight, OpenSvg, SmlArrowSvg, SoonTag, VoteNowTag } from '../../svg/index';
+export default function Proposal() {
+  const [startDate, setStartDate] = useState(null);
+  const [endDate, setEndDate] = useState(null);
+  const [time, setTime] = useState('');
+  const [editorContent, setEditorContent] = useState('');
+  const [choices, setChoices] = useState(['']);
 
-// import { useConnect } from '../../../../catena-react-admin-module/src/hooks/useConnect';
-// import { useWindowDimension } from '../../../hooks/useWindowDimension';
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const Quill = require('quill');
 
-// import styles from './Proposal.module.css';
+      const quill = new Quill('#editor', {
+        theme: 'snow',
+        modules: {
+          toolbar: [['bold', 'italic'], [{ header: '1' }], [{ list: 'bullet' }, { list: 'ordered' }], ['link']],
+        },
+      });
 
-// const votingData = [
-//   {
-//     id: 0,
-//     title: 'Stop Minting more CATENA',
-//     img: '/images/voting/proposalImg.png',
-//     date: 'Ends Mar 6th, 2022 11:15',
-//     location: 'Community',
-//     activeStatus: 'Vote Now',
-//     choices: [
-//       {
-//         value: 'yes we are happy',
-//         id: 0,
-//         totalVotes: 1368085.43,
-//         percentage: 90.03,
-//       },
-//       {
-//         value: 'no we are not happy at all',
-//         id: 1,
-//         totalVotes: 70901.43,
-//         percentage: 41.03,
-//       },
-//     ],
-//     countdownTo: Date.now() + 100000000,
-//     mainText:
-//       '<h2>CATENA Network Welcomes Tiny World ($TINC) to Syrup Pool!</h2><p><br></p><p>Dear CAKE holders, we’re proud to announce a new Syrup Pool with Tiny World! Tiny World is the 1st idle-style GameFi project where everything is available to trade. Play enjoyable, idle-style games with a global community of gamers and earn a passive income in your spare time.</p><p><br></p><h2>The Syrup Pool:</h2><p>Stake CAKE tokens to earn TINC tokens!</p><ul><li>Total Tokens: 404,100 TINC</li><li>Distribution duration: 30 days</li><li>Start time: Approx. 11AM UTC on April 7th 2022</li><li>Finish time: Approx. 11AM UTC on May 7th 2022</li><li>Token rewards per block: 0.4677 TINC</li></ul><h2>Token rewards per block: 0.4677 TINC</h2><p><br></p><p>100 CATENA for the first 57,600 blocks (approx. 48 hours) after the Syrup Pool is launched, then unlimited CATENA staking after that.</p><p>The cap is to give everyone an equal opportunity to farm rewards at a high APY at the start of the farm.</p><p><br></p><p><br></p><h2>How do you stake CATENA to earn $TINC rewards?</h2><p>Follow this guide to staking in Syrup Pools:</p><p><a href="https://docs.pancakeswap.finance/products/syrup-pool/syrup-pool-guide" rel="noopener noreferrer" target="_blank">https://docs.pancakeswap.finance/products/syrup-pool/syrup-pool-guide</a></p><p><br></p><p><br></p><h2><br></h2>',
-//   },
-// ];
+      quill.on('text-change', () => {
+        const content = quill.root.innerHTML;
+        setEditorContent(content);
+      });
+    }
+  }, []);
 
-// const Proposal = () => {
-//   const router = useRouter();
-//   const { id } = router.query;
-//   const { isActive, handleWalletModal } = useConnect();
-//   const [width, height] = useWindowDimension();
+  const handleInputChange = event => {
+    const inputTime = event.target.value;
+    setTime(inputTime);
+  };
 
-//   const [votingItem, setVotingItem] = useState(votingData[0]);
-//   const [activeVoteWindow, setActiveVoteWindow] = useState('cast');
+  const handleStartDateChange = date => {
+    setStartDate(date);
+  };
 
-//   const [votingChoice, setVotingChoice] = useState(null);
+  const handleEndDateChange = date => {
+    setEndDate(date);
+  };
 
-//   const handleFormSubmit = e => {
-//     e.preventDefault();
-//     setActiveVoteWindow('vote');
-//     console.log('hi');
-//   };
+  const handleInputChanges = event => {
+    console.log('hi');
+  };
 
-//   return (
-//     <>
-//       <div className={`container ${styles.wrapper}`}>
-//         <main className={styles.ProposalInfo}>
-//           <section className={styles.proposalSection}>
-//             <nav onClick={() => router.push('/voting')} className={styles.backBtn}>
-//               <SmlArrowSvg className={styles.arrowSvg} />
-//               <p className={styles.blueHover}>Back</p>
-//             </nav>
-//             <CountdownItem votingTo={votingItem.countdownTo} />
-//             <h1 className={styles.title}>{votingItem.title}</h1>
-//             <div
-//               className={styles.mainBody}
-//               dangerouslySetInnerHTML={{
-//                 __html: DOMPurify.sanitize(votingItem.mainText),
-//               }}
-//             ></div>
-//           </section>
-//           <div className={styles.detailsWrapper}>
-//             <div className={styles.details}>
-//               <div className={styles.gradient}></div>
-//               <div className={styles.detailsCont}>
-//                 <p>Details</p>
-//                 <div className={styles.tagWrapper}>
-//                   {votingItem.activeStatus === 'Close' && <CloseTag />}
-//                   {votingItem.activeStatus === 'Vote Now' && <VoteNowTag />}
-//                   {votingItem.activeStatus === 'Soon' && <SoonTag />}
-//                   {votingItem.location === 'Community' && <CommunityTag />}
-//                   {votingItem.location === 'CATENA' && <CoreTagLight />}
-//                 </div>
-//               </div>
-//               <div className={styles.item}>
-//                 <p>Identifier</p>
-//                 <div className={styles.itemInner}>
-//                   <a href='##'>
-//                     QmWVfYm3
-//                     <OpenSvg />
-//                   </a>
-//                 </div>
-//               </div>
-//               <div className={styles.item}>
-//                 <p>Creator</p>
-//                 <div className={styles.itemInner}>
-//                   <a href='##'>
-//                     0xC7...061b <OpenSvg />
-//                   </a>
-//                 </div>
-//               </div>
-//               <div className={`${styles.item} ${styles.borderBottom}`}>
-//                 <p>Snapshot</p>
-//                 <div className={styles.itemInner}>
-//                   <a href='##'>
-//                     16704554 <OpenSvg />
-//                   </a>
-//                 </div>
-//               </div>
-//               {width > 1023 && (
-//                 <>
-//                   {votingItem.activeStatus === 'Close' && <CloseTag />}
-//                   {votingItem.activeStatus === 'Vote Now' && <VoteNowTag />}
-//                   {votingItem.activeStatus === 'Soon' && <SoonTag />}
-//                 </>
-//               )}
-//               <div className={styles.item}>
-//                 <p>Start Date</p>
-//                 <p className={styles.dateData}>2022-04-06 14:00</p>
-//               </div>
-//               <div className={styles.item}>
-//                 <p>End Date</p>
-//                 <p className={styles.dateData}>2022-04-07 14:00</p>
-//               </div>
-//             </div>
-//             {activeVoteWindow === 'cast' ? (
-//               <div className={`${styles.vote}`}>
-//                 <h3>Cast Your Vote</h3>
-//                 <span className={styles.border}></span>
-//                 <form onSubmit={handleFormSubmit} className={styles.form}>
-//                   {votingItem?.choices?.map((choice, index) => (
-//                     <ChoiceItemRow key={index} index={index} choice={choice} setVotingChoice={setVotingChoice} />
-//                   ))}
-//                   {isActive ? (
-//                     <button className={`btn btnBlue ${styles.voteButton}`} disabled={votingChoice === null}>
-//                       Vote
-//                     </button>
-//                   ) : (
-//                     <Button
-//                       title={'Connect Wallet'}
-//                       onClick={() => {
-//                         handleWalletModal(true);
-//                       }}
-//                       type={'blue'}
-//                       className={styles.connectWallet}
-//                     />
-//                   )}
+  const addChoice = () => {
+    setChoices([...choices, '']);
+  };
 
-//                   <p className={styles.seeMore} onClick={() => setActiveVoteWindow('see result')}>
-//                     See Result
-//                   </p>
-//                 </form>
-//               </div>
-//             ) : (
-//               <div className={`${styles.result} ${activeVoteWindow && styles.resultActive}`}>
-//                 {activeVoteWindow === 'see result' ? (
-//                   <div className={styles.resultHeader} onClick={() => setActiveVoteWindow('cast')}>
-//                     <SmlArrowSvg />
-//                     <h3>Results</h3>
-//                   </div>
-//                 ) : (
-//                   <h3>Current Results</h3>
-//                 )}
+  const updateChoice = (index, value) => {
+    const updatedChoices = [...choices];
+    updatedChoices[index] = value;
+    setChoices(updatedChoices);
+  };
 
-//                 <span className={styles.border}></span>
-//                 <div className={styles.votes}>
-//                   {votingItem?.choices?.map((choice, index) => (
-//                     <ChoiceItemResult key={index} choice={choice} />
-//                   ))}
-//                   <p className={styles.votedChoice}>
-//                     you have voted for <span>{votingChoice.value}</span>
-//                   </p>
-//                 </div>
-//               </div>
-//             )}
-//           </div>
-//         </main>
-//         <VotingData />
-//       </div>
-//     </>
-//   );
-// };
+  return (
+    <div className={`${styles.main} `}>
+      <div className={styles.proposalWrapper}>
+        <div className={`${styles.proposalIntro} container`}>
+          <h1>Make a Proposal</h1>
+          <p className='font_30'>
+            Scroll presently pads accost twilight byron spasms bate bacchus cottage stainless boils freely lacinia. Fire
+            aid easiest accumsan scroll pealed, broke, boils depart.
+          </p>
+        </div>
+        <div className={`${styles.bottomBox}`}>
+          <form className={styles.form}>
+            <Input
+              type={'default'}
+              icon={false}
+              label={'title'}
+              subLabel={''}
+              placeholder={'Enter'}
+              name='text'
+              onChange={handleInputChanges}
+            />
 
-// export default Proposal;
+            <div className={styles.content}>
+              <label className={styles.label}>Content</label>
+              <label className={styles.subLabel}>Tip: Write in Markdown!</label>
+              <div className={styles.contentTextarea}>
+                <div id='editor' />
+              </div>
+            </div>
+            <div className={styles.choices}>
+              {choices.map((choice, index) => (
+                <div key={index}>
+                  <Input
+                    type='default'
+                    icon={false}
+                    label={index === 0 ? 'Choices' : ''}
+                    subLabel={index === 0 ? '' : ''}
+                    value={choice}
+                    onChange={e => updateChoice(index, e.target.value)}
+                    placeholder={`Enter Choice ${index + 1}`}
+                  />
+                </div>
+              ))}
+              <button className={styles.btn} onClick={addChoice}>
+                Add Choice
+                <svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                  <path d='M6 12H18' stroke='#212121' strokeWidth='1.5' strokeLinecap='round' strokeLinejoin='round' />
+                  <path d='M12 18V6' stroke='#212121' strokeWidth='1.5' strokeLinecap='round' strokeLinejoin='round' />
+                </svg>
+              </button>
+            </div>
+
+            {/* <FormSelectTime selected={startDate} onChange={handleStartDateChange} /> */}
+
+            <div className={styles.inputContainer}>
+              <label className={styles.subLabel}>End Date</label>
+              <DatePicker
+                selected={endDate}
+                onChange={handleEndDateChange}
+                dateFormat='MM/dd/yyyy'
+                className={styles.datePicker}
+              />
+            </div>
+            <div className={styles.inputContainer}>
+              <label className={styles.label}>Time</label>
+              <label className={styles.subLabel}>Start Time</label>
+              <input placeholder='00:00' type='time' required className={styles.input} />
+            </div>
+            <div className={styles.inputContainer}>
+              <label className={styles.subLabel}>End Time</label>
+              <input placeholder='00:00' type='time' required className={styles.input} />
+            </div>
+          </form>
+
+          <div className={styles.snapshot}>
+            <p>Snapshot:</p>
+            <p>
+              16672898
+              <svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                <path
+                  d='M18.5399 15.1046C18.6742 14.9703 18.7591 14.7864 18.7591 14.5743L18.7591 5.99003C18.7579 5.7916 18.6785 5.60164 18.5382 5.46133C18.3979 5.32101 18.208 5.24167 18.0095 5.2405L9.42525 5.2405C9.01513 5.2405 8.67571 5.57991 8.67571 5.99003C8.67571 6.40015 9.01513 6.73956 9.42525 6.73956L17.26 6.73956L17.26 14.5743C17.26 14.9844 17.5994 15.3238 18.0095 15.3238C18.2146 15.3309 18.4055 15.239 18.5399 15.1046Z'
+                  fill='#212121'
+                />
+                <path
+                  d='M6.51864 18.5404L18.4192 6.63982C18.7092 6.3499 18.7092 5.86907 18.4192 5.57916C18.1293 5.28924 17.6485 5.28924 17.3586 5.57916L5.45798 17.4798C5.16806 17.7697 5.16806 18.2505 5.45798 18.5404C5.74789 18.8303 6.22872 18.8303 6.51864 18.5404Z'
+                  fill='#212121'
+                />
+              </svg>
+            </p>
+          </div>
+          <Button
+            label={'Connect Wallet'}
+            size={'btn-lg'}
+            type={'btn-primary'}
+            element={'button'}
+            disabled={false}
+            onClick={console.log('Connect Wallet')}
+            className={styles.btnBlu}
+            customStyles={{ background: '#A6D0DD', border: '1px solid #162029', width: '100%' }}
+          />
+        </div>
+      </div>
+    </div>
+  );
+}

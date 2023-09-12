@@ -1,8 +1,7 @@
 import React from 'react';
 
 import createAxiosInstance from '../../api/axios';
-
-import EventsItem from '../../../components/home/events/components/eventsInner/EventsInner';
+import EventsInner from '../../../components/home/events/components/eventsInner/EventsInner';
 
 export const getServerSideProps = async context => {
   const { slug } = context.query;
@@ -12,13 +11,13 @@ export const getServerSideProps = async context => {
   return {
     props: {
       event: data || {},
-      slug
+      slug,
     },
   };
 };
 
 const index = ({ event, slug }) => {
-  return <EventsItem event={event} slug={slug} />;
+  return <EventsInner event={event} slug={slug} />;
 };
 
 export default index;

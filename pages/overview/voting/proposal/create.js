@@ -6,8 +6,7 @@ import Proposal from '../../../../components/voting/proposal/Proposal';
 const index = () => {
   return (
     <>
-      {/* <Proposal /> */}
-      hi
+      <Proposal />
     </>
   );
 };
