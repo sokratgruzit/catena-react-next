@@ -1,0 +1,48 @@
+.community {
+  color: #e91e63;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 2px 6px;
+  border: 1px solid #e91e63;
+  border-radius: 20px;
+  width: fit-content;
+}
+.close {
+  color: #b0bec5;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 2px 6px;
+  border: 1px solid #b0bec5;
+  border-radius: 20px;
+  width: fit-content;
+}
+.core {
+  color: #7464d7;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 2px 6px;
+  border: 1px solid #7464d7;
+  border-radius: 20px;
+  width: fit-content;
+}
+.soon {
+  color: #ffa726;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 2px 6px;
+  border: 1px solid #ffa726;
+  border-radius: 20px;
+  width: fit-content;
+}
+
+.voteNow {
+  color: #ff6969;
+  border: 1px solid #ff6969;
+  padding: 2px 6px;
+  border-radius: 20px;
+  font-size: 14px;
+}

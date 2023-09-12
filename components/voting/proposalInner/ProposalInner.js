@@ -1,17 +1,37 @@
 import React from 'react';
 import ArrowBtn from '../../UI/button/ArrowBtn';
 import styles from './ProposalInner.module.css';
-import HourglassTime from '../../UI/hourglassTime/hourglassTime';
 import Link from 'next/link';
-import VoteTable from './VoteTable';
+import VoteTable from '../components/voteTable/VoteTable';
+import Details from '../components/detailsTable/Details';
+import CastYourCode from '../components/castYourCode/CastYourCode';
+import CountdownItem from '../components/countdownItem/CountdownItem';
 
 export default function ProposalInner() {
+  let detailsData = [
+    {
+      item: 'Identifier',
+      code: 'QmWVfYm3',
+    },
+    {
+      item: 'Creator',
+      code: '0xf5...303x',
+    },
+    {
+      item: 'Snapshot',
+      code: '16705665',
+    },
+    { dateTeaser: 'Start Date', date: '05.06.2023, 14:00' },
+    { dateTeaser: 'End Date', date: '10.06.2023, 14:00' },
+  ];
+  const votingTo = new Date('2023-09-31T23:59:59');
+
   return (
     <div className={`${styles.proposalInner} container`}>
       <ArrowBtn route={'voting'} direction={'back'} />
       <div className={styles.InnerWrapper}>
         <div className={styles.left}>
-          <HourglassTime />
+          <CountdownItem votingTo={votingTo} />
           <h1 className='font_51 ttl'>
             Launch <span className='font_51 ttl'>"CORE NFT"</span> sale to help Ukrainian hospitals
           </h1>
@@ -76,6 +96,10 @@ export default function ProposalInner() {
               <VoteTable />
             </div>
           </div>
+        </div>
+        <div className={styles.right}>
+          <Details detailsData={detailsData} />
+          <CastYourCode />
         </div>
       </div>
     </div>

@@ -5,6 +5,9 @@
   margin-top: 55px;
   display: grid;
   grid-template-columns: 3fr 2fr;
+  gap: 186px;
+  max-width: 100%;
+  width: 100%;
 }
 
 .InnerWrapper h1 {
@@ -87,4 +90,29 @@
 
 .table {
   margin-top: 56px;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+@media (max-width: 1665px) {
+  .InnerWrapper {
+    gap: 130px;
+  }
+}
+
+@media (max-width: 1365px) {
+  .InnerWrapper {
+    grid-template-columns: 1fr 1fr;
+    gap: 19px;
+  }
+}
+@media (max-width: 1023px) {
+  .InnerWrapper {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
 }

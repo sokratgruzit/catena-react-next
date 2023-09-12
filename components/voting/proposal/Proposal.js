@@ -149,6 +149,7 @@ export default function Proposal() {
               </svg>
             </p>
           </div>
+          
           <Button
             label={'Connect Wallet'}
             size={'btn-lg'}
