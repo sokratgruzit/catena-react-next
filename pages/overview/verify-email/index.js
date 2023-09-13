@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Button } from '@catena-network/catena-ui-module';
 import { useRouter } from 'next/router';
+import { useSelector } from "react-redux";
 
 import createAxiosInstance from '../../api/axios';
 import styles from './Verify.module.css';
@@ -10,6 +11,8 @@ const index = () => {
   const router = useRouter();
   const [verified, setVerified] = useState(false);
   const { locale } = router;
+  const account = useSelector(state => state.connect.account);
+
   
   useEffect(() => {
     const currentUrl = window.location.href;
@@ -38,7 +41,7 @@ const index = () => {
         customStyles={{ 
           margin: "0"
         }}
-        onClick={() => router.push('/profile/create', undefined, { locale })}
+        onClick={() => router.push('/profile/create', undefined, { locale, address: account  })}
       />}
       {!verified && <div>Something went wrong</div>}
     </div>
