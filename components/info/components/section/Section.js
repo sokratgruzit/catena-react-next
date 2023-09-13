@@ -10,18 +10,22 @@ import { Button } from '@catena-network/catena-ui-module';
 import InfoRoutes from '../infoRoutes/InfoRoutes';
 import TableTokens from '../tableTokens/TableTokens';
 import SearchBar from '../searchBar/SearchBar';
+import { useSelector } from 'react-redux';
 
 import styles from './Section.module.css';
 
 const Section = ({ data, tableHead, Table__Types, tableInfo }) => {
   const router = useRouter();
   const [toggle, setToggle] = useState(false)
+  const account = useSelector(state => state.connect.account);
+  const { locale } = router;
+
   return (
     <div className='pT-180'>
       <div className={`${styles.section} container`}>
         <div className={styles.topSectionWrapper}>
           <div className={styles.goBackWrapper}>
-            <div onClick={() => router.push(`/overview/info/pools`)} className={styles.goBackText}>
+            <div onClick={() => router.push(`/overview/info/pools`, undefined, { locale, address: account })} className={styles.goBackText}>
               <SmlArrowSvg />
               <p>Back</p>
             </div>

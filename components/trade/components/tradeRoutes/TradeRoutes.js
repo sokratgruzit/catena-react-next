@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
+import { useSelector } from 'react-redux';
 
 import styles from './TradeRoutes.module.css';
 import TabFilter from '../../../UI/filters/TabFilter';
@@ -17,6 +18,8 @@ let tabsData = [
 
 const TradeRoutes = () => {
   const router = useRouter();
+  const account = useSelector(state => state.connect.account);
+  const { locale } = router;
 
   const getCurrentLocation = loc => {
     let returnStatement = '';
@@ -31,9 +34,9 @@ const TradeRoutes = () => {
 
   const navigationHandler = route => {
     if (route === 'Trade') {
-      router.push('/overview/trade');
+      router.push('/overview/trade', undefined, { locale, address: account });
     } else {
-      router.push(`/overview/trade/${route.toLowerCase()}`);
+      router.push(`/overview/trade/${route.toLowerCase()}`, undefined, { locale, address: account });
     }
     setActiveMenuItem(route);
   };

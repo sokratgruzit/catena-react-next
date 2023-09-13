@@ -165,6 +165,9 @@ export const useConnect = (props) => {
   };
 
   async function disconnect() {
+    const account = useSelector(state => state.connect.account);
+    const { locale } = router;
+
     try {
       if (library && library.provider && library.provider.close) {
         await library.provider.close();
@@ -174,7 +177,7 @@ export const useConnect = (props) => {
       dispatch({ type: 'SET_USER', payload: null });
       dispatch({ type: "LOGOUT" });
       const { locale, query } = router;
-      router.push('/', undefined, { ...query, locale });
+      router.push('/', undefined, { ...query, locale, address: account });
     } catch (error) {
       console.log("Error on disconnect: ", error);
     }
