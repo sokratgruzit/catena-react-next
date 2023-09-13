@@ -116,11 +116,11 @@ const MakeProfile = () => {
           locale: locale,
           step: 3
         })
-        .then(res => {
-          dispatch({ type: 'SET_USER', payload: res.data });
-          router.push(`/profile/${account}`, undefined, { locale, address: account });
-        })
-        .catch(e => setError(e.response.data));
+          .then(res => {
+            dispatch({ type: 'SET_USER', payload: res.data });
+            router.push(`/profile/${account}`, undefined, { locale, address: account });
+          })
+          .catch(e => setError(e.response.data));
       }
     }
   };
@@ -156,22 +156,22 @@ const MakeProfile = () => {
         <div className={styles.contStep}>
           <span style={{ color: '#ff6969' }}>Step 1</span>
           <p style={{ paddingBottom: '20px' }} className='font-20 ttl'>Get Starter Collectible</p>
-          <p style={{textAlign: 'center'}} className='ttl'>Every profile starts by making a “starter” collectible (NFT).</p>
-          <p style={{textAlign: 'center'}} className='ttl'>This starter will also become your first profile picture.</p>
-          <p style={{marginBottom: '20px', textAlign: 'center'}} className='ttl'>You can change your profile picture later if you get another approved CoreMultiChain Collectible.</p>
+          <p style={{ textAlign: 'center' }} className='ttl'>Every profile starts by making a “starter” collectible (NFT).</p>
+          <p style={{ textAlign: 'center' }} className='ttl'>This starter will also become your first profile picture.</p>
+          <p style={{ marginBottom: '20px', textAlign: 'center' }} className='ttl'>You can change your profile picture later if you get another approved CoreMultiChain Collectible.</p>
         </div>
         <div>
           {!userData?.step &&
-            <div style={{padding: '0'}} className='container_bordered-child'>
+            <div style={{ padding: '0' }} className='container_bordered-child'>
               <div className={styles.tabHead}>
                 <div>
                   <p className='font-20 ttl'>Choose your Starter!</p>
-                  <p style={{color: '#162029'}}>Choose wisely: you can only ever make one starter collectible!</p>
+                  <p style={{ color: '#162029' }}>Choose wisely: you can only ever make one starter collectible!</p>
                 </div>
-                <div style={{display: 'flex', gap: '5px'}}>
+                <div style={{ display: 'flex', gap: '5px' }}>
                   <p>Cost:</p>
                   <p>1.0</p>
-                  <span style={{color: '#ff6969'}}>CMCX</span>
+                  <span style={{ color: '#ff6969' }}>CMCX</span>
                 </div>
               </div>
               <div className={styles.makeProfileWrapper}>
@@ -181,7 +181,7 @@ const MakeProfile = () => {
                     className={styles.avatarCard}
                     style={activeAvatar === item.id ?
                       {
-                        background: "#ff6969"
+                        background: "#A6D0DD"
                       } : {}
                     }
                     onClick={() => handleStep(item.id)}
@@ -196,7 +196,7 @@ const MakeProfile = () => {
               </div>
               <div className={styles.confirmBtn}>
                 <Button
-                  label={'Confirm'}
+                  label={'Enable'}
                   size={'btn-lg'}
                   type={'btn-primary'}
                   arrow={'arrow-none'}
@@ -209,18 +209,24 @@ const MakeProfile = () => {
             </div>}
         </div>
         {userData?.step === 1 && <div className={styles.makeProfileWrapper}>
-          <div
-            onClick={() => handleStep("back")}
-            style={{
-              cursor: "pointer",
-              color: "#ff6969"
-            }}
-          >&larr; Previous Step</div>
-          <div className={styles.avatarCard}>
-            <div className={styles.avatarImg}>
-              <Image width={80} height={80} src={userData?.avatar?.img} alt={userData?.avatar?.name} />
-              <p>{userData?.avatar?.name}</p>
+          <div style={{ padding: '0' }} className='container_bordered-child'>
+            <div className={styles.tabHead}>
+              guduna
             </div>
+            <div
+              onClick={() => handleStep("back")}
+              style={{
+                cursor: "pointer",
+                color: "#ff6969"
+              }}
+            >&larr; Previous Step</div>
+            <div className={styles.avatarCard}>
+              <div className={styles.avatarImg}>
+                <Image width={80} height={80} src={userData?.avatar?.img} alt={userData?.avatar?.name} />
+                <p>{userData?.avatar?.name}</p>
+              </div>
+            </div>
+            <div className={styles.confirmBtn}>
             <Button
               label={'Lock Avatar'}
               size={'btn-lg'}
@@ -231,6 +237,7 @@ const MakeProfile = () => {
               onClick={() => Number(ethers.utils.formatEther(balance)) >= 1 ? handleSubmit() : null}
               className={styles.btnBlu}
             />
+            </div>
           </div>
         </div>}
         {userData?.step === 2 && <div className={styles.makeProfileWrapper}>

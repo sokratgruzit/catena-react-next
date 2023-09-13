@@ -93,15 +93,14 @@
 }
 
 .avatarCard {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   align-items: center;
   background-color: #FFF3E5;
   transition: .5s;
   border-radius: 20px;
   cursor: pointer;
-  padding: 15px 100px;
+  padding: 25px 35px;
+  width: 300px;
+  margin-top: 20px;
 }
 
 .avatarCard:hover {
