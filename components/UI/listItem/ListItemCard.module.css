@@ -370,4 +370,10 @@
   .Arrivals__listItemWrap {
     width: 100%;
   }
+  .Product__logo {
+    max-width: 80px;
+  }
+  .Product__titles p {
+    padding-top: 33px;
+  }
 }

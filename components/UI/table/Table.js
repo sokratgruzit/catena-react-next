@@ -61,7 +61,6 @@ const Table = props => {
               return child;
             });
 
-            // Conditionally wrap ListItemRow with Link based on props.type
             const isNftActivity = props.type === 'nft_activity';
             const rowContent = isNftActivity ? (
               <Link href={`/overview/nfts/activity/${item.id}`} key={item.id}>
@@ -72,7 +71,6 @@ const Table = props => {
                 </a>
               </Link>
             ) : (
-              // If not 'nft_activity', render ListItemRow without Link
               <Expand className={props.expandClassName} expandContent={childrenWithProps} key={item.id}>
                 <ListItemRow data={item} type={props.type} />
               </Expand>
@@ -85,7 +83,6 @@ const Table = props => {
       {!props.expandContent && (
         <div className={styles.Table__content}>
           {props.tableData.map(item => {
-            // Conditionally wrap ListItemRow with Link based on props.type
             const isNftActivity = props.type === 'nft_activity';
             const rowContent = isNftActivity ? (
               <Link href={`/overview/nfts/activity/${item.id}`} key={item.id}>
@@ -94,7 +91,6 @@ const Table = props => {
                 </a>
               </Link>
             ) : (
-              // If not 'nft_activity', render ListItemRow without Link
               <ListItemRow key={item.id + '_hash_' + props.type} data={item} type={props.type} />
             );
 
