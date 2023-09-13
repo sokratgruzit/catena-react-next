@@ -901,6 +901,7 @@ const Header = () => {
                   />
                 </svg>
                 <span>CMCX {account && triedReconnect ? ethers.utils.formatEther(balance) : 0}</span>
+                {console.log(account, 'acaunt')}
               </div>
               <div className={`${styles.headerLangs}`}>
                 <div className={`${styles.headerLangNow} ${activeLangs ? styles.headerLangNowActive : ''}`}>
