@@ -38,9 +38,6 @@ const CountdownItem = ({ votingTo, ...props }) => {
   };
   return (
     <div className={styles.relative}>
-      <div className={styles.CountdownBg}>
-        <Image layout='fill' objectFit='contain' src={'/images/voting/countdownBg.png'} quality={100} alt='' />
-      </div>
       <Countdown date={votingTo} renderer={renderer} {...props} />
     </div>
   );

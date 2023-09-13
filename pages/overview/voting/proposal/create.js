@@ -5,9 +5,9 @@ import Proposal from '../../../../components/voting/proposal/Proposal';
 
 const index = () => {
   return (
-    <>
+    <div style={{ background: '#FFF3E5', zIndex: '9999' }}>
       <Proposal />
-    </>
+    </div>
   );
 };
 

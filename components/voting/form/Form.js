@@ -5,20 +5,17 @@ import { useSelector } from 'react-redux';
 
 import FormErrorsText from './FormErrorsText';
 import { getFormErrors, mergeDateAndTime } from './helpers';
-import useConnect from '../../../hooks/useConnect';
 import { OpenSvg, SmlArrowSvg } from '../../svg';
 import Button from '../../UI/button/Button';
 import FormChoice from '../components/formChoice/FormChoice';
-import FormSelectDate from '../components/formDateInput/FormSelectDate';
 import FormSelectTime from '../components/formDateInput/FormSelectTime';
 
-import 'react-quill/dist/quill.snow.css';
+import 'quill/dist/quill.snow.css';
 import styles from './Form.module.css';
 
-const ReactQuill = typeof window === 'object' ? require('react-quill') : () => false;
+const ReactQuill = typeof window === 'object' ? require('quill') : () => false;
 
 const Form = () => {
-  const { isActive, handleWalletModal } = useConnect();
   const [formData, setFormData] = useState({
     title: '',
     body: '',
@@ -133,11 +130,11 @@ const Form = () => {
               <div className={styles.actionsWrap}>
                 <div>
                   <p>Start Date</p>
-                  <FormSelectDate
+                  {/* <FormSelectDate
                     placeholderText='YYYY/MM/DD'
                     onChange={date => handleUpdateValue('startDate', date)}
                     selected={formData.startDate}
-                  />
+                  /> */}
                 </div>
                 <div>
                   <p>Start Time</p>
@@ -151,11 +148,11 @@ const Form = () => {
               <div className={`${styles.actionsWrap} ${styles.marginTop}`}>
                 <div>
                   <p>End Date</p>
-                  <FormSelectDate
+                  {/* <FormSelectDate
                     placeholderText='YYYY/MM/DD'
                     onChange={date => handleUpdateValue('endDate', date)}
                     selected={formData.endDate}
-                  />
+                  /> */}
                 </div>
                 <div>
                   <p>End Time</p>
