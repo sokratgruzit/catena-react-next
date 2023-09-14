@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 
-// import CornerDecor from '../../../UI/cornerDecor/CornerDecor';
 import TabFilter from '../../../UI/filters/TabFilter';
 
 import styles from './EarnRoutes.module.css';
@@ -22,6 +22,8 @@ function capitalizeFirstLetter(string) {
 
 const EarnRoutes = () => {
   const router = useRouter();
+  const { locale } = router;
+  const account = useSelector(state => state.connect.account);
   const getCurrentLocation = loc => {
     let returnStatement = '';
     if (loc === '/earn/farms') returnStatement = 'Farms';
@@ -33,9 +35,9 @@ const EarnRoutes = () => {
   const navigationHandler = activeItem => {
     setActiveRoute(capitalizeFirstLetter(activeItem.toLowerCase()));
     if (activeItem.toLowerCase() === 'farms') {
-      router.push('/earn/farms');
+      router.push('/earn/farms', undefined, { locale, address: account });
     } else if (activeItem.toLowerCase() === 'pools') {
-      router.push('/overview/info/pools');
+      router.push('/overview/info/pools', undefined, { locale, address: account });
     }
   };
 
