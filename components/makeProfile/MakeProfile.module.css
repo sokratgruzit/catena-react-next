@@ -39,15 +39,15 @@
   background-color: #F0DEC9;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
-  display: flex;
+  /* display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-between; */
   padding: 7px 35px;
 }
 
 .makeProfileWrapper {
   display: flex;
-  flex-wrap: wrap;
+  justify-content: space-between;
   align-items: center;
   gap: 30px;
   width: 100%;
@@ -115,6 +115,10 @@
   gap: 5px;
 }
 
+.avatarImg p {
+  text-align: center;
+}
+
 .avatarImg img {
   width: 50px;
   height: 50px;
@@ -139,3 +143,10 @@
   border-radius: 50%;
   background-color: #ff6969;
 } */
+
+@media (max-width: 1023px) {
+  .makeProfileWrapper {
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+ }

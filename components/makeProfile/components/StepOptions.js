@@ -31,11 +31,11 @@ const StepOptions = ({ profileNfts, teams }) => {
     const dispatch = useDispatch();
     const { library } = useConnect();
     const {
-      fetchNFTs,
-      fetchMyNFTsOrListedNFTs,
-      createNFT
+        fetchNFTs,
+        fetchMyNFTsOrListedNFTs,
+        createNFT
     } = useNftMarket();
-  
+
 
     const handleSubmit = async event => {
         if (account) {
@@ -94,6 +94,8 @@ const StepOptions = ({ profileNfts, teams }) => {
 
         if (avatarId === "back") dispatch({ type: 'SET_STEP', payload: 0 });
     };
+
+    console.log(selectedTeam, 'aq');
 
     return (
         <>
@@ -177,7 +179,7 @@ const StepOptions = ({ profileNfts, teams }) => {
                 </div>
             </div>}
             {userData?.step === 2 && <div className={styles.makeProfileWrapper}>
-                <Input
+                {/* <Input
                     type={"default"}
                     editable={true}
                     name="nick"
@@ -188,52 +190,64 @@ const StepOptions = ({ profileNfts, teams }) => {
                     label={"Nick Name"}
                     onChange={e => setNick(e.target.value)}
                 />
-                <p style={{ color: "#ff6969" }}>Nick name can't be changed</p>
-                {teams?.map(item => (
-                    <div
-                        key={item.id}
-                        className={styles.avatarCard}
-                        style={activeTeam === item.id ?
-                            {
-                                background: "#ff6969"
-                            } : {}
-                        }
-                        onClick={() => {
-                            setActiveTeam(item.id);
-                            setSelectedTeam(item.name);
-                        }}
-                    >
-                        <div className={styles.avatarImg}>
-                            <Image src={`/images/${item.img}`} alt={item.name} width={50} height={50} />
-                            <p>{item.name}</p>
-                        </div>
-                        <span
-                            className={styles.radio}
-                            style={activeTeam === item.id ?
-                                {
-                                    background: "#0500ff",
-                                    opacity: ".5"
-                                } : {}
-                            }
-                        ></span>
+                <p style={{ color: "#ff6969" }}>Nick name can't be changed</p> */}
+                <div style={{ padding: '0' }} className='container_bordered-child'>
+                    <div className={styles.tabHead}>
+                        <h3 style={{ color: '#162029' }} className='ttl font-20'>Join a Team</h3>
+                        <p style={{ width: '60%' }}>There’s currently no big difference between teams, and no benefit of joining one team over another for now. So pick whichever one you like!</p>
                     </div>
-                ))}
-                <Button
-                    label={'Select Team'}
-                    size={'btn-lg'}
-                    type={'btn-primary'}
-                    arrow={'arrow-none'}
-                    element={'button'}
-                    disabled={() => Number(ethers.utils.formatEther(balance)) >= 1 &&
-                        nick &&
-                        selectedTeam
-                        ? false : true}
-                    onClick={() => Number(ethers.utils.formatEther(balance)) >= 1 &&
-                        nick &&
-                        selectedTeam
-                        ? handleSubmit() : null}
-                    className={styles.btnBlu}
-                />
+                    <div className={styles.makeProfileWrapper}>
+                        {teams?.map(item => (
+                            <div
+                                key={item.id}
+                                className={styles.avatarCard}
+                                style={activeTeam === item.id ?
+                                    {
+                                        background: "#A6D0DD"
+                                    } : {}
+                                }
+                                onClick={() => {
+                                    setActiveTeam(item.id);
+                                    setSelectedTeam(item.name);
+                                }}
+                            >
+                                <div className={styles.avatarImg}>
+                                    <Image src={`/images/${item.img}`} alt={item.name} width={50} height={50} />
+                                    <p>{item.name}</p>
+                                </div>
+                                <span
+                                    className={styles.radio}
+                                    style={activeTeam === item.id ?
+                                        {
+                                            background: "#0500ff",
+                                            opacity: ".5"
+                                        } : {}
+                                    }
+                                ></span>
+                            </div>
+                        ))}
+                    </div>
+                    <div className={styles.confirmBtn}>
+                        <Button
+                            label={selectedTeam !== "" ? 'Next Step' : 'Enable'}
+                            size={'btn-lg'}
+                            type={'btn-primary'}
+                            arrow={'arrow-none'}
+                            element={'button'}
+                            // disabled={() => Number(ethers.utils.formatEther(balance)) >= 1 &&
+                            //     nick &&
+                            //     selectedTeam
+                            //     ? false : true}
+                            disabled={selectedTeam !== "" ? false : true}
+                            onClick={() => Number(ethers.utils.formatEther(balance)) >= 1 &&
+                                nick &&
+                                selectedTeam
+                                ? handleSubmit() : null}
+                            className={styles.btnBlu}
+                            customStyles={{ backgroundColor: "#A6D0DD", color: "#162029" }}
+                        />
+                    </div>
+                </div>
             </div>}
         </>
     );
