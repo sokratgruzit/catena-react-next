@@ -15,7 +15,7 @@ const StepOptions = ({ profileNfts, teams }) => {
     const [activeAvatar, setActiveAvatar] = useState(null);
     const [selectedAvatar, setSelectedAvatar] = useState({});
     const [activeTeam, setActiveTeam] = useState(null);
-    const [nick, setNick] = useState("");
+    const [nick, setNick] = useState(null);
     const [selectedTeam, setSelectedTeam] = useState("");
     const [error, setError] = useState("At least 1 CMCX required");
 
@@ -72,6 +72,19 @@ const StepOptions = ({ profileNfts, teams }) => {
                 await axios.post('/user/profile', {
                     address: account,
                     team: selectedTeam,
+                    locale: locale,
+                    step: 3
+                })
+                    .then(res => {
+                        // dispatch({ type: 'SET_USER', payload: res.data });
+                        // router.push(`/profile/${account}`, undefined, { locale, address: account });
+                        console.log('step 3')
+                    })
+                    .catch(e => setError(e.response.data));
+            }
+            if (userData.step === 3) {
+                await axios.post('/user/profile', {
+                    address: account,
                     nick: nick,
                     locale: locale,
                     step: 3
@@ -157,7 +170,9 @@ const StepOptions = ({ profileNfts, teams }) => {
                             cursor: "pointer",
                             color: "#ff6969"
                         }}
-                    >&larr; Previous Step</div>
+                    >
+                        &larr; Previous Step
+                    </div>
                     <div className={styles.avatarCard}>
                         <div className={styles.avatarImg}>
                             <Image width={80} height={80} src={userData?.avatar?.img} alt={userData?.avatar?.name} />
@@ -179,24 +194,21 @@ const StepOptions = ({ profileNfts, teams }) => {
                 </div>
             </div>}
             {userData?.step === 2 && <div className={styles.makeProfileWrapper}>
-                {/* <Input
-                    type={"default"}
-                    editable={true}
-                    name="nick"
-                    value={nick}
-                    emptyFieldErr={true}
-                    inputType={"text"}
-                    placeholder={"Your nick name"}
-                    label={"Nick Name"}
-                    onChange={e => setNick(e.target.value)}
-                />
-                <p style={{ color: "#ff6969" }}>Nick name can't be changed</p> */}
                 <div style={{ padding: '0' }} className='container_bordered-child'>
                     <div className={styles.tabHead}>
                         <h3 style={{ color: '#162029' }} className='ttl font-20'>Join a Team</h3>
                         <p style={{ width: '60%' }}>There’s currently no big difference between teams, and no benefit of joining one team over another for now. So pick whichever one you like!</p>
                     </div>
                     <div className={styles.makeProfileWrapper}>
+                        <div
+                            onClick={() => handleStep("back")}
+                            style={{
+                                cursor: "pointer",
+                                color: "#ff6969"
+                            }}
+                        >
+                            &larr; Previous Step
+                        </div>
                         {teams?.map(item => (
                             <div
                                 key={item.id}
@@ -240,8 +252,58 @@ const StepOptions = ({ profileNfts, teams }) => {
                             //     ? false : true}
                             disabled={selectedTeam !== "" ? false : true}
                             onClick={() => Number(ethers.utils.formatEther(balance)) >= 1 &&
-                                nick &&
+                                // nick &&
                                 selectedTeam
+                                ? handleSubmit() : null}
+                            className={styles.btnBlu}
+                            customStyles={{ backgroundColor: "#A6D0DD", color: "#162029" }}
+                        />
+                    </div>
+                </div>
+            </div>}
+            {userData?.step === 3 && <div className={styles.makeProfileWrapper}>
+                <div style={{ padding: '0' }} className='container_bordered-child'>
+                    <div className={styles.tabHead}>
+                        <h3 style={{ color: '#162029' }} className='ttl font-20'>Join a Team</h3>
+                        <p style={{ width: '60%' }}>There’s currently no big difference between teams, and no benefit of joining one team over another for now. So pick whichever one you like!</p>
+                    </div>
+                    <div className={styles.makeProfileWrapper}>
+                        <div
+                            onClick={() => handleStep("back")}
+                            style={{
+                                cursor: "pointer",
+                                color: "#ff6969"
+                            }}
+                        >
+                            &larr; Previous Step
+                        </div>
+                    </div>
+                    <Input
+                        type={"default"}
+                        editable={true}
+                        name="nick"
+                        value={nick}
+                        emptyFieldErr={true}
+                        inputType={"text"}
+                        placeholder={"Your nick name"}
+                        label={"Nick Name"}
+                        onChange={e => setNick(e.target.value)}
+                    />
+                    <p style={{ color: "#ff6969" }}>Nick name can't be changed</p>
+                    <div className={styles.confirmBtn}>
+                        <Button
+                            label={selectedTeam !== "" ? 'Next Step' : 'Enable'}
+                            size={'btn-lg'}
+                            type={'btn-primary'}
+                            arrow={'arrow-none'}
+                            element={'button'}
+                            // disabled={() => Number(ethers.utils.formatEther(balance)) >= 1 &&
+                            //     nick &&
+                            //     selectedTeam
+                            //     ? false : true}
+                            disabled={nick ? false : true}
+                            onClick={() => Number(ethers.utils.formatEther(balance)) >= 1 &&
+                                nick
                                 ? handleSubmit() : null}
                             className={styles.btnBlu}
                             customStyles={{ backgroundColor: "#A6D0DD", color: "#162029" }}
