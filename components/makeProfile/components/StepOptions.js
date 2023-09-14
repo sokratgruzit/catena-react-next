@@ -179,7 +179,7 @@ const StepOptions = ({ profileNfts, teams }) => {
                 </div>
             </div>}
             {userData?.step === 2 && <div className={styles.makeProfileWrapper}>
-                {/* <Input
+                <Input
                     type={"default"}
                     editable={true}
                     name="nick"
@@ -190,7 +190,7 @@ const StepOptions = ({ profileNfts, teams }) => {
                     label={"Nick Name"}
                     onChange={e => setNick(e.target.value)}
                 />
-                <p style={{ color: "#ff6969" }}>Nick name can't be changed</p> */}
+                <p style={{ color: "#ff6969" }}>Nick name can't be changed</p>
                 <div style={{ padding: '0' }} className='container_bordered-child'>
                     <div className={styles.tabHead}>
                         <h3 style={{ color: '#162029' }} className='ttl font-20'>Join a Team</h3>
