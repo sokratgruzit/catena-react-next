@@ -45,6 +45,15 @@
   padding: 7px 35px;
 }
 
+.tabHead h3 {
+  color: #162029;
+}
+
+.tabHead p {
+  color: #162029;
+  width: 60%;
+}
+
 .makeProfileWrapper {
   display: flex;
   justify-content: space-between;

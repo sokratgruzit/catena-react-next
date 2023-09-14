@@ -162,18 +162,19 @@ const StepOptions = ({ profileNfts, teams }) => {
             {userData?.step === 1 && <div className={styles.makeProfileWrapper}>
                 <div style={{ padding: '0' }} className='container_bordered-child'>
                     <div className={styles.tabHead}>
-                        guduna
+                        <h3 className='ttl font-20'>Choose Collectible</h3>
+                        <p>Choose a profile picture from the eligible collectibles (NFT) in your wallet, shown below. Only approved Pancake Collectibles can be used. See the list</p>
+                        <div
+                            onClick={() => handleStep("back")}
+                            style={{
+                                cursor: "pointer",
+                                color: "#ff6969"
+                            }}
+                        >
+                            &larr; Previous Step
+                        </div>
                     </div>
-                    <div
-                        onClick={() => handleStep("back")}
-                        style={{
-                            cursor: "pointer",
-                            color: "#ff6969"
-                        }}
-                    >
-                        &larr; Previous Step
-                    </div>
-                    <div className={styles.avatarCard}>
+                    <div style={{marginLeft: '25px'}} className={styles.avatarCard}>
                         <div className={styles.avatarImg}>
                             <Image width={80} height={80} src={userData?.avatar?.img} alt={userData?.avatar?.name} />
                             <p>{userData?.avatar?.name}</p>
@@ -196,8 +197,8 @@ const StepOptions = ({ profileNfts, teams }) => {
             {userData?.step === 2 && <div className={styles.makeProfileWrapper}>
                 <div style={{ padding: '0' }} className='container_bordered-child'>
                     <div className={styles.tabHead}>
-                        <h3 style={{ color: '#162029' }} className='ttl font-20'>Join a Team</h3>
-                        <p style={{ width: '60%' }}>There’s currently no big difference between teams, and no benefit of joining one team over another for now. So pick whichever one you like!</p>
+                        <h3 className='ttl font-20'>Join a Team</h3>
+                        <p>There’s currently no big difference between teams, and no benefit of joining one team over another for now. So pick whichever one you like!</p>
                         <div
                             onClick={() => handleStep("back")}
                             style={{
