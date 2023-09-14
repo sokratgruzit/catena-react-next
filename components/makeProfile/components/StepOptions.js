@@ -152,7 +152,7 @@ const StepOptions = ({ profileNfts, teams }) => {
                             type={'btn-primary'}
                             arrow={'arrow-none'}
                             element={'button'}
-                            disabled={() => Number(ethers.utils.formatEther(balance)) >= 1 ? false : true}
+                            disabled={activeAvatar ? false : true}
                             onClick={handleSubmit}
                             // onClick={() => Number(ethers.utils.formatEther(balance)) >= 1 ? handleSubmit() : null}
                             className={styles.btnBlu}
