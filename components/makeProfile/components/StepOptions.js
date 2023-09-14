@@ -15,7 +15,7 @@ const StepOptions = ({ profileNfts, teams }) => {
     const [activeAvatar, setActiveAvatar] = useState(null);
     const [selectedAvatar, setSelectedAvatar] = useState({});
     const [activeTeam, setActiveTeam] = useState(null);
-    const [nick, setNick] = useState(null);
+    const [nick, setNick] = useState("");
     const [selectedTeam, setSelectedTeam] = useState("");
     const [error, setError] = useState("At least 1 CMCX required");
 
@@ -76,7 +76,7 @@ const StepOptions = ({ profileNfts, teams }) => {
                     step: 3
                 })
                     .then(res => {
-                        // dispatch({ type: 'SET_USER', payload: res.data });
+                        dispatch({ type: 'SET_USER', payload: res.data });
                         // router.push(`/profile/${account}`, undefined, { locale, address: account });
                         console.log('step 3')
                     })
@@ -152,7 +152,7 @@ const StepOptions = ({ profileNfts, teams }) => {
                             type={'btn-primary'}
                             arrow={'arrow-none'}
                             element={'button'}
-                            disabled={() => Number(ethers.utils.formatEther(balance)) >= 1 ? false : true}
+                            disabled={activeAvatar ? false : true}
                             onClick={handleSubmit}
                             // onClick={() => Number(ethers.utils.formatEther(balance)) >= 1 ? handleSubmit() : null}
                             customStyles={{ backgroundColor: "#A6D0DD", color: "#162029" }}
@@ -198,8 +198,6 @@ const StepOptions = ({ profileNfts, teams }) => {
                     <div className={styles.tabHead}>
                         <h3 style={{ color: '#162029' }} className='ttl font-20'>Join a Team</h3>
                         <p style={{ width: '60%' }}>There’s currently no big difference between teams, and no benefit of joining one team over another for now. So pick whichever one you like!</p>
-                    </div>
-                    <div className={styles.makeProfileWrapper}>
                         <div
                             onClick={() => handleStep("back")}
                             style={{
@@ -209,6 +207,8 @@ const StepOptions = ({ profileNfts, teams }) => {
                         >
                             &larr; Previous Step
                         </div>
+                    </div>
+                    <div className={styles.makeProfileWrapper}>
                         {teams?.map(item => (
                             <div
                                 key={item.id}
@@ -301,7 +301,7 @@ const StepOptions = ({ profileNfts, teams }) => {
                             //     nick &&
                             //     selectedTeam
                             //     ? false : true}
-                            disabled={nick ? false : true}
+                            disabled={nick !== "" ? false : true}
                             onClick={() => Number(ethers.utils.formatEther(balance)) >= 1 &&
                                 nick
                                 ? handleSubmit() : null}
