@@ -68,3 +68,4 @@ export const soon = (
     Soon
   </p>
 );
+export const voteNow = <p className={styles.voteNow}>Vote Now</p>;

@@ -5,7 +5,6 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { useQuill } from 'react-quilljs';
 import 'quill/dist/quill.snow.css';
 import styles from './Proposal.module.css';
-// import FormSelectTime from '../components/formDateInput/FormSelectTime';
 
 export default function Proposal() {
   const [startDate, setStartDate] = useState(null);
@@ -49,7 +48,8 @@ export default function Proposal() {
     console.log('hi');
   };
 
-  const addChoice = () => {
+  const addChoice = event => {
+    event.preventDefault(); // Prevent the default form submission behavior
     setChoices([...choices, '']);
   };
 
@@ -111,8 +111,17 @@ export default function Proposal() {
               </button>
             </div>
 
-            {/* <FormSelectTime selected={startDate} onChange={handleStartDateChange} /> */}
-
+            <div className={styles.inputContainer}>
+              <label className={styles.subLabel}>Start Date</label>
+              <DatePicker
+                selected={startDate}
+                onChange={handleStartDateChange}
+                className={styles.datePicker}
+                showtime='true'
+                dateFormat='MM/dd/yyyy'
+                name='endTime'
+              />
+            </div>
             <div className={styles.inputContainer}>
               <label className={styles.subLabel}>End Date</label>
               <DatePicker
@@ -120,16 +129,17 @@ export default function Proposal() {
                 onChange={handleEndDateChange}
                 dateFormat='MM/dd/yyyy'
                 className={styles.datePicker}
+                showtime='true'
               />
             </div>
             <div className={styles.inputContainer}>
               <label className={styles.label}>Time</label>
               <label className={styles.subLabel}>Start Time</label>
-              <input placeholder='00:00' type='time' required className={styles.input} />
+              <input placeholder='00:00' type='time' showtime='true' className={styles.input} />
             </div>
             <div className={styles.inputContainer}>
               <label className={styles.subLabel}>End Time</label>
-              <input placeholder='00:00' type='time' required className={styles.input} />
+              <input placeholder='00:00' type='time' showtime='true' className={styles.input} />
             </div>
           </form>
 
@@ -149,7 +159,7 @@ export default function Proposal() {
               </svg>
             </p>
           </div>
-          
+
           <Button
             label={'Connect Wallet'}
             size={'btn-lg'}

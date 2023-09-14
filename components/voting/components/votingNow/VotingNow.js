@@ -3,7 +3,6 @@ import TabFilter from '../../../UI/filters/TabFilter';
 import RunningText from '../runningText/RunningText';
 import VotingNowTable from '../votingNowTable/VotingNowTable';
 import filterStyles from '../../../UI/filters/TabFilter.module.css';
-
 import styles from './VotingNow.module.css';
 
 const dataDisplayOptions = [
@@ -47,7 +46,7 @@ const VotingNow = props => {
       teaser: 'Stop Minting more $CORE',
       date: 'Ends Mar 6th, 2022 11:15',
       vote: 'Vote Now',
-      variation: 'Community',
+      variation: ['Community', 'core'],
       label: 'All',
     },
     {
@@ -65,7 +64,6 @@ const VotingNow = props => {
     {
       teaser: 'Stop Minting more $c',
       date: 'Ends Mar 6th, 2022 11:15',
-      vote: 'Vote Now',
       variation: 'Community',
     },
     {
@@ -77,7 +75,6 @@ const VotingNow = props => {
     {
       teaser: 'Stop Minting more $CORE',
       date: 'Ends Mar 6th, 2022 11:15',
-      vote: 'Vote Now',
       variation: 'Community',
     },
     {
@@ -121,7 +118,10 @@ const VotingNow = props => {
   const filteredData = votingTableData.filter(item => {
     if (
       (selectedLabel === 'All' || item.label === selectedLabel) &&
-      (selectedVariation === 'All' || item.variation.toLowerCase() === selectedVariation.toLowerCase())
+      (selectedVariation === 'All' ||
+        (item.variation &&
+          typeof item.variation === 'string' &&
+          item.variation.toLowerCase() === selectedVariation.toLowerCase()))
     ) {
       return true;
     }
@@ -135,8 +135,11 @@ const VotingNow = props => {
         <div className={styles.inner}>
           <TabFilter
             onClick={e => {
-              setActiveTab(e);
-              setSelectedLabel(e);
+              setActiveTimeframe(e);
+              setSelectedVariation(e);
+              if (e === 'Core') setSelectedLabel('All');
+              else if (e === 'Community') setSelectedLabel('All');
+              else if (e === 'All') setSelectedVariation('All');
             }}
             data={dataDisplayOptions}
             activeMenu={activeTab}
@@ -156,6 +159,9 @@ const VotingNow = props => {
             onClick={e => {
               setActiveTimeframe(e);
               setSelectedVariation(e);
+              if (e === 'Activity') setSelectedLabel('All');
+              else if (e === 'Soon') setSelectedLabel('All');
+              else if (e === 'Close') setSelectedLabel('All');
             }}
             data={dataTimeframeOptions}
             activeMenu={activeTimeframe}

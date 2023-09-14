@@ -36,13 +36,7 @@
 .undoBtn {
   background-color: #ff6969 !important;
 }
-.voteNow {
-  color: #ff6969;
-  border: 1px solid #ff6969;
-  padding: 2px 6px;
-  border-radius: 20px;
-  font-size: 14px;
-}
+
 
 .variations {
   display: flex;
