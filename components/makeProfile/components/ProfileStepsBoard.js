@@ -29,7 +29,7 @@ const DATA = [
     }
 ]
 
-const ProfileStepsBoard = () => {
+const ProfileStepsBoard = ({ handleStep }) => {
     const userData = useSelector(state => state.appState.user);
 
     return (
@@ -52,7 +52,7 @@ const ProfileStepsBoard = () => {
                                         <div >{item.title}</div>
                                         <div className={styles.stepChart}>
                                             {index !== 0 && <div className={styles.boardLine}></div>}
-                                            <div className={styles.circle}>
+                                            <div className={styles.circle} onClick={() => userData?.step >= index && handleStep(index)}>
                                                 {userData?.step >= index + 1 && <svg xmlns="http://www.w3.org/2000/svg" width="8" height="6" viewBox="0 0 8 6" fill="none">
                                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M7.82464 0.176111C8.05875 0.410632 8.05841 0.790531 7.82389 1.02464L3.28789 5.55264C3.05351 5.7866 2.6739 5.78643 2.43974 5.55226L0.175736 3.28826C-0.0585786 3.05395 -0.0585786 2.67405 0.175736 2.43974C0.410051 2.20542 0.789949 2.20542 1.02426 2.43974L2.86437 4.27985L6.97611 0.175362C7.21063 -0.058746 7.59053 -0.0584107 7.82464 0.176111Z" fill="#162029" />
                                                 </svg>}
