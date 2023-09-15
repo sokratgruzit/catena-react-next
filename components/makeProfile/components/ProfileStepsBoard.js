@@ -23,7 +23,7 @@ const DATA = [
 
 const ProfileStepsBoard = () => {
     const userData = useSelector(state => state.appState.user);
-    console.log(userData)
+    
     return (
         <>
             <div className={styles.contHead}>
@@ -34,7 +34,7 @@ const ProfileStepsBoard = () => {
                     <p style={{ color: '#162029' }}>1.5</p>
                     <span style={{ color: '#FF6969' }}>CMCX</span>
                 </div>
-                {userData.step}
+                {userData?.step}
                 <div className={styles.board}>
                     <div className={styles.inner}>
                         {DATA.map((item, index) => {

@@ -79,7 +79,8 @@ export const useNftMarket = () => {
         const added = await client.add(data);
         const url = `https://infura-ipfs.io/ipfs/${added.path}`;
 
-        await createSale(url, price);
+        let transaction = await createSale(url, price);
+
         await axios.post('/user/profile', {
           address: account,
           avatarLocked: true,
@@ -89,6 +90,8 @@ export const useNftMarket = () => {
           dispatch({ type: 'SET_USER', payload: res.data });
         })
         .catch(e => console.log(e.response.data));
+
+        return transaction;
       } catch (e) {
         console.log(e);
       }
@@ -122,7 +125,8 @@ export const useNftMarket = () => {
       ? await contract.methods.createToken(url, price).send({ from: account, value: listingPrice }) 
       : await contract.methods.reSellToken(url, price).send({ from: account, value: listingPrice });
 
-      await transaction.wait();
+      return transaction;
+      //await transaction.wait();
     } catch (e) {
       console.log(e);
     }

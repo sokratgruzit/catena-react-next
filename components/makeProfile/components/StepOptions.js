@@ -38,20 +38,38 @@ const StepOptions = ({ profileNfts, teams }) => {
     const handleSubmit = async event => {
         if (account) {
             if (!userData.step) {
-                await axios.post('/user/profile', {
-                    address: account,
-                    avatar: selectedAvatar,
-                    avatarLocked: false,
-                    locale: locale,
-                    step: "Starter"
-                })
-                    .then(res => {
-                        dispatch({ type: 'SET_USER', payload: res.data });
-                        setButtonLabel("Next Step");
-                        setHelpText("Transaction Submited!")
-                        setShowAddres(account)
-                    })
-                    .catch(e => setError(e.response.data));
+                createNFT(
+                    selectedAvatar.name,
+                    selectedAvatar.price,
+                    selectedAvatar.url,
+                    selectedAvatar.description,
+                    selectedAvatar.website,
+                    selectedAvatar.royalties,
+                    selectedAvatar.fileSize,
+                    selectedAvatar.category,
+                    selectedAvatar.property,
+                    selectedAvatar.social
+                ).then(async res => {
+                    console.log(res);
+                    if (res.status) {
+                        await axios.post('/user/profile', {
+                            address: account,
+                            avatar: selectedAvatar,
+                            avatarLocked: false,
+                            locale: locale,
+                            step: 1
+                        })
+                        .then(res => {
+                            dispatch({ type: 'SET_USER', payload: res.data });
+                            setButtonLabel("Next Step");
+                            setHelpText("Transaction Submited!")
+                            setShowAddres(account)
+                        })
+                        .catch(e => setError(e.response.data));
+                    }
+                }).catch(err => {
+                    console.log(err);
+                });
             }
 
             if (userData.step === 0) {
@@ -66,18 +84,7 @@ const StepOptions = ({ profileNfts, teams }) => {
             }
 
             if (userData.step === 1) {
-                createNFT(
-                    userData.avatar.name,
-                    userData.avatar.price,
-                    userData.avatar.url,
-                    userData.avatar.description,
-                    userData.avatar.website,
-                    userData.avatar.royalties,
-                    userData.avatar.fileSize,
-                    userData.avatar.category,
-                    userData.avatar.property,
-                    userData.avatar.social
-                );
+                
             }
 
             if (userData.step === 2) {
