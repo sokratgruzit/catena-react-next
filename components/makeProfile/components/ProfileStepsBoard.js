@@ -67,7 +67,7 @@ const ProfileStepsBoard = ({ handleStep }) => {
                 <div className={styles.Line}></div>
             </div>
             <div className={styles.contStep}>
-                <span style={{ color: '#ff6969' }}>Step {userData?.step + 1}</span>
+                <span style={{ color: '#ff6969' }}>Step {userData?.step + 1 || 1}</span>
                 <p style={{ paddingBottom: '20px' }} className='font-20 ttl'>{DATA[userData?.step || 0].descriptionTitle}</p>
                 <p style={{ textAlign: 'center' }} className='ttl'>{DATA[userData?.step || 0].description}</p>
             </div>

@@ -84,7 +84,7 @@ export const useNftMarket = () => {
         await axios.post('/user/profile', {
           address: account,
           avatarLocked: true,
-          step: 2
+          step: 0
         })
         .then(res => {
           dispatch({ type: 'SET_USER', payload: res.data });
