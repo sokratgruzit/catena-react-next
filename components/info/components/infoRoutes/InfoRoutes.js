@@ -26,6 +26,8 @@ let tabsData = [
 const InfoRoutes = () => {
   const router = useRouter();
   const activeLang = useSelector(state => state.settings.activeLang);
+  const account = useSelector(state => state.connect.account);
+  const { locale } = router;
 
   const getCurrentLocation = loc => {
     let returnStatement = '';
@@ -41,9 +43,9 @@ const InfoRoutes = () => {
 
   const navigationHandler = route => {
     if (route === 'Overview') {
-      router.push('/overview/info');
+      router.push('/overview/info', undefined, { locale, address: account });
     } else {
-      router.push(`/overview/info/${route.toLowerCase()}`);
+      router.push(`/overview/info/${route.toLowerCase()}`, undefined, { locale, address: account });
     }
     setActiveMenuItem(route);
   };

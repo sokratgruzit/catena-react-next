@@ -47,7 +47,7 @@
 
 .makeProfileWrapper {
   display: flex;
-  flex-wrap: wrap;
+  justify-content: space-between;
   align-items: center;
   gap: 30px;
   width: 100%;
@@ -93,15 +93,14 @@
 }
 
 .avatarCard {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   align-items: center;
   background-color: #FFF3E5;
   transition: .5s;
   border-radius: 20px;
   cursor: pointer;
-  padding: 15px 100px;
+  padding: 25px 35px;
+  width: 300px;
+  margin-top: 20px;
 }
 
 .avatarCard:hover {
@@ -114,6 +113,20 @@
   justify-content: flex-start;
   align-items: center;
   gap: 5px;
+}
+
+.avatarImg p {
+  text-align: center;
+}
+.flex {
+  display: flex;
+}
+
+.buttonInner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
 }
 
 .avatarImg img {
@@ -140,3 +153,41 @@
   border-radius: 50%;
   background-color: #ff6969;
 } */
+
+.board {
+  width: 60%;
+  height: 80px;
+  margin-top: 40px;
+  border-radius: 57px;
+  border: 1px solid #162029;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.inner {
+  width: 80%;
+  display: flex;
+  position: relative;
+  border: 1px solid red;
+}
+.point {
+  width: 25%;
+}
+
+.body {
+  display: flex;
+  align-items: center;
+}
+
+.line {
+  border-bottom: 1px solid black;
+  width: 100%;
+}
+
+@media (max-width: 1023px) {
+  .makeProfileWrapper {
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+}
