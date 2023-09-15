@@ -39,9 +39,9 @@
   background-color: #F0DEC9;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
-  /* display: flex;
+  display: flex;
   align-items: center;
-  justify-content: space-between; */
+  justify-content: space-between;
   padding: 7px 35px;
 }
 
@@ -117,6 +117,16 @@
 
 .avatarImg p {
   text-align: center;
+}
+.flex {
+  display: flex;
+}
+
+.buttonInner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
 }
 
 .avatarImg img {
