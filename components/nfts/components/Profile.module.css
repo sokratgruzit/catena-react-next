@@ -8,6 +8,7 @@
 
 .bgImg {
   width: 100%;
+  max-height: 215px;
   margin-top: 84px;
   border-radius: 20px;
   object-fit: cover;

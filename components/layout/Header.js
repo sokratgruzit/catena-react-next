@@ -1554,7 +1554,7 @@ const Header = () => {
                   }}
                 >
                   <div className={styles.headerConnectedBtnImg}>
-                    <Image src={`/images/meta.png`} alt='avatar' layout='fill' />
+                    <Image src={user && user.step && user.step === 3 ? user.avatar.img : providerType === "metaMask" ? `/images/meta.png` : '/images/walletconnect.png'} alt='avatar' layout='fill' />
                     <i></i>
                   </div>
                   <span>{account && triedReconnect ? account : ''}</span>
