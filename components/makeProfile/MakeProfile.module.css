@@ -45,6 +45,15 @@
   padding: 7px 35px;
 }
 
+.tabHead h3 {
+  color: #162029;
+}
+
+.tabHead p {
+  color: #162029;
+  width: 60%;
+}
+
 .makeProfileWrapper {
   display: flex;
   justify-content: space-between;
@@ -163,26 +172,33 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0 50px;
+  flex-direction: column;
 }
 
-.inner {
-  width: 80%;
-  display: flex;
-  position: relative;
-  border: 1px solid red;
-}
-.point {
-  width: 25%;
+.boardLine {
+  height: 1px;
+  width: 100%;
+  background-color: #162029;
+  position: absolute;
 }
 
-.body {
+.steps {
+  width: 100%;
   display: flex;
   align-items: center;
+  position: relative;
+  justify-content: space-between;
 }
 
-.line {
-  border-bottom: 1px solid black;
-  width: 100%;
+.circle {
+  position: relative;
+  border-radius: 50%;
+  border: 1px solid #162029;
+  background-color: #A6D0DD;
+  width: 25px;
+  height: 25px;
+  z-index: 99;
 }
 
 @media (max-width: 1023px) {

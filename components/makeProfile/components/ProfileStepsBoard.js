@@ -15,10 +15,10 @@ const DATA = [
         step: 2,
         title: "Join Team",
     },
-    // {
-    //     step: 3,
-    //     title: "Set Name",
-    // }
+    {
+        step: 3,
+        title: "Set Name",
+    }
 ]
 
 const ProfileStepsBoard = () => {
@@ -36,28 +36,16 @@ const ProfileStepsBoard = () => {
                 </div>
                 {userData?.step}
                 <div className={styles.board}>
-                    <div className={styles.inner}>
-                        {DATA.map((item, index) => {
+                    <div className={styles.steps}>
+                        {DATA.map((item) => {
                             return (
-                                <div className={styles.point}>
-                                    <div className={styles.head}>{item.title}</div>
-                                    <div className={styles.body}>
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                            <circle cx="10" cy="10" r="9.5" fill="#A6D0DD" stroke="#162029" />
-                                        </svg>
-                                        <div className={styles.line}></div>
-                                    </div>
+                                <div className={styles.stepChart}>
+                                    {/* <div className={styles.circleTitle}>{item.title}</div> */}
+                                    <div className={styles.circle}></div>
                                 </div>
-                            );
+                            )
                         })}
-                        <div >
-                                    <div className={styles.head}>Set Name</div>
-                                    <div >
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                            <circle cx="10" cy="10" r="9.5" fill="#A6D0DD" stroke="#162029" />
-                                        </svg>
-                                    </div>
-                                </div>
+                        <div className={styles.boardLine}></div>
                     </div>
                 </div>
                 <div className={styles.Line}></div>
