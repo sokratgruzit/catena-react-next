@@ -9,20 +9,23 @@ import createAxiosInstance from '../../../pages/api/axios';
 import { ethers } from 'ethers';
 
 import styles from "../MakeProfile.module.css"
+import Collectible from './Collectible';
 
 const StepOptions = ({ profileNfts, teams }) => {
 
     const [activeAvatar, setActiveAvatar] = useState(null);
     const [selectedAvatar, setSelectedAvatar] = useState({});
     const [activeTeam, setActiveTeam] = useState(null);
-    const [nick, setNick] = useState("");
+    const [nick, setNick] = useState('');
     const [selectedTeam, setSelectedTeam] = useState("");
     const [error, setError] = useState("At least 1 CMCX required");
-
-
+    
     const account = useSelector(state => state.connect.account);
     const balance = useSelector(state => state.connect.balance);
     const userData = useSelector(state => state.appState.user);
+    const [buttonLabel, setButtonLabel] = useState(!userData?.step ? "Confirm" : "Next Step");
+    const [helpText, setHelpText] = useState('');
+    const [showAddres, setShowAddres] = useState('');
 
     const axios = useMemo(() => createAxiosInstance(), []);
 
@@ -30,12 +33,7 @@ const StepOptions = ({ profileNfts, teams }) => {
     const { locale } = router;
     const dispatch = useDispatch();
     const { library } = useConnect();
-    const {
-        fetchNFTs,
-        fetchMyNFTsOrListedNFTs,
-        createNFT
-    } = useNftMarket();
-
+    const { fetchNFTs, fetchMyNFTsOrListedNFTs, createNFT } = useNftMarket();
 
     const handleSubmit = async event => {
         if (account) {
@@ -45,7 +43,21 @@ const StepOptions = ({ profileNfts, teams }) => {
                     avatar: selectedAvatar,
                     avatarLocked: false,
                     locale: locale,
-                    step: 0
+                    step: "Starter"
+                })
+                    .then(res => {
+                        dispatch({ type: 'SET_USER', payload: res.data });
+                        setButtonLabel("Next Step");
+                        setHelpText("Transaction Submited!")
+                        setShowAddres(account)
+                    })
+                    .catch(e => setError(e.response.data));
+            }
+
+            if (userData.step === 0) {
+                await axios.post('/user/profile', {
+                    address: account,
+                    step: 1
                 })
                     .then(res => {
                         dispatch({ type: 'SET_USER', payload: res.data });
@@ -77,8 +89,6 @@ const StepOptions = ({ profileNfts, teams }) => {
                 })
                     .then(res => {
                         dispatch({ type: 'SET_USER', payload: res.data });
-                        // router.push(`/profile/${account}`, undefined, { locale, address: account });
-                        console.log('step 3')
                     })
                     .catch(e => setError(e.response.data));
             }
@@ -108,33 +118,16 @@ const StepOptions = ({ profileNfts, teams }) => {
         if (avatarId === "back") dispatch({ type: 'SET_STEP', payload: 0 });
     };
 
-    console.log(selectedTeam, 'aq');
-
     return (
         <>
-            {!userData?.step &&
-                <div style={{ padding: '0' }} className='container_bordered-child'>
-                    <div className={styles.tabHead}>
-                        <div>
-                            <p className='font-20 ttl'>Choose your Starter!</p>
-                            <p style={{ color: '#162029' }}>Choose wisely: you can only ever make one starter collectible!</p>
-                        </div>
-                        <div style={{ display: 'flex', gap: '5px' }}>
-                            <p>Cost:</p>
-                            <p>1.0</p>
-                            <span style={{ color: '#ff6969' }}>CMCX</span>
-                        </div>
-                    </div>
-                    <div className={styles.makeProfileWrapper}>
+            <Collectible
+                bodyElement={
+                    <>
                         {profileNfts?.map(item => (
                             <div
                                 key={item.id}
                                 className={styles.avatarCard}
-                                style={activeAvatar === item.id ?
-                                    {
-                                        background: "#A6D0DD"
-                                    } : {}
-                                }
+                                style={activeAvatar === item.id ? { background: "#A6D0DD" } : {}}
                                 onClick={() => handleStep(item.id)}
                             >
                                 <div className={styles.avatarImg}>
@@ -144,72 +137,42 @@ const StepOptions = ({ profileNfts, teams }) => {
                             </div>
                         ))}
                         {Number(ethers.utils.formatEther(balance)) < 1 && <div>{error}</div>}
-                    </div>
-                    <div className={styles.confirmBtn}>
-                        <Button
-                            label={'Enable'}
-                            size={'btn-lg'}
-                            type={'btn-primary'}
-                            arrow={'arrow-none'}
-                            element={'button'}
-                            disabled={activeAvatar ? false : true}
-                            onClick={handleSubmit}
-                            // onClick={() => Number(ethers.utils.formatEther(balance)) >= 1 ? handleSubmit() : null}
-                            customStyles={{ backgroundColor: "#A6D0DD", color: "#162029" }}
-                        />
-                    </div>
-                </div>}
-            {userData?.step === 1 && <div className={styles.makeProfileWrapper}>
-                <div style={{ padding: '0' }} className='container_bordered-child'>
-                    <div className={styles.tabHead}>
-                        <h3 className='ttl font-20'>Choose Collectible</h3>
-                        <p>Choose a profile picture from the eligible collectibles (NFT) in your wallet, shown below. Only approved Pancake Collectibles can be used. See the list</p>
-                        <div
-                            onClick={() => handleStep("back")}
-                            style={{
-                                cursor: "pointer",
-                                color: "#ff6969"
-                            }}
-                        >
-                            &larr; Previous Step
+                    </>
+                }
+                userData={userData}
+                title={"Choose your Starter!"}
+                text={"Choose wisely: you can only ever make one starter collectible!"}
+                buttonLabel={buttonLabel}
+                disable={activeAvatar}
+                onClick={handleSubmit}
+                helpText={helpText}
+                link={showAddres}
+            />
+            <Collectible
+                bodyElement={
+                    <div>
+                        <div className={styles.avatarCard}>
+                            <div className={styles.avatarImg}>
+                                <Image width={80} height={80} src={userData?.avatar?.img} alt={userData?.avatar?.name} />
+                                <p>{userData?.avatar?.name}</p>
+                            </div>
+                        </div>
+                        <div style={{ marginTop: '20px' }}>
+                            <p className='font-20 ttl'>Allow collectible to be locked</p>
+                            <p style={{ color: '#162029' }}>The collectible you've chosen will be locked in a smart contract while it’s being used as your profile picture. Don't worry - you'll be able to get it back at any time.</p>
                         </div>
                     </div>
-                    <div style={{marginLeft: '25px'}} className={styles.avatarCard}>
-                        <div className={styles.avatarImg}>
-                            <Image width={80} height={80} src={userData?.avatar?.img} alt={userData?.avatar?.name} />
-                            <p>{userData?.avatar?.name}</p>
-                        </div>
-                    </div>
-                    <div className={styles.confirmBtn}>
-                        <Button
-                            label={'Lock Avatar'}
-                            size={'btn-lg'}
-                            type={'btn-primary'}
-                            arrow={'arrow-none'}
-                            element={'button'}
-                            disabled={() => Number(ethers.utils.formatEther(balance)) >= 1 ? false : true}
-                            onClick={() => Number(ethers.utils.formatEther(balance)) >= 1 ? handleSubmit() : null}
-                            customStyles={{ backgroundColor: "#A6D0DD", color: "#162029" }}
-                        />
-                    </div>
-                </div>
-            </div>}
-            {userData?.step === 2 && <div className={styles.makeProfileWrapper}>
-                <div style={{ padding: '0' }} className='container_bordered-child'>
-                    <div className={styles.tabHead}>
-                        <h3 className='ttl font-20'>Join a Team</h3>
-                        <p>There’s currently no big difference between teams, and no benefit of joining one team over another for now. So pick whichever one you like!</p>
-                        <div
-                            onClick={() => handleStep("back")}
-                            style={{
-                                cursor: "pointer",
-                                color: "#ff6969"
-                            }}
-                        >
-                            &larr; Previous Step
-                        </div>
-                    </div>
-                    <div className={styles.makeProfileWrapper}>
+                }
+                userData={userData}
+                title={"Choose Collectible"}
+                text={"Choose a profile picture from the eligible collectibles (NFT) in your wallet, shown below. Only approved Pancake Collectibles can be used. See the list"}
+                buttonLabel={'Next Step'}
+                disable={() => Number(ethers.utils.formatEther(balance)) >= 1 ? false : true}
+                onClick={() => Number(ethers.utils.formatEther(balance)) >= 1 ? handleSubmit() : null}
+            />
+            <Collectible
+                bodyElement={
+                    <>
                         {teams?.map(item => (
                             <div
                                 key={item.id}
@@ -239,79 +202,43 @@ const StepOptions = ({ profileNfts, teams }) => {
                                 ></span>
                             </div>
                         ))}
-                    </div>
-                    <div className={styles.confirmBtn}>
-                        <Button
-                            label={selectedTeam !== "" ? 'Next Step' : 'Enable'}
-                            size={'btn-lg'}
-                            type={'btn-primary'}
-                            arrow={'arrow-none'}
-                            element={'button'}
-                            // disabled={() => Number(ethers.utils.formatEther(balance)) >= 1 &&
-                            //     nick &&
-                            //     selectedTeam
-                            //     ? false : true}
-                            disabled={selectedTeam !== "" ? false : true}
-                            onClick={() => Number(ethers.utils.formatEther(balance)) >= 1 &&
-                                // nick &&
-                                selectedTeam
-                                ? handleSubmit() : null}
-                            className={styles.btnBlu}
-                            customStyles={{ backgroundColor: "#A6D0DD", color: "#162029" }}
+                    </>
+                }
+                userData={userData}
+                title={"Join a Team"}
+                text={"There’s currently no big difference between teams, and no benefit of joining one team over another for now. So pick whichever one you like!"}
+                buttonLabel={selectedTeam !== "" ? 'Next Step' : 'Enable'}
+                disable={selectedTeam}
+                onClick={() => Number(ethers.utils.formatEther(balance)) >= 1 &&
+                    selectedTeam
+                    ? handleSubmit() : null}
+            />
+            <Collectible
+                bodyElement={
+                    <>
+                        <Input
+                            type={"default"}
+                            editable={true}
+                            name="nick"
+                            value={nick}
+                            emptyFieldErr={true}
+                            inputType={"text"}
+                            placeholder={"Your nick name"}
+                            label={"Nick Name"}
+                            onChange={e => setNick(e.target.value)}
                         />
-                    </div>
-                </div>
-            </div>}
-            {userData?.step === 3 && <div className={styles.makeProfileWrapper}>
-                <div style={{ padding: '0' }} className='container_bordered-child'>
-                    <div className={styles.tabHead}>
-                        <h3 style={{ color: '#162029' }} className='ttl font-20'>Join a Team</h3>
-                        <p style={{ width: '60%' }}>There’s currently no big difference between teams, and no benefit of joining one team over another for now. So pick whichever one you like!</p>
-                    </div>
-                    <div className={styles.makeProfileWrapper}>
-                        <div
-                            onClick={() => handleStep("back")}
-                            style={{
-                                cursor: "pointer",
-                                color: "#ff6969"
-                            }}
-                        >
-                            &larr; Previous Step
-                        </div>
-                    </div>
-                    <Input
-                        type={"default"}
-                        editable={true}
-                        name="nick"
-                        value={nick}
-                        emptyFieldErr={true}
-                        inputType={"text"}
-                        placeholder={"Your nick name"}
-                        label={"Nick Name"}
-                        onChange={e => setNick(e.target.value)}
-                    />
-                    <p style={{ color: "#ff6969" }}>Nick name can't be changed</p>
-                    <div className={styles.confirmBtn}>
-                        <Button
-                            label={selectedTeam !== "" ? 'Next Step' : 'Enable'}
-                            size={'btn-lg'}
-                            type={'btn-primary'}
-                            arrow={'arrow-none'}
-                            element={'button'}
-                            // disabled={() => Number(ethers.utils.formatEther(balance)) >= 1 &&
-                            //     nick &&
-                            //     selectedTeam
-                            //     ? false : true}
-                            disabled={nick !== "" ? false : true}
-                            onClick={() => Number(ethers.utils.formatEther(balance)) >= 1 &&
-                                nick
-                                ? handleSubmit() : null}
-                            className={styles.btnBlu}
-                            customStyles={{ backgroundColor: "#A6D0DD", color: "#162029" }}
-                        />
-                    </div>
-                </div>
-            </div>}
+                        <p style={{ color: "#ff6969" }}>Nick name can't be changed</p>
+                    </>
+                }
+                userData={userData}
+                title={"Set Your Name"}
+                text={"Your name must be at least 3 and at most 15 standard letters and numbers long. You can’t change this once you click Confirm."}
+                buttonLabel={nick !== "" ? 'Next Step' : 'Enable'}
+                disable={nick !== "" ? false : true}
+                onClick={() => Number(ethers.utils.formatEther(balance)) >= 1 &&
+                    nick
+                    ? handleSubmit() : null}
+            />
         </>
     );
 }

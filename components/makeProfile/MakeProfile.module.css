@@ -39,9 +39,9 @@
   background-color: #F0DEC9;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
-  /* display: flex;
+  display: flex;
   align-items: center;
-  justify-content: space-between; */
+  justify-content: space-between;
   padding: 7px 35px;
 }
 
@@ -127,6 +127,16 @@
 .avatarImg p {
   text-align: center;
 }
+.flex {
+  display: flex;
+}
+
+.buttonInner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
 
 .avatarImg img {
   width: 50px;
@@ -162,66 +172,33 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0 50px;
+  flex-direction: column;
 }
 
-.inner {
-  width: 80%;
-  display: flex;
-  position: relative;
-  border: 1px solid red;
-}
-
-.point {
+.boardLine {
+  height: 1px;
   width: 100%;
-}
-
-.body {
-  display: flex;
-  align-items: center;
-}
-
-.line {
-  border-bottom: 1px solid black;
-  width: 100%;
-}
-
-.ng_modal_number_container {
-  position: relative;
-  height:78px;
-  background-color:#f5f5f5;
-  width:100%;
-  display:flex;
-  display: -webkit-flex;
-  -webkit-flex-direction: row;
-  flex-direction: row;
-  -webkit-align-items: center;
-  align-items: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-}
-
-.questionNumbers {
-  display:inline;
-}
-
-.questionNumberIcon {
-  display:inline-block;
-  width:45px;
-  height:45px;
-  border-radius:23px;
-  font-size:18px;
-  color:#000;
-  line-height:45px;
-  text-align:center;
-  background:#fff;
-  border:2px solid black;
-}
-
-.questionNumberLine {
-  border-top:1px solid black;
+  background-color: #162029;
   position: absolute;
-  top: 35px;
+}
+
+.steps {
   width: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+  justify-content: space-between;
+}
+
+.circle {
+  position: relative;
+  border-radius: 50%;
+  border: 1px solid #162029;
+  background-color: #A6D0DD;
+  width: 25px;
+  height: 25px;
+  z-index: 99;
 }
 
 @media (max-width: 1023px) {
