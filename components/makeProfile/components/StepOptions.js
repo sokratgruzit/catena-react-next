@@ -12,13 +12,16 @@ import styles from "../MakeProfile.module.css"
 import Collectible from './Collectible';
 
 const StepOptions = ({ profileNfts, teams }) => {
-
     const [activeAvatar, setActiveAvatar] = useState(null);
     const [selectedAvatar, setSelectedAvatar] = useState({});
     const [activeTeam, setActiveTeam] = useState(null);
     const [nick, setNick] = useState('');
     const [selectedTeam, setSelectedTeam] = useState("");
     const [error, setError] = useState("At least 1 CMCX required");
+    const [collectiblesData, setCollectiblesData] = useState({
+        body: null,
+        
+    })
     
     const account = useSelector(state => state.connect.account);
     const balance = useSelector(state => state.connect.balance);
@@ -49,15 +52,15 @@ const StepOptions = ({ profileNfts, teams }) => {
                     selectedAvatar.category,
                     selectedAvatar.property,
                     selectedAvatar.social
-                ).then(async res => {
-                    console.log(res);
+                ).then(res => {
                     if (res.status) {
-                        await axios.post('/user/profile', {
+                        console.log(res);
+                        axios.post('/user/profile', {
                             address: account,
                             avatar: selectedAvatar,
                             avatarLocked: false,
                             locale: locale,
-                            step: 1
+                            step: 0
                         })
                         .then(res => {
                             dispatch({ type: 'SET_USER', payload: res.data });
@@ -72,45 +75,45 @@ const StepOptions = ({ profileNfts, teams }) => {
                 });
             }
 
-            if (userData.step === 0) {
-                await axios.post('/user/profile', {
-                    address: account,
-                    step: 1
-                })
-                    .then(res => {
-                        dispatch({ type: 'SET_USER', payload: res.data });
-                    })
-                    .catch(e => setError(e.response.data));
-            }
+            // if (userData.step === 0) {
+            //     await axios.post('/user/profile', {
+            //         address: account,
+            //         step: 1
+            //     })
+            //         .then(res => {
+            //             dispatch({ type: 'SET_USER', payload: res.data });
+            //         })
+            //         .catch(e => setError(e.response.data));
+            // }
 
             if (userData.step === 1) {
                 
             }
 
             if (userData.step === 2) {
-                await axios.post('/user/profile', {
-                    address: account,
-                    team: selectedTeam,
-                    locale: locale,
-                    step: 3
-                })
-                    .then(res => {
-                        dispatch({ type: 'SET_USER', payload: res.data });
-                    })
-                    .catch(e => setError(e.response.data));
+                // await axios.post('/user/profile', {
+                //     address: account,
+                //     team: selectedTeam,
+                //     locale: locale,
+                //     step: 3
+                // })
+                //     .then(res => {
+                //         dispatch({ type: 'SET_USER', payload: res.data });
+                //     })
+                //     .catch(e => setError(e.response.data));
             }
             if (userData.step === 3) {
-                await axios.post('/user/profile', {
-                    address: account,
-                    nick: nick,
-                    locale: locale,
-                    step: 3
-                })
-                    .then(res => {
-                        dispatch({ type: 'SET_USER', payload: res.data });
-                        router.push(`/profile/${account}`, undefined, { locale, address: account });
-                    })
-                    .catch(e => setError(e.response.data));
+                // await axios.post('/user/profile', {
+                //     address: account,
+                //     nick: nick,
+                //     locale: locale,
+                //     step: 3
+                // })
+                //     .then(res => {
+                //         dispatch({ type: 'SET_USER', payload: res.data });
+                //         router.push(`/profile/${account}`, undefined, { locale, address: account });
+                //     })
+                //     .catch(e => setError(e.response.data));
             }
         }
     };
@@ -124,6 +127,10 @@ const StepOptions = ({ profileNfts, teams }) => {
 
         if (avatarId === "back") dispatch({ type: 'SET_STEP', payload: 0 });
     };
+
+    useEffect(() => {
+
+    }, [userData]);
 
     return (
         <>

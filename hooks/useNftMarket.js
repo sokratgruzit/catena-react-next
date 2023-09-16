@@ -81,16 +81,6 @@ export const useNftMarket = () => {
 
         let transaction = await createSale(url, price);
 
-        await axios.post('/user/profile', {
-          address: account,
-          avatarLocked: true,
-          step: 2
-        })
-        .then(res => {
-          dispatch({ type: 'SET_USER', payload: res.data });
-        })
-        .catch(e => console.log(e.response.data));
-
         return transaction;
       } catch (e) {
         console.log(e);
@@ -124,6 +114,18 @@ export const useNftMarket = () => {
       const transaction = !isReselling 
       ? await contract.methods.createToken(url, price).send({ from: account, value: listingPrice }) 
       : await contract.methods.reSellToken(url, price).send({ from: account, value: listingPrice });
+
+      return transaction;
+      //await transaction.wait();
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  const lockNFT = async (tokenId) => {
+    try {
+      const contract = await connectToContract();
+      const transaction = await contract.methods.createToken(tokenId).send({ from: account });
 
       return transaction;
       //await transaction.wait();
@@ -313,23 +315,13 @@ export const useNftMarket = () => {
 
   const buyNFT = async (nft, profile) => {
     try {
-      // const contract = await connectToContract();
-      // const price = ethers.utils.parseUnits(nft.price, "ether").toString();
-      // const transaction = await contract.methods.createMarketSale(nft.tokenId).send({ from: account, value: price });
+      const contract = await connectToContract();
+      const price = ethers.utils.parseUnits(nft.price, "ether").toString();
+      const transaction = await contract.methods.createMarketSale(nft.tokenId).send({ from: account, value: price });
       
       if (!profile) router.push('/overview/nfts/collections/creator');
 
-      if (profile) {
-        await axios.post('/user/profile', {
-          address: account,
-          avatarLocked: true,
-          step: 2
-        })
-        .then(res => {
-          dispatch({ type: 'SET_USER', payload: res.data });
-        })
-        .catch(e => console.log(e.response.data));
-      }
+      return transaction;
       //await transaction.wait();
     } catch (e) {
       console.log(e);
@@ -351,7 +343,8 @@ export const useNftMarket = () => {
       fetchMyNFTsOrListedNFTs,
       buyNFT,
       connectToContract,
-      fetchNewArrivals
+      fetchNewArrivals,
+      lockNFT
     }),
     [
       account, 
@@ -363,7 +356,8 @@ export const useNftMarket = () => {
       fetchMyNFTsOrListedNFTs,
       buyNFT,
       connectToContract,
-      fetchNewArrivals
+      fetchNewArrivals,
+      lockNFT
     ],
   );
 

@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const Collectible = ({ userData, bodyElement, buttonLabel, disable, onClick, title, text, helpText, link }) => {
     return (
         <>
-            {!userData?.step &&
+            {userData?.step &&
                 <div style={{ padding: '0' }} className='container_bordered-child'>
                     <div className={styles.tabHead}>
                         <div>
