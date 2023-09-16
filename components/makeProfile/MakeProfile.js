@@ -47,6 +47,10 @@ const MakeProfile = () => {
     createNFT
   } = useNftMarket();
 
+  const handleStep = async (step) => {
+    if (userData?.step) dispatch({ type: 'SET_STEP', payload: step });
+};
+
   useEffect(() => {
     if (account) {
       axios
@@ -77,7 +81,7 @@ const MakeProfile = () => {
   return (
     <div className='pT-180'>
       {account ? <div className="container">
-        <ProfileStepsBoard />
+        <ProfileStepsBoard handleStep={handleStep} />
         <StepOptions profileNfts={profileNfts} teams={teams} />
       </div> : <div className={`${styles.loadingElement}`}>Loading...</div>}
     </div>
