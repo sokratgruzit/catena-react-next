@@ -42,7 +42,6 @@ const ProfileStepsBoard = ({ handleStep }) => {
                     <p style={{ color: '#162029' }}>1.5</p>
                     <span style={{ color: '#FF6969' }}>CMCX</span>
                 </div>
-                {userData?.step}
                 <div className={styles.board}>
                     <div className={styles.steps}>
                         {DATA.map((item, index) => {
@@ -52,9 +51,9 @@ const ProfileStepsBoard = ({ handleStep }) => {
                                         <div >{item.title}</div>
                                         <div className={styles.stepChart}>
                                             {index !== 0 && <div className={styles.boardLine}></div>}
-                                            <div className={styles.circle} onClick={() => userData?.step >= index && handleStep(index)}>
+                                            <div className={styles.circle} onClick={() => userData?.step >= index && handleStep(index + 1)}>
                                                 {userData?.step >= index + 1 && <svg xmlns="http://www.w3.org/2000/svg" width="8" height="6" viewBox="0 0 8 6" fill="none">
-                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M7.82464 0.176111C8.05875 0.410632 8.05841 0.790531 7.82389 1.02464L3.28789 5.55264C3.05351 5.7866 2.6739 5.78643 2.43974 5.55226L0.175736 3.28826C-0.0585786 3.05395 -0.0585786 2.67405 0.175736 2.43974C0.410051 2.20542 0.789949 2.20542 1.02426 2.43974L2.86437 4.27985L6.97611 0.175362C7.21063 -0.058746 7.59053 -0.0584107 7.82464 0.176111Z" fill="#162029" />
+                                                    <path fillRule="evenodd" clipRule="evenodd" d="M7.82464 0.176111C8.05875 0.410632 8.05841 0.790531 7.82389 1.02464L3.28789 5.55264C3.05351 5.7866 2.6739 5.78643 2.43974 5.55226L0.175736 3.28826C-0.0585786 3.05395 -0.0585786 2.67405 0.175736 2.43974C0.410051 2.20542 0.789949 2.20542 1.02426 2.43974L2.86437 4.27985L6.97611 0.175362C7.21063 -0.058746 7.59053 -0.0584107 7.82464 0.176111Z" fill="#162029" />
                                                 </svg>}
                                             </div>
                                         </div>
@@ -67,9 +66,9 @@ const ProfileStepsBoard = ({ handleStep }) => {
                 <div className={styles.Line}></div>
             </div>
             <div className={styles.contStep}>
-                <span style={{ color: '#ff6969' }}>Step {userData?.step + 1 || 1}</span>
-                <p style={{ paddingBottom: '20px' }} className='font-20 ttl'>{DATA[userData?.step || 0].descriptionTitle}</p>
-                <p style={{ textAlign: 'center' }} className='ttl'>{DATA[userData?.step || 0].description}</p>
+                <span style={{ color: '#ff6969' }}>Step {userData?.step  || 1}</span>
+                <p style={{ paddingBottom: '20px' }} className='font-20 ttl'>{DATA[userData?.step - 1 || 0]?.descriptionTitle}</p>
+                <p style={{ textAlign: 'center' }} className='ttl'>{DATA[userData?.step - 1 || 0]?.description}</p>
             </div>
         </>
     );

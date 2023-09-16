@@ -3,7 +3,7 @@ import { Button, Input } from '@catena-network/catena-ui-module';
 import styles from "../MakeProfile.module.css"
 import { Link } from 'react-router-dom';
 
-const Collectible = ({ bodyElement, buttonLabel, disable, onClick, title, text, helpText, link }) => {
+const Collectible = ({ bodyElement, buttonLabel, disable, onClick, title, text, helpText, transactionHash }) => {
     return (
         <div style={{ padding: '0' }} className='container_bordered-child'>
             <div className={styles.tabHead}>
@@ -35,7 +35,7 @@ const Collectible = ({ bodyElement, buttonLabel, disable, onClick, title, text, 
                     />
                     <div className={styles.flex}>
                         <p style={{ color: '#389A5F' }}>{helpText}</p>
-                        <p> {link}</p>
+                        <a href={`https://etherscan.io/tx/${transactionHash}`}>{transactionHash}</a>
                     </div>
                 </div>
             </div>
