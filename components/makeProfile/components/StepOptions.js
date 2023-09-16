@@ -28,7 +28,7 @@ const StepOptions = ({ profileNfts, teams }) => {
         helpText: "",
         link: ""
     });
-    
+
     const account = useSelector(state => state.connect.account);
     const balance = useSelector(state => state.connect.balance);
     const userData = useSelector(state => state.appState.user);
@@ -56,7 +56,7 @@ const StepOptions = ({ profileNfts, teams }) => {
                     selectedAvatar.social
                 ).then(res => {
                     if (res.status) {
-                        console.log(res);
+                        console.log(res, 'raes');
                         axios.post('/user/profile', {
                             address: account,
                             avatar: selectedAvatar,
@@ -64,30 +64,26 @@ const StepOptions = ({ profileNfts, teams }) => {
                             locale: locale,
                             step: 0
                         })
-                        .then(res => {
-                            dispatch({ type: 'SET_USER', payload: res.data });
-                            setLink(`https://etherscan.io/tx/${res.transactionHash}`);
-                        })
-                        .catch(e => setError(e.response.data));
+                            .then(res => {
+                                dispatch({ type: 'SET_USER', payload: res.data });
+                                setLink(`https://etherscan.io/tx/${res.transactionHash}`);
+                            })
+                            .catch(e => setError(e.response.data));
                     }
                 }).catch(err => {
                     console.log(err);
                 });
             }
 
-            // if (userData.step === 0) {
-            //     await axios.post('/user/profile', {
-            //         address: account,
-            //         step: 1
-            //     })
-            //         .then(res => {
-            //             dispatch({ type: 'SET_USER', payload: res.data });
-            //         })
-            //         .catch(e => setError(e.response.data));
-            // }
-
             if (userData.step === 1) {
-                
+                    await axios.post('/user/profile', {
+                        address: account,
+                        step: 2
+                    })
+                        .then(res => {
+                            dispatch({ type: 'SET_USER', payload: res.data });
+                        })
+                        .catch(e => setError(e.response.data));
             }
 
             if (userData.step === 2) {
@@ -164,7 +160,7 @@ const StepOptions = ({ profileNfts, teams }) => {
                 disable = false;
 
                 if (link) buttonLabel = "Next Step";
-            } 
+            }
         }
 
         if (userData?.step === 1) {
@@ -192,9 +188,9 @@ const StepOptions = ({ profileNfts, teams }) => {
 
             if (activeAvatar && Number(ethers.utils.formatEther(balance)) >= 1) {
                 disable = false;
-            } 
+            }
         }
-    
+
         if (userData?.step === 2) {
             body = <div>
                 <div className={styles.avatarCard}>
@@ -216,9 +212,9 @@ const StepOptions = ({ profileNfts, teams }) => {
 
             if (activeAvatar && Number(ethers.utils.formatEther(balance)) >= 1) {
                 disable = false;
-            } 
-        } 
-        
+            }
+        }
+
         if (userData?.step === 3) {
             body = <div>
                 <div className={styles.avatarCard}>
@@ -240,9 +236,9 @@ const StepOptions = ({ profileNfts, teams }) => {
 
             if (activeAvatar && Number(ethers.utils.formatEther(balance)) >= 1) {
                 disable = false;
-            } 
+            }
         }
-    
+
         if (userData?.step === 4) {
             body = <>
                 {teams?.map(item => (
@@ -283,7 +279,7 @@ const StepOptions = ({ profileNfts, teams }) => {
 
             if (activeTeam && Number(ethers.utils.formatEther(balance)) >= 1) {
                 disable = false;
-            } 
+            }
         }
 
         if (userData?.step === 5) {
@@ -309,7 +305,7 @@ const StepOptions = ({ profileNfts, teams }) => {
 
             if (nick !== "" && Number(ethers.utils.formatEther(balance)) >= 1) {
                 disable = false;
-            } 
+            }
         }
 
         console.log(disable)
@@ -335,7 +331,7 @@ const StepOptions = ({ profileNfts, teams }) => {
             onClick={() => collectiblesData.disable ? null : handleSubmit()}
             helpText={collectiblesData.helpText}
             link={collectiblesData.scanLink}
-        /> 
+        />
     );
 }
 
