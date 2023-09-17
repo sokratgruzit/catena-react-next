@@ -1,7 +1,7 @@
-import { Button, Input } from '@catena-network/catena-ui-module';
+import { Button } from '@catena-network/catena-ui-module';
+import Link from 'next/link';
 
 import styles from "../MakeProfile.module.css"
-import { Link } from 'react-router-dom';
 
 const Collectible = ({ bodyElement, buttonLabel, disable, onClick, title, text, helpText, link }) => {
     return (
@@ -33,10 +33,12 @@ const Collectible = ({ bodyElement, buttonLabel, disable, onClick, title, text, 
                         className={styles.btnBlu}
                         customStyles={{ backgroundColor: "#A6D0DD", color: "#162029", margin: "0" }}
                     />
-                    <div className={styles.flex}>
-                        <p style={{ color: '#389A5F' }}>{helpText}</p>
-                        <p> {link}</p>
-                    </div>
+                    <Link href={link} className={styles.flex}>
+                        <a>
+                            <p style={{ color: '#389A5F', marginRight: '5px' }}>{helpText}</p>
+                            <p>{link}</p>
+                        </a>
+                    </Link>
                 </div>
             </div>
         </div>

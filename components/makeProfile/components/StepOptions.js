@@ -56,7 +56,8 @@ const StepOptions = ({ profileNfts, teams }) => {
                     selectedAvatar.social
                 ).then(res => {
                     if (res.status) {
-                        console.log(res);
+                        let link = res.transactionHash;
+
                         axios.post('/user/profile', {
                             address: account,
                             avatar: selectedAvatar,
@@ -66,7 +67,8 @@ const StepOptions = ({ profileNfts, teams }) => {
                         })
                         .then(res => {
                             dispatch({ type: 'SET_USER', payload: res.data });
-                            setLink(`https://etherscan.io/tx/${res.transactionHash}`);
+                            setLink(`https://etherscan.io/tx/${link}`);
+                            setActiveAvatar(null);
                         })
                         .catch(e => setError(e.response.data));
                     }
@@ -75,19 +77,15 @@ const StepOptions = ({ profileNfts, teams }) => {
                 });
             }
 
-            // if (userData.step === 0) {
-            //     await axios.post('/user/profile', {
-            //         address: account,
-            //         step: 1
-            //     })
-            //         .then(res => {
-            //             dispatch({ type: 'SET_USER', payload: res.data });
-            //         })
-            //         .catch(e => setError(e.response.data));
-            // }
-
             if (userData.step === 1) {
-                
+                await axios.post('/user/profile', {
+                    address: account,
+                    step: 1
+                })
+                .then(res => {
+                    dispatch({ type: 'SET_USER', payload: res.data });
+                })
+                .catch(e => setError(e.response.data));
             }
 
             if (userData.step === 2) {
@@ -117,6 +115,8 @@ const StepOptions = ({ profileNfts, teams }) => {
             }
         }
     };
+
+    console.log(link)
 
     const handleStep = async (avatarId) => {
         if (!userData.step && avatarId !== "back") {
@@ -162,8 +162,6 @@ const StepOptions = ({ profileNfts, teams }) => {
 
             if (activeAvatar && Number(ethers.utils.formatEther(balance)) >= 1) {
                 disable = false;
-
-                if (link) buttonLabel = "Next Step";
             } 
         }
 
@@ -172,9 +170,8 @@ const StepOptions = ({ profileNfts, teams }) => {
                 {profileNfts?.map(item => (
                     <div
                         key={item.id}
-                        className={styles.avatarCard}
+                        className={`${styles.avatarCard} ${styles.disabledCard}`}
                         style={activeAvatar === item.id ? { background: "#A6D0DD" } : {}}
-                        onClick={() => handleStep(item.id)}
                     >
                         <div className={styles.avatarImg}>
                             <Image src={item.img} alt={item.name} width={80} height={80} />
@@ -190,14 +187,16 @@ const StepOptions = ({ profileNfts, teams }) => {
             helpText = "Transaction Submited!";
             scanLink = link;
 
-            if (activeAvatar && Number(ethers.utils.formatEther(balance)) >= 1) {
+            if (Number(ethers.utils.formatEther(balance)) >= 1) {
                 disable = false;
+
+                if (link) buttonLabel = "Next Step";
             } 
         }
     
         if (userData?.step === 2) {
             body = <div>
-                <div className={styles.avatarCard}>
+                <div className={styles.avatarCard} onClick={() => setActiveAvatar(userData?.avatar?.id)}>
                     <div className={styles.avatarImg}>
                         <Image width={80} height={80} src={userData?.avatar?.img} alt={userData?.avatar?.name} />
                         <p>{userData?.avatar?.name}</p>
@@ -210,7 +209,7 @@ const StepOptions = ({ profileNfts, teams }) => {
             </div>;
             title = "Choose Collectible";
             text = "Choose a profile picture from the eligible collectibles (NFT) in your wallet, shown below. Only approved Pancake Collectibles can be used. See the list";
-            buttonLabel = "Next Step";
+            buttonLabel = activeAvatar ? "Next Step" : "Lock";
             helpText = "";
             scanLink = "";
 
@@ -323,7 +322,7 @@ const StepOptions = ({ profileNfts, teams }) => {
             helpText,
             buttonLabel
         });
-    }, [userData, activeAvatar, activeTeam, nick]);
+    }, [userData, activeAvatar, activeTeam, nick, link]);
 
     return (
         <Collectible
@@ -334,7 +333,7 @@ const StepOptions = ({ profileNfts, teams }) => {
             disable={collectiblesData.disable}
             onClick={() => collectiblesData.disable ? null : handleSubmit()}
             helpText={collectiblesData.helpText}
-            link={collectiblesData.scanLink}
+            link={collectiblesData.scanLink || ""}
         /> 
     );
 }

@@ -112,6 +112,10 @@
   margin-top: 20px;
 }
 
+.disabledCard {
+  opacity: .5;
+}
+
 .avatarCard:hover {
   background-color: #A6D0DD;
 }
@@ -130,6 +134,9 @@
 
 .flex {
   display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: auto;
 }
 
 .buttonInner {
