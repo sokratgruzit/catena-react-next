@@ -49,7 +49,7 @@ const ProfileStepsBoard = ({ handleStep }) => {
                             return (
                                 <>
                                     <div className={styles.circleTitle}>
-                                        <div >{item.title}</div>
+                                        <div className={styles.titleDiv}>{item.title}</div>
                                         <div className={styles.stepChart}>
                                             {index !== 0 && <div className={styles.boardLine}></div>}
                                             <div className={styles.circle} onClick={() => userData?.step >= index && handleStep(index)}>
@@ -68,7 +68,7 @@ const ProfileStepsBoard = ({ handleStep }) => {
             </div>
             <div className={styles.contStep}>
                 <span style={{ color: '#ff6969' }}>Step {userData?.step + 1 || 1}</span>
-                <p style={{ paddingBottom: '20px' }} className='font-20 ttl'>{DATA[userData?.step || 0].descriptionTitle}</p>
+                <p className='font-20 ttl'>{DATA[userData?.step || 0].descriptionTitle}</p>
                 <p style={{ textAlign: 'center' }} className='ttl'>{DATA[userData?.step || 0].description}</p>
             </div>
         </>

@@ -15,6 +15,7 @@
 
 .contStep p {
   color: #162029;
+  margin-bottom: 20px;
 }
 
 .Line {
@@ -173,7 +174,7 @@
 
 .board {
   width: 80%;
-  height: 80px;
+  height: auto;
   margin-top: 40px;
   border-radius: 57px;
   border: 1px solid #162029;
@@ -181,7 +182,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding: 0 50px;
+  padding: 20px 50px;
 }
 
 .boardLine {
@@ -221,6 +222,14 @@
   position: relative;
 }
 
+.titleDiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 30px;
+}
+
 .stepChart {
   display: flex;
   align-items: center;
@@ -231,5 +240,21 @@
   .makeProfileWrapper {
     flex-wrap: wrap;
     align-items: flex-start;
+  }
+
+  .titleDiv {
+    height: 48px;
+  }
+}
+
+@media (max-width: 767px) {
+  .titleDiv {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 467px) {
+  .titleDiv {
+    height: 68px;
   }
 }
