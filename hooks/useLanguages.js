@@ -1,5 +1,4 @@
 import { useRouter } from 'next/router';
-import { useSelector } from 'react-redux';
 import { useMemo } from 'react';
 import store from '../store/index';
 

@@ -124,7 +124,7 @@ export const useNftMarket = () => {
     }
   };
 
-  const fetchNFTs = async (cat) => {
+  const fetchNFTs = async cat => {
     try {
       const contract = await connectToContract();
       const data = await contract.methods.fetchMarketItem().call();
@@ -174,7 +174,10 @@ export const useNftMarket = () => {
         }),
       );
 
-      if (cat?.toLowerCase() === 'profile') items = items.filter((item, index, self) => item.category.toLowerCase() === cat.toLowerCase() && self.indexOf(item) === index);
+      if (cat?.toLowerCase() === 'profile')
+        items = items.filter(
+          (item, index, self) => item.category.toLowerCase() === cat.toLowerCase() && self.indexOf(item) === index,
+        );
 
       return items;
     } catch (e) {
@@ -295,7 +298,10 @@ export const useNftMarket = () => {
         }),
       );
 
-      if (cat?.toLowerCase() === 'profile') items = items.filter((item, index, self) => item.category.toLowerCase() === cat.toLowerCase() && self.indexOf(item) === index);
+      if (cat?.toLowerCase() === 'profile')
+        items = items.filter(
+          (item, index, self) => item.category.toLowerCase() === cat.toLowerCase() && self.indexOf(item) === index,
+        );
 
       return items;
     } catch (e) {
@@ -312,15 +318,16 @@ export const useNftMarket = () => {
       if (!profile) router.push('/overview/nfts/collections/creator');
 
       if (profile) {
-        await axios.post('/user/profile', {
-          address: account,
-          avatarLocked: true,
-          step: 2
-        })
-        .then(res => {
-          dispatch({ type: 'SET_USER', payload: res.data });
-        })
-        .catch(e => console.log(e.response.data));
+        await axios
+          .post('/user/profile', {
+            address: account,
+            avatarLocked: true,
+            step: 2,
+          })
+          .then(res => {
+            dispatch({ type: 'SET_USER', payload: res.data });
+          })
+          .catch(e => console.log(e.response.data));
       }
       //await transaction.wait();
     } catch (e) {

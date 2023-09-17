@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router';
 import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 
 import BalanceCard from './components/balanceCard/BalanceCard';
 import BlockchainProvingTimeChart from './components/blockchainProvingTimeChart/BlockchainProvingTimeChart';
@@ -18,6 +19,8 @@ import styles from './Dashboard.module.css';
 const Dashboard = () => {
   const [sortBy, setSortBy] = useState('Validated Blocks');
   const [animate, setAnimate] = useState(false);
+  const { locale } = router;
+  const account = useSelector(state => state.connect.account);
   //   const [currentPage, setCurrentPage] = useState(1);
   //   const [totalPages, setTotalPages] = useState(1);
   //   const [td, setTd] = useState([]);
@@ -131,10 +134,10 @@ const Dashboard = () => {
           <li className={styles.chosen}>
             <DashboardIcon className={styles.dashboardListIcon} /> <p>Dashboard</p>
           </li>
-          <li onClick={() => router.push('/validators')}>
+          <li onClick={() => router.push('/validators', undefined, { locale, address: account })}>
             <ValidatorsListIcon className={styles.dashboardListIcon} /> <p>Validators List</p>
           </li>
-          <li onClick={() => router.push('/calculator')}>
+          <li onClick={() => router.push('/calculator', undefined, { locale, address: account })}>
             <RewardsCalcIcon className={styles.dashboardListIcon} />
             <p>Rewards Calculator</p>
           </li>
