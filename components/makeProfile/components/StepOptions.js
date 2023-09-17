@@ -62,7 +62,6 @@ const StepOptions = ({ profileNfts, teams }) => {
                     if (res.status) {
                         console.log(res, 'raes');
                         const { transactionHash } = res;
-                        console.log(tHash)
                         axios.post('/user/profile', {
                             address: account,
                             avatar: selectedAvatar,
@@ -298,7 +297,7 @@ const StepOptions = ({ profileNfts, teams }) => {
             buttonLabel,
             hash
         });
-    }, [userData, activeAvatar, activeTeam, nick]);
+    }, [userData, activeAvatar, activeTeam, nick, tHash]);
 
     return (
         <Collectible
@@ -309,7 +308,7 @@ const StepOptions = ({ profileNfts, teams }) => {
             disable={collectiblesData.disable}
             onClick={() => collectiblesData.disable ? null : handleSubmit()}
             helpText={collectiblesData.helpText}
-            transactionHash={collectiblesData.Hash}
+            transactionHash={collectiblesData.hash}
         />
     );
 }
