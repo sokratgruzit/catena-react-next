@@ -14,11 +14,8 @@ export default function Profile({ address }) {
   const [activeMenuItem, setActiveMenuItem] = useState('NFTs');
   const [activeTab, setActiveTab] = useState('Items');
   const [itemsList, setItemsList] = useState([]);
-  
-  const { 
-    account,
-    fetchNFTs,
-  } = useNftMarket();
+
+  const { account, fetchNFTs } = useNftMarket();
   const router = useRouter();
   const { profileId } = router.query;
 
@@ -45,13 +42,15 @@ export default function Profile({ address }) {
   useEffect(() => {
     if (account) {
       fetchNFTs().then(items => {
-        setItemsList(items?.map(item => {
-          return <ListItemCard key={item.tokenURI} data={item} type={'nft_arrivals'} />;
-        }))
+        setItemsList(
+          items?.map(item => {
+            return <ListItemCard key={item.tokenURI} data={item} type={'nft_arrivals'} />;
+          }),
+        );
       });
     }
   }, [account]);
-  
+
   return (
     <div className={`${styles.profile} container`}>
       <div className={styles.profileWrapper}>

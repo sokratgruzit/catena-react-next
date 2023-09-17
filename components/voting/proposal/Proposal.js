@@ -49,7 +49,7 @@ export default function Proposal() {
   };
 
   const addChoice = event => {
-    event.preventDefault(); // Prevent the default form submission behavior
+    event.preventDefault();
     setChoices([...choices, '']);
   };
 
@@ -142,7 +142,6 @@ export default function Proposal() {
               <input placeholder='00:00' type='time' showtime='true' className={styles.input} />
             </div>
           </form>
-
           <div className={styles.snapshot}>
             <p>Snapshot:</p>
             <p>
@@ -159,7 +158,6 @@ export default function Proposal() {
               </svg>
             </p>
           </div>
-
           <Button
             label={'Connect Wallet'}
             size={'btn-lg'}
