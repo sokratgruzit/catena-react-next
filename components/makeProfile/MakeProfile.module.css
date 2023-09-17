@@ -188,7 +188,7 @@
 .boardLine {
   height: 1px;
   width: 100%;
-  background-color: #162029;
+  background-color: rgb(199, 196, 196);
   position: absolute;
 }
 
@@ -203,8 +203,8 @@
 .circle {
   position: relative;
   border-radius: 50%;
-  border: 1px solid #162029;
-  background-color: #A6D0DD;
+  border: 1px solid rgb(199, 196, 196);
+  background-color: rgb(235, 229, 229);
   width: 25px;
   height: 25px;
   z-index: 99;
