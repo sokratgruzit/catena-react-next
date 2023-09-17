@@ -43,6 +43,10 @@ const StepOptions = ({ profileNfts, teams }) => {
     const handleSubmit = async event => {
         if (account) {
             if (!userData.step) {
+                setCollectiblesData((prev) =>({
+                    ...prev,
+                    disable: true
+                }));
                 createNFT(
                     selectedAvatar.name,
                     selectedAvatar.price,
@@ -69,6 +73,10 @@ const StepOptions = ({ profileNfts, teams }) => {
                         .then(res => {
                                 setTHash(transactionHash);
                                 dispatch({ type: 'SET_USER', payload: res.data });
+                                setCollectiblesData((prev) =>({
+                                    ...prev,
+                                    disable: false
+                                }));
                             })
                             .catch(e => setError(e.response.data));
                     }
