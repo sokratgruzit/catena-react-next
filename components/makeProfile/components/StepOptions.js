@@ -222,6 +222,14 @@ const StepOptions = ({ profileNfts, teams }) => {
             if (activeAvatar && Number(ethers.utils.formatEther(balance)) >= 1) {
                 disable = false;
             }
+
+            const getTokenId = async () => {
+                fetchNFTs().then(res => {
+                    console.log(res);
+                });
+            };
+
+            getTokenId();
         }
 
         if (userData?.step === 50) {
