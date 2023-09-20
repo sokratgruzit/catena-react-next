@@ -16,7 +16,6 @@ const StepOptions = ({ profileNfts, teams }) => {
     const [selectedAvatar, setSelectedAvatar] = useState({});
     const [activeTeam, setActiveTeam] = useState(null);
     const [nick, setNick] = useState("");
-    const [tHash, setTHash] = useState("");
     const [selectedTeam, setSelectedTeam] = useState("");
     const [error, setError] = useState("At least 1 CMCX required");
     const [collectiblesData, setCollectiblesData] = useState({
@@ -69,10 +68,10 @@ const StepOptions = ({ profileNfts, teams }) => {
                             avatar: selectedAvatar,
                             avatarLocked: false,
                             locale: locale,
-                            step: 0
+                            transactionHash: transactionHash,
+                            step: 1
                         })
                         .then(res => {
-                                setTHash(transactionHash);
                                 setActiveAvatar(null);
                                 dispatch({ type: 'SET_TOKEN_ID', payload: tokenId });
                                 dispatch({ type: 'SET_USER', payload: res.data });
@@ -171,7 +170,7 @@ const StepOptions = ({ profileNfts, teams }) => {
             if (activeAvatar && Number(ethers.utils.formatEther(balance)) >= 1) {
                 disable = false;
 
-                if (tHash) buttonLabel = "Next Step";
+                if (userData?.transactionHash) buttonLabel = "Next Step";
             }
         }
 
@@ -195,7 +194,7 @@ const StepOptions = ({ profileNfts, teams }) => {
             text = "Choose a profile picture from the eligible collectibles (NFT) in your wallet, shown below. Only approved Pancake Collectibles can be used. See the list";
             buttonLabel = "Next Step";
             helpText = "Transaction Submited!";
-            hash = tHash;
+            hash = userData?.transactionHash;
 
             if (Number(ethers.utils.formatEther(balance)) >= 1) {
                 disable = false;
@@ -308,7 +307,7 @@ const StepOptions = ({ profileNfts, teams }) => {
             buttonLabel,
             hash
         });
-    }, [userData, activeAvatar, activeTeam, nick, tHash]);
+    }, [userData, activeAvatar, activeTeam, nick]);
 
     return (
         <Collectible
