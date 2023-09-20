@@ -1,4 +1,5 @@
 const INIT_STATE = {
+  tokenId: null,
   nfts: [],
   nftsCopy: [],
   newArrivals: []
@@ -10,6 +11,13 @@ const nftsReducer = (state = INIT_STATE, action) => {
       ...state,
       nfts: action.payload,
       nftsCopy: action.payload
+    };
+  }
+
+  if (action.type === 'SET_TOKEN_ID') {
+    return {
+      ...state,
+      tokenId: action.payload
     };
   }
 

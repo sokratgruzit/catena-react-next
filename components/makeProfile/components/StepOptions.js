@@ -32,13 +32,14 @@ const StepOptions = ({ profileNfts, teams }) => {
     const account = useSelector(state => state.connect.account);
     const balance = useSelector(state => state.connect.balance);
     const userData = useSelector(state => state.appState.user);
+    const tokenId = useSelector(state => state.nftsState.tokenId);
 
     const axios = useMemo(() => createAxiosInstance(), []);
     const router = useRouter();
     const { locale } = router;
     const dispatch = useDispatch();
     const { library } = useConnect();
-    const { fetchNFTs, fetchMyNFTsOrListedNFTs, createNFT } = useNftMarket();
+    const { createNFT, lockNFT } = useNftMarket();
 
     const handleSubmit = async event => {
         if (account) {
@@ -60,17 +61,20 @@ const StepOptions = ({ profileNfts, teams }) => {
                     selectedAvatar.social
                 ).then(res => {
                     if (res.status) {
-                        console.log(res, 'raes');
-                        const { transactionHash } = res;
+                        const { transactionHash, events } = res;
+                        const tokenId = events.idMarketItemCreated.returnValues.tokenId;
+
                         axios.post('/user/profile', {
                             address: account,
                             avatar: selectedAvatar,
                             avatarLocked: false,
                             locale: locale,
-                            step: 1
+                            step: 0
                         })
                         .then(res => {
                                 setTHash(transactionHash);
+                                setActiveAvatar(null);
+                                dispatch({ type: 'SET_TOKEN_ID', payload: tokenId });
                                 dispatch({ type: 'SET_USER', payload: res.data });
                                 setCollectiblesData((prev) =>({
                                     ...prev,
@@ -87,7 +91,7 @@ const StepOptions = ({ profileNfts, teams }) => {
             if (userData.step === 1) {
                 await axios.post('/user/profile', {
                     address: account,
-                    step: 2
+                    step: 1
                 })
                     .then(res => {
                         dispatch({ type: 'SET_USER', payload: res.data });
@@ -200,9 +204,13 @@ const StepOptions = ({ profileNfts, teams }) => {
 
         if (userData?.step === 2) {
             body = <div>
-                <div className={styles.avatarCard} onClick={() => setActiveAvatar(userData?.avatar?.id)}>
+                <div 
+                    className={styles.avatarCard} 
+                    onClick={() => setActiveAvatar(userData?.avatar?.id)}
+                    style={activeAvatar ? { background: "#A6D0DD" } : {}}
+                >
                     <div className={styles.avatarImg}>
-                        <Image width={80} height={80} src={userData?.avatar?.img} alt={userData?.avatar?.name} />
+                        <Image width={80} height={80} src={userData?.avatar?.url} alt={userData?.avatar?.name} />
                         <p>{userData?.avatar?.name}</p>
                     </div>
                 </div>
@@ -213,14 +221,18 @@ const StepOptions = ({ profileNfts, teams }) => {
             </div>;
             title = "Choose Collectible";
             text = "Choose a profile picture from the eligible collectibles (NFT) in your wallet, shown below. Only approved Pancake Collectibles can be used. See the list";
-            buttonLabel = "Next Step";
+            buttonLabel = "Lock";
 
             if (activeAvatar && Number(ethers.utils.formatEther(balance)) >= 1) {
                 disable = false;
+
+                if (tokenId) {
+
+                }
             }
         }
 
-        if (userData?.step === 3) {
+        if (userData?.step === 50) {
             body = <>
                 {teams?.map(item => (
                     <div
