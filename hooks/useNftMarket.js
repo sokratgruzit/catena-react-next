@@ -125,7 +125,7 @@ export const useNftMarket = () => {
   const lockNFT = async (tokenId) => {
     try {
       const contract = await connectToContract();
-      const transaction = await contract.methods.createToken(tokenId).send({ from: account });
+      const transaction = await contract.methods.lockNFT(tokenId).send({ from: account });
 
       return transaction;
       //await transaction.wait();
