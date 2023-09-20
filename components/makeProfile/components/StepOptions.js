@@ -32,13 +32,14 @@ const StepOptions = ({ profileNfts, teams }) => {
     const account = useSelector(state => state.connect.account);
     const balance = useSelector(state => state.connect.balance);
     const userData = useSelector(state => state.appState.user);
+    const tokenId = useSelector(state => state.nftsState.tokenId);
 
     const axios = useMemo(() => createAxiosInstance(), []);
     const router = useRouter();
     const { locale } = router;
     const dispatch = useDispatch();
     const { library } = useConnect();
-    const { fetchNFTs, fetchMyNFTsOrListedNFTs, createNFT } = useNftMarket();
+    const { createNFT, lockNFT } = useNftMarket();
 
     const handleSubmit = async event => {
         if (account) {
@@ -60,7 +61,9 @@ const StepOptions = ({ profileNfts, teams }) => {
                     selectedAvatar.social
                 ).then(res => {
                     if (res.status) {
-                        const { transactionHash } = res;
+                        const { transactionHash, events } = res;
+                        const tokenId = events.idMarketItemCreated.returnValues.tokenId;
+
                         axios.post('/user/profile', {
                             address: account,
                             avatar: selectedAvatar,
@@ -71,6 +74,7 @@ const StepOptions = ({ profileNfts, teams }) => {
                         .then(res => {
                                 setTHash(transactionHash);
                                 setActiveAvatar(null);
+                                dispatch({ type: 'SET_TOKEN_ID', payload: tokenId });
                                 dispatch({ type: 'SET_USER', payload: res.data });
                                 setCollectiblesData((prev) =>({
                                     ...prev,
@@ -221,15 +225,11 @@ const StepOptions = ({ profileNfts, teams }) => {
 
             if (activeAvatar && Number(ethers.utils.formatEther(balance)) >= 1) {
                 disable = false;
+
+                if (tokenId) {
+
+                }
             }
-
-            const getTokenId = async () => {
-                fetchNFTs().then(res => {
-                    console.log(res);
-                });
-            };
-
-            getTokenId();
         }
 
         if (userData?.step === 50) {

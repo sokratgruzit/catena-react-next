@@ -112,7 +112,7 @@ export const useNftMarket = () => {
       let listingPrice = await contract.methods.getListingPrice().call();
       listingPrice = listingPrice.toString();
       const transaction = !isReselling 
-      ? await contract.methods.createToken(url, price).send({ from: account, value: listingPrice }) 
+      ? await contract.methods.createToken(url, price).send({ from: account, value: listingPrice })
       : await contract.methods.reSellToken(url, price).send({ from: account, value: listingPrice });
 
       return transaction;
