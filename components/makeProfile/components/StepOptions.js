@@ -69,7 +69,7 @@ const StepOptions = ({ profileNfts, teams }) => {
                             tokenId: tokenId,
                             locale: locale,
                             transactionHash: transactionHash,
-                            step: 1
+                            step: 0
                         })
                         .then(res => {
                                 setActiveAvatar(null);
