@@ -19,6 +19,8 @@ export default function Proposal() {
   const [endTime, setEndTime] = useState('');
   const [editorContent, setEditorContent] = useState('');
   const [choices, setChoices] = useState(['']);
+  const [walletModal, setWalletModal] = useState(false);
+  const [metamaskConnected, setMetamaskConnected] = useState(false);
   const account = useSelector(state => state.account);
   const providerType = 'example';
   const mainData = {};
@@ -33,9 +35,6 @@ export default function Proposal() {
   const closeWalletModal = () => {
     setWalletModal(false);
   };
-
-  const [walletModal, setWalletModal] = useState(false);
-  const [metamaskConnected, setMetamaskConnected] = useState(false);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -198,7 +197,6 @@ export default function Proposal() {
                 className={styles.datePicker}
                 dateFormat='MM/dd/yyyy'
                 name='startTime'
-                showTimeSelect
               />
             </div>
             <div className={styles.inputContainer}>
@@ -209,29 +207,16 @@ export default function Proposal() {
                 dateFormat='MM/dd/yyyy'
                 className={styles.datePicker}
                 name='endTime'
-                showTimeSelect
               />
             </div>
             <div className={styles.inputContainer}>
               <label className={styles.label}>Time</label>
               <label className={styles.subLabel}>Start Time</label>
-              <input
-                placeholder='00:00'
-                type='time'
-                className={styles.input}
-                value={startTime}
-                onChange={handleStartTimeChange}
-              />
+              <input type='time' className={styles.input} value={startTime} onChange={handleStartTimeChange} />
             </div>
             <div className={styles.inputContainer}>
               <label className={styles.subLabel}>End Time</label>
-              <input
-                placeholder='00:00'
-                type='time'
-                className={styles.input}
-                value={endTime}
-                onChange={handleEndTimeChange}
-              />
+              <input type='time' className={styles.input} value={endTime} onChange={handleEndTimeChange} />
             </div>
           </form>
           <div className={styles.snapshot}>
