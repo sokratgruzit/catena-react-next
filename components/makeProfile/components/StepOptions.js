@@ -100,36 +100,52 @@ const StepOptions = ({ profileNfts, teams }) => {
 
             if (userData?.step === 2) {
                 if (userData?.tokenId) {
-                    lockNFT(userData?.tokenId).then(res => {
-                        console.log(res);
+                    lockNFT(userData?.tokenId)
+                    .then(res => {
+                        const { status } = res;
+                        
+                        if (status) {
+                            axios.post('/user/profile', {
+                                address: account,
+                                avatarLocked: true,
+                                // team: selectedTeam,
+                                // locale: locale,
+                                step: 2
+                            })
+                            .then(res => {
+                                dispatch({ type: 'SET_USER', payload: res.data });
+                            })
+                            .catch(e => setError(e.response.data));
+                        }
                     });
                 }
-                // await axios.post('/user/profile', {
-                //     address: account,
-                //     avatarLocked: true,
-                //     // team: selectedTeam,
-                //     // locale: locale,
-                //     step: 2
-                // })
-                // .then(res => {
-                //     dispatch({ type: 'SET_USER', payload: res.data });
-                // })
-                // .catch(e => setError(e.response.data));
             }
 
             if (userData.step === 3) {
+                axios.post('/user/profile', {
+                    address: account,
+                    team: selectedTeam,
+                    locale: locale,
+                    step: 3
+                })
+                .then(res => {
+                    dispatch({ type: 'SET_USER', payload: res.data });
+                })
+                .catch(e => setError(e.response.data));
+            }
+
+            if (userData.step === 4) {
                 await axios.post('/user/profile', {
                     address: account,
                     nick: nick,
                     locale: locale,
                     step: 4
                 })
-                    .then(res => {
-                        dispatch({ type: 'SET_USER', payload: res.data });
-                        // router.push(`/profile/${account}`, undefined, { locale, address: account });
-                        console.log('morcha')
-                    })
-                    .catch(e => setError(e.response.data));
+                .then(res => {
+                    dispatch({ type: 'SET_USER', payload: res.data });
+                    router.push(`/profile/${account}`, undefined, { locale, address: account });
+                })
+                .catch(e => setError(e.response.data));
             }
         }
     };
@@ -222,7 +238,7 @@ const StepOptions = ({ profileNfts, teams }) => {
             }
         }
 
-        if (userData?.step === 50) {
+        if (userData?.step === 3) {
             body = <>
                 {teams?.map(item => (
                     <div
@@ -258,7 +274,6 @@ const StepOptions = ({ profileNfts, teams }) => {
             text = "There’s currently no big difference between teams, and no benefit of joining one team over another for now. So pick whichever one you like!";
             buttonLabel = activeTeam !== "" ? "Next Step" : "Enable";
             helpText = "";
-            // transactionHash = "";
 
             if (activeTeam && Number(ethers.utils.formatEther(balance)) >= 1) {
                 disable = false;
