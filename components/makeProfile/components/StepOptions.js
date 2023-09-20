@@ -31,7 +31,6 @@ const StepOptions = ({ profileNfts, teams }) => {
     const account = useSelector(state => state.connect.account);
     const balance = useSelector(state => state.connect.balance);
     const userData = useSelector(state => state.appState.user);
-    const tokenId = useSelector(state => state.nftsState.tokenId);
 
     const axios = useMemo(() => createAxiosInstance(), []);
     const router = useRouter();
@@ -40,7 +39,7 @@ const StepOptions = ({ profileNfts, teams }) => {
     const { library } = useConnect();
     const { createNFT, lockNFT } = useNftMarket();
 
-    const handleSubmit = async event => {
+    const handleSubmit = async () => {
         if (account) {
             if (!userData.step) {
                 setCollectiblesData((prev) =>({
@@ -67,13 +66,13 @@ const StepOptions = ({ profileNfts, teams }) => {
                             address: account,
                             avatar: selectedAvatar,
                             avatarLocked: false,
+                            tokenId: tokenId,
                             locale: locale,
                             transactionHash: transactionHash,
                             step: 1
                         })
                         .then(res => {
                                 setActiveAvatar(null);
-                                dispatch({ type: 'SET_TOKEN_ID', payload: tokenId });
                                 dispatch({ type: 'SET_USER', payload: res.data });
                                 setCollectiblesData((prev) =>({
                                     ...prev,
@@ -87,29 +86,36 @@ const StepOptions = ({ profileNfts, teams }) => {
                 });
             }
 
-            if (userData.step === 1) {
+            if (userData?.step === 1) {
                 await axios.post('/user/profile', {
                     address: account,
                     step: 1
                 })
-                    .then(res => {
-                        dispatch({ type: 'SET_USER', payload: res.data });
-                    })
-                    .catch(e => setError(e.response.data));
+                .then(res => {
+                    dispatch({ type: 'SET_USER', payload: res.data });
+                })
+                .catch(e => setError(e.response.data));
             }
 
-            if (userData.step === 2) {
-                await axios.post('/user/profile', {
-                    address: account,
-                    team: selectedTeam,
-                    locale: locale,
-                    step: 3
-                })
-                    .then(res => {
-                        dispatch({ type: 'SET_USER', payload: res.data });
-                    })
-                    .catch(e => setError(e.response.data));
+            if (userData?.step === 2) {
+                if (userData?.tokenId) {
+                    lockNFT(userData?.tokenId).then(res => {
+                        console.log(res);
+                    });
+                }
+                // await axios.post('/user/profile', {
+                //     address: account,
+                //     avatarLocked: true,
+                //     // team: selectedTeam,
+                //     // locale: locale,
+                //     step: 2
+                // })
+                // .then(res => {
+                //     dispatch({ type: 'SET_USER', payload: res.data });
+                // })
+                // .catch(e => setError(e.response.data));
             }
+
             if (userData.step === 3) {
                 await axios.post('/user/profile', {
                     address: account,
@@ -146,7 +152,7 @@ const StepOptions = ({ profileNfts, teams }) => {
         let helpText = "";
         let hash = "";
 
-        if (!userData?.step) {
+        if (!userData?.step || userData?.step === 1) {
             body = <>
                 {profileNfts?.map(item => (
                     <div
@@ -163,6 +169,9 @@ const StepOptions = ({ profileNfts, teams }) => {
                 ))}
                 {Number(ethers.utils.formatEther(balance)) < 1 && <div>{error}</div>}
             </>;
+        }
+
+        if (!userData?.step) {
             title = "Choose your Starter!";
             text = "Choose wisely: you can only ever make one starter collectible!";
             buttonLabel = "Enable";
@@ -175,21 +184,6 @@ const StepOptions = ({ profileNfts, teams }) => {
         }
 
         if (userData?.step === 1) {
-            body = <>
-                {profileNfts?.map(item => (
-                    <div
-                        key={item.id}
-                        className={`${styles.avatarCard} ${styles.disabledCard}`}
-                        style={activeAvatar === item.id ? { background: "#A6D0DD" } : {}}
-                    >
-                        <div className={styles.avatarImg}>
-                            <Image src={item.img} alt={item.name} width={80} height={80} />
-                            <p>{item.name}</p>
-                        </div>
-                    </div>
-                ))}
-                {Number(ethers.utils.formatEther(balance)) < 1 && <div>{error}</div>}
-            </>;
             title = "Choose Collectible";
             text = "Choose a profile picture from the eligible collectibles (NFT) in your wallet, shown below. Only approved Pancake Collectibles can be used. See the list";
             buttonLabel = "Next Step";
@@ -224,10 +218,6 @@ const StepOptions = ({ profileNfts, teams }) => {
 
             if (activeAvatar && Number(ethers.utils.formatEther(balance)) >= 1) {
                 disable = false;
-
-                if (tokenId) {
-
-                }
             }
         }
 
