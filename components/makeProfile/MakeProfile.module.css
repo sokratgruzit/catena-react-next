@@ -211,6 +211,7 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  background-color: #f6ebdf;
 }
 
 .circleTitle {
