@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 import styles from "../MakeProfile.module.css"
 
-const Collectible = ({ bodyElement, buttonLabel, disable, onClick, title, text, helpText, transactionHash }) => {
+const Collectible = ({ bodyElement, buttonLabel, disable, onClick, title, text, helpText, transactionHash, message }) => {
     return (
         <div style={{ padding: '0' }} className='container_bordered-child'>
             <div className={styles.tabHead}>
@@ -19,6 +19,7 @@ const Collectible = ({ bodyElement, buttonLabel, disable, onClick, title, text, 
             </div>
             <div className={styles.makeProfileWrapper}>
                 {bodyElement}
+                <p style={{ color: "#ff6969" }}> {message === "" ? "Nick name can't be changed" : message} </p>
             </div>
             <div className={styles.confirmBtn}>
                 <div className={styles.buttonInner}>

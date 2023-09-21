@@ -25,6 +25,7 @@ const StepOptions = ({ profileNfts, teams }) => {
         buttonLabel: "",
         disable: "",
         helpText: "",
+        message: "",
         transactionHash: ""
     });
 
@@ -141,8 +142,15 @@ const StepOptions = ({ profileNfts, teams }) => {
                     step: 4
                 })
                 .then(res => {
-                    dispatch({ type: 'SET_USER', payload: res.data });
-                    router.push(`/profile/${account}`, undefined, { locale, address: account });
+                    if (res.data?.message) {
+                        setCollectiblesData((prev) =>({
+                            ...prev,
+                            message: res.data?.message
+                        }));
+                    } else {
+                        dispatch({ type: 'SET_USER', payload: res.data });
+                        router.push(`/profile/${account}`, undefined, { locale, address: account });
+                    }
                 })
                 .catch(e => setError(e.response.data));
             }
@@ -166,6 +174,7 @@ const StepOptions = ({ profileNfts, teams }) => {
         let buttonLabel = "";
         let disable = true;
         let helpText = "";
+        let message = "";
         let hash = "";
 
         if (!userData?.step || userData?.step === 1) {
@@ -293,7 +302,6 @@ const StepOptions = ({ profileNfts, teams }) => {
                     label={"Nick Name"}
                     onChange={e => setNick(e.target.value)}
                 />
-                <p style={{ color: "#ff6969" }}>Nick name can't be changed</p>
             </>;
             title = "Set Your Name";
             text = "Your name must be at least 3 and at most 15 standard letters and numbers long. You can’t change this once you click Confirm.";
@@ -311,6 +319,7 @@ const StepOptions = ({ profileNfts, teams }) => {
             disable,
             helpText,
             buttonLabel,
+            message,
             hash
         });
     }, [userData, activeAvatar, activeTeam, nick]);
@@ -324,6 +333,7 @@ const StepOptions = ({ profileNfts, teams }) => {
             disable={collectiblesData.disable}
             onClick={() => collectiblesData.disable ? null : handleSubmit()}
             helpText={collectiblesData.helpText}
+            message={collectiblesData.message}
             transactionHash={collectiblesData.hash}
         />
     );
