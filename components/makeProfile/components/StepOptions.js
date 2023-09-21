@@ -252,7 +252,8 @@ const StepOptions = ({ profileNfts, teams }) => {
                             setActiveTeam(item.id);
                             setSelectedTeam(item.name);
                         }}
-                    >
+                        >
+                        {console.log(activeTeam, item.id, 'ragasc')}
                         <div className={styles.avatarImg}>
                             <Image src={`/images/${item.img}`} alt={item.name} width={50} height={50} />
                             <p>{item.name}</p>
@@ -271,10 +272,10 @@ const StepOptions = ({ profileNfts, teams }) => {
             </>;
             title = "Join a Team";
             text = "There’s currently no big difference between teams, and no benefit of joining one team over another for now. So pick whichever one you like!";
-            buttonLabel = activeTeam !== "" ? "Next Step" : "Enable";
+            buttonLabel = activeTeam >= 0 ? "Next Step" : "Enable";
             helpText = "";
 
-            if (activeTeam && Number(ethers.utils.formatEther(balance)) >= 1) {
+            if (activeTeam >= 0 && Number(ethers.utils.formatEther(balance)) >= 1) {
                 disable = false;
             }
         }
