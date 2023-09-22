@@ -15,9 +15,16 @@ export default function CastYourCode() {
       setVoted(true);
     }
   };
+  const item = {
+    balance_bsc: 100, // Replace with actual values
+    balance_eth: 200,
+    // ... other properties
+  };
+
+  // Now you can use `item` within your component.
 
   const handleSeeResultsClick = () => {
-    let resultText = selectedChoice === 0 ? 'You voted Yes' : 'You voted We don’t want to earn TINC tokens!';
+    let resultText = selectedChoice === 0 ? 'You voted:  Yes' : 'You voted:  We don’t want to earn TINC tokens!';
 
     document.getElementById('resultText').innerText = resultText;
   };

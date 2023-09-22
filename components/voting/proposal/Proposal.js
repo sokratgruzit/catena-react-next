@@ -1,18 +1,40 @@
 import React, { useState, useEffect } from 'react';
-import { Input, Button } from '@catena-network/catena-ui-module';
+import { useDispatch, useSelector } from 'react-redux';
+import { Input } from '@catena-network/catena-ui-module';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { useQuill } from 'react-quilljs';
 import 'quill/dist/quill.snow.css';
+import { ethers } from 'ethers';
 import styles from './Proposal.module.css';
-// import FormSelectTime from '../components/formDateInput/FormSelectTime';
+import ConnectWalletButton from './ConnectWalletButton';
+
+const walletConnect = {};
+const injected = {};
 
 export default function Proposal() {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
-  const [time, setTime] = useState('');
+  const [startTime, setStartTime] = useState('');
+  const [endTime, setEndTime] = useState('');
   const [editorContent, setEditorContent] = useState('');
   const [choices, setChoices] = useState(['']);
+  const [walletModal, setWalletModal] = useState(false);
+  const [metamaskConnected, setMetamaskConnected] = useState(false);
+  const account = useSelector(state => state.account);
+  const providerType = 'example';
+  const mainData = {};
+  const walletAccounts = [];
+
+  const dispatch = useDispatch();
+
+  const openWalletModal = () => {
+    setWalletModal(true);
+  };
+
+  const closeWalletModal = () => {
+    setWalletModal(false);
+  };
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -32,6 +54,51 @@ export default function Proposal() {
     }
   }, []);
 
+  useEffect(() => {
+    const checkMetamaskConnection = async () => {
+      try {
+        const provider = new ethers.providers.Web3Provider(window.ethereum);
+        const accounts = await provider.listAccounts();
+
+        if (accounts.length > 0) {
+          setMetamaskConnected(true);
+        }
+      } catch (error) {
+        console.error('Error checking Metamask connection:', error);
+      }
+    };
+
+    checkMetamaskConnection();
+  }, []);
+
+  const connectWallet = async (type, connector) => {
+    try {
+      if (type === 'walletConnect') {
+      } else if (type === 'metamask') {
+        if (window.ethereum) {
+          const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+
+          if (accounts.length > 0) {
+            setMetamaskConnected(true);
+          }
+        } else {
+          console.error('Metamask is not installed or not available.');
+        }
+      }
+
+      dispatch({
+        type: 'UPDATE_STATE',
+        account: account,
+        isConnected: true,
+        providerType: providerType,
+      });
+
+      closeWalletModal();
+    } catch (error) {
+      console.error('Error connecting wallet:', error);
+    }
+  };
+
   const handleInputChange = event => {
     const inputTime = event.target.value;
     setTime(inputTime);
@@ -45,11 +112,22 @@ export default function Proposal() {
     setEndDate(date);
   };
 
+  const handleStartTimeChange = event => {
+    const inputTime = event.target.value;
+    setStartTime(inputTime);
+  };
+
+  const handleEndTimeChange = event => {
+    const inputTime = event.target.value;
+    setEndTime(inputTime);
+  };
+
   const handleInputChanges = event => {
     console.log('hi');
   };
 
-  const addChoice = () => {
+  const addChoice = event => {
+    event.preventDefault();
     setChoices([...choices, '']);
   };
 
@@ -111,8 +189,16 @@ export default function Proposal() {
               </button>
             </div>
 
-            {/* <FormSelectTime selected={startDate} onChange={handleStartDateChange} /> */}
-
+            <div className={styles.inputContainer}>
+              <label className={styles.subLabel}>Start Date</label>
+              <DatePicker
+                selected={startDate}
+                onChange={handleStartDateChange}
+                className={styles.datePicker}
+                dateFormat='MM/dd/yyyy'
+                name='startTime'
+              />
+            </div>
             <div className={styles.inputContainer}>
               <label className={styles.subLabel}>End Date</label>
               <DatePicker
@@ -120,19 +206,19 @@ export default function Proposal() {
                 onChange={handleEndDateChange}
                 dateFormat='MM/dd/yyyy'
                 className={styles.datePicker}
+                name='endTime'
               />
             </div>
             <div className={styles.inputContainer}>
               <label className={styles.label}>Time</label>
               <label className={styles.subLabel}>Start Time</label>
-              <input placeholder='00:00' type='time' required className={styles.input} />
+              <input type='time' className={styles.input} value={startTime} onChange={handleStartTimeChange} />
             </div>
             <div className={styles.inputContainer}>
               <label className={styles.subLabel}>End Time</label>
-              <input placeholder='00:00' type='time' required className={styles.input} />
+              <input type='time' className={styles.input} value={endTime} onChange={handleEndTimeChange} />
             </div>
           </form>
-
           <div className={styles.snapshot}>
             <p>Snapshot:</p>
             <p>
@@ -149,16 +235,15 @@ export default function Proposal() {
               </svg>
             </p>
           </div>
-          
-          <Button
-            label={'Connect Wallet'}
-            size={'btn-lg'}
-            type={'btn-primary'}
-            element={'button'}
-            disabled={false}
-            onClick={console.log('Connect Wallet')}
-            className={styles.btnBlu}
-            customStyles={{ background: '#A6D0DD', border: '1px solid #162029', width: '100%' }}
+          <ConnectWalletButton
+            onWalletConnected={() => {}}
+            account={account}
+            connect={connectWallet}
+            closeWalletModal={closeWalletModal}
+            providerType={providerType}
+            mainData={mainData}
+            walletAccounts={walletAccounts}
+            dispatch={dispatch}
           />
         </div>
       </div>

@@ -49,9 +49,11 @@ export default function Profile({ address }) {
   useEffect(() => {
     if (account) {
       fetchNFTs().then(items => {
-        setItemsList(items?.map(item => {
-          return <ListItemCard key={item.tokenURI} data={item} type={'nft_arrivals'} />;
-        }))
+        setItemsList(
+          items?.map(item => {
+            return <ListItemCard key={item.tokenURI} data={item} type={'nft_arrivals'} />;
+          }),
+        );
       });
 
       if (user.team === "Catena Anarchy") {

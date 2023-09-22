@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from './VotingNowTable.module.css';
 import { Button } from '@catena-network/catena-ui-module';
-import { core, soon, close, community } from '../../../UI/votingComponents/VotingComponents';
+import { core, soon, close, community, voteNow } from '../../../UI/votingComponents/VotingComponents';
 
 function VotingNowTable({ votingTableData }) {
   const initialDisplayCount = 7;
@@ -21,22 +21,22 @@ function VotingNowTable({ votingTableData }) {
       setIsLoadMore(true);
     }
   };
-  const voteNow = <p className={styles.voteNow}>Vote Now</p>;
 
   const getVariationComponent = variation => {
-    switch (variation) {
+    switch (typeof variation === 'string' ? variation.toLowerCase() : variation) {
       case 'core':
         return core;
       case 'soon':
         return soon;
       case 'close':
         return close;
-      case 'Community':
+      case 'community':
         return community;
       default:
         return null;
     }
   };
+
   return (
     <div className={styles.table}>
       {votingTableData.slice(0, displayCount).map((item, index) => (
@@ -47,8 +47,10 @@ function VotingNowTable({ votingTableData }) {
               <p>{item.date}</p>
             </div>
             <div className={styles.btns}>
-              {voteNow}
-              {getVariationComponent(item.variation)}
+              {item.vote === 'Vote Now' ? <Button label={item.vote} /> : ''}
+              {Array.isArray(item.variation)
+                ? item.variation.map((variation, i) => <div key={i}>{getVariationComponent(variation)}</div>)
+                : getVariationComponent(item.variation)}
             </div>
           </div>
           <p className={styles.arrowBtn}>
