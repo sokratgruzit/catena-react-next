@@ -37,7 +37,6 @@
   background-color: #ff6969 !important;
 }
 
-
 .variations {
   display: flex;
   align-items: center;
@@ -56,6 +55,23 @@
   display: flex;
   align-items: center;
   gap: 10px;
+  transition: 0.5s;
+}
+
+.row:hover > .arrowBtn svg path {
+  fill: #ff7152;
+}
+.arrowBtn svg {
+  transition: 0.5s;
+  margin-left: 7px;
+  margin-right: 7px;
+}
+.row:hover > .arrowBtn svg {
+  transform: translateX(5px);
+  transition: 0.5s;
+}
+.row:hover > .arrowBtn {
+  color: #ff7152;
 }
 
 @media (max-width: 400px) {

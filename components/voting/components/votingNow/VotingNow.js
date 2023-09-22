@@ -43,6 +43,7 @@ const VotingNow = props => {
 
   const votingTableData = [
     {
+      id: 0,
       teaser: 'Stop Minting more $CORE',
       date: 'Ends Mar 6th, 2022 11:15',
       vote: 'Vote Now',
@@ -50,64 +51,85 @@ const VotingNow = props => {
       label: 'All',
     },
     {
+      id: 1,
       teaser: 'Stop Minting more $CORE',
       date: 'Ends Mar 6th, 2022 11:15',
       vote: 'Vote Now',
       variation: 'close',
     },
     {
+      id: 2,
+
       teaser: 'Stop Minting more $CORE',
       date: 'Ends Mar 6th, 2022 11:15',
       vote: 'Vote Now',
       variation: 'core',
     },
     {
+      id: 3,
+
       teaser: 'Stop Minting more $c',
       date: 'Ends Mar 6th, 2022 11:15',
       variation: 'Community',
     },
     {
+      id: 4,
+
       teaser: 'Stop Minting more $CORE',
       date: 'Ends Mar 6th, 2022 11:15',
       vote: 'Vote Now',
       variation: 'Community',
     },
     {
+      id: 5,
+
       teaser: 'Stop Minting more $CORE',
       date: 'Ends Mar 6th, 2022 11:15',
       variation: 'Community',
     },
     {
+      id: 6,
+
       teaser: 'Stop Minting more $CORE',
       date: 'Ends Mar 6th, 2022 11:15',
       vote: 'Vote Now',
       variation: 'close',
     },
     {
+      id: 7,
+
       teaser: 'Stop Minting more $CORE',
       date: 'Ends Mar 6th, 2022 11:15',
       vote: 'Vote Now',
       variation: 'Community',
     },
     {
+      id: 8,
+
       teaser: 'Stop Minting more $CORE',
       date: 'Ends Mar 6th, 2022 11:15',
       vote: 'Vote Now',
       variation: 'soon',
     },
     {
+      id: 9,
+
       teaser: 'Stop Minting more $CORE',
       date: 'Ends Mar 6th, 2022 11:15',
       vote: 'Vote Now',
       variation: 'core',
     },
     {
+      id: 10,
+
       teaser: 'Stop Minting more $CORE',
       date: 'Ends Mar 6th, 2022 11:15',
       vote: 'Vote Now',
       variation: 'Community',
     },
     {
+      id: 11,
+
       teaser: 'Stop Minting more $CORE',
       date: 'Ends Mar 6th, 2022 11:15',
       vote: 'Vote Now',

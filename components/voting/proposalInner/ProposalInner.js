@@ -7,7 +7,7 @@ import Details from '../components/detailsTable/Details';
 import CastYourCode from '../components/castYourCode/CastYourCode';
 import CountdownItem from '../components/countdownItem/CountdownItem';
 
-export default function ProposalInner() {
+export default function ProposalInner({ proposalId }) {
   let detailsData = [
     {
       item: 'Identifier',

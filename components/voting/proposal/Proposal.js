@@ -37,24 +37,6 @@ export default function Proposal() {
   };
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const Quill = require('quill');
-
-      const quill = new Quill('#editor', {
-        theme: 'snow',
-        modules: {
-          toolbar: [['bold', 'italic'], [{ header: '1' }], [{ list: 'bullet' }, { list: 'ordered' }], ['link']],
-        },
-      });
-
-      quill.on('text-change', () => {
-        const content = quill.root.innerHTML;
-        setEditorContent(content);
-      });
-    }
-  }, []);
-
-  useEffect(() => {
     const checkMetamaskConnection = async () => {
       try {
         const provider = new ethers.providers.Web3Provider(window.ethereum);
@@ -69,6 +51,28 @@ export default function Proposal() {
     };
 
     checkMetamaskConnection();
+
+    if (typeof window !== 'undefined') {
+      const Quill = require('quill');
+
+      const quill = new Quill('#editor', {
+        theme: 'snow',
+        formats: ['bold', 'italic', 'header', 'list', 'link', 'blockquote'],
+        modules: {
+          toolbar: [
+            ['bold', 'italic'],
+            [{ header: '1' }],
+            [{ blockquote: 'blockquote' }, { list: 'bullet' }, { list: 'ordered' }],
+            ['link'],
+          ],
+        },
+      });
+
+      quill.on('text-change', () => {
+        const content = quill.root.innerHTML;
+        setEditorContent(content);
+      });
+    }
   }, []);
 
   const connectWallet = async (type, connector) => {
