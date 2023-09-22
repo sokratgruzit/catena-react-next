@@ -15,6 +15,7 @@
 
 .contStep p {
   color: #162029;
+  margin-bottom: 20px;
 }
 
 .Line {
@@ -45,9 +46,18 @@
   padding: 7px 35px;
 }
 
+.tabHead h3 {
+  color: #162029;
+}
+
+.tabHead p {
+  color: #162029;
+  width: 60%;
+}
+
 .makeProfileWrapper {
   display: flex;
-  flex-wrap: wrap;
+  justify-content: space-between;
   align-items: center;
   gap: 30px;
   width: 100%;
@@ -103,6 +113,10 @@
   margin-top: 20px;
 }
 
+.disabledCard {
+  opacity: .5;
+}
+
 .avatarCard:hover {
   background-color: #A6D0DD;
 }
@@ -113,6 +127,24 @@
   justify-content: flex-start;
   align-items: center;
   gap: 5px;
+}
+
+.avatarImg p {
+  text-align: center;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: auto;
+}
+
+.buttonInner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
 }
 
 .avatarImg img {
@@ -139,3 +171,98 @@
   border-radius: 50%;
   background-color: #ff6969;
 } */
+
+.board {
+  width: 80%;
+  height: auto;
+  margin-top: 40px;
+  border-radius: 57px;
+  border: 1px solid #162029;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 20px 50px;
+}
+
+.boardLine {
+  height: 1px;
+  width: 100%;
+  background-color: rgb(199, 196, 196);
+  position: absolute;
+}
+
+.steps {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.circle {
+  position: relative;
+  border-radius: 50%;
+  border: 1px solid #162029;
+  background-color: #A6D0DD;
+  width: 25px;
+  height: 25px;
+  z-index: 99;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.circleTitle {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.titleDiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 30px;
+}
+
+.stepChart {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  text-decoration: underline;
+  margin-left: 10px;
+}
+
+@media (max-width: 1023px) {
+  .makeProfileWrapper {
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+
+  .titleDiv {
+    height: 48px;
+  }
+}
+
+@media (max-width: 767px) {
+  .titleDiv {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 467px) {
+  .titleDiv {
+    height: 68px;
+  }
+}

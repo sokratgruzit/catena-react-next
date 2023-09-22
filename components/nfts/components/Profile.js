@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
+import { useSelector } from 'react-redux';
 import { useRouter } from 'next/router';
 import Button from '../../UI/button/Button';
 
@@ -14,13 +16,15 @@ export default function Profile({ address }) {
   const [activeMenuItem, setActiveMenuItem] = useState('NFTs');
   const [activeTab, setActiveTab] = useState('Items');
   const [itemsList, setItemsList] = useState([]);
+  const [teamImage, setTeamImage] = useState("");
+
+  const user = useSelector(state => state.appState.user);
   
   const { 
     account,
     fetchNFTs,
   } = useNftMarket();
   const router = useRouter();
-  const { profileId } = router.query;
 
   const switchTabModeHandler = mode => {
     setActiveMenuItem(mode);
@@ -49,19 +53,35 @@ export default function Profile({ address }) {
           return <ListItemCard key={item.tokenURI} data={item} type={'nft_arrivals'} />;
         }))
       });
+
+      if (user.team === "Catena Anarchy") {
+        setTeamImage("/images/anarchy.jpg");
+      }
+
+      if (user.team === "Catena Chaos") {
+        setTeamImage("/images/chaos.jpg");
+      }
+
+      if (user.team === "Catena Mentors") {
+        setTeamImage("/images/mentors.png");
+      }
     }
   }, [account]);
+
+  console.log(user)
   
   return (
     <div className={`${styles.profile} container`}>
       <div className={styles.profileWrapper}>
         <div className={styles.profileImgWrapper}>
-          <img className={styles.bgImg} src='/images/nft/profile/bg.png' alt='' />
-          <img className={styles.avatarImg} src='/images/nft/profile/avatar.png' alt='' />
+          <img className={styles.bgImg} src={teamImage} alt={user.team} />
+          <div className={styles.avatarImg}>
+            <Image width={120} height={120} src={user.avatar.img} alt={user.avatar.name} />
+          </div>
         </div>
       </div>
       <div className={styles.textWrapper}>
-        <p className='font-20'>0xf5...303x</p>
+        <p className='font-20'>{account}</p>
         <svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
           <path
             d='M18.5401 15.1046C18.6744 14.9703 18.7593 14.7864 18.7593 14.5743L18.7593 5.99003C18.7581 5.7916 18.6788 5.60164 18.5385 5.46133C18.3982 5.32101 18.2082 5.24167 18.0098 5.2405L9.42549 5.2405C9.01537 5.2405 8.67596 5.57991 8.67596 5.99003C8.67596 6.40015 9.01537 6.73956 9.42549 6.73956L17.2602 6.73956L17.2602 14.5743C17.2602 14.9844 17.5996 15.3238 18.0098 15.3238C18.2148 15.3309 18.4057 15.239 18.5401 15.1046Z'
