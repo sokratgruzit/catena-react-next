@@ -1645,9 +1645,9 @@ const Header = () => {
                 </svg>
               </a>
             </Link>
-            {account && <Link href={user?.step !== 3 ? '/profile/create' : `/profile/${address || account}`} locale={activeLang}>
+            {account && <Link href={user?.step !== 5 ? '/profile/create' : `/profile/${address || account}`} locale={activeLang}>
               <a className={styles.headerConnectedModalLink}>
-                <span>{user?.step !== 3 ? 'Make a Profile' : 'Profile'}</span>
+                <span>{user?.step !== 5 ? 'Make a Profile' : 'Profile'}</span>
                 <svg width='5' height='9' viewBox='0 0 5 9' fill='none' xmlns='http://www.w3.org/2000/svg'>
                   <path
                     fillRule='evenodd'

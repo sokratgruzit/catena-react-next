@@ -23,6 +23,7 @@ export default function Profile({ address }) {
   const { 
     account,
     fetchNFTs,
+    fetchProfileNft
   } = useNftMarket();
   const router = useRouter();
 
@@ -48,10 +49,8 @@ export default function Profile({ address }) {
 
   useEffect(() => {
     if (account) {
-      fetchNFTs().then(items => {
-        setItemsList(items?.map(item => {
-          return <ListItemCard key={item.tokenURI} data={item} type={'nft_arrivals'} />;
-        }))
+      fetchProfileNft(user.tokenId).then(res => {
+        setItemsList([...itemsList, res]);
       });
 
       if (user.team === "Catena Anarchy") {
@@ -66,9 +65,7 @@ export default function Profile({ address }) {
         setTeamImage("/images/mentors.png");
       }
     }
-  }, [account]);
-
-  console.log(user)
+  }, [account, user]);
   
   return (
     <div className={`${styles.profile} container`}>
@@ -143,7 +140,13 @@ export default function Profile({ address }) {
             }}
           />
           {activeTab === 'Items' ? (
-            <div className={`${styles.itemsList} `}>{itemsList}</div>
+            <div className={`${styles.itemsList} `}>
+              {itemsList.map(item => {
+                return (
+                  <ListItemCard key={item.tokenURI} data={item} type={'nft_arrivals'} />
+                );
+              })}
+            </div>
           ) : activeTab === 'Activity' ? (
             <div className={`${styles.notFoundWrapper} `}>
               <div className={styles.noFound}>

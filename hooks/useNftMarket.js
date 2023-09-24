@@ -252,6 +252,57 @@ export const useNftMarket = () => {
     }
   };
 
+  const fetchProfileNft = async tokenId => {
+    try {
+      const contract = await connectToContract();
+      let tokenURI = await contract.methods.tokenURI(tokenId).call();
+      let listingPrice = await contract.methods.getListingPrice().call();
+      let raw = await contract.methods.fetchProfileNft(tokenId).call();
+      // Because old NFTs was created with old gateway we need to directly access it
+      const searchString = "https://infura-ipfs.io/ipfs";
+      const customSearchString = "https://sokrat-nfts.infura-ipfs.io";
+      
+      if (tokenURI.includes(customSearchString)) tokenURI = tokenURI.replace(customSearchString, searchString);
+      
+      const { data } = await axios.post("admin/get-nft-url", {
+        url: tokenURI,
+        owner: account,
+        tokenId
+      });
+
+      const image = data.image;
+      const description = data.description;
+      const name = data.name;
+      const social = data.social;
+      const fileSize = data.fileSize;
+      const royalties = data.royalties;
+      const property = data.property;
+      const category = data.category;
+      const website = data.website;
+      const utilezedPrice = ethers.utils.formatUnits(raw[0].price, "ether").toString();
+
+      return {
+        price: utilezedPrice,
+        tokenId: Number(raw[0].tokenId),
+        seller: raw[0].seller,
+        owner: raw[0].owner,
+        image,
+        name,
+        description,
+        social,
+        fileSize,
+        royalties,
+        property,
+        category,
+        website,
+        tokenURI,
+        locked: raw[0].locked
+      };
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
   const fetchMyNFTsOrListedNFTs = async (type, cat) => {
     try {
       const contract = await connectToContract();
@@ -344,7 +395,8 @@ export const useNftMarket = () => {
       buyNFT,
       connectToContract,
       fetchNewArrivals,
-      lockNFT
+      lockNFT,
+      fetchProfileNft
     }),
     [
       account, 
@@ -357,7 +409,8 @@ export const useNftMarket = () => {
       buyNFT,
       connectToContract,
       fetchNewArrivals,
-      lockNFT
+      lockNFT,
+      fetchProfileNft
     ],
   );
 
