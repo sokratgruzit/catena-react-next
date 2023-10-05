@@ -1,14 +1,21 @@
 import Link from 'next/link';
+import { ReactNode } from 'react';
 import { useSelector } from 'react-redux';
 
 import styles from './ArrowBtn.module.css';
 
-const ArrowBtn = props => {
-  const activeLang = useSelector(state => state.settings.activeLang);
+interface ArrowProps {
+  route: string,
+  direction: string,
+  title: string
+}
+
+const ArrowBtn = (props: ArrowProps) => {
+  const activeLang = "en"; //useSelector(state => state.settings.activeLang);
 
   let title = '';
   let route = '';
-  let btn = '';
+  let btn: ReactNode = <></>;
 
   if (props.route === 'nfts') {
     route = '/overview/nfts';

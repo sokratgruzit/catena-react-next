@@ -1,6 +1,6 @@
 import React from 'react';
 
-import CPUstats from '../CPUstats/CPUstats';
+import CPUstats from '../cpuStats/CPUstats';
 
 import styles from './HardwareStatus.module.css';
 

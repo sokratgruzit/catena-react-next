@@ -1,9 +1,13 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { React, useState, useEffect, useMemo } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React, { useState, useEffect, useMemo } from 'react';
 import { gsap, Linear } from 'gsap';
 import { ethers } from 'ethers';
+import { useAppSelector, useAppDispatch } from '../../store';
+import { setActiveLang, setLocales } from '../../store/settingsReducer'
+import {
+  WalletData
+} from '../../types/types'; 
 
 import useLanguages from '../../hooks/useLanguages';
 import { injected, walletConnect } from '../../hooks/connector';
@@ -15,7 +19,7 @@ import Tooltip from '../UI/tooltip/Tooltip';
 
 import styles from './Header.module.css';
 
-const WALLETS_DATA = [
+const WALLETS_DATA: WalletData = [
   {
     id: 'meta-0',
     title: 'Metamask',
@@ -30,30 +34,31 @@ const WALLETS_DATA = [
   },
 ];
 
+type ActiveMenuType = number | null | string;
+
 const Header = () => {
-  const [activeMenu, setActiveMenu] = useState(null);
-  const [activeLangs, setActiveLangs] = useState(false);
-  const [activeSettings, setActiveSettings] = useState(false);
-  const [settingRightOffset, setSettingRightOffset] = useState(0);
-  const [activeBurger, setActiveBurger] = useState(false);
-  const [profileModal, setProfileModal] = useState(false);
-  const [connectBtnColor, setConnectBtnColor] = useState('red');
-  const [device, setDevice] = useState(null);
-  const [walletModal, setWalletModal] = useState(false);
-  const [stickHead, setStickHead] = useState(false);
-  const [animate, setAnimate] = useState(false);
+  const [activeMenu, setActiveMenu] = useState<ActiveMenuType>(null);
+  const [activeLangs, setActiveLangs] = useState<boolean>(false);
+  const [activeSettings, setActiveSettings] = useState<boolean>(false);
+  const [activeBurger, setActiveBurger] = useState<boolean>(false);
+  const [profileModal, setProfileModal] = useState<boolean>(false);
+  const [connectBtnColor, setConnectBtnColor] = useState<string>('red');
+  const [device, setDevice] = useState<string>('');
+  const [walletModal, setWalletModal] = useState<boolean>(false);
+  const [stickHead, setStickHead] = useState<boolean>(false);
+  const [animate, setAnimate] = useState<boolean>(false);
 
-  const locales = useSelector(state => state.settings.locales);
-  const activeLang = useSelector(state => state.settings.activeLang);
-  const address = useSelector(state => state.connect.account);
-  const balance = useSelector(state => state.connect.balance);
-  const triedReconnect = useSelector(state => state.appState.triedReconnect);
-  const user = useSelector(state => state.appState.user);
-  const providerType = useSelector(state => state.connect.providerType);
-  const isConnected = useSelector(state => state.connect.isConnected);
-  const slippage = useSelector(state => state.settings.slippage);
+  const locales = useAppSelector(state => state.settings.locales);
+  const activeLang = useAppSelector(state => state.settings.activeLang);
+  const address = useAppSelector(state => state.connect.account);
+  const balance = useAppSelector(state => state.connect.balance);
+  const triedReconnect = useAppSelector(state => state.appState.triedReconnect);
+  const user = useAppSelector(state => state.appState.user);
+  const providerType = useAppSelector(state => state.connect.providerType);
+  const isConnected = useAppSelector(state => state.connect.isConnected);
+  const slippage = useAppSelector(state => state.settings.slippage);
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const { handleLanguageChange } = useLanguages();
   const {
     disconnect,
@@ -265,31 +270,33 @@ const Header = () => {
     },
   ];
 
-  const changeLanguage = loc => {
-    dispatch({
-      type: "SET_ACTIVE_LANG",
+  const changeLanguage = (loc: string) => {
+    dispatch(setActiveLang({
       activeLang: "en"
-    });
+    }));
 
     handleLanguageChange(loc);
   };
 
-  const openMenu = id => {
+  const openMenu = (id: number | null | string) => {
     if (window.innerWidth >= 1024) {
       closeAll();
     }
+
     gsap.to(`.navCircle`, {
       opacity: 0,
       // strokeDasharray: 900,
       duration: 1, // Adjust the duration as needed
       ease: Linear.easeNone
     });
+
     gsap.to(`.navLine`, {
       strokeDashoffset: 900,
       strokeDasharray: 900,
       duration: 1, // Adjust the duration as needed
       ease: Linear.easeNone
     });
+
     if (activeMenu !== id) {
       setActiveMenu(id);
       setTimeout(() => {
@@ -299,13 +306,14 @@ const Header = () => {
           duration: 3, // Adjust the duration as needed
           ease: Linear.easeNone
         });
+
         gsap.to(`.navLine${id}`, {
           strokeDashoffset: 0,
           // strokeDasharray: 900,
           duration: 3, // Adjust the duration as needed
           ease: Linear.easeNone
         });
-      },800)
+      }, 800);
     } else {
       gsap.to(`.navCircle`, {
         opacity: 0,
@@ -319,11 +327,12 @@ const Header = () => {
         duration: 1, // Adjust the duration as needed
         ease: Linear.easeNone
       });
-      setActiveMenu(null);
+
+      setActiveMenu(-1);
     }
   };
 
-  const openLangs = state => {
+  const openLangs = (state: boolean) => {
     closeAll();
     setActiveLangs(state);
     
@@ -334,12 +343,13 @@ const Header = () => {
         duration: 1, // Adjust the duration as needed
         ease: Linear.easeNone
       });
+
       gsap.to(`.navLineLangs`, {
         strokeDashoffset: 0,
         duration: 4, // Adjust the duration as needed
         ease: Linear.easeNone
       });
-    },800);
+    }, 800);
     
     if (device === 'mobile') {
       if (state === true) {
@@ -350,7 +360,7 @@ const Header = () => {
     }
   };
 
-  const openSettings = state => {
+  const openSettings = (state: boolean) => {
     closeAll();
     setActiveSettings(state);
     setTimeout(() => {
@@ -360,12 +370,14 @@ const Header = () => {
         duration: 1, // Adjust the duration as needed
         ease: Linear.easeNone
       });
+
       gsap.to(`.navLineSettings`, {
         strokeDashoffset: 0,
         duration: 4, // Adjust the duration as needed
         ease: Linear.easeNone
       });
-    },800)
+    }, 800);
+
     if (device === 'mobile') {
       if (state === true) {
         setConnectBtnColor('white');
@@ -434,16 +446,13 @@ const Header = () => {
     .get('/langs/get-locales')
     .then(res => {
       let locales = res.data[0].list;
-
-      dispatch({
-        type: "SET_LOCALES",
-        locales
-      });
+      console.log('lla', locales)
+      dispatch(setLocales(locales));
     })
     .catch(() => {});
   };
 
-  const isSticky = e => {
+  const isSticky = (e: Event): void => {
     const scrollTop = window.scrollY;
     if (scrollTop >= 10) {
       setStickHead(true);
@@ -466,8 +475,11 @@ const Header = () => {
   useEffect(() => {
     setAnimate(true);
     window.addEventListener('scroll', isSticky);
+    window.addEventListener('wheel', isSticky);
+
     return () => {
       window.removeEventListener('scroll', isSticky);
+      window.addEventListener('wheel', isSticky);
     };
   });
 
@@ -516,10 +528,10 @@ const Header = () => {
                   <path d="M121.9 15.2277H116.123L115.15 17.1977H112.027L117.45 6.78716H120.572L125.995 17.1977H122.873L121.9 15.2277ZM117.126 13.1972H120.912L119.026 9.36328L117.126 13.1972Z" fill="#162029"/>
                 </svg>
                 <div
-                  className={`${styles.headerLogoLine} ${activeMenu !== null ? styles.headerLogoLineActive : ''}`}
+                  className={`${styles.headerLogoLine} ${activeMenu !== -1 ? styles.headerLogoLineActive : ''}`}
                 ></div>
                 <div className={styles.headerLogoTxtOuter}>
-                  <span className={`${styles.headerLogoTxt} ${activeMenu !== null ? styles.headerLogoTxtHidden : ''}`}>
+                  <span className={`${styles.headerLogoTxt} ${activeMenu !== -1 ? styles.headerLogoTxtHidden : ''}`}>
                     Overview
                   </span>
                 </div>
@@ -1206,7 +1218,7 @@ const Header = () => {
                     <div className={styles.settingsModalFloor}>
                       <div>Dark Mode</div>
                       <div className={styles.settingsCheckboxContainer}>
-                        <input type='checkbox' defaultValue={false} onChange={() => {}} />
+                        <input type='checkbox' defaultValue={undefined} onChange={() => {}} />
                         <div className={styles.settingsCheckbox}>
                           <i></i>
                         </div>
@@ -1241,12 +1253,14 @@ const Header = () => {
                           className={`${styles.settingsModalBtn} ${
                             slippage === 0.1 ? styles.settingsModalBtnActive : ''
                           }`}
-                          onClick={e =>
+                          onClick={e => {
+                            let slippage: number = 0.1;
+                            
                             dispatch({
                               type: 'SET_SLIPPAGE',
-                              slippage: parseFloat(0.1),
+                              slippage: slippage,
                             })
-                          }
+                          }}
                         >
                           0.1%
                         </div>
@@ -1257,7 +1271,7 @@ const Header = () => {
                           onClick={e =>
                             dispatch({
                               type: 'SET_SLIPPAGE',
-                              slippage: parseFloat(0.5),
+                              slippage: 0.5,
                             })
                           }
                         >
@@ -1270,7 +1284,7 @@ const Header = () => {
                           onClick={e =>
                             dispatch({
                               type: 'SET_SLIPPAGE',
-                              slippage: parseFloat(1),
+                              slippage: 1,
                             })
                           }
                         >
@@ -1318,7 +1332,7 @@ const Header = () => {
                         />
                       </div>
                       <div className={styles.settingsCheckboxContainer}>
-                        <input type='checkbox' defaultValue={false} onChange={() => {}} />
+                        <input type='checkbox' defaultValue={undefined} onChange={() => {}} />
                         <div className={styles.settingsCheckbox}>
                           <i></i>
                         </div>
@@ -1333,7 +1347,7 @@ const Header = () => {
                         />
                       </div>
                       <div className={styles.settingsCheckboxContainer}>
-                        <input type='checkbox' defaultValue={false} onChange={() => {}} />
+                        <input type='checkbox' defaultValue={undefined} onChange={() => {}} />
                         <div className={styles.settingsCheckbox}>
                           <i></i>
                         </div>
@@ -1348,7 +1362,7 @@ const Header = () => {
                         />
                       </div>
                       <div className={styles.settingsCheckboxContainer}>
-                        <input type='checkbox' defaultValue={false} onChange={() => {}} />
+                        <input type='checkbox' defaultValue={undefined} onChange={() => {}} />
                         <div className={styles.settingsCheckbox}>
                           <i></i>
                         </div>
@@ -1365,7 +1379,7 @@ const Header = () => {
                         />
                       </div>
                       <div className={styles.settingsCheckboxContainer}>
-                        <input type='checkbox' defaultValue={false} onChange={() => {}} />
+                        <input type='checkbox' defaultValue={undefined} onChange={() => {}} />
                         <div className={styles.settingsCheckbox}>
                           <i></i>
                         </div>
@@ -1698,7 +1712,7 @@ const Header = () => {
                   className={styles.connectWalletItemOuter}
                   key={item.id}
                   style={{
-                    transitionDelay: walletModal ? `${(index + 2) / 10}s` : null,
+                    transitionDelay: walletModal ? `${(index + 2) / 10}s` : '',
                   }}
                   onClick={() => {
                     closeAll();
