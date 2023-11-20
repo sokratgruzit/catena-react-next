@@ -41,7 +41,7 @@ const settingsReducer = createSlice({
     setMicroshemeArray: (state, action: PayloadAction<{ microshemeArray: number[] }>) => {
       return {
         ...state,
-        microschemeArray: action.payload.microshemeArray
+        microshemeArray: action.payload.microshemeArray
       };
     }
   }

@@ -1,32 +1,34 @@
-import { useEffect, useMemo } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useEffect, useMemo, ReactNode } from 'react';
+import { useAppSelector, useAppDispatch } from '../../store';
 import { useRouter } from 'next/router';
 
 import { injected, walletConnect } from '../../hooks/connector';
 import { useConnect } from '../../hooks/useConnect';
+import { setUpdateState } from '../../store/connectReducer';
 import createAxiosInstance from '../../pages/api/axios';
 
-const Wrapper = ({ children }) => {
+const Wrapper = ({ children }: { children: ReactNode }) => {
   const {
     MetaMaskEagerlyConnect,
     WalletConnectEagerly,
     account,
     library
   } = useConnect();
-  const triedReconnect = useSelector(state => state.appState.triedReconnect);
-  const providerType = useSelector(state => state.connect.providerType);
+  const triedReconnect = useAppSelector(state => state.appState.triedReconnect);
+  const providerType = useAppSelector(state => state.connect.providerType);
 
   const axios = useMemo(() => createAxiosInstance(), []);
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const router = useRouter();
 
   const getBalance = async () => {
     if (library !== undefined) {
-      library.eth.getBalance(account.toLocaleLowerCase()).then(res => {
-        dispatch({
-          type: "UPDATE_STATE",
-          balance: res
-        });
+      library.eth.getBalance(account.toLocaleLowerCase()).then((res: number): void => {
+        dispatch(setUpdateState({
+          updatedState: {
+            balance: res
+          }
+        }));
       });
     }
   };
@@ -35,12 +37,13 @@ const Wrapper = ({ children }) => {
     if (account && triedReconnect) {
       axios
       .post('/user', { address: account })
-      .then(res => {
+      .then((res): void => {
         dispatch({ type: 'SET_USER', payload: res?.data });
-        dispatch({
-          type: "UPDATE_STATE",
-          account: account.toLocaleLowerCase()
-        });
+        dispatch(setUpdateState({
+          updatedState: {
+            account: account.toLocaleLowerCase()
+          }
+        }));
       })
       .catch(err => {
         console.log(err.response);

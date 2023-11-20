@@ -4,10 +4,8 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { gsap, Linear } from 'gsap';
 import { ethers } from 'ethers';
 import { useAppSelector, useAppDispatch } from '../../store';
-import { setActiveLang, setLocales } from '../../store/settingsReducer'
-import {
-  WalletData
-} from '../../types/types'; 
+import { setActiveLang, setLocales } from '../../store/settingsReducer';
+import { WalletData } from '../../types/types'; 
 
 import useLanguages from '../../hooks/useLanguages';
 import { injected, walletConnect } from '../../hooks/connector';
@@ -446,7 +444,6 @@ const Header = () => {
     .get('/langs/get-locales')
     .then(res => {
       let locales = res.data[0].list;
-      console.log('lla', locales)
       dispatch(setLocales(locales));
     })
     .catch(() => {});
@@ -795,7 +792,7 @@ const Header = () => {
                           fill='#A6D0DD'
                       />
                     </svg>
-                    CMCX {ethers.utils.formatEther(balance)}
+                    CMCX {ethers.utils.formatEther(balance !== undefined ? balance : 0)}
                   </div>
                   <div
                     onClick={() => {
@@ -912,7 +909,7 @@ const Header = () => {
                     fill='#A6D0DD'
                   />
                 </svg>
-                <span>CMCX {account && triedReconnect ? ethers.utils.formatEther(balance) : 0}</span>
+                <span>CMCX {account && triedReconnect ? ethers.utils.formatEther(balance !== undefined ? balance : 0) : 0}</span>
               </div>
               <div className={`${styles.headerLangs}`}>
                 <div className={`${styles.headerLangNow} ${activeLangs ? styles.headerLangNowActive : ''}`}>
@@ -985,7 +982,7 @@ const Header = () => {
                       <span>Change Language</span>
                     </div>
                     <div className={styles.headerLangsModalInner}>
-                      {locales.map(item => {
+                      {locales?.map(item => {
                         return (
                           <div
                             className={`${styles.headerLangsModalLink} ${

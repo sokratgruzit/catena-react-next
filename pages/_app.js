@@ -10,8 +10,8 @@ import { socket } from "./api/socket";
 
 import Header from '../components/layout/Header';
 import Microscheme from '../components/UI/microscheme/Microscheme';
-import Wrapper from '../components/layout/Wrapper';
-import Footer from '../components/layout/Footer';
+import Wrapper from '../components/layout/Wrapper.tsx';
+import Footer from '../components/layout/Footer.tsx';
 import store, { persistor } from '../store/index';
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -131,7 +131,7 @@ function MyApp({ Component, pageProps }) {
               <Microscheme lvl={[1, 2]} />
               <Header />
               <Component {...pageProps} />
-              <Footer active={!fixedFooter} fixed={fixedFooter}/>
+              <Footer active={!fixedFooter} fixed={fixedFooter} />
             </Wrapper>} 
           </PersistGate>
         </Provider>

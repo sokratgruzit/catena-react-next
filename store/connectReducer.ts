@@ -55,7 +55,7 @@ const connectReducer = createSlice({
         account: action.payload.account
       };
     },
-    setUpdateState: (state, action: PayloadAction<{ updatedState: any }>) => {
+    setUpdateState: (state, action: PayloadAction<{ updatedState: ConnectState }>) => {
       return {
         ...state,
         ...action.payload.updatedState

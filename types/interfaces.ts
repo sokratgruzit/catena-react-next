@@ -1,12 +1,12 @@
 export interface ConnectState {
-    isConnected: boolean;
-    providerType: string;
-    walletModalOpen: boolean;
-    account: string;
-    chainId: number | string;
-    otpEnabled: boolean;
-    connectionError: string;
-    balance: number;
+    isConnected?: boolean;
+    providerType?: string;
+    walletModalOpen?: boolean;
+    account?: string;
+    chainId?: number | string;
+    otpEnabled?: boolean;
+    connectionError?: string;
+    balance?: number | bigint;
 }
 
 export interface TokensFavState {
@@ -38,4 +38,14 @@ export interface NftState {
     nfts: any[]; 
     nftsCopy: any[]; 
     newArrivals: any[]; 
+}
+
+export interface FooterProps {
+    active?: boolean;
+    fixed?: boolean;
+}
+
+export interface MainSliderProps {
+    test: string;
+    trans: [][];
 }

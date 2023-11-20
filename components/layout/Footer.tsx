@@ -1,11 +1,13 @@
 import Link from 'next/link';
-import React, { useState } from 'react';
+import React from 'react';
+import { FooterProps } from '../../types/interfaces';
+import { useAppSelector } from '../../store';
 
 import styles from './Footer.module.css';
-import {useSelector} from "react-redux";
 
-const Copyright = props => {
-  const activeLang = useSelector(state => state.settings.activeLang);
+const Copyright = (props: FooterProps) => {
+  const activeLang = useAppSelector(state => state.settings.activeLang);
+
   return (
     <footer className={`${styles.footer} ${props.active ? styles.footerActive : ""} ${props.fixed == false ? styles.footerRelative : ''}`}>
       <div className={`${styles.footerInner} container`}>

@@ -1,25 +1,25 @@
-import { React, useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-
-import Footer from '../../layout/Footer';
+import React, { useState, useEffect } from 'react';
 import ReactScrollWheelHandler from 'react-scroll-wheel-handler';
-
-import Microscheme from '../../UI/microscheme/Microscheme';
-
-import styles from './MainSlider.module.css';
-import Image from 'next/image';
-import TaskSvg from '../../svg/mainSlider/TaskSvg';
-import SolutionSvg from '../../svg/mainSlider/SolutionSvg';
 import Link from "next/link";
 
-const MainSlider = ({ trans }) => {
-  const [levels, setLevels] = useState([]);
-  const [activeSlide, setActiveSlide] = useState(0);
-  const activeLang = useSelector(state => state.settings.activeLang);
-  const [scrollBlocker, setScrollBlocker] = useState(true);
-  const dispatch = useDispatch();
-  // [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24]
-  let microSchemes = [];
+import { useAppSelector, useAppDispatch } from '../../../store';
+import { setMicroshemeArray } from '../../../store/settingsReducer';
+import { MainSliderProps } from '../../../types/interfaces';
+import Footer from '../../layout/Footer';
+
+import styles from './MainSlider.module.css';
+import TaskSvg from '../../svg/mainSlider/TaskSvg';
+import SolutionSvg from '../../svg/mainSlider/SolutionSvg';
+
+const MainSlider = ({ trans }: MainSliderProps) => {
+  const [activeSlide, setActiveSlide] = useState<number>(0);
+  const [scrollBlocker, setScrollBlocker] = useState<boolean>(true);
+
+  const activeLang = useAppSelector(state => state.settings.activeLang);
+  const dispatch = useAppDispatch();
+
+  let microSchemes: number[][] = [];
+
   if (window.innerWidth > 1240) {
     microSchemes = [
       [5,6,9,10,11,12],
@@ -50,19 +50,20 @@ const MainSlider = ({ trans }) => {
     }, 500);
   }, []);
 
-  // let scrollBlocker = true;
   let slideScrollDown = () => {
     if (activeSlide !== 5 && scrollBlocker) {
       setActiveSlide(0);
-      // setLevels(microSchemes[activeSlide])
-      dispatch({
-        type: 'SET_MICHROSCHEME_ARRAY',
-        microschemeArray: microSchemes[activeSlide],
-      });
+
+      dispatch(setMicroshemeArray({
+        microshemeArray: microSchemes[activeSlide],
+      }));
+
       setScrollBlocker(false);
+
       setTimeout(() => {
         setActiveSlide(activeSlide + 1);
       }, 10);
+
       setTimeout(() => {
         setScrollBlocker(true);
       }, 1000);
@@ -72,19 +73,23 @@ const MainSlider = ({ trans }) => {
   let slideScrollUp = () => {
     if (activeSlide !== 1 && scrollBlocker) {
       setActiveSlide(0);
-      dispatch({
-        type: 'SET_MICHROSCHEME_ARRAY',
-        microschemeArray: microSchemes[activeSlide - 2],
-      });
+
+      dispatch(setMicroshemeArray({
+        microshemeArray: microSchemes[activeSlide - 2],
+      }));
+      
       setScrollBlocker(false);
+
       setTimeout(() => {
         setActiveSlide(activeSlide - 1);
       }, 10);
+      
       setTimeout(() => {
         setScrollBlocker(true);
       }, 1000);
     }
   };
+
   return (
     <>
       {/*${styles.mainSliderActive}*/}

@@ -1,25 +1,29 @@
-import { React, useState, useEffect, useRef } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import Footer from '../../layout/Footer';
+import React, { useState, useEffect, useRef } from 'react';
+import { useAppDispatch } from '../../../store'; 
 import ReactScrollWheelHandler from 'react-scroll-wheel-handler';
+import { setMicroshemeArray } from '../../../store/settingsReducer';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, FreeMode } from 'swiper';
+import { Navigation, FreeMode, Swiper as S } from 'swiper';
+
+import Footer from '../../layout/Footer';
+
 import 'swiper/css';
 import 'swiper/css/free-mode';
-import Microscheme from '../../UI/microscheme/Microscheme';
-
 import styles from './TechnologySlider.module.css';
 
 const TechnologySlider = () => {
-  const [levels, setLevels] = useState([]);
-  const [activeSlide, setActiveSlide] = useState(0);
-  const [scrollBlocker, setScrollBlocker] = useState(true);
-  const dispatch = useDispatch();
-  const swiperRefPromo = useRef();
-  const swiperRefNetwork = useRef();
-  const swiperRefConsensus = useRef();
-  const swiperRefLayers = useRef();
-  let microSchemes;
+  const [activeSlide, setActiveSlide] = useState<number>(0);
+  const [scrollBlocker, setScrollBlocker] = useState<boolean>(true);
+
+  const dispatch = useAppDispatch();
+
+  const swiperRefPromo = useRef<S | undefined>(undefined);
+  const swiperRefNetwork = useRef<S | undefined>(undefined);
+  const swiperRefConsensus = useRef<S | undefined>(undefined);
+  const swiperRefLayers = useRef<S | undefined>(undefined);
+
+  let microSchemes: number[][];
+
   if (window.innerWidth > 1240) {
     microSchemes = [
       [4,5,6,7,8,12],
@@ -28,6 +32,7 @@ const TechnologySlider = () => {
       [6,7,8,9],
     ];
   }
+
   if (window.innerWidth < 1240) {
     microSchemes = [
         [6,7,8,9,12],
@@ -39,13 +44,14 @@ const TechnologySlider = () => {
 
   useEffect(() => {
     setActiveSlide(1);
+
     setTimeout(() => {
-      dispatch({
-        type: 'SET_MICHROSCHEME_ARRAY',
-        microschemeArray: microSchemes[activeSlide],
-      });
+      dispatch(setMicroshemeArray({
+        microshemeArray: microSchemes[activeSlide],
+      }));
     }, 500);
   }, []);
+
   const technologyPromoSlider = [
     {
       title: 'Catena',
@@ -166,6 +172,7 @@ const TechnologySlider = () => {
       ),
     },
   ];
+
   const technologyConsensusSlider = [
     {
       title: 'Validators',
@@ -484,6 +491,7 @@ const TechnologySlider = () => {
       ),
     },
   ];
+
   const technologyNetworkSlider = [
     {
       title: 'Pivot Chain',
@@ -664,6 +672,7 @@ const TechnologySlider = () => {
       ),
     },
   ];
+
   const technologyLayersSlider = [
     {
       title: 'Application',
@@ -1290,14 +1299,17 @@ const TechnologySlider = () => {
   let slideScrollDown = () => {
     if (activeSlide !== 4 && scrollBlocker) {
       setActiveSlide(0);
-      dispatch({
-        type: 'SET_MICHROSCHEME_ARRAY',
-        microschemeArray: microSchemes[activeSlide],
-      });
+      
+      dispatch(setMicroshemeArray({
+        microshemeArray: microSchemes[activeSlide],
+      }));
+
       setScrollBlocker(false);
+
       setTimeout(() => {
         setActiveSlide(activeSlide + 1);
       }, 100);
+
       setTimeout(() => {
         setScrollBlocker(true);
       }, 1000);
@@ -1306,19 +1318,23 @@ const TechnologySlider = () => {
   let slideScrollUp = () => {
     if (activeSlide !== 1 && scrollBlocker) {
       setActiveSlide(0);
-      dispatch({
-        type: 'SET_MICHROSCHEME_ARRAY',
-        microschemeArray: microSchemes[activeSlide - 2],
-      });
+
+      dispatch(setMicroshemeArray({
+        microshemeArray: microSchemes[activeSlide - 2],
+      }));
+      
       setScrollBlocker(false);
+
       setTimeout(() => {
         setActiveSlide(activeSlide - 1);
       }, 100);
+      
       setTimeout(() => {
         setScrollBlocker(true);
       }, 1000);
     }
   };
+  
   return (
     <>
       <ReactScrollWheelHandler upHandler={e => slideScrollUp()} downHandler={e => slideScrollDown()}>
